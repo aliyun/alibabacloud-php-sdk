@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListObjectsRequest extends Model
 {
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
@@ -19,6 +21,8 @@ class ListObjectsRequest extends Model
     public $encodingType;
 
     /**
+     * @example test1.txt
+     *
      * @var string
      */
     public $marker;
@@ -29,6 +33,8 @@ class ListObjectsRequest extends Model
     public $maxKeys;
 
     /**
+     * @example fun
+     *
      * @var string
      */
     public $prefix;

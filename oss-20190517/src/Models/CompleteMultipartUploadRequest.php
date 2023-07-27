@@ -11,7 +11,7 @@ class CompleteMultipartUploadRequest extends Model
     /**
      * @var CompleteMultipartUpload
      */
-    public $completeMultipartUpload;
+    public $body;
 
     /**
      * @var string
@@ -19,13 +19,15 @@ class CompleteMultipartUploadRequest extends Model
     public $encodingType;
 
     /**
+     * @example 0004B9895DBBB6E****
+     *
      * @var string
      */
     public $uploadId;
     protected $_name = [
-        'completeMultipartUpload' => 'completeMultipartUpload',
-        'encodingType'            => 'encoding-type',
-        'uploadId'                => 'uploadId',
+        'body'         => 'CompleteMultipartUpload',
+        'encodingType' => 'encoding-type',
+        'uploadId'     => 'uploadId',
     ];
 
     public function validate()
@@ -35,8 +37,8 @@ class CompleteMultipartUploadRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->completeMultipartUpload) {
-            $res['completeMultipartUpload'] = null !== $this->completeMultipartUpload ? $this->completeMultipartUpload->toMap() : null;
+        if (null !== $this->body) {
+            $res['CompleteMultipartUpload'] = null !== $this->body ? $this->body->toMap() : null;
         }
         if (null !== $this->encodingType) {
             $res['encoding-type'] = $this->encodingType;
@@ -56,8 +58,8 @@ class CompleteMultipartUploadRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['completeMultipartUpload'])) {
-            $model->completeMultipartUpload = CompleteMultipartUpload::fromMap($map['completeMultipartUpload']);
+        if (isset($map['CompleteMultipartUpload'])) {
+            $model->body = CompleteMultipartUpload::fromMap($map['CompleteMultipartUpload']);
         }
         if (isset($map['encoding-type'])) {
             $model->encodingType = $map['encoding-type'];

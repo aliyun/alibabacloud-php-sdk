@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CopyObjectResponseBody extends Model
 {
     /**
+     * @example 5B3C1A2E053D763E1B002CC607C5****
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example Fri, 24 Feb 2012 07:18:48 GMT
+     *
      * @var string
      */
     public $lastModified;

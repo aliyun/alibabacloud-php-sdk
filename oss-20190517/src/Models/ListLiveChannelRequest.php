@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListLiveChannelRequest extends Model
 {
     /**
+     * @example channel-1
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example fun/
+     *
      * @var string
      */
     public $prefix;

@@ -11,6 +11,8 @@ class PutSymlinkHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $forbidOverwrite;
@@ -26,6 +28,8 @@ class PutSymlinkHeaders extends Model
     public $storageClass;
 
     /**
+     * @example oss.jpg
+     *
      * @var string
      */
     public $symlinkTargetKey;

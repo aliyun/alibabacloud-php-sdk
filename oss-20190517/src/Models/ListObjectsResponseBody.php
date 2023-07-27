@@ -19,41 +19,57 @@ class ListObjectsResponseBody extends Model
     public $contents;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $encodingType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example test1.txt
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example oss-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test100.txt
+     *
      * @var string
      */
     public $nextMarker;
 
     /**
+     * @example fun/
+     *
      * @var string
      */
     public $prefix;

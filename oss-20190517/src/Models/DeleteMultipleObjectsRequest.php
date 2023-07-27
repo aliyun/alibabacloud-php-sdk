@@ -14,6 +14,8 @@ class DeleteMultipleObjectsRequest extends Model
     public $delete;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $encodingType;

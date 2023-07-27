@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UploadPartCopyResponseBody extends Model
 {
     /**
+     * @example 250F8A0AE989679A22926A875F0A2****
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example 2019-04-09T07:27:28.000Z
+     *
      * @var string
      */
     public $lastModified;

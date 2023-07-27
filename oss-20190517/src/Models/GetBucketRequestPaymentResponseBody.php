@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBucketRequestPaymentResponseBody extends Model
 {
     /**
+     * @example BucketOwner
+     *
      * @var string
      */
     public $payer;

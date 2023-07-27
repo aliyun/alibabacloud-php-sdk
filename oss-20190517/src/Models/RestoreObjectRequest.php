@@ -14,6 +14,8 @@ class RestoreObjectRequest extends Model
     public $restoreRequest;
 
     /**
+     * @example CAEQNRiBgMClj7qD0BYiIDQ5Y2QyMjc3NGZkODRlMTU5M2VkY2U3MWRiNGRh
+     *
      * @var string
      */
     public $versionId;

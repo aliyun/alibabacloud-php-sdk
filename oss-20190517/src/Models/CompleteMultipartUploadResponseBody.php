@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CompleteMultipartUploadResponseBody extends Model
 {
     /**
+     * @example oss-example
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example B864DB6A936D376F9F8D3ED3BBE540****
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $encodingType;
 
     /**
+     * @example multipart.data
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example http://oss-example.oss-cn-hangzhou.aliyuncs.com /multipart.data
+     *
      * @var string
      */
     public $location;

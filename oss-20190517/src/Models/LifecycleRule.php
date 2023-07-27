@@ -4,12 +4,12 @@
 
 namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
+use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\filter;
 use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\lifecycleAbortMultipartUpload;
 use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\lifecycleExpiration;
 use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\lifecycleTransition;
 use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\noncurrentVersionExpiration;
 use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\noncurrentVersionTransition;
-use AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule\tag;
 use AlibabaCloud\Tea\Model;
 
 class LifecycleRule extends Model
@@ -23,6 +23,11 @@ class LifecycleRule extends Model
      * @var lifecycleExpiration
      */
     public $lifecycleExpiration;
+
+    /**
+     * @var filter
+     */
+    public $filter;
 
     /**
      * @var string
@@ -50,7 +55,7 @@ class LifecycleRule extends Model
     public $status;
 
     /**
-     * @var tag[]
+     * @var Tag[]
      */
     public $tag;
 
@@ -61,6 +66,7 @@ class LifecycleRule extends Model
     protected $_name = [
         'lifecycleAbortMultipartUpload' => 'AbortMultipartUpload',
         'lifecycleExpiration'           => 'Expiration',
+        'filter'                        => 'Filter',
         'ID'                            => 'ID',
         'noncurrentVersionExpiration'   => 'NoncurrentVersionExpiration',
         'noncurrentVersionTransition'   => 'NoncurrentVersionTransition',
@@ -82,6 +88,9 @@ class LifecycleRule extends Model
         }
         if (null !== $this->lifecycleExpiration) {
             $res['Expiration'] = null !== $this->lifecycleExpiration ? $this->lifecycleExpiration->toMap() : null;
+        }
+        if (null !== $this->filter) {
+            $res['Filter'] = null !== $this->filter ? $this->filter->toMap() : null;
         }
         if (null !== $this->ID) {
             $res['ID'] = $this->ID;
@@ -140,6 +149,9 @@ class LifecycleRule extends Model
         if (isset($map['Expiration'])) {
             $model->lifecycleExpiration = lifecycleExpiration::fromMap($map['Expiration']);
         }
+        if (isset($map['Filter'])) {
+            $model->filter = filter::fromMap($map['Filter']);
+        }
         if (isset($map['ID'])) {
             $model->ID = $map['ID'];
         }
@@ -166,7 +178,7 @@ class LifecycleRule extends Model
                 $model->tag = [];
                 $n          = 0;
                 foreach ($map['Tag'] as $item) {
-                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                    $model->tag[$n++] = null !== $item ? Tag::fromMap($item) : $item;
                 }
             }
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBucketTransferAccelerationResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enabled;

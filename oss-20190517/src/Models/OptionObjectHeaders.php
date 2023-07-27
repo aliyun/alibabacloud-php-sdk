@@ -11,16 +11,22 @@ class OptionObjectHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example x-oss-test1,x-oss-test2
+     *
      * @var string
      */
     public $accessControlRequestHeaders;
 
     /**
+     * @example PUT
+     *
      * @var string
      */
     public $accessControlRequestMethod;
 
     /**
+     * @example http://www.example.com
+     *
      * @var string
      */
     public $origin;

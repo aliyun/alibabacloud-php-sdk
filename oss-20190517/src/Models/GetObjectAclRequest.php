@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetObjectAclRequest extends Model
 {
     /**
+     * @example list1
+     *
      * @var string
      */
     public $versionId;

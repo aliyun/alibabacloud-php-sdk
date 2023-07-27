@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListPartsResponseBody extends Model
 {
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxParts;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $nextPartNumberMarker;
@@ -39,11 +49,15 @@ class ListPartsResponseBody extends Model
     public $part;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $partNumberMarker;
 
     /**
+     * @example 0004B999EF5A239BB9138C6227D69F95
+     *
      * @var string
      */
     public $uploadId;

@@ -14,8 +14,14 @@ class PutBucketHeaders extends Model
      * @var string
      */
     public $acl;
+
+    /**
+     * @var string
+     */
+    public $xOssResourceGroupId;
     protected $_name = [
-        'acl' => 'x-oss-acl',
+        'acl'                 => 'x-oss-acl',
+        'xOssResourceGroupId' => 'x-oss-resource-group-id',
     ];
 
     public function validate()
@@ -30,6 +36,9 @@ class PutBucketHeaders extends Model
         }
         if (null !== $this->acl) {
             $res['x-oss-acl'] = $this->acl;
+        }
+        if (null !== $this->xOssResourceGroupId) {
+            $res['x-oss-resource-group-id'] = $this->xOssResourceGroupId;
         }
 
         return $res;
@@ -48,6 +57,9 @@ class PutBucketHeaders extends Model
         }
         if (isset($map['x-oss-acl'])) {
             $model->acl = $map['x-oss-acl'];
+        }
+        if (isset($map['x-oss-resource-group-id'])) {
+            $model->xOssResourceGroupId = $map['x-oss-resource-group-id'];
         }
 
         return $model;

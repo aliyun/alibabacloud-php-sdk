@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListObjectsV2Request extends Model
 {
     /**
+     * @example test1.txt
+     *
      * @var string
      */
     public $continuationToken;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
@@ -24,6 +28,8 @@ class ListObjectsV2Request extends Model
     public $encodingType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $fetchOwner;
@@ -34,11 +40,15 @@ class ListObjectsV2Request extends Model
     public $maxKeys;
 
     /**
+     * @example a
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example b
+     *
      * @var string
      */
     public $startAfter;

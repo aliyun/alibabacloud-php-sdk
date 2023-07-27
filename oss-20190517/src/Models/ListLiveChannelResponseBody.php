@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListLiveChannelResponseBody extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
@@ -19,21 +21,29 @@ class ListLiveChannelResponseBody extends Model
     public $liveChannels;
 
     /**
+     * @example channel-1
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example channel-100
+     *
      * @var string
      */
     public $nextMarker;
 
     /**
+     * @example fun/
+     *
      * @var string
      */
     public $prefix;

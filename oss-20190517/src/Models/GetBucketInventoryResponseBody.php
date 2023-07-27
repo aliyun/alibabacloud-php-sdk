@@ -20,16 +20,22 @@ class GetBucketInventoryResponseBody extends Model
     public $filter;
 
     /**
+     * @example report1
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example All
+     *
      * @var string
      */
     public $includedObjectVersions;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isEnabled;

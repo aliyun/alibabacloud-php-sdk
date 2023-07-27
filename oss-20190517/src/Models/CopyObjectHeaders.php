@@ -11,31 +11,43 @@ class CopyObjectHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example /oss-example/oss.jpg
+     *
      * @var string
      */
     public $copySource;
 
     /**
+     * @example 5B3C1A2E053D763E1B002CC607C5****
+     *
      * @var string
      */
     public $copySourceIfMatch;
 
     /**
+     * @example 2019-04-09T07:01:56.000Z
+     *
      * @var string
      */
     public $copySourceIfModifiedSince;
 
     /**
+     * @example 5B3C1A2E053D763E1B002CC607C5****
+     *
      * @var string
      */
     public $copySourceIfNoneMatch;
 
     /**
+     * @example 2019-04-09T07:01:56.000Z
+     *
      * @var string
      */
     public $copySourceIfUnmodifiedSince;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $forbidOverwrite;
@@ -46,6 +58,8 @@ class CopyObjectHeaders extends Model
     public $metaData;
 
     /**
+     * @example COPY
+     *
      * @var string
      */
     public $metadataDirective;
@@ -56,11 +70,15 @@ class CopyObjectHeaders extends Model
     public $acl;
 
     /**
+     * @example AES256
+     *
      * @var string
      */
     public $serverSideEncryption;
 
     /**
+     * @example 9468da86-3509-4f8d-a61e-6eab1eac****
+     *
      * @var string
      */
     public $sseKeyId;
@@ -71,11 +89,15 @@ class CopyObjectHeaders extends Model
     public $storageClass;
 
     /**
+     * @example a:1
+     *
      * @var string
      */
     public $tagging;
 
     /**
+     * @example Copy
+     *
      * @var string
      */
     public $taggingDirective;

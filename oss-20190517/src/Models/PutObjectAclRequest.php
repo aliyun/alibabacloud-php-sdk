@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutObjectAclRequest extends Model
 {
     /**
+     * @example CAEQMhiBgIC3rpSD0BYiIDBjYTk5MmIzN2JlNjQxZTFiNGIzM2E3OTliODA0****
+     *
      * @var string
      */
     public $versionId;

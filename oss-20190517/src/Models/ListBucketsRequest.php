@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListBucketsRequest extends Model
 {
     /**
+     * @example mybucket10
+     *
      * @var string
      */
     public $marker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example my
+     *
      * @var string
      */
     public $prefix;

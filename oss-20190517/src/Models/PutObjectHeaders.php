@@ -11,11 +11,15 @@ class PutObjectHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $forbidOverwrite;
 
     /**
+     * @example x-oss-meta-location
+     *
      * @var string[]
      */
     public $metaData;
@@ -26,16 +30,22 @@ class PutObjectHeaders extends Model
     public $acl;
 
     /**
+     * @example AES256
+     *
      * @var string
      */
     public $sseDataEncryption;
 
     /**
+     * @example AES256
+     *
      * @var string
      */
     public $serverSideEncryption;
 
     /**
+     * @example 9468da86-3509-4f8d-a61e-6eab1eac****
+     *
      * @var string
      */
     public $sseKeyId;
@@ -46,6 +56,8 @@ class PutObjectHeaders extends Model
     public $storageClass;
 
     /**
+     * @example a:1
+     *
      * @var string
      */
     public $tagging;

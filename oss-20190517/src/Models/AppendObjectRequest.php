@@ -15,6 +15,8 @@ class AppendObjectRequest extends Model
     public $body;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $position;

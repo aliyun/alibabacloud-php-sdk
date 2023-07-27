@@ -4,17 +4,17 @@
 
 namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
-use AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketInfoResponseBody\bucketInfo;
+use AlibabaCloud\SDK\Oss\V20190517\Models\BucketCnameConfiguration\cname;
 use AlibabaCloud\Tea\Model;
 
-class GetBucketInfoResponseBody extends Model
+class BucketCnameConfiguration extends Model
 {
     /**
-     * @var bucketInfo
+     * @var cname
      */
-    public $bucketInfo;
+    public $cname;
     protected $_name = [
-        'bucketInfo' => 'Bucket',
+        'cname' => 'Cname',
     ];
 
     public function validate()
@@ -24,8 +24,8 @@ class GetBucketInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bucketInfo) {
-            $res['Bucket'] = null !== $this->bucketInfo ? $this->bucketInfo->toMap() : null;
+        if (null !== $this->cname) {
+            $res['Cname'] = null !== $this->cname ? $this->cname->toMap() : null;
         }
 
         return $res;
@@ -34,13 +34,13 @@ class GetBucketInfoResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetBucketInfoResponseBody
+     * @return BucketCnameConfiguration
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Bucket'])) {
-            $model->bucketInfo = bucketInfo::fromMap($map['Bucket']);
+        if (isset($map['Cname'])) {
+            $model->cname = cname::fromMap($map['Cname']);
         }
 
         return $model;

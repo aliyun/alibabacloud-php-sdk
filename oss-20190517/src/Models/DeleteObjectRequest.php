@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteObjectRequest extends Model
 {
     /**
+     * @example CAEQMxiBgIDh3ZCB0BYiIGE4YjIyMjExZDhhYjQxNzZiNGUyZTI4ZjljZDcz****
+     *
      * @var string
      */
     public $versionId;

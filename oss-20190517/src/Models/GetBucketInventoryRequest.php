@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBucketInventoryRequest extends Model
 {
     /**
+     * @example list1
+     *
      * @var string
      */
     public $inventoryId;

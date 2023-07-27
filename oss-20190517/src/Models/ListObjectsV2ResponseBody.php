@@ -19,51 +19,71 @@ class ListObjectsV2ResponseBody extends Model
     public $contents;
 
     /**
+     * @example test1.txt
+     *
      * @var string
      */
     public $continuationToken;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $encodingType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $keyCount;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example oss-example
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example CgJiYw--
+     *
      * @var string
      */
     public $nextContinuationToken;
 
     /**
+     * @example a
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example b
+     *
      * @var string
      */
     public $startAfter;

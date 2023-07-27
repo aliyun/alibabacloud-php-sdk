@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class InitiateMultipartUploadResponseBody extends Model
 {
     /**
+     * @description The name of the bucket to which the object is uploaded by the multipart upload task.
+     *
+     * @example examplebucket
+     *
      * @var string
      */
     public $bucket;
 
     /**
+     * @description The encoding type of the object name in the response. If the encoding-type parameter is specified in the request, the object name in the response is encoded.
+     *
+     * @example url
+     *
      * @var string
      */
     public $encodingType;
 
     /**
+     * @description The name of the object that is uploaded by the multipart upload task.
+     *
+     * @example multipart.data
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The Upload ID that uniquely identifies the multipart upload task. The Upload ID is used to call UploadPart and CompleteMultipartUpload later.
+     *
+     * @example 0004B9894A22E5B1888A1E29F823****
+     *
      * @var string
      */
     public $uploadId;

@@ -11,11 +11,15 @@ class CompleteMultipartUploadHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example yes
+     *
      * @var string
      */
     public $completeAll;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $forbidOverwrite;

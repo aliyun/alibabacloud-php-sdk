@@ -19,13 +19,12 @@ class GetBucketInfoResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetBucketInfoResponseBody
+     * @var BucketInfo
      */
     public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
@@ -66,7 +65,7 @@ class GetBucketInfoResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetBucketInfoResponseBody::fromMap($map['body']);
+            $model->body = BucketInfo::fromMap($map['body']);
         }
 
         return $model;

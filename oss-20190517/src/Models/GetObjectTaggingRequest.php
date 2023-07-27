@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetObjectTaggingRequest extends Model
 {
     /**
+     * @example CAEQExiBgID.jImWlxciIDQ2ZjgwODIyNDk5MTRhNzBiYmQwYTZkMTYzZjM0****
+     *
      * @var string
      */
     public $versionId;

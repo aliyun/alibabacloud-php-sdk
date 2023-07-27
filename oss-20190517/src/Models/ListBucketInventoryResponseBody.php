@@ -14,11 +14,15 @@ class ListBucketInventoryResponseBody extends Model
     public $inventoryConfigurations;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example CgJiYw--
+     *
      * @var string
      */
     public $nextContinuationToken;

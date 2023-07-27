@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class HeadObjectRequest extends Model
 {
     /**
+     * @description The version ID of the object for which you want to query metadata.
+     *
+     * @example CAEQMxiBgMCZov2D0BYiIDY4MDllOTc2YmY5MjQxMzdiOGI3OTlhNTU0ODIx****
+     *
      * @var string
      */
     public $versionId;

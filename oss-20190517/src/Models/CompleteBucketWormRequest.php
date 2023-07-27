@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CompleteBucketWormRequest extends Model
 {
     /**
+     * @example 1666E2CFB2B3418****
+     *
      * @var string
      */
     public $wormId;

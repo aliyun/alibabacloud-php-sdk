@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketRefererResponseBody;
+namespace AlibabaCloud\SDK\Oss\V20190517\Models\BucketAntiDDOSInfo;
 
 use AlibabaCloud\Tea\Model;
 
-class refererList extends Model
+class cnames extends Model
 {
     /**
      * @var string[]
      */
-    public $referer;
+    public $domain;
     protected $_name = [
-        'referer' => 'Referer',
+        'domain' => 'Domain',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class refererList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->referer) {
-            $res['Referer'] = $this->referer;
+        if (null !== $this->domain) {
+            $res['Domain'] = $this->domain;
         }
 
         return $res;
@@ -33,14 +33,14 @@ class refererList extends Model
     /**
      * @param array $map
      *
-     * @return refererList
+     * @return cnames
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Referer'])) {
-            if (!empty($map['Referer'])) {
-                $model->referer = $map['Referer'];
+        if (isset($map['Domain'])) {
+            if (!empty($map['Domain'])) {
+                $model->domain = $map['Domain'];
             }
         }
 

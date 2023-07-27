@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ObjectSummary extends Model
 {
     /**
+     * @example 5B3C1A2E053D763E1B002CC607C5A0FE1****
+     *
      * @var string
      */
     public $ETag;
 
     /**
+     * @example fun/test.jpg
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example 2012-02-24T08:42:32.000Z
+     *
      * @var string
      */
     public $lastModified;
@@ -29,6 +35,15 @@ class ObjectSummary extends Model
     public $owner;
 
     /**
+     * @example ongoing-request="true”
+     *
+     * @var string
+     */
+    public $resoreInfo;
+
+    /**
+     * @example 344606
+     *
      * @var int
      */
     public $size;
@@ -39,6 +54,8 @@ class ObjectSummary extends Model
     public $storageClass;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $type;
@@ -47,6 +64,7 @@ class ObjectSummary extends Model
         'key'          => 'Key',
         'lastModified' => 'LastModified',
         'owner'        => 'Owner',
+        'resoreInfo'   => 'ResoreInfo',
         'size'         => 'Size',
         'storageClass' => 'StorageClass',
         'type'         => 'Type',
@@ -70,6 +88,9 @@ class ObjectSummary extends Model
         }
         if (null !== $this->owner) {
             $res['Owner'] = null !== $this->owner ? $this->owner->toMap() : null;
+        }
+        if (null !== $this->resoreInfo) {
+            $res['ResoreInfo'] = $this->resoreInfo;
         }
         if (null !== $this->size) {
             $res['Size'] = $this->size;
@@ -103,6 +124,9 @@ class ObjectSummary extends Model
         }
         if (isset($map['Owner'])) {
             $model->owner = Owner::fromMap($map['Owner']);
+        }
+        if (isset($map['ResoreInfo'])) {
+            $model->resoreInfo = $map['ResoreInfo'];
         }
         if (isset($map['Size'])) {
             $model->size = $map['Size'];

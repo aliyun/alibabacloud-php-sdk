@@ -33,6 +33,7 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteBucketResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteBucketTagsResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteBucketWebsiteResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteLiveChannelResponse;
+use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteMultipleObjectsHeaders;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteMultipleObjectsRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteMultipleObjectsResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\DeleteObjectRequest;
@@ -90,6 +91,7 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\InitiateMultipartUploadRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\InitiateMultipartUploadResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ListBucketInventoryRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ListBucketInventoryResponse;
+use AlibabaCloud\SDK\Oss\V20190517\Models\ListBucketsHeaders;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ListBucketsRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ListBucketsResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\ListLiveChannelRequest;
@@ -164,7 +166,6 @@ use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartCopyRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartCopyResponse;
 use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartRequest;
 use AlibabaCloud\SDK\Oss\V20190517\Models\UploadPartResponse;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\GatewayOss\Client as DarabonbaGatewayOssClient;
@@ -182,19 +183,6 @@ class Oss extends OpenApiClient
         $this->_client       = new DarabonbaGatewayOssClient();
         $this->_spi          = $this->_client;
         $this->_endpointRule = '';
-    }
-
-    /**
-     * @param string $bucket
-     *
-     * @return AbortBucketWormResponse
-     */
-    public function abortBucketWorm($bucket)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->abortBucketWormWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -228,18 +216,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                      $bucket
-     * @param string                      $key
-     * @param AbortMultipartUploadRequest $request
+     * @param string $bucket
      *
-     * @return AbortMultipartUploadResponse
+     * @return AbortBucketWormResponse
      */
-    public function abortMultipartUpload($bucket, $key, $request)
+    public function abortBucketWorm($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->abortMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->abortBucketWormWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -281,18 +267,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string              $bucket
-     * @param string              $key
-     * @param AppendObjectRequest $request
+     * @param string                      $bucket
+     * @param string                      $key
+     * @param AbortMultipartUploadRequest $request
      *
-     * @return AppendObjectResponse
+     * @return AbortMultipartUploadResponse
      */
-    public function appendObject($bucket, $key, $request)
+    public function abortMultipartUpload($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AppendObjectHeaders([]);
+        $headers = [];
 
-        return $this->appendObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->abortMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -367,17 +353,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                    $bucket
-     * @param CompleteBucketWormRequest $request
+     * @param string              $bucket
+     * @param string              $key
+     * @param AppendObjectRequest $request
      *
-     * @return CompleteBucketWormResponse
+     * @return AppendObjectResponse
      */
-    public function completeBucketWorm($bucket, $request)
+    public function appendObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new AppendObjectHeaders([]);
 
-        return $this->completeBucketWormWithOptions($bucket, $request, $headers, $runtime);
+        return $this->appendObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -418,18 +405,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                         $bucket
-     * @param string                         $key
-     * @param CompleteMultipartUploadRequest $request
+     * @param string                    $bucket
+     * @param CompleteBucketWormRequest $request
      *
-     * @return CompleteMultipartUploadResponse
+     * @return CompleteBucketWormResponse
      */
-    public function completeMultipartUpload($bucket, $key, $request)
+    public function completeBucketWorm($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CompleteMultipartUploadHeaders([]);
+        $headers = [];
 
-        return $this->completeMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->completeBucketWormWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -453,10 +439,6 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->uploadId)) {
             $query['uploadId'] = $request->uploadId;
         }
-        $body = [];
-        if (!Utils::isUnset($request->completeMultipartUpload)) {
-            $body['completeMultipartUpload'] = $request->completeMultipartUpload;
-        }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
             $realHeaders = $headers->commonHeaders;
@@ -471,7 +453,7 @@ class Oss extends OpenApiClient
             'hostMap' => $hostMap,
             'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'CompleteMultipartUpload',
@@ -489,17 +471,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
-     * @param string $key
+     * @param string                         $bucket
+     * @param string                         $key
+     * @param CompleteMultipartUploadRequest $request
      *
-     * @return CopyObjectResponse
+     * @return CompleteMultipartUploadResponse
      */
-    public function copyObject($bucket, $key)
+    public function completeMultipartUpload($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CopyObjectHeaders([]);
+        $headers = new CompleteMultipartUploadHeaders([]);
 
-        return $this->copyObjectWithOptions($bucket, $key, $headers, $runtime);
+        return $this->completeMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -580,18 +563,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                        $bucket
-     * @param string                        $key
-     * @param CreateSelectObjectMetaRequest $request
+     * @param string $bucket
+     * @param string $key
      *
-     * @return CreateSelectObjectMetaResponse
+     * @return CopyObjectResponse
      */
-    public function createSelectObjectMeta($bucket, $key, $request)
+    public function copyObject($bucket, $key)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new CopyObjectHeaders([]);
 
-        return $this->createSelectObjectMetaWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->copyObjectWithOptions($bucket, $key, $headers, $runtime);
     }
 
     /**
@@ -611,7 +593,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->selectMetaRequest)),
+            'body'    => OpenApiUtilClient::parseToMap($request->selectMetaRequest),
         ]);
         $params = new Params([
             'action'      => 'CreateSelectObjectMeta',
@@ -629,16 +611,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string                        $bucket
+     * @param string                        $key
+     * @param CreateSelectObjectMetaRequest $request
      *
-     * @return DeleteBucketResponse
+     * @return CreateSelectObjectMetaResponse
      */
-    public function deleteBucket($bucket)
+    public function createSelectObjectMeta($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketWithOptions($bucket, $headers, $runtime);
+        return $this->createSelectObjectMetaWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -674,14 +658,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return DeleteBucketCorsResponse
+     * @return DeleteBucketResponse
      */
-    public function deleteBucketCors($bucket)
+    public function deleteBucket($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketCorsWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -717,14 +701,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return DeleteBucketEncryptionResponse
+     * @return DeleteBucketCorsResponse
      */
-    public function deleteBucketEncryption($bucket)
+    public function deleteBucketCors($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketEncryptionWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketCorsWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -758,17 +742,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                       $bucket
-     * @param DeleteBucketInventoryRequest $request
+     * @param string $bucket
      *
-     * @return DeleteBucketInventoryResponse
+     * @return DeleteBucketEncryptionResponse
      */
-    public function deleteBucketInventory($bucket, $request)
+    public function deleteBucketEncryption($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
+        return $this->deleteBucketEncryptionWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -809,16 +792,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string                       $bucket
+     * @param DeleteBucketInventoryRequest $request
      *
-     * @return DeleteBucketLifecycleResponse
+     * @return DeleteBucketInventoryResponse
      */
-    public function deleteBucketLifecycle($bucket)
+    public function deleteBucketInventory($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketLifecycleWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -854,14 +838,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return DeleteBucketLoggingResponse
+     * @return DeleteBucketLifecycleResponse
      */
-    public function deleteBucketLogging($bucket)
+    public function deleteBucketLifecycle($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketLoggingWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketLifecycleWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -897,14 +881,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return DeleteBucketPolicyResponse
+     * @return DeleteBucketLoggingResponse
      */
-    public function deleteBucketPolicy($bucket)
+    public function deleteBucketLogging($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketPolicyWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketLoggingWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -938,17 +922,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                         $bucket
-     * @param DeleteBucketReplicationRequest $request
+     * @param string $bucket
      *
-     * @return DeleteBucketReplicationResponse
+     * @return DeleteBucketPolicyResponse
      */
-    public function deleteBucketReplication($bucket, $request)
+    public function deleteBucketPolicy($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketReplicationWithOptions($bucket, $request, $headers, $runtime);
+        return $this->deleteBucketPolicyWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -967,7 +950,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->body)),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'DeleteBucketReplication',
@@ -985,16 +968,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string                         $bucket
+     * @param DeleteBucketReplicationRequest $request
      *
-     * @return DeleteBucketTagsResponse
+     * @return DeleteBucketReplicationResponse
      */
-    public function deleteBucketTags($bucket)
+    public function deleteBucketReplication($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketTagsWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketReplicationWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -1030,14 +1014,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return DeleteBucketWebsiteResponse
+     * @return DeleteBucketTagsResponse
      */
-    public function deleteBucketWebsite($bucket)
+    public function deleteBucketTags($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteBucketWebsiteWithOptions($bucket, $headers, $runtime);
+        return $this->deleteBucketTagsWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1072,16 +1056,15 @@ class Oss extends OpenApiClient
 
     /**
      * @param string $bucket
-     * @param string $channel
      *
-     * @return DeleteLiveChannelResponse
+     * @return DeleteBucketWebsiteResponse
      */
-    public function deleteLiveChannel($bucket, $channel)
+    public function deleteBucketWebsite($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteLiveChannelWithOptions($bucket, $channel, $headers, $runtime);
+        return $this->deleteBucketWebsiteWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1116,23 +1099,23 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                       $bucket
-     * @param DeleteMultipleObjectsRequest $request
+     * @param string $bucket
+     * @param string $channel
      *
-     * @return DeleteMultipleObjectsResponse
+     * @return DeleteLiveChannelResponse
      */
-    public function deleteMultipleObjects($bucket, $request)
+    public function deleteLiveChannel($bucket, $channel)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteMultipleObjectsWithOptions($bucket, $request, $headers, $runtime);
+        return $this->deleteLiveChannelWithOptions($bucket, $channel, $headers, $runtime);
     }
 
     /**
      * @param string                       $bucket
      * @param DeleteMultipleObjectsRequest $request
-     * @param string[]                     $headers
+     * @param DeleteMultipleObjectsHeaders $headers
      * @param RuntimeOptions               $runtime
      *
      * @return DeleteMultipleObjectsResponse
@@ -1146,11 +1129,18 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->encodingType)) {
             $query['encoding-type'] = $request->encodingType;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->contentMd5)) {
+            $realHeaders['content-md5'] = Utils::toJSONString($headers->contentMd5);
+        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->delete)),
+            'body'    => OpenApiUtilClient::parseToMap($request->delete),
         ]);
         $params = new Params([
             'action'      => 'DeleteMultipleObjects',
@@ -1168,18 +1158,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string              $bucket
-     * @param string              $key
-     * @param DeleteObjectRequest $request
+     * @param string                       $bucket
+     * @param DeleteMultipleObjectsRequest $request
      *
-     * @return DeleteObjectResponse
+     * @return DeleteMultipleObjectsResponse
      */
-    public function deleteObject($bucket, $key, $request)
+    public function deleteMultipleObjects($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new DeleteMultipleObjectsHeaders([]);
 
-        return $this->deleteObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->deleteMultipleObjectsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -1221,18 +1210,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                     $bucket
-     * @param string                     $key
-     * @param DeleteObjectTaggingRequest $request
+     * @param string              $bucket
+     * @param string              $key
+     * @param DeleteObjectRequest $request
      *
-     * @return DeleteObjectTaggingResponse
+     * @return DeleteObjectResponse
      */
-    public function deleteObjectTagging($bucket, $key, $request)
+    public function deleteObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteObjectTaggingWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->deleteObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -1274,16 +1263,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param DescribeRegionsRequest $request
+     * @param string                     $bucket
+     * @param string                     $key
+     * @param DeleteObjectTaggingRequest $request
      *
-     * @return DescribeRegionsResponse
+     * @return DeleteObjectTaggingResponse
      */
-    public function describeRegions($request)
+    public function deleteObjectTagging($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeRegionsWithOptions($request, $headers, $runtime);
+        return $this->deleteObjectTaggingWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -1320,17 +1311,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                  $bucket
-     * @param ExtendBucketWormRequest $request
+     * @param DescribeRegionsRequest $request
      *
-     * @return ExtendBucketWormResponse
+     * @return DescribeRegionsResponse
      */
-    public function extendBucketWorm($bucket, $request)
+    public function describeRegions($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->extendBucketWormWithOptions($bucket, $request, $headers, $runtime);
+        return $this->describeRegionsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1350,15 +1340,11 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->wormId)) {
             $query['wormId'] = $request->wormId;
         }
-        $body = [];
-        if (!Utils::isUnset($request->extendWormConfiguration)) {
-            $body['extendWormConfiguration'] = $request->extendWormConfiguration;
-        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
             'action'      => 'ExtendBucketWorm',
@@ -1376,16 +1362,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string                  $bucket
+     * @param ExtendBucketWormRequest $request
      *
-     * @return GetBucketAclResponse
+     * @return ExtendBucketWormResponse
      */
-    public function getBucketAcl($bucket)
+    public function extendBucketWorm($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketAclWithOptions($bucket, $headers, $runtime);
+        return $this->extendBucketWormWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -1421,14 +1408,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketCorsResponse
+     * @return GetBucketAclResponse
      */
-    public function getBucketCors($bucket)
+    public function getBucketAcl($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketCorsWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketAclWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1464,14 +1451,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketEncryptionResponse
+     * @return GetBucketCorsResponse
      */
-    public function getBucketEncryption($bucket)
+    public function getBucketCors($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketEncryptionWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketCorsWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1507,14 +1494,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketInfoResponse
+     * @return GetBucketEncryptionResponse
      */
-    public function getBucketInfo($bucket)
+    public function getBucketEncryption($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketInfoWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketEncryptionWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1548,17 +1535,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                    $bucket
-     * @param GetBucketInventoryRequest $request
+     * @param string $bucket
      *
-     * @return GetBucketInventoryResponse
+     * @return GetBucketInfoResponse
      */
-    public function getBucketInventory($bucket, $request)
+    public function getBucketInfo($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
+        return $this->getBucketInfoWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1599,16 +1585,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string                    $bucket
+     * @param GetBucketInventoryRequest $request
      *
-     * @return GetBucketLifecycleResponse
+     * @return GetBucketInventoryResponse
      */
-    public function getBucketLifecycle($bucket)
+    public function getBucketInventory($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketLifecycleWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -1644,14 +1631,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketLocationResponse
+     * @return GetBucketLifecycleResponse
      */
-    public function getBucketLocation($bucket)
+    public function getBucketLifecycle($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketLocationWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketLifecycleWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1687,14 +1674,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketLoggingResponse
+     * @return GetBucketLocationResponse
      */
-    public function getBucketLogging($bucket)
+    public function getBucketLocation($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketLoggingWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketLocationWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1730,14 +1717,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketPolicyResponse
+     * @return GetBucketLoggingResponse
      */
-    public function getBucketPolicy($bucket)
+    public function getBucketLogging($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketPolicyWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketLoggingWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1773,14 +1760,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketRefererResponse
+     * @return GetBucketPolicyResponse
      */
-    public function getBucketReferer($bucket)
+    public function getBucketPolicy($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketRefererWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketPolicyWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1807,7 +1794,7 @@ class Oss extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'xml',
-            'bodyType'    => 'xml',
+            'bodyType'    => 'json',
         ]);
 
         return GetBucketRefererResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1816,14 +1803,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketReplicationResponse
+     * @return GetBucketRefererResponse
      */
-    public function getBucketReplication($bucket)
+    public function getBucketReferer($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketReplicationWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketRefererWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1859,14 +1846,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketReplicationLocationResponse
+     * @return GetBucketReplicationResponse
      */
-    public function getBucketReplicationLocation($bucket)
+    public function getBucketReplication($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketReplicationLocationWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketReplicationWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1900,17 +1887,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                              $bucket
-     * @param GetBucketReplicationProgressRequest $request
+     * @param string $bucket
      *
-     * @return GetBucketReplicationProgressResponse
+     * @return GetBucketReplicationLocationResponse
      */
-    public function getBucketReplicationProgress($bucket, $request)
+    public function getBucketReplicationLocation($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketReplicationProgressWithOptions($bucket, $request, $headers, $runtime);
+        return $this->getBucketReplicationLocationWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -1951,16 +1937,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string                              $bucket
+     * @param GetBucketReplicationProgressRequest $request
      *
-     * @return GetBucketRequestPaymentResponse
+     * @return GetBucketReplicationProgressResponse
      */
-    public function getBucketRequestPayment($bucket)
+    public function getBucketReplicationProgress($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketRequestPaymentWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketReplicationProgressWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -1996,14 +1983,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketTagsResponse
+     * @return GetBucketRequestPaymentResponse
      */
-    public function getBucketTags($bucket)
+    public function getBucketRequestPayment($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketTagsWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketRequestPaymentWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -2039,14 +2026,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketTransferAccelerationResponse
+     * @return GetBucketTagsResponse
      */
-    public function getBucketTransferAcceleration($bucket)
+    public function getBucketTags($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketTransferAccelerationWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketTagsWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -2082,14 +2069,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketVersioningResponse
+     * @return GetBucketTransferAccelerationResponse
      */
-    public function getBucketVersioning($bucket)
+    public function getBucketTransferAcceleration($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketVersioningWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketTransferAccelerationWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -2125,14 +2112,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketWebsiteResponse
+     * @return GetBucketVersioningResponse
      */
-    public function getBucketWebsite($bucket)
+    public function getBucketVersioning($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketWebsiteWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketVersioningWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -2168,14 +2155,14 @@ class Oss extends OpenApiClient
     /**
      * @param string $bucket
      *
-     * @return GetBucketWormResponse
+     * @return GetBucketWebsiteResponse
      */
-    public function getBucketWorm($bucket)
+    public function getBucketWebsite($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getBucketWormWithOptions($bucket, $headers, $runtime);
+        return $this->getBucketWebsiteWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -2210,16 +2197,15 @@ class Oss extends OpenApiClient
 
     /**
      * @param string $bucket
-     * @param string $channel
      *
-     * @return GetLiveChannelHistoryResponse
+     * @return GetBucketWormResponse
      */
-    public function getLiveChannelHistory($bucket, $channel)
+    public function getBucketWorm($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLiveChannelHistoryWithOptions($bucket, $channel, $headers, $runtime);
+        return $this->getBucketWormWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -2257,14 +2243,14 @@ class Oss extends OpenApiClient
      * @param string $bucket
      * @param string $channel
      *
-     * @return GetLiveChannelInfoResponse
+     * @return GetLiveChannelHistoryResponse
      */
-    public function getLiveChannelInfo($bucket, $channel)
+    public function getLiveChannelHistory($bucket, $channel)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLiveChannelInfoWithOptions($bucket, $channel, $headers, $runtime);
+        return $this->getLiveChannelHistoryWithOptions($bucket, $channel, $headers, $runtime);
     }
 
     /**
@@ -2302,14 +2288,14 @@ class Oss extends OpenApiClient
      * @param string $bucket
      * @param string $channel
      *
-     * @return GetLiveChannelStatResponse
+     * @return GetLiveChannelInfoResponse
      */
-    public function getLiveChannelStat($bucket, $channel)
+    public function getLiveChannelInfo($bucket, $channel)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getLiveChannelStatWithOptions($bucket, $channel, $headers, $runtime);
+        return $this->getLiveChannelInfoWithOptions($bucket, $channel, $headers, $runtime);
     }
 
     /**
@@ -2344,28 +2330,34 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string           $bucket
-     * @param string           $key
-     * @param GetObjectRequest $request
+     * @param string $bucket
+     * @param string $channel
      *
-     * @return GetObjectResponse
+     * @return GetLiveChannelStatResponse
      */
-    public function getObject($bucket, $key, $request)
+    public function getLiveChannelStat($bucket, $channel)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetObjectHeaders([]);
+        $headers = [];
 
-        return $this->getObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->getLiveChannelStatWithOptions($bucket, $channel, $headers, $runtime);
     }
 
     /**
+     * **Usage notes**
+     *   * - By default, the GetObject operation supports access over HTTP and HTTPS. To impose a limit on access to a bucket only over HTTPS, configure a bucket policy for the bucket to specify the access method. For more information, see [Configure bucket policies to authorize other users to access OSS resources](~~85111~~).
+     *   * - If the storage class of the object that you want to query is Archive, you must send a RestoreObject request to restore the object before you call the GetObject operation.
+     *   * **Versioning**
+     *   * By default, only the current version of an object is returned after GetObject is called.
+     *   * If the version ID of the object is specified in the request, OSS returns the specified version of the object. If the version ID is set to null in the request, OSS returns the version of the object whose version ID is null.
+     *   *
      * @param string           $bucket
      * @param string           $key
-     * @param GetObjectRequest $request
-     * @param GetObjectHeaders $headers
-     * @param RuntimeOptions   $runtime
+     * @param GetObjectRequest $request GetObjectRequest
+     * @param GetObjectHeaders $headers GetObjectHeaders
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetObjectResponse
+     * @return GetObjectResponse GetObjectResponse
      */
     public function getObjectWithOptions($bucket, $key, $request, $headers, $runtime)
     {
@@ -2434,18 +2426,25 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string              $bucket
-     * @param string              $key
-     * @param GetObjectAclRequest $request
+     * **Usage notes**
+     *   * - By default, the GetObject operation supports access over HTTP and HTTPS. To impose a limit on access to a bucket only over HTTPS, configure a bucket policy for the bucket to specify the access method. For more information, see [Configure bucket policies to authorize other users to access OSS resources](~~85111~~).
+     *   * - If the storage class of the object that you want to query is Archive, you must send a RestoreObject request to restore the object before you call the GetObject operation.
+     *   * **Versioning**
+     *   * By default, only the current version of an object is returned after GetObject is called.
+     *   * If the version ID of the object is specified in the request, OSS returns the specified version of the object. If the version ID is set to null in the request, OSS returns the version of the object whose version ID is null.
+     *   *
+     * @param string           $bucket
+     * @param string           $key
+     * @param GetObjectRequest $request GetObjectRequest
      *
-     * @return GetObjectAclResponse
+     * @return GetObjectResponse GetObjectResponse
      */
-    public function getObjectAcl($bucket, $key, $request)
+    public function getObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new GetObjectHeaders([]);
 
-        return $this->getObjectAclWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->getObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2487,18 +2486,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string               $bucket
-     * @param string               $key
-     * @param GetObjectMetaRequest $request
+     * @param string              $bucket
+     * @param string              $key
+     * @param GetObjectAclRequest $request
      *
-     * @return GetObjectMetaResponse
+     * @return GetObjectAclResponse
      */
-    public function getObjectMeta($bucket, $key, $request)
+    public function getObjectAcl($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getObjectMetaWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->getObjectAclWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2540,18 +2539,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                  $bucket
-     * @param string                  $key
-     * @param GetObjectTaggingRequest $request
+     * @param string               $bucket
+     * @param string               $key
+     * @param GetObjectMetaRequest $request
      *
-     * @return GetObjectTaggingResponse
+     * @return GetObjectMetaResponse
      */
-    public function getObjectTagging($bucket, $key, $request)
+    public function getObjectMeta($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getObjectTaggingWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->getObjectMetaWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2593,18 +2592,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string            $bucket
-     * @param string            $key
-     * @param GetSymlinkRequest $request
+     * @param string                  $bucket
+     * @param string                  $key
+     * @param GetObjectTaggingRequest $request
      *
-     * @return GetSymlinkResponse
+     * @return GetObjectTaggingResponse
      */
-    public function getSymlink($bucket, $key, $request)
+    public function getObjectTagging($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getSymlinkWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->getObjectTaggingWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2646,18 +2645,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                $bucket
-     * @param string                $channel
-     * @param GetVodPlaylistRequest $request
+     * @param string            $bucket
+     * @param string            $key
+     * @param GetSymlinkRequest $request
      *
-     * @return GetVodPlaylistResponse
+     * @return GetSymlinkResponse
      */
-    public function getVodPlaylist($bucket, $channel, $request)
+    public function getSymlink($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getVodPlaylistWithOptions($bucket, $channel, $request, $headers, $runtime);
+        return $this->getSymlinkWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2702,28 +2701,31 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string            $bucket
-     * @param string            $key
-     * @param HeadObjectRequest $request
+     * @param string                $bucket
+     * @param string                $channel
+     * @param GetVodPlaylistRequest $request
      *
-     * @return HeadObjectResponse
+     * @return GetVodPlaylistResponse
      */
-    public function headObject($bucket, $key, $request)
+    public function getVodPlaylist($bucket, $channel, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new HeadObjectHeaders([]);
+        $headers = [];
 
-        return $this->headObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->getVodPlaylistWithOptions($bucket, $channel, $request, $headers, $runtime);
     }
 
     /**
+     * - When you call this operation, the object content is not returned in the results.
+     *   * - By default, you can call the HeadObject operation to query the metadata of the object of the current version. If the current version of the object is a delete marker, OSS returns 404 Not Found. If you specify a version ID in the request, OSS returns the metadata of the object of the specified version.
+     *   *
      * @param string            $bucket
      * @param string            $key
-     * @param HeadObjectRequest $request
-     * @param HeadObjectHeaders $headers
-     * @param RuntimeOptions    $runtime
+     * @param HeadObjectRequest $request HeadObjectRequest
+     * @param HeadObjectHeaders $headers HeadObjectHeaders
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return HeadObjectResponse
+     * @return HeadObjectResponse HeadObjectResponse
      */
     public function headObjectWithOptions($bucket, $key, $request, $headers, $runtime)
     {
@@ -2771,17 +2773,21 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                    $bucket
-     * @param InitiateBucketWormRequest $request
+     * - When you call this operation, the object content is not returned in the results.
+     *   * - By default, you can call the HeadObject operation to query the metadata of the object of the current version. If the current version of the object is a delete marker, OSS returns 404 Not Found. If you specify a version ID in the request, OSS returns the metadata of the object of the specified version.
+     *   *
+     * @param string            $bucket
+     * @param string            $key
+     * @param HeadObjectRequest $request HeadObjectRequest
      *
-     * @return InitiateBucketWormResponse
+     * @return HeadObjectResponse HeadObjectResponse
      */
-    public function initiateBucketWorm($bucket, $request)
+    public function headObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new HeadObjectHeaders([]);
 
-        return $this->initiateBucketWormWithOptions($bucket, $request, $headers, $runtime);
+        return $this->headObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2800,7 +2806,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->initiateWormConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->initiateWormConfiguration),
         ]);
         $params = new Params([
             'action'      => 'InitiateBucketWorm',
@@ -2818,28 +2824,31 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                         $bucket
-     * @param string                         $key
-     * @param InitiateMultipartUploadRequest $request
+     * @param string                    $bucket
+     * @param InitiateBucketWormRequest $request
      *
-     * @return InitiateMultipartUploadResponse
+     * @return InitiateBucketWormResponse
      */
-    public function initiateMultipartUpload($bucket, $key, $request)
+    public function initiateBucketWorm($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new InitiateMultipartUploadHeaders([]);
+        $headers = [];
 
-        return $this->initiateMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->initiateBucketWormWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
+     * - When you call the InitiateMultipartUpload operation, OSS creates and returns a unique upload ID to identify the multipart upload task. You can initiate operations such as stopping or querying the multipart upload task by using this upload ID.
+     *   * - When you initiate a multipart upload request to upload an object, the existing object that has the same name is not affected.
+     *   * - If you want to calculate the signature for authentication when you call this operation, you must add `?uploads` to `CanonicalizedResource`.
+     *   *
      * @param string                         $bucket
      * @param string                         $key
-     * @param InitiateMultipartUploadRequest $request
-     * @param InitiateMultipartUploadHeaders $headers
-     * @param RuntimeOptions                 $runtime
+     * @param InitiateMultipartUploadRequest $request InitiateMultipartUploadRequest
+     * @param InitiateMultipartUploadHeaders $headers InitiateMultipartUploadHeaders
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitiateMultipartUploadResponse
+     * @return InitiateMultipartUploadResponse InitiateMultipartUploadResponse
      */
     public function initiateMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime)
     {
@@ -2905,17 +2914,22 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                     $bucket
-     * @param ListBucketInventoryRequest $request
+     * - When you call the InitiateMultipartUpload operation, OSS creates and returns a unique upload ID to identify the multipart upload task. You can initiate operations such as stopping or querying the multipart upload task by using this upload ID.
+     *   * - When you initiate a multipart upload request to upload an object, the existing object that has the same name is not affected.
+     *   * - If you want to calculate the signature for authentication when you call this operation, you must add `?uploads` to `CanonicalizedResource`.
+     *   *
+     * @param string                         $bucket
+     * @param string                         $key
+     * @param InitiateMultipartUploadRequest $request InitiateMultipartUploadRequest
      *
-     * @return ListBucketInventoryResponse
+     * @return InitiateMultipartUploadResponse InitiateMultipartUploadResponse
      */
-    public function listBucketInventory($bucket, $request)
+    public function initiateMultipartUpload($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new InitiateMultipartUploadHeaders([]);
 
-        return $this->listBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
+        return $this->initiateMultipartUploadWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -2956,21 +2970,22 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param ListBucketsRequest $request
+     * @param string                     $bucket
+     * @param ListBucketInventoryRequest $request
      *
-     * @return ListBucketsResponse
+     * @return ListBucketInventoryResponse
      */
-    public function listBuckets($request)
+    public function listBucketInventory($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listBucketsWithOptions($request, $headers, $runtime);
+        return $this->listBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
      * @param ListBucketsRequest $request
-     * @param string[]           $headers
+     * @param ListBucketsHeaders $headers
      * @param RuntimeOptions     $runtime
      *
      * @return ListBucketsResponse
@@ -2988,8 +3003,15 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($request->prefix)) {
             $query['prefix'] = $request->prefix;
         }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xOssResourceGroupId)) {
+            $realHeaders['x-oss-resource-group-id'] = Utils::toJSONString($headers->xOssResourceGroupId);
+        }
         $req = new OpenApiRequest([
-            'headers' => $headers,
+            'headers' => $realHeaders,
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -3008,17 +3030,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                 $bucket
-     * @param ListLiveChannelRequest $request
+     * @param ListBucketsRequest $request
      *
-     * @return ListLiveChannelResponse
+     * @return ListBucketsResponse
      */
-    public function listLiveChannel($bucket, $request)
+    public function listBuckets($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new ListBucketsHeaders([]);
 
-        return $this->listLiveChannelWithOptions($bucket, $request, $headers, $runtime);
+        return $this->listBucketsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3065,17 +3086,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                      $bucket
-     * @param ListMultipartUploadsRequest $request
+     * @param string                 $bucket
+     * @param ListLiveChannelRequest $request
      *
-     * @return ListMultipartUploadsResponse
+     * @return ListLiveChannelResponse
      */
-    public function listMultipartUploads($bucket, $request)
+    public function listLiveChannel($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMultipartUploadsWithOptions($bucket, $request, $headers, $runtime);
+        return $this->listLiveChannelWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3131,17 +3152,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                    $bucket
-     * @param ListObjectVersionsRequest $request
+     * @param string                      $bucket
+     * @param ListMultipartUploadsRequest $request
      *
-     * @return ListObjectVersionsResponse
+     * @return ListMultipartUploadsResponse
      */
-    public function listObjectVersions($bucket, $request)
+    public function listMultipartUploads($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listObjectVersionsWithOptions($bucket, $request, $headers, $runtime);
+        return $this->listMultipartUploadsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3197,17 +3218,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string             $bucket
-     * @param ListObjectsRequest $request
+     * @param string                    $bucket
+     * @param ListObjectVersionsRequest $request
      *
-     * @return ListObjectsResponse
+     * @return ListObjectVersionsResponse
      */
-    public function listObjects($bucket, $request)
+    public function listObjectVersions($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listObjectsWithOptions($bucket, $request, $headers, $runtime);
+        return $this->listObjectVersionsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3260,17 +3281,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string               $bucket
-     * @param ListObjectsV2Request $request
+     * @param string             $bucket
+     * @param ListObjectsRequest $request
      *
-     * @return ListObjectsV2Response
+     * @return ListObjectsResponse
      */
-    public function listObjectsV2($bucket, $request)
+    public function listObjects($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listObjectsV2WithOptions($bucket, $request, $headers, $runtime);
+        return $this->listObjectsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3329,18 +3350,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string           $bucket
-     * @param string           $key
-     * @param ListPartsRequest $request
+     * @param string               $bucket
+     * @param ListObjectsV2Request $request
      *
-     * @return ListPartsResponse
+     * @return ListObjectsV2Response
      */
-    public function listParts($bucket, $key, $request)
+    public function listObjectsV2($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listPartsWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->listObjectsV2WithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3396,17 +3416,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
-     * @param string $key
+     * @param string           $bucket
+     * @param string           $key
+     * @param ListPartsRequest $request
      *
-     * @return OptionObjectResponse
+     * @return ListPartsResponse
      */
-    public function optionObject($bucket, $key)
+    public function listParts($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new OptionObjectHeaders([]);
+        $headers = [];
 
-        return $this->optionObjectWithOptions($bucket, $key, $headers, $runtime);
+        return $this->listPartsWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -3455,23 +3476,47 @@ class Oss extends OpenApiClient
 
     /**
      * @param string $bucket
+     * @param string $key
      *
-     * @return PostObjectResponse
+     * @return OptionObjectResponse
      */
-    public function postObject($bucket)
+    public function optionObject($bucket, $key)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new OptionObjectHeaders([]);
 
-        return $this->postObjectWithOptions($bucket, $headers, $runtime);
+        return $this->optionObjectWithOptions($bucket, $key, $headers, $runtime);
     }
 
     /**
+     * -
+     *   *   The object that is uploaded by calling the PostObject operation cannot be
+     *   *   larger than 5 GB in size.
+     *   * -
+     *   *   To initiate a PostObject request to a bucket, you must have write permissions
+     *   *   on the bucket. If the ACL of the bucket to which you want to initiate a
+     *   *   PostObject request is public-read-write, you do not need to sign the
+     *   *   PostObject request. In other cases, Object Storage Service (OSS) verifies the
+     *   *   signature information contained in the request.
+     *   * -
+     *   *   Unlike the PutObject operation, the PostObject operation uses an AccessKey
+     *   *   secret to calculate the signature for the policy form field. The calculated
+     *   *   signature string is used as the value of the Signature form field. OSS checks
+     *   *   this value to verify the validity of the signature.
+     *   * -
+     *   *   The URL of the submitted form is the domain name of the bucket. You do not
+     *   *   need to specify the object that you want to upload in the URL. In other words,
+     *   *   the request line is in the format of `POST T/ HTTP/1.1` instead of `POST
+     *   *   /ObjectName HTTP/1.1`.
+     *   * -
+     *   *   OSS does not check the signature information that is contained in headers or
+     *   *   URLs in PostObject requests.
+     *   *
      * @param string         $bucket
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers map
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return PostObjectResponse
+     * @return PostObjectResponse PostObjectResponse
      */
     public function postObjectWithOptions($bucket, $headers, $runtime)
     {
@@ -3497,19 +3542,39 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                 $bucket
-     * @param string                 $channel
-     * @param string                 $playlist
-     * @param PostVodPlaylistRequest $request
+     * -
+     *   *   The object that is uploaded by calling the PostObject operation cannot be
+     *   *   larger than 5 GB in size.
+     *   * -
+     *   *   To initiate a PostObject request to a bucket, you must have write permissions
+     *   *   on the bucket. If the ACL of the bucket to which you want to initiate a
+     *   *   PostObject request is public-read-write, you do not need to sign the
+     *   *   PostObject request. In other cases, Object Storage Service (OSS) verifies the
+     *   *   signature information contained in the request.
+     *   * -
+     *   *   Unlike the PutObject operation, the PostObject operation uses an AccessKey
+     *   *   secret to calculate the signature for the policy form field. The calculated
+     *   *   signature string is used as the value of the Signature form field. OSS checks
+     *   *   this value to verify the validity of the signature.
+     *   * -
+     *   *   The URL of the submitted form is the domain name of the bucket. You do not
+     *   *   need to specify the object that you want to upload in the URL. In other words,
+     *   *   the request line is in the format of `POST T/ HTTP/1.1` instead of `POST
+     *   *   /ObjectName HTTP/1.1`.
+     *   * -
+     *   *   OSS does not check the signature information that is contained in headers or
+     *   *   URLs in PostObject requests.
+     *   *
+     * @param string $bucket
      *
-     * @return PostVodPlaylistResponse
+     * @return PostObjectResponse PostObjectResponse
      */
-    public function postVodPlaylist($bucket, $channel, $playlist, $request)
+    public function postObject($bucket)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->postVodPlaylistWithOptions($bucket, $channel, $playlist, $request, $headers, $runtime);
+        return $this->postObjectWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -3555,17 +3620,19 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string           $bucket
-     * @param PutBucketRequest $request
+     * @param string                 $bucket
+     * @param string                 $channel
+     * @param string                 $playlist
+     * @param PostVodPlaylistRequest $request
      *
-     * @return PutBucketResponse
+     * @return PostVodPlaylistResponse
      */
-    public function putBucket($bucket, $request)
+    public function postVodPlaylist($bucket, $channel, $playlist, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutBucketHeaders([]);
+        $headers = [];
 
-        return $this->putBucketWithOptions($bucket, $request, $headers, $runtime);
+        return $this->postVodPlaylistWithOptions($bucket, $channel, $playlist, $request, $headers, $runtime);
     }
 
     /**
@@ -3588,10 +3655,13 @@ class Oss extends OpenApiClient
         if (!Utils::isUnset($headers->acl)) {
             $realHeaders['x-oss-acl'] = Utils::toJSONString($headers->acl);
         }
+        if (!Utils::isUnset($headers->xOssResourceGroupId)) {
+            $realHeaders['x-oss-resource-group-id'] = Utils::toJSONString($headers->xOssResourceGroupId);
+        }
         $req = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->createBucketConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->createBucketConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucket',
@@ -3609,16 +3679,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
+     * @param string           $bucket
+     * @param PutBucketRequest $request
      *
-     * @return PutBucketAclResponse
+     * @return PutBucketResponse
      */
-    public function putBucketAcl($bucket)
+    public function putBucket($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutBucketAclHeaders([]);
+        $headers = new PutBucketHeaders([]);
 
-        return $this->putBucketAclWithOptions($bucket, $headers, $runtime);
+        return $this->putBucketWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3659,17 +3730,16 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string               $bucket
-     * @param PutBucketCorsRequest $request
+     * @param string $bucket
      *
-     * @return PutBucketCorsResponse
+     * @return PutBucketAclResponse
      */
-    public function putBucketCors($bucket, $request)
+    public function putBucketAcl($bucket)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PutBucketAclHeaders([]);
 
-        return $this->putBucketCorsWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketAclWithOptions($bucket, $headers, $runtime);
     }
 
     /**
@@ -3688,7 +3758,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->cORSConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->cORSConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketCors',
@@ -3706,17 +3776,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                     $bucket
-     * @param PutBucketEncryptionRequest $request
+     * @param string               $bucket
+     * @param PutBucketCorsRequest $request
      *
-     * @return PutBucketEncryptionResponse
+     * @return PutBucketCorsResponse
      */
-    public function putBucketEncryption($bucket, $request)
+    public function putBucketCors($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketEncryptionWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketCorsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3735,7 +3805,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->serverSideEncryptionRule)),
+            'body'    => OpenApiUtilClient::parseToMap($request->serverSideEncryptionRule),
         ]);
         $params = new Params([
             'action'      => 'PutBucketEncryption',
@@ -3753,17 +3823,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                    $bucket
-     * @param PutBucketInventoryRequest $request
+     * @param string                     $bucket
+     * @param PutBucketEncryptionRequest $request
      *
-     * @return PutBucketInventoryResponse
+     * @return PutBucketEncryptionResponse
      */
-    public function putBucketInventory($bucket, $request)
+    public function putBucketEncryption($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketEncryptionWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3787,7 +3857,7 @@ class Oss extends OpenApiClient
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->inventoryConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->inventoryConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketInventory',
@@ -3806,16 +3876,16 @@ class Oss extends OpenApiClient
 
     /**
      * @param string                    $bucket
-     * @param PutBucketLifecycleRequest $request
+     * @param PutBucketInventoryRequest $request
      *
-     * @return PutBucketLifecycleResponse
+     * @return PutBucketInventoryResponse
      */
-    public function putBucketLifecycle($bucket, $request)
+    public function putBucketInventory($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketLifecycleWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketInventoryWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3834,7 +3904,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->lifecycleConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->lifecycleConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketLifecycle',
@@ -3852,17 +3922,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                  $bucket
-     * @param PutBucketLoggingRequest $request
+     * @param string                    $bucket
+     * @param PutBucketLifecycleRequest $request
      *
-     * @return PutBucketLoggingResponse
+     * @return PutBucketLifecycleResponse
      */
-    public function putBucketLogging($bucket, $request)
+    public function putBucketLifecycle($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketLoggingWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketLifecycleWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3881,7 +3951,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->bucketLoggingStatus)),
+            'body'    => OpenApiUtilClient::parseToMap($request->bucketLoggingStatus),
         ]);
         $params = new Params([
             'action'      => 'PutBucketLogging',
@@ -3899,17 +3969,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                 $bucket
-     * @param PutBucketPolicyRequest $request
+     * @param string                  $bucket
+     * @param PutBucketLoggingRequest $request
      *
-     * @return PutBucketPolicyResponse
+     * @return PutBucketLoggingResponse
      */
-    public function putBucketPolicy($bucket, $request)
+    public function putBucketLogging($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketPolicyWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketLoggingWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3946,17 +4016,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                  $bucket
-     * @param PutBucketRefererRequest $request
+     * @param string                 $bucket
+     * @param PutBucketPolicyRequest $request
      *
-     * @return PutBucketRefererResponse
+     * @return PutBucketPolicyResponse
      */
-    public function putBucketReferer($bucket, $request)
+    public function putBucketPolicy($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketRefererWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketPolicyWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -3975,7 +4045,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->refererConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->refererConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketReferer',
@@ -3993,17 +4063,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                      $bucket
-     * @param PutBucketReplicationRequest $request
+     * @param string                  $bucket
+     * @param PutBucketRefererRequest $request
      *
-     * @return PutBucketReplicationResponse
+     * @return PutBucketRefererResponse
      */
-    public function putBucketReplication($bucket, $request)
+    public function putBucketReferer($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketReplicationWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketRefererWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4022,7 +4092,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->replicationConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->replicationConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketReplication',
@@ -4040,17 +4110,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                         $bucket
-     * @param PutBucketRequestPaymentRequest $request
+     * @param string                      $bucket
+     * @param PutBucketReplicationRequest $request
      *
-     * @return PutBucketRequestPaymentResponse
+     * @return PutBucketReplicationResponse
      */
-    public function putBucketRequestPayment($bucket, $request)
+    public function putBucketReplication($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketRequestPaymentWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketReplicationWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4069,7 +4139,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->requestPaymentConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->requestPaymentConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketRequestPayment',
@@ -4087,17 +4157,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string               $bucket
-     * @param PutBucketTagsRequest $request
+     * @param string                         $bucket
+     * @param PutBucketRequestPaymentRequest $request
      *
-     * @return PutBucketTagsResponse
+     * @return PutBucketRequestPaymentResponse
      */
-    public function putBucketTags($bucket, $request)
+    public function putBucketRequestPayment($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketTagsWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketRequestPaymentWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4116,7 +4186,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->tagging)),
+            'body'    => OpenApiUtilClient::parseToMap($request->tagging),
         ]);
         $params = new Params([
             'action'      => 'PutBucketTags',
@@ -4134,17 +4204,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                               $bucket
-     * @param PutBucketTransferAccelerationRequest $request
+     * @param string               $bucket
+     * @param PutBucketTagsRequest $request
      *
-     * @return PutBucketTransferAccelerationResponse
+     * @return PutBucketTagsResponse
      */
-    public function putBucketTransferAcceleration($bucket, $request)
+    public function putBucketTags($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketTransferAccelerationWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketTagsWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4163,7 +4233,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->transferAccelerationConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->transferAccelerationConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketTransferAcceleration',
@@ -4181,17 +4251,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                     $bucket
-     * @param PutBucketVersioningRequest $request
+     * @param string                               $bucket
+     * @param PutBucketTransferAccelerationRequest $request
      *
-     * @return PutBucketVersioningResponse
+     * @return PutBucketTransferAccelerationResponse
      */
-    public function putBucketVersioning($bucket, $request)
+    public function putBucketTransferAcceleration($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketVersioningWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketTransferAccelerationWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4210,7 +4280,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->versioningConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->versioningConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketVersioning',
@@ -4228,17 +4298,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                  $bucket
-     * @param PutBucketWebsiteRequest $request
+     * @param string                     $bucket
+     * @param PutBucketVersioningRequest $request
      *
-     * @return PutBucketWebsiteResponse
+     * @return PutBucketVersioningResponse
      */
-    public function putBucketWebsite($bucket, $request)
+    public function putBucketVersioning($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putBucketWebsiteWithOptions($bucket, $request, $headers, $runtime);
+        return $this->putBucketVersioningWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4257,7 +4327,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->websiteConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->websiteConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutBucketWebsite',
@@ -4275,18 +4345,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                $bucket
-     * @param string                $channel
-     * @param PutLiveChannelRequest $request
+     * @param string                  $bucket
+     * @param PutBucketWebsiteRequest $request
      *
-     * @return PutLiveChannelResponse
+     * @return PutBucketWebsiteResponse
      */
-    public function putLiveChannel($bucket, $channel, $request)
+    public function putBucketWebsite($bucket, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putLiveChannelWithOptions($bucket, $channel, $request, $headers, $runtime);
+        return $this->putBucketWebsiteWithOptions($bucket, $request, $headers, $runtime);
     }
 
     /**
@@ -4306,7 +4375,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->liveChannelConfiguration)),
+            'body'    => OpenApiUtilClient::parseToMap($request->liveChannelConfiguration),
         ]);
         $params = new Params([
             'action'      => 'PutLiveChannel',
@@ -4324,18 +4393,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                      $bucket
-     * @param string                      $channel
-     * @param PutLiveChannelStatusRequest $request
+     * @param string                $bucket
+     * @param string                $channel
+     * @param PutLiveChannelRequest $request
      *
-     * @return PutLiveChannelStatusResponse
+     * @return PutLiveChannelResponse
      */
-    public function putLiveChannelStatus($bucket, $channel, $request)
+    public function putLiveChannel($bucket, $channel, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->putLiveChannelStatusWithOptions($bucket, $channel, $request, $headers, $runtime);
+        return $this->putLiveChannelWithOptions($bucket, $channel, $request, $headers, $runtime);
     }
 
     /**
@@ -4377,18 +4446,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string           $bucket
-     * @param string           $key
-     * @param PutObjectRequest $request
+     * @param string                      $bucket
+     * @param string                      $channel
+     * @param PutLiveChannelStatusRequest $request
      *
-     * @return PutObjectResponse
+     * @return PutLiveChannelStatusResponse
      */
-    public function putObject($bucket, $key, $request)
+    public function putLiveChannelStatus($bucket, $channel, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutObjectHeaders([]);
+        $headers = [];
 
-        return $this->putObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->putLiveChannelStatusWithOptions($bucket, $channel, $request, $headers, $runtime);
     }
 
     /**
@@ -4455,18 +4524,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string              $bucket
-     * @param string              $key
-     * @param PutObjectAclRequest $request
+     * @param string           $bucket
+     * @param string           $key
+     * @param PutObjectRequest $request
      *
-     * @return PutObjectAclResponse
+     * @return PutObjectResponse
      */
-    public function putObjectAcl($bucket, $key, $request)
+    public function putObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutObjectAclHeaders([]);
+        $headers = new PutObjectHeaders([]);
 
-        return $this->putObjectAclWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->putObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -4515,18 +4584,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                  $bucket
-     * @param string                  $key
-     * @param PutObjectTaggingRequest $request
+     * @param string              $bucket
+     * @param string              $key
+     * @param PutObjectAclRequest $request
      *
-     * @return PutObjectTaggingResponse
+     * @return PutObjectAclResponse
      */
-    public function putObjectTagging($bucket, $key, $request)
+    public function putObjectAcl($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PutObjectAclHeaders([]);
 
-        return $this->putObjectTaggingWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->putObjectAclWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -4551,7 +4620,7 @@ class Oss extends OpenApiClient
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->tagging)),
+            'body'    => OpenApiUtilClient::parseToMap($request->tagging),
         ]);
         $params = new Params([
             'action'      => 'PutObjectTagging',
@@ -4569,17 +4638,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string $bucket
-     * @param string $key
+     * @param string                  $bucket
+     * @param string                  $key
+     * @param PutObjectTaggingRequest $request
      *
-     * @return PutSymlinkResponse
+     * @return PutObjectTaggingResponse
      */
-    public function putSymlink($bucket, $key)
+    public function putObjectTagging($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PutSymlinkHeaders([]);
+        $headers = [];
 
-        return $this->putSymlinkWithOptions($bucket, $key, $headers, $runtime);
+        return $this->putObjectTaggingWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -4630,18 +4700,17 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string               $bucket
-     * @param string               $key
-     * @param RestoreObjectRequest $request
+     * @param string $bucket
+     * @param string $key
      *
-     * @return RestoreObjectResponse
+     * @return PutSymlinkResponse
      */
-    public function restoreObject($bucket, $key, $request)
+    public function putSymlink($bucket, $key)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = [];
+        $headers = new PutSymlinkHeaders([]);
 
-        return $this->restoreObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->putSymlinkWithOptions($bucket, $key, $headers, $runtime);
     }
 
     /**
@@ -4666,7 +4735,7 @@ class Oss extends OpenApiClient
             'hostMap' => $hostMap,
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->restoreRequest)),
+            'body'    => OpenApiUtilClient::parseToMap($request->restoreRequest),
         ]);
         $params = new Params([
             'action'      => 'RestoreObject',
@@ -4684,18 +4753,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string              $bucket
-     * @param string              $key
-     * @param SelectObjectRequest $request
+     * @param string               $bucket
+     * @param string               $key
+     * @param RestoreObjectRequest $request
      *
-     * @return SelectObjectResponse
+     * @return RestoreObjectResponse
      */
-    public function selectObject($bucket, $key, $request)
+    public function restoreObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->selectObjectWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->restoreObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -4715,7 +4784,7 @@ class Oss extends OpenApiClient
         $req               = new OpenApiRequest([
             'hostMap' => $hostMap,
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap(Tea::merge($request->selectRequest)),
+            'body'    => OpenApiUtilClient::parseToMap($request->selectRequest),
         ]);
         $params = new Params([
             'action'      => 'SelectObject',
@@ -4733,18 +4802,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string            $bucket
-     * @param string            $key
-     * @param UploadPartRequest $request
+     * @param string              $bucket
+     * @param string              $key
+     * @param SelectObjectRequest $request
      *
-     * @return UploadPartResponse
+     * @return SelectObjectResponse
      */
-    public function uploadPart($bucket, $key, $request)
+    public function selectObject($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->uploadPartWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->selectObjectWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -4791,18 +4860,18 @@ class Oss extends OpenApiClient
     }
 
     /**
-     * @param string                $bucket
-     * @param string                $key
-     * @param UploadPartCopyRequest $request
+     * @param string            $bucket
+     * @param string            $key
+     * @param UploadPartRequest $request
      *
-     * @return UploadPartCopyResponse
+     * @return UploadPartResponse
      */
-    public function uploadPartCopy($bucket, $key, $request)
+    public function uploadPart($bucket, $key, $request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UploadPartCopyHeaders([]);
+        $headers = [];
 
-        return $this->uploadPartCopyWithOptions($bucket, $key, $request, $headers, $runtime);
+        return $this->uploadPartWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 
     /**
@@ -4866,5 +4935,20 @@ class Oss extends OpenApiClient
         ]);
 
         return UploadPartCopyResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                $bucket
+     * @param string                $key
+     * @param UploadPartCopyRequest $request
+     *
+     * @return UploadPartCopyResponse
+     */
+    public function uploadPartCopy($bucket, $key, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UploadPartCopyHeaders([]);
+
+        return $this->uploadPartCopyWithOptions($bucket, $key, $request, $headers, $runtime);
     }
 }

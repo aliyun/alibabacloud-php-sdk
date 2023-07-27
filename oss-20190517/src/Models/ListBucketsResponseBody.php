@@ -4,13 +4,12 @@
 
 namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
-use AlibabaCloud\SDK\Oss\V20190517\Models\ListBucketsResponseBody\buckets;
 use AlibabaCloud\Tea\Model;
 
 class ListBucketsResponseBody extends Model
 {
     /**
-     * @var buckets
+     * @var Bucket[]
      */
     public $buckets;
 
@@ -44,13 +43,13 @@ class ListBucketsResponseBody extends Model
      */
     public $prefix;
     protected $_name = [
-        'buckets'     => 'Buckets',
-        'isTruncated' => 'IsTruncated',
-        'marker'      => 'Marker',
-        'maxKeys'     => 'MaxKeys',
-        'nextMarker'  => 'NextMarker',
-        'owner'       => 'Owner',
-        'prefix'      => 'Prefix',
+        'buckets'     => 'buckets',
+        'isTruncated' => 'isTruncated',
+        'marker'      => 'marker',
+        'maxKeys'     => 'maxKeys',
+        'nextMarker'  => 'nextMarker',
+        'owner'       => 'owner',
+        'prefix'      => 'prefix',
     ];
 
     public function validate()
@@ -61,25 +60,31 @@ class ListBucketsResponseBody extends Model
     {
         $res = [];
         if (null !== $this->buckets) {
-            $res['Buckets'] = null !== $this->buckets ? $this->buckets->toMap() : null;
+            $res['buckets'] = [];
+            if (null !== $this->buckets && \is_array($this->buckets)) {
+                $n = 0;
+                foreach ($this->buckets as $item) {
+                    $res['buckets'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->isTruncated) {
-            $res['IsTruncated'] = $this->isTruncated;
+            $res['isTruncated'] = $this->isTruncated;
         }
         if (null !== $this->marker) {
-            $res['Marker'] = $this->marker;
+            $res['marker'] = $this->marker;
         }
         if (null !== $this->maxKeys) {
-            $res['MaxKeys'] = $this->maxKeys;
+            $res['maxKeys'] = $this->maxKeys;
         }
         if (null !== $this->nextMarker) {
-            $res['NextMarker'] = $this->nextMarker;
+            $res['nextMarker'] = $this->nextMarker;
         }
         if (null !== $this->owner) {
-            $res['Owner'] = null !== $this->owner ? $this->owner->toMap() : null;
+            $res['owner'] = null !== $this->owner ? $this->owner->toMap() : null;
         }
         if (null !== $this->prefix) {
-            $res['Prefix'] = $this->prefix;
+            $res['prefix'] = $this->prefix;
         }
 
         return $res;
@@ -93,26 +98,32 @@ class ListBucketsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Buckets'])) {
-            $model->buckets = buckets::fromMap($map['Buckets']);
+        if (isset($map['buckets'])) {
+            if (!empty($map['buckets'])) {
+                $model->buckets = [];
+                $n              = 0;
+                foreach ($map['buckets'] as $item) {
+                    $model->buckets[$n++] = null !== $item ? Bucket::fromMap($item) : $item;
+                }
+            }
         }
-        if (isset($map['IsTruncated'])) {
-            $model->isTruncated = $map['IsTruncated'];
+        if (isset($map['isTruncated'])) {
+            $model->isTruncated = $map['isTruncated'];
         }
-        if (isset($map['Marker'])) {
-            $model->marker = $map['Marker'];
+        if (isset($map['marker'])) {
+            $model->marker = $map['marker'];
         }
-        if (isset($map['MaxKeys'])) {
-            $model->maxKeys = $map['MaxKeys'];
+        if (isset($map['maxKeys'])) {
+            $model->maxKeys = $map['maxKeys'];
         }
-        if (isset($map['NextMarker'])) {
-            $model->nextMarker = $map['NextMarker'];
+        if (isset($map['nextMarker'])) {
+            $model->nextMarker = $map['nextMarker'];
         }
-        if (isset($map['Owner'])) {
-            $model->owner = Owner::fromMap($map['Owner']);
+        if (isset($map['owner'])) {
+            $model->owner = Owner::fromMap($map['owner']);
         }
-        if (isset($map['Prefix'])) {
-            $model->prefix = $map['Prefix'];
+        if (isset($map['prefix'])) {
+            $model->prefix = $map['prefix'];
         }
 
         return $model;

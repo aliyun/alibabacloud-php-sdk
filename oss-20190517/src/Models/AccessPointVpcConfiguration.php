@@ -2,18 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Oss\V20190517\Models\GetBucketInfoResponseBody\bucketInfo;
+namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class accessControlList extends Model
+class AccessPointVpcConfiguration extends Model
 {
     /**
+     * @example vpc-t4nlw426y44rd3iq4****
+     *
      * @var string
      */
-    public $grant;
+    public $vpcId;
     protected $_name = [
-        'grant' => 'Grant',
+        'vpcId' => 'VpcId',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class accessControlList extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->grant) {
-            $res['Grant'] = $this->grant;
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class accessControlList extends Model
     /**
      * @param array $map
      *
-     * @return accessControlList
+     * @return AccessPointVpcConfiguration
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Grant'])) {
-            $model->grant = $map['Grant'];
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

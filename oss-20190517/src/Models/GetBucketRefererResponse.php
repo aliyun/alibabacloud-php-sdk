@@ -19,13 +19,12 @@ class GetBucketRefererResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetBucketRefererResponseBody
+     * @var RefererConfiguration
      */
     public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
-        'body'       => 'body',
     ];
 
     public function validate()
@@ -66,7 +65,7 @@ class GetBucketRefererResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetBucketRefererResponseBody::fromMap($map['body']);
+            $model->body = RefererConfiguration::fromMap($map['body']);
         }
 
         return $model;

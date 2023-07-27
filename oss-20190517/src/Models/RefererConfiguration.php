@@ -23,10 +23,16 @@ class RefererConfiguration extends Model
      * @var refererList
      */
     public $refererList;
+
+    /**
+     * @var bool
+     */
+    public $truncatePath;
     protected $_name = [
         'allowEmptyReferer'        => 'AllowEmptyReferer',
         'allowTruncateQueryString' => 'AllowTruncateQueryString',
         'refererList'              => 'RefererList',
+        'truncatePath'             => 'TruncatePath',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class RefererConfiguration extends Model
         }
         if (null !== $this->refererList) {
             $res['RefererList'] = null !== $this->refererList ? $this->refererList->toMap() : null;
+        }
+        if (null !== $this->truncatePath) {
+            $res['TruncatePath'] = $this->truncatePath;
         }
 
         return $res;
@@ -65,6 +74,9 @@ class RefererConfiguration extends Model
         }
         if (isset($map['RefererList'])) {
             $model->refererList = refererList::fromMap($map['RefererList']);
+        }
+        if (isset($map['TruncatePath'])) {
+            $model->truncatePath = $map['TruncatePath'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListObjectVersionsRequest extends Model
 {
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
@@ -19,21 +21,29 @@ class ListObjectVersionsRequest extends Model
     public $encodingType;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $keyMarker;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example fun
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example CAEQMxiBgICbof2D0BYiIGRhZjgwMzJiMjA3MjQ0ODE5MWYxZDYwMzJlZjU1****
+     *
      * @var string
      */
     public $versionIdMarker;

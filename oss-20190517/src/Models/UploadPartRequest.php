@@ -15,11 +15,15 @@ class UploadPartRequest extends Model
     public $body;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $partNumber;
 
     /**
+     * @example 0004B9895DBBB6EC98E36
+     *
      * @var string
      */
     public $uploadId;

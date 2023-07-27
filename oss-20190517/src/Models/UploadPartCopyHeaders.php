@@ -11,31 +11,43 @@ class UploadPartCopyHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example /oss-example/ src-object
+     *
      * @var string
      */
     public $copySource;
 
     /**
+     * @example 5B3C1A2E053D763E1B002CC607C5****
+     *
      * @var string
      */
     public $copySourceIfMatch;
 
     /**
+     * @example Fri, 13 Nov 2015 14:47:53 GMT
+     *
      * @var string
      */
     public $copySourceIfModifiedSince;
 
     /**
+     * @example 5B3C1A2E053D763E1B002CC607C5****
+     *
      * @var string
      */
     public $copySourceIfNoneMatch;
 
     /**
+     * @example Fri, 13 Oct 2015 14:47:53 GMT
+     *
      * @var string
      */
     public $copySourceIfUnmodifiedSince;
 
     /**
+     * @example bytes=100-6291756
+     *
      * @var string
      */
     public $copySourceRange;

@@ -14,16 +14,22 @@ class GetLiveChannelStatResponseBody extends Model
     public $audio;
 
     /**
+     * @example 2016-08-25T06:25:15.000Z
+     *
      * @var string
      */
     public $connectedTime;
 
     /**
+     * @example 10.1.2.3:47745
+     *
      * @var string
      */
     public $remoteAddr;
 
     /**
+     * @example Live
+     *
      * @var string
      */
     public $status;

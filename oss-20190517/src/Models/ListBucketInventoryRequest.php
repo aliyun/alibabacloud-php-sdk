@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListBucketInventoryRequest extends Model
 {
     /**
+     * @example test1.txt
+     *
      * @var string
      */
     public $continuationToken;

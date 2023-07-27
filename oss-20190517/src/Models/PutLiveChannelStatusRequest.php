@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutLiveChannelStatusRequest extends Model
 {
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;

@@ -41,6 +41,11 @@ class Bucket extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $storageClass;
     protected $_name = [
         'creationDate'     => 'CreationDate',
@@ -49,6 +54,7 @@ class Bucket extends Model
         'location'         => 'Location',
         'name'             => 'Name',
         'region'           => 'Region',
+        'resourceGroupId'  => 'ResourceGroupId',
         'storageClass'     => 'StorageClass',
     ];
 
@@ -76,6 +82,9 @@ class Bucket extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->storageClass) {
             $res['StorageClass'] = $this->storageClass;
@@ -109,6 +118,9 @@ class Bucket extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['StorageClass'])) {
             $model->storageClass = $map['StorageClass'];

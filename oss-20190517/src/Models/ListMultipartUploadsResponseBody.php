@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultipartUploadsResponseBody extends Model
 {
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $bucket;
@@ -19,41 +21,57 @@ class ListMultipartUploadsResponseBody extends Model
     public $commonPrefixes;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $encodingType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example test1.avi
+     *
      * @var string
      */
     public $keyMarker;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxUploads;
 
     /**
+     * @example test100.avi
+     *
      * @var string
      */
     public $nextKeyMarker;
 
     /**
+     * @example 0004B99B8E707874FC2D692FA5D7****
+     *
      * @var string
      */
     public $nextUploadIdMarker;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $prefix;
@@ -64,6 +82,8 @@ class ListMultipartUploadsResponseBody extends Model
     public $uploads;
 
     /**
+     * @example 0004B99B8E707874FC2D692FA5D7****
+     *
      * @var string
      */
     public $uploadIdMarker;

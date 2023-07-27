@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AbortMultipartUploadRequest extends Model
 {
     /**
+     * @example 0004B9895DBBB6E****
+     *
      * @var string
      */
     public $uploadId;

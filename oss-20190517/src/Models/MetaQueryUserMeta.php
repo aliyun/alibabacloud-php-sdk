@@ -2,11 +2,11 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Oss\V20190517\Models\LifecycleRule;
+namespace AlibabaCloud\SDK\Oss\V20190517\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class tag extends Model
+class MetaQueryUserMeta extends Model
 {
     /**
      * @var string
@@ -42,7 +42,7 @@ class tag extends Model
     /**
      * @param array $map
      *
-     * @return tag
+     * @return MetaQueryUserMeta
      */
     public static function fromMap($map = [])
     {

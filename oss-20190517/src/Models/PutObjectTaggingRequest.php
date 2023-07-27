@@ -14,6 +14,8 @@ class PutObjectTaggingRequest extends Model
     public $tagging;
 
     /**
+     * @example CAEQNRiBgMClj7qD0BYiIDQ5Y2QyMjc3NGZkODRlMTU5M2VkY2U3MWRiNGRh****
+     *
      * @var string
      */
     public $versionId;

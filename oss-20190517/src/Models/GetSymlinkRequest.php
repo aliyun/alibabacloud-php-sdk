@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetSymlinkRequest extends Model
 {
     /**
+     * @example CAEQNRiBgMClj7qD0BYiIDQ5Y2QyMjc3NGZkODRlMTU5M2VkY2U3MWRiNGRh****
+     *
      * @var string
      */
     public $versionId;

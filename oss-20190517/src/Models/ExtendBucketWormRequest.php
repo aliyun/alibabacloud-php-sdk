@@ -11,15 +11,17 @@ class ExtendBucketWormRequest extends Model
     /**
      * @var ExtendWormConfiguration
      */
-    public $extendWormConfiguration;
+    public $body;
 
     /**
+     * @example 1666E2CFB2B3418****
+     *
      * @var string
      */
     public $wormId;
     protected $_name = [
-        'extendWormConfiguration' => 'extendWormConfiguration',
-        'wormId'                  => 'wormId',
+        'body'   => 'ExtendWormConfiguration',
+        'wormId' => 'wormId',
     ];
 
     public function validate()
@@ -29,8 +31,8 @@ class ExtendBucketWormRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->extendWormConfiguration) {
-            $res['extendWormConfiguration'] = null !== $this->extendWormConfiguration ? $this->extendWormConfiguration->toMap() : null;
+        if (null !== $this->body) {
+            $res['ExtendWormConfiguration'] = null !== $this->body ? $this->body->toMap() : null;
         }
         if (null !== $this->wormId) {
             $res['wormId'] = $this->wormId;
@@ -47,8 +49,8 @@ class ExtendBucketWormRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['extendWormConfiguration'])) {
-            $model->extendWormConfiguration = ExtendWormConfiguration::fromMap($map['extendWormConfiguration']);
+        if (isset($map['ExtendWormConfiguration'])) {
+            $model->body = ExtendWormConfiguration::fromMap($map['ExtendWormConfiguration']);
         }
         if (isset($map['wormId'])) {
             $model->wormId = $map['wormId'];

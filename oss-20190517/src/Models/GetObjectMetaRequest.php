@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetObjectMetaRequest extends Model
 {
     /**
+     * @example CAEQNRiBgIDMh4mD0BYiIDUzNDA4OGNmZjBjYTQ0YmI4Y2I4ZmVlYzJlNGVk****
+     *
      * @var string
      */
     public $versionId;

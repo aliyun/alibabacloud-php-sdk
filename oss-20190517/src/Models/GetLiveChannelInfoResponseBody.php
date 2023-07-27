@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetLiveChannelInfoResponseBody extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example enabled
+     *
      * @var string
      */
     public $status;

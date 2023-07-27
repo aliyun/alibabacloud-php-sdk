@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBucketReplicationProgressRequest extends Model
 {
     /**
+     * @example test_replication_1
+     *
      * @var string
      */
     public $ruleId;

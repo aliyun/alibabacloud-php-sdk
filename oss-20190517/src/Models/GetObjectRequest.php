@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class GetObjectRequest extends Model
 {
     /**
+     * @description The cache-control header in the response that OSS returns.
+     *
+     * @example no-cache
+     *
      * @var string
      */
     public $responseCacheControl;
 
     /**
+     * @description The content-disposition header in the response that OSS returns.
+     *
+     * @example attachment; filename:testing.txt
+     *
      * @var string
      */
     public $responseContentDisposition;
 
     /**
+     * @description The content-encoding header in the response that OSS returns.
+     *
+     * @example utf-8
+     *
      * @var string
      */
     public $responseContentEncoding;
 
     /**
+     * @description The content-language header in the response that OSS returns.
+     *
+     * @example 中文
+     *
      * @var string
      */
     public $responseContentLanguage;
 
     /**
+     * @description The content-type header in the response that OSS returns.
+     *
+     * @example image/jpg
+     *
      * @var string
      */
     public $responseContentType;
 
     /**
+     * @description The expires header in the response that OSS returns.
+     *
+     * @example Fri, 24 Feb 2012 17:00:00 GMT
+     *
      * @var string
      */
     public $responseExpires;

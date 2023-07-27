@@ -14,16 +14,22 @@ class ListPartsShrinkRequest extends Model
     public $encodingTypeShrink;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxParts;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $partNumberMarker;
 
     /**
+     * @example 0004B999EF5A239BB9138C6227D69F95
+     *
      * @var string
      */
     public $uploadId;

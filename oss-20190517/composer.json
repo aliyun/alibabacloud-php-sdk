@@ -11,11 +11,11 @@
   ],
   "require": {
     "php": ">5.5",
-    "alibabacloud/tea-utils": "^0.2.16",
+    "alibabacloud/tea-utils": "^0.2.19",
     "alibabacloud/gateway-spi": "^1",
-    "alibabacloud/gateway-oss": "^0.0.7",
-    "alibabacloud/darabonba-openapi": "^0.2.5",
-    "alibabacloud/openapi-util": "^0.1.10"
+    "alibabacloud/gateway-oss": "^0.0.9",
+    "alibabacloud/darabonba-openapi": "^0.2.8",
+    "alibabacloud/openapi-util": "^0.1.10|^0.2.1"
   },
   "autoload": {
     "psr-4": {

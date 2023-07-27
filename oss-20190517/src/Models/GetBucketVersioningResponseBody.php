@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBucketVersioningResponseBody extends Model
 {
     /**
+     * @example Enabled
+     *
      * @var string
      */
     public $status;

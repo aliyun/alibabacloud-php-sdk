@@ -19,46 +19,64 @@ class ListObjectVersionsResponseBody extends Model
     public $deleteMarkers;
 
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
 
     /**
+     * @example URL
+     *
      * @var string
      */
     public $encodingType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @example example
+     *
      * @var string
      */
     public $keyMarker;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxKeys;
 
     /**
+     * @example examplebucket
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nextKeyMarker;
 
     /**
+     * @example CAEQGBiBgIC_jq7P9xYiIDRiZWJkNjY2Y2Q4NDQ5ZTI5ZGE5ODIxMTIyZThl****
+     *
      * @var string
      */
     public $nextVersionIdMarker;
 
     /**
+     * @example fun
+     *
      * @var string
      */
     public $prefix;
@@ -69,6 +87,8 @@ class ListObjectVersionsResponseBody extends Model
     public $versions;
 
     /**
+     * @example CAEQMxiBgICbof2D0BYiIGRhZjgwMzJiMjA3MjQ0ODE5MWYxZDYwMzJlZjU1****
+     *
      * @var string
      */
     public $versionIdMarker;

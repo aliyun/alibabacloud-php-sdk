@@ -11,31 +11,43 @@ class AppendObjectHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example no-cache
+     *
      * @var string
      */
     public $cacheControl;
 
     /**
+     * @example attachment;filename=oss_download.jpg
+     *
      * @var string
      */
     public $contentDisposition;
 
     /**
+     * @example utf-8
+     *
      * @var string
      */
     public $contentEncoding;
 
     /**
+     * @example ohhnqLBJFiKkPSBO1eNaUA==
+     *
      * @var string
      */
     public $contentMD5;
 
     /**
+     * @example Wed, 08 Jul 2015 16:57:01 GMT
+     *
      * @var string
      */
     public $expires;
 
     /**
+     * @example x-oss-meta-location
+     *
      * @var string[]
      */
     public $metaData;
@@ -46,6 +58,8 @@ class AppendObjectHeaders extends Model
     public $acl;
 
     /**
+     * @example AES256
+     *
      * @var string
      */
     public $serverSideEncryption;

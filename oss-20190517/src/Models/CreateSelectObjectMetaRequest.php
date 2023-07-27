@@ -13,7 +13,7 @@ class CreateSelectObjectMetaRequest extends Model
      */
     public $selectMetaRequest;
     protected $_name = [
-        'selectMetaRequest' => 'body',
+        'selectMetaRequest' => 'SelectMetaRequest',
     ];
 
     public function validate()
@@ -24,7 +24,7 @@ class CreateSelectObjectMetaRequest extends Model
     {
         $res = [];
         if (null !== $this->selectMetaRequest) {
-            $res['body'] = null !== $this->selectMetaRequest ? $this->selectMetaRequest->toMap() : null;
+            $res['SelectMetaRequest'] = null !== $this->selectMetaRequest ? $this->selectMetaRequest->toMap() : null;
         }
 
         return $res;
@@ -38,8 +38,8 @@ class CreateSelectObjectMetaRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['body'])) {
-            $model->selectMetaRequest = SelectMetaRequest::fromMap($map['body']);
+        if (isset($map['SelectMetaRequest'])) {
+            $model->selectMetaRequest = SelectMetaRequest::fromMap($map['SelectMetaRequest']);
         }
 
         return $model;

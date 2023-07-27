@@ -14,6 +14,8 @@ class DeleteMultipleObjectsResponseBody extends Model
     public $deleted;
 
     /**
+     * @example url
+     *
      * @var string
      */
     public $encodingType;

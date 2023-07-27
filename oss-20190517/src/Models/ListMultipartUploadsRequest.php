@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListMultipartUploadsRequest extends Model
 {
     /**
+     * @example /
+     *
      * @var string
      */
     public $delimiter;
@@ -19,21 +21,29 @@ class ListMultipartUploadsRequest extends Model
     public $encodingType;
 
     /**
+     * @example test1.avi
+     *
      * @var string
      */
     public $keyMarker;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $maxUploads;
 
     /**
+     * @example fun/
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example 0004B99B8E707874FC2D692FA5D7****
+     *
      * @var string
      */
     public $uploadIdMarker;

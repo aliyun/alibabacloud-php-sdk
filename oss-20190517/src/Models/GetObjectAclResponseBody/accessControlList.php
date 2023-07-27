@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class accessControlList extends Model
 {
     /**
+     * @example private
+     *
      * @var string
      */
     public $ACL;

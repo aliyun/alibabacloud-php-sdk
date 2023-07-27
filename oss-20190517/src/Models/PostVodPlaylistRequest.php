@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class PostVodPlaylistRequest extends Model
 {
     /**
+     * @example 1636618271
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 1636600271
+     *
      * @var string
      */
     public $startTime;

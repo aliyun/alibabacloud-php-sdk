@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetBucketLocationResponseBody extends Model
 {
     /**
+     * @example oss-cn-hangzhou
+     *
      * @var string
      */
     public $locationConstraint;

@@ -14,6 +14,8 @@ class GetBucketCorsResponseBody extends Model
     public $CORSRule;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $responseVary;

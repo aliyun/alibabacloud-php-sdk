@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetBucketWormResponseBody extends Model
 {
     /**
+     * @example 2020-10-15T15:50:32
+     *
      * @var string
      */
     public $creationDate;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $retentionPeriodInDays;
 
     /**
+     * @example Locked
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 1666E2CFB2B3418****
+     *
      * @var string
      */
     public $wormId;
