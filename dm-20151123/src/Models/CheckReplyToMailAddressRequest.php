@@ -14,6 +14,8 @@ class CheckReplyToMailAddressRequest extends Model
     public $lang;
 
     /**
+     * @example 126545
+     *
      * @var int
      */
     public $mailAddressId;
@@ -24,6 +26,8 @@ class CheckReplyToMailAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

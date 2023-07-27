@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsDetailByParamRequest extends Model
 {
     /**
+     * @example s***@example.net
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 2021-04-29 00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example 90f0243616#203#a***@example.net-1658817837#a***@example.net.247475288187
+     *
      * @var string
      */
     public $nextStart;
@@ -44,21 +52,29 @@ class SenderStatisticsDetailByParamRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2021-04-28 00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example EmailQuestionnaireHelioscam
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @example b***@example.net
+     *
      * @var string
      */
     public $toAddress;

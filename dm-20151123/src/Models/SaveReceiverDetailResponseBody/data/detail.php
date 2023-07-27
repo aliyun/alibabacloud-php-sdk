@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @example test@mail.com
+     *
      * @var string
      */
     public $email;

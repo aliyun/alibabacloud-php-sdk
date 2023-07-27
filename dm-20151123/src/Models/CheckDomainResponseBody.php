@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainResponseBody extends Model
 {
     /**
+     * @description The status of the domain name. Indicates whether the domain name is verified and available.
+     *
+     *   0: indicates that the domain name is verified and available.
+     *   1: indicates that the domain name fails to be verified and is unavailable.
+     *   2: indicates that the domain name is available, but not filed or configured with a CNAME record.
+     *   3: indicates that the domain name is available but not filed.
+     *   4: indicates that the domain name is available but not configured with a CNAME record.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $domainStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F0B82E83-A1D9-4FE6-97D2-F4B231F80B02
+     *
      * @var string
      */
     public $requestId;

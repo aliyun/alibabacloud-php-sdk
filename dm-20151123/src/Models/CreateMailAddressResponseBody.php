@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateMailAddressResponseBody extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $mailAddressId;
 
     /**
+     * @example 95A7D497-F8DD-4834-B81E-C1783236E55F
+     *
      * @var string
      */
     public $requestId;

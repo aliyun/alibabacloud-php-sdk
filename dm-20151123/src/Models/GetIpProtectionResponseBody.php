@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetIpProtectionResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $ipProtection;
 
     /**
+     * @example B30E5A62-2E64-577D-A70E-8C6781D6C975
+     *
      * @var string
      */
     public $requestId;

@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class GetIpfilterListResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 84DD77C7-A091-5139-9530-2D1F7CCE59E0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

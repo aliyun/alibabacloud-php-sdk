@@ -19,6 +19,8 @@ class CreateMailAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example reply@aliyun.com
+     *
      * @var string
      */
     public $replyAddress;
@@ -34,6 +36,8 @@ class CreateMailAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example batch
+     *
      * @var string
      */
     public $sendtype;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyMailAddressRequest extends Model
 {
     /**
+     * @example 1344565
+     *
      * @var int
      */
     public $mailAddressId;
@@ -19,11 +21,15 @@ class ModifyMailAddressRequest extends Model
     public $ownerId;
 
     /**
+     * @example pwd129WDCft9
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @example a***@example.net
+     *
      * @var string
      */
     public $replyAddress;

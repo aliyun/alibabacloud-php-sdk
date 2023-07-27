@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDomainByParamRequest extends Model
 {
     /**
+     * @example abc.com
+     *
      * @var string
      */
     public $keyWord;
@@ -19,11 +21,15 @@ class QueryDomainByParamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +45,8 @@ class QueryDomainByParamRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class mailDetail extends Model
 {
     /**
+     * @example 2021-04-28T17:11Z
+     *
      * @var string
      */
     public $lastUpdateTime;
 
     /**
+     * @example toaddress@test.com
+     *
      * @var string
      */
     public $toAddress;
 
     /**
+     * @example 1619601108
+     *
      * @var int
      */
     public $utcLastUpdateTime;

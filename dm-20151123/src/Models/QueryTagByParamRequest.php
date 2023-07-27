@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTagByParamRequest extends Model
 {
     /**
+     * @example 1aTag
+     *
      * @var string
      */
     public $keyWord;
@@ -19,11 +21,15 @@ class QueryTagByParamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

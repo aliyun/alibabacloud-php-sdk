@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class receiver extends Model
 {
     /**
+     * @example 3
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @example 2019-09-29T13:28Z
+     *
      * @var string
      */
     public $createTime;
@@ -24,26 +28,36 @@ class receiver extends Model
     public $desc;
 
     /**
+     * @example 0c910a7143044b1e116719eb678907b3
+     *
      * @var string
      */
     public $receiverId;
 
     /**
+     * @example 10***@163.com
+     *
      * @var string
      */
     public $receiversAlias;
 
     /**
+     * @example TKP000442-333
+     *
      * @var string
      */
     public $receiversName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $receiversStatus;
 
     /**
+     * @example 1569734892
+     *
      * @var int
      */
     public $utcCreateTime;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class stat extends Model
 {
     /**
+     * @example 2021-07-02
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $faildCount;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $requestCount;
 
     /**
+     * @example 100.00%
+     *
      * @var string
      */
     public $succeededPercent;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $successCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $unavailableCount;
 
     /**
+     * @example 0%
+     *
      * @var string
      */
     public $unavailablePercent;

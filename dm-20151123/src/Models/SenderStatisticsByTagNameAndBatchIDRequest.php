@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class SenderStatisticsByTagNameAndBatchIDRequest extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 2019-09-29
+     *
      * @var string
      */
     public $endTime;
@@ -34,11 +38,15 @@ class SenderStatisticsByTagNameAndBatchIDRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2019-09-29
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $tagName;

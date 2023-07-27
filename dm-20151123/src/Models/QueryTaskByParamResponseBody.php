@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskByParamResponseBody extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

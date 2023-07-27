@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class QueryInvalidAddressResponseBody extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $nextStart;
 
     /**
+     * @example 95A7D497-F8DD-4834-B81E-C1783236E55F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

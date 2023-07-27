@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class QueryInvalidAddressRequest extends Model
 {
     /**
+     * @example 2019-09-29
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example info
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $length;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $nextStart;
@@ -44,6 +52,8 @@ class QueryInvalidAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2019-09-29
+     *
      * @var string
      */
     public $startTime;

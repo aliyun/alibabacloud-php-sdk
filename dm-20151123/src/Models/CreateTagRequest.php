@@ -24,6 +24,8 @@ class CreateTagRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vme
+     *
      * @var string
      */
     public $tagName;

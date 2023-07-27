@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @example 2019-09-29T13:28Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example {\"Domains\": [\"a.example.net\", \"b.example.net\", \"c.example.net\", \"d.example.net\"]}
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @example a***@example.net
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 1569734892
+     *
      * @var int
      */
     public $utcCreateTime;

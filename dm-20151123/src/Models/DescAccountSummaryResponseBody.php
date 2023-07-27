@@ -9,81 +9,113 @@ use AlibabaCloud\Tea\Model;
 class DescAccountSummaryResponseBody extends Model
 {
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $dailyQuota;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dayuStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $domains;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $enableTimes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $mailAddresses;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxQuotaLevel;
 
     /**
+     * @example 60000
+     *
      * @var int
      */
     public $monthQuota;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $quotaLevel;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $receivers;
 
     /**
+     * @example 82B295BB-7E69-491F-9896-ECEAFF09E1A4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsRecord;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsSign;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $smsTemplates;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $tags;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $templates;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $userStatus;

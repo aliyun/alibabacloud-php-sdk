@@ -19,11 +19,15 @@ class QueryMailAddressByParamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +43,8 @@ class QueryMailAddressByParamRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example batch
+     *
      * @var string
      */
     public $sendtype;

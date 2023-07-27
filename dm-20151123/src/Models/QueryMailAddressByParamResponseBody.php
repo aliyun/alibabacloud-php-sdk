@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryMailAddressByParamResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 95A7D497-F8DD-4834-B81E-C1783236E55F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

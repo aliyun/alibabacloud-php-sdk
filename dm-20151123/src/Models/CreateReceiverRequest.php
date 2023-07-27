@@ -19,11 +19,15 @@ class CreateReceiverRequest extends Model
     public $ownerId;
 
     /**
+     * @example vme
+     *
      * @var string
      */
     public $receiversAlias;
 
     /**
+     * @example xme
+     *
      * @var string
      */
     public $receiversName;

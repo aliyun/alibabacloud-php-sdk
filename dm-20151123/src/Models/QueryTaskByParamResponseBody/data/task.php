@@ -19,36 +19,50 @@ class task extends Model
     public $createTime;
 
     /**
+     * @example TKP000442-333
+     *
      * @var string
      */
     public $receiversName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $requestCount;
 
     /**
+     * @example 202201
+     *
      * @var string
      */
     public $tagName;
 
     /**
+     * @example 1054296
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example Short Simple
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example 1569734892
+     *
      * @var int
      */
     public $utcCreateTime;

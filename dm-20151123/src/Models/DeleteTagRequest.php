@@ -24,6 +24,10 @@ class DeleteTagRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the tag.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $tagId;

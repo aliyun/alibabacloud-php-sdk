@@ -15,16 +15,22 @@ class SaveReceiverDetailResponseBody extends Model
     public $data;
 
     /**
+     * @example 638
+     *
      * @var int
      */
     public $errorCount;
 
     /**
+     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 274
+     *
      * @var int
      */
     public $successCount;

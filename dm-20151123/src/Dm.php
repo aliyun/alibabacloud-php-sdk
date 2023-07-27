@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\CreateTagResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteDomainRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteDomainResponse;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteInvalidAddressRequest;
+use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteInvalidAddressResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteIpfilterByEdmIdRequest;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteIpfilterByEdmIdResponse;
 use AlibabaCloud\SDK\Dm\V20151123\Models\DeleteMailAddressRequest;
@@ -676,6 +678,58 @@ class Dm extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteInvalidAddressRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteInvalidAddressResponse
+     */
+    public function deleteInvalidAddressWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->toAddress)) {
+            $query['ToAddress'] = $request->toAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInvalidAddress',
+            'version'     => '2015-11-23',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInvalidAddressResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInvalidAddressRequest $request
+     *
+     * @return DeleteInvalidAddressResponse
+     */
+    public function deleteInvalidAddress($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInvalidAddressWithOptions($request, $runtime);
     }
 
     /**
@@ -1366,8 +1420,14 @@ class Dm extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;

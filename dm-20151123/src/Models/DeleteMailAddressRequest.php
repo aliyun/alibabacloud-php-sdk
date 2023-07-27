@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMailAddressRequest extends Model
 {
     /**
+     * @example 23457
+     *
      * @var int
      */
     public $mailAddressId;

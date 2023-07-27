@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateTagResponseBody extends Model
 {
     /**
+     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $tagId;

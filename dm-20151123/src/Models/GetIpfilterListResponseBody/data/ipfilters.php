@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ipfilters extends Model
 {
     /**
+     * @example 1653547140
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 10083
+     *
      * @var string
      */
     public $id;

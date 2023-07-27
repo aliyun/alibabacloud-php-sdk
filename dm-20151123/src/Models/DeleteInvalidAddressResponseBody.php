@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\Dm\V20151123\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateMailAddressMsgCallBackUrlResponseBody extends Model
+class DeleteInvalidAddressResponseBody extends Model
 {
     /**
+     * @example 2D086F6-xxxx-xxxx-xxxx-006DED011A85
+     *
      * @var string
      */
     public $requestId;
@@ -33,7 +35,7 @@ class UpdateMailAddressMsgCallBackUrlResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return UpdateMailAddressMsgCallBackUrlResponseBody
+     * @return DeleteInvalidAddressResponseBody
      */
     public static function fromMap($map = [])
     {

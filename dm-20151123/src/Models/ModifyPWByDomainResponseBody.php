@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPWByDomainResponseBody extends Model
 {
     /**
+     * @example OK
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class ModifyPWByDomainResponseBody extends Model
     public $message;
 
     /**
+     * @example 02B2A890-CBD8-4806-9BCA-C93190CE7EF6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

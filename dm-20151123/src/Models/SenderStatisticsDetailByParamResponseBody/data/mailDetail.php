@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class mailDetail extends Model
 {
     /**
+     * @example s***@example.net
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 2021-04-28T17:11Z
+     *
      * @var string
      */
     public $lastUpdateTime;
 
     /**
+     * @example 250 Send Mail OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example b***@example.net
+     *
      * @var string
      */
     public $toAddress;
 
     /**
+     * @example 1619601108
+     *
      * @var string
      */
     public $utcLastUpdateTime;

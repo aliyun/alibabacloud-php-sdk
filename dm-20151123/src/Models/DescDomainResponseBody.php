@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescDomainResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $cnameAuthStatus;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $cnameConfirmStatus;
 
     /**
+     * @example dmtrace
+     *
      * @var string
      */
     public $cnameRecord;
 
     /**
+     * @example 2019-09-29T12:49Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $defaultDomain;
@@ -36,64 +46,105 @@ class DescDomainResponseBody extends Model
     /**
      * @var string
      */
+    public $dkimAuthStatus;
+
+    /**
+     * @var string
+     */
+    public $dkimPublicKey;
+
+    /**
+     * @var string
+     */
+    public $dkimRR;
+
+    /**
+     * @example abc-com.xxxx.com
+     *
+     * @var string
+     */
     public $dnsMx;
 
     /**
+     * @example v=xxxx
+     *
      * @var string
      */
     public $dnsSpf;
 
     /**
+     * @example 121309ohdsa
+     *
      * @var string
      */
     public $dnsTxt;
 
     /**
+     * @example 158910
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example abc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example 0c40d5f125af4e42892a
+     *
      * @var string
      */
     public $domainType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $icpStatus;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $mxAuthStatus;
 
     /**
+     * @example mx01.dm.aliyun.com
+     *
      * @var string
      */
     public $mxRecord;
 
     /**
+     * @example 51B74264-46B4-43C8-A9A0-6B8E8BC04F34
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $spfAuthStatus;
 
     /**
+     * @example include:spf1.dm.aliyun.com
+     *
      * @var string
      */
     public $spfRecord;
@@ -101,9 +152,18 @@ class DescDomainResponseBody extends Model
     /**
      * @var string
      */
+    public $spfRecordV2;
+
+    /**
+     * @example abc.com
+     *
+     * @var string
+     */
     public $tlDomainName;
 
     /**
+     * @example tracedm.aliyuncs.com
+     *
      * @var string
      */
     public $tracefRecord;
@@ -113,6 +173,9 @@ class DescDomainResponseBody extends Model
         'cnameRecord'        => 'CnameRecord',
         'createTime'         => 'CreateTime',
         'defaultDomain'      => 'DefaultDomain',
+        'dkimAuthStatus'     => 'DkimAuthStatus',
+        'dkimPublicKey'      => 'DkimPublicKey',
+        'dkimRR'             => 'DkimRR',
         'dnsMx'              => 'DnsMx',
         'dnsSpf'             => 'DnsSpf',
         'dnsTxt'             => 'DnsTxt',
@@ -126,6 +189,7 @@ class DescDomainResponseBody extends Model
         'requestId'          => 'RequestId',
         'spfAuthStatus'      => 'SpfAuthStatus',
         'spfRecord'          => 'SpfRecord',
+        'spfRecordV2'        => 'SpfRecordV2',
         'tlDomainName'       => 'TlDomainName',
         'tracefRecord'       => 'TracefRecord',
     ];
@@ -151,6 +215,15 @@ class DescDomainResponseBody extends Model
         }
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
+        }
+        if (null !== $this->dkimAuthStatus) {
+            $res['DkimAuthStatus'] = $this->dkimAuthStatus;
+        }
+        if (null !== $this->dkimPublicKey) {
+            $res['DkimPublicKey'] = $this->dkimPublicKey;
+        }
+        if (null !== $this->dkimRR) {
+            $res['DkimRR'] = $this->dkimRR;
         }
         if (null !== $this->dnsMx) {
             $res['DnsMx'] = $this->dnsMx;
@@ -191,6 +264,9 @@ class DescDomainResponseBody extends Model
         if (null !== $this->spfRecord) {
             $res['SpfRecord'] = $this->spfRecord;
         }
+        if (null !== $this->spfRecordV2) {
+            $res['SpfRecordV2'] = $this->spfRecordV2;
+        }
         if (null !== $this->tlDomainName) {
             $res['TlDomainName'] = $this->tlDomainName;
         }
@@ -223,6 +299,15 @@ class DescDomainResponseBody extends Model
         }
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];
+        }
+        if (isset($map['DkimAuthStatus'])) {
+            $model->dkimAuthStatus = $map['DkimAuthStatus'];
+        }
+        if (isset($map['DkimPublicKey'])) {
+            $model->dkimPublicKey = $map['DkimPublicKey'];
+        }
+        if (isset($map['DkimRR'])) {
+            $model->dkimRR = $map['DkimRR'];
         }
         if (isset($map['DnsMx'])) {
             $model->dnsMx = $map['DnsMx'];
@@ -262,6 +347,9 @@ class DescDomainResponseBody extends Model
         }
         if (isset($map['SpfRecord'])) {
             $model->spfRecord = $map['SpfRecord'];
+        }
+        if (isset($map['SpfRecordV2'])) {
+            $model->spfRecordV2 = $map['SpfRecordV2'];
         }
         if (isset($map['TlDomainName'])) {
             $model->tlDomainName = $map['TlDomainName'];

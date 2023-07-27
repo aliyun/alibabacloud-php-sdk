@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class stat extends Model
 {
     /**
+     * @example 2019-09-29T13:28Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptClickCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptClickRate;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptOpenCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptOpenRate;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptUniqueClickCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptUniqueClickRate;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptUniqueOpenCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $rcptUniqueOpenRate;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $totalNumber;

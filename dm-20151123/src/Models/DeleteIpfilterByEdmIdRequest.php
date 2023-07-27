@@ -14,6 +14,8 @@ class DeleteIpfilterByEdmIdRequest extends Model
     public $fromType;
 
     /**
+     * @example 10120
+     *
      * @var string
      */
     public $id;

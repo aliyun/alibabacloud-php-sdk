@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDomainRequest extends Model
 {
     /**
+     * @example 326***
+     *
      * @var int
      */
     public $domainId;

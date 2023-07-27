@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpProtectionRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $ipProtection;

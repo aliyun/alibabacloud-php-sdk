@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class QueryReceiverDetailRequest extends Model
 {
     /**
+     * @example b***@example.net
+     *
      * @var string
      */
     public $keyWord;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $nextStart;
@@ -24,11 +28,15 @@ class QueryReceiverDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1235
+     *
      * @var string
      */
     public $receiverId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BatchSendMailResponseBody extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $envId;
 
     /**
+     * @example 12D086F6-8F31-4658-84C1-006DED011A85
+     *
      * @var string
      */
     public $requestId;

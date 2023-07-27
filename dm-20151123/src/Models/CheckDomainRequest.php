@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckDomainRequest extends Model
 {
     /**
+     * @description The ID of the domain name.
+     *
+     * @example 153345
+     *
      * @var int
      */
     public $domainId;

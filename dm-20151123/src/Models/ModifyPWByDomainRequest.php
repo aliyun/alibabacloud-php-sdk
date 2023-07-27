@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyPWByDomainRequest extends Model
 {
     /**
+     * @example abc.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @example pwd
+     *
      * @var string
      */
     public $password;
@@ -21,11 +30,18 @@ class ModifyPWByDomainRequest extends Model
     /**
      * @var string
      */
+    public $resourceOwnerAccount;
+
+    /**
+     * @var int
+     */
     public $resourceOwnerId;
     protected $_name = [
-        'domainName'      => 'DomainName',
-        'password'        => 'Password',
-        'resourceOwnerId' => 'ResourceOwnerId',
+        'domainName'           => 'DomainName',
+        'ownerId'              => 'OwnerId',
+        'password'             => 'Password',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -38,8 +54,14 @@ class ModifyPWByDomainRequest extends Model
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
@@ -59,8 +81,14 @@ class ModifyPWByDomainRequest extends Model
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];

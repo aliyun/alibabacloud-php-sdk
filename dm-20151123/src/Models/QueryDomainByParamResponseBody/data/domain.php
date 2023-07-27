@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $cnameAuthStatus;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $confirmStatus;
 
     /**
+     * @example 2019-09-29T13:28Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 158923
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example vmeixme.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 6bd86901b9fe4618a046
+     *
      * @var string
      */
     public $domainRecord;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $icpStatus;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $mxAuthStatus;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $spfAuthStatus;
 
     /**
+     * @example 1569734892
+     *
      * @var int
      */
     public $utcCreateTime;

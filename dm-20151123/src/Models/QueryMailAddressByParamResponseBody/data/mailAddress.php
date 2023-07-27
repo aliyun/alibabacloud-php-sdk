@@ -14,56 +14,78 @@ class mailAddress extends Model
     public $accountName;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @example 2019-09-29T13:28Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 10000
+     *
      * @var string
      */
     public $dailyCount;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $dailyReqCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $domainStatus;
 
     /**
+     * @example 12122
+     *
      * @var string
      */
     public $mailAddressId;
 
     /**
+     * @example 300000
+     *
      * @var string
      */
     public $monthCount;
 
     /**
+     * @example 20000
+     *
      * @var string
      */
     public $monthReqCount;
 
     /**
+     * @example 112@aliyun.com
+     *
      * @var string
      */
     public $replyAddress;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $replyStatus;
 
     /**
+     * @example batch
+     *
      * @var string
      */
     public $sendtype;

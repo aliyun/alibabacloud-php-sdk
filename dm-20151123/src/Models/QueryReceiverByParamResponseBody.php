@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class QueryReceiverByParamResponseBody extends Model
 {
     /**
+     * @example 6aec200853#102#1638894326#rdwilbur@verizon.net
+     *
      * @var string
      */
     public $nextStart;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $totalCount;

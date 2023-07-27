@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SaveReceiverDetailRequest extends Model
 {
     /**
+     * @example [{“b”:” birthday”,”e”:”xxx@alibaba-inc.com”,”g”:” gender”,”m”:” mobile “,”n”:” nickname “,”u”:”name “}]
+     *
      * @var string
      */
     public $detail;
@@ -19,6 +21,8 @@ class SaveReceiverDetailRequest extends Model
     public $ownerId;
 
     /**
+     * @example 34642
+     *
      * @var string
      */
     public $receiverId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTrackListByMailFromAndTagNameRequest extends Model
 {
     /**
+     * @example e-service@amegroups.cn
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example 2019-09-29
+     *
      * @var string
      */
     public $endTime;
@@ -39,11 +43,15 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
@@ -59,11 +67,15 @@ class GetTrackListByMailFromAndTagNameRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2019-09-29
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $tagName;

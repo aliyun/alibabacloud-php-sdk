@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateIpProtectionResponseBody extends Model
 {
     /**
+     * @example B653A6FC-D1AD-5936-A262-F50994ED2574
+     *
      * @var string
      */
     public $requestId;

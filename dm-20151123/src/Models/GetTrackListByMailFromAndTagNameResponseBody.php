@@ -20,21 +20,29 @@ class GetTrackListByMailFromAndTagNameResponseBody extends Model
     public $offsetCreateTimeDesc;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 10A1AD70-E48E-476D-98D9-39BD92193837
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $total;

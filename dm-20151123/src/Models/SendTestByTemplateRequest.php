@@ -14,6 +14,8 @@ class SendTestByTemplateRequest extends Model
     public $accountName;
 
     /**
+     * @example 2000/01/01
+     *
      * @var string
      */
     public $birthday;
@@ -29,6 +31,8 @@ class SendTestByTemplateRequest extends Model
     public $gender;
 
     /**
+     * @example 1380000****
+     *
      * @var string
      */
     public $mobile;
@@ -54,6 +58,8 @@ class SendTestByTemplateRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 123
+     *
      * @var int
      */
     public $templateId;

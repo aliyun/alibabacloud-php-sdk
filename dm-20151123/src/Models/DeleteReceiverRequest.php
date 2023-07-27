@@ -14,6 +14,10 @@ class DeleteReceiverRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the recipient list.
+     *
+     * @example 1453
+     *
      * @var string
      */
     public $receiverId;

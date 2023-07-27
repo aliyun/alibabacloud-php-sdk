@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryTaskByParamRequest extends Model
 {
     /**
+     * @example mesh-notification-788717
+     *
      * @var string
      */
     public $keyWord;
@@ -19,11 +21,15 @@ class QueryTaskByParamRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -39,6 +45,8 @@ class QueryTaskByParamRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;

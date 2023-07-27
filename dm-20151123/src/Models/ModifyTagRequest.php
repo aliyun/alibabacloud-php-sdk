@@ -24,11 +24,19 @@ class ModifyTagRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the tag.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $tagId;
 
     /**
+     * @description The name of the tag.
+     *
+     * @example vme
+     *
      * @var string
      */
     public $tagName;
