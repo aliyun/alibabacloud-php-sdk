@@ -169,6 +169,11 @@ class ModifyDBInstanceSpecRequest extends Model
     public $switchTime;
 
     /**
+     * @var string
+     */
+    public $targetMinorVersion;
+
+    /**
      * @description The ID of the order.
      *
      * @example 3
@@ -212,6 +217,7 @@ class ModifyDBInstanceSpecRequest extends Model
         'serverlessConfiguration' => 'ServerlessConfiguration',
         'sourceBiz'               => 'SourceBiz',
         'switchTime'              => 'SwitchTime',
+        'targetMinorVersion'      => 'TargetMinorVersion',
         'usedTime'                => 'UsedTime',
         'zoneId'                  => 'ZoneId',
     ];
@@ -282,6 +288,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (null !== $this->switchTime) {
             $res['SwitchTime'] = $this->switchTime;
+        }
+        if (null !== $this->targetMinorVersion) {
+            $res['TargetMinorVersion'] = $this->targetMinorVersion;
         }
         if (null !== $this->usedTime) {
             $res['UsedTime'] = $this->usedTime;
@@ -360,6 +369,9 @@ class ModifyDBInstanceSpecRequest extends Model
         }
         if (isset($map['SwitchTime'])) {
             $model->switchTime = $map['SwitchTime'];
+        }
+        if (isset($map['TargetMinorVersion'])) {
+            $model->targetMinorVersion = $map['TargetMinorVersion'];
         }
         if (isset($map['UsedTime'])) {
             $model->usedTime = $map['UsedTime'];

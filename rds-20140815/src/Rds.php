@@ -15618,6 +15618,9 @@ class Rds extends OpenApiClient
         if (!Utils::isUnset($request->switchTime)) {
             $query['SwitchTime'] = $request->switchTime;
         }
+        if (!Utils::isUnset($request->targetMinorVersion)) {
+            $query['TargetMinorVersion'] = $request->targetMinorVersion;
+        }
         if (!Utils::isUnset($request->usedTime)) {
             $query['UsedTime'] = $request->usedTime;
         }
