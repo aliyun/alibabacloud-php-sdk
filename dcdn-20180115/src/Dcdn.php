@@ -28,6 +28,10 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnIpaDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnWafDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchSetDcdnWafDomainConfigsResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStartDcdnDomainResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\BatchStopDcdnDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CheckDcdnProjectExistResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CommitStagingRoutineCodeRequest;
@@ -53,6 +57,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaDomainRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaDomainResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaSpecificConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnIpaSpecificConfigResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnKvNamespaceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnKvNamespaceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnRealTimeLogProjectRequest;
@@ -191,6 +197,10 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaUserDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnKvAccountResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnKvAccountStatusResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnKvNamespaceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnKvNamespaceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2IpsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnL2VipsResponse;
@@ -306,10 +316,14 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\EditRoutineConfShrinkRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\GetDcdnKvResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnKvRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ListDcdnRealTimeDeliveryProjectResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDCdnDomainSchdmByPropertyResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafGroupRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafGroupResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\ModifyDcdnWafPolicyRequest;
@@ -325,6 +339,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishDcdnStagingConfigToProductionR
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PublishRoutineCodeRevisionShrinkRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvNamespaceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvNamespaceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\PutDcdnKvResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\RefreshDcdnObjectCachesRequest;
@@ -769,9 +785,8 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can specify up to 50 domain names in each request.
-     *   * *   You can call this operation up to 30 times per second per account.
+     * > - You can specify up to 50 domain names in each request.
+     *   * > - You can call this operation up to 30 times per second per account.
      *   *
      * @param BatchDeleteDcdnDomainConfigsRequest $request BatchDeleteDcdnDomainConfigsRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -816,9 +831,8 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * >
-     *   * *   You can specify up to 50 domain names in each request.
-     *   * *   You can call this operation up to 30 times per second per account.
+     * > - You can specify up to 50 domain names in each request.
+     *   * > - You can call this operation up to 30 times per second per account.
      *   *
      * @param BatchDeleteDcdnDomainConfigsRequest $request BatchDeleteDcdnDomainConfigsRequest
      *
@@ -883,8 +897,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation up to 20 times per second per account.
+     * You can call this operation up to 20 times per second per account.
      *   *
      * @param BatchModifyDcdnWafRulesRequest $request BatchModifyDcdnWafRulesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -920,8 +933,7 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can call this operation up to 20 times per second per account.
+     * You can call this operation up to 20 times per second per account.
      *   *
      * @param BatchModifyDcdnWafRulesRequest $request BatchModifyDcdnWafRulesRequest
      *
@@ -1180,6 +1192,124 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchSetDcdnWafDomainConfigsWithOptions($request, $runtime);
+    }
+
+    /**
+     * >
+     *   * *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
+     *   * *   You can specify up to 50 domain names in each request.
+     *   * *   You can call this operation up to 30 times per second per account.
+     *   *
+     * @param BatchStartDcdnDomainRequest $request BatchStartDcdnDomainRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchStartDcdnDomainResponse BatchStartDcdnDomainResponse
+     */
+    public function batchStartDcdnDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStartDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchStartDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * >
+     *   * *   If an accelerated domain name is in invalid state or your account has an overdue payment, the accelerated domain name cannot be enabled.
+     *   * *   You can specify up to 50 domain names in each request.
+     *   * *   You can call this operation up to 30 times per second per account.
+     *   *
+     * @param BatchStartDcdnDomainRequest $request BatchStartDcdnDomainRequest
+     *
+     * @return BatchStartDcdnDomainResponse BatchStartDcdnDomainResponse
+     */
+    public function batchStartDcdnDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchStartDcdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * >
+     *   * *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
+     *   * *   You can specify up to 50 domain names in each request.
+     *   * *   You can call this operation up to 30 times per second per account.
+     *   *
+     * @param BatchStopDcdnDomainRequest $request BatchStopDcdnDomainRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return BatchStopDcdnDomainResponse BatchStopDcdnDomainResponse
+     */
+    public function batchStopDcdnDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainNames)) {
+            $query['DomainNames'] = $request->domainNames;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BatchStopDcdnDomain',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BatchStopDcdnDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * >
+     *   * *   After an accelerated domain name is disabled, Dynamic Content Delivery Network (DCDN) retains the domain name information. The system automatically reroutes all requests that are destined for the accelerated domain name to the origin.
+     *   * *   You can specify up to 50 domain names in each request.
+     *   * *   You can call this operation up to 30 times per second per account.
+     *   *
+     * @param BatchStopDcdnDomainRequest $request BatchStopDcdnDomainRequest
+     *
+     * @return BatchStopDcdnDomainResponse BatchStopDcdnDomainResponse
+     */
+    public function batchStopDcdnDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->batchStopDcdnDomainWithOptions($request, $runtime);
     }
 
     /**
@@ -1898,6 +2028,49 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDcdnKvNamespaceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeleteDcdnKvNamespaceResponse
+     */
+    public function deleteDcdnKvNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnKvNamespace',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDcdnKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnKvNamespaceRequest $request
+     *
+     * @return DeleteDcdnKvNamespaceResponse
+     */
+    public function deleteDcdnKvNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnKvNamespaceWithOptions($request, $runtime);
     }
 
     /**
@@ -4259,11 +4432,16 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * # Usage notes
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   * *   The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-     *   * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |.
+     * * You can call this operation up to 10 times per second per account.
+     *   * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+     *   * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+     *   * **Time granularity**
+     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+     *   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+     *   * |----|------|-----|--------|
+     *   * | 1 minute | 1 hour | 7 days | 5 minutes |
+     *   * | 5 minutes | 3 days | 93 days | 15 minutes |
+     *   * | 1 hour | 31 days | 186 days | 4 hours |.
      *   *
      * @param DescribeDcdnDomainRealTimeByteHitRateDataRequest $request DescribeDcdnDomainRealTimeByteHitRateDataRequest
      * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
@@ -4293,11 +4471,16 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * # Usage notes
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   * *   The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
-     *   * *   If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |.
+     * * You can call this operation up to 10 times per second per account.
+     *   * * The network traffic destined for different domain names may be redirected to the same origin server. Therefore, the byte hit ratios may be inaccurate. The accuracy of query results is based on the actual configurations.
+     *   * * If you do not set the **StartTime** or **EndTime** parameter, the request returns the data collected in the last hour. If you set both the **StartTime** and **EndTime** parameters, the request returns the data collected within the specified time range.
+     *   * **Time granularity**
+     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+     *   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+     *   * |----|------|-----|--------|
+     *   * | 1 minute | 1 hour | 7 days | 5 minutes |
+     *   * | 5 minutes | 3 days | 93 days | 15 minutes |
+     *   * | 1 hour | 31 days | 186 days | 4 hours |.
      *   *
      * @param DescribeDcdnDomainRealTimeByteHitRateDataRequest $request DescribeDcdnDomainRealTimeByteHitRateDataRequest
      *
@@ -4542,10 +4725,14 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * #
-     *   * *   You can call this operation up to 10 times per second per account.
+     * *   You can call this operation up to 10 times per second per account.
      *   * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |.
+     *   * **Time granularity**
+     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+     *   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+     *   * |-----|-----|-----|--------|
+     *   * | 1 minute | 1 hour | 7 days | 5 minutes |
+     *   * | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |.
      *   *
      * @param DescribeDcdnDomainRealTimeSrcBpsDataRequest $request DescribeDcdnDomainRealTimeSrcBpsDataRequest
      * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
@@ -4584,10 +4771,14 @@ class Dcdn extends OpenApiClient
     }
 
     /**
-     * #
-     *   * *   You can call this operation up to 10 times per second per account.
+     * *   You can call this operation up to 10 times per second per account.
      *   * *   If you do not set the StartTime or EndTime parameter, the request returns the data collected in the last hour. If you set both the parameters, the request returns the data collected within the specified time range.
-     *   * **Time granularity** The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay. | Time granularity | Maximum time range per query | Historical data available | Data delay | |---------------|--------| | 1 minute | 1 hour | 7 days | 5 minutes | | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |.
+     *   * **Time granularity**
+     *   * The time granularity varies with the time range specified by the StartTime and EndTime parameters. The following table describes the time period within which historical data is available and the data delay.
+     *   * | Time granularity | Maximum time range per query | Historical data available | Data delay |
+     *   * |-----|-----|-----|--------|
+     *   * | 1 minute | 1 hour | 7 days | 5 minutes |
+     *   * | 5 minutes | 3 days | 93 days | 15 minutes | | 1 hour | 31 days | 186 days | 4 hours |.
      *   *
      * @param DescribeDcdnDomainRealTimeSrcBpsDataRequest $request DescribeDcdnDomainRealTimeSrcBpsDataRequest
      *
@@ -5953,6 +6144,112 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnIpaUserDomainsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnKvAccountResponse
+     */
+    public function describeDcdnKvAccountWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnKvAccount',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnKvAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeDcdnKvAccountResponse
+     */
+    public function describeDcdnKvAccount()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnKvAccountWithOptions($runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnKvAccountStatusResponse
+     */
+    public function describeDcdnKvAccountStatusWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnKvAccountStatus',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnKvAccountStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeDcdnKvAccountStatusResponse
+     */
+    public function describeDcdnKvAccountStatus()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnKvAccountStatusWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeDcdnKvNamespaceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnKvNamespaceResponse
+     */
+    public function describeDcdnKvNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnKvNamespace',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnKvNamespaceRequest $request
+     *
+     * @return DescribeDcdnKvNamespaceResponse
+     */
+    public function describeDcdnKvNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnKvNamespaceWithOptions($request, $runtime);
     }
 
     /**
@@ -9092,6 +9389,46 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param ListDcdnKvRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListDcdnKvResponse
+     */
+    public function listDcdnKvWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDcdnKv',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDcdnKvResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDcdnKvRequest $request
+     *
+     * @return ListDcdnKvResponse
+     */
+    public function listDcdnKv($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
      * > You can call this operation up to 100 times per second per account.
      *   *
      * @param ListDcdnRealTimeDeliveryProjectRequest $request ListDcdnRealTimeDeliveryProjectRequest
@@ -9195,6 +9532,55 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDCdnDomainSchdmByPropertyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDcdnWafGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDcdnWafGroupResponse
+     */
+    public function modifyDcdnWafGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->rules)) {
+            $body['Rules'] = $request->rules;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDcdnWafGroup',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDcdnWafGroupRequest $request
+     *
+     * @return ModifyDcdnWafGroupResponse
+     */
+    public function modifyDcdnWafGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDcdnWafGroupWithOptions($request, $runtime);
     }
 
     /**
@@ -9679,6 +10065,52 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->putDcdnKvWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PutDcdnKvNamespaceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return PutDcdnKvNamespaceResponse
+     */
+    public function putDcdnKvNamespaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $body['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutDcdnKvNamespace',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PutDcdnKvNamespaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PutDcdnKvNamespaceRequest $request
+     *
+     * @return PutDcdnKvNamespaceResponse
+     */
+    public function putDcdnKvNamespace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->putDcdnKvNamespaceWithOptions($request, $runtime);
     }
 
     /**
