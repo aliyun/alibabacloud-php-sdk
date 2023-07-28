@@ -61,6 +61,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnConditionIPBInfoRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnConditionIPBInfoResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnDeliverListRequest;
@@ -258,7 +260,11 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\ListFCTriggerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryDomainsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryDomainsResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListRealtimeLogDeliveryInfosResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ListUserCustomLogConfigResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainOwnerRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainOwnerResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\ModifyCdnDomainSchdmByPropertyRequest;
@@ -1944,6 +1950,49 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnConditionIPBInfoRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeCdnConditionIPBInfoResponse
+     */
+    public function describeCdnConditionIPBInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnConditionIPBInfo',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnConditionIPBInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnConditionIPBInfoRequest $request
+     *
+     * @return DescribeCdnConditionIPBInfoResponse
+     */
+    public function describeCdnConditionIPBInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnConditionIPBInfoWithOptions($request, $runtime);
     }
 
     /**
@@ -7767,6 +7816,64 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->tagOwnerBid)) {
+            $query['TagOwnerBid'] = $request->tagOwnerBid;
+        }
+        if (!Utils::isUnset($request->tagOwnerUid)) {
+            $query['TagOwnerUid'] = $request->tagOwnerUid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * > You can call this operation up to 100 times per second per account.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
@@ -7863,6 +7970,46 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyCdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyCdnDomainOwnerRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ModifyCdnDomainOwnerResponse
+     */
+    public function modifyCdnDomainOwnerWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyCdnDomainOwner',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyCdnDomainOwnerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyCdnDomainOwnerRequest $request
+     *
+     * @return ModifyCdnDomainOwnerResponse
+     */
+    public function modifyCdnDomainOwner($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyCdnDomainOwnerWithOptions($request, $runtime);
     }
 
     /**
