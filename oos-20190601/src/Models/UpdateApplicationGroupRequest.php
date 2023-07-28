@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationGroupRequest extends Model
 {
     /**
+     * @description The application name.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example MyApplicationGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The new name of the application group.
+     *
+     * @example UpdateMyApplicationGroup
+     *
      * @var string
      */
     public $newName;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetPatchBaselineRequest extends Model
 {
     /**
+     * @description The name of the patch baseline.
+     *
+     * @example MyPatchBaseline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region in which the patch baseline whose details you want to query resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

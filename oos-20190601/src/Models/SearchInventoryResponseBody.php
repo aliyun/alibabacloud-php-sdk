@@ -14,16 +14,28 @@ class SearchInventoryResponseBody extends Model
     public $entities;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A81E4B2E-6B33-4BAE-9856-55DB7C893E01
+     *
      * @var string
      */
     public $requestId;

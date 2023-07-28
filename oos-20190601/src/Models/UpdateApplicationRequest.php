@@ -4,34 +4,63 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateApplicationRequest\alarmConfig;
 use AlibabaCloud\Tea\Model;
 
 class UpdateApplicationRequest extends Model
 {
     /**
+     * @var alarmConfig
+     */
+    public $alarmConfig;
+
+    /**
+     * @var bool
+     */
+    public $deleteAlarmRulesBeforeUpdate;
+
+    /**
+     * @description The description to be updated for the application.
+     *
+     * @example test application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The application name.
+     *
+     * @example My-Application
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The tags.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
-        'description' => 'Description',
-        'name'        => 'Name',
-        'regionId'    => 'RegionId',
-        'tags'        => 'Tags',
+        'alarmConfig'                  => 'AlarmConfig',
+        'deleteAlarmRulesBeforeUpdate' => 'DeleteAlarmRulesBeforeUpdate',
+        'description'                  => 'Description',
+        'name'                         => 'Name',
+        'regionId'                     => 'RegionId',
+        'tags'                         => 'Tags',
     ];
 
     public function validate()
@@ -41,6 +70,12 @@ class UpdateApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarmConfig) {
+            $res['AlarmConfig'] = null !== $this->alarmConfig ? $this->alarmConfig->toMap() : null;
+        }
+        if (null !== $this->deleteAlarmRulesBeforeUpdate) {
+            $res['DeleteAlarmRulesBeforeUpdate'] = $this->deleteAlarmRulesBeforeUpdate;
+        }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
@@ -65,6 +100,12 @@ class UpdateApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmConfig'])) {
+            $model->alarmConfig = alarmConfig::fromMap($map['AlarmConfig']);
+        }
+        if (isset($map['DeleteAlarmRulesBeforeUpdate'])) {
+            $model->deleteAlarmRulesBeforeUpdate = $map['DeleteAlarmRulesBeforeUpdate'];
+        }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }

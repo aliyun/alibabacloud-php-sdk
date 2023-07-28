@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTemplatesResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BEF54BA-17B6-449F-A219-49ACB157E3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metadata of the template.
+     *
      * @var templates[]
      */
     public $templates;

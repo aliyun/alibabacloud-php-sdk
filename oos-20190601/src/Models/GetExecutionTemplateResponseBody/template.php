@@ -9,61 +9,109 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The creator of the template.
+     *
+     * @example root(13090000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The time when the template was created.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the template.
+     *
+     * @example Descirbe instances of given status
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The SHA-256 value of the template content.
+     *
+     * @example 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
+     *
      * @var string
      */
     public $hash;
 
     /**
+     * @description The share type of the template. The share type of a user-created template is **Private**.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+     *
+     * @example {"k1":"k2","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The format of the template. The system automatically determines whether the format is JSON or YAML.
+     *
+     * @example JSON
+     *
      * @var string
      */
     public $templateFormat;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example t-94753d4d828d38
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @description The user who last updated the template.
+     *
+     * @example root(13090000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the template was last updated.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $updatedDate;

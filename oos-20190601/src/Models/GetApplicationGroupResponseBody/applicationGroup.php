@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class applicationGroup extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The ID of the application group in CloudMonitor.
+     *
+     * @example 12345678
+     *
      * @var string
      */
     public $cmsGroupId;
 
     /**
+     * @description The time when the application group was created.
+     *
+     * @example 2021-09-07T10:28:25Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The output of the deployment result.
+     *
+     * @example {       "Outputs": [         {           "Description": "No description given",           "OutputKey": "InstanceIds"         }       ],       "StackId": "6ef4b860-f6e7-4145-8d22-f4a2a32363e1"     }   }
+     *
      * @var string
      */
     public $deployOutputs;
 
     /**
+     * @description The configuration information of the application group.
+     *
+     * @example {       "TemplateURL": "https://ros-template.oss-cn-zhangjiakou.aliyuncs.com/App_Management_Existing_Vpc_Ecs_Instance.json",       "Parameters": {         "ZoneId": "cn-hangzhou-k",         "ProjectName": "test",         "SystemDiskSize": 40,         "InstanceChargeType": "PostPaid",         "SecurityGroupId": "sg-bp1a4374akk63jl8tddy",         "VSwitchId": "vsw-bp1fcvc3zn0jrag86rrlm",         "SystemDiskCategory": "cloud_essd",         "InstancePassword": "******",         "InternetChargeType": "PayByTraffic",         "InstanceCount": 1,         "InternetMaxBandwidthOut": 0,         "VpcId": "vpc-bp1i99boyas8i8m9t3skp",         "EcsImageId": "centos_8_5_x64_20G_alibase_20211228.vhd",         "DataDiskSize": 100,         "EcsInstanceType": "ecs.s6-c1m4.small",         "DataDiskCategory": "cloud_efficiency",         "EnvironmentCommandId": "c-hz028fc3g031gcg"       }
+     *
      * @var string
      */
     public $deployParameters;
 
     /**
+     * @description The ID of the region in which you deploy the application group.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $deployRegionId;
 
     /**
+     * @description The description of the application group.
+     *
+     * @example ApplicationGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The tag key.
+     *
+     * @example k1
+     *
      * @var string
      */
     public $importTagKey;
 
     /**
+     * @description The tag value.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $importTagValue;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example MyApplicationGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The creation progress of the application instance.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The state of the application group.
+     *
+     * @example Created
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The state information of the application group.
+     *
+     * @example Stack CREATE completed successfully
+     *
      * @var string
      */
     public $statusReason;
 
     /**
+     * @description The time when the application group was last modified.
+     *
+     * @example 2021-09-07T10:28:25Z
+     *
      * @var string
      */
     public $updateDate;

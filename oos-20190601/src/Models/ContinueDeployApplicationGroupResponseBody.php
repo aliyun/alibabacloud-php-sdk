@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ContinueDeployApplicationGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8AF4800A-A316-589A-90C4-313B1FEEB084
+     *
      * @var string
      */
     public $requestId;

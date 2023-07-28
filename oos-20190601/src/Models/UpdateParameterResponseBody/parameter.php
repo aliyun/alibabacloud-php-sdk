@@ -9,66 +9,106 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example "{\"AllowedValues\":[\"parameter\"],\"AllowedPattern\":\"parameter\",\"MinLength\":0,\"MaxLength\":20}"
+     *
      * @var string
      */
     public $constraints;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the common parameter. The description must be 1 to 200 characters in length.
+     *
+     * @example update
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example p-4c4b401cab6747xxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $parameterVersion;
 
     /**
+     * @description Updates a common parameter.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The information of the common parameter.
+     *
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The user who updated the common parameter.
+     *
+     * @example String
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The description of the common parameter.
+     *
+     * @example 2020-09-01T08:04:23Z
+     *
      * @var string
      */
     public $updatedDate;

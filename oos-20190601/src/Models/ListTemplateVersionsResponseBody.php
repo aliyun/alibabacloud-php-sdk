@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
+     * @description The maximum number of results on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example NJSNDKLJS-SJKJDO090k30-JSDK232
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E6CD612B-5889-4F1A-823F-8A4029E46
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The versions of the template.
+     *
      * @var templateVersions[]
      */
     public $templateVersions;

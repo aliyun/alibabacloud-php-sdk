@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class CreateApplicationGroupRequest extends Model
 {
     /**
+     * @description The application name.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * @example -
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The ID of the application group in CloudMonitor.
+     *
+     * @example 218026174
+     *
      * @var string
      */
     public $cmsGroupId;
 
     /**
+     * @description The ID of the region in which the related sources reside.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $deployRegionId;
 
     /**
+     * @description The description of the application group.
+     *
+     * @example ApplicationGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The key of the tag. You must set both the ImportTagKey and the ImportTagValue parameters, or leave both of them empty. If you do not set the ImportTagKey and ImportTagValue parameters, the application name is used for this parameter by default.
+     *
+     * @example k1
+     *
      * @var string
      */
     public $importTagKey;
 
     /**
+     * @description The value of the tag. You must set both the ImportTagKey and the ImportTagValue parameters, or leave both of them empty. If you do not set the ImportTagKey and ImportTagValue parameters, the application group name is used for this parameter by default.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $importTagValue;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example MyApplicationGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

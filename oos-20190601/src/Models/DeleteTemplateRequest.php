@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateRequest extends Model
 {
     /**
+     * @description You can call this operation to delete a template.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoDeleteExecutions;
 
     /**
+     * @description Specifies whether to delete the related executions when a template is deleted.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListPatchBaselinesResponseBody extends Model
 {
     /**
+     * @description The type of the operating system.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     *
+     * @example The number of entries returned on each page.
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Indicates whether the patch baseline is set as the default patch baseline.
+     *
      * @var patchBaselines[]
      */
     public $patchBaselines;
 
     /**
+     * @description The details of the patch baselines.
+     *
+     * @example 432996A1-03C0-5C4C-A8E6-66C4110765B8
+     *
      * @var string
      */
     public $requestId;

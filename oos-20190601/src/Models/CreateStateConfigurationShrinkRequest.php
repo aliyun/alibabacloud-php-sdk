@@ -9,61 +9,110 @@ use AlibabaCloud\Tea\Model;
 class CreateStateConfigurationShrinkRequest extends Model
 {
     /**
+     * @description The description of the desired-state configuration.
+     *
+     * @example DASKJJLKADS-AHKLJHJSAKL-AJK
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description 收集Inventory数据
+     *
+     * @example ApplyOnce
+     *
      * @var string
      */
     public $configureMode;
 
     /**
+     * @description The configuration mode.
+     *
+     * ApplyAndAutoCorrect: The configuration is always applied.
+     * @example The region ID.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of resource group.
+     *
+     * @example {     "policy": {       "ACS:Application": {         "Collection": "Enabled"       },       "ACS:Network": {         "Collection": "Enabled"       }     }   }
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the schedule. Valid value: rate.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The description.
+     *
+     * @example The ID of the resource group.
+     *
      * @var string
      */
     public $scheduleExpression;
 
     /**
+     * @description The schedule expression.
+     *
+     * @example rate
+     *
      * @var string
      */
     public $scheduleType;
 
     /**
+     * @description The name of the template. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_).
+     *
+     * @example {"Key": "oos", "Value": "inventory"}
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @description The schedule expression. The interval between two schedules must be a minimum of 30 minutes.
+     *
+     * @example {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
+     *
      * @var string
      */
     public $targets;
 
     /**
+     * @description The version of the template.
+     *
+     * @example ACS-ECS-InventoryDataCollection
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The required resources.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

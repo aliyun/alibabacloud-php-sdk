@@ -10,56 +10,98 @@ use AlibabaCloud\Tea\Model;
 class ListSecretParameterVersionsResponseBody extends Model
 {
     /**
+     * @description The user who created the encryption parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The time when the encryption parameter was created.
+     *
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the encryption parameter.
+     *
+     * @example SecretParameter
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the encryption parameter.
+     *
+     * @example p-4c4b401cab6747xxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The name of the encryption parameter.
+     *
+     * @example MySecretParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The information about the version of the encryption parameter.
+     *
      * @var parameterVersions[]
      */
     public $parameterVersions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DBA6E6C8-F75D-41DE-AFF5-1FA03F551CA3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The type of the encryption parameter.
+     *
+     * @example Secret
+     *
      * @var string
      */
     public $type;

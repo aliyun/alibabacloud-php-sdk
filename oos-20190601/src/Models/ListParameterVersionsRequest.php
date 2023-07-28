@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListParameterVersionsRequest extends Model
 {
     /**
+     * @description The share type of the common parameter.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token.
+     *
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The data type of the common parameter.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The pagination token.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;

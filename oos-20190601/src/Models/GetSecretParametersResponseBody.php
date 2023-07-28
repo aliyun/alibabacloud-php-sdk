@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParametersResponseBody extends Model
 {
     /**
+     * @description Invalid encryption parameter.
+     *
      * @var string[]
      */
     public $invalidParameters;
 
     /**
+     * @description The information about the encryption parameter.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A5320F1D-92D9-44BB-A416-5FC525ED6D57
+     *
      * @var string
      */
     public $requestId;

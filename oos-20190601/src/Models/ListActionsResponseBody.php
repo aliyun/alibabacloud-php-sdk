@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListActionsResponseBody extends Model
 {
     /**
+     * @description The details of the actions.
+     *
      * @var actions[]
      */
     public $actions;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F9154C02-F847-4563-BB6A-6DD01A4F0
+     *
      * @var string
      */
     public $requestId;

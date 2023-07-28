@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetParametersByPathRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example /parameter
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $recursive;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

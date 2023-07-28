@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateParameterResponseBody extends Model
 {
     /**
+     * @description The information about the common parameter.
+     *
      * @var parameter
      */
     public $parameter;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0B419FF3-ABC6-4DF0-95E5-636DC8CBB8AF
+     *
      * @var string
      */
     public $requestId;

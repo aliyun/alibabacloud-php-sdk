@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionRiskyTasksResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C04B668D-D2DD-4B40-B6E9-0E3C4F53D5B5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about high-risk tasks.
+     *
      * @var riskyTasks[]
      */
     public $riskyTasks;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class currentTasks extends Model
 {
     /**
+     * @description The execution template of the task.
+     *
+     * @example acs::Template
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The ID of the task execution.
+     *
+     * @example task-exec-44d32b45d2a49899#1
+     *
      * @var string
      */
     public $taskExecutionId;
 
     /**
+     * @description The name of the task.
+     *
+     * @example installSLSILogtail
+     *
      * @var string
      */
     public $taskName;

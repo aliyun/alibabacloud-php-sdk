@@ -9,41 +9,75 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsRequest extends Model
 {
     /**
+     * @description The type of the application.
+     *
+     * @example DingTalk
+     *
+     * @var string
+     */
+    public $applicationType;
+
+    /**
+     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The name of the application.
+     *
+     * @example "MyApplications"
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The names of the applications.
+     *
+     * @example ["MyApplication"]
+     *
      * @var string
      */
     public $names;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example -
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The tags.
+     *
+     * @example {"k1": "v1","k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
-        'maxResults' => 'MaxResults',
-        'name'       => 'Name',
-        'names'      => 'Names',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'tags'       => 'Tags',
+        'applicationType' => 'ApplicationType',
+        'maxResults'      => 'MaxResults',
+        'name'            => 'Name',
+        'names'           => 'Names',
+        'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -53,6 +87,9 @@ class ListApplicationsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
+        }
         if (null !== $this->maxResults) {
             $res['MaxResults'] = $this->maxResults;
         }
@@ -83,6 +120,9 @@ class ListApplicationsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
+        }
         if (isset($map['MaxResults'])) {
             $model->maxResults = $map['MaxResults'];
         }

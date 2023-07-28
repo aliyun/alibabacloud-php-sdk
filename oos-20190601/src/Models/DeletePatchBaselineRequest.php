@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeletePatchBaselineRequest extends Model
 {
     /**
+     * @description The name of the patch baseline.
+     *
+     * @example MyPatchBaseline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

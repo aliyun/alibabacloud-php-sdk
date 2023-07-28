@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListSecretParameterVersionsRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The name of the encryption parameter.
+     *
+     * @example MySecretParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The share type of the encryption parameter.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description Specifies whether to decrypt the parameter value. The decrypted parameter value is returned only if this parameter is set to true. Otherwise, null is returned.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $withDecryption;

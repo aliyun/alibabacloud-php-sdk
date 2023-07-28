@@ -4,70 +4,147 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineResponseBody;
 
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineResponseBody\patchBaseline\tags;
 use AlibabaCloud\Tea\Model;
 
 class patchBaseline extends Model
 {
     /**
+     * @description The rules of scanning and installing patches for the specified operating system.
+     *
+     * @example {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+     *
      * @var string
      */
     public $approvalRules;
 
     /**
+     * @var string[]
+     */
+    public $approvedPatches;
+
+    /**
+     * @var bool
+     */
+    public $approvedPatchesEnableNonSecurity;
+
+    /**
+     * @description The creator of the patch baseline.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The time when the patch baseline was created.
+     *
+     * @example 2021-09-08T06:25:41Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the patch baseline.
+     *
+     * @example PatchBaseline
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the patch baseline.
+     *
+     * @example pb-0a0aeda72ed147eb97ea
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the patch baseline.
+     *
+     * @example MyPatchBaseline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the operating system.
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $operationSystem;
 
     /**
+     * @var string[]
+     */
+    public $rejectedPatches;
+
+    /**
+     * @var string
+     */
+    public $rejectedPatchesAction;
+
+    /**
+     * @description The share type of the patch baseline.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @var string[]
+     */
+    public $sources;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description The Alibaba Cloud account that last modified the information about the patch baseline.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the information about the patch baseline was last modified.
+     *
+     * @example 2021-09-08T06:25:41Z
+     *
      * @var string
      */
     public $updatedDate;
     protected $_name = [
-        'approvalRules'   => 'ApprovalRules',
-        'createdBy'       => 'CreatedBy',
-        'createdDate'     => 'CreatedDate',
-        'description'     => 'Description',
-        'id'              => 'Id',
-        'name'            => 'Name',
-        'operationSystem' => 'OperationSystem',
-        'shareType'       => 'ShareType',
-        'updatedBy'       => 'UpdatedBy',
-        'updatedDate'     => 'UpdatedDate',
+        'approvalRules'                    => 'ApprovalRules',
+        'approvedPatches'                  => 'ApprovedPatches',
+        'approvedPatchesEnableNonSecurity' => 'ApprovedPatchesEnableNonSecurity',
+        'createdBy'                        => 'CreatedBy',
+        'createdDate'                      => 'CreatedDate',
+        'description'                      => 'Description',
+        'id'                               => 'Id',
+        'name'                             => 'Name',
+        'operationSystem'                  => 'OperationSystem',
+        'rejectedPatches'                  => 'RejectedPatches',
+        'rejectedPatchesAction'            => 'RejectedPatchesAction',
+        'shareType'                        => 'ShareType',
+        'sources'                          => 'Sources',
+        'tags'                             => 'Tags',
+        'updatedBy'                        => 'UpdatedBy',
+        'updatedDate'                      => 'UpdatedDate',
     ];
 
     public function validate()
@@ -79,6 +156,12 @@ class patchBaseline extends Model
         $res = [];
         if (null !== $this->approvalRules) {
             $res['ApprovalRules'] = $this->approvalRules;
+        }
+        if (null !== $this->approvedPatches) {
+            $res['ApprovedPatches'] = $this->approvedPatches;
+        }
+        if (null !== $this->approvedPatchesEnableNonSecurity) {
+            $res['ApprovedPatchesEnableNonSecurity'] = $this->approvedPatchesEnableNonSecurity;
         }
         if (null !== $this->createdBy) {
             $res['CreatedBy'] = $this->createdBy;
@@ -98,8 +181,26 @@ class patchBaseline extends Model
         if (null !== $this->operationSystem) {
             $res['OperationSystem'] = $this->operationSystem;
         }
+        if (null !== $this->rejectedPatches) {
+            $res['RejectedPatches'] = $this->rejectedPatches;
+        }
+        if (null !== $this->rejectedPatchesAction) {
+            $res['RejectedPatchesAction'] = $this->rejectedPatchesAction;
+        }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->sources) {
+            $res['Sources'] = $this->sources;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->updatedBy) {
             $res['UpdatedBy'] = $this->updatedBy;
@@ -122,6 +223,14 @@ class patchBaseline extends Model
         if (isset($map['ApprovalRules'])) {
             $model->approvalRules = $map['ApprovalRules'];
         }
+        if (isset($map['ApprovedPatches'])) {
+            if (!empty($map['ApprovedPatches'])) {
+                $model->approvedPatches = $map['ApprovedPatches'];
+            }
+        }
+        if (isset($map['ApprovedPatchesEnableNonSecurity'])) {
+            $model->approvedPatchesEnableNonSecurity = $map['ApprovedPatchesEnableNonSecurity'];
+        }
         if (isset($map['CreatedBy'])) {
             $model->createdBy = $map['CreatedBy'];
         }
@@ -140,8 +249,30 @@ class patchBaseline extends Model
         if (isset($map['OperationSystem'])) {
             $model->operationSystem = $map['OperationSystem'];
         }
+        if (isset($map['RejectedPatches'])) {
+            if (!empty($map['RejectedPatches'])) {
+                $model->rejectedPatches = $map['RejectedPatches'];
+            }
+        }
+        if (isset($map['RejectedPatchesAction'])) {
+            $model->rejectedPatchesAction = $map['RejectedPatchesAction'];
+        }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['Sources'])) {
+            if (!empty($map['Sources'])) {
+                $model->sources = $map['Sources'];
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UpdatedBy'])) {
             $model->updatedBy = $map['UpdatedBy'];

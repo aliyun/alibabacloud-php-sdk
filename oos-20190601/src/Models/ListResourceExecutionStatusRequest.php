@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListResourceExecutionStatusRequest extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
+     * @example exec-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

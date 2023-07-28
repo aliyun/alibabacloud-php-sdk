@@ -9,96 +9,172 @@ use AlibabaCloud\Tea\Model;
 class taskExecutions extends Model
 {
     /**
+     * @description The output of the execution.
+     *
+     * @example exec-xxx
+     *
      * @var string
      */
     public $childExecutionId;
 
     /**
+     * @description The ID of the execution.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The execution ID of the parent node.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The action of the task.
+     *
+     * @example exec-44d32b45d2a449e49899
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The Input parameters of the task execution.
+     *
+     * @example {                     "NotifyNote":""                 }
+     *
      * @var mixed[]
      */
     public $extraData;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $loop;
 
     /**
+     * @description The status information of the task execution.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $loopBatchNumber;
 
     /**
+     * @description The time when the execution was created.
+     *
+     * @example i-1234566zxcvvb
+     *
      * @var string
      */
     public $loopItem;
 
     /**
+     * @description The status of the task.
+     *
+     * @example { "InstanceId":"i-xxx" }
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The name of the task.
+     *
+     * @example task-exec-xxx
+     *
      * @var string
      */
     public $parentTaskExecutionId;
 
     /**
+     * @description Queries task executions. Multiple methods are supported to filter task executions.
+     *
+     * @example { "Status":"Running" }
+     *
      * @var string
      */
     public $properties;
 
     /**
+     * @description The elements in the loop task.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description The time when the task execution stopped running.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The additional information.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $statusMessage;
 
     /**
+     * @description The execution ID of the task.
+     *
+     * @example ACS::Sleep
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The time when the execution was last updated.
+     *
+     * @example task-exec-xxx
+     *
      * @var string
      */
     public $taskExecutionId;
 
     /**
+     * @description The time when the execution started.
+     *
+     * @example describeInstance
+     *
      * @var string
      */
     public $taskName;
 
     /**
+     * @description The number of times for which the loop task is run.
+     *
+     * @example xxx
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The configuration and statistics information of the loop task. This parameter is returned only for the parent node of the loop task.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $updateDate;

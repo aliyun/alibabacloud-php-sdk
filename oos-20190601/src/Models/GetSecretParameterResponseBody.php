@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParameterResponseBody extends Model
 {
     /**
+     * @description The information about the encryption parameter.
+     *
      * @var parameter
      */
     public $parameter;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7F14FB7C-C9BE-44AE-92ED-21ACC02FBFD2
+     *
      * @var string
      */
     public $requestId;

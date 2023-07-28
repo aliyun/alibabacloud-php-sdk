@@ -9,21 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ChangeResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the resource group to which the cloud resource is to be moved. You can use resource groups to manage resources owned by your Alibaba Cloud account. Resource groups simplify the resource and permission management of your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
+     *
+     * @example rg-acfm3peow3k****
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the cloud resource that you want to move to another resource group.
+     *
+     *   If the ResourceType parameter is set to template, set the ResourceId parameter to the name of the template.
+     *   If the ResourceType parameter is set to parameter, set the ResourceId parameter to the name of the parameter.
+     *   If the ResourceType parameter is set to secretparameter, set the ResourceId parameter to the name of the encryption parameter.
+     *   If the ResourceType parameter is set to stateconfiguration, set the ResourceId parameter to the ID of the desired-state configuration.
+     *   If the ResourceType parameter is set to application, set the ResourceId parameter to the name of the application.
+     *
+     * @example TemplateName
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the cloud resource. Valid values:
+     *
+     *   template: template
+     *   parameter: parameter
+     *   secretparameter: encryption parameter
+     *   stateconfiguration: desired-state configuration
+     *   application: application
+     *
+     * @example template
+     *
      * @var string
      */
     public $resourceType;

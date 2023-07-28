@@ -10,56 +10,98 @@ use AlibabaCloud\Tea\Model;
 class ListParameterVersionsResponseBody extends Model
 {
     /**
+     * @description The name of the common parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2020-09-07T11:37:29Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The user who created the common parameter.
+     *
+     * @example parameter-description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The version number of the common parameter.
+     *
+     * @example p-a483b520e0axxxxxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The time when the common parameter was created.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The ID of the common parameter.
+     *
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The description of the common parameter.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The value of the common parameter.
+     *
      * @var parameterVersions[]
      */
     public $parameterVersions;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example FD08D89D-B6C8-4AA2-A2B4-521D3F4A39FA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The version information of the common parameter.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example String
+     *
      * @var string
      */
     public $type;

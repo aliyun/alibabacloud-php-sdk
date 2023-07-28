@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class SearchInventoryRequest extends Model
 {
     /**
+     * @description The information about aggregators. You can use one or more aggregators to query the aggregate information of an instance. Valid values:
+     *
+     *   ACS:Application.Name
+     *   ACS:Application.Version
+     *
+     * @example ACS:Application.Name
+     *
      * @var string[]
      */
     public $aggregator;
 
     /**
+     * @description The filter rules for the component.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

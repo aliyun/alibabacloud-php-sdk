@@ -9,36 +9,80 @@ use AlibabaCloud\Tea\Model;
 class actions extends Model
 {
     /**
+     * @description The type of the action.
+     *
+     * 1.  Atomic actions
+     *
+     *   Atomic.API
+     *   Atomic.Trigger
+     *   Atomic.Control
+     *   Atomic.Embedded
+     *
+     * 2.  Cloud product actions
+     *
+     *   Product.ECS
+     *   Product.RDS
+     *   Product.VPC
+     *   Product.FC
+     *   ...
+     *
+     * @example ACS::Template
+     *
      * @var string
      */
     public $actionType;
 
     /**
+     * @description The time when the action was created.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the action.
+     *
+     * @example ReplaceSystemDisk
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the action.
+     *
+     * @example ACS::ECS::ReplaceSystemDisk
+     *
      * @var string
      */
     public $OOSActionName;
 
     /**
+     * @description The number of times that the action is used.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $popularity;
 
     /**
+     * @description The parameters of the action.
+     *
+     * @example { "ImageId": { "Description": "The mirror ID you will use when resetting the system", "Type": "String" }, "InstanceId": { "Description": "the instance id that you will handle .", "Type": "String" } }
+     *
      * @var string
      */
     public $properties;
 
     /**
+     * @description The version of the template that corresponds to the action.
+     *
+     * >  For atomic actions, this parameter is not returned.
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;

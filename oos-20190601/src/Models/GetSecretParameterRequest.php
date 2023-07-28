@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParameterRequest extends Model
 {
     /**
+     * @description The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+     *
+     * @example MySecretParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The version number of the common parameter. Valid values: 1 to 100.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parameterVersion;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to decrypt the parameter value. The decrypted parameter value is returned only if this parameter is set to true. Otherwise, null is returned.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $withDecryption;

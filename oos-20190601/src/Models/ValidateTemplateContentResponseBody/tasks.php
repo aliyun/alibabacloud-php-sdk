@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The description of the task.
+     *
+     * @example (Required) The status of the Ecs instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the task.
+     *
+     * @example foo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The outputs of the task.
+     *
+     * @example .instanceId
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The properties of the task.
+     *
+     * @example {"API": "DescribeInstances","Parameters": {"Status": "{{ Status }}"},"Service": "Ecs"}
+     *
      * @var string
      */
     public $properties;
 
     /**
+     * @description The type of the task.
+     *
+     * @example ACS::ExecuteAPI
+     *
      * @var string
      */
     public $type;

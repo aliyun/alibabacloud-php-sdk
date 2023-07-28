@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteExecutionsResponseBody extends Model
 {
     /**
+     * @description Deletes multiple executions.
+     *
+     * @example 491DF8C2-34C9-4679-9DB3-4C0F49B129AC
+     *
      * @var string
      */
     public $requestId;

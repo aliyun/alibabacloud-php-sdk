@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The user who created the parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The time when the parameter was created.
+     *
+     * @example 2020-09-01T09:28:47Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example SecretParameter
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the parameter.
+     *
+     * @example p-14ed150fdcd048xxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the KMS customer master key (CMK) that is used for encryption.
+     *
+     * @example 80e9409f-78fa-42ab-84bd-83f40c******
+     *
      * @var string
      */
     public $keyId;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example MySecretParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The version number of the parameter.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $parameterVersion;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The share type of the parameter.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The tags of the parameter.
+     *
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The type of the parameter.
+     *
+     * @example Secret
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The user who updated the parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the parameter was updated.
+     *
+     * @example 2020-09-01T09:35:17Z
+     *
      * @var string
      */
     public $updatedDate;

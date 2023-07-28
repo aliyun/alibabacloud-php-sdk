@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
+     * @description The tag keys.
+     *
      * @var string[]
      */
     public $keys;
 
     /**
+     * @description The maximum number of entries to return on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page.
+     *
+     * @example 87y29h80h20h3f2
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 36210B73-8262-4D08-9D3A-7F96789733C8
+     *
      * @var string
      */
     public $requestId;

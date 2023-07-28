@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @description The maximum number of entries to return on each page. Valid value: 10 to 100. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page.
+     *
+     * @example djsdlkasd
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the resource to which the tag is added.
+     *
+     * @example template
+     *
      * @var string
      */
     public $resourceType;

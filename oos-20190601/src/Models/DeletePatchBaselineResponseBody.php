@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeletePatchBaselineResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 85197066-0209-5775-BBED-99DF9DA44E48
+     *
      * @var string
      */
     public $requestId;

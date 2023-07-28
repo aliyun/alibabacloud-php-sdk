@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class patches extends Model
 {
     /**
+     * @description Queries the patches of an instance.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $classification;
 
     /**
+     * @description The name of the patch.
+     *
+     * @example 2021-01-28T07:07:20Z
+     *
      * @var string
      */
     public $installedTime;
 
     /**
+     * @description KBId
+     *
+     * @example apt-utils.amd64
+     *
      * @var string
      */
     public $KBId;
 
     /**
+     * @description The status of the installation.
+     *
+     * @example important
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The time when the patch was installed.
+     *
+     * @example Installed
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The classification of the patch.
+     *
+     * @example isc-dhcp-common.amd64:4.3.5-3ubuntu7.3
+     *
      * @var string
      */
     public $title;

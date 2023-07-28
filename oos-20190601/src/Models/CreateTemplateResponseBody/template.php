@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The creator of the template.
+     *
+     * @example root(13090000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The time when the template was created.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the template.
+     *
+     * @example Describe instances of given status
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the template was configured with a trigger.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $hasTrigger;
 
     /**
+     * @description The SHA-256 value of the template content.
+     *
+     * @example 4bc7d7a21b3e003434b9c223f6e6d2578b5ebfeb5be28c1fcf8a8a1b11907bb4
+     *
      * @var string
      */
     public $hash;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The share type of the template. The share type of the template that you create is Private.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The tags of the resources.
+     *
+     * @example {     "k1":"v1",     "k2":"v2" }
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The format of the template. The system automatically determines whether the format is JSON or YAML.
+     *
+     * @example JSON
+     *
      * @var string
      */
     public $templateFormat;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example t-94753d38
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The version of the template. The name of the version consists of the letter v and a number. The number starts from 1.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @description The Alibaba Cloud account that last modified the information about the template.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the template was last updated.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $updatedDate;

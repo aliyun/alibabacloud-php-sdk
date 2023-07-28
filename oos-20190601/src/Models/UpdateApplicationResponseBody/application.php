@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The time when the application was created.
+     *
+     * @example 2021-09-07T09:17:46Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the application.
+     *
+     * @example test application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The application name.
+     *
+     * @example My-Application
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The time when the application was updated.
+     *
+     * @example 2021-09-07T10:17:46Z
+     *
      * @var string
      */
     public $updatedDate;

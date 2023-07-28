@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetInventorySchemaResponseBody extends Model
 {
     /**
+     * @description Max results.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example gAAAAABfh8MVLQI9AuKGACLgjbsXbWs-Mna47IDM6tr6wK7TZ1
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 89117642-7167-4F4D-B7F1-876582279E3E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The detailed configurations of the component.
+     *
      * @var schemas[]
      */
     public $schemas;

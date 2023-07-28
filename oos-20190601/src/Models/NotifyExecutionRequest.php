@@ -9,51 +9,99 @@ use AlibabaCloud\Tea\Model;
 class NotifyExecutionRequest extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
+     * @example exec-xxx
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The state of the terminated execution. This parameter is valid if you set the NotifyType parameter to CompleteExecution.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $executionStatus;
 
     /**
+     * @description The items of the child node in the loop task.
+     *
+     * @example i-xxx
+     *
      * @var string
      */
     public $loopItem;
 
     /**
+     * @description The description for the notification.
+     *
+     * @example Note
+     *
      * @var string
      */
     public $notifyNote;
 
     /**
+     * @description The type of the notification. Valid values:
+     *
+     *   **ExecuteTask**: starts to run a specific task. This value is used if you perform debugging in the Debug mode. If you set this parameter to ExecuteTask, you also need to set the Parameters parameter.
+     *   **CancelTask**: cancels a current task. This value is used if you perform debugging in the Debug mode.
+     *   **CompleteExecution**: manually terminates an execution if you perform debugging in the Debug mode. You can specify the state of the terminated execution by using the **ExecutionStatus** parameter.
+     *   **Approve**: approves an execution. For example, you are aware of the risks of an operation task and agree to approve the execution.
+     *   **Reject**: rejects an execution. For example, you want to reject the execution of a high-risk operation task.
+     *   **RetryTask**: retries a failed task whose execution mode is Suspend upon Failure.
+     *   **SkipTask**: skips a failed task whose execution mode is Suspend upon Failure.
+     *
+     * @example Approve
+     *
      * @var string
      */
     public $notifyType;
 
     /**
+     * @description The parameters of the subsequent task. This parameter is valid if you set the NotifyType parameter to ExecuteTask.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The ID of the region in which the execution resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The execution ID of the task.
+     *
+     * @example task-exec-xxx
+     *
      * @var string
      */
     public $taskExecutionId;
 
     /**
+     * @description The execution IDs of the tasks.
+     *
+     * @example ["exec-79c321c11003a97c","exec-79c321c11003aqw97cz"]
+     *
      * @var string
      */
     public $taskExecutionIds;
 
     /**
+     * @description The name of the subsequent task.
+     *
+     * @example describeInstance
+     *
      * @var string
      */
     public $taskName;

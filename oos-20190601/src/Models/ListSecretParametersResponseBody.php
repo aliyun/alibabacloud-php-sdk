@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListSecretParametersResponseBody extends Model
 {
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example sPH90GZOVGC6KPDUL0FIIbEtMQHq_19S6_4O_XqA
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The information about the parameters.
+     *
      * @var parameters[]
      */
     public $parameters;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CA9C6248-AF2A-4AE9-A166-88FD901BBB90
+     *
      * @var string
      */
     public $requestId;

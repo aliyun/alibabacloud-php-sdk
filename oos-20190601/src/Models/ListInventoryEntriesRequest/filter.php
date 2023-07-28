@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The name of the component property. Valid values of N: 1 to 5.
+     *
+     * @example PlatformName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The comparison operator that is used to filter property values. Valid values of N: 1 to 5. Valid values:
+     *
+     *   Equal
+     *   NotEqual
+     *   BeginWith
+     *   LessThan
+     *   GreaterThan
+     *
+     * @example Equal
+     *
      * @var string
      */
     public $operator;
 
     /**
+     * @description The values of properties. Valid values of the first N: 1 to 5. Valid values of the second N: 1 to 20.
+     *
+     * @example test
+     *
      * @var string[]
      */
     public $value;

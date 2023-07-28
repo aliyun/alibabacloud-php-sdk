@@ -9,71 +9,109 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @example \"{\"\"AllowedValues":["parameter"],"AllowedPattern":"parameter","MinLength":0,"MaxLength":20}\"
+     *
      * @var string
      */
     public $constraints;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @example parameter
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example p-4c4b401cab6747xxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $parameterVersion;
 
     /**
+     * @example rg-acfmxsn4m*****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * @example String
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The value of the common parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The information of the common parameter.
+     *
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $updatedDate;
 
     /**
+     * @description Queries a common parameter and its value.
+     *
+     * @example parameter
+     *
      * @var string
      */
     public $value;

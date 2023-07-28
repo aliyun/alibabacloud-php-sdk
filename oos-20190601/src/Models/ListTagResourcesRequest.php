@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of resources. The number of resource IDs ranges from 1 to 50.
+     *
+     * @example ["templateNam1","templateName2"]
+     *
      * @var mixed[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource. Valid values: template execution
+     *
+     * @example template
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+     *
+     * @example {"k1":"v2","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;

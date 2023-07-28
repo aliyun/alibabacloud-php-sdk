@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class templateVersions extends Model
 {
     /**
+     * @description The description of the version.
+     *
+     * @example Detach the eip from the special instance.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The format of the template content. Valid values: YAML and JSON.
+     *
+     * @example YAML
+     *
      * @var string
      */
     public $templateFormat;
 
     /**
+     * @description The number of the version.
+     *
+     * @example v2
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @description The user who last updated the version.
+     *
+     * @example foo
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the version was last updated.
+     *
+     * @example 2020-05-19T06:05:41Z
+     *
      * @var string
      */
     public $updatedDate;
 
     /**
+     * @description The name of the version.
+     *
+     * @example baz
+     *
      * @var string
      */
     public $versionName;

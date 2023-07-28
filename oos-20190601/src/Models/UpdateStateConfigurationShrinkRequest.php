@@ -9,56 +9,100 @@ use AlibabaCloud\Tea\Model;
 class UpdateStateConfigurationShrinkRequest extends Model
 {
     /**
+     * @description The schedule type.
+     *
+     * @example DASKJJLKADS-AHKLJHJSAKL-AJK
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the desired-state configuration.
+     *
+     * @example ApplyOnce
+     *
      * @var string
      */
     public $configureMode;
 
     /**
+     * @description The schedule expression.
+     *
+     * @example ACS-ECS-InventoryDataCollection
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example { "policy": { "ACS:Application": { "Collection": "Enabled" }, "ACS:Network": { "Collection": "Enabled" } } }
+     *
      * @var string
      */
     public $parametersShrink;
 
     /**
+     * @description The configuration mode.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The parameters.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example 1 hour
+     *
      * @var string
      */
     public $scheduleExpression;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rate
+     *
      * @var string
      */
     public $scheduleType;
 
     /**
+     * @description The ID of the desired-state configuration.
+     *
+     * @example sc-asfgdhj12345
+     *
      * @var string
      */
     public $stateConfigurationId;
 
     /**
+     * @description The tag.
+     *
+     * @example {"Key": "oos", "Value": "sc"}
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @description The required resources.
+     *
+     * @example { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
+     *
      * @var string
      */
     public $targets;

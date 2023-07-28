@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetParametersRequest extends Model
 {
     /**
+     * @example ["parameter1","parameter2"]
+     *
      * @var string
      */
     public $names;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateParameterRequest extends Model
 {
     /**
+     * @description The ID of the common parameter.
+     *
+     * @example update
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The data type of the common parameter.
+     *
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The version number of the common parameter.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The operation that you want to perform. Set the value to UpdateParameter.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The name of the common parameter.
+     *
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The value of the common parameter. The value must be 1 to 4096 characters in length.
+     *
+     * @example update
+     *
      * @var string
      */
     public $value;

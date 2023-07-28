@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class applicationGroup extends Model
 {
     /**
+     * @description The application name.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The ID of the application group in CloudMonitor.
+     *
+     * @example 1245768
+     *
      * @var string
      */
     public $cmsGroupId;
 
     /**
+     * @description The time when the application group was created.
+     *
+     * @example 2021-09-07T10:28:25Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The ID of the region in which the related sources reside.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $deployRegionId;
 
     /**
+     * @description The description of the application group.
+     *
+     * @example ApplicationGroup
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example k1
+     *
      * @var string
      */
     public $importTagKey;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $importTagValue;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example MyApplicationGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The time when the application group was updated.
+     *
+     * @example 2021-09-07T10:28:25Z
+     *
      * @var string
      */
     public $updateDate;

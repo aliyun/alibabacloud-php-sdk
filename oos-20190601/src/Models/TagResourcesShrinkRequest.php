@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesShrinkRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The operation that you want to perform. Set the value to TagResources.
+     *
+     * @example ["templateName1","templateName2"]
+     *
      * @var string
      */
     public $resourceIdsShrink;
 
     /**
+     * @description The IDs of resources. The number of resource IDs ranges from 1 to 50.
+     *
+     * @example template
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var string
      */
     public $tagsShrink;

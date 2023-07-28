@@ -9,26 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesShrinkRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description Specifies whether to delete all tags. This parameter takes effect only when the TagKeys parameter is not specified. Valid values: true and false. Default value: false. The TagKeys parameter is required when this parameter is set to false.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description You can call this operation to delete tags that are attached to one or more resources.
+     *
+     * @example ["templateName1","templateName2"]
+     *
      * @var string
      */
     public $resourceIdsShrink;
 
     /**
+     * @example template
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example ["k1","k2"]
+     *
      * @var string
      */
     public $tagKeysShrink;

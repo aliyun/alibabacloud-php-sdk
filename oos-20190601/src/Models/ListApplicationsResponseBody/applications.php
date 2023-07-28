@@ -9,35 +9,69 @@ use AlibabaCloud\Tea\Model;
 class applications extends Model
 {
     /**
+     * @description The type of the application.
+     *
+     * @example DingTalk
+     *
+     * @var string
+     */
+    public $applicationType;
+
+    /**
+     * @description The time when the application was created.
+     *
+     * @example 2021-09-07T09:09:59Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The description of the application.
+     *
+     * @example Application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the application.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description A tag of the resource.
+     *
+     * @example {"k1": "v1","k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The time when the application was updated.
+     *
+     * @example 2021-09-07T09:09:59Z
+     *
      * @var string
      */
     public $updateDate;
     protected $_name = [
+        'applicationType' => 'ApplicationType',
         'createDate'      => 'CreateDate',
         'description'     => 'Description',
         'name'            => 'Name',
@@ -53,6 +87,9 @@ class applications extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->applicationType) {
+            $res['ApplicationType'] = $this->applicationType;
+        }
         if (null !== $this->createDate) {
             $res['CreateDate'] = $this->createDate;
         }
@@ -83,6 +120,9 @@ class applications extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ApplicationType'])) {
+            $model->applicationType = $map['ApplicationType'];
+        }
         if (isset($map['CreateDate'])) {
             $model->createDate = $map['CreateDate'];
         }

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class serviceSettings extends Model
 {
     /**
+     * @example OssBucketName
+     *
      * @var string
      */
     public $deliveryOssBucketName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deliveryOssEnabled;
 
     /**
+     * @example oos/execution
+     *
      * @var string
      */
     public $deliveryOssKeyPrefix;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deliverySlsEnabled;
 
     /**
+     * @example SlsProjectName
+     *
      * @var string
      */
     public $deliverySlsProjectName;
 
     /**
+     * @example RdcEnterpriseId
+     *
      * @var string
      */
     public $rdcEnterpriseId;

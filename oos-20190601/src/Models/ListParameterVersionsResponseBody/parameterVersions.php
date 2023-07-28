@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class parameterVersions extends Model
 {
     /**
+     * @description The time when the common parameter was updated.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parameterVersion;
 
     /**
+     * @description Queries versions of a common parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description ## Debugging
+     *
+     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=oos\&api=ListParameterVersions\&type=RPC\&version=2019-06-01)
+     * @example 2020-09-07T11:37:29Z
+     *
      * @var string
      */
     public $updatedDate;
 
     /**
+     * @description The user who updated the common parameter.
+     *
+     * @example MyParameter
+     *
      * @var string
      */
     public $value;

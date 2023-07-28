@@ -9,66 +9,118 @@ use AlibabaCloud\Tea\Model;
 class instancePatchStates extends Model
 {
     /**
+     * @description The number of patches that have been installed but require a restart to take effect.
+     *
+     * @example pb-f9393021b7a049e1b34e
+     *
      * @var string
      */
     public $baselineId;
 
     /**
+     * @description The ID of the patch baseline.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $failedCount;
 
     /**
+     * @description Queries patches of an instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $installedCount;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $installedOtherCount;
 
     /**
+     * @description The number of patches that are rejected by the user.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $installedPendingRebootCount;
 
     /**
+     * @description The patch group.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $installedRejectedCount;
 
     /**
+     * @description The operation type.
+     *
+     * @example i-bp1jaxa2bs4bps7*****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the operation ended.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $missingCount;
 
     /**
+     * @description The information about the user.
+     *
+     * @example 2021-09-10T11:42:22Z
+     *
      * @var string
      */
     public $operationEndTime;
 
     /**
+     * @description The number of patches that failed to be installed.
+     *
+     * @example 2021-09-10T11:42:22Z
+     *
      * @var string
      */
     public $operationStartTime;
 
     /**
+     * @description The time when the operation was initiated.
+     *
+     * @example scan
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @description The number of patches that do not meet the baseline.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $ownerInformation;
 
     /**
+     * @description The number of installed patches.
+     *
+     * @example null
+     *
      * @var string
      */
     public $patchGroup;

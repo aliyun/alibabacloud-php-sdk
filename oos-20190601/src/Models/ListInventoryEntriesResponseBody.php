@@ -9,41 +9,71 @@ use AlibabaCloud\Tea\Model;
 class ListInventoryEntriesResponseBody extends Model
 {
     /**
+     * @description The time when the request was sent.
+     *
+     * @example 2020-09-17T12:28:13Z
+     *
      * @var string
      */
     public $captureTime;
 
     /**
+     * @description The configurations of the component.
+     *
      * @var mixed[][]
      */
     public $entries;
 
     /**
+     * @description The ID of the ECS instance.
+     *
+     * @example i-bp1cpoxxxwxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A81E4B2E-6B33-4BAE-9856-55DB7C893E01
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The version number of the component.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $schemaVersion;
 
     /**
+     * @description The name of the component.
+     *
+     * @example ACS:InstanceInformation
+     *
      * @var string
      */
     public $typeName;

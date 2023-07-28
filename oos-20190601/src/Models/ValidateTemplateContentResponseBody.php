@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateContentResponseBody extends Model
 {
     /**
+     * @description The outputs of the template.
+     *
+     * @example {}
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The parameters of the template.
+     *
+     * @example { "Status": { "Description": "(Required) The status of the Ecs instance.", "Type": "String" } }
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The RAM role.
+     *
+     * @example OOSServiceRole
+     *
      * @var string
      */
     public $ramRole;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D5EE9591-1F2D-573E-8751-7F08BBB388D4
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task defined in the template.
+     *
      * @var tasks[]
      */
     public $tasks;

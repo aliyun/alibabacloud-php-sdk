@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteParameterRequest extends Model
 {
     /**
+     * @description The name of the common parameter. The name can be up to 180 characters in length and can contain only letters, digits, hyphens (-), and underscores (\_). It cannot start with aliyun, acs, alibaba, alicloud, or oos.
+     *
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

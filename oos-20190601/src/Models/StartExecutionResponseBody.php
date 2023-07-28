@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class StartExecutionResponseBody extends Model
 {
     /**
+     * @description The details of the execution.
+     *
      * @var execution
      */
     public $execution;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
+     *
      * @var string
      */
     public $requestId;

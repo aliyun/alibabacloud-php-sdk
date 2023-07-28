@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationRequest extends Model
 {
     /**
+     * @description The application name.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2075899A-585D-4A41-A9B2-28DF4F534F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metadata of the template.
+     *
      * @var template
      */
     public $template;

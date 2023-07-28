@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionRiskyTasksRequest extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example myTemplate
+     *
      * @var string
      */
     public $templateName;

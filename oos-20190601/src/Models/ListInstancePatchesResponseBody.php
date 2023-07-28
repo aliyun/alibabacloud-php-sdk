@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePatchesResponseBody extends Model
 {
     /**
+     * @description The information about the patch.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+     *
+     * @example The ID of the request.
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The level of the severity.
+     *
      * @var patches[]
      */
     public $patches;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 0A615755-9C86-5EA6-BF9E-6E8F1AFF9403
+     *
      * @var string
      */
     public $requestId;

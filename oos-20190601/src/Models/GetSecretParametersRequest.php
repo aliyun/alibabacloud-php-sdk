@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParametersRequest extends Model
 {
     /**
+     * @description The name of the encryption parameter. Multiple encryption parameters can form a JSON array in the format of \["xxxxxxxxx", "yyyyyyyyy", … "zzzzzzzzz"]. Each JSON array can contain a maximum of 10 encryption parameters. Multiple encryption parameters in the array are separated by commas (,).
+     *
+     * @example ["secretParameter","secretParameter1"]
+     *
      * @var string
      */
     public $names;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to decrypt the parameter value. Default value: false. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var bool
      */
     public $withDecryption;

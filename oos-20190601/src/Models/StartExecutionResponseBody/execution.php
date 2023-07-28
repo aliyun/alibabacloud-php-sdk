@@ -10,121 +10,215 @@ use AlibabaCloud\Tea\Model;
 class execution extends Model
 {
     /**
+     * @description The number of executions.
+     *
+     * @example 1
+     *
      * @var mixed[]
      */
     public $counters;
 
     /**
+     * @description The time when the execution was created.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The information about in-progress tasks.
+     *
      * @var currentTasks[]
      */
     public $currentTasks;
 
     /**
+     * @description The description of the execution.
+     *
+     * @example test execution.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the execution stopped.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The account ID of the user who started the execution of the template.
+     *
+     * @example root(13092080xx12344)
+     *
      * @var string
      */
     public $executedBy;
 
     /**
+     * @description The GUID of the execution.
+     *
+     * @example exec-xxxyyy
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description Indicates whether the execution is a parent execution.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isParent;
 
     /**
+     * @description The loop mode.
+     *
+     * @example Automatic
+     *
      * @var string
      */
     public $loopMode;
 
     /**
+     * @description The execution mode.
+     *
+     * @example Automatic
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The output of the execution.
+     *
+     * @example { "InstanceId":"i-xxx" }
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The input parameters of the execution.
+     *
+     * @example { "Status":"Running" }
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The ID of the parent execution.
+     *
+     * @example exec-xxxx
+     *
      * @var string
      */
     public $parentExecutionId;
 
     /**
+     * @description The role that started the execution of the template.
+     *
+     * @example OOSServiceRole
+     *
      * @var string
      */
     public $ramRole;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The security check mode.
+     *
+     * @example Skip
+     *
      * @var string
      */
     public $safetyCheck;
 
     /**
+     * @description The time when the execution was started.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description The status of the execution.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The status information of the execution.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $statusMessage;
 
     /**
+     * @description The tags of the execution.
+     *
+     * @example {"k1":"v2","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example t-1bd341007f
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The version number of the template.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @description The time when the execution was last updated.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $updateDate;

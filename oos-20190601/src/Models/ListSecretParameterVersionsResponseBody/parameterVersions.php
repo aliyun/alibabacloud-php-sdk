@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class parameterVersions extends Model
 {
     /**
+     * @description The version number of the encryption parameter.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parameterVersion;
 
     /**
+     * @description The user who updated the encryption parameter.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the encryption parameter was updated.
+     *
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $updatedDate;
 
     /**
+     * @description The value of the encryption parameter.
+     *
+     * @example SecretParameter
+     *
      * @var string
      */
     public $value;

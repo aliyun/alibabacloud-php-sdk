@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionTemplateRequest extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
+     * @example exec-046490ff88f242
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

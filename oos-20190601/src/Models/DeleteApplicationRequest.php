@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationRequest extends Model
 {
     /**
+     * @description Specifies whether to forcibly delete the application. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example False
+     *
      * @var bool
      */
     public $force;
 
     /**
+     * @description The application name.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

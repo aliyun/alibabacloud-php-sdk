@@ -9,61 +9,90 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @example {\"MaxLength\": 2}
+     *
      * @var string
      */
     public $constraints;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @example 2020-10-21T04:03:12Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @example parameter
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example p-7cdc0000000000000000
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example myParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $parameterVersion;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @var mixed[]
+     */
+    public $tags;
+
+    /**
+     * @example StringList
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @example 2020-10-21T04:03:12Z
+     *
      * @var string
      */
     public $updatedDate;
 
     /**
+     * @example "parameter1,parameter2"
+     *
      * @var string
      */
     public $value;
@@ -76,6 +105,7 @@ class parameters extends Model
         'name'             => 'Name',
         'parameterVersion' => 'ParameterVersion',
         'shareType'        => 'ShareType',
+        'tags'             => 'Tags',
         'type'             => 'Type',
         'updatedBy'        => 'UpdatedBy',
         'updatedDate'      => 'UpdatedDate',
@@ -112,6 +142,9 @@ class parameters extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -160,6 +193,9 @@ class parameters extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

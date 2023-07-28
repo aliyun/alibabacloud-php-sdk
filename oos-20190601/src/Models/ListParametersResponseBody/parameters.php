@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @example parameter
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example p-4c4b401cab6747xxxxxx
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $parameterVersion;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @example 2020-09-01T08:01:43Z
+     *
      * @var string
      */
     public $updatedDate;

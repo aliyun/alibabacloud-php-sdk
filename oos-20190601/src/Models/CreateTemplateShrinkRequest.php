@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateShrinkRequest extends Model
 {
     /**
+     * @description The content of the template. The content must be in the JSON or YAML format, and its maximum size is 64 KB.
+     *
+     * @example {"FormatVersion": "OOS-2019-06-01", "Description": "Describe instances of given status", "Parameters": {"Status": {"Type": "String", "Description": "(Required) The status of the Ecs instance."}}, "Tasks": [{"Properties": {"Parameters": {"Status": "{{ Status }}"}, "API": "DescribeInstances", "Service": "Ecs"}, "Name": "foo", "Action": "ACS::ExecuteApi"}]}
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tag keys and tag values. The number of key-value pairs ranges from 1 to 20.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @description The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_). The name cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The name of the version of the template.
+     *
+     * @example v2
+     *
      * @var string
      */
     public $versionName;

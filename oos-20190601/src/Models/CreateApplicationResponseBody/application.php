@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The time when the application was created.
+     *
+     * @example 2021-09-07T09:17:46Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The description of the application.
+     *
+     * @example application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The application name.
+     *
+     * @example Myapplication
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The tags.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var string[]
      */
     public $tags;
 
     /**
+     * @description The time when the application was updated.
+     *
+     * @example 2021-09-07T09:17:46Z
+     *
      * @var string
      */
     public $updateDate;

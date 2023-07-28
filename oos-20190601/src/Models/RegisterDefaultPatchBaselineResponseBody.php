@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class RegisterDefaultPatchBaselineResponseBody extends Model
 {
     /**
+     * @description The details of the patch baseline.
+     *
      * @var patchBaseline
      */
     public $patchBaseline;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D6850689-348D-59FC-AE13-BB0EDB7C4BE8
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionLogsResponseBody extends Model
 {
     /**
+     * @description The execution logs.
+     *
      * @var executionLogs[]
      */
     public $executionLogs;
 
     /**
+     * @description Indicates whether the log is truncated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example gAAAAABdpsGWjX8dJ-a6dl_pvoS7AFxNHSNJKHLCAJJ0ylgA53nWW5V4HTEZKCYTaEPNOrxFir4z43UTOjE150cFr8AGTifA==
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
+     *
      * @var string
      */
     public $requestId;

@@ -9,46 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationGroupsRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The ID of the region in which the related resources reside.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $deployRegionId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example -
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var string
-     */
-    public $product;
-
-    /**
+     * @description The ID of the region. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the cloud resource.
+     *
+     * @example i-2vcj9raxrhxb48zz3whw
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The code of the product to which the cloud resource belongs.
+     *
+     * @example ecs
+     *
      * @var string
      */
     public $resourceProduct;
 
     /**
+     * @description The type of the cloud resource.
+     *
+     * @example instance
+     *
      * @var string
      */
     public $resourceType;
@@ -57,7 +84,6 @@ class ListApplicationGroupsRequest extends Model
         'deployRegionId'  => 'DeployRegionId',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
-        'product'         => 'Product',
         'regionId'        => 'RegionId',
         'resourceId'      => 'ResourceId',
         'resourceProduct' => 'ResourceProduct',
@@ -82,9 +108,6 @@ class ListApplicationGroupsRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->product) {
-            $res['Product'] = $this->product;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -121,9 +144,6 @@ class ListApplicationGroupsRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['Product'])) {
-            $model->product = $map['Product'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

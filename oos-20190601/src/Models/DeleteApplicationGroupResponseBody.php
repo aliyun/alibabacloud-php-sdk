@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteApplicationGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9E011F98-4EE5-5E3A-8FA3-D38F2C531C1F
+     *
      * @var string
      */
     public $requestId;

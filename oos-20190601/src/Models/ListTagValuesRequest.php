@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
+     * @description The tag key to query.
+     *
+     * @example k1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The maximum number of results on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
+     * @example 3272h923879hsaksad
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the tagged resource.
+     *
+     * @example template
+     *
      * @var string
      */
     public $resourceType;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationGroupRequest extends Model
 {
     /**
+     * @description The name of the application.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description The name of the application group.
+     *
+     * @example MyApplicationGroup
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

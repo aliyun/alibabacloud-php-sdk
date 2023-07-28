@@ -25,6 +25,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateParameterShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreatePatchBaselineShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\CreateSecretParameterShrinkRequest;
@@ -116,6 +117,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\ListParameterVersionsRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListParameterVersionsResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListPatchBaselinesRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListPatchBaselinesResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\ListPatchBaselinesShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListResourceExecutionStatusRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListResourceExecutionStatusResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\ListSecretParametersRequest;
@@ -173,6 +175,7 @@ use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineResponse;
+use AlibabaCloud\SDK\Oos\V20190601\Models\UpdatePatchBaselineShrinkRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterRequest;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterResponse;
 use AlibabaCloud\SDK\Oos\V20190601\Models\UpdateSecretParameterShrinkRequest;
@@ -384,10 +387,16 @@ class Oos extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new CreateApplicationShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alarmConfig)) {
+            $request->alarmConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alarmConfig, 'AlarmConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->alarmConfigShrink)) {
+            $query['AlarmConfig'] = $request->alarmConfigShrink;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -660,17 +669,37 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param CreatePatchBaselineRequest $request
+     * @param CreatePatchBaselineRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return CreatePatchBaselineResponse
      */
-    public function createPatchBaselineWithOptions($request, $runtime)
+    public function createPatchBaselineWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new CreatePatchBaselineShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->approvedPatches)) {
+            $request->approvedPatchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->approvedPatches, 'ApprovedPatches', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rejectedPatches)) {
+            $request->rejectedPatchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rejectedPatches, 'RejectedPatches', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sources)) {
+            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->approvalRules)) {
             $query['ApprovalRules'] = $request->approvalRules;
+        }
+        if (!Utils::isUnset($request->approvedPatchesShrink)) {
+            $query['ApprovedPatches'] = $request->approvedPatchesShrink;
+        }
+        if (!Utils::isUnset($request->approvedPatchesEnableNonSecurity)) {
+            $query['ApprovedPatchesEnableNonSecurity'] = $request->approvedPatchesEnableNonSecurity;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -686,6 +715,18 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rejectedPatchesShrink)) {
+            $query['RejectedPatches'] = $request->rejectedPatchesShrink;
+        }
+        if (!Utils::isUnset($request->rejectedPatchesAction)) {
+            $query['RejectedPatchesAction'] = $request->rejectedPatchesAction;
+        }
+        if (!Utils::isUnset($request->sourcesShrink)) {
+            $query['Sources'] = $request->sourcesShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1473,6 +1514,9 @@ class Oos extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->ramRole)) {
+            $query['RamRole'] = $request->ramRole;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2278,9 +2322,6 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
-        if (!Utils::isUnset($request->product)) {
-            $query['Product'] = $request->product;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2338,6 +2379,9 @@ class Oos extends OpenApiClient
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->applicationType)) {
+            $query['ApplicationType'] = $request->applicationType;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -2387,10 +2431,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionLogsRequest $request
-     * @param RuntimeOptions           $runtime
+     * ****
+     *   *
+     * @param ListExecutionLogsRequest $request ListExecutionLogsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExecutionLogsResponse
+     * @return ListExecutionLogsResponse ListExecutionLogsResponse
      */
     public function listExecutionLogsWithOptions($request, $runtime)
     {
@@ -2433,9 +2479,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListExecutionLogsRequest $request
+     * ****
+     *   *
+     * @param ListExecutionLogsRequest $request ListExecutionLogsRequest
      *
-     * @return ListExecutionLogsResponse
+     * @return ListExecutionLogsResponse ListExecutionLogsResponse
      */
     public function listExecutionLogs($request)
     {
@@ -2505,8 +2553,17 @@ class Oos extends OpenApiClient
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->categories)) {
+            $query['Categories'] = $request->categories;
+        }
         if (!Utils::isUnset($request->category)) {
             $query['Category'] = $request->category;
+        }
+        if (!Utils::isUnset($request->depth)) {
+            $query['Depth'] = $request->depth;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->endDateAfter)) {
             $query['EndDateAfter'] = $request->endDateAfter;
@@ -2923,6 +2980,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->shareType)) {
+            $query['ShareType'] = $request->shareType;
+        }
         if (!Utils::isUnset($request->sortField)) {
             $query['SortField'] = $request->sortField;
         }
@@ -2966,15 +3026,32 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListPatchBaselinesRequest $request
+     * @param ListPatchBaselinesRequest $tmpReq
      * @param RuntimeOptions            $runtime
      *
      * @return ListPatchBaselinesResponse
      */
-    public function listPatchBaselinesWithOptions($request, $runtime)
+    public function listPatchBaselinesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ListPatchBaselinesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->approvedPatches)) {
+            $request->approvedPatchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->approvedPatches, 'ApprovedPatches', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sources)) {
+            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
+        if (!Utils::isUnset($request->approvedPatchesShrink)) {
+            $query['ApprovedPatches'] = $request->approvedPatchesShrink;
+        }
+        if (!Utils::isUnset($request->approvedPatchesEnableNonSecurity)) {
+            $query['ApprovedPatchesEnableNonSecurity'] = $request->approvedPatchesEnableNonSecurity;
+        }
         if (!Utils::isUnset($request->maxResults)) {
             $query['MaxResults'] = $request->maxResults;
         }
@@ -2992,6 +3069,12 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->shareType)) {
             $query['ShareType'] = $request->shareType;
+        }
+        if (!Utils::isUnset($request->sourcesShrink)) {
+            $query['Sources'] = $request->sourcesShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3134,10 +3217,12 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListSecretParametersRequest $tmpReq
-     * @param RuntimeOptions              $runtime
+     * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+     *   *
+     * @param ListSecretParametersRequest $tmpReq  ListSecretParametersRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSecretParametersResponse
+     * @return ListSecretParametersResponse ListSecretParametersResponse
      */
     public function listSecretParametersWithOptions($tmpReq, $runtime)
     {
@@ -3197,9 +3282,11 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param ListSecretParametersRequest $request
+     * Before you call this operation, make sure that you have the permission to manage Key Management Service (KMS) secrets.
+     *   *
+     * @param ListSecretParametersRequest $request ListSecretParametersRequest
      *
-     * @return ListSecretParametersResponse
+     * @return ListSecretParametersResponse ListSecretParametersResponse
      */
     public function listSecretParameters($request)
     {
@@ -3684,10 +3771,15 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param NotifyExecutionRequest $request
-     * @param RuntimeOptions         $runtime
+     * You can call this operation to notify an execution in the following scenarios:
+     *   * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+     *   * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+     *   * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+     *   *
+     * @param NotifyExecutionRequest $request NotifyExecutionRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return NotifyExecutionResponse
+     * @return NotifyExecutionResponse NotifyExecutionResponse
      */
     public function notifyExecutionWithOptions($request, $runtime)
     {
@@ -3742,9 +3834,14 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param NotifyExecutionRequest $request
+     * You can call this operation to notify an execution in the following scenarios:
+     *   * *   If a template contains a special task, such as an approval task, the Operation Orchestration Service (OOS) execution engine sets the execution state to Waiting when the approval task is being run. You can call this operation to specify whether to continue the execution.
+     *   * *   If you perform debugging in the debug mode, you can call this operation to notify the execution of the subsequent operations after the execution is created or a task is complete.
+     *   * *   If a high-risk operation task waits for approval, you can call this operation to specify whether to continue the execution.
+     *   *
+     * @param NotifyExecutionRequest $request NotifyExecutionRequest
      *
-     * @return NotifyExecutionResponse
+     * @return NotifyExecutionResponse NotifyExecutionResponse
      */
     public function notifyExecution($request)
     {
@@ -4191,10 +4288,19 @@ class Oos extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateApplicationShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->alarmConfig)) {
+            $request->alarmConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->alarmConfig, 'AlarmConfig', 'json');
+        }
         if (!Utils::isUnset($tmpReq->tags)) {
             $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->alarmConfigShrink)) {
+            $query['AlarmConfig'] = $request->alarmConfigShrink;
+        }
+        if (!Utils::isUnset($request->deleteAlarmRulesBeforeUpdate)) {
+            $query['DeleteAlarmRulesBeforeUpdate'] = $request->deleteAlarmRulesBeforeUpdate;
+        }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
@@ -4301,6 +4407,9 @@ class Oos extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
         }
         if (!Utils::isUnset($request->executionId)) {
             $query['ExecutionId'] = $request->executionId;
@@ -4490,17 +4599,37 @@ class Oos extends OpenApiClient
     }
 
     /**
-     * @param UpdatePatchBaselineRequest $request
+     * @param UpdatePatchBaselineRequest $tmpReq
      * @param RuntimeOptions             $runtime
      *
      * @return UpdatePatchBaselineResponse
      */
-    public function updatePatchBaselineWithOptions($request, $runtime)
+    public function updatePatchBaselineWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UpdatePatchBaselineShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->approvedPatches)) {
+            $request->approvedPatchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->approvedPatches, 'ApprovedPatches', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->rejectedPatches)) {
+            $request->rejectedPatchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rejectedPatches, 'RejectedPatches', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->sources)) {
+            $request->sourcesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->sources, 'Sources', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->approvalRules)) {
             $query['ApprovalRules'] = $request->approvalRules;
+        }
+        if (!Utils::isUnset($request->approvedPatchesShrink)) {
+            $query['ApprovedPatches'] = $request->approvedPatchesShrink;
+        }
+        if (!Utils::isUnset($request->approvedPatchesEnableNonSecurity)) {
+            $query['ApprovedPatchesEnableNonSecurity'] = $request->approvedPatchesEnableNonSecurity;
         }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
@@ -4513,6 +4642,18 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->rejectedPatchesShrink)) {
+            $query['RejectedPatches'] = $request->rejectedPatchesShrink;
+        }
+        if (!Utils::isUnset($request->rejectedPatchesAction)) {
+            $query['RejectedPatchesAction'] = $request->rejectedPatchesAction;
+        }
+        if (!Utils::isUnset($request->sourcesShrink)) {
+            $query['Sources'] = $request->sourcesShrink;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class resourceExecutionStatus extends Model
 {
     /**
+     * @description The ID of the execution.
+     *
+     * @example exec-6be6d6ff805349d9ac13
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The time when the execution started running.
+     *
+     * @example 2020-11-13T08:48:34Z
+     *
      * @var string
      */
     public $executionTime;
 
     /**
+     * @description The output of the template.
+     *
+     * @example { 				"commandOutput": "hello\n" 			}
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example i-bp1e1bxxxxxxxxxxxxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The status of the execution.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;

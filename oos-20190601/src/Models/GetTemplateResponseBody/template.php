@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @example ACS
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createdDate;
@@ -24,66 +28,92 @@ class template extends Model
     public $description;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $hasTrigger;
 
     /**
+     * @example 40fb5e3e08ef6c8a499ff7cd8441194f518028ad08338a84cb70c023a64576f1
+     *
      * @var string
      */
     public $hash;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example Public
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @example {"k1":"k2","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example YAML
+     *
      * @var string
      */
     public $templateFormat;
 
     /**
+     * @example t-4bdb1745c171401883a2
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @example ACS-ECS-CreateImage
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @example Automation
+     *
      * @var string
      */
     public $templateType;
 
     /**
+     * @example v15
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @example ACS
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @example 2022-04-26T08:37:07Z
+     *
      * @var string
      */
     public $updatedDate;
 
     /**
+     * @example version15
+     *
      * @var string
      */
     public $versionName;

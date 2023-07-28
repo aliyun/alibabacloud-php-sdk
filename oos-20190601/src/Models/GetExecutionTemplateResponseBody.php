@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionTemplateResponseBody extends Model
 {
     /**
+     * @description The content of the template.
+     *
+     * @example "{\n \"FormatVersion\": \"OOS-2019-06-01\",\n \"Parameters\": {\n \"Status\": {\n \"Type\": \"String\",\n \"Description\": \"(Required) The ID of the ECS instance.\"\n }\n },\n \"Tasks\": [\n {\n \"Name\": \"bar\",\n \"Properties\": {\n \"Parameters\": {\n \"Status\": \"{{ Status }}\"\n },\n \"API\": \"DescribeInstances\",\n \"Service\": \"Ecs\"\n },\n \"Action\": \"acs::ExecuteAPI\",\n \"Outputs\": {\n \"InstanceIds\", {\n \"ValueSelector\": \".Instances.Instance[].InstanceId\",\n \"Type\": \"List\"\n }\n }\n }\n ],\n \"Outputs\": {\n \"InstanceIds\": {\n \"Value\": \" {{ bar.InstanceIds }} \",\n \"Type\": \"List\"\n }\n }\n}\n"
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 14A60-EBE7-47CA-9757-12C1D47A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metadata of the template.
+     *
      * @var template
      */
     public $template;

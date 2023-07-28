@@ -20,6 +20,8 @@ class GetParametersResponseBody extends Model
     public $parameters;
 
     /**
+     * @example 2597E94B-5346-42D1-BB58-D3333EDD0975
+     *
      * @var string
      */
     public $requestId;

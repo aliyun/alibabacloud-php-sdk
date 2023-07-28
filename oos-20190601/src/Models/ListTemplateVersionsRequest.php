@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsRequest extends Model
 {
     /**
+     * @description The maximum number of results on each page. Valid values: 10 to 100
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example H8xj9c-398djs9-39ajd9asdjjJ
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The type of the template. Valid values: Private and Public.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The name of the template.
+     *
+     * @example describeinstances
+     *
      * @var string
      */
     public $templateName;

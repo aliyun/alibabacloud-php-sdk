@@ -9,56 +9,85 @@ use AlibabaCloud\Tea\Model;
 class ListParametersRequest extends Model
 {
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MyParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example /path1/path2/
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $recursive;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example ‘Private’
+     *
+     * @var string
+     */
+    public $shareType;
+
+    /**
+     * @example Name
+     *
      * @var string
      */
     public $sortField;
 
     /**
+     * @example Descending
+     *
      * @var string
      */
     public $sortOrder;
 
     /**
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example String
+     *
      * @var string
      */
     public $type;
@@ -70,6 +99,7 @@ class ListParametersRequest extends Model
         'recursive'       => 'Recursive',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'shareType'       => 'ShareType',
         'sortField'       => 'SortField',
         'sortOrder'       => 'SortOrder',
         'tags'            => 'Tags',
@@ -103,6 +133,9 @@ class ListParametersRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->shareType) {
+            $res['ShareType'] = $this->shareType;
         }
         if (null !== $this->sortField) {
             $res['SortField'] = $this->sortField;
@@ -148,6 +181,9 @@ class ListParametersRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['ShareType'])) {
+            $model->shareType = $map['ShareType'];
         }
         if (isset($map['SortField'])) {
             $model->sortField = $map['SortField'];

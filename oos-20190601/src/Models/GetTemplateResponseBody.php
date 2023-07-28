@@ -15,6 +15,8 @@ class GetTemplateResponseBody extends Model
     public $content;
 
     /**
+     * @example 5BBE2663-A18E-5261-9BBB-F4832F5294D9
+     *
      * @var string
      */
     public $requestId;

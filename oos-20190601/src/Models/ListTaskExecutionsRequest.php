@@ -9,81 +9,152 @@ use AlibabaCloud\Tea\Model;
 class ListTaskExecutionsRequest extends Model
 {
     /**
+     * @description The execution ID of the task.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $endDateAfter;
 
     /**
+     * @description Specifies to query task executions that stop running at or later than the specified time.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $endDateBefore;
 
     /**
+     * @description The status of the execution. Valid values: Running, Started, Success, Failed, Waiting, Cancelled, Pending, and Skipped.
+     *
+     * @example exec-xxx
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 20 to 100. Default value: 50.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $includeChildTaskExecution;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description Sorts the task executions to query. Valid values:
+     *
+     *   **StartDate**: specifies that the task executions are sorted based on the time when they are created. This is the default value.
+     *   **EndDate**: specifies that the task executions are sorted based on the time when the time when they stop running.
+     *   **Status**: specifies that the task executions are sorted based on their statuses.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Specifies whether to show the child nodes in the loop task. Default value: False.
+     *
+     * @example task-exec-xxx
+     *
      * @var string
      */
     public $parentTaskExecutionId;
 
     /**
+     * @description The ID of the execution.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The order in which you want to sort the task executions to query. Valid values:
+     *
+     *   **Ascending**: ascending order.
+     *   **Descending**: descending order. This is the default value.
+     *
+     * @example StartDate
+     *
      * @var string
      */
     public $sortField;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example Ascending
+     *
      * @var string
      */
     public $sortOrder;
 
     /**
+     * @description Specifies to query task executions that stop running at or before the specified time.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $startDateAfter;
 
     /**
+     * @description Specifies to query task executions that start to run at or later than the specified time.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $startDateBefore;
 
     /**
+     * @description Specifies to query task executions that start to run at or before the specified time.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The execution ID of the parent node. In a loop task, set this parameter to the execution ID of the parent node.
+     *
+     * @example ACS::Sleep
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The name of the task.
+     *
+     * @example task-exec-xxx
+     *
      * @var string
      */
     public $taskExecutionId;
 
     /**
+     * @description The action of the task.
+     *
+     * @example describeInstance
+     *
      * @var string
      */
     public $taskName;

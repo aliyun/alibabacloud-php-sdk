@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class currentTasks extends Model
 {
     /**
+     * @description The action of the task.
+     *
+     * @example ACS::TimerTrigger
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The execution ID of the task.
+     *
+     * @example exec-dsadasdawq
+     *
      * @var string
      */
     public $taskExecutionId;
 
     /**
+     * @description The name of the task.
+     *
+     * @example testTask
+     *
      * @var string
      */
     public $taskName;

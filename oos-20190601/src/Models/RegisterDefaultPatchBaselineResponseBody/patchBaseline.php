@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class patchBaseline extends Model
 {
     /**
+     * @description The rules of scanning and installing patches for the specified operating system.
+     *
+     * @example {"PatchRules":[{"PatchFilterGroup":[{"Key":"PatchSet","Values":["OS"]},{"Key":"ProductFamily","Values":["Windows"]},{"Key":"Product","Values":["Windows 10","Windows 7"]},{"Key":"Classification","Values":["Security Updates","Updates","Update Rollups","Critical Updates"]},{"Key":"Severity","Values":["Critical","Important","Moderate"]}],"ApproveAfterDays":7,"ApproveUntilDate":"","EnableNonSecurity":true,"ComplianceLevel":"Medium"}]}
+     *
      * @var string
      */
     public $approvalRules;
 
     /**
+     * @description The user who created the patch baseline.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @description The time when the patch baseline was created.
+     *
+     * @example 2021-09-07T03:42:56Z
+     *
      * @var string
      */
     public $createdDate;
 
     /**
+     * @description The description of the patch baseline.
+     *
+     * @example RegisterPatchBaseline
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the patch baseline.
+     *
+     * @example pb-445340b5c6504a85a300
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the patch baseline.
+     *
+     * @example MyPatchBaseline
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the operating system.
+     *
+     * @example Windows
+     *
      * @var string
      */
     public $operationSystem;
 
     /**
+     * @description The share type of the patch baseline.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $shareType;
 
     /**
+     * @description The user who last updated the patch baseline.
+     *
+     * @example root(130900000)
+     *
      * @var string
      */
     public $updatedBy;
 
     /**
+     * @description The time when the patch baseline was last updated.
+     *
+     * @example 2021-09-07T03:42:56Z
+     *
      * @var string
      */
     public $updatedDate;

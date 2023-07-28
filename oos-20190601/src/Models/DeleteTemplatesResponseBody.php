@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplatesResponseBody extends Model
 {
     /**
+     * @description Deletes multiple templates.
+     *
+     * @example 2075899A-585D-4A41-A9B2-28DA8534
+     *
      * @var string
      */
     public $requestId;

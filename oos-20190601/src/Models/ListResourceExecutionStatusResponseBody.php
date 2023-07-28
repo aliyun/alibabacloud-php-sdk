@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListResourceExecutionStatusResponseBody extends Model
 {
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ED571CBD-9F96-419D-B919-CF340BBCA157
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The execution information of the resource.
+     *
      * @var resourceExecutionStatus[]
      */
     public $resourceExecutionStatus;

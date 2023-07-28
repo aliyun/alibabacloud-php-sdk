@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsResponseBody extends Model
 {
     /**
+     * @description The applications.
+     *
      * @var applications[]
      */
     public $applications;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
+     * @example -
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 12067D53-56A9-561B-ADD6-61429D207117
+     *
      * @var string
      */
     public $requestId;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecretParameterRequest extends Model
 {
     /**
+     * @description The description of the parameter. The description must be 1 to 200 characters in length.
+     *
+     * @example SecretParameter
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the parameter. The name must be 1 to 180 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
+     *
+     * @example MySecretParameter
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags of the parameter.
+     *
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The value of the parameter. The value must be 1 to 4096 characters in length.
+     *
+     * @example update
+     *
      * @var string
      */
     public $value;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationGroupsResponseBody extends Model
 {
     /**
+     * @description The details of the application group.
+     *
      * @var applicationGroups[]
      */
     public $applicationGroups;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example -
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69D97BF2-5DF2-544C-A650-36A474E17BC3
+     *
      * @var string
      */
     public $requestId;

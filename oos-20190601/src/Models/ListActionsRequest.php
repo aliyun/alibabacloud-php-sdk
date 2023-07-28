@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListActionsRequest extends Model
 {
     /**
+     * @description The number of entries to return on each page. Valid values: 20 to 100. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example -
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The name of the action. All actions whose names contain the specified action name are returned.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $OOSActionName;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

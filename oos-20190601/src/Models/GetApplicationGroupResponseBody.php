@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationGroupResponseBody extends Model
 {
     /**
+     * @description The details of the application group.
+     *
      * @var applicationGroup
      */
     public $applicationGroup;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 92EA60ED-544D-55E9-93D9-237BE9976C0D
+     *
      * @var string
      */
     public $requestId;

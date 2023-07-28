@@ -9,71 +9,121 @@ use AlibabaCloud\Tea\Model;
 class stateConfiguration extends Model
 {
     /**
+     * @description The configuration mode. ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
+     *
+     * @example ApplyAndAutoCorrect
+     *
      * @var string
      */
     public $configureMode;
 
     /**
+     * @description The parameters.
+     *
+     * @example 2021-03-22T03:13:32Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description Updates a desired-state configuration.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example {"policy": {"ACS:Network": {"Collection": "Enabled"}, "ACS:Application": {"Collection": "Enabled"}}}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The configuration list.
+     *
+     * @example 1 hour
+     *
      * @var string
      */
     public $scheduleExpression;
 
     /**
+     * @description The update time.
+     *
+     * @example rate
+     *
      * @var string
      */
     public $scheduleType;
 
     /**
+     * @description The schedule expression.
+     *
+     * @example StateConfigurationId
+     *
      * @var string
      */
     public $stateConfigurationId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example {"Key": "oos", "Value": "inventory"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The required resources.
+     *
+     * @example { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
+     *
      * @var string
      */
     public $targets;
 
     /**
+     * @example t-1234asadf
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The ID of the desired-state configuration.
+     *
+     * @example ACS-ECS-InventoryDataCollection
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @description The version of the template.
+     *
+     * @example 2021-03-22T03:13:32Z
+     *
      * @var string
      */
     public $updateTime;

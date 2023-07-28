@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class riskyTasks extends Model
 {
     /**
+     * @description The name of the operation that the high-risk task calls.
+     *
+     * @example DeleteInstance
+     *
      * @var string
      */
     public $API;
 
     /**
+     * @description The cloud service in which the high-risk task runs.
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The details of the high-risk task.
+     *
      * @var string[]
      */
     public $task;
 
     /**
+     * @description The details of templates to which the high-risk task belongs.
+     *
      * @var string[]
      */
     public $template;

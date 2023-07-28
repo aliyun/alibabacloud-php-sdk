@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The metadata of the template.
+     *
      * @var template
      */
     public $template;
 
     /**
+     * @description The type of the template.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $templateType;

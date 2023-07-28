@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class executionLogs extends Model
 {
     /**
+     * @description The type of the log.
+     *
+     * @example System
+     *
      * @var string
      */
     public $logType;
 
     /**
+     * @description The details of the task execution.
+     *
+     * @example The task CheckDiskCategory completed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The execution ID of the task.
+     *
+     * @example exec-1234567zxcvb.t0010
+     *
      * @var string
      */
     public $taskExecutionId;
 
     /**
+     * @description The timestamp when the task was run.
+     *
+     * @example 2019-05-24T:02:29:07Z
+     *
      * @var string
      */
     public $timestamp;

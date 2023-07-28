@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateStateConfigurationResponseBody extends Model
 {
     /**
+     * @description The configuration mode.
+     *
+     * @example 1306108F-610C-40FD-AAD5-DA13E8B00BE9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The tag.
+     *
      * @var stateConfiguration
      */
     public $stateConfiguration;

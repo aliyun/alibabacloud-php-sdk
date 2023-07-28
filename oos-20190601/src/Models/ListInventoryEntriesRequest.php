@@ -10,31 +10,62 @@ use AlibabaCloud\Tea\Model;
 class ListInventoryEntriesRequest extends Model
 {
     /**
+     * @description The filter rules for the component.
+     *
      * @var filter[]
      */
     public $filter;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-bp1cpoxxxwxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzA
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the component. Valid values:
+     *
+     *   ACS:InstanceInformation
+     *   ACS:Application
+     *   ACS:File
+     *   ACS:Network
+     *   ACS:WindowsRole
+     *   ACS:Service
+     *   ACS:WindowsRegistry
+     *   ACS:WindowsUpdate
+     *
+     * @example ACS:InstanceInformation
+     *
      * @var string
      */
     public $typeName;

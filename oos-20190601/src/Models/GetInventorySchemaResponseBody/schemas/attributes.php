@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class attributes extends Model
 {
     /**
+     * @description The data type of the property.
+     *
+     * @example STRING
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description The name of the property.
+     *
+     * @example ApplicationType
+     *
      * @var string
      */
     public $name;

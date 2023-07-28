@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListStateConfigurationsResponseBody extends Model
 {
     /**
+     * @description The token that is used to retrieve the next page of results.
+     *
+     * @example AAAAASO3cL82+b5iji7bfPNpMh8=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1306108F-610C-40FD-AAD5-DA13E8B00BE9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The desired-state configurations.
+     *
      * @var stateConfigurations[]
      */
     public $stateConfigurations;

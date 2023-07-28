@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetParametersByPathResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +29,15 @@ class GetParametersByPathResponseBody extends Model
     public $parameters;
 
     /**
+     * @example 25156E99-7437-4590-AA58-2ACA17DE405C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

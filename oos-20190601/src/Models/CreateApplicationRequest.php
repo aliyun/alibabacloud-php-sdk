@@ -4,40 +4,71 @@
 
 namespace AlibabaCloud\SDK\Oos\V20190601\Models;
 
+use AlibabaCloud\SDK\Oos\V20190601\Models\CreateApplicationRequest\alarmConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateApplicationRequest extends Model
 {
     /**
+     * @var alarmConfig
+     */
+    public $alarmConfig;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * @example TF-CreateApplication-1647587475-84104b89-eba5-47a8-b2fd-807b8b7d
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The description of the application.
+     *
+     * @example application
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The application name.
+     *
+     * @example MyApplication
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The region ID. Set the value to cn-hangzhou.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
+     * @example {"k1":"v1","k2":"v2"}
+     *
      * @var mixed[]
      */
     public $tags;
     protected $_name = [
+        'alarmConfig'     => 'AlarmConfig',
         'clientToken'     => 'ClientToken',
         'description'     => 'Description',
         'name'            => 'Name',
@@ -53,6 +84,9 @@ class CreateApplicationRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alarmConfig) {
+            $res['AlarmConfig'] = null !== $this->alarmConfig ? $this->alarmConfig->toMap() : null;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -83,6 +117,9 @@ class CreateApplicationRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlarmConfig'])) {
+            $model->alarmConfig = alarmConfig::fromMap($map['AlarmConfig']);
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

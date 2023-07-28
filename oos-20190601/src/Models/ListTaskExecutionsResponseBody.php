@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListTaskExecutionsResponseBody extends Model
 {
     /**
+     * @description The details of the task executions.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example CDABABABAB-FC28-4D9C-8FB5-68DC6F0486FC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The execution ID of the child node.
+     *
      * @var taskExecutions[]
      */
     public $taskExecutions;

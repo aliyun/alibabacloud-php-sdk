@@ -10,156 +10,292 @@ use AlibabaCloud\Tea\Model;
 class executions extends Model
 {
     /**
+     * @description The type of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger.
+     *
+     * @example Other
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The number of tasks that are counted by execution status.
+     *
+     * @example {"Failed": 0,"Success": 1,"Total": 2}
+     *
      * @var mixed[]
      */
     public $counters;
 
     /**
+     * @description The time when the execution was created.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @description The information about the tasks that are running.
+     *
      * @var currentTasks[]
      */
     public $currentTasks;
 
     /**
+     * @description The description of the execution.
+     *
+     * @example test execution.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the execution stops running.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $endDate;
 
     /**
+     * @description The account ID of the user who started the execution of the template.
+     *
+     * @example 1309252800
+     *
      * @var string
      */
     public $executedBy;
 
     /**
+     * @description The unique ID of the execution.
+     *
+     * @example exec-44d32b45d2a449e
+     *
      * @var string
      */
     public $executionId;
 
     /**
+     * @description Indicates whether the execution contains child executions.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isParent;
 
     /**
+     * @description The time when the template was last successfully triggered.
+     *
+     * @example 2019-05-27T09:29:18Z
+     *
      * @var string
      */
     public $lastSuccessfulTriggerTime;
 
     /**
+     * @example {
+     * }
+     * @var string
+     */
+    public $lastTriggerOutputs;
+
+    /**
+     * @description The status of the execution after the template was last triggered.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $lastTriggerStatus;
 
     /**
+     * @example ""
+     *
+     * @var string
+     */
+    public $lastTriggerStatusMessage;
+
+    /**
+     * @description The time when the template was last successfully triggered.
+     *
+     * @example 2019-05-27T09:29:18Z
+     *
      * @var string
      */
     public $lastTriggerTime;
 
     /**
+     * @description The execution mode.
+     *
+     * @example Automatic
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The output of the execution.
+     *
+     * @example { "InstanceId":"i-xxx" }
+     *
      * @var string
      */
     public $outputs;
 
     /**
+     * @description The input parameters of the execution.
+     *
+     * @example { "Status":"Running" }
+     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
+     * @description The ID of the parent execution.
+     *
+     * @example exec-xxx
+     *
      * @var string
      */
     public $parentExecutionId;
 
     /**
+     * @description The role that started the execution of the template.
+     *
+     * @example OOSServiceRole
+     *
      * @var string
      */
     public $ramRole;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The status of the resource.
+     *
+     * @example { 			"Success": 1 		}
+     *
      * @var string
      */
     public $resourceStatus;
 
     /**
+     * @description The security check mode. Valid values: Skip, and ConfirmEveryHighRiskAction.
+     *
+     * @example Skip
+     *
      * @var string
      */
     public $safetyCheck;
 
     /**
+     * @description The time when the execution was started.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $startDate;
 
     /**
+     * @description The status of the execution. Valid values: Started, Queued, Running, Waiting, Success, Failed, and Cancelled.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The status of the task execution.
+     *
+     * @example “”
+     *
      * @var string
      */
     public $statusMessage;
 
     /**
+     * @description The reason for which the status occurs.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $statusReason;
 
     /**
+     * @description The tags of the execution.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The target resource.
+     *
+     * @example "{"ResourceType": "ALIYUN::ECS::Instance", "Filters": [{"ResourceIds": ["i-bp14z07dg3464980x72o"], "RegionId": "cn-hangzhou", "Type": "ResourceIds"}]}"
+     *
      * @var string
      */
     public $targets;
 
     /**
+     * @description The ID of the template.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $templateId;
 
     /**
+     * @description The name of the template.
+     *
+     * @example MyTemplate
+     *
      * @var string
      */
     public $templateName;
 
     /**
+     * @description The version number of the template.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $templateVersion;
 
     /**
+     * @description The time when the execution was updated.
+     *
+     * @example 2019-05-16T10:26:14Z
+     *
      * @var string
      */
     public $updateDate;
 
     /**
+     * @description The Waiting state.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $waitingStatus;
@@ -174,7 +310,9 @@ class executions extends Model
         'executionId'               => 'ExecutionId',
         'isParent'                  => 'IsParent',
         'lastSuccessfulTriggerTime' => 'LastSuccessfulTriggerTime',
+        'lastTriggerOutputs'        => 'LastTriggerOutputs',
         'lastTriggerStatus'         => 'LastTriggerStatus',
+        'lastTriggerStatusMessage'  => 'LastTriggerStatusMessage',
         'lastTriggerTime'           => 'LastTriggerTime',
         'mode'                      => 'Mode',
         'outputs'                   => 'Outputs',
@@ -240,8 +378,14 @@ class executions extends Model
         if (null !== $this->lastSuccessfulTriggerTime) {
             $res['LastSuccessfulTriggerTime'] = $this->lastSuccessfulTriggerTime;
         }
+        if (null !== $this->lastTriggerOutputs) {
+            $res['LastTriggerOutputs'] = $this->lastTriggerOutputs;
+        }
         if (null !== $this->lastTriggerStatus) {
             $res['LastTriggerStatus'] = $this->lastTriggerStatus;
+        }
+        if (null !== $this->lastTriggerStatusMessage) {
+            $res['LastTriggerStatusMessage'] = $this->lastTriggerStatusMessage;
         }
         if (null !== $this->lastTriggerTime) {
             $res['LastTriggerTime'] = $this->lastTriggerTime;
@@ -351,8 +495,14 @@ class executions extends Model
         if (isset($map['LastSuccessfulTriggerTime'])) {
             $model->lastSuccessfulTriggerTime = $map['LastSuccessfulTriggerTime'];
         }
+        if (isset($map['LastTriggerOutputs'])) {
+            $model->lastTriggerOutputs = $map['LastTriggerOutputs'];
+        }
         if (isset($map['LastTriggerStatus'])) {
             $model->lastTriggerStatus = $map['LastTriggerStatus'];
+        }
+        if (isset($map['LastTriggerStatusMessage'])) {
+            $model->lastTriggerStatusMessage = $map['LastTriggerStatusMessage'];
         }
         if (isset($map['LastTriggerTime'])) {
             $model->lastTriggerTime = $map['LastTriggerTime'];
