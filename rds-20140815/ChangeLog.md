@@ -1,3 +1,8 @@
+2023-07-28 Version: 2.4.4
+- Fix bug ram.
+- Add minor version error.
+- Support to select the minor version of the kernel when the modify instance error reports that the kernel version does not support it.
+
 2023-07-27 Version: 2.4.3
 - Fix bug ram.
 - Add minor version error.
