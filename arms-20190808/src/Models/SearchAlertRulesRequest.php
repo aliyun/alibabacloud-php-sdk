@@ -17,6 +17,11 @@ class SearchAlertRulesRequest extends Model
     public $alertRuleId;
 
     /**
+     * @description The type of the application that is associated with the alert rule. Valid values:
+     *
+     *   `TRACE`: application
+     *   `RETCODE`: browser
+     *
      * @example TRACE
      *
      * @var string
@@ -24,6 +29,8 @@ class SearchAlertRulesRequest extends Model
     public $appType;
 
     /**
+     * @description The page number of the page to return. Default value: `1`.
+     *
      * @example 1
      *
      * @var int
@@ -31,6 +38,8 @@ class SearchAlertRulesRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return per page. Default value: `10`.
+     *
      * @example 20
      *
      * @var int
@@ -38,6 +47,8 @@ class SearchAlertRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The process identifier (PID) of the application that is associated with the alert rule. For more information about how to obtain the PID, see [Obtain the PID of an application](https://help.aliyun.com/document_detail/186100.html?spm=a2c4g.11186623.6.792.1b50654cqcDPyk#title-imy-7gj-qhr).
+     *
      * @example atc889zkcf@d8deedfa9bf****
      *
      * @var string
@@ -45,6 +56,8 @@ class SearchAlertRulesRequest extends Model
     public $pid;
 
     /**
+     * @description The region ID of the alert data. For more information about the mappings between **RegionId** and **SystemRegionId**, see the detailed description below the table.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,6 +72,8 @@ class SearchAlertRulesRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The region ID of the alert rule. For more information about the mappings between **RegionId** and **SystemRegionId**, see the detailed description below the table.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -66,11 +81,15 @@ class SearchAlertRulesRequest extends Model
     public $systemRegionId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The alert rule name.
+     *
      * @example AlertRuleTitle
      *
      * @var string
@@ -78,6 +97,17 @@ class SearchAlertRulesRequest extends Model
     public $title;
 
     /**
+     * @description The alert rule type. Valid values:
+     *
+     *   `1`: custom alert rules that are used to monitor drill-down data sets
+     *   `3`: custom alert rules that are used to monitor tiled data sets
+     *   `4`: alert rules that are used to monitor the browser, including the default frontend alert rules
+     *   `5`: alert rules that are used to monitor applications, including the default application alert rules
+     *   `6`: the default browser alert rules
+     *   `7`: the default application alert rules
+     *   `8`: Tracing Analysis alert rules
+     *   `101`: Prometheus alert rules
+     *
      * @example 4
      *
      * @var string

@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class alertRules extends Model
 {
     /**
+     * @description The format of the alert notification.
+     *
      * @var alarmContext
      */
     public $alarmContext;
 
     /**
+     * @description The severity of the alerts. Only the value `WARN` is supported.
+     *
      * @example WARN
      *
      * @var string
@@ -25,11 +29,15 @@ class alertRules extends Model
     public $alertLevel;
 
     /**
+     * @description The conditions of the alert rule. Multiple conditions are separated by the AND or OR logical operators.
+     *
      * @var alertRule
      */
     public $alertRule;
 
     /**
+     * @description The name of the alert rule.
+     *
      * @example TestAlertRule
      *
      * @var string
@@ -37,6 +45,17 @@ class alertRules extends Model
     public $alertTitle;
 
     /**
+     * @description The type of the alert rule. Valid values:
+     *
+     *   `1`: custom alert rules that are used to monitor drill-down data sets
+     *   `3`: custom alert rules that are used to monitor tiled data sets
+     *   `4`: alert rules that are used to monitor the browser, including the default frontend alert rules
+     *   `5`: alert rules that are used to monitor applications, including the default application alert rules
+     *   `6`: the default browser alert rules
+     *   `7`: the default application alert rules
+     *   `8`: Tracing Analysis alert rules
+     *   `101`: Prometheus alert rules
+     *
      * @example 4
      *
      * @var int
@@ -44,6 +63,8 @@ class alertRules extends Model
     public $alertType;
 
     /**
+     * @description The version of the alert rule. Default value: `1`.
+     *
      * @example 1
      *
      * @var int
@@ -56,6 +77,19 @@ class alertRules extends Model
     public $alertWays;
 
     /**
+     * @description The configuration items of the alert rule. The value is a JSON string.
+     *
+     * The configuration item **continuous** indicates whether alert notifications are continuously sent. Valid values:
+     *
+     *   `true`: Alert notifications are sent every minute.
+     *   `false`: The alert silence feature is enabled.
+     *
+     * The configuration item **dataRevision** indicates the data revision policy that is used if no data is obtained or the data is null. Default value: 2. Valid values:
+     *
+     *   `0`: overwrites the data by using the value 0
+     *   `1`: overwrites the data by using the value 1
+     *   `2`: overwrites the data by using the value null. This value indicates that no alert is triggered if no data exists
+     *
      * @example {\"continuous\":true,\"dataRevision\":2}
      *
      * @var string
@@ -63,6 +97,8 @@ class alertRules extends Model
     public $config;
 
     /**
+     * @description The ID of the contact group. Multiple IDs are separated by commas (,).
+     *
      * @example 381*,572*
      *
      * @var string
@@ -70,6 +106,8 @@ class alertRules extends Model
     public $contactGroupIdList;
 
     /**
+     * @description The IDs of the alert contact groups. The value is a JSON array.
+     *
      * @example [123, 234]
      *
      * @var string
@@ -77,6 +115,8 @@ class alertRules extends Model
     public $contactGroupIds;
 
     /**
+     * @description The timestamp that shows when the alert rule was created.
+     *
      * @example 1579508519683
      *
      * @var int
@@ -84,6 +124,11 @@ class alertRules extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the alert is sent through the alert center. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool
@@ -91,6 +136,8 @@ class alertRules extends Model
     public $hostByAlertManager;
 
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 123
      *
      * @var int
@@ -98,16 +145,22 @@ class alertRules extends Model
     public $id;
 
     /**
+     * @description The information about the application that is associated with the alert rule.
+     *
      * @var metricParam
      */
     public $metricParam;
 
     /**
+     * @description The time ranges when the alert rule takes effect and when alert notifications are sent.
+     *
      * @var notice
      */
     public $notice;
 
     /**
+     * @description The ID of the region to which the alert rule belongs.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -122,6 +175,8 @@ class alertRules extends Model
     public $resourceGroupId;
 
     /**
+     * @description The status of the alert rule. `RUNNING`: The alert rule is enabled. `STOPPED`: The alert rule is disabled.
+     *
      * @example RUNNING
      *
      * @var string
@@ -129,6 +184,8 @@ class alertRules extends Model
     public $status;
 
     /**
+     * @description The ID of the Application Real-Time Monitoring Service (ARMS) task that is associated with the alert rule.
+     *
      * @example 123
      *
      * @var int
@@ -136,6 +193,8 @@ class alertRules extends Model
     public $taskId;
 
     /**
+     * @description The status of the task. This parameter is hidden from users.
+     *
      * @example ""
      *
      * @var string
@@ -143,6 +202,8 @@ class alertRules extends Model
     public $taskStatus;
 
     /**
+     * @description The name of the alert.
+     *
      * @example AlertTest
      *
      * @var string
@@ -150,6 +211,8 @@ class alertRules extends Model
     public $title;
 
     /**
+     * @description The timestamp that shows when the alert rule was updated.
+     *
      * @example 1480521600000
      *
      * @var int
@@ -157,6 +220,8 @@ class alertRules extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the user to which the alert rule belongs.
+     *
      * @example 113197164949****
      *
      * @var string

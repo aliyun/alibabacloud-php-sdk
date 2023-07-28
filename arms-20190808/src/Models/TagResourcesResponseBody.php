@@ -16,6 +16,8 @@ class TagResourcesResponseBody extends Model
     public $data;
 
     /**
+     * @description Id of the request
+     *
      * @example 05919CF2-B8A1-588D-B3DB-89B3********
      *
      * @var string

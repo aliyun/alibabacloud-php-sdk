@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description Schema of Response
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
+     * PROMETHEUSALERTRULE - Prometheus monitoring
      * @example PROMETHEUS
      *
      * @var string
@@ -22,6 +27,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The returned result.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alarmContext extends Model
 {
     /**
+     * @description The sub-title of the alert notification content.
+     *
      * @example TestSubTitle
      *
      * @var string
@@ -16,16 +18,26 @@ class alarmContext extends Model
     public $alarmContentSubTitle;
 
     /**
+     * @description The template of the alert notification.
+     *
+     * @example Alert name: $Alert name\nFilter condition: $Filter\nAlert time: $Alert time\nAlert content: $Alert content\nNote: The alert persists until a reply email is received. The system will remind you again in 24 hours.
+     *
      * @var string
      */
     public $alarmContentTemplate;
 
     /**
+     * @description The content of the alert notification.
+     *
+     * @example Alert name: $Alert name\nFilter condition: $Filter\nAlert time: $Alert time\nAlert content: $Alert content\nNote: The alert persists until a reply email is received. The system will remind you again in 24 hours.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The sub-title of the alert notification.
+     *
      * @example test
      *
      * @var string

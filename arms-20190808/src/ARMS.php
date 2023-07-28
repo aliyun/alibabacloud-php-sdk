@@ -7880,7 +7880,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries alert rules.
+     * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
      *   *
      * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -7943,7 +7943,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * Queries alert rules.
+     * The current operation is no longer maintained. You can call the GetAlertRules operation of Alert Management (New) to query existing alert rules.
      *   *
      * @param SearchAlertRulesRequest $request SearchAlertRulesRequest
      *

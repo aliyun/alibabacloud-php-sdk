@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notice extends Model
 {
     /**
+     * @description The end of the time range when the alert rule takes effect within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
      * @example 1480607940000
      *
      * @var int
@@ -16,6 +18,8 @@ class notice extends Model
     public $endTime;
 
     /**
+     * @description The end of the time range when alert notifications are sent based on the alert rule within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
      * @example 1480607940000
      *
      * @var int
@@ -23,6 +27,8 @@ class notice extends Model
     public $noticeEndTime;
 
     /**
+     * @description The beginning of the time range when alert notifications are sent based on the alert rule within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
      * @example 1480521600000
      *
      * @var int
@@ -30,6 +36,8 @@ class notice extends Model
     public $noticeStartTime;
 
     /**
+     * @description The beginning of the time range when the alert rule takes effect within 24 hours per day. This value is a UNIX timestamp. The year, month, and day that are indicated by the timestamp are not displayed in this value. Only the hour, minute, and second are displayed.
+     *
      * @example 1480521600000
      *
      * @var int

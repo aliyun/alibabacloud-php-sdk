@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alertRule extends Model
 {
     /**
+     * @description The logical operator between conditions. Valid values: `&`: AND. `|`: OR.
+     *
      * @example |
      *
      * @var string
@@ -17,6 +19,8 @@ class alertRule extends Model
     public $operator;
 
     /**
+     * @description The condition of the alert rule.
+     *
      * @var rules[]
      */
     public $rules;

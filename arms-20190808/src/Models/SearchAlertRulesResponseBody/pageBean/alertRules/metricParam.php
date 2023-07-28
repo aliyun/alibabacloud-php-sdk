@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class metricParam extends Model
 {
     /**
+     * @description The ID of the application group that is associated with the alert rule. This parameter is applicable to Enterprise Distributed Application Service (EDAS) applications.
+     *
      * @example DEFAULT
      *
      * @var string
@@ -17,6 +19,8 @@ class metricParam extends Model
     public $appGroupId;
 
     /**
+     * @description The auto-increment ID of the ARMS application. You can ignore this ID.
+     *
      * @example 123
      *
      * @var string
@@ -24,11 +28,15 @@ class metricParam extends Model
     public $appId;
 
     /**
+     * @description The dimensions in the condition.
+     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
+     * @description The PID of the application that is associated with the alert rule.
+     *
      * @example 9870ca99-8105-4da7-a3a4-d72dd1b1****
      *
      * @var string
@@ -36,6 +44,15 @@ class metricParam extends Model
     public $pid;
 
     /**
+     * @description The type of the metric. Valid values:
+     *
+     *   `txn`: the number of API calls during application monitoring
+     *   `txn_type`: the types of API calls during application monitoring
+     *   `db`: database metrics
+     *   `jvm`: Java virtual machine (JVM) metrics
+     *   `host`: host metrics
+     *   `exception`: API call errors
+     *
      * @example DB
      *
      * @var string

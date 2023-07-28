@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The aggregation logic of the metric data of the alert rule. Valid values:
+     *
+     *   `AVG`: calculates the average value for each minute
+     *   `SUM`: calculates the total value for each minute
+     *   `MAX`: calculates the maximum value for each minute
+     *   `MIN`: calculates the minimum value for each minute
+     *
      * @example AVG
      *
      * @var string
@@ -16,11 +23,17 @@ class rules extends Model
     public $aggregates;
 
     /**
+     * @description The displayed description of the alert metric.
+     *
+     * @example response time_ms
+     *
      * @var string
      */
     public $alias;
 
     /**
+     * @description The metric based on which alerts are triggered. For more information, see the "[Alert metrics](https://help.aliyun.com/document_detail/175825.html#h2-url-4)" section in this topic.
+     *
      * @example appstat.jvm.SystemDiskFree
      *
      * @var string
@@ -28,6 +41,8 @@ class rules extends Model
     public $measure;
 
     /**
+     * @description The time range when data is requested. Unit: minutes. For example, a value of 5 indicates that the alert rule applies to the data in the last 5 minutes.
+     *
      * @example 5
      *
      * @var int
@@ -35,6 +50,17 @@ class rules extends Model
     public $NValue;
 
     /**
+     * @description The operation logic of the condition. Valid values:
+     *
+     *   CURRENT_GTE: greater than or equal to
+     *   CURRENT_LTE: less than or equal to
+     *   PREVIOUS_UP: the increase percentage compared with the last period
+     *   PREVIOUS_DOWN: the decrease percentage compared with the last period
+     *   HOH_UP: the increase percentage compared with the last hour
+     *   HOH_DOWN: the decrease percentage compared with the last hour
+     *   DOD_UP: the increase percentage compared with the last day
+     *   DOD_DOWN: the decrease percentage compared with the last day
+     *
      * @example CURRENT_GTE
      *
      * @var string
@@ -42,6 +68,8 @@ class rules extends Model
     public $operator;
 
     /**
+     * @description The threshold of the condition.
+     *
      * @example 30
      *
      * @var float
