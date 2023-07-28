@@ -3326,6 +3326,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->sendStatus)) {
             $query['SendStatus'] = $request->sendStatus;
         }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
         }
@@ -3414,6 +3417,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->sendStatus)) {
             $query['SendStatus'] = $request->sendStatus;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -3508,6 +3514,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->sendStatus)) {
             $query['SendStatus'] = $request->sendStatus;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
         }
         if (!Utils::isUnset($request->startTime)) {
             $query['StartTime'] = $request->startTime;
@@ -8261,9 +8270,13 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return OpenCmsServiceResponse
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
+     *
+     * @return OpenCmsServiceResponse OpenCmsServiceResponse
      */
     public function openCmsServiceWithOptions($runtime)
     {
@@ -8284,7 +8297,11 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * @return OpenCmsServiceResponse
+     * @deprecated
+     *   *
+     * Deprecated
+     *
+     * @return OpenCmsServiceResponse OpenCmsServiceResponse
      */
     public function openCmsService()
     {

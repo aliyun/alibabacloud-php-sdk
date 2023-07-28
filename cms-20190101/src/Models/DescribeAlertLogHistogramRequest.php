@@ -159,6 +159,11 @@ class DescribeAlertLogHistogramRequest extends Model
     public $sendStatus;
 
     /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @description The number of the page to return. Default value: 1
      *
      * @example 1609988009694
@@ -182,6 +187,7 @@ class DescribeAlertLogHistogramRequest extends Model
         'ruleName'     => 'RuleName',
         'searchKey'    => 'SearchKey',
         'sendStatus'   => 'SendStatus',
+        'sourceType'   => 'SourceType',
         'startTime'    => 'StartTime',
     ];
 
@@ -236,6 +242,9 @@ class DescribeAlertLogHistogramRequest extends Model
         }
         if (null !== $this->sendStatus) {
             $res['SendStatus'] = $this->sendStatus;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -296,6 +305,9 @@ class DescribeAlertLogHistogramRequest extends Model
         }
         if (isset($map['SendStatus'])) {
             $model->sendStatus = $map['SendStatus'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

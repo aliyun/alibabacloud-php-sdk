@@ -164,6 +164,11 @@ class DescribeAlertLogCountRequest extends Model
     public $sendStatus;
 
     /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @description The name of the metric.
      *
      * > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
@@ -188,6 +193,7 @@ class DescribeAlertLogCountRequest extends Model
         'ruleName'     => 'RuleName',
         'searchKey'    => 'SearchKey',
         'sendStatus'   => 'SendStatus',
+        'sourceType'   => 'SourceType',
         'startTime'    => 'StartTime',
     ];
 
@@ -242,6 +248,9 @@ class DescribeAlertLogCountRequest extends Model
         }
         if (null !== $this->sendStatus) {
             $res['SendStatus'] = $this->sendStatus;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -302,6 +311,9 @@ class DescribeAlertLogCountRequest extends Model
         }
         if (isset($map['SendStatus'])) {
             $model->sendStatus = $map['SendStatus'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];

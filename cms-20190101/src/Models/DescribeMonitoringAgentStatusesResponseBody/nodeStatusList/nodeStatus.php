@@ -34,6 +34,11 @@ class nodeStatus extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $osMonitorConfig;
+
+    /**
      * @example install_fail
      *
      * @var string
@@ -79,6 +84,7 @@ class nodeStatus extends Model
     protected $_name = [
         'autoInstall'          => 'AutoInstall',
         'instanceId'           => 'InstanceId',
+        'osMonitorConfig'      => 'OsMonitorConfig',
         'osMonitorErrorCode'   => 'OsMonitorErrorCode',
         'osMonitorErrorDetail' => 'OsMonitorErrorDetail',
         'osMonitorStatus'      => 'OsMonitorStatus',
@@ -98,6 +104,9 @@ class nodeStatus extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->osMonitorConfig) {
+            $res['OsMonitorConfig'] = $this->osMonitorConfig;
         }
         if (null !== $this->osMonitorErrorCode) {
             $res['OsMonitorErrorCode'] = $this->osMonitorErrorCode;
@@ -131,6 +140,9 @@ class nodeStatus extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OsMonitorConfig'])) {
+            $model->osMonitorConfig = $map['OsMonitorConfig'];
         }
         if (isset($map['OsMonitorErrorCode'])) {
             $model->osMonitorErrorCode = $map['OsMonitorErrorCode'];

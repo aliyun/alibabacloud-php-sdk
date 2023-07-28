@@ -163,6 +163,11 @@ class DescribeAlertLogListRequest extends Model
     public $sendStatus;
 
     /**
+     * @var string
+     */
+    public $sourceType;
+
+    /**
      * @description Indicates whether the alert level was changed. Valid values:
      *
      *   `P4->OK`: The alert level was changed from P4 to OK.
@@ -190,6 +195,7 @@ class DescribeAlertLogListRequest extends Model
         'ruleName'     => 'RuleName',
         'searchKey'    => 'SearchKey',
         'sendStatus'   => 'SendStatus',
+        'sourceType'   => 'SourceType',
         'startTime'    => 'StartTime',
     ];
 
@@ -247,6 +253,9 @@ class DescribeAlertLogListRequest extends Model
         }
         if (null !== $this->sendStatus) {
             $res['SendStatus'] = $this->sendStatus;
+        }
+        if (null !== $this->sourceType) {
+            $res['SourceType'] = $this->sourceType;
         }
         if (null !== $this->startTime) {
             $res['StartTime'] = $this->startTime;
@@ -310,6 +319,9 @@ class DescribeAlertLogListRequest extends Model
         }
         if (isset($map['SendStatus'])) {
             $model->sendStatus = $map['SendStatus'];
+        }
+        if (isset($map['SourceType'])) {
+            $model->sourceType = $map['SourceType'];
         }
         if (isset($map['StartTime'])) {
             $model->startTime = $map['StartTime'];
