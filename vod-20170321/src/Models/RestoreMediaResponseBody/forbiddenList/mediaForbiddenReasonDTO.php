@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaForbiddenReasonDTO extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example fa10ee70898671edb99f6eb3690d****
      *
      * @var string
@@ -16,6 +18,8 @@ class mediaForbiddenReasonDTO extends Model
     public $mediaId;
 
     /**
+     * @description The reason for the failure.
+     *
      * @example Forbidden.RestoreMedia
      *
      * @var string

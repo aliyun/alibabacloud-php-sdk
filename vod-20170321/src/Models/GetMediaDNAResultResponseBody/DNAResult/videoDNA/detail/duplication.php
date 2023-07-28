@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class duplication extends Model
 {
     /**
+     * @description The duration of the video. Unit: seconds.
+     *
      * @example 12.0
      *
      * @var string
@@ -16,6 +18,8 @@ class duplication extends Model
     public $duration;
 
     /**
+     * @description The start time of the video. Unit: seconds.
+     *
      * @example 2.0
      *
      * @var string

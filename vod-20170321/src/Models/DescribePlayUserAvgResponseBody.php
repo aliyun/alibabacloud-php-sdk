@@ -19,7 +19,7 @@ class DescribePlayUserAvgResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribePlayUserAvg**.
+     * @description The statistics on average playback each day.
      *
      * @var userPlayStatisAvgs
      */

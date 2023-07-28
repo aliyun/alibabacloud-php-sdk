@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AIJob extends Model
 {
     /**
-     * @description Queries AI jobs. After a job is submitted, ApsaraVideo VOD asynchronously processes the job. You can call this operation to query the job information in real time.
+     * @description The error code. This parameter is returned if the value of Status is fail.
      *
      * @example 0
      *
@@ -18,13 +18,58 @@ class AIJob extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The time when the job is complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2020-06-28T02:04:47Z
      *
      * @var string
      */
     public $completeTime;
+
+    /**
+     * @description The time when the job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2020-06-28T02:04:32Z
+     *
+     * @var string
+     */
+    public $creationTime;
+
+    /**
+     * @description The returned data. The value is a JSON string.
+     *
+     * @example {"OrigASRData":{"AsrTextList":\[{"EndTime":700,"StartTime":0,"Text":"Yes.","ChannelId":0,"SpeechRate":85},{"EndTime":3750,"StartTime":1630,"Text":"No.","ChannelId":0,"SpeechRate":28},{"EndTime":5910,"StartTime":4020,"Text":"Of course.","ChannelId":0,"SpeechRate":95},{"EndTime":12750,"StartTime":10090,"Text":"Message.","ChannelId":0,"SpeechRate":45},{"EndTime":25230,"StartTime":13590,"Text":"Hello, good afternoon.","ChannelId":0,"SpeechRate":20},{"EndTime":30000,"StartTime":28220,"Text":"Yes.","ChannelId":0,"SpeechRate":33}],"Duration":"30016"}}
+     *
+     * @var string
+     */
+    public $data;
+
+    /**
+     * @description The ID of the job.
+     *
+     * @example a718a3a1e8bb42ee3bc88921e94****
+     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @description The ID of the video.
+     *
+     * @example 3D3D12340d9401fab46a0b847****
+     *
+     * @var string
+     */
+    public $mediaId;
+
+    /**
+     * @description The error message. This parameter is returned if the value of Status is fail.
+     *
+     * @example OK
+     *
+     * @var string
+     */
+    public $message;
 
     /**
      * @description The status of the job. Valid values:
@@ -34,47 +79,6 @@ class AIJob extends Model
      *   **init**: The job is being initialized.
      *   **Processing**: The job is in progress.
      *
-     * @example 2020-06-28T02:04:32Z
-     *
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @description {"OrigASRData":{"AsrTextList":\[{"EndTime":700,"StartTime":0,"Text":"Yes.","ChannelId":0,"SpeechRate":85},{"EndTime":3750,"StartTime":1630,"Text":"No.","ChannelId":0,"SpeechRate":28},{"EndTime":5910,"StartTime":4020,"Text":"Of course.","ChannelId":0,"SpeechRate":95},{"EndTime":12750,"StartTime":10090,"Text":"Message.","ChannelId":0,"SpeechRate":45},{"EndTime":25230,"StartTime":13590,"Text":"Hello, good afternoon.","ChannelId":0,"SpeechRate":20},{"EndTime":30000,"StartTime":28220,"Text":"Yes.","ChannelId":0,"SpeechRate":33}],"Duration":"30016"}}
-     *
-     * @example The information about the jobs.
-     *
-     * @var string
-     */
-    public $data;
-
-    /**
-     * @description The ID of the video.
-     *
-     * @example a718a3a1e8bb42ee3bc88921e94****
-     *
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @example 3D3D12340d9401fab46a0b847****
-     *
-     * @var string
-     */
-    public $mediaId;
-
-    /**
-     * @example OK
-     *
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @description The error message. This parameter is returned if the value of Status is fail.
-     *
      * @example success
      *
      * @var string
@@ -82,9 +86,11 @@ class AIJob extends Model
     public $status;
 
     /**
-     * @description The returned data. The value is a JSON string.
+     * @description The type of the job. Valid values:
      *
-     * For more information, see [AITemplateConfig](~~89863~~).
+     *   **AIMediaDNA**: The media fingerprinting job.
+     *   **AIVideoTag**: The smart tagging job.
+     *
      * @example AIVideoTag
      *
      * @var string

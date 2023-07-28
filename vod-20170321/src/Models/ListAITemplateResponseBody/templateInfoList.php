@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templateInfoList extends Model
 {
     /**
-     * @description The type of the AI template. Valid values:
-     *
-     *   **AIMediaAudit**: automated review
-     *   **AIImage**: smart thumbnail
+     * @description The time when the AI template was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2020-07-08T06:50:45Z
      *
@@ -21,7 +18,10 @@ class templateInfoList extends Model
     public $creationTime;
 
     /**
-     * @description Details of the AI template.
+     * @description Indicates whether the template is the default AI template. Valid values:
+     *
+     *   **Default**
+     *   **NotDefault**
      *
      * @example NoDefault
      *
@@ -30,6 +30,8 @@ class templateInfoList extends Model
     public $isDefault;
 
     /**
+     * @description The time when the AI template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2020-07-08T06:58:45Z
      *
      * @var string
@@ -37,7 +39,10 @@ class templateInfoList extends Model
     public $modifyTime;
 
     /**
-     * @description Queries AI templates.
+     * @description The source of the AI template. Valid values:
+     *
+     *   **System**
+     *   **Custom**
      *
      * @example Custom
      *
@@ -46,8 +51,8 @@ class templateInfoList extends Model
     public $source;
 
     /**
-     * @description The ID of the request.
-     *
+     * @description The detailed configurations of the AI template. The value is a JSON string.
+     * <props="china">For more information, see [AITemplateConfig](~~89863~~#title-vd3-499-o36).</props>
      * @example {"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditItem":["terrorism","porn"],"AuditAutoBlock":"yes"}
      *
      * @var string
@@ -55,6 +60,8 @@ class templateInfoList extends Model
     public $templateConfig;
 
     /**
+     * @description The ID of the AI template.
+     *
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
      * @var string
@@ -62,7 +69,7 @@ class templateInfoList extends Model
     public $templateId;
 
     /**
-     * @description The time when the AI template was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The name of the AI template.
      *
      * @example DemoAITemplate
      *
@@ -71,7 +78,10 @@ class templateInfoList extends Model
     public $templateName;
 
     /**
-     * @description The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](~~89863~~#title-vd3-499-o36).
+     * @description The type of the AI template. Valid values:
+     *
+     *   **AIMediaAudit**: automated review
+     *   **AIImage**: smart thumbnail
      *
      * @example AIMediaAudit
      *

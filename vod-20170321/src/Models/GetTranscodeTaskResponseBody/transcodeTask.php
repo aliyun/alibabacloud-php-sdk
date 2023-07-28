@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class transcodeTask extends Model
 {
     /**
-     * @description The Object Storage Service (OSS) URL of the input file.
+     * @description The time when the transcoding task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-23T12:40:12Z
      *
@@ -19,7 +19,7 @@ class transcodeTask extends Model
     public $completeTime;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetTranscodeTask**.
+     * @description The time when the transcoding task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-23T12:35:12Z
      *
@@ -28,10 +28,13 @@ class transcodeTask extends Model
     public $creationTime;
 
     /**
-     * @description The mode in which the transcoding task is triggered. Valid values:
+     * @description The status of the transcoding task. Valid values:
      *
-     *   **Auto**: The transcoding task is automatically triggered when the video is uploaded.
-     *   **Manual**: The transcoding task is triggered by calling the SubmitTranscodeJobs operation.
+     *   **Processing**: In progress.
+     *   **Partial**: Some transcoding jobs were complete.
+     *   **CompleteAllSucc**: All transcoding jobs were successful.
+     *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
+     *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
      *
      * @example Processing
      *
@@ -40,14 +43,14 @@ class transcodeTask extends Model
     public $taskStatus;
 
     /**
-     * @description The information about the output file.
+     * @description Details about transcoding jobs.
      *
      * @var transcodeJobInfoList[]
      */
     public $transcodeJobInfoList;
 
     /**
-     * @description The container format of the output file.
+     * @description The ID of the transcoding task.
      *
      * @example b1b65ab107e14*****3dbb900f6c1fe0
      *
@@ -56,10 +59,7 @@ class transcodeTask extends Model
     public $transcodeTaskId;
 
     /**
-     * @description The ID of the transcoding task. You can use one of the following methods to obtain the ID:
-     *
-     *   Obtain the value of TranscodeTaskId from the response to the [SubmitTranscodeJobs](~~68570~~) operation.
-     *   Obtain the value of TranscodeTaskId from the response to the [ListTranscodeTask](~~109120~~) operation.
+     * @description The ID of the transcoding template group.
      *
      * @example b500c7094bd241*****3e9900752d7c3
      *
@@ -68,7 +68,10 @@ class transcodeTask extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description The video streams.
+     * @description The mode in which the transcoding task is triggered. Valid values:
+     *
+     *   **Auto**: The transcoding task is automatically triggered when the video is uploaded.
+     *   **Manual**: The transcoding task is triggered by calling the SubmitTranscodeJobs operation.
      *
      * @example Auto
      *
@@ -77,7 +80,7 @@ class transcodeTask extends Model
     public $trigger;
 
     /**
-     * @description The ID of the transcoding template.
+     * @description The ID of the audio or video file.
      *
      * @example 883f5d98107*****b7f20aaa352f
      *

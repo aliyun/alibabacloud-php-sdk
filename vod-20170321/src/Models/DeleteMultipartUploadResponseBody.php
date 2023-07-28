@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMultipartUploadResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
      * @var string

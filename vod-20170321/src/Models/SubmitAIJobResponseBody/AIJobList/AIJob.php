@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AIJob extends Model
 {
     /**
+     * @description The ID of the AI job.
+     *
      * @example 9e82640c85114bf5af23edfaf****
      *
      * @var string
@@ -16,6 +18,8 @@ class AIJob extends Model
     public $jobId;
 
     /**
+     * @description The ID of the video.
+     *
      * @example 3D3D12340d92c641401fab46a0b847****
      *
      * @var string
@@ -23,7 +27,10 @@ class AIJob extends Model
     public $mediaId;
 
     /**
-     * @description SubmitAIJob
+     * @description The type of the AI job. Valid values:
+     *
+     *   **AIMediaDNA**: The media fingerprinting job.
+     *   **AIVideoTag**: The smart tagging job.
      *
      * @example AIVideoTag
      *

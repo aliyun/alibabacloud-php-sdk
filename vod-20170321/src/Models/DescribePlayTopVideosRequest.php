@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayTopVideosRequest extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The time to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2016-06-29T13:00:00Z
      *
@@ -23,7 +23,7 @@ class DescribePlayTopVideosRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribePlayTopVideos**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -32,7 +32,7 @@ class DescribePlayTopVideosRequest extends Model
     public $pageNo;
 
     /**
-     * @description The time to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The number of entries to return on each page. Default value: **100**. Maximum value: **1000**.
      *
      * @example 100
      *

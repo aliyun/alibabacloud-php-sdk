@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainDetailResponseBody extends Model
 {
     /**
-     * @description The priority of the origin server.
+     * @description The basic information about the domain name for CDN.
      *
      * @var domainDetail
      */
     public $domainDetail;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeVodDomainDetail**.
+     * @description The ID of the request.
      *
      * @example 09ABE829-6CD3-4FE0-556113E2****
      *

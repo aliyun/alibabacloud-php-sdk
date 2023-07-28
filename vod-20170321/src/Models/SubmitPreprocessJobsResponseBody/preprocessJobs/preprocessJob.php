@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class preprocessJob extends Model
 {
     /**
+     * @description The ID of the job.
+     *
      * @example bb396607fd11fee9effbb99c4****
      *
      * @var string

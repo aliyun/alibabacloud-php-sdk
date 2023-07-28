@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTranscodeTaskResponseBody extends Model
 {
     /**
-     * @description The ID of the transcoding template group.
+     * @description The ID of the request.
      *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
@@ -19,7 +19,7 @@ class ListTranscodeTaskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the transcoding task.
+     * @description Details about transcoding tasks.
      *
      * @var transcodeTaskList[]
      */

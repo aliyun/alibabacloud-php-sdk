@@ -15,35 +15,35 @@ use AlibabaCloud\Tea\Model;
 class mediaList extends Model
 {
     /**
-     * @description AI详细信息
+     * @description Details about AI data.
      *
      * @var aiData
      */
     public $aiData;
 
     /**
-     * @description AI简介数据
+     * @description The basic information about AI data.
      *
      * @var aiRoughData
      */
     public $aiRoughData;
 
     /**
-     * @description Queries the information about media assets such as video, audio, and image files, and auxiliary media assets.
+     * @description [Details about auxiliary media assets](~~86991~~).
      *
      * @var attachedMedia
      */
     public $attachedMedia;
 
     /**
-     * @description The name of the category.
+     * @description [Details about audio files](~~86991~~).
      *
      * @var audio
      */
     public $audio;
 
     /**
-     * @description The list of category IDs.
+     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -52,14 +52,14 @@ class mediaList extends Model
     public $creationTime;
 
     /**
-     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description [Details about image files](~~86991~~).
      *
      * @var image
      */
     public $image;
 
     /**
-     * @description The time when the media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the media asset.
      *
      * @example a82a2cd7d4e147bbed6c1ee372****
      *
@@ -68,7 +68,12 @@ class mediaList extends Model
     public $mediaId;
 
     /**
-     * @description The description of the image file.
+     * @description The type of the media asset. Valid values:
+     *
+     *   **video**
+     *   **audio**
+     *   **image**
+     *   **attached**
      *
      * @example video
      *
@@ -77,10 +82,7 @@ class mediaList extends Model
     public $mediaType;
 
     /**
-     * @description The download switch. The video file can be downloaded offline only when the download switch is turned on. Valid values:
-     *
-     *   **on**
-     *   **off**
+     * @description [Details about video files](~~86991~~).
      *
      * @var video
      */

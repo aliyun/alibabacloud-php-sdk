@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class occurrences extends Model
 {
     /**
-     * @description 片段起始时间
+     * @description The start time of the clip.
+     *
+     * @example 1.4
      *
      * @var float
      */
     public $from;
 
     /**
-     * @description 打分
+     * @description The score.
+     *
+     * @example 0.75287705
      *
      * @var float
      */
     public $score;
 
     /**
-     * @description 片段结束时间
+     * @description The end time of the clip.
+     *
+     * @example 2.5
      *
      * @var float
      */

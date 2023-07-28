@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetAuditHistoryResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The review records.
      *
      * @var histories[]
      */
     public $histories;
 
     /**
-     * @description The review comments, which are provided by the reviewer.
+     * @description The ID of the request.
      *
      * @example 04F0F334-1335-43*****D7-6C044FE73368
      *
@@ -26,8 +26,9 @@ class GetAuditHistoryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The reviewer.
-     *
+     * @description The manual review result. Valid values:
+     * - **Normal**: The video can be played.
+     * - **Blocked**: The video is blocked.
      * @example Normal
      *
      * @var string
@@ -35,10 +36,7 @@ class GetAuditHistoryResponseBody extends Model
     public $status;
 
     /**
-     * @description The sorting rule of the results. Valid values:
-     *
-     *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
-     *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+     * @description The total number of review records.
      *
      * @example 2
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVodSpecificConfigRequest extends Model
 {
     /**
+     * @description The ID of the configuration.
+     *
      * @example 2317****
      *
      * @var string
@@ -16,13 +18,18 @@ class DeleteVodSpecificConfigRequest extends Model
     public $configId;
 
     /**
-     * @description Deletes the configurations of a domain name for CDN.
+     * @description The domain name for CDN.
      *
      * @example www.example.com
      *
      * @var string
      */
     public $domainName;
+
+    /**
+     * @var string
+     */
+    public $env;
 
     /**
      * @var int
@@ -36,6 +43,7 @@ class DeleteVodSpecificConfigRequest extends Model
     protected $_name = [
         'configId'      => 'ConfigId',
         'domainName'    => 'DomainName',
+        'env'           => 'Env',
         'ownerId'       => 'OwnerId',
         'securityToken' => 'SecurityToken',
     ];
@@ -52,6 +60,9 @@ class DeleteVodSpecificConfigRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -76,6 +87,9 @@ class DeleteVodSpecificConfigRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

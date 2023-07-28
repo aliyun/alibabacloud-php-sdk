@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateCategoryRequest extends Model
 {
     /**
+     * @description The ID of the category.
+     *
      * @example 10020****
      *
      * @var int
@@ -16,7 +18,12 @@ class UpdateCategoryRequest extends Model
     public $cateId;
 
     /**
-     * @description Modifies a video category.
+     * @description The name of the category.
+     *
+     *   The value can be up to 64 bytes in length.
+     *   The string must be encoded in the UTF-8 format.
+     *
+     * @example beauty
      *
      * @var string
      */

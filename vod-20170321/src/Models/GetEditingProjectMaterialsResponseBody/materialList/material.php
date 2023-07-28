@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class material extends Model
 {
     /**
-     * @description The thumbnail URL of the material.
+     * @description The category ID of the material.
      *
      * @example 100005****
      *
@@ -20,15 +20,17 @@ class material extends Model
     public $cateId;
 
     /**
-     * @description The category ID of the material.
+     * @description The category name of the material.
      *
-     * @example The ID of the request.
+     * @example test1
      *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL of the material.
+     *
      * @example http://example.aliyundoc.com/aivideocover/46fa444aa34065cb9250f6c****\/image_01.jpg
      *
      * @var string
@@ -36,10 +38,7 @@ class material extends Model
     public $coverURL;
 
     /**
-     * @description The type of the material. Valid values:
-     *
-     *   **video**
-     *   **audio**
+     * @description The time when the material was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-10-19 10:48:17
      *
@@ -48,15 +47,17 @@ class material extends Model
     public $creationTime;
 
     /**
-     * @description 58928
+     * @description The description of the material.
      *
-     * @example 朴灵
+     * @example test2
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the material. The value is rounded to four decimal places. Unit: seconds.
+     *
      * @example 15.16
      *
      * @var float
@@ -64,6 +65,8 @@ class material extends Model
     public $duration;
 
     /**
+     * @description The ID of the material.
+     *
      * @example 85befc4118b84c6723e53b80b1****
      *
      * @var string
@@ -84,7 +87,7 @@ class material extends Model
     public $materialType;
 
     /**
-     * @description Queries materials to be edited for an online editing project.
+     * @description The time when the material was last updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-10-19 10:48:17
      *
@@ -93,6 +96,8 @@ class material extends Model
     public $modifiedTime;
 
     /**
+     * @description The size of the mezzanine file. Unit: byte.
+     *
      * @example 1682694
      *
      * @var int
@@ -100,12 +105,14 @@ class material extends Model
     public $size;
 
     /**
+     * @description The URLs of material snapshots. The value is an array.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
-     * @description The time when the material was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The source of the sprite.
      *
      * @example xxx
      *
@@ -114,7 +121,7 @@ class material extends Model
     public $source;
 
     /**
-     * @description The URLs of material sprites. The value is an array.
+     * @description The configuration of the sprite.
      *
      * @example xxx
      *
@@ -123,12 +130,19 @@ class material extends Model
     public $spriteConfig;
 
     /**
+     * @description The URLs of material sprites. The value is an array.
+     *
      * @var sprites
      */
     public $sprites;
 
     /**
-     * @description The configuration of the sprite.
+     * @description The status of the material. Valid values:
+     *
+     *   **Normal**: The material is in draft.
+     *   **Producing**: The material is being produced.
+     *   **Produced**: The material was produced.
+     *   **ProduceFailed**: The material failed to be produced.
      *
      * @example Normal
      *
@@ -137,19 +151,17 @@ class material extends Model
     public $status;
 
     /**
-     * @description The type of the material. Valid values:
+     * @description The tag of the material. Multiple tags are separated by commas (,).
      *
-     *   **video**
-     *   **audio**
-     *   **image**
-     *
-     * @example The materials.
+     * @example editing test
      *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the material.
+     *
      * @example test
      *
      * @var string

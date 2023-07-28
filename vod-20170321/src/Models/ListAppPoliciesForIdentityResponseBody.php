@@ -10,14 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAppPoliciesForIdentityResponseBody extends Model
 {
     /**
-     * @description The description of the policy.
+     * @description The details of each policy.
      *
+     * > A maximum of 100 entries can be returned.
      * @var appPolicyList[]
      */
     public $appPolicyList;
 
     /**
-     * @description The time when the application policy was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the request.
      *
      * @example C9F3E715-B3B8-4D*****27-3A70346F0E04
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class playInfo extends Model
 {
     /**
+     * @description The color depth. This value must be an integer.
+     *
      * @example 8
      *
      * @var int
@@ -16,14 +18,8 @@ class playInfo extends Model
     public $bitDepth;
 
     /**
-     * @description The format of the media stream. Separate multiple formats with commas (,). Valid values:
+     * @description The bitrate of the media stream. Unit: Kbit/s.
      *
-     *   **mp4**
-     *   **m3u8**
-     *   **mp3**
-     *   **mpd**
-     *
-     * > By default, ApsaraVideo VOD returns video streams in all the preceding formats. However, video streams in the MPD format are returned only if the MPD container format is specified in the transcoding template. For more information, see the [Container parameter in the TranscodeTemplate](~~52839~~) table.
      * @example 450.878
      *
      * @var string
@@ -31,10 +27,7 @@ class playInfo extends Model
     public $bitrate;
 
     /**
-     * @description The status of the media stream. Valid values:
-     *
-     *   **Normal**
-     *   **Invisible**
+     * @description The time when the audio or video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2022-04-18T07:37:15Z
      *
@@ -43,182 +36,7 @@ class playInfo extends Model
     public $creationTime;
 
     /**
-     * @description The color depth. This value must be an integer.
-     *
-     * @example LD
-     *
-     * @var string
-     */
-    public $definition;
-
-    /**
-     * @description The encryption type of the media stream. Valid values:
-     *
-     *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
-     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
-     *
-     * > If the encryption type is**AliyunVoDEncryption**, only ApsaraVideo Player SDK can be used to play videos.
-     * @example 9.0464
-     *
-     * @var string
-     */
-    public $duration;
-
-    /**
-     * @description The status of the audio or video file. For more information about the value range and description, see the [Status](~~52839~~) table.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $encrypt;
-
-    /**
-     * @description The title of the audio or video file.
-     *
-     * @example AliyunVoDEncryption
-     *
-     * @var string
-     */
-    public $encryptType;
-
-    /**
-     * @description Queries the playback URL of a video or audio file by its ID.
-     *
-     * @example m3u8
-     *
-     * @var string
-     */
-    public $format;
-
-    /**
-     * @description The type of the output URL. Default value: oss. Valid values:
-     *
-     *   **oss**
-     *   **cdn**
-     *
-     * @example 25
-     *
-     * @var string
-     */
-    public $fps;
-
-    /**
-     * @example HLG
-     *
-     * @var string
-     */
-    public $HDRType;
-
-    /**
-     * @description The returned result.
-     *
-     * @example 640
-     *
-     * @var int
-     */
-    public $height;
-
-    /**
-     * @description The type of the media file. Valid values:
-     *
-     *   **video**
-     *   **audio**
-     *
-     * @example 80e9c6580e754a798c3c19c59b16****
-     *
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @description The validity period of the playback URL. Unit: seconds.
-     *
-     *   If the OutputType parameter is set to **cdn**:
-     *
-     *   This parameter takes effect only if URL authentication is enabled. Otherwise, the playback URL does not expire.
-     *   Minimum value: **1**.
-     *   Maximum value: unlimited.
-     *   Default value: The default validity period that is specified in URL authentication is used.
-     *
-     *   If the OutputType parameter is set to **oss**:
-     *
-     *   This parameter takes effect only when the ACL of the Object Storage Service (OSS) bucket is private. Otherwise, the playback URL does not expire.
-     *   Minimum value: **1**.
-     *   Maximum value: **2592000** (30 days). This limit is imposed to reduce security risks of the origin server.
-     *   Default value: **3600**.
-     *
-     * @example 2022-04-20T06:32:19Z
-     *
-     * @var string
-     */
-    public $modificationTime;
-
-    /**
-     * @description The type of the data to return. Default value: Single. Valid values:
-     *
-     *   **Single**: Only one latest transcoded stream is returned for each quality and format.
-     *   **Multiple**: All transcoded streams are returned for each quality and format.
-     *
-     * @example 0
-     *
-     * @var string
-     */
-    public $narrowBandType;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example https://example.aliyundoc.com/d52ee123f331466aabf6ab32a93d****\/a777f9e24e6e47a2a942467d5c38ea37-8ee8e04293c6657fdda282bc422704****.m3u8
-     *
-     * @var string
-     */
-    public $playURL;
-
-    /**
-     * @description The custom playback configuration. The value is a JSON string. For more information, see [PlayConfig](~~86952~~).
-     *
-     * >
-     *
-     *   If you do not specify PlayConfig or `PlayDomain` in PlayConfig, the default domain name configured in ApsaraVideo VOD is used in this operation. If no default domain name is configured, the domain names are queried in reverse chronological order based on the time when the domain names were modified. The domain name that was last modified is used as the streaming domain name. To prevent domain name issues, we recommend that you specify the default streaming domain name. You can log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com) and choose **Configuration Management** > **Media Management** > **Storage** > **Manage** > **Origin Domain Name** to set the default streaming domain name.
-     *
-     *   If the `EncryptType` parameter in PlayConfig is set to `AliyunVoDEncryption`, the playback URL of the stream encrypted by using proprietary cryptography is not returned to ensure video security. If you want to return such URL, you must set the `ResultType` parameter to `Multiple`.
-     *
-     * @example 418112
-     *
-     * @var int
-     */
-    public $size;
-
-    /**
-     * @description The size of the media stream. Unit: bytes.
-     *
-     * @example H264.LD
-     *
-     * @var string
-     */
-    public $specification;
-
-    /**
-     * @description The specifications of transcoded audio and video streams. For more information about the valid values, see [Output specifications](~~124671~~).
-     *
-     * @example Normal
-     *
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @description The bitrate of the media stream. Unit: Kbit/s.
-     *
-     * @example video
-     *
-     * @var string
-     */
-    public $streamType;
-
-    /**
-     * @description The quality of the video stream. Separate multiple qualities with commas (,). Valid values:
+     * @description The quality of the video stream. Valid values:
      *
      *   **FD**: low definition
      *   **LD**: standard definition
@@ -231,7 +49,175 @@ class playInfo extends Model
      *   **HQ**: high sound quality
      *   **AUTO**: adaptive bitrate
      *
-     * > By default, ApsaraVideo VOD returns video streams in all preceding qualities. However, video streams for adaptive bitrate streaming are returned only if the PackageSetting parameter is specified in the transcoding template. For more information, see the [PackageSetting parameter in the TranscodeTemplate](~~52839~~) table.
+     * @example LD
+     *
+     * @var string
+     */
+    public $definition;
+
+    /**
+     * @description The duration of the media stream. Unit: seconds.
+     *
+     * @example 9.0464
+     *
+     * @var string
+     */
+    public $duration;
+
+    /**
+     * @description Indicates whether the video stream was encrypted. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $encrypt;
+
+    /**
+     * @description The encryption type of the media stream. Valid values:
+     *
+     *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
+     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+     *
+     * > If the encryption type is **AliyunVoDEncryption**, only ApsaraVideo Player SDK can be used to play videos.
+     * @example AliyunVoDEncryption
+     *
+     * @var string
+     */
+    public $encryptType;
+
+    /**
+     * @description The format of the media stream.
+     *
+     *   If the media file is a video file, the valid values are **mp4** and **m3u8**.
+     *   If the media file is an audio-only file, the value is **mp3**.
+     *
+     * @example m3u8
+     *
+     * @var string
+     */
+    public $format;
+
+    /**
+     * @description The frame rate of the media stream. Unit: frames per second.
+     *
+     * @example 25
+     *
+     * @var string
+     */
+    public $fps;
+
+    /**
+     * @description The HDR type of the media stream. Valid values:
+     *
+     *   HDR
+     *   HDR10
+     *   HLG
+     *   DolbyVision
+     *   HDRVivid
+     *   SDR+
+     *
+     * @example HLG
+     *
+     * @var string
+     */
+    public $HDRType;
+
+    /**
+     * @description The height of the media stream. Unit: pixels.
+     *
+     * @example 640
+     *
+     * @var int
+     */
+    public $height;
+
+    /**
+     * @description The ID of the media transcoding job. This ID uniquely identifies a media stream.
+     *
+     * @example 80e9c6580e754a798c3c19c59b16****
+     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @description The update time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2022-04-20T06:32:19Z
+     *
+     * @var string
+     */
+    public $modificationTime;
+
+    /**
+     * @description The type of Narrowband HD transcoding. Valid values:
+     *
+     *   **0**: regular
+     *   **1.0**: Narrowband HD 1.0
+     *   **2.0**: Narrowband HD 2.0
+     *
+     * This parameter is returned only when a quality that is available in the built-in Narrowband HD 1.0 transcoding template is specified. For more information, see the [Definition parameter in the TranscodeTemplate](~~52839~~) table.
+     * @example 0
+     *
+     * @var string
+     */
+    public $narrowBandType;
+
+    /**
+     * @description The playback URL of the video stream.
+     *
+     * @example https://example.aliyundoc.com/d52ee123f331466aabf6ab32a93d****\/a777f9e24e6e47a2a942467d5c38ea37-8ee8e04293c6657fdda282bc422704****.m3u8
+     *
+     * @var string
+     */
+    public $playURL;
+
+    /**
+     * @description The size of the media stream. Unit: bytes.
+     *
+     * @example 418112
+     *
+     * @var int
+     */
+    public $size;
+
+    /**
+     * @description The specifications of transcoded audio and video streams. For more information about the valid values, see [Output specifications](~~124671~~).
+     *
+     * @example H264.LD
+     *
+     * @var string
+     */
+    public $specification;
+
+    /**
+     * @description The status of the media stream. Valid values:
+     *
+     *   **Normal**: The latest transcoded stream in each quality and format is in the Normal status.
+     *   **Invisible**: If multiple streams are transcoded in the same quality and format, the latest transcoded stream is in the Normal status and other streams are in the Invisible status.
+     *
+     * @example Normal
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @description The type of the media stream. If the media stream is a video stream, the value is **video**. If the media stream is an audio-only stream, the value is **audio**.
+     *
+     * @example video
+     *
+     * @var string
+     */
+    public $streamType;
+
+    /**
+     * @description The ID of the watermark that is associated with the media stream.
+     *
      * @example dgfn26457856****
      *
      * @var string
@@ -239,10 +225,7 @@ class playInfo extends Model
     public $watermarkId;
 
     /**
-     * @description Indicates whether the video stream was encrypted. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes
+     * @description The width of the media stream. Unit: pixels.
      *
      * @example 360
      *

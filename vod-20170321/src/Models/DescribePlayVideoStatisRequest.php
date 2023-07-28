@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayVideoStatisRequest extends Model
 {
     /**
-     * @description The number of video views.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2016-06-30T13:00:00Z
      *
@@ -23,7 +23,7 @@ class DescribePlayVideoStatisRequest extends Model
     public $ownerId;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2016-06-29T13:00:00Z
      *
@@ -32,7 +32,7 @@ class DescribePlayVideoStatisRequest extends Model
     public $startTime;
 
     /**
-     * @description The date when the statistics were generated. The date follows the *yyyy-MM-dd* format.
+     * @description The ID of the video.
      *
      * @example 2a8d4cb9ecbb487681473****aba8fda
      *

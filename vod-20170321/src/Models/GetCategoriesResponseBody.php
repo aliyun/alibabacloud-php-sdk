@@ -11,17 +11,14 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesResponseBody extends Model
 {
     /**
-     * @description The ID of the category. Default value: **-1**, which indicates the parent category ID of a level 1 category.
+     * @description The information about the specified category.
      *
      * @var category
      */
     public $category;
 
     /**
-     * @description The type of the category. Valid values:
-     *
-     *   **default** (default): default category
-     *   **material**: material category
+     * @description The ID of the request.
      *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *
@@ -30,14 +27,14 @@ class GetCategoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description The list of subcategories.
      *
      * @var subCategories
      */
     public $subCategories;
 
     /**
-     * @description The information about the specified category.
+     * @description The total number of subcategories.
      *
      * @example 3795
      *

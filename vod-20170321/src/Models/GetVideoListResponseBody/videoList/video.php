@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
-     * @description The application ID. Default value: **app-1000000**.
+     * @description The ID of the application. Default value: **app-1000000**.
      *
      * @example app-1000000
      *
@@ -19,7 +19,7 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The category ID.
+     * @description The category ID of the media file.
      *
      * @example 781111
      *
@@ -28,7 +28,7 @@ class video extends Model
     public $cateId;
 
     /**
-     * @description The category name.
+     * @description The name of the category.
      *
      * @example Category name
      *
@@ -82,11 +82,22 @@ class video extends Model
     public $modificationTime;
 
     /**
+     * @description The period of time in which the object remains in the restored state.
+     *
+     * @example 2023-03-30T10:14:14Z
+     *
      * @var string
      */
     public $restoreExpiration;
 
     /**
+     * @description The restoration status of the media file. Valid values:
+     *
+     * - **Processing**
+     * - **Success**
+     * - **Failed**
+     * @example Success
+     *
      * @var string
      */
     public $restoreStatus;
@@ -108,7 +119,7 @@ class video extends Model
     public $snapshots;
 
     /**
-     * @description The video status. Valid values:
+     * @description The status of the video. Valid values:
      *
      *   **Uploading**: The video is being uploaded.
      *   **UploadFail**: The video failed to be uploaded.
@@ -128,6 +139,18 @@ class video extends Model
     public $status;
 
     /**
+     * @description The storage class of the media file. Valid values:
+     *
+     * - **Standard**: All media resources are stored as Standard objects.
+     * - **IA**: All media resources are stored as IA objects.
+     * - **Archive**: All media resources are stored as Archive objects.
+     * - **ColdArchive**: All media resources are stored as Cold Archive objects.
+     * - **SourceIA**: Only the source files are IA objects.
+     * - **SourceArchive**: Only the source files are Archive objects.
+     * - **SourceColdArchive**: Only the source files are Cold Archive objects.
+     * - **Changing**: The storage class is being modified.
+     * @example Standard
+     *
      * @var string
      */
     public $storageClass;

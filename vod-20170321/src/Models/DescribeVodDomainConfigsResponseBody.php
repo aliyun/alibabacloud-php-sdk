@@ -10,19 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainConfigsResponseBody extends Model
 {
     /**
-     * @description The value of the parameter.
+     * @description The configurations of the domain name.
      *
      * @var domainConfigs
      */
     public $domainConfigs;
 
     /**
-     * @description The status of the configuration. Valid values:
+     * @description The ID of the request.
      *
-     * - **success**
-     * - **testing**
-     * - **failed**
-     * - **configuring**
      * @example F8AA0364-0FDB-4AD5-****-D69FAB8924ED
      *
      * @var string

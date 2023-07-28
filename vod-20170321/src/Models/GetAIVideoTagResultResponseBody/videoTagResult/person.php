@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class person extends Model
 {
     /**
-     * @description Retouching
+     * @description The URL of the profile photo.
      *
+     * > This parameter is returned only when a figure tag was used.
      * @example http://example.com/aivideotag/8829B4DB-AFD9-4F*****F6-12965DBFFA14/Index_****.jpg
      *
      * @var string
@@ -18,9 +19,9 @@ class person extends Model
     public $faceUrl;
 
     /**
-     * @description The keyword tags.
+     * @description The tag string.
      *
-     * @example The points in time when the tags are displayed. Unit: milliseconds.
+     * @example John
      *
      * @var string
      */

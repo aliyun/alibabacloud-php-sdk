@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppInfoRequest extends Model
 {
     /**
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     *
      * @example app-****
      *
      * @var string

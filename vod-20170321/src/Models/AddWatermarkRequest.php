@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddWatermarkRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
      *
      * @example app-****
      *
@@ -18,7 +18,7 @@ class AddWatermarkRequest extends Model
     public $appId;
 
     /**
-     * @description The OSS URL or Content Delivery Network (CDN) URL of the watermark file. A text watermark does not have a file URL.
+     * @description The Object Storage Service (OSS) URL of the watermark file. This parameter is required if you add image watermarks.
      *
      * @example http://outin-326268*****63e1403e7.oss-cn-shanghai.aliyuncs.com/image/cover/C99345*****E7FDEC-6-2.png
      *
@@ -27,19 +27,22 @@ class AddWatermarkRequest extends Model
     public $fileUrl;
 
     /**
-     * @description The ID of the application. Default value: **app-1000000**. For more information, see [Overview](~~113600~~).
+     * @description The name of the watermark. The name can contain only letters and digits.
      *
-     * @example The type of the watermark. Valid values:
+     *   The name can be up to 128 bytes in length.
+     *   The value must be encoded in UTF-8.
      *
-     *   **Image**: This is the default value.
-     *   **Text**
+     * @example watermark
      *
      * @var string
      */
     public $name;
 
     /**
-     * @description The ID of the watermark.
+     * @description The type of the watermark. Valid values:
+     *
+     *   **Image** (default)
+     *   **Text**
      *
      * @example Text
      *
@@ -48,9 +51,10 @@ class AddWatermarkRequest extends Model
     public $type;
 
     /**
-     * @description The time when the watermark was added. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The configurations such as the position and effect of the text watermark or image watermark. The value must be a JSON string.
      *
-     * @example The Object Storage Service (OSS) URL of the watermark file. You must set this parameter if you add image watermarks.
+     * > The value of this parameter varies based on the watermark type. For more information about the data structure, see [WatermarkConfig](~~98618~~).
+     * @example {"Width":"55","Height":"55","Dx":"9","Dy":"9","ReferPos":"BottonLeft","Type":"Image"}
      *
      * @var string
      */

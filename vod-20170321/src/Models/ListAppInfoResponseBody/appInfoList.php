@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appInfoList extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example app-****
      *
      * @var string
@@ -16,7 +18,7 @@ class appInfoList extends Model
     public $appId;
 
     /**
-     * @description Queries the applications that you are authorized to manage based on query conditions.
+     * @description The name of the application.
      *
      * @example test
      *
@@ -25,7 +27,7 @@ class appInfoList extends Model
     public $appName;
 
     /**
-     * @description The ID of the request.
+     * @description The time when the application was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-03-01T08:00:00Z
      *
@@ -34,7 +36,7 @@ class appInfoList extends Model
     public $creationTime;
 
     /**
-     * @description WB01210940
+     * @description The description of the application.
      *
      * @example my first app.
      *
@@ -43,6 +45,8 @@ class appInfoList extends Model
     public $description;
 
     /**
+     * @description The last time when the application was modified. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
      * @example 2019-03-01T09:00:00Z
      *
      * @var string
@@ -50,7 +54,10 @@ class appInfoList extends Model
     public $modificationTime;
 
     /**
-     * @description The time when the application was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The status of the application. Valid values:
+     *
+     *   **Normal**
+     *   **Disable**
      *
      * @example Normal
      *
@@ -59,7 +66,10 @@ class appInfoList extends Model
     public $status;
 
     /**
-     * @description The ID of the application.
+     * @description The type of the application. Valid values:
+     *
+     *   **System**
+     *   **Custom**
      *
      * @example System
      *

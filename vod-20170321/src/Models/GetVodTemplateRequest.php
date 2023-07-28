@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVodTemplateRequest extends Model
 {
     /**
-     * @description Indicates whether the template is the default one. Valid values:
-     *
-     *   **Default**: The template is the default one.
-     *   **NotDefault**: The template is not the default one.
+     * @description The ID of the snapshot template.
      *
      * @example 7c49f2f4c0969*****fcd446690
      *

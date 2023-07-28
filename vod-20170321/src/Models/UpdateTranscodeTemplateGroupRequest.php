@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTranscodeTemplateGroupRequest extends Model
 {
     /**
+     * @description The lock status of the template group. Valid values:
+     *
+     *   **Enabled**: The template group is locked.
+     *   **Disabled**: The template group is not locked.
+     *
      * @example locked
      *
      * @var string
@@ -16,7 +21,10 @@ class UpdateTranscodeTemplateGroupRequest extends Model
     public $locked;
 
     /**
-     * @description The operation that you want to perform. Set the value to **UpdateTranscodeTemplateGroup**.
+     * @description The name of the transcoding template group.
+     *
+     *   The name can be up to 128 bytes in length.
+     *   The value must be encoded in UTF-8.
      *
      * @example transcodetemplate
      *
@@ -25,6 +33,8 @@ class UpdateTranscodeTemplateGroupRequest extends Model
     public $name;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
      * @example 4c71a339fe*****52b4fa6f4527
      *
      * @var string
@@ -32,7 +42,7 @@ class UpdateTranscodeTemplateGroupRequest extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description Modifies a transcoding template group. You can modify the configurations of the specified transcoding templates in a transcoding template group.
+     * @description The configurations of the transcoding template. The value is a JSON-formatted string. For more information about the data structure, see the "TranscodeTemplate" section of the [Basic data types](~~52839~~) topic.
      *
      * @example [{"Video":{"Bitrate":"400","Codec":"H.264","Fps":"30"},"Audio":{"Codec":"AAC","Bitrate":"64","Definition":"SD","EncryptType":"Private","Container":{"Format":"m3u8"},"PackageType":"HLSPackage"}}]
      *

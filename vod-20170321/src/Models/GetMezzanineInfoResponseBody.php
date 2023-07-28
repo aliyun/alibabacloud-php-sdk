@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMezzanineInfoResponseBody extends Model
 {
     /**
-     * @description The time base.
+     * @description The information about the source file.
      *
      * @var mezzanine
      */
     public $mezzanine;
 
     /**
-     * @description The codec time base.
+     * @description The ID of the request.
      *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *

@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class porn extends Model
 {
     /**
-     * @description The collection of logo timelines.
+     * @description The category of the review result. Valid values:
+     *
+     *   **porn**
+     *   **sexy**
+     *   **normal**
      *
      * @example porn
      *
@@ -18,10 +22,7 @@ class porn extends Model
     public $label;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **normal**
-     *   **terrorism**
+     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100.00
      *
@@ -30,7 +31,7 @@ class porn extends Model
     public $score;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetMediaAuditResultTimeline**.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example 3005
      *

@@ -11,10 +11,8 @@ use AlibabaCloud\Tea\Model;
 class pornResult extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
+     * @description The average score of the review results.
      *
-     * - **live**: The content contains undesirable scenes.
-     * - **normal**: normal content.
      * @example 100
      *
      * @var string
@@ -22,21 +20,18 @@ class pornResult extends Model
     public $averageScore;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The statistics about tag frames.
      *
-     * - **porn**
-     * - **sexy**
-     * - **normal**
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The review scenario. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **terrorism**
-     *   **porn**
-     *
+     * - **porn**
+     * - **sexy**
+     * - **normal**
      * @example porn
      *
      * @var string
@@ -44,7 +39,7 @@ class pornResult extends Model
     public $label;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The highest review score.
      *
      * @example 100
      *
@@ -53,7 +48,7 @@ class pornResult extends Model
     public $maxScore;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The recommendation for review results.
      *
      * @example pass
      *
@@ -62,7 +57,7 @@ class pornResult extends Model
     public $suggestion;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
      * @var topList[]
      */

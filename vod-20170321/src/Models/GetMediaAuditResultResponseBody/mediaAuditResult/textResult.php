@@ -9,19 +9,24 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
+     * @description The text content for review.
      *
-     * - **live**: The content contains undesirable scenes.
-     * - **normal**: normal content.
-     * @example The position in the video. Unit: milliseconds.
+     * @example hot line 123****
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description The statistics about tag frames.
+     * @description The category of the review result. Valid values:
      *
+     * - **spam**
+     * - **ad**
+     * - **abuse**
+     * - **flood**
+     * - **contraband**
+     * - **meaningless**
+     * - **normal**
      * @example ad
      *
      * @var string
@@ -29,7 +34,7 @@ class textResult extends Model
     public $label;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The review scenario. The value is **antispam**.
      *
      * @example antispam
      *
@@ -38,11 +43,7 @@ class textResult extends Model
     public $scene;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**
-     *   **review**
-     *   **pass**
+     * @description The score of the image of the category that is indicated by Label.
      *
      * @example 100.00000
      *
@@ -51,12 +52,11 @@ class textResult extends Model
     public $score;
 
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     * @description The recommendation for review results. Valid values:
      *
-     *   **porn**
-     *   **terrorism**
-     *   **normal**
-     *
+     * - **block**
+     * - **review**
+     * - **pass**
      * @example pass
      *
      * @var string
@@ -64,7 +64,7 @@ class textResult extends Model
     public $suggestion;
 
     /**
-     * @description The results of terrorist content review.
+     * @description The type of the text. The value is **title**.
      *
      * @example title
      *

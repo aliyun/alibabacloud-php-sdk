@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListDynamicImageRequest extends Model
 {
     /**
-     * @description The size of the animated sticker file. Unit: byte.
+     * @description The ID of the video.
      *
      * @example 2e114f1100590c3193918fd449a****
      *

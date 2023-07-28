@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateAITemplateRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The detailed configurations of the AI template. The value is a JSON string.
      *
      * @example {"AuditItem":["terrorism","porn"],"AuditRange":["text-title","video"],"AuditContent":["screen"],"AuditAutoBlock":"yes"}
      *
@@ -18,7 +18,10 @@ class UpdateAITemplateRequest extends Model
     public $templateConfig;
 
     /**
-     * @description The name of the AI template. The name can be up to 128 bytes in length.
+     * @description The ID of the AI template. You can use one of the following methods to obtain the ID:
+     *
+     *   Call the [AddAITemplate](~~102930~~) operation to add an AI template if no AI template exists. The value of TemplateId in the response is the ID of the AI template.
+     *   Call the [ListAITemplate](~~102936~~) operation if the template already exists. The value of TemplateId in the response is the ID of the AI template.
      *
      * @example 1706a0063dd733f6a823ef32e0a5****
      *
@@ -27,7 +30,7 @@ class UpdateAITemplateRequest extends Model
     public $templateId;
 
     /**
-     * @description The detailed configurations of the AI template. The value is a JSON string. For more information, see [AITemplateConfig](https://help.aliyun.com/document_detail/89863.html#title-vd3-499-o36).
+     * @description The name of the AI template. The name can be up to 128 bytes in length.
      *
      * @example DemoAITemplate
      *

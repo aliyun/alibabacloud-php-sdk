@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsResponseBody extends Model
 {
     /**
-     * @description The URL of the snapshot.
+     * @description The snapshot data of the media.
      *
      * @var mediaSnapshot
      */
     public $mediaSnapshot;
 
     /**
-     * @description The snapshot data of the media.
+     * @description The ID of the request.
      *
      * @example 25818875-5F78-4AF6-D7393642CA58****
      *

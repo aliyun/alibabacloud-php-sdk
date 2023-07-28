@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
+     * @description The number of frames.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,22 @@ class counterList extends Model
     public $count;
 
     /**
+     * @description The category of the review result. Valid values:
+     *
+     * - **normal**
+     * - **bloody**
+     * - **explosion**
+     * - **outfit**
+     * - **logo**
+     * - **weapon**
+     * - **politics**
+     * - **violence**
+     * - **crowd**
+     * - **parade**
+     * - **carcrash**
+     * - **flag**
+     * - **location**
+     * - **others**
      * @example outfit
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodRefreshQuotaResponseBody extends Model
 {
     /**
-     * @description The remaining number of directories of files that can be refreshed on the current day.
+     * @description The maximum number of Object Storage Service (OSS) buckets that can be refreshed each day.
      *
      * @example 500
      *
@@ -18,7 +18,7 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $blockQuota;
 
     /**
-     * @description Queries the maximum number and remaining number of requests to refresh or prefetch files on the current day. You can prefetch files based on URLs and refresh files based on URLs or directories.
+     * @description The maximum number of directories of files that can be refreshed each day.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $dirQuota;
 
     /**
-     * @description The ID of the request.
+     * @description The remaining number of directories of files that can be refreshed on the current day.
      *
      * @example 99
      *
@@ -36,6 +36,8 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $dirRemain;
 
     /**
+     * @description The maximum number of URLs of files that can be prefetched each day.
+     *
      * @example 500
      *
      * @var string
@@ -43,7 +45,7 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $preloadQuota;
 
     /**
-     * @description The remaining number of OSS buckets that can be refreshed on the current day.
+     * @description The remaining number of URLs of files that can be prefetched on the current day.
      *
      * @example 500
      *
@@ -52,7 +54,7 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $preloadRemain;
 
     /**
-     * @description The maximum number of directories of files that can be refreshed each day.
+     * @description The ID of the request.
      *
      * @example 42E0554B-80F4-4921-****-ACFB22CAAAD0
      *
@@ -61,6 +63,8 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The maximum number of URLs of files that can be refreshed each day.
+     *
      * @example 2000
      *
      * @var string
@@ -68,7 +72,7 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $urlQuota;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeVodRefreshQuota**.
+     * @description The remaining number of URLs of files that can be refreshed on the current day.
      *
      * @example 1996
      *
@@ -77,7 +81,7 @@ class DescribeVodRefreshQuotaResponseBody extends Model
     public $urlRemain;
 
     /**
-     * @description The maximum number of URLs of files that can be prefetched each day.
+     * @description The remaining number of OSS buckets that can be refreshed on the current day.
      *
      * @example 500
      *

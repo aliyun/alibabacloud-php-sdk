@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class uploadDetails extends Model
 {
     /**
-     * @description Queries the upload details, such as the upload time, upload ratio, and upload source, about one or more media files based on the media IDs.
+     * @description The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-04-28T09:45:07Z
      *
@@ -18,7 +18,7 @@ class uploadDetails extends Model
     public $completionTime;
 
     /**
-     * @description The title of the media file.
+     * @description The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-04-28T09:42:07Z
      *
@@ -27,7 +27,7 @@ class uploadDetails extends Model
     public $creationTime;
 
     /**
-     * @description The time when the upload job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The device model.
      *
      * @example Chrome
      *
@@ -36,6 +36,8 @@ class uploadDetails extends Model
     public $deviceModel;
 
     /**
+     * @description The size of the uploaded file. Unit: byte.
+     *
      * @example 46
      *
      * @var int
@@ -43,6 +45,8 @@ class uploadDetails extends Model
     public $fileSize;
 
     /**
+     * @description The ID of the uploaded audio or video.
+     *
      * @example 61ccbdb06fa83012be4d8083f6****
      *
      * @var string
@@ -50,7 +54,7 @@ class uploadDetails extends Model
     public $mediaId;
 
     /**
-     * @description The ID of the request.
+     * @description The time when the information about the media file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2019-04-28T09:43:12Z
      *
@@ -68,12 +72,16 @@ class uploadDetails extends Model
     public $status;
 
     /**
+     * @description The title of the media file.
+     *
+     * @example Test details
+     *
      * @var string
      */
     public $title;
 
     /**
-     * @description The upload size. Unit: byte.
+     * @description The IP address of the server that uploads the media file.
      *
      * @example 192.168.0.1
      *
@@ -82,6 +90,8 @@ class uploadDetails extends Model
     public $uploadIP;
 
     /**
+     * @description The upload ratio.
+     *
      * @example 0.038
      *
      * @var float
@@ -89,6 +99,8 @@ class uploadDetails extends Model
     public $uploadRatio;
 
     /**
+     * @description The upload size. Unit: byte.
+     *
      * @example 346
      *
      * @var int
@@ -96,7 +108,7 @@ class uploadDetails extends Model
     public $uploadSize;
 
     /**
-     * @description The time when the upload job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The method that is used to upload the media file.
      *
      * @example WebSDK
      *
@@ -105,6 +117,8 @@ class uploadDetails extends Model
     public $uploadSource;
 
     /**
+     * @description The status of the upload job. For more information about the valid values and value description of the parameter, see the "Status: the status of a URL-based upload job" section of the [Basic structures](~~52839~~) topic.
+     *
      * @example Uploading
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class SearchEditingProjectResponseBody extends Model
 {
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+     * @description The list of online editing projects.
      *
      * @var projectList
      */
     public $projectList;
 
     /**
-     * @description The operation that you want to perform. Set the value to **SearchEditingProject**.
+     * @description The ID of the request.
      *
      * @example 9262E3DA-07FA-48*****62-FCBB6BC61D08
      *
@@ -26,7 +26,7 @@ class SearchEditingProjectResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The total number of online editing projects returned.
      *
      * @example 2
      *

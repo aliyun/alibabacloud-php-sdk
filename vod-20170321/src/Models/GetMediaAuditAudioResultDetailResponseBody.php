@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetMediaAuditAudioResultDetailResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description Details of review results.
      *
      * @var mediaAuditAudioResultDetail
      */
     public $mediaAuditAudioResultDetail;
 
     /**
-     * @description The number of the page to return. This parameter is optional. If you do not specify this parameter, all results are returned without pagination.
+     * @description The ID of the request.
      *
      * @example CB7D7232-1AB2-40FE-B8D3-****
      *

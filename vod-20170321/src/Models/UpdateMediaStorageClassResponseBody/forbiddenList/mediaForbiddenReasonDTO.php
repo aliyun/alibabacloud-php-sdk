@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class mediaForbiddenReasonDTO extends Model
 {
     /**
+     * @description The ID of the media asset.
+     *
      * @example 19e231ee6e3e417fbf2e92ec2680****
      *
      * @var string
@@ -16,6 +18,8 @@ class mediaForbiddenReasonDTO extends Model
     public $mediaId;
 
     /**
+     * @description The reason for the failure.
+     *
      * @example TargetStorageClassInconsistent
      *
      * @var string

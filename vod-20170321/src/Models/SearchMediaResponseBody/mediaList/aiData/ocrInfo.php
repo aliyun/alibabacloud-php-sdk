@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ocrInfo extends Model
 {
     /**
-     * @description 文本内容
+     * @description The text.
+     *
+     * @example I\"m Jane.
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 片段起始时间
+     * @description The start time of the subtitle.
+     *
+     * @example 1.4
      *
      * @var float
      */
     public $from;
 
     /**
-     * @description 片段结束时间
+     * @description The end time of the subtitle.
+     *
+     * @example 2.5
      *
      * @var float
      */

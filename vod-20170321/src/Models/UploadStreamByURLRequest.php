@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class UploadStreamByURLRequest extends Model
 {
     /**
-     * @description The media ID in ApsaraVideo VOD.
+     * @description The quality of the video stream.
      *
+     * For more information about valid values of this parameter, see [Parameters for media assets](~~124671~~).
      * @example HD
      *
      * @var string
@@ -18,9 +19,9 @@ class UploadStreamByURLRequest extends Model
     public $definition;
 
     /**
-     * @description The quality of the video stream.
+     * @description The file name extension of the transcoded stream.
      *
-     * For more information about valid values of this parameter, see [Parameters for media assets](~~124671~~).
+     * >  This parameter is required if you do not specify a file name extension in StreamURL.
      * @example mp4
      *
      * @var string
@@ -28,9 +29,21 @@ class UploadStreamByURLRequest extends Model
     public $fileExtension;
 
     /**
-     * @description The file name extension of the transcoded stream.
+     * @description The HDR type of the transcoded stream. Valid values:
      *
-     * >  This parameter is required if you do not specify a file name extension in StreamURL.
+     *   HDR
+     *   HDR10
+     *   HLG
+     *   DolbyVision
+     *   HDRVivid
+     *   SDR+
+     *
+     * >
+     *
+     *   The HDR type of the transcoded stream is not case-sensitive.
+     *
+     *   You can leave this parameter empty for non-HDR streams.
+     *
      * @example HDR10
      *
      * @var string
@@ -38,7 +51,7 @@ class UploadStreamByURLRequest extends Model
     public $HDRType;
 
     /**
-     * @description The URL of the OSS object.
+     * @description The media ID in ApsaraVideo VOD.
      *
      * @example ca3a8f6e49*****57b65806709586
      *
@@ -47,8 +60,9 @@ class UploadStreamByURLRequest extends Model
     public $mediaId;
 
     /**
-     * @description The basic information.
+     * @description The URL of the transcoded stream.
      *
+     * If URL authentication is required, you must pass authentication information in this parameter and make sure that the URL can be accessed over the Internet.
      * @example https://example.com/lesson-01.mp4
      *
      * @var string
@@ -56,8 +70,9 @@ class UploadStreamByURLRequest extends Model
     public $streamURL;
 
     /**
-     * @description The ID of the request.
+     * @description The user-defined parameter. For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
      *
+     * >  The callback configurations you specify for this parameter take effect only after you specify the HTTP callback URL and select specific callback events in the ApsaraVideo VOD console. For more information about how to configure HTTP callback settings in the ApsaraVideo VOD console, see [Configure callback settings](~~86071~~).
      * @example {"MessageCallback":{"CallbackURL":"http://aliyundoc.com"}, "Extend":{"localId":"xxx","test":"www"}}
      *
      * @var string

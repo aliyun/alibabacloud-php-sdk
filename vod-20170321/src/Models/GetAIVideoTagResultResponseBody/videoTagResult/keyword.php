@@ -9,16 +9,17 @@ use AlibabaCloud\Tea\Model;
 class keyword extends Model
 {
     /**
-     * @description The URL of the profile photo.
+     * @description The tag string.
      *
-     * > This parameter is returned only when a figure tag was used.
-     * @example Queries the results of smart tagging jobs.
+     * @example Cushion
      *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The points in time when the tags are displayed. Unit: milliseconds.
+     *
      * @var string[]
      */
     public $times;

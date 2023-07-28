@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class project extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The thumbnail URL of the online editing project.
      *
      * @example https://****.com/6AB4D0E1E1C74468883516C2349****.png
      *
@@ -18,7 +18,7 @@ class project extends Model
     public $coverURL;
 
     /**
-     * @description The title of the online editing project.
+     * @description The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-10-23T13:33:40Z
      *
@@ -27,7 +27,7 @@ class project extends Model
     public $creationTime;
 
     /**
-     * @description The time when the online editing project was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The description of the online editing project.
      *
      * @example testdescription
      *
@@ -36,7 +36,7 @@ class project extends Model
     public $description;
 
     /**
-     * @description The information about the online editing project.
+     * @description The last time when the online editing project was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-10-23T14:27:26Z
      *
@@ -45,7 +45,7 @@ class project extends Model
     public $modifiedTime;
 
     /**
-     * @description 58928
+     * @description The ID of the online editing project.
      *
      * @example fb2101bf24b27*****54cb318787dc
      *
@@ -54,6 +54,8 @@ class project extends Model
     public $projectId;
 
     /**
+     * @description The region where the online editing project was created.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -61,9 +63,13 @@ class project extends Model
     public $regionId;
 
     /**
-     * @description The path of the Object Storage Service (OSS) bucket where the online editing project is stored.
+     * @description The status of the online editing project. Separate multiple states with commas (,). By default, all online editing projects were queried. Valid values:
      *
-     * > To view the path of the OSS bucket, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored), and choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, you can view the path of the OSS bucket.
+     *   **Normal**: indicates that the online editing project is in draft.
+     *   **Producing**: indicates that the video is being produced.
+     *   **Produced**: indicates that the video was produced.
+     *   **ProduceFailed**: indicates that the video failed to be produced.
+     *
      * @example Normal
      *
      * @var string
@@ -71,8 +77,9 @@ class project extends Model
     public $status;
 
     /**
-     * @description The ID of the online editing project.
+     * @description The path of the Object Storage Service (OSS) bucket where the online editing project is stored.
      *
+     * > To view the path of the OSS bucket, log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com/?spm=a2c4g.11186623.2.15.6948257eaZ4m54#/vod/settings/censored), and choose **Configuration Management** > **Media Management** > **Storage**. On the Storage page, you can view the path of the OSS bucket.
      * @example location_s
      *
      * @var string
@@ -80,7 +87,7 @@ class project extends Model
     public $storageLocation;
 
     /**
-     * @description 朴灵
+     * @description The timeline of the online editing project.
      *
      * @example {\"TimelineIn\":0,\"TimelineOut\":9.42}
      *
@@ -89,6 +96,10 @@ class project extends Model
     public $timeline;
 
     /**
+     * @description The title of the online editing project.
+     *
+     * @example video_1508736815000
+     *
      * @var string
      */
     public $title;

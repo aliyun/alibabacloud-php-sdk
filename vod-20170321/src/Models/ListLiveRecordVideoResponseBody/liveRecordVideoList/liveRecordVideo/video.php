@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
-     * @description The time when the video was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the video category.
      *
      * @example 78
      *
@@ -19,21 +19,25 @@ class video extends Model
     public $cateId;
 
     /**
-     * @description The name of the application.
+     * @description The name of the video category.
      *
-     * @example The thumbnail URL of the video.
+     * @example Category name
      *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL of the video.
+     *
+     * @example https://example.aliyundoc.com/coversample.jpg
+     *
      * @var string
      */
     public $coverURL;
 
     /**
-     * @description The beginning of the time range to query. The query is performed based on the time range during which the required live streams were recorded. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The time when the video was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T07:40:56Z
      *
@@ -42,15 +46,17 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The name of the live stream.
+     * @description The description of the video.
      *
-     * @example The ID of the request.
+     * @example Description of the ApsaraVideo VOD video
      *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the video. Unit: seconds.
+     *
      * @example 135.6
      *
      * @var float
@@ -58,6 +64,8 @@ class video extends Model
     public $duration;
 
     /**
+     * @description The last time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2017-12-08T09:40:56Z
      *
      * @var string
@@ -65,7 +73,7 @@ class video extends Model
     public $modifyTime;
 
     /**
-     * @description Queries live-to-VOD videos.
+     * @description The size of the mezzanine file. Unit: byte.
      *
      * @example 10897890
      *
@@ -74,12 +82,21 @@ class video extends Model
     public $size;
 
     /**
+     * @description The array of video snapshot URLs.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
-     * @description The ID of the playlist.
+     * @description The status of the video. Valid values:
+     *   **Uploading:**: indicates that the video is being uploaded.
+     *   **UploadFail**: indicates that the video failed to be uploaded.
+     *   **UploadSucces**: indicates that the video was uploaded.
+     *   **Transcoding**: indicates that the video is being transcoded.
+     *   **TranscodeFail**: indicates that the video failed to be transcoded.
+     *   **Blocked**: indicates that the video is blocked.
+     *   **Normal**: indicates that the video is in a normal state.
      *
      * @example Normal
      *
@@ -88,15 +105,17 @@ class video extends Model
     public $status;
 
     /**
-     * @description 2017-01-11T13:00:00Z
+     * @description The tags of the video. Separate multiple tags with commas (,).
      *
-     * @example The ID of the video.
+     * @example tag1, tag2
      *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
      * @example 1
      *
      * @var string
@@ -104,12 +123,16 @@ class video extends Model
     public $templateGroupId;
 
     /**
+     * @description The title of the video.
+     *
+     * @example Title of the ApsaraVideo VOD video
+     *
      * @var string
      */
     public $title;
 
     /**
-     * @description 10
+     * @description The ID of the video.
      *
      * @example 93ab850b4f6f*****54b6e91d24d81d4
      *

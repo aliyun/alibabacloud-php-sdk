@@ -11,11 +11,7 @@ use AlibabaCloud\Tea\Model;
 class terrorismResult extends Model
 {
     /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **porn**
-     *   **sexy**
-     *   **normal**
+     * @description The average score of the images of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -24,13 +20,7 @@ class terrorismResult extends Model
     public $averageScore;
 
     /**
-     * @description The review scenario. Valid values:
-     *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
+     * @description The categories of the review results and the number of images.
      *
      * @var counterList[]
      */
@@ -39,8 +29,20 @@ class terrorismResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **logo**
      *   **normal**
+     *   **bloody**
+     *   **explosion**
+     *   **outfit**
+     *   **logo**
+     *   **weapon**
+     *   **politics**
+     *   **violence**
+     *   **crowd**
+     *   **parade**
+     *   **carcrash**
+     *   **flag**
+     *   **location**
+     *   **others**
      *
      * @example normal
      *
@@ -49,7 +51,7 @@ class terrorismResult extends Model
     public $label;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The highest score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -58,7 +60,11 @@ class terrorismResult extends Model
     public $maxScore;
 
     /**
-     * @description The URL of the image.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example pass
      *
@@ -67,7 +73,7 @@ class terrorismResult extends Model
     public $suggestion;
 
     /**
-     * @description The score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The score is representative of the confidence.
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
      * @var topList[]
      */

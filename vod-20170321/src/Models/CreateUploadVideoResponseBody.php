@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUploadVideoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4AF6-04D5-D7393642****
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateUploadVideoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The upload URL.
+     *
+     * > The returned upload URL is a Base64-encoded URL. You must decode the Base64-encoded URL before you use an SDK or call an API operation to upload media files. You need to parse UploadAddress only if you use the Object Storage Service (OSS) SDK or call an OSS API operation to upload media files.
      * @example eyJTZWN1cml0a2VuIjoiQ0FJU3p3TjF****
      *
      * @var string
@@ -23,6 +28,9 @@ class CreateUploadVideoResponseBody extends Model
     public $uploadAddress;
 
     /**
+     * @description The upload credential.
+     *
+     * > The returned upload credential is a Base64-encoded value. You must decode the Base64-encoded credential before you use an SDK or call an API operation to upload media files. You need to parse UploadAuth only if you use the OSS SDK or call an OSS API operation to upload media files.
      * @example eyJFbmRwb2ludCI6Imm****
      *
      * @var string
@@ -30,6 +38,8 @@ class CreateUploadVideoResponseBody extends Model
     public $uploadAuth;
 
     /**
+     * @description The ID of the audio or video file. VideoId can be used as a request parameter when you call an operation for media asset management, media processing, or media review.
+     *
      * @example 93ab850b4f6f54b6e91d24d81d44****
      *
      * @var string

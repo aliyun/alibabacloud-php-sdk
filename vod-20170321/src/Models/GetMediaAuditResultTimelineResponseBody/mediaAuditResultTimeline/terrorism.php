@@ -9,7 +9,15 @@ use AlibabaCloud\Tea\Model;
 class terrorism extends Model
 {
     /**
-     * @description The collection of pornographic content timelines.
+     * @description The category of the review result. Valid values:
+     *
+     *   **terrorism**: terrorist content
+     *   **outfit**: special costume
+     *   **logo**: special logo
+     *   **weapon**: weapon
+     *   **politics**: politically sensitive content
+     *   **others**: other terrorist and politically sensitive content
+     *   **normal**: normal content
      *
      * @example normal
      *
@@ -18,7 +26,7 @@ class terrorism extends Model
     public $label;
 
     /**
-     * @description The collection of review result timelines.
+     * @description The score of the review result category.
      *
      * @example 100.00
      *
@@ -27,7 +35,7 @@ class terrorism extends Model
     public $score;
 
     /**
-     * @description The collection of undesirable scene timelines.
+     * @description The position in the video. Unit: milliseconds.
      *
      * @example 3005
      *

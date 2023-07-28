@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class transcodeJobInfoList extends Model
 {
     /**
-     * @description The progress of the transcoding job. Valid values: `[0,100]`.
+     * @description The time when the transcoding job was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-26T08:30:16Z
      *
@@ -19,11 +19,7 @@ class transcodeJobInfoList extends Model
     public $completeTime;
 
     /**
-     * @description The status of the transcoding job.
-     *
-     *   **Transcoding**
-     *   **TranscodeSuccess**
-     *   **TranscodeFail**
+     * @description The time when the transcoding job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-02-26T08:27:16Z
      *
@@ -32,11 +28,20 @@ class transcodeJobInfoList extends Model
     public $creationTime;
 
     /**
-     * @description The encryption method of the output file. Valid values:
+     * @description The video resolution. Valid values:
      *
-     *   **AliyunVoDEncryption**: Alibaba Cloud proprietary cryptography
-     *   **HLSEncryption**: HTTP Live Streaming (HLS) encryption
+     *   **LD**: low definition
+     *   **SD**: standard definition
+     *   **HD**: high definition
+     *   **FHD**: ultra high definition
+     *   **OD**: original definition
+     *   **2K**: 2K
+     *   **4K**: 4K
+     *   **SQ**: standard sound quality
+     *   **HQ**: high sound quality
+     *   **AUTO**: adaptive bitrate Adaptive bitrate streams are returned only if PackageSetting is set in the transcoding template. For more information, see [Basic structures](~~52839~~).
      *
+     * > This parameter indicates the definition that is configured in the transcoding template and does not indicate the actual resolution of the output video.
      * @example LD
      *
      * @var string
@@ -44,7 +49,7 @@ class transcodeJobInfoList extends Model
     public $definition;
 
     /**
-     * @description Details about transcoding jobs.
+     * @description The error code returned when the transcoding job failed.
      *
      * @example 200
      *
@@ -53,7 +58,7 @@ class transcodeJobInfoList extends Model
     public $errorCode;
 
     /**
-     * @description The height of the output video. Unit: pixels.
+     * @description The error message returned when the transcoding job failed.
      *
      * @example ErrorMessage
      *
@@ -62,7 +67,7 @@ class transcodeJobInfoList extends Model
     public $errorMessage;
 
     /**
-     * @description The IDs of the watermarks used by the output file.
+     * @description The Object Storage Service (OSS) URL of the input file.
      *
      * @example http://outin-40564*****e1403e7.oss-cn-shanghai.aliyuncs.com/customerTrans/5b95e568f8e*****47f38e/31f1184c-*****b2a2-f94-c213f.wmv
      *
@@ -71,14 +76,14 @@ class transcodeJobInfoList extends Model
     public $inputFileUrl;
 
     /**
-     * @description The ID of the transcoding template group.
+     * @description The information about the output file.
      *
      * @var outputFile
      */
     public $outputFile;
 
     /**
-     * @description The subtitle streams.
+     * @description The priority of the transcoding job.
      *
      * @example 6
      *
@@ -87,7 +92,7 @@ class transcodeJobInfoList extends Model
     public $priority;
 
     /**
-     * @description The ID of the audio or video file.
+     * @description The ID of the transcoding job.
      *
      * @example 38f0e513c88*****85515f9d50be188
      *
@@ -96,7 +101,11 @@ class transcodeJobInfoList extends Model
     public $transcodeJobId;
 
     /**
-     * @description The priority of the transcoding job.
+     * @description The status of the transcoding job.
+     *
+     *   **Transcoding**
+     *   **TranscodeSuccess**
+     *   **TranscodeFail**
      *
      * @example Transcoding
      *
@@ -105,7 +114,7 @@ class transcodeJobInfoList extends Model
     public $transcodeJobStatus;
 
     /**
-     * @description The average bitrate of the output file. Unit: Kbit/s.
+     * @description The progress of the transcoding job. Valid values: `[0,100]`.
      *
      * @example 100
      *
@@ -114,13 +123,7 @@ class transcodeJobInfoList extends Model
     public $transcodeProgress;
 
     /**
-     * @description The status of the transcoding task. Valid values:
-     *
-     *   **Processing**: In progress.
-     *   **Partial**: Some transcoding jobs were complete.
-     *   **CompleteAllSucc**: All transcoding jobs were successful.
-     *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
-     *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
+     * @description The ID of the transcoding template.
      *
      * @example 174b0534fea3*****b51c8f0ad1374
      *

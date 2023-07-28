@@ -11,19 +11,15 @@ use AlibabaCloud\Tea\Model;
 class mezzanine extends Model
 {
     /**
-     * @description The language.
+     * @description The codec time base.
      *
      * @var audioStreamList[]
      */
     public $audioStreamList;
 
     /**
-     * @description The type of the mezzanine file URL. Valid values:
+     * @description The bitrate of the file. Unit: Kbit/s.
      *
-     * - **oss**: OSS URL
-     * - **cdn** (default): Content Delivery Network (CDN) URL
-     *
-     * > If the mezzanine file is stored in a bucket of the in type, only an OSS URL is returned.
      * @example 771.2280
      *
      * @var string
@@ -31,7 +27,7 @@ class mezzanine extends Model
     public $bitrate;
 
     /**
-     * @description The information about the mezzanine file.
+     * @description The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-11-14T09:15:50Z
      *
@@ -40,10 +36,7 @@ class mezzanine extends Model
     public $creationTime;
 
     /**
-     * @description The type of additional information. Separate multiple values with commas (,). By default, only the basic information is returned. Valid values:
-     *
-     *   **video**: video stream information
-     *   **audio**: audio stream information
+     * @description The duration of the file. Unit: seconds.
      *
      * @example 42.4930
      *
@@ -52,7 +45,7 @@ class mezzanine extends Model
     public $duration;
 
     /**
-     * @description The language.
+     * @description The name of the file.
      *
      * @example 27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
      *
@@ -61,7 +54,7 @@ class mezzanine extends Model
     public $fileName;
 
     /**
-     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The URL of the file.
      *
      * @example http://example-bucket-****.oss-cn-shanghai.aliyuncs.com/27ffc438-164h67f57ef-0005-6884-51a-1****.mp4
      *
@@ -70,7 +63,7 @@ class mezzanine extends Model
     public $fileURL;
 
     /**
-     * @description The sample aspect ratio.
+     * @description The frame rate of the file. Unit: frames per second.
      *
      * @example 25.0000
      *
@@ -79,7 +72,7 @@ class mezzanine extends Model
     public $fps;
 
     /**
-     * @description The height of the video resolution.
+     * @description The height of the file. Unit: pixel.
      *
      * @example 540
      *
@@ -88,8 +81,12 @@ class mezzanine extends Model
     public $height;
 
     /**
-     * @description The total number of frames.
+     * @description The type of the mezzanine file URL. Valid values:
      *
+     * - **oss**: OSS URL
+     * - **cdn** (default): CDN URL
+     *
+     * > If you specify an OSS URL for the video stream, the video stream must be in the MP4 format.
      * @example oss
      *
      * @var string
@@ -97,17 +94,29 @@ class mezzanine extends Model
     public $outputType;
 
     /**
+     * @description The period of time in which the object remains in the restored state.
+     *
+     * @example 2023-03-30T10:14:14Z
+     *
      * @var string
      */
     public $restoreExpiration;
 
     /**
+     * @description The restoration status of the audio or video file. Valid values:
+     *
+     *   **Processing**
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $restoreStatus;
 
     /**
-     * @description The duration of the file. Unit: seconds.
+     * @description The size of the file. Unit: byte.
      *
      * @example 4096477
      *
@@ -116,23 +125,12 @@ class mezzanine extends Model
     public $size;
 
     /**
-     * @description The validity period of the mezzanine file URL. Unit: seconds. Default value: **1800**. Minimum value: **1**.
+     * @description The status of the file. Valid values:
      *
-     *   If the OutputType parameter is set to **cdn**:
-     *
-     *   The mezzanine file URL has a validity period only if URL signing is enabled. Otherwise, the mezzanine file URL is permanently valid.
-     *   Minimum value: **1**.
-     *   Maximum Value: unlimited.
-     *   Default value: If you do not set this parameter, the default validity period that is specified in URL signing is used.
-     *
-     * <!---->
-     *
-     *   If the OutputType parameter is set to **oss**:
-     *
-     *   The mezzanine file URL has a validity period only if the permissions on the Object Storage Service (OSS) bucket are private. Otherwise, the mezzanine file URL is permanently valid.
-     *   Minimum value: **1**.
-     *   Maximum value: **2592000** (30 days). The maximum value is limited to reduce security risks of the origin.
-     *   Default value: If you do not set this parameter, the default value is **3600**.
+     *   **Uploading**: The file is being uploaded. This is the initial status.
+     *   **Normal**: The file is uploaded.
+     *   **UploadFail**: The file fails to be uploaded.
+     *   **Deleted**: The file is deleted.
      *
      * @example Normal
      *
@@ -141,12 +139,25 @@ class mezzanine extends Model
     public $status;
 
     /**
+     * @description The storage class of the audio or video file. Valid values:
+     *
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class is being modified.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $storageClass;
 
     /**
-     * @description The average frame rate.
+     * @description The ID of the video.
      *
      * @example 1f1a6fc03ca04814031b8a6559e****
      *
@@ -155,17 +166,14 @@ class mezzanine extends Model
     public $videoId;
 
     /**
-     * @description The output layout of the sound channels. Valid values:
-     *
-     *   **mono**: mono sound channel
-     *   **stereo**: two sound channels
+     * @description The HDR type of the video stream.
      *
      * @var videoStreamList[]
      */
     public $videoStreamList;
 
     /**
-     * @description The tag of the codec format.
+     * @description The width of the file. Unit: pixel.
      *
      * @example 960
      *

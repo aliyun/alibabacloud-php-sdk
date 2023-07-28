@@ -11,11 +11,7 @@ use AlibabaCloud\Tea\Model;
 class adResult extends Model
 {
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
-     *
-     *   **porn**
-     *   **terrorism**
-     *   **normal**
+     * @description The average score of the review results.
      *
      * @example 100
      *
@@ -24,15 +20,17 @@ class adResult extends Model
     public $averageScore;
 
     /**
-     * @description The highest review score.
+     * @description The statistics about tag frames.
      *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The highest review score.
+     * @description The category of the review result. Valid values:
      *
+     * - **ad**
+     * - **normal**
      * @example ad
      *
      * @var string
@@ -40,7 +38,7 @@ class adResult extends Model
     public $label;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The highest review score.
      *
      * @example 100
      *
@@ -49,8 +47,11 @@ class adResult extends Model
     public $maxScore;
 
     /**
-     * @description The average score of the review results.
+     * @description The recommendation for review results. Valid values:
      *
+     * - **block**
+     * - **review**
+     * - **pass**
      * @example block
      *
      * @var string
@@ -58,7 +59,7 @@ class adResult extends Model
     public $suggestion;
 
     /**
-     * @description The review scenario. The value is **antispam**.
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
      * @var topList[]
      */

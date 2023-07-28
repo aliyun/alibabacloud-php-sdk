@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetAIMediaAuditJobResponseBody extends Model
 {
     /**
-     * @description The average score of the images of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
+     * @description The information about the intelligent review job.
      *
      * @var mediaAuditJob
      */
     public $mediaAuditJob;
 
     /**
-     * @description The highest review score.
+     * @description The ID of the request.
      *
      * @example EAA3E96A-02E2-41*****85-08E1D568ED3A
      *

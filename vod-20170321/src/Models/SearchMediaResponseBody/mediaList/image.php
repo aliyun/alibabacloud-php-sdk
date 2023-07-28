@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
-     * @description The ID of the audio file.
+     * @description The ID of the application.
      *
      * @example app-****
      *
@@ -18,7 +18,7 @@ class image extends Model
     public $appId;
 
     /**
-     * @description The duration of the video file. Unit: seconds.
+     * @description The category ID of the image file.
      *
      * @example 1000123
      *
@@ -27,16 +27,16 @@ class image extends Model
     public $cateId;
 
     /**
-     * @description The tags of the auxiliary media asset.
+     * @description The name of the category.
      *
-     * @example The ID of the image file.
+     * @example beauty
      *
      * @var string
      */
     public $cateName;
 
     /**
-     * @description [Details about auxiliary media assets](~~86991~~).
+     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -45,16 +45,16 @@ class image extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the application.
+     * @description The description of the image file.
      *
-     * @example The category ID of the video file.
+     * @example image test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The endpoint of the OSS bucket in which the audio file is stored.
+     * @description The ID of the image file.
      *
      * @example 11130843741se99wqmoes****
      *
@@ -63,7 +63,7 @@ class image extends Model
     public $imageId;
 
     /**
-     * @description The URL of the thumbnail.
+     * @description The time when the image file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -72,12 +72,11 @@ class image extends Model
     public $modificationTime;
 
     /**
-     * @description The type of the media asset. Valid values:
+     * @description The status of the image file.
      *
-     *   **video**
-     *   **audio**
-     *   **image**
-     *   **attached**
+     *   **Uploading**: The image file is being uploaded. This is the initial status.
+     *   **Normal**: The image file is uploaded.
+     *   **UploadFail**: The image file fails to be uploaded.
      *
      * @example Uploading
      *
@@ -86,7 +85,7 @@ class image extends Model
     public $status;
 
     /**
-     * @description The ID of the application.
+     * @description The endpoint of the OSS bucket in which the image file is stored.
      *
      * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
      *
@@ -95,7 +94,7 @@ class image extends Model
     public $storageLocation;
 
     /**
-     * @description The list of automatic snapshots.
+     * @description The tags of the image file.
      *
      * @example tag1
      *
@@ -104,7 +103,7 @@ class image extends Model
     public $tags;
 
     /**
-     * @description The ID of the request.
+     * @description The title of the image file.
      *
      * @example image1
      *
@@ -113,7 +112,7 @@ class image extends Model
     public $title;
 
     /**
-     * @description The URL of the thumbnail.
+     * @description The URL of the image file.
      *
      * @example https://example.com/****.png
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The type of the text. The value is **title**.
+     * @description The number of frames.
      *
      * @example 1
      *
@@ -18,9 +18,11 @@ class counterList extends Model
     public $count;
 
     /**
-     * @description The results of logo review.
+     * @description The category of the review result. Valid values:
      *
-     * @example The score of the image of the category that is indicated by Label.
+     * - **logo**
+     * - **normal**
+     * @example logo
      *
      * @var string
      */

@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CancelUrlUploadJobsResponseBody extends Model
 {
     /**
+     * @description The IDs of canceled jobs.
+     *
      * @var string[]
      */
     public $canceledJobs;
 
     /**
+     * @description The job IDs or upload URLs that do not exist.
+     *
+     * If you set the request parameter JobIds, the job IDs that do not exist are returned. If you set the request parameter UploadUrls, the upload URLs that do not exist are returned.
      * @var string[]
      */
     public $nonExists;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4D5C-3C3D-D7393642****
      *
      * @var string

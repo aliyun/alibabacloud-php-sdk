@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayTopVideosResponseBody extends Model
 {
     /**
-     * @description The playback duration. Unit: milliseconds.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribePlayTopVideosResponseBody extends Model
     public $pageNo;
 
     /**
-     * @description The total number of entries that were collected in playback statistics on top videos.
+     * @description The number of entries returned per page.
      *
      * @example 100
      *
@@ -28,7 +28,7 @@ class DescribePlayTopVideosResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of unique visitors.
+     * @description The ID of the request.
      *
      * @example 4B0BCF9F-2FD5-4817-****-7BEBBE3AF90B"
      *
@@ -37,14 +37,14 @@ class DescribePlayTopVideosResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the video.
+     * @description The daily playback statistics on each top video.
      *
      * @var topPlayVideos
      */
     public $topPlayVideos;
 
     /**
-     * @description The number of video views.
+     * @description The total number of entries that were collected in playback statistics on top videos.
      *
      * @example 2
      *

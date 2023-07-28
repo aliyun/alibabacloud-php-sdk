@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteVodTemplateRequest extends Model
 {
     /**
-     * @description Deletes a snapshot template.
+     * @description The ID of the snapshot template.
      *
      * @example f5b228fe6930e*****d6bf55bd87789
      *

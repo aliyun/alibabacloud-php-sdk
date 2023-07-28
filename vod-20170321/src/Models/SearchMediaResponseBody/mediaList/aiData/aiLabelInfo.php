@@ -10,28 +10,34 @@ use AlibabaCloud\Tea\Model;
 class aiLabelInfo extends Model
 {
     /**
-     * @description 分类
+     * @description The category.
+     *
+     * @example Transportation
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description 实体ID
+     * @description The ID of the tag.
+     *
+     * @example 10310250338
      *
      * @var string
      */
     public $labelId;
 
     /**
-     * @description 实体名称
+     * @description The name of the tag.
+     *
+     * @example Vehicles
      *
      * @var string
      */
     public $labelName;
 
     /**
-     * @description 片段列表
+     * @description The clips.
      *
      * @var occurrences[]
      */

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainBpsDataResponseBody extends Model
 {
     /**
-     * @description The name of the ISP. By default, the data of all ISPs is returned.
+     * @description The bandwidth data that is collected for each interval.
      *
      * @var bpsDataPerInterval
      */
     public $bpsDataPerInterval;
 
     /**
-     * @description The HTTPS bandwidth on L1 nodes in mainland China. Unit: bit/s. When the bandwidth data is queried by ISP, no value is returned.
+     * @description The time interval between the returned entries. Unit: seconds.
      *
      * @example 300
      *
@@ -26,7 +26,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public $dataInterval;
 
     /**
-     * @description The time interval between the returned entries. Unit: seconds.
+     * @description The domain name for CDN.
      *
      * @example example.com
      *
@@ -35,7 +35,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The bandwidth. Unit: bit/s.
+     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2015-12-10T14:00:00Z
      *
@@ -44,7 +44,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The name of the ISP. By default, the data of all ISPs is returned.
      *
      * @example Alibaba
      *
@@ -53,11 +53,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public $ispNameEn;
 
     /**
-     * @description The query interval. Unit: seconds. Valid values: **300**, **3600**, and **86400**.
-     *
-     *   If the time range to query is less than 3 days, valid values are **300**, **3600**, and **86400**. The default value is 300.
-     *   If the time range to query is from 3 to less than 31 days, valid values are **3600** and **86400**. The default value is 3600.
-     *   If the time range to query is from 31 to 90 days, the valid value is **86400**.
+     * @description The name of the region. By default, the data in all regions is returned.
      *
      * @example cn-shanghai
      *
@@ -66,7 +62,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public $locationNameEn;
 
     /**
-     * @description The name of the region. By default, the data in all regions is returned.
+     * @description The ID of the request.
      *
      * @example 3C6CCEC4-6B88-4D4A-****-D47B3D92CF8F
      *
@@ -75,7 +71,7 @@ class DescribeVodDomainBpsDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The domain name to be queried. If you do not specify this parameter, the merged data of all your domain names for CDN is returned. You can specify multiple domain names. Separate them with commas (,).
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2015-12-10T13:00:00Z
      *

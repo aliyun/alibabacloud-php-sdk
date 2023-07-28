@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class input extends Model
 {
     /**
-     * @description The start time of the video. Unit: seconds.
+     * @description The duration of the video. Unit: seconds.
      *
      * @example 12.0
      *
@@ -18,7 +18,7 @@ class input extends Model
     public $duration;
 
     /**
-     * @description The duration of the video. Unit: seconds.
+     * @description The start time of the video. Unit: seconds.
      *
      * @example 2.0
      *

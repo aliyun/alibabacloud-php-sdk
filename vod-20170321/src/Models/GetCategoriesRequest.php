@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetCategoriesRequest extends Model
 {
     /**
-     * @description The number of the page where the subcategories to be returned are listed. Default value: **1**.
+     * @description The ID of the category. Default value: **-1**, which indicates the parent category ID of a level 1 category.
      *
      * @example 49339****
      *
@@ -18,10 +18,7 @@ class GetCategoriesRequest extends Model
     public $cateId;
 
     /**
-     * @description The type of the category. Valid values:
-     *
-     *   **default** (default): default category
-     *   **material**: material category
+     * @description The number of the page where the subcategories to be returned are listed. Default value: **1**.
      *
      * @example 1
      *
@@ -39,7 +36,10 @@ class GetCategoriesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The list of subcategories.
+     * @description The method for sorting the results. Valid values:
+     *
+     *   **CreationTime:Desc** (default): The results are sorted in reverse chronological order based on the creation time.
+     *   **CreationTime:Asc**: The results are sorted in chronological order based on the creation time.
      *
      * @example CreationTime:Desc
      *
@@ -48,7 +48,10 @@ class GetCategoriesRequest extends Model
     public $sortBy;
 
     /**
-     * @description The total number of subcategories.
+     * @description The type of the category. Valid values:
+     *
+     *   **default** (default): default category
+     *   **material**: material category
      *
      * @example default
      *

@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class aiData extends Model
 {
     /**
-     * @description AI标签信息列表
+     * @description The AI tags.
      *
      * @var aiLabelInfo[]
      */
     public $aiLabelInfo;
 
     /**
-     * @description 字幕信息列表
+     * @description The information about subtitles.
      *
      * @var ocrInfo[]
      */

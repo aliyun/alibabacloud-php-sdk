@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
+     * @description The number of images.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,13 @@ class counterList extends Model
     public $count;
 
     /**
+     * @description The category of the review result. Valid values:
+     *
+     *   **logo**
+     *   **normal**
+     *
+     * @example logo
+     *
      * @var string
      */
     public $label;

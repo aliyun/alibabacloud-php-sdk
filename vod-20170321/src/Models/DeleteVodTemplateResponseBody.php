@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteVodTemplateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteVodTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the snapshot template.
+     *
      * @example f5b228fe6930e*****d6bf55bd87789
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitSnapshotJobRequest extends Model
 {
     /**
-     * @description The snapshot interval. The value must be **greater than or equal to 0**. Unit: seconds. If you set this parameter to **0**, snapshots are taken at even intervals based on the video duration divided by the value of the Count parameter. Default value: **1**.
+     * @description The maximum number of snapshots. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class SubmitSnapshotJobRequest extends Model
     public $count;
 
     /**
-     * @description The ID of the snapshot job.
+     * @description The height of each snapshot. Valid values: `[8,4096]`. By default, the height of the video mezzanine file is used. Unit: pixel.
      *
      * @example 720
      *
@@ -27,11 +27,7 @@ class SubmitSnapshotJobRequest extends Model
     public $height;
 
     /**
-     * @description The custom configurations, including the configuration of transparent data transmission and callback configurations. The value is a JSON-formatted string. For more information, see [UserData](~~86952~~).
-     *
-     **
-     *
-     **Note** The callback configurations take effect only when you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console.
+     * @description The snapshot interval. The value must be **greater than or equal to 0**. Unit: seconds. If you set this parameter to **0**, snapshots are taken at even intervals based on the video duration divided by the value of the Count parameter. Default value: **1**.
      *
      * @example 1
      *
@@ -40,7 +36,11 @@ class SubmitSnapshotJobRequest extends Model
     public $interval;
 
     /**
-     * @description The height of each snapshot. Valid values: `[8,4096]`. By default, the height of the video mezzanine file is used. Unit: pixel.
+     * @description The ID of the snapshot template.
+     *
+     *   We recommend that you create a snapshot template before you specify the ID of the snapshot template.
+     *   If you set the SnapshotTemplateId parameter, all the other request parameters except the Action and VideoId parameters are ignored.
+     *   For more information about how to create a snapshot template, see [AddVodTemplate](~~99406~~).
      *
      * @example f5b228fe693bf55bd87b789****
      *
@@ -49,7 +49,10 @@ class SubmitSnapshotJobRequest extends Model
     public $snapshotTemplateId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **SubmitSnapshotJob**.
+     * @description The start time of the specified snapshot time period.
+     *
+     *   Unit: milliseconds.
+     *   Default value: **0**.
      *
      * @example 0
      *
@@ -58,7 +61,7 @@ class SubmitSnapshotJobRequest extends Model
     public $specifiedOffsetTime;
 
     /**
-     * @description The ID of the video.
+     * @description The sprite snapshot configuration. If you set this parameter, sprite snapshots are generated. For more information, see [SpriteSnapshotConfig](~~86952~~).
      *
      * @example {\"CellWidth\": 120, \"CellHeight\": 68, \"Columns\": 3,\"Lines\": 10, \"Padding\": 20, \"Margin\": 50}
      *
@@ -67,7 +70,11 @@ class SubmitSnapshotJobRequest extends Model
     public $spriteSnapshotConfig;
 
     /**
-     * @description The ID of the request.
+     * @description The custom configurations, including the configuration of transparent data transmission and callback configurations. The value is a JSON-formatted string. For more information, see [UserData](~~86952~~).
+     *
+     **
+     *
+     **Note** The callback configurations take effect only when you specify the HTTP callback URL and select the specific callback events in the ApsaraVideo VOD console.
      *
      * @example {"MessageCallback":{"CallbackURL":"http://.example.aliyundoc.com"},"Extend":{"localId":"xxx","example":"www"}}
      *
@@ -76,7 +83,7 @@ class SubmitSnapshotJobRequest extends Model
     public $userData;
 
     /**
-     * @description The sprite snapshot configuration. If you set this parameter, sprite snapshots are generated. For more information, see [SpriteSnapshotConfig](~~86952~~).
+     * @description The ID of the video.
      *
      * @example d3e680e618708efbf2cae7cc9312****
      *
@@ -85,7 +92,7 @@ class SubmitSnapshotJobRequest extends Model
     public $videoId;
 
     /**
-     * @description The maximum number of snapshots. Default value: **1**.
+     * @description The width of each snapshot. Valid values: `[8,4096]`. By default, the width of the video mezzanine file is used. Unit: pixel.
      *
      * @example 1280
      *

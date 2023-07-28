@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The highest score of the image of the category that is indicated by Label.
+     * @description The number of images.
      *
      * @example 0
      *
@@ -20,20 +20,13 @@ class counterList extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **normal**
-     *   **bloody**
-     *   **explosion**
+     *   **terrorism**
      *   **outfit**
      *   **logo**
      *   **weapon**
      *   **politics**
-     *   **violence**
-     *   **crowd**
-     *   **parade**
-     *   **carcrash**
-     *   **flag**
-     *   **location**
      *   **others**
+     *   **normal**
      *
      * @example terrorism
      *

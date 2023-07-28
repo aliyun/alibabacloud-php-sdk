@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class attachedMedia extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example app-****
      *
      * @var string
@@ -17,6 +19,12 @@ class attachedMedia extends Model
     public $appId;
 
     /**
+     * @description The type of the auxiliary media asset. Valid values:
+     *
+     *   **watermark**
+     *   **subtitle**
+     *   **material**
+     *
      * @example watermark
      *
      * @var string
@@ -24,11 +32,15 @@ class attachedMedia extends Model
     public $businessType;
 
     /**
+     * @description The list of category IDs.
+     *
      * @var categories[]
      */
     public $categories;
 
     /**
+     * @description The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-07-19T03:45:25Z
      *
      * @var string
@@ -36,11 +48,17 @@ class attachedMedia extends Model
     public $creationTime;
 
     /**
+     * @description The description of the auxiliary media asset.
+     *
+     * @example test3
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the auxiliary media asset.
+     *
      * @example a82a2cd7d4e147ba0ed6c1ee372****
      *
      * @var string
@@ -48,6 +66,8 @@ class attachedMedia extends Model
     public $mediaId;
 
     /**
+     * @description The time when the auxiliary media asset was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-07-19T03:48:25Z
      *
      * @var string
@@ -55,6 +75,12 @@ class attachedMedia extends Model
     public $modificationTime;
 
     /**
+     * @description The status of the auxiliary media asset. Valid values:
+     *
+     *   **Uploading**: The auxiliary media asset is being uploaded. This is the initial status.
+     *   **Normal**: The auxiliary media asset is uploaded.
+     *   **UploadFail**: The auxiliary media asset fails to be uploaded.
+     *
      * @example Normal
      *
      * @var string
@@ -62,6 +88,8 @@ class attachedMedia extends Model
     public $status;
 
     /**
+     * @description The endpoint of the OSS bucket in which the auxiliary media asset is stored.
+     *
      * @example outin-bfefbb90a47c11*****7426.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -69,16 +97,26 @@ class attachedMedia extends Model
     public $storageLocation;
 
     /**
+     * @description The tags of the auxiliary media asset.
+     *
+     * @example test2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The title of the auxiliary media asset.
+     *
+     * @example test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The URL of the auxiliary media asset.
+     *
      * @example https://example.com/****.png
      *
      * @var string

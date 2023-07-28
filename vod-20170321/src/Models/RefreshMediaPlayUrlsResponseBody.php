@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RefreshMediaPlayUrlsResponseBody extends Model
 {
     /**
+     * @description The IDs of the media files that cannot be operated on. In most cases, media files cannot be operated on because you are not authorized to perform the operations. For more information, see [Overview](~~113600~~).
+     *
      * @example a6e49sfgd23p5g9ja7095863****
      *
      * @var string
@@ -16,7 +18,7 @@ class RefreshMediaPlayUrlsResponseBody extends Model
     public $forbiddenMediaIds;
 
     /**
-     * @description Submits media refresh or prefetch tasks based on the media IDs.
+     * @description The ID of the refresh or prefetch task.
      *
      * @example 41d465e31957****
      *
@@ -25,6 +27,8 @@ class RefreshMediaPlayUrlsResponseBody extends Model
     public $mediaRefreshJobId;
 
     /**
+     * @description The IDs of the media files that do not exist.
+     *
      * @example ca3a8f6e4957b658067095869****
      *
      * @var string
@@ -32,6 +36,8 @@ class RefreshMediaPlayUrlsResponseBody extends Model
     public $nonExistMediaIds;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4AF6-04D5-D7393642****
      *
      * @var string

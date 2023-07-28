@@ -14,33 +14,35 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResultTimeline extends Model
 {
     /**
+     * @description The collection of ad timelines.
+     *
      * @var ad[]
      */
     public $ad;
 
     /**
-     * @description Queries the timelines of all snapshots that violate content regulations.
+     * @description The collection of undesirable scene timelines.
      *
      * @var live[]
      */
     public $live;
 
     /**
-     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     * @description The collection of logo timelines.
      *
      * @var logo[]
      */
     public $logo;
 
     /**
-     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     * @description The collection of pornographic content timelines.
      *
      * @var porn[]
      */
     public $porn;
 
     /**
-     * @description The ID of the video.
+     * @description The collection of terrorist content timelines.
      *
      * @var terrorism[]
      */

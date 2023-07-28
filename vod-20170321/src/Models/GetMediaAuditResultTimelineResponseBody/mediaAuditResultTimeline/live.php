@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class live extends Model
 {
     /**
+     * @description The category of the review result. Valid values:
+     *
+     *   **normal**
+     *   **terrorism**
+     *
+     * @example pip
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The score of the review result category. Valid values: `[0, 100]`. The value is rounded down to 10 decimal places. The score is representative of the confidence.
+     *
      * @example 100
      *
      * @var string
@@ -21,6 +30,8 @@ class live extends Model
     public $score;
 
     /**
+     * @description The position in the video. Unit: milliseconds.
+     *
      * @example 12
      *
      * @var string

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class RestoreMediaResponseBody extends Model
 {
     /**
+     * @description The IDs of the media asset that failed to be processed.
+     *
      * @var forbiddenList
      */
     public $forbiddenList;
 
     /**
+     * @description The IDs of the media assets that failed to be obtained.
+     *
      * @var ignoredList
      */
     public $ignoredList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 8E70E3F8-E2EE-47BC-4677-379D6F28****
      *
      * @var string
@@ -28,6 +34,8 @@ class RestoreMediaResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
      * @example true
      *
      * @var bool

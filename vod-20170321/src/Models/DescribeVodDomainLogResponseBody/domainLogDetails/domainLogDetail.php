@@ -20,7 +20,7 @@ class domainLogDetail extends Model
     public $domainName;
 
     /**
-     * @description The detailed information about Alibaba Cloud CDN logs.
+     * @description The total number of entries returned on the current page.
      *
      * @example 2
      *
@@ -29,13 +29,15 @@ class domainLogDetail extends Model
     public $logCount;
 
     /**
-     * @description The path of the log file.
+     * @description The detailed information about Alibaba Cloud CDN logs.
      *
      * @var logInfos
      */
     public $logInfos;
 
     /**
+     * @description The pagination settings of Alibaba Cloud CDN logs.
+     *
      * @var pageInfos
      */
     public $pageInfos;

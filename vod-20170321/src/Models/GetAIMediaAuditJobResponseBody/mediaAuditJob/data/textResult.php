@@ -9,20 +9,24 @@ use AlibabaCloud\Tea\Model;
 class textResult extends Model
 {
     /**
-     * @description The number of images.
+     * @description The text.
      *
-     * @example http://temp-****bucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
+     * @example Test
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     *   **spam**
+     *   **ad**
+     *   **abuse**
+     *   **flood**: spam posts
+     *   **contraband**
+     *   **meaningless**
+     *   **normal**
      *
      * @example ad
      *
@@ -31,7 +35,7 @@ class textResult extends Model
     public $label;
 
     /**
-     * @description The categories of the review results and the number of images.
+     * @description The review scenario. Valid value: **antispam**.
      *
      * @example antispam
      *
@@ -40,7 +44,7 @@ class textResult extends Model
     public $scene;
 
     /**
-     * @description The URL of the image.
+     * @description The score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The score is representative of the confidence.
      *
      * @example 100
      *
@@ -49,7 +53,11 @@ class textResult extends Model
     public $score;
 
     /**
-     * @description The information about the intelligent review job.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example pass
      *
@@ -58,58 +66,7 @@ class textResult extends Model
     public $suggestion;
 
     /**
-     * @description The category of the review result.
-     *
-     * Valid values if scene is **porn**:
-     *
-     *   **porn**
-     *   **sexy**
-     *   **normal**
-     *
-     * Valid values if scene is **terrorism**:
-     *
-     *   **normal**
-     *   **bloody**
-     *   **explosion**
-     *   **outfit**
-     *   **logo**
-     *   **weapon**
-     *   **politics**
-     *   **violence**
-     *   **crowd**
-     *   **parade**
-     *   **carcrash**
-     *   **flag**
-     *   **location**
-     *   **others**
-     *
-     * Valid values if scene is **ad**:
-     *
-     *   **normal**
-     *   **ad**
-     *   **politics**
-     *   **porn**
-     *   **abuse**
-     *   **terrorism**
-     *   **contraband**
-     *   **spam**
-     *   **npx**: illegal ad
-     *   **qrcode**: QR code
-     *   **programCode**
-     *
-     * Valid values if scene is **live**:
-     *
-     *   **normal**
-     *   **meaningless**
-     *   **PIP**
-     *   **smoking**
-     *   **drivelive**
-     *
-     * Valid values if scene is **logo**:
-     *
-     *   **normal**
-     *   **TV**
-     *   **trademark**
+     * @description The type of the text. The value is **title**.
      *
      * @example title
      *

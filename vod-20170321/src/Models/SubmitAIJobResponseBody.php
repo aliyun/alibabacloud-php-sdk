@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SubmitAIJobResponseBody extends Model
 {
     /**
-     * @description The ID of the video.
+     * @description The information about the AI jobs.
      *
      * @var AIJobList
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example app-****
      *
      * @var string
@@ -17,6 +19,11 @@ class video extends Model
     public $appId;
 
     /**
+     * @description The review status of the video. Valid values:
+     *
+     *   **Normal**: pass
+     *   **Blocked**: failed
+     *
      * @example Normal
      *
      * @var string
@@ -24,6 +31,8 @@ class video extends Model
     public $auditStatus;
 
     /**
+     * @description The category ID of the media file.
+     *
      * @example 781111****
      *
      * @var int
@@ -31,11 +40,17 @@ class video extends Model
     public $cateId;
 
     /**
+     * @description The name of the category.
+     *
+     * @example Category name
+     *
      * @var string
      */
     public $cateName;
 
     /**
+     * @description The thumbnail URL of the media file.
+     *
      * @example https://example.aliyundoc.com/****.jpg
      *
      * @var string
@@ -43,6 +58,8 @@ class video extends Model
     public $coverURL;
 
     /**
+     * @description The time when the media file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T09:15:50Z
      *
      * @var string
@@ -50,6 +67,8 @@ class video extends Model
     public $creationTime;
 
     /**
+     * @description The custom information about the media file.\n\n> This parameter has been deprecated. This parameter is no longer returned after you call the operation.
+     *
      * @example {"aaa":"test"}
      *
      * @var string
@@ -57,11 +76,17 @@ class video extends Model
     public $customMediaInfo;
 
     /**
+     * @description The description of the media file.
+     *
+     * @example Video description in ApsaraVideo VOD
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The duration of the media file. Unit: seconds.
+     *
      * @example 135.6
      *
      * @var float
@@ -69,6 +94,8 @@ class video extends Model
     public $duration;
 
     /**
+     * @description The time when the media file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2017-11-14T10:15:50Z
      *
      * @var string
@@ -76,6 +103,8 @@ class video extends Model
     public $modificationTime;
 
     /**
+     * @description The region where the media file is stored.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -83,16 +112,30 @@ class video extends Model
     public $regionId;
 
     /**
+     * @description The period of time in which the object remains in the restored state.
+     *
+     * @example 2023-03-30T10:14:14Z
+     *
      * @var string
      */
     public $restoreExpiration;
 
     /**
+     * @description The restoration status of the audio or video file. Valid values:
+     *
+     *   **Processing**
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $restoreStatus;
 
     /**
+     * @description The size of the source file. Unit: bytes.
+     *
      * @example 10897890
      *
      * @var int
@@ -100,11 +143,23 @@ class video extends Model
     public $size;
 
     /**
+     * @description The video snapshot URLs.
+     *
      * @var snapshots
      */
     public $snapshots;
 
     /**
+     * @description The status of the video. For information about the operations that can be performed on videos in different statuses and limits, see the Status: the status of a video section of the [Basic data types](~~52839~~) topic. Valid values:
+     *
+     *   **Uploading**: The video is being uploaded.
+     *   **UploadFail**: The video failed to be uploaded.
+     *   **UploadSucc**: The video has been uploaded.
+     *   **Transcoding**: The video is being transcoded.
+     *   **TranscodeFail**: The video failed to be transcoded.
+     *   **Blocked**: The video is blocked.
+     *   **Normal**: The video is normal.
+     *
      * @example Normal
      *
      * @var string
@@ -112,11 +167,26 @@ class video extends Model
     public $status;
 
     /**
+     * @description The storage class of the audio or video file. Valid values:
+     *
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class is being modified.
+     *
+     * @example Standard
+     *
      * @var string
      */
     public $storageClass;
 
     /**
+     * @description The storage address of the media file.
+     *
      * @example out-201703232251****.oss-cn-shanghai.aliyuncs.com
      *
      * @var string
@@ -124,11 +194,17 @@ class video extends Model
     public $storageLocation;
 
     /**
+     * @description The tags of the media file. Multiple tags are separated by commas (,).
+     *
+     * @example Tag 1,Tag 2
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
      * @example 9ae2af636ca64835b0c10412f448****
      *
      * @var string
@@ -136,11 +212,17 @@ class video extends Model
     public $templateGroupId;
 
     /**
+     * @description The title of the media file.
+     *
+     * @example Video title in ApsaraVideo VOD
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @description The ID of the media file.
+     *
      * @example 9b73864d75f1d231e9001cd5f8****
      *
      * @var string

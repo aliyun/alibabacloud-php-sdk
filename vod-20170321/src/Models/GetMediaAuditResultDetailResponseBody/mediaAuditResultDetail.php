@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResultDetail extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **GetMediaAuditResultDetail**.
+     * @description The review results returned.
      *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description The score of the review result category. It is representative of the confidence. Valid values: `[0.00-100.00].` The value is rounded down to 10 decimal places.
+     * @description The total number of snapshots returned.
      *
      * @example 2
      *

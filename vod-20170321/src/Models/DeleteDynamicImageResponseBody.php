@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDynamicImageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0C8F0FDD-A99F-4188-B41934C97A54****
      *
      * @var string

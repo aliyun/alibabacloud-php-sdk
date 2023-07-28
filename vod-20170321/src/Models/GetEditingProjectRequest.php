@@ -19,7 +19,7 @@ class GetEditingProjectRequest extends Model
     public $ownerId;
 
     /**
-     * @description The timeline of the online editing project.
+     * @description The ID of the online editing project.
      *
      * @example fb2101bf24b27*****54cb318787dc
      *

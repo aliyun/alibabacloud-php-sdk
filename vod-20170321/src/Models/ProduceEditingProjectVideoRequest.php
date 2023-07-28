@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ProduceEditingProjectVideoRequest extends Model
 {
     /**
-     * @description >ApsaraVideo VOD sends a FileUploadComplete event notification after video production is complete, which is similar to the action that is performed after video upload. After the produced video is transcoded, ApsaraVideo VOD sends the StreamTranscodeComplete and TranscodeComplete event notifications.
+     * @description The thumbnail URL of the online editing project.
      *
      * @example https://example.aliyundoc.com/6AB4D0E1E1C7446888351****.png
      *
@@ -20,16 +20,16 @@ class ProduceEditingProjectVideoRequest extends Model
     /**
      * @description The description of the online editing project.
      *
-     * @example The ID of the request.
+     * @example description test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description Produces a video from one or more mezzanine files. You can directly submit mezzanine files by specifying the Timeline parameter. Alternatively, you can submit mezzanine files after you create an online editing project.
+     * @description The metadata of the produced video, in JSON format. For more information about the structure, see [MediaMetadata](~~52839~~).
      *
-     * @example 58928
+     * @example {"Description":"video description","Title":"userData test"}
      *
      * @var string
      */
@@ -41,7 +41,7 @@ class ProduceEditingProjectVideoRequest extends Model
     public $ownerId;
 
     /**
-     * @description 朴灵
+     * @description The configuration of video production, in JSON format. For more information about the structure, see [ProduceConfig](~~52839~~).
      *
      * @example {"TemplateGroupId":"6d11e25ea30a4c465435c74****"}
      *
@@ -50,7 +50,7 @@ class ProduceEditingProjectVideoRequest extends Model
     public $produceConfig;
 
     /**
-     * @description The thumbnail URL of the online editing project.
+     * @description The ID of the online editing project.
      *
      * @example fb2101bf24b4cb318787dc****
      *
@@ -69,10 +69,8 @@ class ProduceEditingProjectVideoRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the produced video.
+     * @description The timeline of the online editing project, in JSON format. For more information about the structure, see [Timeline](~~52839~~).
      *
-     * > *   This operation returns the ID of the produced video in synchronous mode.
-     * > *   If this operation returns the MediaId parameter, the video production task is being asynchronously processed.
      * @example {"VideoTracks":[{"VideoTrackClips":[{"MediaId":"cc3308ac59615a54328bc3443****"},{"MediaId":"da87a9cff645cd88bc6d8326e4****"}]}]}
      *
      * @var string
@@ -80,15 +78,18 @@ class ProduceEditingProjectVideoRequest extends Model
     public $timeline;
 
     /**
-     * @description The metadata of the produced video, in JSON format. For more information about the structure, see [MediaMetadata](~~52839~~).
+     * @description The title of the online editing project.
      *
-     * @example The ID of the online editing project.
+     * @example editing project test
      *
      * @var string
      */
     public $title;
 
     /**
+     * @description The custom configuration, such as the callback configuration. The value is a JSON-formatted string. For more information about the structure, see [UserData](~~86952~~).
+     *
+     * > To use the MessageCallback parameter, you must set an HTTP callback URL and select a callback event type in the ApsaraVideo VOD console. Otherwise, the callback configuration does not take effect.
      * @example {"Extend":{"width":1280,"id":"028a8e56b1ebf6bb7afc74****","height":720},"MessageCallback":{"CallbackURL":"https://example.aliyundoc.com/2016-08-15/proxy/httpcallback/testcallback/","CallbackType":"http"}}
      *
      * @var string

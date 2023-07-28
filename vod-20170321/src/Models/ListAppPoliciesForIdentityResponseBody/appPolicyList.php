@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class appPolicyList extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the application.
      *
      * @example app-****
      *
@@ -18,7 +18,7 @@ class appPolicyList extends Model
     public $appId;
 
     /**
-     * @description The last time when the application policy was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the application policy was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-01T01:01:01Z
      *
@@ -27,7 +27,7 @@ class appPolicyList extends Model
     public $creationTime;
 
     /**
-     * @description The content of the policy.
+     * @description The description of the policy.
      *
      * @example App full access permission
      *
@@ -36,6 +36,8 @@ class appPolicyList extends Model
     public $description;
 
     /**
+     * @description The last time when the application policy was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2019-01-01T01:08:01Z
      *
      * @var string
@@ -43,7 +45,7 @@ class appPolicyList extends Model
     public $modificationTime;
 
     /**
-     * @description Queries the application policies that are attached to the specified identity. The identity may be a RAM user or RAM role.
+     * @description The name of the policy.
      *
      * @example VODAppFullAccess
      *
@@ -52,6 +54,11 @@ class appPolicyList extends Model
     public $policyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   **System**
+     *   **Custom**
+     *
      * @example System
      *
      * @var string
@@ -59,11 +66,7 @@ class appPolicyList extends Model
     public $policyType;
 
     /**
-     * @description The details of each policy.
-     *
-     **
-     *
-     **Note** A maximum of 100 entries can be returned.
+     * @description The content of the policy.
      *
      * @example ****
      *

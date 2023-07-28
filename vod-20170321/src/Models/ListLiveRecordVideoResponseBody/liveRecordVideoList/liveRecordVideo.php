@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class liveRecordVideo extends Model
 {
     /**
-     * @description The information about the video.
+     * @description The name of the application.
      *
      * @example testApp
      *
@@ -19,7 +19,7 @@ class liveRecordVideo extends Model
     public $appName;
 
     /**
-     * @description The tags of the video. Separate multiple tags with commas (,).
+     * @description The domain name.
      *
      * @example example.com
      *
@@ -28,7 +28,7 @@ class liveRecordVideo extends Model
     public $domainName;
 
     /**
-     * @description The last time when the video was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the playlist.
      *
      * @example ****
      *
@@ -37,7 +37,7 @@ class liveRecordVideo extends Model
     public $playlistId;
 
     /**
-     * @description The domain name of the recorded live stream.
+     * @description The end of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T08:44:56Z
      *
@@ -46,7 +46,7 @@ class liveRecordVideo extends Model
     public $recordEndTime;
 
     /**
-     * @description The array of video snapshot URLs.
+     * @description The beginning of the time range in which data was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-12-08T07:40:56Z
      *
@@ -55,7 +55,7 @@ class liveRecordVideo extends Model
     public $recordStartTime;
 
     /**
-     * @description The end of the time range to query. The query is performed based on the time range during which the required live streams were recorded. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The name of the live stream.
      *
      * @example live-test
      *
@@ -64,7 +64,7 @@ class liveRecordVideo extends Model
     public $streamName;
 
     /**
-     * @description The name of the application that was used to record the live stream.
+     * @description The information about the video.
      *
      * @var video
      */

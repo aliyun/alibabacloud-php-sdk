@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteAttachedMediaRequest extends Model
 {
     /**
-     * @description Deletes one or more auxiliary media assets at a time.
+     * @description The list of auxiliary media asset IDs.
+     *
+     *   Separate multiple IDs with commas (,).
+     *   A maximum of 20 IDs can be specified.
      *
      * @example 8bc8e94fe4e55abde85718****,eb186180e989dd56****
      *

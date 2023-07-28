@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class location extends Model
 {
     /**
-     * @description The figure tag of the video.
+     * @description The tag string.
      *
-     * @example The category of the video.
+     * @example Asia
      *
      * @var string
      */
     public $tag;
 
     /**
-     * @description The returned result.
+     * @description The points in time when the tags are displayed. Unit: milliseconds.
      *
      * @var string[]
      */

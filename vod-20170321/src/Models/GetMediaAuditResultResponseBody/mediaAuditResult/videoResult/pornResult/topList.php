@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class topList extends Model
 {
     /**
-     * @description The results of text review.
+     * @description The category of the review result. Valid values:
      *
+     * - **porn**
+     * - **sexy**
+     * - **normal**
      * @example porn
      *
      * @var string
@@ -18,11 +21,7 @@ class topList extends Model
     public $label;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**
-     *   **review**
-     *   **pass**
+     * @description The score of the image of the category that is indicated by Label.
      *
      * @example 100.0000
      *
@@ -40,30 +39,7 @@ class topList extends Model
     public $timestamp;
 
     /**
-     * @description The category of the review result.
-     *
-     * Valid values if scene is **porn**:
-     *
-     *   **porn**
-     *   **sexy**
-     *   **normal**
-     *
-     * Valid values if scene is **terrorism**:
-     *
-     *   **normal**
-     *   **bloody**
-     *   **explosion**
-     *   **outfit**
-     *   **logo**
-     *   **weapon**
-     *   **politics**
-     *   **violence**
-     *   **crowd**
-     *   **parade**
-     *   **carcrash**
-     *   **flag**
-     *   **location**
-     *   **others**
+     * @description The URL of the image.
      *
      * @example http://temp-testbucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
      *

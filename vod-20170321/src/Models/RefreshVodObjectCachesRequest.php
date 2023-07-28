@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RefreshVodObjectCachesRequest extends Model
 {
     /**
-     * @description The granularity of the resources to be refreshed. Valid values:
-     *
-     *   **File**: refreshes one or more files. This is the default value.
-     *   **Directory**: refreshes the files under one or more directories.
+     * @description The path of the resource to be refreshed. Separate multiple paths with line breaks (\n or \r\n).
      *
      * @example abc.com/image/1.png
      *
@@ -21,7 +18,10 @@ class RefreshVodObjectCachesRequest extends Model
     public $objectPath;
 
     /**
-     * @description Refreshes files on Alibaba Cloud CDN nodes. You can refresh multiple files at a time based on URLs.
+     * @description The granularity of the resources to be refreshed. Valid values:
+     *
+     *   **File**: refreshes one or more files. This is the default value.
+     *   **Directory**: refreshes the files under one or more directories.
      *
      * @example File
      *

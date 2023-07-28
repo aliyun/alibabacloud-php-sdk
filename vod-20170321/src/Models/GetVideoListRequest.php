@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVideoListRequest extends Model
 {
     /**
-     * @description The category ID. You can use one of the following methods to obtain the category ID:
+     * @description The ID of the category. You can use one of the following methods to obtain the category ID:
      *
      *   Log on to the [ApsaraVideo VOD console](https://vod.console.aliyun.com). In the left-side navigation pane, choose **Configuration Management** > **Media Management** > **Categories** to view the category ID.
      *   Obtain the value of CateId from the response to the [AddCategory](~~56401~~) operation.
@@ -70,7 +70,7 @@ class GetVideoListRequest extends Model
     public $startTime;
 
     /**
-     * @description The video status. You can specify multiple video statuses and separate them with commas (,). Valid values:
+     * @description The status of the video. You can specify multiple video statuses and separate them with commas (,). Valid values:
      *
      *   **Uploading**: The video is being uploaded.
      *   **UploadFail**: The video failed to be uploaded.

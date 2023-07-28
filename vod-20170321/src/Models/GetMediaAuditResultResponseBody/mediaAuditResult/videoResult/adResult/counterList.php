@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The statistics about tag frames.
+     * @description The number of frames.
      *
      * @example 12
      *
@@ -18,8 +18,10 @@ class counterList extends Model
     public $count;
 
     /**
-     * @description The average score of the review results.
+     * @description The category of the review result. Valid values:
      *
+     * - **ad**
+     * - **normal**
      * @example ad
      *
      * @var string

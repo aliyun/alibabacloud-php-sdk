@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UV extends Model
 {
     /**
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for Android.
+     *
      * @example 2
      *
      * @var string
@@ -16,7 +18,7 @@ class UV extends Model
     public $android;
 
     /**
-     * @description The distribution of the playback duration.
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for Flash.
      *
      * @example 1
      *
@@ -25,6 +27,8 @@ class UV extends Model
     public $flash;
 
     /**
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for HTML5.
+     *
      * @example 1
      *
      * @var string
@@ -32,7 +36,7 @@ class UV extends Model
     public $HTML5;
 
     /**
-     * @description Queries the statistics on total playback each day in a specified time range.
+     * @description The total number of unique visitors who use ApsaraVideo Player SDK for iOS.
      *
      * @example 0
      *

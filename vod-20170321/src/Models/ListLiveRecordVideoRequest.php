@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListLiveRecordVideoRequest extends Model
 {
     /**
-     * @description The sorting rule of results. Valid values:
-     *
-     *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
-     *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
+     * @description The name of the application that was used to record the live stream.
      *
      * @example testApp
      *
@@ -21,16 +18,16 @@ class ListLiveRecordVideoRequest extends Model
     public $appName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListLiveRecordVideo**.
+     * @description The domain name of the recorded live stream.
      *
-     * @example The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     * @example example.aliyundoc.com
      *
      * @var string
      */
     public $domainName;
 
     /**
-     * @description CreationTime:Desc
+     * @description The end of the time range to query. The query is performed based on the time range during which the required live streams were recorded. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2017-01-11T13:00:00Z
      *
@@ -39,7 +36,7 @@ class ListLiveRecordVideoRequest extends Model
     public $endTime;
 
     /**
-     * @description The name of the recorded live stream.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -48,7 +45,7 @@ class ListLiveRecordVideoRequest extends Model
     public $pageNo;
 
     /**
-     * @description The ID of the transcoding template group.
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -57,7 +54,9 @@ class ListLiveRecordVideoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The duration of the video. Unit: seconds.
+     * @description The sorting rule of results. Valid values:
+     *   **CreationTime:Desc**: sorts the results based on the creation time in descending order. This is the default value.
+     *   **CreationTime:Asc**: sorts the results based on the creation time in ascending order.
      *
      * @example CreationTime:Desc
      *
@@ -66,7 +65,7 @@ class ListLiveRecordVideoRequest extends Model
     public $sortBy;
 
     /**
-     * @description The name of the video category.
+     * @description The beginning of the time range to query. The query is performed based on the time range during which the required live streams were recorded. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
      * @example 2017-01-11T12:00:00Z
      *
@@ -75,15 +74,7 @@ class ListLiveRecordVideoRequest extends Model
     public $startTime;
 
     /**
-     * @description The status of the video. Valid values:
-     *
-     *   **Uploading:**: indicates that the video is being uploaded.
-     *   **UploadFail**: indicates that the video failed to be uploaded.
-     *   **UploadSucces**: indicates that the video was uploaded.
-     *   **Transcoding**: indicates that the video is being transcoded.
-     *   **TranscodeFail**: indicates that the video failed to be transcoded.
-     *   **Blocked**: indicates that the video is blocked.
-     *   **Normal**: indicates that the video is in a normal state.
+     * @description The name of the recorded live stream.
      *
      * @example live-test
      *

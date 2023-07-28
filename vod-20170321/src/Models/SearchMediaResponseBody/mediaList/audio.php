@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class audio extends Model
 {
     /**
-     * @description The number of entries to return on each page. Default value: **10**. Maximum value: **100**.
+     * @description The ID of the application.
      *
      * @example app-****
      *
@@ -18,7 +18,7 @@ class audio extends Model
     public $appId;
 
     /**
-     * @description The time when the auxiliary media asset was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the audio file.
      *
      * @example a82a2cd7d4e147bbed6c1ee372****
      *
@@ -27,7 +27,7 @@ class audio extends Model
     public $audioId;
 
     /**
-     * @description The URL of the auxiliary media asset.
+     * @description The category ID of the audio file.
      *
      * @example 10000123
      *
@@ -45,11 +45,7 @@ class audio extends Model
     public $cateName;
 
     /**
-     * @description The status of the auxiliary media asset. Valid values:
-     *
-     *   **Uploading**: The auxiliary media asset is being uploaded. This is the initial status.
-     *   **Normal**: The auxiliary media asset is uploaded.
-     *   **UploadFail**: The auxiliary media asset fails to be uploaded.
+     * @description The URL of the thumbnail.
      *
      * @example http://example.com/image04.jpg
      *
@@ -58,12 +54,7 @@ class audio extends Model
     public $coverURL;
 
     /**
-     * @description The source. Valid values:
-     *
-     *   **general**: The video file is uploaded by using ApsaraVideo VOD.
-     *   **short_video**: The video file is uploaded by using the short video SDK.
-     *   **editing**: The video file is produced after online editing.
-     *   **live**: The video stream is recorded and uploaded as a file.
+     * @description The time when the audio file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -72,20 +63,19 @@ class audio extends Model
     public $creationTime;
 
     /**
-     * @description The type of the auxiliary media asset. Valid values:
+     * @description The description of the audio file.
      *
-     *   **watermark**
-     *   **subtitle**
-     *   **material**
-     *
-     * @example The name of the category.
+     * @example audio description
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the auxiliary media asset.
+     * @description The download switch. The audio file can be downloaded offline only when the download switch is turned on. Valid values:
+     *
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -94,7 +84,7 @@ class audio extends Model
     public $downloadSwitch;
 
     /**
-     * @description The time when the image file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The duration of the audio file.
      *
      * @example 123
      *
@@ -103,9 +93,13 @@ class audio extends Model
     public $duration;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The source. Valid values:
      *
-     * > If the value of this parameter exceeds **200**, we recommend that you set the ScrollToken parameter as well.
+     *   **general**: The audio file is uploaded by using ApsaraVideo VOD.
+     *   **short_video**: The audio file is uploaded to ApsaraVideo VOD by using the short video SDK. For more information, see [Introduction](~~53407~~).
+     *   **editing**: The audio file is uploaded to ApsaraVideo VOD after online editing and production. For more information, see [ProduceEditingProjectVideo](~~68536~~).
+     *   **live**: The audio stream is recorded and uploaded as a file to ApsaraVideo VOD.
+     *
      * @example general
      *
      * @var string
@@ -113,7 +107,7 @@ class audio extends Model
     public $mediaSource;
 
     /**
-     * @description The pagination identifier.
+     * @description The time when the audio file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -122,7 +116,12 @@ class audio extends Model
     public $modificationTime;
 
     /**
-     * @description The total number of data records that meet the specified filter criteria.
+     * @description The preprocessing status. Only preprocessed videos can be used for live streaming in the production studio. Valid values:
+     *
+     *   **UnPreprocess**
+     *   **Preprocessing**
+     *   **PreprocessSucceed**
+     *   **PreprocessFailed**
      *
      * @example UnPreprocess
      *
@@ -131,6 +130,8 @@ class audio extends Model
     public $preprocessStatus;
 
     /**
+     * @description The period of time in which the audio file remains in the restored state.
+     *
      * @example 2023-03-30T10:14:14Z
      *
      * @var string
@@ -138,6 +139,12 @@ class audio extends Model
     public $restoreExpiration;
 
     /**
+     * @description The restoration status of the audio file. Valid values:
+     *
+     *   **Processing**
+     *   **Success**
+     *   **Failed**
+     *
      * @example Success
      *
      * @var string
@@ -145,7 +152,7 @@ class audio extends Model
     public $restoreStatus;
 
     /**
-     * @description The title of the video file.
+     * @description The size of the audio file.
      *
      * @example 123
      *
@@ -154,25 +161,26 @@ class audio extends Model
     public $size;
 
     /**
-     * @description The ID of the video file.
+     * @description The list of automatic snapshots.
      *
      * @var string[]
      */
     public $snapshots;
 
     /**
-     * @description The status of the image file.
-     *
-     *   **Uploading**: The image file is being uploaded. This is the initial status.
-     *   **Normal**: The image file is uploaded.
-     *   **UploadFail**: The image file fails to be uploaded.
+     * @description The list of sprite snapshots.
      *
      * @var string[]
      */
     public $spriteSnapshots;
 
     /**
-     * @description The size of the audio file.
+     * @description The status of the audio file. Valid values:
+     *
+     *   **Uploading**
+     *   **Normal**
+     *   **UploadFail**
+     *   **Deleted**
      *
      * @example Normal
      *
@@ -181,6 +189,17 @@ class audio extends Model
     public $status;
 
     /**
+     * @description The storage class of the audio file. Valid values:
+     *
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class is being modified.
+     *
      * @example Standard
      *
      * @var string
@@ -188,7 +207,7 @@ class audio extends Model
     public $storageClass;
 
     /**
-     * @description The duration of the audio file.
+     * @description The endpoint of the OSS bucket in which the audio file is stored.
      *
      * @example outin-aaa*****aa.oss-cn-shanghai.aliyuncs.com
      *
@@ -197,7 +216,7 @@ class audio extends Model
     public $storageLocation;
 
     /**
-     * @description The tags of the video file.
+     * @description The tags of the audio file.
      *
      * @example tag1,tag2
      *
@@ -206,20 +225,20 @@ class audio extends Model
     public $tags;
 
     /**
-     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     * @description The title of the audio file.
      *
-     *   **FastTranscode**: The audio file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
-     *   **NoTranscode**: The audio file can be played without being transcoded. You can immediately play the file after it is uploaded.
-     *   **AsyncTranscode**: The audio file can be immediately played and asynchronously transcoded after it is uploaded.
-     *
-     * @example [Details about audio files](~~86991~~).
+     * @example audio
      *
      * @var string
      */
     public $title;
 
     /**
-     * @description The time when the audio file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     *
+     *   **FastTranscode**: The audio file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
+     *   **NoTranscode**: The audio file can be played without being transcoded. You can immediately play the file after it is uploaded.
+     *   **AsyncTranscode**: The audio file can be immediately played and asynchronously transcoded after it is uploaded.
      *
      * @example FastTranscode
      *

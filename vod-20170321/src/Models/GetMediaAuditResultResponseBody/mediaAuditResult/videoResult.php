@@ -14,15 +14,18 @@ use AlibabaCloud\Tea\Model;
 class videoResult extends Model
 {
     /**
-     * @description The URL of the image.
+     * @description The results of ad review.
      *
      * @var adResult
      */
     public $adResult;
 
     /**
-     * @description Details of image review results.
+     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
      *
+     * - **porn**
+     * - **terrorism**
+     * - **normal**
      * @example porn
      *
      * @var string
@@ -30,45 +33,32 @@ class videoResult extends Model
     public $label;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The results of undesired content review.
      *
-     * - **normal**
-     * - **bloody**
-     * - **explosion**
-     * - **outfit**
-     * - **logo**
-     * - **weapon**
-     * - **politics**
-     * - **violence**
-     * - **crowd**
-     * - **parade**
-     * - **carcrash**
-     * - **flag**
-     * - **location**
-     * - **others**
      * @var liveResult
      */
     public $liveResult;
 
     /**
-     * @description The recommendation for review results.
+     * @description The results of logo review.
      *
      * @var logoResult
      */
     public $logoResult;
 
     /**
-     * @description The average score of the review results.
+     * @description The results of pornographic content review.
      *
      * @var pornResult
      */
     public $pornResult;
 
     /**
-     * @description The category of the review result.
+     * @description The recommendation for review results. Valid values:
      *
-     * - **logo**
-     * - **normal**
+     * - **block**
+     * - **review**
+     * - **pass**
      * @example pass
      *
      * @var string
@@ -76,6 +66,8 @@ class videoResult extends Model
     public $suggestion;
 
     /**
+     * @description The results of terrorist content review.
+     *
      * @var terrorismResult
      */
     public $terrorismResult;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddWatermarkResponseBody extends Model
 {
     /**
-     * @description > For more information about how to upload a watermark file, see [CreateUploadAttachedMedia](~~98467~~).
+     * @description The ID of the request.
      *
      * @example 25818875-5F78-4A*****F6-D7393642CA58
      *
@@ -19,7 +19,7 @@ class AddWatermarkResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Adds a watermark.
+     * @description The information about the watermark.
      *
      * @var watermarkInfo
      */

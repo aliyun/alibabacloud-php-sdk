@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cert extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
      * @example 235437
      *
      * @var int
@@ -16,15 +18,17 @@ class cert extends Model
     public $certId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeVodCertificateList**.
+     * @description The name of the certificate.
      *
-     * @example The information about the returned certificates.
+     * @example certificate
      *
      * @var string
      */
     public $certName;
 
     /**
+     * @description The common name of the certificate.
+     *
      * @example test
      *
      * @var string
@@ -32,7 +36,7 @@ class cert extends Model
     public $common;
 
     /**
-     * @description The ID of the request.
+     * @description The fingerprint of the certificate.
      *
      * @example ****
      *
@@ -41,7 +45,7 @@ class cert extends Model
     public $fingerprint;
 
     /**
-     * @description Queries the certificates of a specified domain name for CDN or all the domain names for CDN within your Alibaba Cloud account.
+     * @description The certificate authority (CA) that issued the certificate.
      *
      * @example ****
      *
@@ -50,7 +54,7 @@ class cert extends Model
     public $issuer;
 
     /**
-     * @description The details of each certificate.
+     * @description The time when the certificate was issued. Unit: seconds.
      *
      * @example 1512388610
      *

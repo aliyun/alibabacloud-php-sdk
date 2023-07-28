@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class securityIpList extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ListAuditSecurityIp**.
+     * @description The time when the review security group was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-05-22T06:54:23Z
      *
@@ -18,7 +18,7 @@ class securityIpList extends Model
     public $creationTime;
 
     /**
-     * @description Queries the IP addresses in a review security group.
+     * @description The IP addresses in the review security group.
      *
      * @example 30.27.14.0/24,30.39.127.245
      *
@@ -27,6 +27,8 @@ class securityIpList extends Model
     public $ips;
 
     /**
+     * @description The time when the review security group was last modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-22T06:55:14Z
      *
      * @var string
@@ -34,6 +36,8 @@ class securityIpList extends Model
     public $modificationTime;
 
     /**
+     * @description The name of the review security group.
+     *
      * @example Default
      *
      * @var string

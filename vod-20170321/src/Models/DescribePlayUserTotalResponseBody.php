@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePlayUserTotalResponseBody extends Model
 {
     /**
-     * @description The total playback duration. Unit: milliseconds.
+     * @description The ID of the request.
      *
      * @example 1FAFB884-D5A7-47D1-****-8928AA9C8720
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PreloadVodObjectCachesRequest extends Model
 {
     /**
+     * @description The URL of the file to be prefetched. Separate multiple URLs with line breaks (\n or \r\n).
+     *
      * @example vod.test.com/test.txt
      *
      * @var string

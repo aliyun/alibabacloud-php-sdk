@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class video extends Model
 {
     /**
-     * @description The download switch. The audio file can be downloaded offline only when the download switch is turned on. Valid values:
-     *
-     *   **on**
-     *   **off**
+     * @description The ID of the application.
      *
      * @example app-****
      *
@@ -21,15 +18,7 @@ class video extends Model
     public $appId;
 
     /**
-     * @description The status of the video file. Valid values:
-     *
-     *   **Uploading**
-     *   **UploadFail**
-     *   **UploadSucc**
-     *   **Transcoding**
-     *   **TranscodeFail**
-     *   **Blocked**
-     *   **Normal**
+     * @description The category ID of the video file.
      *
      * @example 10000123
      *
@@ -47,7 +36,7 @@ class video extends Model
     public $cateName;
 
     /**
-     * @description The filter condition. For more information about the syntax, see [Protocol for media asset search](~~86991~~).
+     * @description The URL of the thumbnail.
      *
      * @example https://example.aliyundoc.com/image01.png
      *
@@ -56,7 +45,7 @@ class video extends Model
     public $coverURL;
 
     /**
-     * @description The category ID of the auxiliary media asset.
+     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:45:25Z
      *
@@ -65,17 +54,19 @@ class video extends Model
     public $creationTime;
 
     /**
-     * @description The endpoint of the OSS bucket in which the image file is stored.
+     * @description The description of the video file.
      *
-     * @example The media asset fields to return in the query results.
+     * @example Video test
      *
-     * By default, only the basic media asset fields are returned. You can specify additional media asset fields that need to be returned in the request. For more information, see the "API examples" section of the [Search for media asset information](~~99179~~) topic.
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the application.
+     * @description The download switch. The video file can be downloaded offline only when the download switch is turned on. Valid values:
+     *
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -84,7 +75,7 @@ class video extends Model
     public $downloadSwitch;
 
     /**
-     * @description The description of the auxiliary media asset.
+     * @description The duration of the video file. Unit: seconds.
      *
      * @example 123
      *
@@ -93,7 +84,12 @@ class video extends Model
     public $duration;
 
     /**
-     * @description [Details about video files](~~86991~~).
+     * @description The source. Valid values:
+     *
+     *   **general**: The video file is uploaded by using ApsaraVideo VOD.
+     *   **short_video**: The video file is uploaded by using the short video SDK.
+     *   **editing**: The video file is produced after online editing.
+     *   **live**: The video stream is recorded and uploaded as a file.
      *
      * @example general
      *
@@ -102,7 +98,7 @@ class video extends Model
     public $mediaSource;
 
     /**
-     * @description The description of the audio file.
+     * @description The time when the video file was updated. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19T03:48:25Z
      *
@@ -111,7 +107,12 @@ class video extends Model
     public $modificationTime;
 
     /**
-     * @description The URL of the image file.
+     * @description The preprocessing status. Valid values:
+     *
+     *   **UnPreprocess**
+     *   **Preprocessing**
+     *   **PreprocessSucceed**
+     *   **PreprocessFailed**
      *
      * @example Preprocessing
      *
@@ -120,6 +121,8 @@ class video extends Model
     public $preprocessStatus;
 
     /**
+     * @description The period of time in which the video file remains in the restored state.
+     *
      * @example 2023-03-30T10:14:14Z
      *
      * @var string
@@ -127,6 +130,12 @@ class video extends Model
     public $restoreExpiration;
 
     /**
+     * @description The restoration status of the video file. Valid values:
+     *
+     *   **Processing**
+     *   **Success**
+     *   **Failed**
+     *
      * @example Success
      *
      * @var string
@@ -134,7 +143,7 @@ class video extends Model
     public $restoreStatus;
 
     /**
-     * @description The time when the image file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The size of the video file.
      *
      * @example 123
      *
@@ -143,21 +152,29 @@ class video extends Model
     public $size;
 
     /**
-     * @description The endpoint of the OSS bucket in which the auxiliary media asset is stored.
+     * @description The list of automatic snapshots.
      *
      * @var string[]
      */
     public $snapshots;
 
     /**
-     * @description The list of automatic snapshots.
+     * @description The list of sprite snapshots.
      *
      * @var string[]
      */
     public $spriteSnapshots;
 
     /**
-     * @description The ID of the application.
+     * @description The status of the video file. Valid values:
+     *
+     *   **Uploading**
+     *   **UploadFail**
+     *   **UploadSucc**
+     *   **Transcoding**
+     *   **TranscodeFail**
+     *   **Blocked**
+     *   **Normal**
      *
      * @example UploadSucc
      *
@@ -166,6 +183,17 @@ class video extends Model
     public $status;
 
     /**
+     * @description The storage class of the video file. Valid values:
+     *
+     *   **Standard**: All media resources are stored as Standard objects.
+     *   **IA**: All media resources are stored as IA objects.
+     *   **Archive**: All media resources are stored as Archive objects.
+     *   **ColdArchive**: All media resources are stored as Cold Archive objects.
+     *   **SourceIA**: Only the source files are IA objects.
+     *   **SourceArchive**: Only the source files are Archive objects.
+     *   **SourceColdArchive**: Only the source files are Cold Archive objects.
+     *   **Changing**: The storage class is being modified.
+     *
      * @example Standard
      *
      * @var string
@@ -173,7 +201,7 @@ class video extends Model
     public $storageClass;
 
     /**
-     * @description The time when the audio file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The endpoint of the OSS bucket in which the video file is stored.
      *
      * @example outin-bfefbb90a47c******163e1c7426.oss-cn-shanghai.aliyuncs.com
      *
@@ -182,7 +210,7 @@ class video extends Model
     public $storageLocation;
 
     /**
-     * @description The title of the image file.
+     * @description The tags of the video file.
      *
      * @example tag1
      *
@@ -191,7 +219,7 @@ class video extends Model
     public $tags;
 
     /**
-     * @description The title of the audio file.
+     * @description The title of the video file.
      *
      * @example ceshi
      *
@@ -200,7 +228,11 @@ class video extends Model
     public $title;
 
     /**
-     * @description The category ID of the audio file.
+     * @description The transcoding mode. Default value: FastTranscode. Valid values:
+     *
+     *   **FastTranscode**: The video file is immediately transcoded after it is uploaded. You cannot play the file before it is transcoded.
+     *   **NoTranscode**: The video file can be played without being transcoded. You can immediately play the file after it is uploaded.
+     *   **AsyncTranscode**: The video file can be immediately played and asynchronously transcoded after it is uploaded.
      *
      * @example FastTranscode
      *
@@ -209,7 +241,7 @@ class video extends Model
     public $transcodeMode;
 
     /**
-     * @description The time when the video file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The ID of the video file.
      *
      * @example a82a2asdasqadaf3faa0ed6c1ee372****
      *

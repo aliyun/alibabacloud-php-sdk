@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateMediaStorageClassResponseBody extends Model
 {
     /**
+     * @description The IDs of the media assets that failed to be processed.
+     *
      * @var forbiddenList
      */
     public $forbiddenList;
 
     /**
+     * @description The IDs of the media assets that failed to be obtained.
+     *
      * @var ignoredList
      */
     public $ignoredList;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 30FA0B7C-3A81-5449-93CD-ACA149E6****
      *
      * @var string
@@ -28,6 +34,11 @@ class UpdateMediaStorageClassResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The state of the task. Valid values:
+     *
+     *   **Processing**
+     *   **Failed**
+     *
      * @example Processing
      *
      * @var string

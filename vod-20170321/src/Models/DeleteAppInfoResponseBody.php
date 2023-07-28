@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAppInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4A13-BEF6-****
      *
      * @var string

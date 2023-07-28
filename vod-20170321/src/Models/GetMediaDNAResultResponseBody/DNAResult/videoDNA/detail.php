@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @description Queries a media fingerprinting result. After a media fingerprinting job is complete, you can call this operation to query the media fingerprinting result.
+     * @description The start time and duration of the matched video.
      *
      * @var duplication
      */
     public $duplication;
 
     /**
-     * @description The ID of the request.
+     * @description The start time and duration of the input video.
      *
      * @var input
      */

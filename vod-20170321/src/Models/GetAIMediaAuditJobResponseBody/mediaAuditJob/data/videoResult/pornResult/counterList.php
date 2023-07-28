@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class counterList extends Model
 {
     /**
-     * @description The results of audio review.
+     * @description The number of images.
      *
      * @example 0
      *
@@ -20,7 +20,8 @@ class counterList extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **live**: The content contains undesirable scenes.
+     *   **porn**
+     *   **sexy**
      *   **normal**
      *
      * @example porn

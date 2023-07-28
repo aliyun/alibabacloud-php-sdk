@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class histories extends Model
 {
     /**
+     * @description The reviewer.
+     *
      * @example auditor
      *
      * @var string
@@ -16,17 +18,17 @@ class histories extends Model
     public $auditor;
 
     /**
-     * @description Queries the manual review history.
+     * @description The review comments, which are provided by the reviewer.
+     *
+     * @example Contains nudity
      *
      * @var string
      */
     public $comment;
 
     /**
-     * @description The manual review result. Valid values:
+     * @description The time when the review record was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * - **Normal**: The video can be played.
-     * - **Blocked**: The video is blocked.
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
@@ -34,13 +36,18 @@ class histories extends Model
     public $creationTime;
 
     /**
+     * @description The reason why the video failed the review. If the video failed the review, specify the reason.
+     *
+     * @example Pornographic video
+     *
      * @var string
      */
     public $reason;
 
     /**
-     * @description The time when the review record was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
-     *
+     * @description The manual review result. Valid values:
+     * - **Normal**: The video can be played.
+     * - **Blocked**: The video is blocked.
      * @example Blocked
      *
      * @var string

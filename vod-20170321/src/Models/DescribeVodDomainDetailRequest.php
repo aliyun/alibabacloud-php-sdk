@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVodDomainDetailRequest extends Model
 {
     /**
-     * @description The status of the origin server. Valid values:
-     *
-     *   **online**: indicates that the origin server is enabled.
-     *   **offline**: indicates that the origin server is disabled.
+     * @description The domain name for CDN.
      *
      * @example example.com
      *

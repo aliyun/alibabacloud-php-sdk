@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateAttachedMediaInfosResponseBody extends Model
 {
     /**
+     * @description The IDs of the auxiliary media assets that do not exist.
+     *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 25818875-5F78-4DF6-D7393642CA58****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class transcodeTaskList extends Model
 {
     /**
-     * @description Queries transcoding tasks based on the media ID. This operation does not return specific job information.
+     * @description The time when the transcoding task was complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-23T12:40:12Z
      *
@@ -18,11 +18,7 @@ class transcodeTaskList extends Model
     public $completeTime;
 
     /**
-     * @description The ID of the audio or video file. You can use one of the following methods to obtain the ID of the file:
-     *
-     *   Log on to the [ApsaraVideo VOD](https://vod.console.aliyun.com) console. In the left-side navigation pane, choose **Media Files** > **Audio/Video**. On the Video and Audio page, view the ID of the audio or video file. This method is applicable to files that are uploaded by using the ApsaraVideo VOD console.
-     *   Obtain the value of VideoId from the response to the [CreateUploadVideo](~~55407~~) operation that you call to obtain the upload URL and credential.
-     *   Obtain the value of VideoId by calling the [SearchMedia](~~86044~~) operation. This method is applicable to files that have been uploaded.
+     * @description The time when the transcoding task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2019-01-23T12:35:12Z
      *
@@ -31,7 +27,12 @@ class transcodeTaskList extends Model
     public $creationTime;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The status of the transcoding task. Valid values:
+     *   **Processing**: In progress.
+     *   **Partial**: Some transcoding jobs were complete.
+     *   **CompleteAllSucc**: All transcoding jobs were successful.
+     *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
+     *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
      *
      * @example Processing
      *
@@ -40,6 +41,8 @@ class transcodeTaskList extends Model
     public $taskStatus;
 
     /**
+     * @description The ID of the transcoding task.
+     *
      * @example b1b65ab107*****ba3dbb900f6c1fe0
      *
      * @var string
@@ -47,6 +50,8 @@ class transcodeTaskList extends Model
     public $transcodeTaskId;
 
     /**
+     * @description The ID of the transcoding template group.
+     *
      * @example b500c7094bd24*****f3e9900752d7c3
      *
      * @var string
@@ -54,13 +59,9 @@ class transcodeTaskList extends Model
     public $transcodeTemplateGroupId;
 
     /**
-     * @description The status of the transcoding task. Valid values:
-     *
-     *   **Processing**: In progress.
-     *   **Partial**: Some transcoding jobs were complete.
-     *   **CompleteAllSucc**: All transcoding jobs were successful.
-     *   **CompleteAllFail**: All transcoding jobs failed. If an exception occurs in the source file, no transcoding job is initiated and the transcoding task fails.
-     *   **CompletePartialSucc**: All transcoding jobs were complete but only some were successful.
+     * @description The mode in which the transcoding task is triggered. Valid values:
+     *   **Auto**: The transcoding task is automatically triggered when the video is uploaded.
+     *   **Manual**: The transcoding task is triggered by calling the SubmitTranscodeJobs operation.
      *
      * @example Auto
      *
@@ -69,7 +70,7 @@ class transcodeTaskList extends Model
     public $trigger;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the audio or video file.
      *
      * @example d4860fcc6a5*****bce9fed52e893824
      *

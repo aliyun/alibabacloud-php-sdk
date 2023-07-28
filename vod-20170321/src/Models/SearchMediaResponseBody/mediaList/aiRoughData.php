@@ -9,28 +9,36 @@ use AlibabaCloud\Tea\Model;
 class aiRoughData extends Model
 {
     /**
-     * @description 视频AI分类
+     * @description The AI type.
+     *
+     * @example TV series
      *
      * @var string
      */
     public $aiCategory;
 
     /**
-     * @description AI任务ID
+     * @description The ID of the AI task.
+     *
+     * @example cd35b0b0025f71edbfcb472190a9xxxx
      *
      * @var string
      */
     public $aiJobId;
 
     /**
-     * @description 保存类型
+     * @description The save type.
+     *
+     * @example TEXT
      *
      * @var string
      */
     public $saveType;
 
     /**
-     * @description 数据状态
+     * @description The status of the data.
+     *
+     * @example SaveSuccess
      *
      * @var string
      */

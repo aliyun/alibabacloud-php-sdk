@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class audioStreamList extends Model
 {
     /**
-     * @description The information about the video stream.
+     * @description The bitrate.
      *
      * @example 62.885
      *
@@ -18,7 +18,10 @@ class audioStreamList extends Model
     public $bitrate;
 
     /**
-     * @description The target frame rate.
+     * @description The output layout of the sound channels. Valid values:
+     *
+     *   **mono**: mono sound channel
+     *   **stereo**: two sound channels
      *
      * @example mono
      *
@@ -27,7 +30,7 @@ class audioStreamList extends Model
     public $channelLayout;
 
     /**
-     * @description The width of the video resolution.
+     * @description The number of sound channels.
      *
      * @example 1
      *
@@ -36,7 +39,7 @@ class audioStreamList extends Model
     public $channels;
 
     /**
-     * @description The time when the file was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The full name of the codec format.
      *
      * @example AAC (Advanced Audio Coding)
      *
@@ -45,7 +48,7 @@ class audioStreamList extends Model
     public $codecLongName;
 
     /**
-     * @description The duration of the video stream.
+     * @description The short name of the codec format.
      *
      * @example aac
      *
@@ -54,7 +57,7 @@ class audioStreamList extends Model
     public $codecName;
 
     /**
-     * @description The sequence number of the audio stream, which specifies the position of the audio stream in all audio streams.
+     * @description The tag of the codec format.
      *
      * @example 0x6134706d
      *
@@ -63,7 +66,7 @@ class audioStreamList extends Model
     public $codecTag;
 
     /**
-     * @description The tag of the codec format.
+     * @description The tag string of the codec format.
      *
      * @example mp4a
      *
@@ -72,7 +75,7 @@ class audioStreamList extends Model
     public $codecTagString;
 
     /**
-     * @description The full name of the codec format.
+     * @description The codec time base.
      *
      * @example 1/44100
      *
@@ -81,7 +84,7 @@ class audioStreamList extends Model
     public $codecTimeBase;
 
     /**
-     * @description The name of the file.
+     * @description The duration of the audio stream.
      *
      * @example 3.227574
      *
@@ -90,7 +93,7 @@ class audioStreamList extends Model
     public $duration;
 
     /**
-     * @description The short name of the codec format.
+     * @description The sequence number of the audio stream, which specifies the position of the audio stream in all audio streams.
      *
      * @example 0
      *
@@ -99,7 +102,7 @@ class audioStreamList extends Model
     public $index;
 
     /**
-     * @description The bitrate of the file. Unit: Kbit/s.
+     * @description The language.
      *
      * @example und
      *
@@ -108,7 +111,7 @@ class audioStreamList extends Model
     public $lang;
 
     /**
-     * @description The codec profile.
+     * @description The total number of frames.
      *
      * @example 1
      *
@@ -117,12 +120,7 @@ class audioStreamList extends Model
     public $numFrames;
 
     /**
-     * @description The status of the file. Valid values:
-     *
-     *   **Uploading**: The file is being uploaded. This is the initial status.
-     *   **Normal**: The file is uploaded.
-     *   **UploadFail**: The file fails to be uploaded.
-     *   **Deleted**: The file is deleted.
+     * @description The sampling format.
      *
      * @example fltp
      *
@@ -131,7 +129,7 @@ class audioStreamList extends Model
     public $sampleFmt;
 
     /**
-     * @description The size of the file. Unit: byte.
+     * @description The sample rate.
      *
      * @example 44100
      *
@@ -140,7 +138,7 @@ class audioStreamList extends Model
     public $sampleRate;
 
     /**
-     * @description The sample rate.
+     * @description The beginning of the time range that was queried. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-01-11T12:00:00Z
      *
@@ -149,7 +147,7 @@ class audioStreamList extends Model
     public $startTime;
 
     /**
-     * @description The ID of the video.
+     * @description The time base.
      *
      * @example 0.000000
      *

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddVodDomainRequest extends Model
 {
     /**
-     * @description ## Common errors
+     * @description The URL that is used for health checks.
      *
-     * |NotInternationRealIdentity|You need to do real name authentication when you use Chinese mainland resources.|400|The error message returned because you have not completed real-name verification that is required to use resources in the Chinese mainland.|
      * @example www.example.com/test.html
      *
      * @var string
@@ -19,10 +18,7 @@ class AddVodDomainRequest extends Model
     public $checkUrl;
 
     /**
-     * @description *   This operation is available only in the **China (Shanghai)** region.
-     *   Before you add a domain name to accelerate, you must activate ApsaraVideo VOD and apply for an Internet content provider (ICP) filing for the domain name. For more information about how to activate ApsaraVideo VOD, see [Activate ApsaraVideo VOD](~~51512~~).
-     *   If the content on the origin server is not stored on Alibaba Cloud, the content must be reviewed by Alibaba Cloud. The review will be complete by the end of the next business day after you submit an application.
-     *   You can add only one domain name to accelerate in a request. You can add a maximum of 20 accelerated domain names within an Alibaba Cloud account.
+     * @description The domain name that you want to accelerate. Wildcard domain names that start with periods (.) are supported. Example: .example.com.
      *
      * @example example.com
      *
@@ -41,7 +37,11 @@ class AddVodDomainRequest extends Model
     public $ownerId;
 
     /**
-     * @description The domain name that you want to accelerate. Wildcard domain names that start with periods (.) are supported. Example: .example.com.
+     * @description This parameter is applicable to users of level 3 or higher in the Chinese mainland and users outside the Chinese mainland. Default value: domestic. Valid values:
+     *
+     *   **domestic**: Chinese mainland
+     *   **overseas**: outside the Chinese mainland
+     *   **global**: regions in and outside the Chinese mainland
      *
      * @example domestic
      *
@@ -55,13 +55,8 @@ class AddVodDomainRequest extends Model
     public $securityToken;
 
     /**
-     * @description ## Sources
+     * @description The information about the addresses of origin servers. For more information, see the **Sources** table in this topic.
      *
-     * |---|---|---|---|
-     * |type|String|Yes|The type of the origin server. Valid values: <br>**ipaddr**: an IP address. <br>**domain**: a domain name. <br>**oss**: the domain of an Object Storage Service (OSS) bucket.|
-     * |content|String|Yes|The address of the origin server. You can specify an IP address or a domain name.|
-     * |port|Integer|No|The port number. Valid values: **443** and **80**. <br>Default value: **80**. If you specify **443**, requests are redirected to the origin server over HTTPS. You can also specify a custom port.|
-     * |priority|String|No|The priority of the origin server if multiple origin servers are specified. Valid values: **20** and **30**. Default value: **20**. **20** indicates that the origin server is the primary origin server. **30** indicates that the origin server is a secondary origin server.|
      * @example [{"content":"1.1.1.1","type":"ipaddr","priority":"20","port":80}]
      *
      * @var string
@@ -69,7 +64,7 @@ class AddVodDomainRequest extends Model
     public $sources;
 
     /**
-     * @description The information about the addresses of origin servers. For more information, see the **Sources** table in this topic.
+     * @description The top-level domain.
      *
      * @example example.com
      *

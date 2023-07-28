@@ -11,11 +11,7 @@ use AlibabaCloud\Tea\Model;
 class liveResult extends Model
 {
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The average score of the review results.
      *
      * @example 100
      *
@@ -24,31 +20,26 @@ class liveResult extends Model
     public $averageScore;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The categories of the review results and the number of images.
      *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     * @description The category of the review result. Valid values:
      *
-     *   **porn**
-     *   **terrorism**
-     *   **ad**
-     *   **live**: undesirable scenes
-     *   **logo**
-     *   **audio**: audio anti-spam
+     *   **live**: The content contains undesirable scenes.
      *   **normal**
      *
-     * @example The text.
+     * @example live
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description The time when the job is complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The highest review score.
      *
      * @example 100
      *
@@ -57,7 +48,11 @@ class liveResult extends Model
     public $maxScore;
 
     /**
-     * @description The error message. This parameter is returned if the value of Status is fail.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example block
      *
@@ -66,7 +61,7 @@ class liveResult extends Model
     public $suggestion;
 
     /**
-     * @description The results of image review.
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
      * @var topList[]
      */

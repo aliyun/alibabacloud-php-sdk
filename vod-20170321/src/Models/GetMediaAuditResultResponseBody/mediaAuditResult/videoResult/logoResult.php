@@ -20,23 +20,25 @@ class logoResult extends Model
     public $averageScore;
 
     /**
-     * @description The text content for review.
+     * @description The statistics about tag frames.
      *
      * @var counterList[]
      */
     public $counterList;
 
     /**
-     * @description The score of the image of the category that is indicated by Label.
+     * @description The category of the review result. Valid values:
      *
-     * @example The results of pornographic content review.
+     * - **logo**
+     * - **normal**
+     * @example logo
      *
      * @var string
      */
     public $label;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The highest review score.
      *
      * @example 100
      *
@@ -45,8 +47,11 @@ class logoResult extends Model
     public $maxScore;
 
     /**
-     * @description The number of frames.
+     * @description The recommendation for review results. Valid values:
      *
+     * - **block**
+     * - **review**
+     * - **pass**
      * @example block
      *
      * @var string
@@ -54,10 +59,8 @@ class logoResult extends Model
     public $suggestion;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The information about the image with the highest score of the category that is indicated by Label.
      *
-     * - **logo**
-     * - **normal**
      * @var topList[]
      */
     public $topList;

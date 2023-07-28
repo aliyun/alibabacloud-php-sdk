@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachAppPolicyFromIdentityRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the application. This parameter is optional when the PolicyNames parameter is set to VODAppAdministratorAccess. This parameter is required when the PolicyNames parameter is set to other values.
+     *   Default value: **app-1000000**.
+     *   For more information, see [Overview](~~113600~~).
      *
      * @example app-****
      *
@@ -18,11 +20,9 @@ class DetachAppPolicyFromIdentityRequest extends Model
     public $appId;
 
     /**
-     * @description The name of the policy. Separate multiple policies with commas (,). Only system policies are supported.
-     *
-     *   **VODAppFullAccess**: authorizes an identity to manage all resources in an application.
-     *   **VODAppReadOnlyAccess**: authorizes an identity to access all resources in an application in read-only mode.
-     *   **VODAppAdministratorAccess**: assigns the application administrator role to an identity.
+     * @description The name of the identity.
+     *   Specifies the ID of the RAM user when the IdentityType parameter is set to RamUser.
+     *   Specifies the name of the RAM role when the IdentityType parameter is set to RamRole.
      *
      * @example test****name
      *
@@ -31,10 +31,9 @@ class DetachAppPolicyFromIdentityRequest extends Model
     public $identityName;
 
     /**
-     * @description The ID of the application. This parameter is optional when the PolicyNames parameter is set to VODAppAdministratorAccess. This parameter is required when the PolicyNames parameter is set to other values.
-     *
-     *   Default value: **app-1000000**.
-     *   For more information, see [Overview](~~113600~~).
+     * @description The type of the identity. Valid values:
+     *   **RamUser**: a RAM user.
+     *   **RamRole**: a RAM role.
      *
      * @example RamUser
      *
@@ -43,7 +42,10 @@ class DetachAppPolicyFromIdentityRequest extends Model
     public $identityType;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DetachAppPolicyFromIdentity**.
+     * @description The name of the policy. Separate multiple policies with commas (,). Only system policies are supported.
+     *   **VODAppFullAccess**: authorizes an identity to manage all resources in an application.
+     *   **VODAppReadOnlyAccess**: authorizes an identity to access all resources in an application in read-only mode.
+     *   **VODAppAdministratorAccess**: assigns the application administrator role to an identity.
      *
      * @example VODAppFullAccess
      *

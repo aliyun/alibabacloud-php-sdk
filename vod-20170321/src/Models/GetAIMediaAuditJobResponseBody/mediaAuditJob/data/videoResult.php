@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class videoResult extends Model
 {
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The results of ad review.
      *
      * @var adResult
      */
@@ -23,7 +23,7 @@ class videoResult extends Model
     /**
      * @description The category of the review result. Valid values:
      *
-     *   **live**: The content contains undesirable scenes.
+     *   **ad**
      *   **normal**
      *
      * @example normal
@@ -33,30 +33,32 @@ class videoResult extends Model
     public $label;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The results of undesired content review.
      *
      * @var liveResult
      */
     public $liveResult;
 
     /**
+     * @description The results of logo review.
+     *
      * @var logoResult
      */
     public $logoResult;
 
     /**
-     * @description The time when the job started to run. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The results of pornography content review.
      *
      * @var pornResult
      */
     public $pornResult;
 
     /**
-     * @description The position in the video. Unit: milliseconds.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**: The content violates the regulations.
+     *   **review**: The content may violate the regulations.
+     *   **pass**: The content passes the review.
      *
      * @example pass
      *
@@ -65,10 +67,7 @@ class videoResult extends Model
     public $suggestion;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **ad**
-     *   **normal**
+     * @description The results of terrorism content review.
      *
      * @var terrorismResult
      */

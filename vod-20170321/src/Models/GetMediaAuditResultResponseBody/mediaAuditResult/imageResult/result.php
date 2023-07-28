@@ -9,7 +9,30 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The highest review score.
+     * @description The category of the review result.
+     *
+     * Valid values if scene is **porn**:
+     *
+     *   **porn**
+     *   **sexy**
+     *   **normal**
+     *
+     * Valid values if scene is **terrorism**:
+     *
+     *   **normal**
+     *   **bloody**
+     *   **explosion**
+     *   **outfit**
+     *   **logo**
+     *   **weapon**
+     *   **politics**
+     *   **violence**
+     *   **crowd**
+     *   **parade**
+     *   **carcrash**
+     *   **flag**
+     *   **location**
+     *   **others**
      *
      * @example porn
      *
@@ -18,22 +41,11 @@ class result extends Model
     public $label;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The review scenario. Valid values:
      *
-     * - **normal**
-     * - **bloody**
-     * - **explosion**
-     * - **outfit**
-     * - **logo**
-     * - **weapon**
-     * - **politics**
-     * - **violence**
-     * - **crowd**
-     * - **parade**
-     * - **carcrash**
-     * - **flag**
-     * - **location**
-     * - **others**
+     *   **terrorism**
+     *   **porn**
+     *
      * @example porn
      *
      * @var string
@@ -41,11 +53,7 @@ class result extends Model
     public $scene;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**
-     *   **review**
-     *   **pass**
+     * @description The score of the image of the category that is indicated by Label.
      *
      * @example 100.00000
      *
@@ -54,10 +62,12 @@ class result extends Model
     public $score;
 
     /**
-     * @description The category of the review result.
+     * @description The recommendation for review results. Valid values:
      *
-     * - **ad**
-     * - **normal**
+     *   **block**
+     *   **review**
+     *   **pass**
+     *
      * @example pass
      *
      * @var string

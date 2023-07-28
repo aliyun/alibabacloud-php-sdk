@@ -10,21 +10,21 @@ use AlibabaCloud\Tea\Model;
 class GetUploadDetailsResponseBody extends Model
 {
     /**
-     * @description The time when the information about the media file was updated. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The IDs of the media files that cannot be accessed.
      *
      * @var string[]
      */
     public $forbiddenMediaIds;
 
     /**
-     * @description The size of the uploaded file. Unit: byte.
+     * @description The IDs of the media files that do not exist.
      *
      * @var string[]
      */
     public $nonExistMediaIds;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetUploadDetails**.
+     * @description The ID of the request.
      *
      * @example 9E290613-04F4-47F4-795D30732077****
      *
@@ -33,7 +33,7 @@ class GetUploadDetailsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The upload ratio.
+     * @description The upload details.
      *
      * @var uploadDetails[]
      */

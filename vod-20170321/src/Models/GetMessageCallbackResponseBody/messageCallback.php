@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class messageCallback extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **GetMessageCallback**.
+     * @description The ID of the application.
      *
      * @example app-1000000
      *
@@ -18,7 +18,7 @@ class messageCallback extends Model
     public $appId;
 
     /**
-     * @description Queries the callback method, callback URL, and event type of an event notification.
+     * @description The cryptographic key. This parameter is returned only for HTTP callbacks.
      *
      * @example 12345678abc
      *
@@ -27,6 +27,11 @@ class messageCallback extends Model
     public $authKey;
 
     /**
+     * @description Indicates whether callback authentication is enabled. This parameter is returned only for HTTP callbacks. Valid values:
+     *
+     *   **on**: indicates that authentication is enabled.
+     *   **off**: indicates that authentication is disabled.
+     *
      * @example on
      *
      * @var string
@@ -34,10 +39,10 @@ class messageCallback extends Model
     public $authSwitch;
 
     /**
-     * @description Indicates whether callback authentication is enabled. This parameter is returned only for HTTP callbacks. Valid values:
+     * @description The callback method. Valid values:
      *
-     *   **on**: indicates that authentication is enabled.
-     *   **off**: indicates that authentication is disabled.
+     *   **HTTP**
+     *   **MNS**
      *
      * @example HTTP
      *
@@ -46,7 +51,7 @@ class messageCallback extends Model
     public $callbackType;
 
     /**
-     * @description The ID of the application.
+     * @description The callback URL. This parameter is returned only for HTTP callbacks.
      *
      * @example http://test.com/test
      *
@@ -55,7 +60,7 @@ class messageCallback extends Model
     public $callbackURL;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the callback event.
      *
      * @example FileUploadComplete,StreamTranscodeComplete,TranscodeComplete,SnapshotComplete,AIComplete,AddLiveRecordVideoComplete,CreateAuditComplete,UploadByURLComplete,ProduceMediaComplete,LiveRecordVideoComposeStart,ImageUploadComplete,VideoAnalysisComplete
      *
@@ -64,6 +69,8 @@ class messageCallback extends Model
     public $eventTypeList;
 
     /**
+     * @description The public endpoint of Message Service (MNS). This parameter is returned only for MNS callbacks.
+     *
      * @example http://1234567.mns.cn-shanghai-internal.aliyuncs.com/
      *
      * @var string
@@ -71,7 +78,7 @@ class messageCallback extends Model
     public $mnsEndpoint;
 
     /**
-     * @description The callback URL. This parameter is returned only for HTTP callbacks.
+     * @description The name of the MNS queue. This parameter is returned only for MNS callbacks.
      *
      * @example vodcallback
      *

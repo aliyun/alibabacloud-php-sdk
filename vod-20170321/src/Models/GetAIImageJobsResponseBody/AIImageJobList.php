@@ -11,7 +11,7 @@ class AIImageJobList extends Model
     /**
      * @description The Object Storage Service (OSS) URL of the image file.
      *
-     * > This parameter does not include the complete authentication information. To obtain the authentication information, you must generate a signed URL. Alternatively, you can call the [ListAIImage](~~ListAIImage~~) operation to obtain the image information.
+     * > This parameter does not include the complete authentication information. To obtain the authentication information, you must generate a signed URL. Alternatively, you can call the [ListAIImageInfo](~~ListAIImageInfo~~) operation to obtain the image information.
      * @example [{"Score":5.035636554444242,"Url":"http://outin-*****.oss-cn-shanghai.aliyuncs.com/357a8748c577*****789d2726e6436aa/image/ai/b0a7612554d*****5cbe3-00001.gif"}]
      *
      * @var string
@@ -19,13 +19,8 @@ class AIImageJobList extends Model
     public $AIImageResult;
 
     /**
-     * @description The user data.
+     * @description The error code.
      *
-     *   The value must be a JSON string.
-     *   The MessageCallback or Extend parameter is returned.
-     *   The value contains a maximum of 512 bytes.
-     *
-     * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
      * @example Success
      *
      * @var string
@@ -33,10 +28,7 @@ class AIImageJobList extends Model
     public $code;
 
     /**
-     * @description The ID of the image AI processing job. You can obtain the value of JobId from the response to the [SubmitAIImageJob](~~186922~~) operation.
-     *
-     *   You can specify a maximum of 10 IDs.
-     *   Separate multiple IDs with commas (,).
+     * @description The time when the image AI processing job was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2020-10-15T03:30:03Z
      *
@@ -54,7 +46,7 @@ class AIImageJobList extends Model
     public $jobId;
 
     /**
-     * @description Queries jobs of image AI processing.
+     * @description The error message.
      *
      * @example success
      *
@@ -63,7 +55,10 @@ class AIImageJobList extends Model
     public $message;
 
     /**
-     * @description The error code.
+     * @description The status of the job. Valid values:
+     *
+     *   **success**
+     *   **fail**
      *
      * @example success
      *
@@ -72,6 +67,8 @@ class AIImageJobList extends Model
     public $status;
 
     /**
+     * @description The configurations of the AI template that was used to submit the job.
+     *
      * @example {"Format":"gif","SetDefaultCover":"true"}
      *
      * @var string
@@ -79,6 +76,8 @@ class AIImageJobList extends Model
     public $templateConfig;
 
     /**
+     * @description The ID of the AI template.
+     *
      * @example 5a86a00f15194*****d7fe7de1b4a173
      *
      * @var string
@@ -86,8 +85,13 @@ class AIImageJobList extends Model
     public $templateId;
 
     /**
-     * @description The ID of the request.
+     * @description The user data.
      *
+     *   The value must be a JSON string.
+     *   The MessageCallback or Extend parameter is returned.
+     *   The value contains a maximum of 512 bytes.
+     *
+     * For more information, see the "UserData: specifies the custom configurations for media upload" section of the [Request parameters](~~86952~~) topic.
      * @example {"Extend":{"localId":"****","test":"www"}}
      *
      * @var string
@@ -95,7 +99,7 @@ class AIImageJobList extends Model
     public $userData;
 
     /**
-     * @description The configurations of the AI template that was used to submit the job.
+     * @description The ID of the video.
      *
      * @example 357a8748c577*****789d2726e6436aa
      *

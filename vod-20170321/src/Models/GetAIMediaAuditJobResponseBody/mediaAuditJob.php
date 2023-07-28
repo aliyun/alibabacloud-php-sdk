@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditJob extends Model
 {
     /**
-     * @description The ID of the intelligent review job.
+     * @description The error code. This parameter is returned if the value of Status is fail.
      *
      * @example 0
      *
@@ -19,11 +19,7 @@ class mediaAuditJob extends Model
     public $code;
 
     /**
-     * @description The recommendation for review results. Valid values:
-     *
-     *   **block**: The content violates the regulations.
-     *   **review**: The content may violate the regulations.
-     *   **pass**: The content passes the review.
+     * @description The time when the job is complete. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-01-11T13:00:00Z
      *
@@ -32,13 +28,47 @@ class mediaAuditJob extends Model
     public $completeTime;
 
     /**
-     * @description The review scenario. Valid value: **antispam**.
+     * @description The time when the job started to run. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2017-01-11T12:00:00Z
      *
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @description The job result data.
+     *
+     * @var data
+     */
+    public $data;
+
+    /**
+     * @description The ID of the job.
+     *
+     * @example bdbc266af6894*****943a70176d92e9
+     *
+     * @var string
+     */
+    public $jobId;
+
+    /**
+     * @description The ID of the video.
+     *
+     * @example fe028d09441d*****d1afffb138cd7e
+     *
+     * @var string
+     */
+    public $mediaId;
+
+    /**
+     * @description The error message. This parameter is returned if the value of Status is fail.
+     *
+     * @example OK
+     *
+     * @var string
+     */
+    public $message;
 
     /**
      * @description The status of the job. Valid values:
@@ -48,43 +78,6 @@ class mediaAuditJob extends Model
      *   **init**: The job is being initialized.
      *   **Processing**: The job is in progress.
      *
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @description Only the job type is supported.
-     *
-     * @example bdbc266af6894*****943a70176d92e9
-     *
-     * @var string
-     */
-    public $jobId;
-
-    /**
-     * @description http://temp-****bucket.oss-cn-shanghai.aliyuncs.com/aivideocensor/****.jpg
-     *
-     * @example fe028d09441d*****d1afffb138cd7e
-     *
-     * @var string
-     */
-    public $mediaId;
-
-    /**
-     * @description The highest score of the image of the category that is indicated by Label. Valid values: `[0, 100]`. The value is accurate to 10 decimal places. The score is representative of the confidence.
-     *
-     * @example OK
-     *
-     * @var string
-     */
-    public $message;
-
-    /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **ad**
-     *   **normal**
-     *
      * @example success
      *
      * @var string
@@ -92,15 +85,7 @@ class mediaAuditJob extends Model
     public $status;
 
     /**
-     * @description The category of the review result. Valid values:
-     *
-     *   **terrorism**
-     *   **outfit**
-     *   **logo**
-     *   **weapon**
-     *   **politics**
-     *   **others**
-     *   **normal**
+     * @description Only the job type is supported.
      *
      * @example AIMediaAudit
      *

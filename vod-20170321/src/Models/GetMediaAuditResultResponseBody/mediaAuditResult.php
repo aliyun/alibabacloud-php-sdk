@@ -13,7 +13,11 @@ use AlibabaCloud\Tea\Model;
 class mediaAuditResult extends Model
 {
     /**
-     * @description The ID of the video or image.
+     * @description The content that violates the regulations. Separate multiple values with commas (,). Valid values:
+     *
+     *   **video**
+     *   **image-cover**
+     *   **text-title**
      *
      * @example video
      *
@@ -22,24 +26,25 @@ class mediaAuditResult extends Model
     public $abnormalModules;
 
     /**
-     * @description The category of the review result. Valid values:
+     * @description The results of audio review.
      *
-     * - **porn**
-     * - **sexy**
-     * - **normal**
      * @var audioResult[]
      */
     public $audioResult;
 
     /**
-     * @description The average score of the review results.
+     * @description The results of image review.
      *
      * @var imageResult[]
      */
     public $imageResult;
 
     /**
-     * @description The number of frames.
+     * @description The category of the review result. Separate multiple values with commas (,). Valid values:
+     *
+     *   **porn**
+     *   **terrorism**
+     *   **normal**
      *
      * @example porn
      *
@@ -48,7 +53,11 @@ class mediaAuditResult extends Model
     public $label;
 
     /**
-     * @description The URL of the image.
+     * @description The recommendation for review results. Valid values:
+     *
+     *   **block**
+     *   **review**
+     *   **pass**
      *
      * @example pass
      *
@@ -57,18 +66,15 @@ class mediaAuditResult extends Model
     public $suggestion;
 
     /**
-     * @description The information about the image with the highest score of the category that is indicated by Label.
+     * @description The results of text review.
      *
      * @var textResult[]
      */
     public $textResult;
 
     /**
-     * @description The recommendation for review results. Valid values:
+     * @description The results of video review.
      *
-     * - **block**
-     * - **review**
-     * - **pass**
      * @var videoResult
      */
     public $videoResult;
