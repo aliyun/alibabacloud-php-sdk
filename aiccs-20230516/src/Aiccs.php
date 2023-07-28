@@ -185,6 +185,9 @@ class Aiccs extends OpenApiClient
         if (!Utils::isUnset($request->callTimeListShrink)) {
             $query['CallTimeList'] = $request->callTimeListShrink;
         }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
+        }
         if (!Utils::isUnset($request->maxConcurrency)) {
             $query['MaxConcurrency'] = $request->maxConcurrency;
         }
@@ -517,6 +520,9 @@ class Aiccs extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->callTimeListShrink)) {
             $query['CallTimeList'] = $request->callTimeListShrink;
+        }
+        if (!Utils::isUnset($request->callbackUrl)) {
+            $query['CallbackUrl'] = $request->callbackUrl;
         }
         if (!Utils::isUnset($request->maxConcurrency)) {
             $query['MaxConcurrency'] = $request->maxConcurrency;

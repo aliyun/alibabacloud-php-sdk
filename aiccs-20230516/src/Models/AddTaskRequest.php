@@ -18,6 +18,15 @@ class AddTaskRequest extends Model
     public $callTimeList;
 
     /**
+     * @description 回调地址
+     *
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $callbackUrl;
+
+    /**
      * @description 并发数
      *
      * @example 99
@@ -162,6 +171,7 @@ class AddTaskRequest extends Model
     public $templateType;
     protected $_name = [
         'callTimeList'         => 'CallTimeList',
+        'callbackUrl'          => 'CallbackUrl',
         'maxConcurrency'       => 'MaxConcurrency',
         'name'                 => 'Name',
         'ownerId'              => 'OwnerId',
@@ -197,6 +207,9 @@ class AddTaskRequest extends Model
                     $res['CallTimeList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->maxConcurrency) {
             $res['MaxConcurrency'] = $this->maxConcurrency;
@@ -278,6 +291,9 @@ class AddTaskRequest extends Model
                     $model->callTimeList[$n++] = null !== $item ? callTimeList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['MaxConcurrency'])) {
             $model->maxConcurrency = $map['MaxConcurrency'];

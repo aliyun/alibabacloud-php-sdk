@@ -16,7 +16,7 @@ class sendSmsPlan extends Model
     public $intentTags;
 
     /**
-     * @description 重呼条件
+     * @description 短信模板ID
      *
      * @example 71
      *

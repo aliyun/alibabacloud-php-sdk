@@ -16,6 +16,15 @@ class EditTaskShrinkRequest extends Model
     public $callTimeListShrink;
 
     /**
+     * @description 回调地址
+     *
+     * @example 示例值示例值示例值
+     *
+     * @var string
+     */
+    public $callbackUrl;
+
+    /**
      * @description 并发数
      *
      * @example 83
@@ -160,6 +169,7 @@ class EditTaskShrinkRequest extends Model
     public $templateType;
     protected $_name = [
         'callTimeListShrink'   => 'CallTimeList',
+        'callbackUrl'          => 'CallbackUrl',
         'maxConcurrency'       => 'MaxConcurrency',
         'name'                 => 'Name',
         'ownerId'              => 'OwnerId',
@@ -189,6 +199,9 @@ class EditTaskShrinkRequest extends Model
         $res = [];
         if (null !== $this->callTimeListShrink) {
             $res['CallTimeList'] = $this->callTimeListShrink;
+        }
+        if (null !== $this->callbackUrl) {
+            $res['CallbackUrl'] = $this->callbackUrl;
         }
         if (null !== $this->maxConcurrency) {
             $res['MaxConcurrency'] = $this->maxConcurrency;
@@ -258,6 +271,9 @@ class EditTaskShrinkRequest extends Model
         $model = new self();
         if (isset($map['CallTimeList'])) {
             $model->callTimeListShrink = $map['CallTimeList'];
+        }
+        if (isset($map['CallbackUrl'])) {
+            $model->callbackUrl = $map['CallbackUrl'];
         }
         if (isset($map['MaxConcurrency'])) {
             $model->maxConcurrency = $map['MaxConcurrency'];
