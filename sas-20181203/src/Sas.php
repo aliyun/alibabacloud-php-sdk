@@ -38,6 +38,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeAssetRefreshTaskConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeAssetRefreshTaskConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigShrinkRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckCustomConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\CheckQuaraFileIdRequest;
@@ -182,6 +183,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetDetailByUuidsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetsSecurityEventSummaryResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAssetSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttachRecordsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttachRecordsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAttackAnalysisDataResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\DescribeAutoDelConfigResponse;
@@ -686,6 +689,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallCloudMonitorResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallPmAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallPmAgentResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallRaspAttachRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\InstallRaspAttachResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\InstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\JoinWebLockProcessWhiteListRequest;
@@ -697,6 +702,7 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessRiskUuidResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAgentlessTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetCleanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetRefreshTaskConfigRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetRefreshTaskConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAssetSelectionSelectedTargetRequest;
@@ -720,6 +726,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientUserDefineRulesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClientUserDefineRuleTypesResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetInstancesRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudAssetInstancesResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudVendorRegionsRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCloudVendorRegionsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterCnnfStatusDetailResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListClusterInterceptionConfigRequest;
@@ -777,6 +785,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAntiBruteForceRuleResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAppVulScanCycleRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAppVulScanCycleResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetCleanConfigRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetCleanConfigResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetGroupResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ModifyAssetImportantRequest;
@@ -963,6 +973,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UnbindAegisResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallBackupClientResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallRaspAttachRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallRaspAttachResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UninstallUniBackupAgentResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\UpdateHoneypotNodeRequest;
@@ -1901,17 +1913,31 @@ class Sas extends OpenApiClient
     }
 
     /**
-     * @param ChangeCheckConfigRequest $request
+     * @param ChangeCheckConfigRequest $tmpReq
      * @param RuntimeOptions           $runtime
      *
      * @return ChangeCheckConfigResponse
      */
-    public function changeCheckConfigWithOptions($request, $runtime)
+    public function changeCheckConfigWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ChangeCheckConfigShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->configRequirementIds)) {
+            $request->configRequirementIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configRequirementIds, 'ConfigRequirementIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->configStandardIds)) {
+            $request->configStandardIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->configStandardIds, 'ConfigStandardIds', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->addedCheck)) {
             $query['AddedCheck'] = $request->addedCheck;
+        }
+        if (!Utils::isUnset($request->configRequirementIdsShrink)) {
+            $query['ConfigRequirementIds'] = $request->configRequirementIdsShrink;
+        }
+        if (!Utils::isUnset($request->configStandardIdsShrink)) {
+            $query['ConfigStandardIds'] = $request->configStandardIdsShrink;
         }
         if (!Utils::isUnset($request->cycleDays)) {
             $query['CycleDays'] = $request->cycleDays;
@@ -5693,6 +5719,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAssetsSecurityEventSummaryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeAttachRecordsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeAttachRecordsResponse
+     */
+    public function describeAttachRecordsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->ecsUUIDList)) {
+            $query['EcsUUIDList'] = $request->ecsUUIDList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeAttachRecords',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeAttachRecordsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeAttachRecordsRequest $request
+     *
+     * @return DescribeAttachRecordsResponse
+     */
+    public function describeAttachRecords($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeAttachRecordsWithOptions($request, $runtime);
     }
 
     /**
@@ -19443,6 +19515,52 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param InstallRaspAttachRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return InstallRaspAttachResponse
+     */
+    public function installRaspAttachWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->ecsUUIDList)) {
+            $query['EcsUUIDList'] = $request->ecsUUIDList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InstallRaspAttach',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InstallRaspAttachResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InstallRaspAttachRequest $request
+     *
+     * @return InstallRaspAttachResponse
+     */
+    public function installRaspAttach($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->installRaspAttachWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InstallUniBackupAgentRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -19757,6 +19875,39 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAgentlessTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListAssetCleanConfigResponse
+     */
+    public function listAssetCleanConfigWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListAssetCleanConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAssetCleanConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListAssetCleanConfigResponse
+     */
+    public function listAssetCleanConfig()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAssetCleanConfigWithOptions($runtime);
     }
 
     /**
@@ -20434,6 +20585,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCloudAssetInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCloudVendorRegionsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListCloudVendorRegionsResponse
+     */
+    public function listCloudVendorRegionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->vendor)) {
+            $query['Vendor'] = $request->vendor;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCloudVendorRegions',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCloudVendorRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCloudVendorRegionsRequest $request
+     *
+     * @return ListCloudVendorRegionsResponse
+     */
+    public function listCloudVendorRegions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCloudVendorRegionsWithOptions($request, $runtime);
     }
 
     /**
@@ -21921,6 +22118,49 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyAppVulScanCycleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyAssetCleanConfigRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ModifyAssetCleanConfigResponse
+     */
+    public function modifyAssetCleanConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->assetCleanConfigs)) {
+            $query['AssetCleanConfigs'] = $request->assetCleanConfigs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyAssetCleanConfig',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyAssetCleanConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyAssetCleanConfigRequest $request
+     *
+     * @return ModifyAssetCleanConfigResponse
+     */
+    public function modifyAssetCleanConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyAssetCleanConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -26802,6 +27042,52 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->uninstallBackupClientWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UninstallRaspAttachRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return UninstallRaspAttachResponse
+     */
+    public function uninstallRaspAttachWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->applicationId)) {
+            $query['ApplicationId'] = $request->applicationId;
+        }
+        if (!Utils::isUnset($request->ecsUUIDList)) {
+            $query['EcsUUIDList'] = $request->ecsUUIDList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UninstallRaspAttach',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UninstallRaspAttachResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UninstallRaspAttachRequest $request
+     *
+     * @return UninstallRaspAttachResponse
+     */
+    public function uninstallRaspAttach($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->uninstallRaspAttachWithOptions($request, $runtime);
     }
 
     /**

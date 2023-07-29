@@ -4,13 +4,11 @@
 
 namespace AlibabaCloud\SDK\Sas\V20181203\Models;
 
-use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest\addedCheck;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest\configRequirementIds;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest\configStandardIds;
-use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigRequest\removedCheck;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigShrinkRequest\addedCheck;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ChangeCheckConfigShrinkRequest\removedCheck;
 use AlibabaCloud\Tea\Model;
 
-class ChangeCheckConfigRequest extends Model
+class ChangeCheckConfigShrinkRequest extends Model
 {
     /**
      * @var addedCheck[]
@@ -18,14 +16,14 @@ class ChangeCheckConfigRequest extends Model
     public $addedCheck;
 
     /**
-     * @var configRequirementIds
+     * @var string
      */
-    public $configRequirementIds;
+    public $configRequirementIdsShrink;
 
     /**
-     * @var configStandardIds
+     * @var string
      */
-    public $configStandardIds;
+    public $configStandardIdsShrink;
 
     /**
      * @var int[]
@@ -87,17 +85,17 @@ class ChangeCheckConfigRequest extends Model
      */
     public $startTime;
     protected $_name = [
-        'addedCheck'           => 'AddedCheck',
-        'configRequirementIds' => 'ConfigRequirementIds',
-        'configStandardIds'    => 'ConfigStandardIds',
-        'cycleDays'            => 'CycleDays',
-        'enableAddCheck'       => 'EnableAddCheck',
-        'enableAutoCheck'      => 'EnableAutoCheck',
-        'endTime'              => 'EndTime',
-        'regionId'             => 'RegionId',
-        'removedCheck'         => 'RemovedCheck',
-        'standardIds'          => 'StandardIds',
-        'startTime'            => 'StartTime',
+        'addedCheck'                 => 'AddedCheck',
+        'configRequirementIdsShrink' => 'ConfigRequirementIds',
+        'configStandardIdsShrink'    => 'ConfigStandardIds',
+        'cycleDays'                  => 'CycleDays',
+        'enableAddCheck'             => 'EnableAddCheck',
+        'enableAutoCheck'            => 'EnableAutoCheck',
+        'endTime'                    => 'EndTime',
+        'regionId'                   => 'RegionId',
+        'removedCheck'               => 'RemovedCheck',
+        'standardIds'                => 'StandardIds',
+        'startTime'                  => 'StartTime',
     ];
 
     public function validate()
@@ -116,11 +114,11 @@ class ChangeCheckConfigRequest extends Model
                 }
             }
         }
-        if (null !== $this->configRequirementIds) {
-            $res['ConfigRequirementIds'] = null !== $this->configRequirementIds ? $this->configRequirementIds->toMap() : null;
+        if (null !== $this->configRequirementIdsShrink) {
+            $res['ConfigRequirementIds'] = $this->configRequirementIdsShrink;
         }
-        if (null !== $this->configStandardIds) {
-            $res['ConfigStandardIds'] = null !== $this->configStandardIds ? $this->configStandardIds->toMap() : null;
+        if (null !== $this->configStandardIdsShrink) {
+            $res['ConfigStandardIds'] = $this->configStandardIdsShrink;
         }
         if (null !== $this->cycleDays) {
             $res['CycleDays'] = $this->cycleDays;
@@ -159,7 +157,7 @@ class ChangeCheckConfigRequest extends Model
     /**
      * @param array $map
      *
-     * @return ChangeCheckConfigRequest
+     * @return ChangeCheckConfigShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -174,10 +172,10 @@ class ChangeCheckConfigRequest extends Model
             }
         }
         if (isset($map['ConfigRequirementIds'])) {
-            $model->configRequirementIds = configRequirementIds::fromMap($map['ConfigRequirementIds']);
+            $model->configRequirementIdsShrink = $map['ConfigRequirementIds'];
         }
         if (isset($map['ConfigStandardIds'])) {
-            $model->configStandardIds = configStandardIds::fromMap($map['ConfigStandardIds']);
+            $model->configStandardIdsShrink = $map['ConfigStandardIds'];
         }
         if (isset($map['CycleDays'])) {
             if (!empty($map['CycleDays'])) {
