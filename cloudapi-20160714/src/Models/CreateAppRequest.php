@@ -47,6 +47,11 @@ class CreateAppRequest extends Model
     /**
      * @var string
      */
+    public $extend;
+
+    /**
+     * @var string
+     */
     public $securityToken;
 
     /**
@@ -61,6 +66,7 @@ class CreateAppRequest extends Model
         'appName'       => 'AppName',
         'appSecret'     => 'AppSecret',
         'description'   => 'Description',
+        'extend'        => 'Extend',
         'securityToken' => 'SecurityToken',
         'tag'           => 'Tag',
     ];
@@ -86,6 +92,9 @@ class CreateAppRequest extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
@@ -125,6 +134,9 @@ class CreateAppRequest extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];

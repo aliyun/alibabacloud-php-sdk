@@ -250,11 +250,6 @@ class instanceAttribute extends Model
     public $userVswitchId;
 
     /**
-     * @var string
-     */
-    public $vipTypeList;
-
-    /**
      * @example 100.104.254.0/26
      *
      * @var string
@@ -327,7 +322,6 @@ class instanceAttribute extends Model
         'supportIpv6'                => 'SupportIpv6',
         'userVpcId'                  => 'UserVpcId',
         'userVswitchId'              => 'UserVswitchId',
-        'vipTypeList'                => 'VipTypeList',
         'vpcEgressAddress'           => 'VpcEgressAddress',
         'vpcIntranetEnable'          => 'VpcIntranetEnable',
         'vpcOwnerId'                 => 'VpcOwnerId',
@@ -447,9 +441,6 @@ class instanceAttribute extends Model
         }
         if (null !== $this->userVswitchId) {
             $res['UserVswitchId'] = $this->userVswitchId;
-        }
-        if (null !== $this->vipTypeList) {
-            $res['VipTypeList'] = $this->vipTypeList;
         }
         if (null !== $this->vpcEgressAddress) {
             $res['VpcEgressAddress'] = $this->vpcEgressAddress;
@@ -585,9 +576,6 @@ class instanceAttribute extends Model
         }
         if (isset($map['UserVswitchId'])) {
             $model->userVswitchId = $map['UserVswitchId'];
-        }
-        if (isset($map['VipTypeList'])) {
-            $model->vipTypeList = $map['VipTypeList'];
         }
         if (isset($map['VpcEgressAddress'])) {
             $model->vpcEgressAddress = $map['VpcEgressAddress'];

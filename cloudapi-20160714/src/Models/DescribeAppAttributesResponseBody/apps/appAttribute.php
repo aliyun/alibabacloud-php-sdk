@@ -38,6 +38,11 @@ class appAttribute extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @example 2016-07-31T04:10:19Z
      *
      * @var string
@@ -53,6 +58,7 @@ class appAttribute extends Model
         'appName'      => 'AppName',
         'createdTime'  => 'CreatedTime',
         'description'  => 'Description',
+        'extend'       => 'Extend',
         'modifiedTime' => 'ModifiedTime',
         'tags'         => 'Tags',
     ];
@@ -75,6 +81,9 @@ class appAttribute extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -105,6 +114,9 @@ class appAttribute extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];

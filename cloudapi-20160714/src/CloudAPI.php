@@ -1144,6 +1144,9 @@ class CloudAPI extends OpenApiClient
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
         }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
+        }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
@@ -3163,7 +3166,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * The ID of the public key.
+     * *   This operation is intended for API providers.
      *   *
      * @param DescribeApiRequest $request DescribeApiRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3202,7 +3205,7 @@ class CloudAPI extends OpenApiClient
     }
 
     /**
-     * The ID of the public key.
+     * *   This operation is intended for API providers.
      *   *
      * @param DescribeApiRequest $request DescribeApiRequest
      *
@@ -4432,6 +4435,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->enableTagAuth)) {
             $query['EnableTagAuth'] = $request->enableTagAuth;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -8044,6 +8050,9 @@ class CloudAPI extends OpenApiClient
         }
         if (!Utils::isUnset($request->description)) {
             $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->extend)) {
+            $query['Extend'] = $request->extend;
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;

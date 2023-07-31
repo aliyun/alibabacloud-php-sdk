@@ -7,7 +7,6 @@ namespace AlibabaCloud\SDK\CloudAPI\V20160714\Models;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiDocResponseBody\errorCodeSamples;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiDocResponseBody\requestConfig;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiDocResponseBody\requestParameters;
-use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeApiDocResponseBody\resultDescriptions;
 use AlibabaCloud\Tea\Model;
 
 class DescribeApiDocResponseBody extends Model
@@ -106,11 +105,6 @@ class DescribeApiDocResponseBody extends Model
     public $requestParameters;
 
     /**
-     * @var resultDescriptions
-     */
-    public $resultDescriptions;
-
-    /**
      * @example {\n  \"status\": 0,\n  \"data\": {\n    \"count\": 1,\n    \"list\": [\n      \"352\"\n    ]\n  },\n  \"message\": \"success\"\n}
      *
      * @var string
@@ -138,26 +132,25 @@ class DescribeApiDocResponseBody extends Model
      */
     public $visibility;
     protected $_name = [
-        'apiId'              => 'ApiId',
-        'apiName'            => 'ApiName',
-        'authType'           => 'AuthType',
-        'deployedTime'       => 'DeployedTime',
-        'description'        => 'Description',
-        'disableInternet'    => 'DisableInternet',
-        'errorCodeSamples'   => 'ErrorCodeSamples',
-        'failResultSample'   => 'FailResultSample',
-        'forceNonceCheck'    => 'ForceNonceCheck',
-        'groupId'            => 'GroupId',
-        'groupName'          => 'GroupName',
-        'regionId'           => 'RegionId',
-        'requestConfig'      => 'RequestConfig',
-        'requestId'          => 'RequestId',
-        'requestParameters'  => 'RequestParameters',
-        'resultDescriptions' => 'ResultDescriptions',
-        'resultSample'       => 'ResultSample',
-        'resultType'         => 'ResultType',
-        'stageName'          => 'StageName',
-        'visibility'         => 'Visibility',
+        'apiId'             => 'ApiId',
+        'apiName'           => 'ApiName',
+        'authType'          => 'AuthType',
+        'deployedTime'      => 'DeployedTime',
+        'description'       => 'Description',
+        'disableInternet'   => 'DisableInternet',
+        'errorCodeSamples'  => 'ErrorCodeSamples',
+        'failResultSample'  => 'FailResultSample',
+        'forceNonceCheck'   => 'ForceNonceCheck',
+        'groupId'           => 'GroupId',
+        'groupName'         => 'GroupName',
+        'regionId'          => 'RegionId',
+        'requestConfig'     => 'RequestConfig',
+        'requestId'         => 'RequestId',
+        'requestParameters' => 'RequestParameters',
+        'resultSample'      => 'ResultSample',
+        'resultType'        => 'ResultType',
+        'stageName'         => 'StageName',
+        'visibility'        => 'Visibility',
     ];
 
     public function validate()
@@ -211,9 +204,6 @@ class DescribeApiDocResponseBody extends Model
         }
         if (null !== $this->requestParameters) {
             $res['RequestParameters'] = null !== $this->requestParameters ? $this->requestParameters->toMap() : null;
-        }
-        if (null !== $this->resultDescriptions) {
-            $res['ResultDescriptions'] = null !== $this->resultDescriptions ? $this->resultDescriptions->toMap() : null;
         }
         if (null !== $this->resultSample) {
             $res['ResultSample'] = $this->resultSample;
@@ -283,9 +273,6 @@ class DescribeApiDocResponseBody extends Model
         }
         if (isset($map['RequestParameters'])) {
             $model->requestParameters = requestParameters::fromMap($map['RequestParameters']);
-        }
-        if (isset($map['ResultDescriptions'])) {
-            $model->resultDescriptions = resultDescriptions::fromMap($map['ResultDescriptions']);
         }
         if (isset($map['ResultSample'])) {
             $model->resultSample = $map['ResultSample'];

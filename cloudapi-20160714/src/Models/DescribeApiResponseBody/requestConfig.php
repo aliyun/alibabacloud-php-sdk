@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestConfig extends Model
 {
     /**
-     * @description The JSON Schema used for JSON validation when **ParameterType** is set to String.
+     * @description The request mode. Valid values: MAPPING and PASSTHROUGH.
      *
      * @example STREAM
      *
@@ -18,14 +18,14 @@ class requestConfig extends Model
     public $bodyFormat;
 
     /**
-     * @description The minimum parameter length when **ParameterType** is set to String.
+     * @description The API request path. If the complete API URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the API request path is ` /object/add  `.
      *
      * @var string
      */
     public $bodyModel;
 
     /**
-     * @description The format of the response from the backend service. Valid values: JSON, TEXT, BINARY, XML, and HTML.
+     * @description The protocol type supported by the API. Valid values: HTTP and HTTPS. Separate multiple values with commas (,), such as "HTTP,HTTPS".
      *
      * @example fwefwef
      *
@@ -34,8 +34,9 @@ class requestConfig extends Model
     public $postBodyDescription;
 
     /**
-     * @description The type of a request parameter. Valid values: String, Int, Long, Float, Double, and Boolean.
+     * @description This parameter takes effect only when the RequestMode parameter is set to MAPPING.********
      *
+     * The server data transmission method used for POST and PUT requests. Valid values: FORM and STREAM. FORM indicates that data in key-value pairs is transmitted as forms. STREAM indicates that data is transmitted as byte streams.
      * @example POST
      *
      * @var string
@@ -43,7 +44,7 @@ class requestConfig extends Model
     public $requestHttpMethod;
 
     /**
-     * @description The name of the API group.
+     * @description The description of the request body.
      *
      * @example MAPPING
      *
@@ -52,7 +53,7 @@ class requestConfig extends Model
     public $requestMode;
 
     /**
-     * @description The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
+     * @description The HTTP method used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
      *
      * @example /api/billing/test/[type]
      *
@@ -61,7 +62,7 @@ class requestConfig extends Model
     public $requestPath;
 
     /**
-     * @description Examples
+     * @description The configuration items of API requests sent by API Gateway to the backend service.
      *
      * @example HTTP
      *

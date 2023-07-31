@@ -18,15 +18,6 @@ class networkInterfaceAttribute extends Model
     public $cidrBlock;
 
     /**
-     * @description 弹性网卡ID
-     *
-     * @example eni-bp1e5ag59flni1y2f44w
-     *
-     * @var string
-     */
-    public $networkInterfaceId;
-
-    /**
      * @description 安全组的ID，同一个安全组内的服务可以互相访问。
      *
      * @example sg-2zeehz13zcyj1kfk3o85
@@ -53,11 +44,10 @@ class networkInterfaceAttribute extends Model
      */
     public $zoneId;
     protected $_name = [
-        'cidrBlock'          => 'CidrBlock',
-        'networkInterfaceId' => 'NetworkInterfaceId',
-        'securityGroupId'    => 'SecurityGroupId',
-        'vswitchId'          => 'VswitchId',
-        'zoneId'             => 'ZoneId',
+        'cidrBlock'       => 'CidrBlock',
+        'securityGroupId' => 'SecurityGroupId',
+        'vswitchId'       => 'VswitchId',
+        'zoneId'          => 'ZoneId',
     ];
 
     public function validate()
@@ -69,9 +59,6 @@ class networkInterfaceAttribute extends Model
         $res = [];
         if (null !== $this->cidrBlock) {
             $res['CidrBlock'] = $this->cidrBlock;
-        }
-        if (null !== $this->networkInterfaceId) {
-            $res['NetworkInterfaceId'] = $this->networkInterfaceId;
         }
         if (null !== $this->securityGroupId) {
             $res['SecurityGroupId'] = $this->securityGroupId;
@@ -96,9 +83,6 @@ class networkInterfaceAttribute extends Model
         $model = new self();
         if (isset($map['CidrBlock'])) {
             $model->cidrBlock = $map['CidrBlock'];
-        }
-        if (isset($map['NetworkInterfaceId'])) {
-            $model->networkInterfaceId = $map['NetworkInterfaceId'];
         }
         if (isset($map['SecurityGroupId'])) {
             $model->securityGroupId = $map['SecurityGroupId'];

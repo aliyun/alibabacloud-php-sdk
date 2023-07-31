@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApiRequest extends Model
 {
     /**
-     * @description Description
+     * @description The ID of the API.
      *
      * @example 8afff6c8c4c6447abb035812e4d66b65
      *
@@ -18,7 +18,7 @@ class DescribeApiRequest extends Model
     public $apiId;
 
     /**
-     * @description System parameters sent by API Gateway to the backend service
+     * @description The ID of the API.
      *
      * @example 123
      *

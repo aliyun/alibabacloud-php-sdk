@@ -14,7 +14,7 @@ use AlibabaCloud\Tea\Model;
 class serviceConfig extends Model
 {
     /**
-     * @description auditing
+     * @description The status code returned for service mocking.
      *
      * @example ib-blank
      *
@@ -23,7 +23,7 @@ class serviceConfig extends Model
     public $aoneAppName;
 
     /**
-     * @description The HTTP method used to make the request. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of **ServiceAddress** is `http://api.a.com:8080`.
      *
      * @example CUSTOM
      *
@@ -32,7 +32,7 @@ class serviceConfig extends Model
     public $contentTypeCatagory;
 
     /**
-     * @description The API publishing status.
+     * @description The protocol used by the backend service. Valid values: HTTP and HTTPS.
      *
      * @example application/x-www-form-urlencoded; charset=UTF-8
      *
@@ -41,21 +41,24 @@ class serviceConfig extends Model
     public $contentTypeValue;
 
     /**
-     * @description Indicates whether the request parameter is required.
+     * @description The event bus.
      *
      * @var eventBridgeConfig
      */
     public $eventBridgeConfig;
 
     /**
-     * @description Examples
+     * @description The type of the Function Compute instance.
      *
      * @var functionComputeConfig
      */
     public $functionComputeConfig;
 
     /**
-     * @description The returned description of the API.
+     * @description Specifies whether to enable the VPC channel. Valid values:
+     *
+     *   **TRUE**: The VPC channel is enabled. You must create the corresponding VPC access authorization before you can enable a VPC channel.
+     *   **FALSE**: The VPC channel is not enabled.
      *
      * @example TRUE
      *
@@ -64,14 +67,14 @@ class serviceConfig extends Model
     public $mock;
 
     /**
-     * @description The value of the ContentType header when the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
+     * @description The value of the HTTP header.
      *
      * @var mockHeaders
      */
     public $mockHeaders;
 
     /**
-     * @description The service name defined in Function Compute.
+     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
      *
      * @example test result
      *
@@ -80,7 +83,7 @@ class serviceConfig extends Model
     public $mockResult;
 
     /**
-     * @description Indicates whether the parameter is required. Valid values: **REQUIRED** and **OPTIONAL**.
+     * @description The value of the ContentType header when the ServiceProtocol parameter is set to HTTP and the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
      *
      * @example 200
      *
@@ -89,7 +92,7 @@ class serviceConfig extends Model
     public $mockStatusCode;
 
     /**
-     * @description sex
+     * @description The ID of the region where the OSS instance is located.
      *
      * @var ossConfig
      */
@@ -98,8 +101,8 @@ class serviceConfig extends Model
     /**
      * @description Specifies whether to enable the Mock mode. Valid values:
      *
-     *   OPEN: The Mock mode is enabled.
-     *   CLOSED: The Mock mode is not enabled.
+     *   **TRUE**: The Mock mode is enabled.
+     *   **FALSE**: The Mock mode is not enabled.
      *
      * @example http://api.a.com:8080
      *
@@ -108,7 +111,7 @@ class serviceConfig extends Model
     public $serviceAddress;
 
     /**
-     * @description Error message
+     * @description The timeout period of the backend service. Unit: milliseconds.
      *
      * @example POST
      *
@@ -117,7 +120,11 @@ class serviceConfig extends Model
     public $serviceHttpMethod;
 
     /**
-     * @description The mappings between parameters of requests sent by the consumer to API Gateway and parameters of requests sent by API Gateway to the backend service.
+     * @description The ContentType header type used when you call the backend service over HTTP.
+     *
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
      *
      * @example /object/add
      *
@@ -126,7 +133,7 @@ class serviceConfig extends Model
     public $servicePath;
 
     /**
-     * @description The sample error response from the backend service.
+     * @description The path used to call the back-end service. If the complete back-end service path is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, **ServicePath** is `/object/add`.
      *
      * @example HTTP
      *
@@ -135,7 +142,7 @@ class serviceConfig extends Model
     public $serviceProtocol;
 
     /**
-     * @description Information when the backend service is OSS
+     * @description The simulated headers.
      *
      * @example 1000
      *
@@ -144,7 +151,7 @@ class serviceConfig extends Model
     public $serviceTimeout;
 
     /**
-     * @description The configuration items of API requests sent by the consumer to API Gateway.
+     * @description The result returned when the Mock mode is enabled.
      *
      * @example TRUE
      *
@@ -153,7 +160,7 @@ class serviceConfig extends Model
     public $serviceVpcEnable;
 
     /**
-     * @description The backend only receives the service path.
+     * @description The ID of the VPC.
      *
      * @var vpcConfig
      */

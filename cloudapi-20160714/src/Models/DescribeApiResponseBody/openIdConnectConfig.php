@@ -9,14 +9,8 @@ use AlibabaCloud\Tea\Model;
 class openIdConnectConfig extends Model
 {
     /**
-     * @description The type of the two-way communication API. Valid values:
+     * @description The ID of the public key.
      *
-     *   **COMMON**: general APIs
-     *   **REGISTER**: registered APIs
-     *   **UNREGISTER**: unregistered APIs
-     *   **NOTIFY**: downstream notification
-     *
-     * For more information, see [Two-way communication](~~66031~~).
      * @example xxx
      *
      * @var string
@@ -24,7 +18,7 @@ class openIdConnectConfig extends Model
     public $idTokenParamName;
 
     /**
-     * @description Backend configurations
+     * @description The name of the parameter that corresponds to the token.
      *
      * @example IDTOKEN
      *
@@ -33,7 +27,7 @@ class openIdConnectConfig extends Model
     public $openIdApiType;
 
     /**
-     * @description The HTTP method used to call a backend service. Valid values: GET, POST, DELETE, PUT, HEADER, TRACE, PATCH, CONNECT, and OPTIONS.
+     * @description The sample error codes returned by the backend service.
      *
      * @example EB1837F8693CCED0BF750B3AD48467BEB569E780A14591CF92
      *
@@ -42,7 +36,7 @@ class openIdConnectConfig extends Model
     public $publicKey;
 
     /**
-     * @description The port number that corresponds to the instance.
+     * @description The public key.
      *
      * @example 88483727556929326703309904351185815489
      *

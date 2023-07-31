@@ -32,13 +32,6 @@ class DescribeApiGroupResponseBody extends Model
     public $billingStatus;
 
     /**
-     * @description The VPC second-level domain name.
-     *
-     * @var string
-     */
-    public $classicVpcSubDomain;
-
-    /**
      * @description The products on Alibaba Cloud Marketplace.
      *
      * @example false
@@ -184,13 +177,6 @@ class DescribeApiGroupResponseBody extends Model
     public $instanceType;
 
     /**
-     * @description The VIP list of the instance.
-     *
-     * @var string
-     */
-    public $instanceVipList;
-
-    /**
      * @description The IPv6 status.
      *
      * @example UNBIND
@@ -244,13 +230,6 @@ class DescribeApiGroupResponseBody extends Model
      * @var string
      */
     public $requestId;
-
-    /**
-     * @description The RPC mode.
-     *
-     * @var string
-     */
-    public $rpcPattern;
 
     /**
      * @description The runtime environment information.
@@ -316,7 +295,6 @@ class DescribeApiGroupResponseBody extends Model
     protected $_name = [
         'basePath'              => 'BasePath',
         'billingStatus'         => 'BillingStatus',
-        'classicVpcSubDomain'   => 'ClassicVpcSubDomain',
         'cloudMarketCommodity'  => 'CloudMarketCommodity',
         'cmsMonitorGroup'       => 'CmsMonitorGroup',
         'compatibleFlags'       => 'CompatibleFlags',
@@ -333,7 +311,6 @@ class DescribeApiGroupResponseBody extends Model
         'illegalStatus'         => 'IllegalStatus',
         'instanceId'            => 'InstanceId',
         'instanceType'          => 'InstanceType',
-        'instanceVipList'       => 'InstanceVipList',
         'ipv6Status'            => 'Ipv6Status',
         'migrationError'        => 'MigrationError',
         'migrationStatus'       => 'MigrationStatus',
@@ -341,7 +318,6 @@ class DescribeApiGroupResponseBody extends Model
         'passthroughHeaders'    => 'PassthroughHeaders',
         'regionId'              => 'RegionId',
         'requestId'             => 'RequestId',
-        'rpcPattern'            => 'RpcPattern',
         'stageItems'            => 'StageItems',
         'status'                => 'Status',
         'subDomain'             => 'SubDomain',
@@ -363,9 +339,6 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (null !== $this->billingStatus) {
             $res['BillingStatus'] = $this->billingStatus;
-        }
-        if (null !== $this->classicVpcSubDomain) {
-            $res['ClassicVpcSubDomain'] = $this->classicVpcSubDomain;
         }
         if (null !== $this->cloudMarketCommodity) {
             $res['CloudMarketCommodity'] = $this->cloudMarketCommodity;
@@ -415,9 +388,6 @@ class DescribeApiGroupResponseBody extends Model
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
-        if (null !== $this->instanceVipList) {
-            $res['InstanceVipList'] = $this->instanceVipList;
-        }
         if (null !== $this->ipv6Status) {
             $res['Ipv6Status'] = $this->ipv6Status;
         }
@@ -438,9 +408,6 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->rpcPattern) {
-            $res['RpcPattern'] = $this->rpcPattern;
         }
         if (null !== $this->stageItems) {
             $res['StageItems'] = null !== $this->stageItems ? $this->stageItems->toMap() : null;
@@ -480,9 +447,6 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (isset($map['BillingStatus'])) {
             $model->billingStatus = $map['BillingStatus'];
-        }
-        if (isset($map['ClassicVpcSubDomain'])) {
-            $model->classicVpcSubDomain = $map['ClassicVpcSubDomain'];
         }
         if (isset($map['CloudMarketCommodity'])) {
             $model->cloudMarketCommodity = $map['CloudMarketCommodity'];
@@ -532,9 +496,6 @@ class DescribeApiGroupResponseBody extends Model
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
-        if (isset($map['InstanceVipList'])) {
-            $model->instanceVipList = $map['InstanceVipList'];
-        }
         if (isset($map['Ipv6Status'])) {
             $model->ipv6Status = $map['Ipv6Status'];
         }
@@ -555,9 +516,6 @@ class DescribeApiGroupResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['RpcPattern'])) {
-            $model->rpcPattern = $map['RpcPattern'];
         }
         if (isset($map['StageItems'])) {
             $model->stageItems = stageItems::fromMap($map['StageItems']);

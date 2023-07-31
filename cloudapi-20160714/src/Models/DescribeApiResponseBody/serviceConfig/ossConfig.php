@@ -14,7 +14,7 @@ class ossConfig extends Model
     public $action;
 
     /**
-     * @description Examples
+     * @description Configuration items of EventBridge
      *
      * @example cbg-db
      *
@@ -28,7 +28,7 @@ class ossConfig extends Model
     public $key;
 
     /**
-     * @description The ID of the backend service.
+     * @description The OSS bucket.
      *
      * @example cn-hangzhou
      *

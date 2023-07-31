@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class systemParameter extends Model
 {
     /**
-     * @description The root path of Function Compute.
+     * @description Description
      *
      * @example 192.168.1.1
      *
@@ -18,19 +18,16 @@ class systemParameter extends Model
     public $demoValue;
 
     /**
-     * @description The name of the API, which is unique in the group.
+     * @description Client IP Address
      *
-     * @example Specifies whether to make the API public. Valid values:
-     *
-     *   **PUBLIC**: Make the API public. If you set this parameter to PUBLIC, this API is displayed on the APIs page for all users after the API is published to the production environment.
-     *   **PRIVATE**: Make the API private. Private APIs are not displayed in the Alibaba Cloud Marketplace after the API group to which they belong is made available.
+     * @example The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description sex
+     * @description The name of the corresponding backend parameter.
      *
      * @example HEAD
      *
@@ -39,7 +36,7 @@ class systemParameter extends Model
     public $location;
 
     /**
-     * @description The request method.
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example CaClientIp
      *
@@ -48,7 +45,7 @@ class systemParameter extends Model
     public $parameterName;
 
     /**
-     * @description Indicates whether the document is public. Valid values: **PUBLIC** and **PRIVATE**.
+     * @description Custom system parameters
      *
      * @example clientIp
      *

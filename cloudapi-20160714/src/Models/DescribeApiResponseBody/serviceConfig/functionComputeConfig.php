@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class functionComputeConfig extends Model
 {
     /**
-     * @description The name of the backend service.
+     * @description The API request path.
      *
      * @example DEFAULT
      *
@@ -18,7 +18,7 @@ class functionComputeConfig extends Model
     public $contentTypeCatagory;
 
     /**
-     * @description The value of the parameter.
+     * @description The region where the Function Compute instance is located.
      *
      * @example application/x-www-form-urlencoded; charset=UTF-8
      *
@@ -27,7 +27,7 @@ class functionComputeConfig extends Model
     public $contentTypeValue;
 
     /**
-     * @description The result returned for service mocking.
+     * @description The value of the ContentType header when the ContentTypeCatagory parameter is set to DEFAULT or CUSTOM.
      *
      * @example https://1227****64334133.ap-southeast-1-int***al.fc.aliyuncs.com/201****-15/proxy/test****ice.LATEST/testHttp/
      *
@@ -36,7 +36,7 @@ class functionComputeConfig extends Model
     public $fcBaseUrl;
 
     /**
-     * @description The parameters of API requests sent by API Gateway to the backend service.
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role to be assumed by API Gateway to access Function Compute.
      *
      * @example HttpTrigger
      *
@@ -45,10 +45,11 @@ class functionComputeConfig extends Model
     public $fcType;
 
     /**
-     * @description Specifies whether to carry the header : X-Ca-Nonce when calling an API. This is the unique identifier of the request and is generally identified by UUID. After receiving this parameter, API Gateway verifies the validity of this parameter. The same value can be used only once within 15 minutes. This helps prevent reply attacks. Valid values:
+     * @description The ContentType header type used when you call the backend service over HTTP.
      *
-     *   **true**: This field is forcibly checked when an API is requested to prevent replay attacks.
-     *   **false**: This field is not checked.
+     *   **DEFAULT**: the default header type in API Gateway
+     *   **CUSTOM**: a custom header type
+     *   **CLIENT**: the ContentType header type of the client
      *
      * @example edge_function
      *
@@ -57,10 +58,7 @@ class functionComputeConfig extends Model
     public $functionName;
 
     /**
-     * @description Specifies whether to enable the Mock mode. Valid values:
-     *
-     *   **TRUE**: The Mock mode is enabled.
-     *   **FALSE**: The Mock mode is not enabled.
+     * @description The root path of Function Compute.
      *
      * @example GET
      *
@@ -69,7 +67,7 @@ class functionComputeConfig extends Model
     public $method;
 
     /**
-     * @description The type of the array element.
+     * @description The function name defined in Function Compute.
      *
      * @example false
      *
@@ -78,7 +76,7 @@ class functionComputeConfig extends Model
     public $onlyBusinessPath;
 
     /**
-     * @description The application name in AONE.
+     * @description The service name defined in Function Compute.
      *
      * @example /api/offline/cacheData
      *
@@ -87,7 +85,7 @@ class functionComputeConfig extends Model
     public $path;
 
     /**
-     * @description The maximum parameter length when **ParameterType** is set to String.
+     * @description Information when the backend service is OSS
      *
      * @example 2
      *
@@ -96,7 +94,7 @@ class functionComputeConfig extends Model
     public $qualifier;
 
     /**
-     * @description The parameters of API requests sent by the consumer to API Gateway.
+     * @description The backend only receives the service path.
      *
      * @example cn-qingdao
      *
@@ -105,7 +103,7 @@ class functionComputeConfig extends Model
     public $regionId;
 
     /**
-     * @description The description.
+     * @description The request method.
      *
      * @example acs:ram::111***:role/aliyunserviceroleforsas
      *
@@ -114,7 +112,7 @@ class functionComputeConfig extends Model
     public $roleArn;
 
     /**
-     * @description The event source.
+     * @description The alias of the function.
      *
      * @example fcservicename
      *

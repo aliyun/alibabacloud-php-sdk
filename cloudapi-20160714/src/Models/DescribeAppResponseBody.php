@@ -35,6 +35,11 @@ class DescribeAppResponseBody extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @example 2019-01-29T09:33:01Z
      *
      * @var string
@@ -52,6 +57,7 @@ class DescribeAppResponseBody extends Model
         'appName'      => 'AppName',
         'createdTime'  => 'CreatedTime',
         'description'  => 'Description',
+        'extend'       => 'Extend',
         'modifiedTime' => 'ModifiedTime',
         'requestId'    => 'RequestId',
     ];
@@ -74,6 +80,9 @@ class DescribeAppResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->modifiedTime) {
             $res['ModifiedTime'] = $this->modifiedTime;
@@ -104,6 +113,9 @@ class DescribeAppResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['ModifiedTime'])) {
             $model->modifiedTime = $map['ModifiedTime'];

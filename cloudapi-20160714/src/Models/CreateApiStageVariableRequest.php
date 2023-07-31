@@ -28,6 +28,8 @@ class CreateApiStageVariableRequest extends Model
     public $stageId;
 
     /**
+     * @deprecated
+     *
      * @var string
      */
     public $stageRouteModel;

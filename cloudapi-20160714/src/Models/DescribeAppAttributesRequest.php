@@ -45,6 +45,11 @@ class DescribeAppAttributesRequest extends Model
     public $enableTagAuth;
 
     /**
+     * @var string
+     */
+    public $extend;
+
+    /**
      * @example 1
      *
      * @var int
@@ -82,6 +87,7 @@ class DescribeAppAttributesRequest extends Model
         'appKey'        => 'AppKey',
         'appName'       => 'AppName',
         'enableTagAuth' => 'EnableTagAuth',
+        'extend'        => 'Extend',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
         'securityToken' => 'SecurityToken',
@@ -110,6 +116,9 @@ class DescribeAppAttributesRequest extends Model
         }
         if (null !== $this->enableTagAuth) {
             $res['EnableTagAuth'] = $this->enableTagAuth;
+        }
+        if (null !== $this->extend) {
+            $res['Extend'] = $this->extend;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -158,6 +167,9 @@ class DescribeAppAttributesRequest extends Model
         }
         if (isset($map['EnableTagAuth'])) {
             $model->enableTagAuth = $map['EnableTagAuth'];
+        }
+        if (isset($map['Extend'])) {
+            $model->extend = $map['Extend'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

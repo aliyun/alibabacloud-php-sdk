@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class customSystemParameter extends Model
 {
     /**
-     * @description The ID of the region where the EventBridge instance is located.
+     * @description Description
      *
      * @example 192.168.1.1
      *
@@ -18,19 +18,16 @@ class customSystemParameter extends Model
     public $demoValue;
 
     /**
-     * @description The effective version.
+     * @description Client IP Address
      *
-     * @example If **AuthType** is set to **APP**, this value must be passed to specify the signature algorithm. If you do not specify a value, HmacSHA256 is used by default. Valid values:
-     *
-     *   HmacSHA256
-     *   HmacSHA1,HmacSHA256
+     * @example The name of the system parameter. Valid values: CaClientIp, CaDomain, CaRequestHandleTime, CaAppId, CaRequestId, CaHttpSchema, and CaProxy.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the corresponding backend parameter.
      *
      * @example HEAD
      *
@@ -39,7 +36,7 @@ class customSystemParameter extends Model
     public $location;
 
     /**
-     * @description The default value.
+     * @description The parameter location. Valid values: BODY, HEAD, QUERY, and PATH.
      *
      * @example CaClientIp
      *
@@ -48,7 +45,7 @@ class customSystemParameter extends Model
     public $parameterName;
 
     /**
-     * @description Client IP Address
+     * @description System parameters sent by API Gateway to the backend service
      *
      * @example clientIp
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventBridgeConfig extends Model
 {
     /**
-     * @description The URL used to call the back-end service. If the complete back-end service URL is `http://api.a.com:8080/object/add?key1=value1&key2=value2`, the value of **ServiceAddress** is `http://api.a.com:8080`.
+     * @description The Arn that is authorized by a RAM user to EventBridge.
      *
      * @example cn-beijing
      *
@@ -18,7 +18,7 @@ class eventBridgeConfig extends Model
     public $eventBridgeRegionId;
 
     /**
-     * @description The region ID of the API.
+     * @description The event source.
      *
      * @example testBus
      *
@@ -27,7 +27,7 @@ class eventBridgeConfig extends Model
     public $eventBus;
 
     /**
-     * @description The name of the corresponding backend parameter.
+     * @description The ID of the region where the EventBridge instance is located.
      *
      * @example baas_driver
      *
@@ -36,7 +36,7 @@ class eventBridgeConfig extends Model
     public $eventSource;
 
     /**
-     * @description The public key.
+     * @description Configuration items of the third-party OpenID Connect authentication method
      *
      * @example acs:ram::1933122015759***:role/adminoidcaliyun
      *
