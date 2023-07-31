@@ -16,6 +16,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $birthday;
+
+    /**
+     * @var string
+     */
     public $callbackToken;
 
     /**
@@ -48,6 +53,11 @@ class InitFaceVerifyRequest extends Model
      * @var string
      */
     public $certifyId;
+
+    /**
+     * @var string
+     */
+    public $certifyUrlStyle;
 
     /**
      * @var string
@@ -102,6 +112,11 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $mode;
+
+    /**
+     * @var string
+     */
     public $model;
 
     /**
@@ -138,6 +153,11 @@ class InitFaceVerifyRequest extends Model
     public $productCode;
 
     /**
+     * @var string
+     */
+    public $readImg;
+
+    /**
      * @example www.aliyun.com
      *
      * @var string
@@ -166,15 +186,22 @@ class InitFaceVerifyRequest extends Model
     /**
      * @var string
      */
+    public $validityDate;
+
+    /**
+     * @var string
+     */
     public $voluntaryCustomizedContent;
     protected $_name = [
         'authId'                     => 'AuthId',
+        'birthday'                   => 'Birthday',
         'callbackToken'              => 'CallbackToken',
         'callbackUrl'                => 'CallbackUrl',
         'certName'                   => 'CertName',
         'certNo'                     => 'CertNo',
         'certType'                   => 'CertType',
         'certifyId'                  => 'CertifyId',
+        'certifyUrlStyle'            => 'CertifyUrlStyle',
         'certifyUrlType'             => 'CertifyUrlType',
         'crop'                       => 'Crop',
         'encryptType'                => 'EncryptType',
@@ -183,16 +210,19 @@ class InitFaceVerifyRequest extends Model
         'ip'                         => 'Ip',
         'metaInfo'                   => 'MetaInfo',
         'mobile'                     => 'Mobile',
+        'mode'                       => 'Mode',
         'model'                      => 'Model',
         'ossBucketName'              => 'OssBucketName',
         'ossObjectName'              => 'OssObjectName',
         'outerOrderNo'               => 'OuterOrderNo',
         'procedurePriority'          => 'ProcedurePriority',
         'productCode'                => 'ProductCode',
+        'readImg'                    => 'ReadImg',
         'returnUrl'                  => 'ReturnUrl',
         'sceneId'                    => 'SceneId',
         'suitableType'               => 'SuitableType',
         'userId'                     => 'UserId',
+        'validityDate'               => 'ValidityDate',
         'voluntaryCustomizedContent' => 'VoluntaryCustomizedContent',
     ];
 
@@ -205,6 +235,9 @@ class InitFaceVerifyRequest extends Model
         $res = [];
         if (null !== $this->authId) {
             $res['AuthId'] = $this->authId;
+        }
+        if (null !== $this->birthday) {
+            $res['Birthday'] = $this->birthday;
         }
         if (null !== $this->callbackToken) {
             $res['CallbackToken'] = $this->callbackToken;
@@ -223,6 +256,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
+        }
+        if (null !== $this->certifyUrlStyle) {
+            $res['CertifyUrlStyle'] = $this->certifyUrlStyle;
         }
         if (null !== $this->certifyUrlType) {
             $res['CertifyUrlType'] = $this->certifyUrlType;
@@ -248,6 +284,9 @@ class InitFaceVerifyRequest extends Model
         if (null !== $this->mobile) {
             $res['Mobile'] = $this->mobile;
         }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
+        }
         if (null !== $this->model) {
             $res['Model'] = $this->model;
         }
@@ -266,6 +305,9 @@ class InitFaceVerifyRequest extends Model
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
+        if (null !== $this->readImg) {
+            $res['ReadImg'] = $this->readImg;
+        }
         if (null !== $this->returnUrl) {
             $res['ReturnUrl'] = $this->returnUrl;
         }
@@ -277,6 +319,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
+        }
+        if (null !== $this->validityDate) {
+            $res['ValidityDate'] = $this->validityDate;
         }
         if (null !== $this->voluntaryCustomizedContent) {
             $res['VoluntaryCustomizedContent'] = $this->voluntaryCustomizedContent;
@@ -296,6 +341,9 @@ class InitFaceVerifyRequest extends Model
         if (isset($map['AuthId'])) {
             $model->authId = $map['AuthId'];
         }
+        if (isset($map['Birthday'])) {
+            $model->birthday = $map['Birthday'];
+        }
         if (isset($map['CallbackToken'])) {
             $model->callbackToken = $map['CallbackToken'];
         }
@@ -313,6 +361,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
+        }
+        if (isset($map['CertifyUrlStyle'])) {
+            $model->certifyUrlStyle = $map['CertifyUrlStyle'];
         }
         if (isset($map['CertifyUrlType'])) {
             $model->certifyUrlType = $map['CertifyUrlType'];
@@ -338,6 +389,9 @@ class InitFaceVerifyRequest extends Model
         if (isset($map['Mobile'])) {
             $model->mobile = $map['Mobile'];
         }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
+        }
         if (isset($map['Model'])) {
             $model->model = $map['Model'];
         }
@@ -356,6 +410,9 @@ class InitFaceVerifyRequest extends Model
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }
+        if (isset($map['ReadImg'])) {
+            $model->readImg = $map['ReadImg'];
+        }
         if (isset($map['ReturnUrl'])) {
             $model->returnUrl = $map['ReturnUrl'];
         }
@@ -367,6 +424,9 @@ class InitFaceVerifyRequest extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['ValidityDate'])) {
+            $model->validityDate = $map['ValidityDate'];
         }
         if (isset($map['VoluntaryCustomizedContent'])) {
             $model->voluntaryCustomizedContent = $map['VoluntaryCustomizedContent'];

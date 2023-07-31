@@ -47,6 +47,11 @@ class resultObject extends Model
      * @var string
      */
     public $subCode;
+
+    /**
+     * @var string
+     */
+    public $success;
     protected $_name = [
         'deviceRisk'   => 'DeviceRisk',
         'deviceToken'  => 'DeviceToken',
@@ -54,6 +59,7 @@ class resultObject extends Model
         'materialInfo' => 'MaterialInfo',
         'passed'       => 'Passed',
         'subCode'      => 'SubCode',
+        'success'      => 'Success',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class resultObject extends Model
         }
         if (null !== $this->subCode) {
             $res['SubCode'] = $this->subCode;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -110,6 +119,9 @@ class resultObject extends Model
         }
         if (isset($map['SubCode'])) {
             $model->subCode = $map['SubCode'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

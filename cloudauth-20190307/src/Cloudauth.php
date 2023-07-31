@@ -879,6 +879,9 @@ class Cloudauth extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->birthday)) {
+            $query['Birthday'] = $request->birthday;
+        }
         if (!Utils::isUnset($request->callbackToken)) {
             $query['CallbackToken'] = $request->callbackToken;
         }
@@ -896,6 +899,9 @@ class Cloudauth extends OpenApiClient
         }
         if (!Utils::isUnset($request->certifyId)) {
             $query['CertifyId'] = $request->certifyId;
+        }
+        if (!Utils::isUnset($request->certifyUrlStyle)) {
+            $query['CertifyUrlStyle'] = $request->certifyUrlStyle;
         }
         if (!Utils::isUnset($request->certifyUrlType)) {
             $query['CertifyUrlType'] = $request->certifyUrlType;
@@ -915,6 +921,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->mobile)) {
             $query['Mobile'] = $request->mobile;
         }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
+        }
         if (!Utils::isUnset($request->ossBucketName)) {
             $query['OssBucketName'] = $request->ossBucketName;
         }
@@ -930,6 +939,9 @@ class Cloudauth extends OpenApiClient
         if (!Utils::isUnset($request->productCode)) {
             $query['ProductCode'] = $request->productCode;
         }
+        if (!Utils::isUnset($request->readImg)) {
+            $query['ReadImg'] = $request->readImg;
+        }
         if (!Utils::isUnset($request->returnUrl)) {
             $query['ReturnUrl'] = $request->returnUrl;
         }
@@ -941,6 +953,9 @@ class Cloudauth extends OpenApiClient
         }
         if (!Utils::isUnset($request->userId)) {
             $query['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->validityDate)) {
+            $query['ValidityDate'] = $request->validityDate;
         }
         if (!Utils::isUnset($request->voluntaryCustomizedContent)) {
             $query['VoluntaryCustomizedContent'] = $request->voluntaryCustomizedContent;
