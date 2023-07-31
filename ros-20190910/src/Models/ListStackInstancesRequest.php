@@ -33,7 +33,7 @@ class ListStackInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region to which the stack group belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -42,9 +42,8 @@ class ListStackInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the stack group. The name must be unique within a region.
-     *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
+     * @description The name of the stack group. The name must be unique within a region.\
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
      * @example MyStackGroup
      *
      * @var string
@@ -52,13 +51,12 @@ class ListStackInstancesRequest extends Model
     public $stackGroupName;
 
     /**
-     * @description The ID of the account to which the stack belongs.
+     * @description The ID of the destination account to which the stack belongs.
      *
      *   If the stack group is granted self-managed permissions, the stack belongs to an Alibaba Cloud account.
-     *
      *   If the stack group is granted service-managed permissions, the stack belongs to a member in a resource directory.
      *
-     * > For more information about the account, see [Overview](~~154578~~).
+     * > For more information about the destination account, see [Overview](~~154578~~).
      * @example 156552876021****
      *
      * @var string
@@ -66,7 +64,7 @@ class ListStackInstancesRequest extends Model
     public $stackInstanceAccountId;
 
     /**
-     * @description The ID of the region to which the stack belongs.
+     * @description The region ID of the stack.
      *
      * @example cn-beijing
      *

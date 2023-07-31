@@ -11,9 +11,8 @@ use AlibabaCloud\Tea\Model;
 class CreateChangeSetRequest extends Model
 {
     /**
-     * @description The name of the change set.
-     *
-     * >  Make sure that the name is unique among names of all change sets that are associated with the specified stack.
+     * @description The name of the change set.\
+     * > Make sure that the name is unique among all names of change sets that are associated with the specified stack.
      * @example MyChangeSet
      *
      * @var string
@@ -21,13 +20,13 @@ class CreateChangeSetRequest extends Model
     public $changeSetName;
 
     /**
-     * @description The type of the change set. Default value: UPDATE. Valid values:
+     * @description The type of the change set. Valid values:
      *
      *   CREATE: creates a change set for a new stack.
-     *   UPDATE: creates a change set for an existing stack.
+     *   UPDATE (default): creates a change set for an existing stack.
      *   IMPORT: creates a change set for a new stack or an existing stack to import resources that are not managed by ROS.
      *
-     * You cannot use the UPDATE type to create a change set for a new stack or the CREATE type to create a change set for an existing stack.
+     * If you want to create a change set for a new stack, do not set ChangeSetType to UPDATE. If you want to create a change set for an existing stack, do not set ChangeSetType to CREATE.
      * @example UPDATE
      *
      * @var string
@@ -35,9 +34,8 @@ class CreateChangeSetRequest extends Model
     public $changeSetType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
-     *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.\
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -54,14 +52,13 @@ class CreateChangeSetRequest extends Model
     public $description;
 
     /**
-     * @description Specifies whether to disable rollback when the stack fails to be created.
+     * @description Specifies whether to disable rollback when the stack fails to be created.\
+     * Valid values:
      *
-     * Default value: false. Valid values:
+     *   true: disables rollback for the stack when the stack fails to be created.
+     *   false (default): enables rollback for the stack when the stack fails to be created.
      *
-     *   true
-     *   false
-     *
-     * >  This parameter takes effect only when the ChangeSetType parameter is set to CREATE or IMPORT.
+     * > This parameter takes effect only if you set ChangeSetType to CREATE or IMPORT.
      * @example false
      *
      * @var bool
@@ -69,7 +66,7 @@ class CreateChangeSetRequest extends Model
     public $disableRollback;
 
     /**
-     * @description The callback URL that is used to receive stack event N.
+     * @description The callback URLs that are used to receive stack events.
      *
      * @example http://my-site.com/ros-notify
      *
@@ -80,14 +77,14 @@ class CreateChangeSetRequest extends Model
     /**
      * @description The maximum number of concurrent operations that can be performed on resources. By default, this parameter is empty. You can set this parameter to an integer that is greater than or equal to 0. If you set this parameter to a specific value, ROS associates the value with the stack. The value can affect subsequent operations on the stack.
      *
-     * This parameter takes effect only when the ChangeSetType parameter is set to CREATE or UPDATE. Valid values:
+     * This parameter takes effect only if you set ChangeSetType to CREATE or UPDATE.
      *
      *   Valid values for change sets of the CREATE type:
      *
      *   If you set this parameter to an integer that is greater than 0, the integer is used.
      *   If you set this parameter to 0 or leave this parameter empty, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
      *
-     *   Valid values for change set of the UPDATE type:
+     *   Valid values for change sets of the UPDATE type:
      *
      *   If you set this parameter to an integer that is greater than 0, the integer is used.
      *   If you set this parameter to 0, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
@@ -100,15 +97,14 @@ class CreateChangeSetRequest extends Model
     public $parallelism;
 
     /**
-     * @description The list of parameters.
+     * @description The parameters that are defined in the template.
      *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The name of the RAM role. ROS assumes the RAM role to create the stack and uses credentials of the role to call the APIs of Alibaba Cloud services.
-     *
+     * @description The name of the Resource Access Management (RAM) role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\
      * The name of the RAM role can be up to 64 bytes in length.
      * @example test-role
      *
@@ -126,12 +122,12 @@ class CreateChangeSetRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to enable replacement update if a resource property is changed but you cannot change the resource property. For a change, the physical ID of the resource remains unchanged. For a replacement update, the existing resource is deleted, a new resource is created, and the physical ID of the resource is changed. Default value: Disabled. Valid values:
+     * @description Specifies whether to enable replacement update if a resource property is changed and you cannot modify the new resource property. For a change, the physical ID of the resource remains unchanged. For a replacement update, the existing resource is deleted, a new resource is created, and the physical ID of the resource is changed. Valid values:
      *
      *   Enabled
-     *   Disabled
+     *   Disabled (default)
      *
-     * >  Changes have higher priorities than replacement updates. This parameter takes effect only when the ChangeSetType parameter is set to UPDATE.
+     * > Operations that you perform to modify the resource properties for an update take precedence over operations you perform to replace the resource properties for an update. This parameter takes effect only if you set ChangeSetType to UPDATE.
      * @example Disabled
      *
      * @var string
@@ -139,16 +135,16 @@ class CreateChangeSetRequest extends Model
     public $replacementOption;
 
     /**
-     * @description The key-value mapping between strings.
+     * @description The resources that you want to import into the stack.
      *
      * @var resourcesToImport[]
      */
     public $resourcesToImport;
 
     /**
-     * @description The ID of the stack for which you want to create the change set. ROS compares the stack information with the information that you specify, such as a modified template or a changed parameter value, to generate the change set.
+     * @description The ID of the stack for which you want to create a change set. ROS compares the stack information with the information that you submit, such as a modified template or a changed parameter value, to generate the change set.
      *
-     * >  This parameter takes effect only when the ChangeSetType parameter is set to UPDATE or IMPORT.
+     * > This parameter takes effect only for change sets of the UPDATE or IMPORT.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -156,9 +152,8 @@ class CreateChangeSetRequest extends Model
     public $stackId;
 
     /**
-     * @description The name of the stack for which you want to create the change set.
-     *
-     * >  This parameter takes effect only when the ChangeSetType parameter is set to CREATE or IMPORT.
+     * @description The name of the stack for which you want to create the change set.\
+     * > This parameter takes effect only if you set ChangeSetType to CREATE or IMPORT.
      * @example MyStack
      *
      * @var string
@@ -166,7 +161,7 @@ class CreateChangeSetRequest extends Model
     public $stackName;
 
     /**
-     * @description The structure that contains the stack policy body. The policy body must be 1 to 16,384 bytes in length. If you set the ChangeSetType parameter to CREATE, you can specify the StackPolicyBody or StackPolicyURL parameter. If you set the ChangeSetType parameter to UPDATE, you can specify only one of the following parameters:
+     * @description The structure of the stack policy body. The policy body must be 1 to 16,384 bytes in length. If you set ChangeSetType to CREATE, you can specify StackPolicyBody or StackPolicyURL. If you set ChangeSetType to UPDATE, you can specify only one of the following parameters:
      *
      *   StackPolicyBody
      *   StackPolicyURL
@@ -180,9 +175,8 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyBody;
 
     /**
-     * @description The structure that contains the body of the temporary overriding stack policy. The policy body must be 1 to 16,384 bytes in length.
-     *
-     * This parameter takes effect only when the ChangeSetType parameter is set to UPDATE. You can specify only one of the following parameters:
+     * @description The structure of the temporary overriding stack policy. The policy body must be 1 to 16,384 bytes in length.\
+     * This parameter takes effect only if you set ChangeSetType to UPDATE. You can specify only one of the following parameters:
      *
      *   StackPolicyBody
      *   StackPolicyURL
@@ -196,9 +190,9 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyDuringUpdateBody;
 
     /**
-     * @description The URL of the file that contains the temporary overriding stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
+     * @description The URL of the stack policy based on which the stack is updated. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/stack-policy/demo and oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
      *
-     * If you want to update protected resources, specify a temporary overriding stack policy for the resources during the update. If you do not specify the policy, the existing policy that is associated with the stack is used. This parameter takes effect only when the ChangeSetType parameter is set to UPDATE. You can specify only one of the following parameters:
+     * If you need to update protected resources, specify a temporary overriding stack policy for the resources during the update. If you do not specify a stack policy, the existing policy that is associated with the stack is used. This parameter takes effect only if you set ChangeSetType to UPDATE. You can specify only one of the following parameters:
      *
      *   StackPolicyBody
      *   StackPolicyURL
@@ -212,9 +206,9 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyDuringUpdateURL;
 
     /**
-     * @description The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
+     * @description The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo and oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length.
      *
-     * If you set the ChangeSetType parameter to CREATE, you can specify the StackPolicyBody or StackPolicyURL parameter. If you set the ChangeSetType parameter to UPDATE, you can specify only one of the following parameters:
+     * If you set ChangeSetType to CREATE, you can specify StackPolicyBody or StackPolicyURL. If you set ChangeSetType to UPDATE, you can specify only one of the following parameters:
      *
      *   StackPolicyBody
      *   StackPolicyURL
@@ -228,8 +222,7 @@ class CreateChangeSetRequest extends Model
     public $stackPolicyURL;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.
-     *
+     * @description The structure of the template body. The template body must be 1 to 524,288 bytes in length.\
      * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
@@ -238,7 +231,7 @@ class CreateChangeSetRequest extends Model
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared templates and private templates.
+     * @description The ID of the template. This parameter applies to shared and private templates.
      *
      * You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
@@ -257,7 +250,7 @@ class CreateChangeSetRequest extends Model
     public $templateScratchId;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
      *
      * The URL can be up to 1,024 bytes in length.
      * @example oss://ros/template/demo
@@ -269,7 +262,7 @@ class CreateChangeSetRequest extends Model
     /**
      * @description The version of the template.
      *
-     * >  This parameter takes effect only when the TemplateId parameter is specified.
+     * > This parameter takes effect only if you specify TemplateId.
      * @example v1
      *
      * @var string
@@ -277,9 +270,8 @@ class CreateChangeSetRequest extends Model
     public $templateVersion;
 
     /**
-     * @description The amount of time that can elapse before the stack enters the CREATE_FAILED or UPDATE_FAILED state.
-     *
-     * If you set the ChangeSetType parameter to CREATE, this parameter is required. If you set the ChangeSetType parameter to UPDATE, this parameter is optional.
+     * @description The amount of time that can elapse before the stack enters the CREATE_FAILED or UPDATE_FAILED state.\
+     * If you set ChangeSetType to CREATE, this parameter is required. If you set ChangeSetType to UPDATE, this parameter is optional.
      *
      *   Unit: minutes.
      *   Valid values: 10 to 1440.
@@ -292,12 +284,12 @@ class CreateChangeSetRequest extends Model
     public $timeoutInMinutes;
 
     /**
-     * @description Specifies whether to use the values that specified in the previous request for the parameters that you do not specify in the current request. Default value: false. Valid values:
+     * @description Specifies whether to use the values that were passed last time for the parameters that you do not specify in the current request. Valid values:
      *
      *   true
-     *   false
+     *   false (default)
      *
-     * >  This parameter takes effect only when the ChangeSetType parameter is set to UPDATE or IMPORT.
+     * > This parameter takes effect only if you set ChangeSetType to UPDATE or IMPORT.
      * @example true
      *
      * @var bool

@@ -28,7 +28,7 @@ class ListStackInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 85DE34BD-7FF9-480F-8C21-556E9DA93ACD
      *
@@ -37,7 +37,7 @@ class ListStackInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the stacks.
+     * @description The stacks.
      *
      * @var stackInstances[]
      */

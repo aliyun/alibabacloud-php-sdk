@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperations extends Model
 {
     /**
-     * @description The operation that was performed.
+     * @description The operation type.
      *
      * Valid values:
      *
@@ -52,7 +52,7 @@ class stackGroupOperations extends Model
     public $operationDescription;
 
     /**
-     * @description The ID of the operation.
+     * @description The operation ID.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761****
      *
@@ -79,7 +79,7 @@ class stackGroupOperations extends Model
     public $stackGroupName;
 
     /**
-     * @description The status of the operation.
+     * @description The state of the operation.
      *
      * Valid values:
      *

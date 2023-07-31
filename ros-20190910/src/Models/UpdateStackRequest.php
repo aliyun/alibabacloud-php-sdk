@@ -48,6 +48,11 @@ class UpdateStackRequest extends Model
     public $dryRun;
 
     /**
+     * @var string[]
+     */
+    public $dryRunOptions;
+
+    /**
      * @description The maximum number of concurrent operations that can be performed on resources.
      *
      * >
@@ -248,6 +253,7 @@ class UpdateStackRequest extends Model
         'clientToken'                 => 'ClientToken',
         'disableRollback'             => 'DisableRollback',
         'dryRun'                      => 'DryRun',
+        'dryRunOptions'               => 'DryRunOptions',
         'parallelism'                 => 'Parallelism',
         'parameters'                  => 'Parameters',
         'ramRoleName'                 => 'RamRoleName',
@@ -283,6 +289,9 @@ class UpdateStackRequest extends Model
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
+        }
+        if (null !== $this->dryRunOptions) {
+            $res['DryRunOptions'] = $this->dryRunOptions;
         }
         if (null !== $this->parallelism) {
             $res['Parallelism'] = $this->parallelism;
@@ -370,6 +379,11 @@ class UpdateStackRequest extends Model
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
+        }
+        if (isset($map['DryRunOptions'])) {
+            if (!empty($map['DryRunOptions'])) {
+                $model->dryRunOptions = $map['DryRunOptions'];
+            }
         }
         if (isset($map['Parallelism'])) {
             $model->parallelism = $map['Parallelism'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteStackRequest extends Model
 {
     /**
+     * @description The options for deleting the stack.
+     *
      * @var string[]
      */
     public $deleteOptions;

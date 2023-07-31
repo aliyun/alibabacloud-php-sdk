@@ -10,9 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupsRequest extends Model
 {
     /**
-     * @description The ID of the resource group. If you do not specify this parameter, the stack groups in all the resource groups are queried.
+     * @description The number of the page to return.
      *
-     * >  If you want to obtain the resource group ID, go to the **Resource Group** page in the **Resource Management** console. For more information, see [View basic information about a resource group](~~151181~~).
+     *   Pages start from page 1.
+     *   Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -20,16 +22,35 @@ class ListStackGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
-     *   Pages start from page 1.
-     *   Default value: 1.
+     *   Valid values: 1 to 50.
+     *   Default value: 10.
      *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The ID of the resource group. If you do not specify this parameter, the stack groups in all the resource groups are queried.
+     *
+     * > To obtain the resource group ID, go to the **Resource Group** page in the **Resource Management** console. For more information, see [View the basic information about a resource group](~~151181~~).
+     * @example rg-acfmzawhxxcj****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @description The state of the stack group. If you do not specify this parameter, the stack groups in all states in the specified region are queried.
@@ -39,27 +60,6 @@ class ListStackGroupsRequest extends Model
      *   ACTIVE
      *   DELETED
      *
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description The tags.
-     *
-     * @example rg-acfmzawhxxcj****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @description The number of entries to return on each page.
-     *
-     *   Valid values: 1 to 50.
-     *   Default value: 10.
-     *
      * @example ACTIVE
      *
      * @var string
@@ -67,9 +67,8 @@ class ListStackGroupsRequest extends Model
     public $status;
 
     /**
-     * @description The key of tag N that is added to the stack group.
+     * @description The tags that are added to the stack group.
      *
-     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
      * @var tags[]
      */
     public $tags;

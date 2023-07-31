@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceTag extends Model
 {
     /**
-     * @description The resource tags.
+     * @description The source tags.
      *
      * @example {"a": "b"}
      *
@@ -18,7 +18,7 @@ class sourceTag extends Model
     public $resourceTags;
 
     /**
-     * @description The filter for resource types.
+     * @description The resource types.
      *
      * @var string[]
      */

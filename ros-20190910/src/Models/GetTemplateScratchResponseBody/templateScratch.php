@@ -36,7 +36,7 @@ class templateScratch extends Model
     /**
      * @description The status code of the scenario that fails to be created.
      *
-     * >  This parameter is returned only if you set the Status parameter to GENERATE_FAILED.
+     * > This parameter is returned only if you set Status to GENERATE_FAILED.
      * @example InvalidZoneId
      *
      * @var string
@@ -44,9 +44,9 @@ class templateScratch extends Model
     public $failedCode;
 
     /**
-     * @description The policy based on which the logical ID is generated. Default value: LongTypePrefixAndIndexSuffix. Valid values:
+     * @description The policy based on which the logical ID is generated. Valid values:
      *
-     *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
+     *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
      *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
      *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
      *
@@ -57,7 +57,7 @@ class templateScratch extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The parameters that are configured for the scenario.
+     * @description The preference parameters of the scenario.
      *
      * @var preferenceParameters[]
      */
@@ -71,7 +71,7 @@ class templateScratch extends Model
     public $sourceResourceGroup;
 
     /**
-     * @description The source resource.
+     * @description The source resources.
      *
      * @var sourceResources[]
      */
@@ -85,21 +85,21 @@ class templateScratch extends Model
     public $sourceTag;
 
     /**
-     * @description The preset information about the stack.
+     * @description The preset information of the stack.
      *
      * @var stackProvision
      */
     public $stackProvision;
 
     /**
-     * @description The list of stacks that are associated with the scenario.
+     * @description The stacks that are associated with the scenario.
      *
      * @var stacks[]
      */
     public $stacks;
 
     /**
-     * @description The status of the scenario. Valid values:
+     * @description The state of the scenario. Valid values:
      *
      *   GENERATE_IN_PROGRESS: The scenario is being created.
      *   GENERATE_COMPLETE: The scenario is created.
@@ -114,7 +114,7 @@ class templateScratch extends Model
     /**
      * @description The reason why the scenario fails to be created.
      *
-     * >  This parameter is returned only if you set the Status parameter to GENERATE_FAILED.
+     * > This parameter is returned only if you set Status to GENERATE_FAILED.
      * @example Resource ALIYUN::ECS::VPC vpc-m5eauuq80anx59v28**** could not be found for template scratch.
      *
      * @var string

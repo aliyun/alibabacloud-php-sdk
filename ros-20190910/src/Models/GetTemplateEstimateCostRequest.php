@@ -43,6 +43,9 @@ class GetTemplateEstimateCostRequest extends Model
     public $regionId;
 
     /**
+     * @description The stack ID.
+     *
+     * Assume that the specified stack contains only one Elastic Compute Service (ECS) instance and the instance type is ecs.s6-c1m2.large. You downgrade the instance type to ecs.s6-c1m1.small and specify a new ApsaraDB RDS instance in the template that is used for the price inquiry. The queried result is the sum of the downgrade refund of the ECS instance and the price of the new ApsaraDB RDS instance.
      * @example c754d2a4-28f1-46df-b557-9586173a****
      *
      * @var string
@@ -70,6 +73,8 @@ class GetTemplateEstimateCostRequest extends Model
     public $templateId;
 
     /**
+     * @description The ID of the scenario.
+     *
      * @example ts-aa9c62feab844a6b****
      *
      * @var string
@@ -77,6 +82,9 @@ class GetTemplateEstimateCostRequest extends Model
     public $templateScratchId;
 
     /**
+     * @description The region ID of the scenario. The default value is the same as the value of the RegionId parameter.
+     *
+     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

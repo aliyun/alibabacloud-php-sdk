@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The value of tag N that is added to the stack group.
+     * @description The key of the tag that is added to the stack group.
      *
+     * > Tags is optional. If you specify Tags, you must specify Tags.N.Key.
      * @example usage
      *
      * @var string
@@ -18,7 +19,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The list of stack groups.
+     * @description The value of the tag that is added to the stack group.
      *
      * @example test
      *

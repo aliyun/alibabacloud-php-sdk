@@ -28,7 +28,7 @@ class ListStackGroupOperationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
@@ -37,7 +37,7 @@ class ListStackGroupOperationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of stack group operations.
+     * @description The stack group operations.
      *
      * @var stackGroupOperations[]
      */

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListStackGroupsResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,7 +19,7 @@ class ListStackGroupsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -26,7 +28,7 @@ class ListStackGroupsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The request ID.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
@@ -35,14 +37,14 @@ class ListStackGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the stack group.
+     * @description The stack groups.
      *
      * @var stackGroups[]
      */
     public $stackGroups;
 
     /**
-     * @description The ID of the request.
+     * @description The total number of stack groups.
      *
      * @example 1
      *

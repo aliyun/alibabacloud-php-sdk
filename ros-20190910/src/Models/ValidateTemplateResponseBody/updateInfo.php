@@ -29,12 +29,22 @@ class updateInfo extends Model
     /**
      * @var string[]
      */
+    public $parametersCauseReplacementIfModified;
+
+    /**
+     * @var string[]
+     */
     public $parametersConditionallyAllowedToBeModified;
 
     /**
      * @var string[]
      */
     public $parametersConditionallyCauseInterruptionIfModified;
+
+    /**
+     * @var string[]
+     */
+    public $parametersConditionallyCauseReplacementIfModified;
 
     /**
      * @var string[]
@@ -50,14 +60,22 @@ class updateInfo extends Model
      * @var string[]
      */
     public $parametersUncertainlyCauseInterruptionIfModified;
+
+    /**
+     * @var string[]
+     */
+    public $parametersUncertainlyCauseReplacementIfModified;
     protected $_name = [
         'parametersAllowedToBeModified'                      => 'ParametersAllowedToBeModified',
         'parametersCauseInterruptionIfModified'              => 'ParametersCauseInterruptionIfModified',
+        'parametersCauseReplacementIfModified'               => 'ParametersCauseReplacementIfModified',
         'parametersConditionallyAllowedToBeModified'         => 'ParametersConditionallyAllowedToBeModified',
         'parametersConditionallyCauseInterruptionIfModified' => 'ParametersConditionallyCauseInterruptionIfModified',
+        'parametersConditionallyCauseReplacementIfModified'  => 'ParametersConditionallyCauseReplacementIfModified',
         'parametersNotAllowedToBeModified'                   => 'ParametersNotAllowedToBeModified',
         'parametersUncertainlyAllowedToBeModified'           => 'ParametersUncertainlyAllowedToBeModified',
         'parametersUncertainlyCauseInterruptionIfModified'   => 'ParametersUncertainlyCauseInterruptionIfModified',
+        'parametersUncertainlyCauseReplacementIfModified'    => 'ParametersUncertainlyCauseReplacementIfModified',
     ];
 
     public function validate()
@@ -73,11 +91,17 @@ class updateInfo extends Model
         if (null !== $this->parametersCauseInterruptionIfModified) {
             $res['ParametersCauseInterruptionIfModified'] = $this->parametersCauseInterruptionIfModified;
         }
+        if (null !== $this->parametersCauseReplacementIfModified) {
+            $res['ParametersCauseReplacementIfModified'] = $this->parametersCauseReplacementIfModified;
+        }
         if (null !== $this->parametersConditionallyAllowedToBeModified) {
             $res['ParametersConditionallyAllowedToBeModified'] = $this->parametersConditionallyAllowedToBeModified;
         }
         if (null !== $this->parametersConditionallyCauseInterruptionIfModified) {
             $res['ParametersConditionallyCauseInterruptionIfModified'] = $this->parametersConditionallyCauseInterruptionIfModified;
+        }
+        if (null !== $this->parametersConditionallyCauseReplacementIfModified) {
+            $res['ParametersConditionallyCauseReplacementIfModified'] = $this->parametersConditionallyCauseReplacementIfModified;
         }
         if (null !== $this->parametersNotAllowedToBeModified) {
             $res['ParametersNotAllowedToBeModified'] = $this->parametersNotAllowedToBeModified;
@@ -87,6 +111,9 @@ class updateInfo extends Model
         }
         if (null !== $this->parametersUncertainlyCauseInterruptionIfModified) {
             $res['ParametersUncertainlyCauseInterruptionIfModified'] = $this->parametersUncertainlyCauseInterruptionIfModified;
+        }
+        if (null !== $this->parametersUncertainlyCauseReplacementIfModified) {
+            $res['ParametersUncertainlyCauseReplacementIfModified'] = $this->parametersUncertainlyCauseReplacementIfModified;
         }
 
         return $res;
@@ -110,6 +137,11 @@ class updateInfo extends Model
                 $model->parametersCauseInterruptionIfModified = $map['ParametersCauseInterruptionIfModified'];
             }
         }
+        if (isset($map['ParametersCauseReplacementIfModified'])) {
+            if (!empty($map['ParametersCauseReplacementIfModified'])) {
+                $model->parametersCauseReplacementIfModified = $map['ParametersCauseReplacementIfModified'];
+            }
+        }
         if (isset($map['ParametersConditionallyAllowedToBeModified'])) {
             if (!empty($map['ParametersConditionallyAllowedToBeModified'])) {
                 $model->parametersConditionallyAllowedToBeModified = $map['ParametersConditionallyAllowedToBeModified'];
@@ -118,6 +150,11 @@ class updateInfo extends Model
         if (isset($map['ParametersConditionallyCauseInterruptionIfModified'])) {
             if (!empty($map['ParametersConditionallyCauseInterruptionIfModified'])) {
                 $model->parametersConditionallyCauseInterruptionIfModified = $map['ParametersConditionallyCauseInterruptionIfModified'];
+            }
+        }
+        if (isset($map['ParametersConditionallyCauseReplacementIfModified'])) {
+            if (!empty($map['ParametersConditionallyCauseReplacementIfModified'])) {
+                $model->parametersConditionallyCauseReplacementIfModified = $map['ParametersConditionallyCauseReplacementIfModified'];
             }
         }
         if (isset($map['ParametersNotAllowedToBeModified'])) {
@@ -133,6 +170,11 @@ class updateInfo extends Model
         if (isset($map['ParametersUncertainlyCauseInterruptionIfModified'])) {
             if (!empty($map['ParametersUncertainlyCauseInterruptionIfModified'])) {
                 $model->parametersUncertainlyCauseInterruptionIfModified = $map['ParametersUncertainlyCauseInterruptionIfModified'];
+            }
+        }
+        if (isset($map['ParametersUncertainlyCauseReplacementIfModified'])) {
+            if (!empty($map['ParametersUncertainlyCauseReplacementIfModified'])) {
+                $model->parametersUncertainlyCauseReplacementIfModified = $map['ParametersUncertainlyCauseReplacementIfModified'];
             }
         }
 

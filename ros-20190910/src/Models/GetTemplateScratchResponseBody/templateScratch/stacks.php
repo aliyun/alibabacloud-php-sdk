@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stacks extends Model
 {
     /**
-     * @description The ID of the region to which the stack belongs.
+     * @description The region ID of the stack.
      *
      * @example cn-hangzhou
      *

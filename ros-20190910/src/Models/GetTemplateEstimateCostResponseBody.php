@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateEstimateCostResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 6DEA36EF-C97D-5658-A4AC-4F5DB08D1A89
      *
      * @var string
@@ -16,6 +18,10 @@ class GetTemplateEstimateCostResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The resource details.
+     *
+     * @example [{\"LogicalResourceIdPattern\": \"wait1\", \"ResourceType\": \"time_sleep\", \"ResourcePath\": \"wait1\"}, {\"LogicalResourceIdPattern\": \"wait2\", \"ResourceType\": \"time_sleep\", \"ResourcePath\": \"wait2\"}]
+     *
      * @var mixed[]
      */
     public $resources;

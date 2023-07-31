@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetTemplateScratchRequest extends Model
 {
     /**
-     * @description The ID of the region where the scenario is created.
+     * @description The region ID of the scenario.
      *
      * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -23,9 +23,9 @@ class GetTemplateScratchRequest extends Model
      *
      *   Source: displays only the data of source nodes.
      *   Provisions: displays only the data of new nodes.
-     *   All: displays all data.
+     *   All: displays the data of all nodes.
      *
-     * >  If you do not set this parameter, the node data is not displayed.
+     * > If you do not specify this parameter, the node data is not displayed.
      * @example Source
      *
      * @var string

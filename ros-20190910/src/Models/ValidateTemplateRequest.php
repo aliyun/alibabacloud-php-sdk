@@ -41,6 +41,11 @@ class ValidateTemplateRequest extends Model
     public $templateURL;
 
     /**
+     * @var string[]
+     */
+    public $updateInfoOptions;
+
+    /**
      * @description The DataSource resource types.
      *
      * @example None
@@ -49,11 +54,12 @@ class ValidateTemplateRequest extends Model
      */
     public $validationOption;
     protected $_name = [
-        'clientToken'      => 'ClientToken',
-        'regionId'         => 'RegionId',
-        'templateBody'     => 'TemplateBody',
-        'templateURL'      => 'TemplateURL',
-        'validationOption' => 'ValidationOption',
+        'clientToken'       => 'ClientToken',
+        'regionId'          => 'RegionId',
+        'templateBody'      => 'TemplateBody',
+        'templateURL'       => 'TemplateURL',
+        'updateInfoOptions' => 'UpdateInfoOptions',
+        'validationOption'  => 'ValidationOption',
     ];
 
     public function validate()
@@ -74,6 +80,9 @@ class ValidateTemplateRequest extends Model
         }
         if (null !== $this->templateURL) {
             $res['TemplateURL'] = $this->templateURL;
+        }
+        if (null !== $this->updateInfoOptions) {
+            $res['UpdateInfoOptions'] = $this->updateInfoOptions;
         }
         if (null !== $this->validationOption) {
             $res['ValidationOption'] = $this->validationOption;
@@ -101,6 +110,11 @@ class ValidateTemplateRequest extends Model
         }
         if (isset($map['TemplateURL'])) {
             $model->templateURL = $map['TemplateURL'];
+        }
+        if (isset($map['UpdateInfoOptions'])) {
+            if (!empty($map['UpdateInfoOptions'])) {
+                $model->updateInfoOptions = $map['UpdateInfoOptions'];
+            }
         }
         if (isset($map['ValidationOption'])) {
             $model->validationOption = $map['ValidationOption'];
