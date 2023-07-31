@@ -36,6 +36,16 @@ class list_ extends Model
     public $image;
 
     /**
+     * @var string
+     */
+    public $makeFailReason;
+
+    /**
+     * @var string
+     */
+    public $makeStatus;
+
+    /**
      * @example 2d
      *
      * @var string
@@ -63,6 +73,8 @@ class list_ extends Model
         'code'                 => 'Code',
         'description'          => 'Description',
         'image'                => 'Image',
+        'makeFailReason'       => 'MakeFailReason',
+        'makeStatus'           => 'MakeStatus',
         'modelType'            => 'ModelType',
         'name'                 => 'Name',
         'portrait'             => 'Portrait',
@@ -87,6 +99,12 @@ class list_ extends Model
         }
         if (null !== $this->image) {
             $res['Image'] = $this->image;
+        }
+        if (null !== $this->makeFailReason) {
+            $res['MakeFailReason'] = $this->makeFailReason;
+        }
+        if (null !== $this->makeStatus) {
+            $res['MakeStatus'] = $this->makeStatus;
         }
         if (null !== $this->modelType) {
             $res['ModelType'] = $this->modelType;
@@ -123,6 +141,12 @@ class list_ extends Model
         }
         if (isset($map['Image'])) {
             $model->image = $map['Image'];
+        }
+        if (isset($map['MakeFailReason'])) {
+            $model->makeFailReason = $map['MakeFailReason'];
+        }
+        if (isset($map['MakeStatus'])) {
+            $model->makeStatus = $map['MakeStatus'];
         }
         if (isset($map['ModelType'])) {
             $model->modelType = $map['ModelType'];

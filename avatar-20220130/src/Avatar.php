@@ -11,6 +11,10 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\Create2dAvatarRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\Create2dAvatarResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\DeleteAvatarRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\DeleteAvatarResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\DuplexDecisionShrinkRequest;
@@ -58,6 +62,8 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo2DAvatarVideoTaskShrink
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SubmitTextTo3DAvatarVideoTaskShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\Update2dAvatarRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\Update2dAvatarResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -195,6 +201,119 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->closeTimedResetOperateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Create2dAvatarRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return Create2dAvatarResponse
+     */
+    public function create2dAvatarWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->orientation)) {
+            $query['Orientation'] = $request->orientation;
+        }
+        if (!Utils::isUnset($request->portrait)) {
+            $query['Portrait'] = $request->portrait;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->transparent)) {
+            $query['Transparent'] = $request->transparent;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Create2dAvatar',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Create2dAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Create2dAvatarRequest $request
+     *
+     * @return Create2dAvatarResponse
+     */
+    public function create2dAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->create2dAvatarWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteAvatarRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteAvatarResponse
+     */
+    public function deleteAvatarWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAvatar',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAvatarRequest $request
+     *
+     * @return DeleteAvatarResponse
+     */
+    public function deleteAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAvatarWithOptions($request, $runtime);
     }
 
     /**
@@ -378,8 +497,14 @@ class Avatar extends OpenApiClient
     public function queryAvatarWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -387,7 +512,7 @@ class Avatar extends OpenApiClient
             'version'     => '2022-01-30',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -1291,5 +1416,75 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitTextTo3DAvatarVideoTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Update2dAvatarRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return Update2dAvatarResponse
+     */
+    public function update2dAvatarWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->callback)) {
+            $query['Callback'] = $request->callback;
+        }
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->image)) {
+            $query['Image'] = $request->image;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->orientation)) {
+            $query['Orientation'] = $request->orientation;
+        }
+        if (!Utils::isUnset($request->portrait)) {
+            $query['Portrait'] = $request->portrait;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->transparent)) {
+            $query['Transparent'] = $request->transparent;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Update2dAvatar',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Update2dAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Update2dAvatarRequest $request
+     *
+     * @return Update2dAvatarResponse
+     */
+    public function update2dAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->update2dAvatarWithOptions($request, $runtime);
     }
 }
