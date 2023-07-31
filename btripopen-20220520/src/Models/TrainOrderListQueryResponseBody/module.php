@@ -27,6 +27,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $arrCityAdCode;
+
+    /**
+     * @var string
+     */
     public $arrStation;
 
     /**
@@ -65,6 +70,11 @@ class module extends Model
      * @var string
      */
     public $depCity;
+
+    /**
+     * @var string
+     */
+    public $depCityAdCode;
 
     /**
      * @var string
@@ -226,6 +236,7 @@ class module extends Model
     protected $_name = [
         'applyId'              => 'apply_id',
         'arrCity'              => 'arr_city',
+        'arrCityAdCode'        => 'arr_city_ad_code',
         'arrStation'           => 'arr_station',
         'arrTime'              => 'arr_time',
         'btripTitle'           => 'btrip_title',
@@ -234,6 +245,7 @@ class module extends Model
         'corpName'             => 'corp_name',
         'costCenter'           => 'cost_center',
         'depCity'              => 'dep_city',
+        'depCityAdCode'        => 'dep_city_ad_code',
         'depStation'           => 'dep_station',
         'depTime'              => 'dep_time',
         'departId'             => 'depart_id',
@@ -275,6 +287,9 @@ class module extends Model
         if (null !== $this->arrCity) {
             $res['arr_city'] = $this->arrCity;
         }
+        if (null !== $this->arrCityAdCode) {
+            $res['arr_city_ad_code'] = $this->arrCityAdCode;
+        }
         if (null !== $this->arrStation) {
             $res['arr_station'] = $this->arrStation;
         }
@@ -298,6 +313,9 @@ class module extends Model
         }
         if (null !== $this->depCity) {
             $res['dep_city'] = $this->depCity;
+        }
+        if (null !== $this->depCityAdCode) {
+            $res['dep_city_ad_code'] = $this->depCityAdCode;
         }
         if (null !== $this->depStation) {
             $res['dep_station'] = $this->depStation;
@@ -407,6 +425,9 @@ class module extends Model
         if (isset($map['arr_city'])) {
             $model->arrCity = $map['arr_city'];
         }
+        if (isset($map['arr_city_ad_code'])) {
+            $model->arrCityAdCode = $map['arr_city_ad_code'];
+        }
         if (isset($map['arr_station'])) {
             $model->arrStation = $map['arr_station'];
         }
@@ -430,6 +451,9 @@ class module extends Model
         }
         if (isset($map['dep_city'])) {
             $model->depCity = $map['dep_city'];
+        }
+        if (isset($map['dep_city_ad_code'])) {
+            $model->depCityAdCode = $map['dep_city_ad_code'];
         }
         if (isset($map['dep_station'])) {
             $model->depStation = $map['dep_station'];
