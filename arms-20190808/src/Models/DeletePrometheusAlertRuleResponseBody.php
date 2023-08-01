@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusAlertRuleResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
      *
      * @var string
@@ -24,6 +34,8 @@ class DeletePrometheusAlertRuleResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'code'      => 'Code',
+        'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
     ];
@@ -35,6 +47,12 @@ class DeletePrometheusAlertRuleResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
+        }
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -53,6 +71,12 @@ class DeletePrometheusAlertRuleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
+        }
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

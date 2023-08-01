@@ -97,6 +97,16 @@ class GrafanaWorkspace extends Model
     public $personalDomainPrefix;
 
     /**
+     * @var string
+     */
+    public $privateDomain;
+
+    /**
+     * @var string
+     */
+    public $privateIp;
+
+    /**
      * @example http/https
      *
      * @var string
@@ -166,6 +176,8 @@ class GrafanaWorkspace extends Model
         'ntmId'                   => 'ntmId',
         'personalDomain'          => 'personalDomain',
         'personalDomainPrefix'    => 'personalDomainPrefix',
+        'privateDomain'           => 'privateDomain',
+        'privateIp'               => 'privateIp',
         'protocol'                => 'protocol',
         'regionId'                => 'regionId',
         'resourceGroupId'         => 'resourceGroupId',
@@ -228,6 +240,12 @@ class GrafanaWorkspace extends Model
         }
         if (null !== $this->personalDomainPrefix) {
             $res['personalDomainPrefix'] = $this->personalDomainPrefix;
+        }
+        if (null !== $this->privateDomain) {
+            $res['privateDomain'] = $this->privateDomain;
+        }
+        if (null !== $this->privateIp) {
+            $res['privateIp'] = $this->privateIp;
         }
         if (null !== $this->protocol) {
             $res['protocol'] = $this->protocol;
@@ -318,6 +336,12 @@ class GrafanaWorkspace extends Model
         }
         if (isset($map['personalDomainPrefix'])) {
             $model->personalDomainPrefix = $map['personalDomainPrefix'];
+        }
+        if (isset($map['privateDomain'])) {
+            $model->privateDomain = $map['privateDomain'];
+        }
+        if (isset($map['privateIp'])) {
+            $model->privateIp = $map['privateIp'];
         }
         if (isset($map['protocol'])) {
             $model->protocol = $map['protocol'];
