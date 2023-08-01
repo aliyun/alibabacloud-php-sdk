@@ -30,6 +30,11 @@ class hotelInfo extends Model
     /**
      * @var string
      */
+    public $cityAdCode;
+
+    /**
+     * @var string
+     */
     public $hotelName;
 
     /**
@@ -61,6 +66,7 @@ class hotelInfo extends Model
         'checkIn'                    => 'check_in',
         'checkOut'                   => 'check_out',
         'city'                       => 'city',
+        'cityAdCode'                 => 'city_ad_code',
         'hotelName'                  => 'hotel_name',
         'hotelSupportVatInvoiceType' => 'hotel_support_vat_invoice_type',
         'night'                      => 'night',
@@ -83,6 +89,9 @@ class hotelInfo extends Model
         }
         if (null !== $this->city) {
             $res['city'] = $this->city;
+        }
+        if (null !== $this->cityAdCode) {
+            $res['city_ad_code'] = $this->cityAdCode;
         }
         if (null !== $this->hotelName) {
             $res['hotel_name'] = $this->hotelName;
@@ -119,6 +128,9 @@ class hotelInfo extends Model
         }
         if (isset($map['city'])) {
             $model->city = $map['city'];
+        }
+        if (isset($map['city_ad_code'])) {
+            $model->cityAdCode = $map['city_ad_code'];
         }
         if (isset($map['hotel_name'])) {
             $model->hotelName = $map['hotel_name'];

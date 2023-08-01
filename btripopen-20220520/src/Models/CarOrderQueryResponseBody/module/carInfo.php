@@ -66,6 +66,11 @@ class carInfo extends Model
     /**
      * @var string
      */
+    public $fromCityAdCode;
+
+    /**
+     * @var string
+     */
     public $fromCityName;
 
     /**
@@ -102,12 +107,22 @@ class carInfo extends Model
     /**
      * @var string
      */
+    public $realFromCityAdCode;
+
+    /**
+     * @var string
+     */
     public $realFromCityName;
 
     /**
      * @var string
      */
     public $realToAddress;
+
+    /**
+     * @var string
+     */
+    public $realToCityAdCode;
 
     /**
      * @var string
@@ -143,6 +158,11 @@ class carInfo extends Model
     /**
      * @var string
      */
+    public $toCityAdCode;
+
+    /**
+     * @var string
+     */
     public $toCityName;
 
     /**
@@ -152,30 +172,34 @@ class carInfo extends Model
      */
     public $travelDistance;
     protected $_name = [
-        'businessCategory'  => 'business_category',
-        'cancelTime'        => 'cancel_time',
-        'carInfo'           => 'car_info',
-        'carLevel'          => 'car_level',
-        'driverCard'        => 'driver_card',
-        'driverConfirmTime' => 'driver_confirm_time',
-        'driverName'        => 'driver_name',
-        'estimatePrice'     => 'estimate_price',
-        'fromAddress'       => 'from_address',
-        'fromCityName'      => 'from_city_name',
-        'isSpecial'         => 'is_special',
-        'memo'              => 'memo',
-        'payTime'           => 'pay_time',
-        'publishTime'       => 'publish_time',
-        'realFromAddress'   => 'real_from_address',
-        'realFromCityName'  => 'real_from_city_name',
-        'realToAddress'     => 'real_to_address',
-        'realToCityName'    => 'real_to_city_name',
-        'serviceType'       => 'service_type',
-        'specialTypes'      => 'special_types',
-        'takenTime'         => 'taken_time',
-        'toAddress'         => 'to_address',
-        'toCityName'        => 'to_city_name',
-        'travelDistance'    => 'travel_distance',
+        'businessCategory'   => 'business_category',
+        'cancelTime'         => 'cancel_time',
+        'carInfo'            => 'car_info',
+        'carLevel'           => 'car_level',
+        'driverCard'         => 'driver_card',
+        'driverConfirmTime'  => 'driver_confirm_time',
+        'driverName'         => 'driver_name',
+        'estimatePrice'      => 'estimate_price',
+        'fromAddress'        => 'from_address',
+        'fromCityAdCode'     => 'from_city_ad_code',
+        'fromCityName'       => 'from_city_name',
+        'isSpecial'          => 'is_special',
+        'memo'               => 'memo',
+        'payTime'            => 'pay_time',
+        'publishTime'        => 'publish_time',
+        'realFromAddress'    => 'real_from_address',
+        'realFromCityAdCode' => 'real_from_city_ad_code',
+        'realFromCityName'   => 'real_from_city_name',
+        'realToAddress'      => 'real_to_address',
+        'realToCityAdCode'   => 'real_to_city_ad_code',
+        'realToCityName'     => 'real_to_city_name',
+        'serviceType'        => 'service_type',
+        'specialTypes'       => 'special_types',
+        'takenTime'          => 'taken_time',
+        'toAddress'          => 'to_address',
+        'toCityAdCode'       => 'to_city_ad_code',
+        'toCityName'         => 'to_city_name',
+        'travelDistance'     => 'travel_distance',
     ];
 
     public function validate()
@@ -212,6 +236,9 @@ class carInfo extends Model
         if (null !== $this->fromAddress) {
             $res['from_address'] = $this->fromAddress;
         }
+        if (null !== $this->fromCityAdCode) {
+            $res['from_city_ad_code'] = $this->fromCityAdCode;
+        }
         if (null !== $this->fromCityName) {
             $res['from_city_name'] = $this->fromCityName;
         }
@@ -230,11 +257,17 @@ class carInfo extends Model
         if (null !== $this->realFromAddress) {
             $res['real_from_address'] = $this->realFromAddress;
         }
+        if (null !== $this->realFromCityAdCode) {
+            $res['real_from_city_ad_code'] = $this->realFromCityAdCode;
+        }
         if (null !== $this->realFromCityName) {
             $res['real_from_city_name'] = $this->realFromCityName;
         }
         if (null !== $this->realToAddress) {
             $res['real_to_address'] = $this->realToAddress;
+        }
+        if (null !== $this->realToCityAdCode) {
+            $res['real_to_city_ad_code'] = $this->realToCityAdCode;
         }
         if (null !== $this->realToCityName) {
             $res['real_to_city_name'] = $this->realToCityName;
@@ -250,6 +283,9 @@ class carInfo extends Model
         }
         if (null !== $this->toAddress) {
             $res['to_address'] = $this->toAddress;
+        }
+        if (null !== $this->toCityAdCode) {
+            $res['to_city_ad_code'] = $this->toCityAdCode;
         }
         if (null !== $this->toCityName) {
             $res['to_city_name'] = $this->toCityName;
@@ -296,6 +332,9 @@ class carInfo extends Model
         if (isset($map['from_address'])) {
             $model->fromAddress = $map['from_address'];
         }
+        if (isset($map['from_city_ad_code'])) {
+            $model->fromCityAdCode = $map['from_city_ad_code'];
+        }
         if (isset($map['from_city_name'])) {
             $model->fromCityName = $map['from_city_name'];
         }
@@ -314,11 +353,17 @@ class carInfo extends Model
         if (isset($map['real_from_address'])) {
             $model->realFromAddress = $map['real_from_address'];
         }
+        if (isset($map['real_from_city_ad_code'])) {
+            $model->realFromCityAdCode = $map['real_from_city_ad_code'];
+        }
         if (isset($map['real_from_city_name'])) {
             $model->realFromCityName = $map['real_from_city_name'];
         }
         if (isset($map['real_to_address'])) {
             $model->realToAddress = $map['real_to_address'];
+        }
+        if (isset($map['real_to_city_ad_code'])) {
+            $model->realToCityAdCode = $map['real_to_city_ad_code'];
         }
         if (isset($map['real_to_city_name'])) {
             $model->realToCityName = $map['real_to_city_name'];
@@ -334,6 +379,9 @@ class carInfo extends Model
         }
         if (isset($map['to_address'])) {
             $model->toAddress = $map['to_address'];
+        }
+        if (isset($map['to_city_ad_code'])) {
+            $model->toCityAdCode = $map['to_city_ad_code'];
         }
         if (isset($map['to_city_name'])) {
             $model->toCityName = $map['to_city_name'];

@@ -33,6 +33,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $arrCityAdCode;
+
+    /**
+     * @var string
+     */
     public $btripTitle;
 
     /**
@@ -71,6 +76,11 @@ class module extends Model
      * @var string
      */
     public $depCity;
+
+    /**
+     * @var string
+     */
+    public $depCityAdCode;
 
     /**
      * @example 2022-07-20T10:40Z
@@ -230,6 +240,7 @@ class module extends Model
         'applyId'              => 'apply_id',
         'arrAirport'           => 'arr_airport',
         'arrCity'              => 'arr_city',
+        'arrCityAdCode'        => 'arr_city_ad_code',
         'btripTitle'           => 'btrip_title',
         'cabinClass'           => 'cabin_class',
         'contactName'          => 'contact_name',
@@ -238,6 +249,7 @@ class module extends Model
         'costCenter'           => 'cost_center',
         'depAirport'           => 'dep_airport',
         'depCity'              => 'dep_city',
+        'depCityAdCode'        => 'dep_city_ad_code',
         'depDate'              => 'dep_date',
         'departId'             => 'depart_id',
         'departName'           => 'depart_name',
@@ -281,6 +293,9 @@ class module extends Model
         if (null !== $this->arrCity) {
             $res['arr_city'] = $this->arrCity;
         }
+        if (null !== $this->arrCityAdCode) {
+            $res['arr_city_ad_code'] = $this->arrCityAdCode;
+        }
         if (null !== $this->btripTitle) {
             $res['btrip_title'] = $this->btripTitle;
         }
@@ -304,6 +319,9 @@ class module extends Model
         }
         if (null !== $this->depCity) {
             $res['dep_city'] = $this->depCity;
+        }
+        if (null !== $this->depCityAdCode) {
+            $res['dep_city_ad_code'] = $this->depCityAdCode;
         }
         if (null !== $this->depDate) {
             $res['dep_date'] = $this->depDate;
@@ -419,6 +437,9 @@ class module extends Model
         if (isset($map['arr_city'])) {
             $model->arrCity = $map['arr_city'];
         }
+        if (isset($map['arr_city_ad_code'])) {
+            $model->arrCityAdCode = $map['arr_city_ad_code'];
+        }
         if (isset($map['btrip_title'])) {
             $model->btripTitle = $map['btrip_title'];
         }
@@ -442,6 +463,9 @@ class module extends Model
         }
         if (isset($map['dep_city'])) {
             $model->depCity = $map['dep_city'];
+        }
+        if (isset($map['dep_city_ad_code'])) {
+            $model->depCityAdCode = $map['dep_city_ad_code'];
         }
         if (isset($map['dep_date'])) {
             $model->depDate = $map['dep_date'];

@@ -25,6 +25,11 @@ class trainTransferInfo extends Model
     /**
      * @var string
      */
+    public $fromCityAdCode;
+
+    /**
+     * @var string
+     */
     public $fromCityName;
 
     /**
@@ -36,6 +41,11 @@ class trainTransferInfo extends Model
      * @var string
      */
     public $middleCity;
+
+    /**
+     * @var string
+     */
+    public $middleCityAdCode;
 
     /**
      * @example 2023-01-29 18:10:00
@@ -64,6 +74,11 @@ class trainTransferInfo extends Model
     /**
      * @var string
      */
+    public $toCityAdCode;
+
+    /**
+     * @var string
+     */
     public $toCityName;
 
     /**
@@ -78,18 +93,21 @@ class trainTransferInfo extends Model
      */
     public $waitTime;
     protected $_name = [
-        'costTime'        => 'cost_time',
-        'endTime'         => 'end_time',
-        'fromCityName'    => 'from_city_name',
-        'fromStationName' => 'from_station_name',
-        'middleCity'      => 'middle_city',
-        'middleDate'      => 'middle_date',
-        'middleStation'   => 'middle_station',
-        'middleType'      => 'middle_type',
-        'startTime'       => 'start_time',
-        'toCityName'      => 'to_city_name',
-        'toStationName'   => 'to_station_name',
-        'waitTime'        => 'wait_time',
+        'costTime'         => 'cost_time',
+        'endTime'          => 'end_time',
+        'fromCityAdCode'   => 'from_city_ad_code',
+        'fromCityName'     => 'from_city_name',
+        'fromStationName'  => 'from_station_name',
+        'middleCity'       => 'middle_city',
+        'middleCityAdCode' => 'middle_city_ad_code',
+        'middleDate'       => 'middle_date',
+        'middleStation'    => 'middle_station',
+        'middleType'       => 'middle_type',
+        'startTime'        => 'start_time',
+        'toCityAdCode'     => 'to_city_ad_code',
+        'toCityName'       => 'to_city_name',
+        'toStationName'    => 'to_station_name',
+        'waitTime'         => 'wait_time',
     ];
 
     public function validate()
@@ -105,6 +123,9 @@ class trainTransferInfo extends Model
         if (null !== $this->endTime) {
             $res['end_time'] = $this->endTime;
         }
+        if (null !== $this->fromCityAdCode) {
+            $res['from_city_ad_code'] = $this->fromCityAdCode;
+        }
         if (null !== $this->fromCityName) {
             $res['from_city_name'] = $this->fromCityName;
         }
@@ -113,6 +134,9 @@ class trainTransferInfo extends Model
         }
         if (null !== $this->middleCity) {
             $res['middle_city'] = $this->middleCity;
+        }
+        if (null !== $this->middleCityAdCode) {
+            $res['middle_city_ad_code'] = $this->middleCityAdCode;
         }
         if (null !== $this->middleDate) {
             $res['middle_date'] = $this->middleDate;
@@ -125,6 +149,9 @@ class trainTransferInfo extends Model
         }
         if (null !== $this->startTime) {
             $res['start_time'] = $this->startTime;
+        }
+        if (null !== $this->toCityAdCode) {
+            $res['to_city_ad_code'] = $this->toCityAdCode;
         }
         if (null !== $this->toCityName) {
             $res['to_city_name'] = $this->toCityName;
@@ -153,6 +180,9 @@ class trainTransferInfo extends Model
         if (isset($map['end_time'])) {
             $model->endTime = $map['end_time'];
         }
+        if (isset($map['from_city_ad_code'])) {
+            $model->fromCityAdCode = $map['from_city_ad_code'];
+        }
         if (isset($map['from_city_name'])) {
             $model->fromCityName = $map['from_city_name'];
         }
@@ -161,6 +191,9 @@ class trainTransferInfo extends Model
         }
         if (isset($map['middle_city'])) {
             $model->middleCity = $map['middle_city'];
+        }
+        if (isset($map['middle_city_ad_code'])) {
+            $model->middleCityAdCode = $map['middle_city_ad_code'];
         }
         if (isset($map['middle_date'])) {
             $model->middleDate = $map['middle_date'];
@@ -173,6 +206,9 @@ class trainTransferInfo extends Model
         }
         if (isset($map['start_time'])) {
             $model->startTime = $map['start_time'];
+        }
+        if (isset($map['to_city_ad_code'])) {
+            $model->toCityAdCode = $map['to_city_ad_code'];
         }
         if (isset($map['to_city_name'])) {
             $model->toCityName = $map['to_city_name'];

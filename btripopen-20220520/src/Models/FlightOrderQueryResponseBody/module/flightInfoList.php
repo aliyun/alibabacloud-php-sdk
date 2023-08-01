@@ -33,6 +33,11 @@ class flightInfoList extends Model
     public $arrAirportName;
 
     /**
+     * @var string
+     */
+    public $arrCityAdCode;
+
+    /**
      * @example LHW
      *
      * @var string
@@ -78,6 +83,11 @@ class flightInfoList extends Model
     public $depAirportName;
 
     /**
+     * @var string
+     */
+    public $depCityAdCode;
+
+    /**
      * @example NGB
      *
      * @var string
@@ -114,6 +124,7 @@ class flightInfoList extends Model
         'airlineName'    => 'airline_name',
         'arrAirportCode' => 'arr_airport_code',
         'arrAirportName' => 'arr_airport_name',
+        'arrCityAdCode'  => 'arr_city_ad_code',
         'arrCityCode'    => 'arr_city_code',
         'arrCityName'    => 'arr_city_name',
         'arrTime'        => 'arr_time',
@@ -121,6 +132,7 @@ class flightInfoList extends Model
         'cabinLevel'     => 'cabin_level',
         'depAirportCode' => 'dep_airport_code',
         'depAirportName' => 'dep_airport_name',
+        'depCityAdCode'  => 'dep_city_ad_code',
         'depCityCode'    => 'dep_city_code',
         'depCityName'    => 'dep_city_name',
         'depTime'        => 'dep_time',
@@ -147,6 +159,9 @@ class flightInfoList extends Model
         if (null !== $this->arrAirportName) {
             $res['arr_airport_name'] = $this->arrAirportName;
         }
+        if (null !== $this->arrCityAdCode) {
+            $res['arr_city_ad_code'] = $this->arrCityAdCode;
+        }
         if (null !== $this->arrCityCode) {
             $res['arr_city_code'] = $this->arrCityCode;
         }
@@ -167,6 +182,9 @@ class flightInfoList extends Model
         }
         if (null !== $this->depAirportName) {
             $res['dep_airport_name'] = $this->depAirportName;
+        }
+        if (null !== $this->depCityAdCode) {
+            $res['dep_city_ad_code'] = $this->depCityAdCode;
         }
         if (null !== $this->depCityCode) {
             $res['dep_city_code'] = $this->depCityCode;
@@ -207,6 +225,9 @@ class flightInfoList extends Model
         if (isset($map['arr_airport_name'])) {
             $model->arrAirportName = $map['arr_airport_name'];
         }
+        if (isset($map['arr_city_ad_code'])) {
+            $model->arrCityAdCode = $map['arr_city_ad_code'];
+        }
         if (isset($map['arr_city_code'])) {
             $model->arrCityCode = $map['arr_city_code'];
         }
@@ -227,6 +248,9 @@ class flightInfoList extends Model
         }
         if (isset($map['dep_airport_name'])) {
             $model->depAirportName = $map['dep_airport_name'];
+        }
+        if (isset($map['dep_city_ad_code'])) {
+            $model->depCityAdCode = $map['dep_city_ad_code'];
         }
         if (isset($map['dep_city_code'])) {
             $model->depCityCode = $map['dep_city_code'];

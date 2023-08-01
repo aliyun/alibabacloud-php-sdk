@@ -25,6 +25,11 @@ class trainInfo extends Model
     /**
      * @var string
      */
+    public $fromCityAdCode;
+
+    /**
+     * @var string
+     */
     public $fromStationName;
 
     /**
@@ -33,6 +38,11 @@ class trainInfo extends Model
      * @var int
      */
     public $runTime;
+
+    /**
+     * @var string
+     */
+    public $toCityAdCode;
 
     /**
      * @var string
@@ -48,8 +58,10 @@ class trainInfo extends Model
     protected $_name = [
         'arrTime'         => 'arr_time',
         'depTime'         => 'dep_time',
+        'fromCityAdCode'  => 'from_city_ad_code',
         'fromStationName' => 'from_station_name',
         'runTime'         => 'run_time',
+        'toCityAdCode'    => 'to_city_ad_code',
         'toStationName'   => 'to_station_name',
         'trainNo'         => 'train_no',
     ];
@@ -67,11 +79,17 @@ class trainInfo extends Model
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
         }
+        if (null !== $this->fromCityAdCode) {
+            $res['from_city_ad_code'] = $this->fromCityAdCode;
+        }
         if (null !== $this->fromStationName) {
             $res['from_station_name'] = $this->fromStationName;
         }
         if (null !== $this->runTime) {
             $res['run_time'] = $this->runTime;
+        }
+        if (null !== $this->toCityAdCode) {
+            $res['to_city_ad_code'] = $this->toCityAdCode;
         }
         if (null !== $this->toStationName) {
             $res['to_station_name'] = $this->toStationName;
@@ -97,11 +115,17 @@ class trainInfo extends Model
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];
         }
+        if (isset($map['from_city_ad_code'])) {
+            $model->fromCityAdCode = $map['from_city_ad_code'];
+        }
         if (isset($map['from_station_name'])) {
             $model->fromStationName = $map['from_station_name'];
         }
         if (isset($map['run_time'])) {
             $model->runTime = $map['run_time'];
+        }
+        if (isset($map['to_city_ad_code'])) {
+            $model->toCityAdCode = $map['to_city_ad_code'];
         }
         if (isset($map['to_station_name'])) {
             $model->toStationName = $map['to_station_name'];

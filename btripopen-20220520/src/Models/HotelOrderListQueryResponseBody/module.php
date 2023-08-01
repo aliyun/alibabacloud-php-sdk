@@ -46,6 +46,11 @@ class module extends Model
     /**
      * @var string
      */
+    public $cityAdCode;
+
+    /**
+     * @var string
+     */
     public $contactName;
 
     /**
@@ -229,6 +234,7 @@ class module extends Model
         'checkIn'                    => 'check_in',
         'checkOut'                   => 'check_out',
         'city'                       => 'city',
+        'cityAdCode'                 => 'city_ad_code',
         'contactName'                => 'contact_name',
         'corpId'                     => 'corp_id',
         'corpName'                   => 'corp_name',
@@ -283,6 +289,9 @@ class module extends Model
         }
         if (null !== $this->city) {
             $res['city'] = $this->city;
+        }
+        if (null !== $this->cityAdCode) {
+            $res['city_ad_code'] = $this->cityAdCode;
         }
         if (null !== $this->contactName) {
             $res['contact_name'] = $this->contactName;
@@ -415,6 +424,9 @@ class module extends Model
         }
         if (isset($map['city'])) {
             $model->city = $map['city'];
+        }
+        if (isset($map['city_ad_code'])) {
+            $model->cityAdCode = $map['city_ad_code'];
         }
         if (isset($map['contact_name'])) {
             $model->contactName = $map['contact_name'];

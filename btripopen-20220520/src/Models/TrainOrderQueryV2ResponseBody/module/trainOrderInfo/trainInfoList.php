@@ -22,6 +22,11 @@ class trainInfoList extends Model
     /**
      * @var string
      */
+    public $fromCityAdCode;
+
+    /**
+     * @var string
+     */
     public $fromCityName;
 
     /**
@@ -48,6 +53,11 @@ class trainInfoList extends Model
     /**
      * @var string
      */
+    public $toCityAdCode;
+
+    /**
+     * @var string
+     */
     public $toCityName;
 
     /**
@@ -69,10 +79,12 @@ class trainInfoList extends Model
     protected $_name = [
         'arrTime'          => 'arr_time',
         'depTime'          => 'dep_time',
+        'fromCityAdCode'   => 'from_city_ad_code',
         'fromCityName'     => 'from_city_name',
         'fromStationName'  => 'from_station_name',
         'itemId'           => 'item_id',
         'runTime'          => 'run_time',
+        'toCityAdCode'     => 'to_city_ad_code',
         'toCityName'       => 'to_city_name',
         'toStationName'    => 'to_station_name',
         'trainNo'          => 'train_no',
@@ -92,6 +104,9 @@ class trainInfoList extends Model
         if (null !== $this->depTime) {
             $res['dep_time'] = $this->depTime;
         }
+        if (null !== $this->fromCityAdCode) {
+            $res['from_city_ad_code'] = $this->fromCityAdCode;
+        }
         if (null !== $this->fromCityName) {
             $res['from_city_name'] = $this->fromCityName;
         }
@@ -103,6 +118,9 @@ class trainInfoList extends Model
         }
         if (null !== $this->runTime) {
             $res['run_time'] = $this->runTime;
+        }
+        if (null !== $this->toCityAdCode) {
+            $res['to_city_ad_code'] = $this->toCityAdCode;
         }
         if (null !== $this->toCityName) {
             $res['to_city_name'] = $this->toCityName;
@@ -140,6 +158,9 @@ class trainInfoList extends Model
         if (isset($map['dep_time'])) {
             $model->depTime = $map['dep_time'];
         }
+        if (isset($map['from_city_ad_code'])) {
+            $model->fromCityAdCode = $map['from_city_ad_code'];
+        }
         if (isset($map['from_city_name'])) {
             $model->fromCityName = $map['from_city_name'];
         }
@@ -151,6 +172,9 @@ class trainInfoList extends Model
         }
         if (isset($map['run_time'])) {
             $model->runTime = $map['run_time'];
+        }
+        if (isset($map['to_city_ad_code'])) {
+            $model->toCityAdCode = $map['to_city_ad_code'];
         }
         if (isset($map['to_city_name'])) {
             $model->toCityName = $map['to_city_name'];

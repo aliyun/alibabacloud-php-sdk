@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class travelerList extends Model
 {
     /**
+     * @var string
+     */
+    public $jobNo;
+
+    /**
      * @example user1
      *
      * @var string
@@ -20,6 +25,7 @@ class travelerList extends Model
      */
     public $userName;
     protected $_name = [
+        'jobNo'    => 'job_no',
         'userId'   => 'user_id',
         'userName' => 'user_name',
     ];
@@ -31,6 +37,9 @@ class travelerList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->jobNo) {
+            $res['job_no'] = $this->jobNo;
+        }
         if (null !== $this->userId) {
             $res['user_id'] = $this->userId;
         }
@@ -49,6 +58,9 @@ class travelerList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['job_no'])) {
+            $model->jobNo = $map['job_no'];
+        }
         if (isset($map['user_id'])) {
             $model->userId = $map['user_id'];
         }
