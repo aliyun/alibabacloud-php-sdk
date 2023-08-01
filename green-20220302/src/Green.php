@@ -13,6 +13,10 @@ use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\ImageModerationResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\TextModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResponse;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultRequest;
+use AlibabaCloud\SDK\Green\V20220302\Models\VideoModerationResultResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationCancelRequest;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationCancelResponse;
 use AlibabaCloud\SDK\Green\V20220302\Models\VoiceModerationRequest;
@@ -247,6 +251,98 @@ class Green extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->textModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VideoModerationRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return VideoModerationResponse
+     */
+    public function videoModerationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VideoModeration',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VideoModerationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VideoModerationRequest $request
+     *
+     * @return VideoModerationResponse
+     */
+    public function videoModeration($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->videoModerationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VideoModerationResultRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return VideoModerationResultResponse
+     */
+    public function videoModerationResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->service)) {
+            $body['Service'] = $request->service;
+        }
+        if (!Utils::isUnset($request->serviceParameters)) {
+            $body['ServiceParameters'] = $request->serviceParameters;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VideoModerationResult',
+            'version'     => '2022-03-02',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VideoModerationResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VideoModerationResultRequest $request
+     *
+     * @return VideoModerationResultResponse
+     */
+    public function videoModerationResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->videoModerationResultWithOptions($request, $runtime);
     }
 
     /**
