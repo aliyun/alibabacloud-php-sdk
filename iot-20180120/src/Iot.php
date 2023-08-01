@@ -20,7 +20,6 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\AttachParserDataSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\AttachParserDataSourceResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceResponse;
-use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDataForApiSourceShrinkRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddDeviceGroupRelationsResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\BatchAddThingTopoRequest;
@@ -1237,25 +1236,20 @@ class Iot extends OpenApiClient
     }
 
     /**
-     * @param BatchAddDataForApiSourceRequest $tmpReq
+     * @param BatchAddDataForApiSourceRequest $request
      * @param RuntimeOptions                  $runtime
      *
      * @return BatchAddDataForApiSourceResponse
      */
-    public function batchAddDataForApiSourceWithOptions($tmpReq, $runtime)
+    public function batchAddDataForApiSourceWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new BatchAddDataForApiSourceShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->contentList)) {
-            $request->contentListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contentList, 'ContentList', 'json');
-        }
+        Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->apiId)) {
             $query['ApiId'] = $request->apiId;
         }
-        if (!Utils::isUnset($request->contentListShrink)) {
-            $query['ContentList'] = $request->contentListShrink;
+        if (!Utils::isUnset($request->contentList)) {
+            $query['ContentList'] = $request->contentList;
         }
         if (!Utils::isUnset($request->iotInstanceId)) {
             $query['IotInstanceId'] = $request->iotInstanceId;

@@ -18,7 +18,7 @@ class BatchAddDataForApiSourceRequest extends Model
     /**
      * @example [{"key":"value1","ts":1637658286000},{"key":"value2","ts":1637658287000}]
      *
-     * @var mixed[]
+     * @var string
      */
     public $contentList;
 

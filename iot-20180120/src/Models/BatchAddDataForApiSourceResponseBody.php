@@ -16,13 +16,6 @@ class BatchAddDataForApiSourceResponseBody extends Model
     public $code;
 
     /**
-     * @example {"count":2,"hasNext":false,"items":[{"key":"value1","ts":1637658286000,"id":1234567890},{"key":"value2","ts":1637658287000,"id":1234567891}],"pageNum":1,"pageSize":2}
-     *
-     * @var mixed[]
-     */
-    public $data;
-
-    /**
      * @var string
      */
     public $errorMessage;
@@ -42,7 +35,6 @@ class BatchAddDataForApiSourceResponseBody extends Model
     public $success;
     protected $_name = [
         'code'         => 'Code',
-        'data'         => 'Data',
         'errorMessage' => 'ErrorMessage',
         'requestId'    => 'RequestId',
         'success'      => 'Success',
@@ -57,9 +49,6 @@ class BatchAddDataForApiSourceResponseBody extends Model
         $res = [];
         if (null !== $this->code) {
             $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
@@ -84,9 +73,6 @@ class BatchAddDataForApiSourceResponseBody extends Model
         $model = new self();
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
