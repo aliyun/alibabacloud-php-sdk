@@ -93,6 +93,8 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\FeedbackRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\FeedbackResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GenerateUserAccessTokenRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GenerateUserAccessTokenResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAgentInfoRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAgentInfoResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAsyncResultRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetAsyncResultResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\GetInstancePublishTaskStateRequest;
@@ -119,6 +121,10 @@ use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListIntentRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListIntentResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListLgfRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListLgfResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSaasInfoRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSaasInfoResponse;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSaasPermissionGroupInfosRequest;
+use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSaasPermissionGroupInfosResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionRequest;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSimQuestionResponse;
 use AlibabaCloud\SDK\Chatbot\V20220408\Models\ListSolutionRequest;
@@ -2275,6 +2281,49 @@ class Chatbot extends OpenApiClient
     }
 
     /**
+     * @param GetAgentInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetAgentInfoResponse
+     */
+    public function getAgentInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAgentInfo',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAgentInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAgentInfoRequest $request
+     *
+     * @return GetAgentInfoResponse
+     */
+    public function getAgentInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAgentInfoWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetAsyncResultRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2950,6 +2999,98 @@ class Chatbot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listLgfWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSaasInfoRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListSaasInfoResponse
+     */
+    public function listSaasInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        if (!Utils::isUnset($request->saasGroupCodes)) {
+            $query['SaasGroupCodes'] = $request->saasGroupCodes;
+        }
+        if (!Utils::isUnset($request->saasName)) {
+            $query['SaasName'] = $request->saasName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSaasInfo',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSaasInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSaasInfoRequest $request
+     *
+     * @return ListSaasInfoResponse
+     */
+    public function listSaasInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSaasInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSaasPermissionGroupInfosRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListSaasPermissionGroupInfosResponse
+     */
+    public function listSaasPermissionGroupInfosWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->agentKey)) {
+            $query['AgentKey'] = $request->agentKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSaasPermissionGroupInfos',
+            'version'     => '2022-04-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSaasPermissionGroupInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSaasPermissionGroupInfosRequest $request
+     *
+     * @return ListSaasPermissionGroupInfosResponse
+     */
+    public function listSaasPermissionGroupInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSaasPermissionGroupInfosWithOptions($request, $runtime);
     }
 
     /**
