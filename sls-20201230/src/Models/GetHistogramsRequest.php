@@ -16,7 +16,7 @@ class GetHistogramsRequest extends Model
     public $from;
 
     /**
-     * @example * | with_pack_meta
+     * @example error
      *
      * @var string
      */

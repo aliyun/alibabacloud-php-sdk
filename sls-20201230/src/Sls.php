@@ -10,8 +10,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDashboardRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateIndexRequest;
@@ -34,7 +38,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
@@ -49,12 +55,14 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetContextLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCursorTimeResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetHistogramsResponse;
@@ -63,6 +71,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Headers;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Response;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
@@ -71,7 +82,11 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
@@ -104,8 +119,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateDashboardRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateDashboardResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
@@ -173,7 +192,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return ApplyConfigToMachineGroupResponse::fromMap($this->execute($params, $req, $runtime));
@@ -195,16 +214,19 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                     $project
      * @param ChangeResourceGroupRequest $request
      * @param string[]                   $headers
      * @param RuntimeOptions             $runtime
      *
      * @return ChangeResourceGroupResponse
      */
-    public function changeResourceGroupWithOptions($request, $headers, $runtime)
+    public function changeResourceGroupWithOptions($project, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
         if (!Utils::isUnset($request->resourceGroupId)) {
             $body['resourceGroupId'] = $request->resourceGroupId;
         }
@@ -215,6 +237,7 @@ class Sls extends OpenApiClient
             $body['resourceType'] = $request->resourceType;
         }
         $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -234,16 +257,17 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                     $project
      * @param ChangeResourceGroupRequest $request
      *
      * @return ChangeResourceGroupResponse
      */
-    public function changeResourceGroup($request)
+    public function changeResourceGroup($project, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->changeResourceGroupWithOptions($request, $headers, $runtime);
+        return $this->changeResourceGroupWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -303,6 +327,53 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string              $project
+     * @param CreateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateConfigResponse
+     */
+    public function createConfigWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/configs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param CreateConfigRequest $request
+     *
+     * @return CreateConfigResponse
+     */
+    public function createConfig($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createConfigWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                     $project
      * @param string                     $logstore
      * @param CreateConsumerGroupRequest $request
@@ -359,6 +430,53 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createConsumerGroupWithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $project
+     * @param CreateDashboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateDashboardResponse
+     */
+    public function createDashboardWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDashboard',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dashboards',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $project
+     * @param CreateDashboardRequest $request
+     *
+     * @return CreateDashboardResponse
+     */
+    public function createDashboard($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createDashboardWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -889,7 +1007,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
@@ -1030,6 +1148,51 @@ class Sls extends OpenApiClient
 
     /**
      * @param string         $project
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteConfigResponse
+     */
+    public function deleteConfigWithOptions($project, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/configs/' . $configName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $configName
+     *
+     * @return DeleteConfigResponse
+     */
+    public function deleteConfig($project, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteConfigWithOptions($project, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
      * @param string         $logstore
      * @param string         $consumerGroup
      * @param string[]       $headers
@@ -1073,6 +1236,51 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteConsumerGroupWithOptions($project, $logstore, $consumerGroup, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $dashboardName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteDashboardResponse
+     */
+    public function deleteDashboardWithOptions($project, $dashboardName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDashboard',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dashboards/' . $dashboardName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $dashboardName
+     *
+     * @return DeleteDashboardResponse
+     */
+    public function deleteDashboard($project, $dashboardName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteDashboardWithOptions($project, $dashboardName, $headers, $runtime);
     }
 
     /**
@@ -1667,6 +1875,51 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string         $project
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetConfigResponse
+     */
+    public function getConfigWithOptions($project, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/configs/' . $configName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $configName
+     *
+     * @return GetConfigResponse
+     */
+    public function getConfig($project, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getConfigWithOptions($project, $configName, $headers, $runtime);
+    }
+
+    /**
      * @param string                $project
      * @param string                $logstore
      * @param GetContextLogsRequest $request
@@ -1839,6 +2092,51 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->getCursorTimeWithOptions($project, $logstore, $shardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $dashboardName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetDashboardResponse
+     */
+    public function getDashboardWithOptions($project, $dashboardName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetDashboard',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dashboards/' . $dashboardName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $dashboardName
+     *
+     * @return GetDashboardResponse
+     */
+    public function getDashboard($project, $dashboardName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getDashboardWithOptions($project, $dashboardName, $headers, $runtime);
     }
 
     /**
@@ -2156,6 +2454,96 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string           $project
+     * @param string           $logstore
+     * @param GetLogsV2Request $request
+     * @param GetLogsV2Headers $headers
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetLogsV2Response
+     */
+    public function getLogsV2WithOptions($project, $logstore, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->forward)) {
+            $body['forward'] = $request->forward;
+        }
+        if (!Utils::isUnset($request->from)) {
+            $body['from'] = $request->from;
+        }
+        if (!Utils::isUnset($request->line)) {
+            $body['line'] = $request->line;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $body['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->powerSql)) {
+            $body['powerSql'] = $request->powerSql;
+        }
+        if (!Utils::isUnset($request->query)) {
+            $body['query'] = $request->query;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $body['reverse'] = $request->reverse;
+        }
+        if (!Utils::isUnset($request->session)) {
+            $body['session'] = $request->session;
+        }
+        if (!Utils::isUnset($request->shard)) {
+            $body['shard'] = $request->shard;
+        }
+        if (!Utils::isUnset($request->to)) {
+            $body['to'] = $request->to;
+        }
+        if (!Utils::isUnset($request->topic)) {
+            $body['topic'] = $request->topic;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->acceptEncoding)) {
+            $realHeaders['Accept-Encoding'] = Utils::toJSONString($headers->acceptEncoding);
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLogsV2',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/logstores/' . $logstore . '/logs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLogsV2Response::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string           $project
+     * @param string           $logstore
+     * @param GetLogsV2Request $request
+     *
+     * @return GetLogsV2Response
+     */
+    public function getLogsV2($project, $logstore, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new GetLogsV2Headers([]);
+
+        return $this->getLogsV2WithOptions($project, $logstore, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $project
      * @param string         $machineGroup
      * @param string[]       $headers
@@ -2453,6 +2841,66 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string            $project
+     * @param ListConfigRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ListConfigResponse
+     */
+    public function listConfigWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->configName)) {
+            $query['configName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->logstoreName)) {
+            $query['logstoreName'] = $request->logstoreName;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/configs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string            $project
+     * @param ListConfigRequest $request
+     *
+     * @return ListConfigResponse
+     */
+    public function listConfig($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listConfigWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string         $project
      * @param string         $logstore
      * @param string[]       $headers
@@ -2495,6 +2943,60 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listConsumerGroupWithOptions($project, $logstore, $headers, $runtime);
+    }
+
+    /**
+     * @param string               $project
+     * @param ListDashboardRequest $request
+     * @param string[]             $headers
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListDashboardResponse
+     */
+    public function listDashboardWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDashboard',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dashboards',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string               $project
+     * @param ListDashboardRequest $request
+     *
+     * @return ListDashboardResponse
+     */
+    public function listDashboard($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listDashboardWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -3428,6 +3930,55 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string              $project
+     * @param string              $configName
+     * @param UpdateConfigRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdateConfigResponse
+     */
+    public function updateConfigWithOptions($project, $configName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/configs/' . $configName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string              $project
+     * @param string              $configName
+     * @param UpdateConfigRequest $request
+     *
+     * @return UpdateConfigResponse
+     */
+    public function updateConfig($project, $configName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateConfigWithOptions($project, $configName, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                     $project
      * @param string                     $logstore
      * @param string                     $consumerGroup
@@ -3483,6 +4034,71 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateConsumerGroupWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                 $project
+     * @param string                 $dashboardName
+     * @param UpdateDashboardRequest $request
+     * @param string[]               $headers
+     * @param RuntimeOptions         $runtime
+     *
+     * @return UpdateDashboardResponse
+     */
+    public function updateDashboardWithOptions($project, $dashboardName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->attribute)) {
+            $body['attribute'] = $request->attribute;
+        }
+        if (!Utils::isUnset($request->charts)) {
+            $body['charts'] = $request->charts;
+        }
+        if (!Utils::isUnset($request->dashboardName)) {
+            $body['dashboardName'] = $request->dashboardName;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->displayName)) {
+            $body['displayName'] = $request->displayName;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDashboard',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dashboards/' . $dashboardName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateDashboardResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                 $project
+     * @param string                 $dashboardName
+     * @param UpdateDashboardRequest $request
+     *
+     * @return UpdateDashboardResponse
+     */
+    public function updateDashboard($project, $dashboardName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateDashboardWithOptions($project, $dashboardName, $request, $headers, $runtime);
     }
 
     /**

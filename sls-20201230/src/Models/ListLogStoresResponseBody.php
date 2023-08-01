@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListLogStoresResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $count;
+
+    /**
      * @example ["test-1","test-2"]
      *
      * @var string[]
@@ -22,6 +27,7 @@ class ListLogStoresResponseBody extends Model
      */
     public $total;
     protected $_name = [
+        'count'     => 'count',
         'logstores' => 'logstores',
         'total'     => 'total',
     ];
@@ -33,6 +39,9 @@ class ListLogStoresResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->count) {
+            $res['count'] = $this->count;
+        }
         if (null !== $this->logstores) {
             $res['logstores'] = $this->logstores;
         }
@@ -51,6 +60,9 @@ class ListLogStoresResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['count'])) {
+            $model->count = $map['count'];
+        }
         if (isset($map['logstores'])) {
             if (!empty($map['logstores'])) {
                 $model->logstores = $map['logstores'];

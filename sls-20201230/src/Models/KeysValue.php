@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class KeysValue extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $caseSensitive;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $chn;
@@ -26,6 +30,8 @@ class KeysValue extends Model
     public $type;
 
     /**
+     * @example myAlias
+     *
      * @var string
      */
     public $alias;
@@ -36,6 +42,8 @@ class KeysValue extends Model
     public $token;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $docValue;

@@ -6,22 +6,14 @@ namespace AlibabaCloud\SDK\Sls\V20201230\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class UpdateMachineGroupMachineRequest extends Model
+class CreateConfigRequest extends Model
 {
     /**
-     * @example add
-     *
-     * @var string
-     */
-    public $action;
-
-    /**
-     * @var string[]
+     * @var LogtailConfig
      */
     public $body;
     protected $_name = [
-        'action' => 'action',
-        'body'   => 'body',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -31,11 +23,8 @@ class UpdateMachineGroupMachineRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->action) {
-            $res['action'] = $this->action;
-        }
         if (null !== $this->body) {
-            $res['body'] = $this->body;
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -44,18 +33,13 @@ class UpdateMachineGroupMachineRequest extends Model
     /**
      * @param array $map
      *
-     * @return UpdateMachineGroupMachineRequest
+     * @return CreateConfigRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['action'])) {
-            $model->action = $map['action'];
-        }
         if (isset($map['body'])) {
-            if (!empty($map['body'])) {
-                $model->body = $map['body'];
-            }
+            $model->body = LogtailConfig::fromMap($map['body']);
         }
 
         return $model;
