@@ -30,13 +30,6 @@ class result extends Model
     public $email;
 
     /**
-     * @example 5f969843cd2214ba0e24327d
-     *
-     * @var string
-     */
-    public $externUid;
-
-    /**
      * @example 24661
      *
      * @var int
@@ -81,7 +74,6 @@ class result extends Model
         'accessLevel' => 'accessLevel',
         'avatarUrl'   => 'avatarUrl',
         'email'       => 'email',
-        'externUid'   => 'externUid',
         'id'          => 'id',
         'memberType'  => 'memberType',
         'name'        => 'name',
@@ -105,9 +97,6 @@ class result extends Model
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
-        }
-        if (null !== $this->externUid) {
-            $res['externUid'] = $this->externUid;
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
@@ -147,9 +136,6 @@ class result extends Model
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
-        }
-        if (isset($map['externUid'])) {
-            $model->externUid = $map['externUid'];
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];

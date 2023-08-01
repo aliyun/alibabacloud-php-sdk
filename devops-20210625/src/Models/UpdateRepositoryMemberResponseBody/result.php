@@ -37,13 +37,6 @@ class result extends Model
     public $expireAt;
 
     /**
-     * @example 5f969843cd2214ba0e24327d
-     *
-     * @var string
-     */
-    public $externUid;
-
-    /**
      * @example 30815
      *
      * @var int
@@ -93,13 +86,6 @@ class result extends Model
     public $state;
 
     /**
-     * @example sweadsajojiwe
-     *
-     * @var string
-     */
-    public $tbUserId;
-
-    /**
      * @example codeup-test
      *
      * @var string
@@ -119,7 +105,6 @@ class result extends Model
         'avatarUrl'   => 'avatarUrl',
         'email'       => 'email',
         'expireAt'    => 'expireAt',
-        'externUid'   => 'externUid',
         'id'          => 'id',
         'memberName'  => 'memberName',
         'memberType'  => 'memberType',
@@ -127,7 +112,6 @@ class result extends Model
         'sourceId'    => 'sourceId',
         'sourceType'  => 'sourceType',
         'state'       => 'state',
-        'tbUserId'    => 'tbUserId',
         'username'    => 'username',
         'webUrl'      => 'webUrl',
     ];
@@ -151,9 +135,6 @@ class result extends Model
         if (null !== $this->expireAt) {
             $res['expireAt'] = $this->expireAt;
         }
-        if (null !== $this->externUid) {
-            $res['externUid'] = $this->externUid;
-        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -174,9 +155,6 @@ class result extends Model
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
-        }
-        if (null !== $this->tbUserId) {
-            $res['tbUserId'] = $this->tbUserId;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -208,9 +186,6 @@ class result extends Model
         if (isset($map['expireAt'])) {
             $model->expireAt = $map['expireAt'];
         }
-        if (isset($map['externUid'])) {
-            $model->externUid = $map['externUid'];
-        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
@@ -231,9 +206,6 @@ class result extends Model
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
-        }
-        if (isset($map['tbUserId'])) {
-            $model->tbUserId = $map['tbUserId'];
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];

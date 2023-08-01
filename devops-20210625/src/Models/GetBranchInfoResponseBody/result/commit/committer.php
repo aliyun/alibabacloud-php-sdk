@@ -23,13 +23,6 @@ class committer extends Model
     public $email;
 
     /**
-     * @example 62c795c9cf51ade33b468af8
-     *
-     * @var string
-     */
-    public $externUid;
-
-    /**
      * @example 5035
      *
      * @var int
@@ -51,13 +44,6 @@ class committer extends Model
     public $state;
 
     /**
-     * @example 62c795c9cf51ade33b468af8
-     *
-     * @var string
-     */
-    public $tbUserId;
-
-    /**
      * @example commitcommit
      *
      * @var string
@@ -66,11 +52,9 @@ class committer extends Model
     protected $_name = [
         'avatarUrl' => 'avatarUrl',
         'email'     => 'email',
-        'externUid' => 'externUid',
         'id'        => 'id',
         'name'      => 'name',
         'state'     => 'state',
-        'tbUserId'  => 'tbUserId',
         'username'  => 'username',
     ];
 
@@ -87,9 +71,6 @@ class committer extends Model
         if (null !== $this->email) {
             $res['email'] = $this->email;
         }
-        if (null !== $this->externUid) {
-            $res['externUid'] = $this->externUid;
-        }
         if (null !== $this->id) {
             $res['id'] = $this->id;
         }
@@ -98,9 +79,6 @@ class committer extends Model
         }
         if (null !== $this->state) {
             $res['state'] = $this->state;
-        }
-        if (null !== $this->tbUserId) {
-            $res['tbUserId'] = $this->tbUserId;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -123,9 +101,6 @@ class committer extends Model
         if (isset($map['email'])) {
             $model->email = $map['email'];
         }
-        if (isset($map['externUid'])) {
-            $model->externUid = $map['externUid'];
-        }
         if (isset($map['id'])) {
             $model->id = $map['id'];
         }
@@ -134,9 +109,6 @@ class committer extends Model
         }
         if (isset($map['state'])) {
             $model->state = $map['state'];
-        }
-        if (isset($map['tbUserId'])) {
-            $model->tbUserId = $map['tbUserId'];
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];

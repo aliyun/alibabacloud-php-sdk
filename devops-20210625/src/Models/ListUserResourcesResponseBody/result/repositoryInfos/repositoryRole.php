@@ -2,35 +2,33 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models\DeleteRepositoryMemberResponseBody;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result\repositoryInfos;
 
 use AlibabaCloud\Tea\Model;
 
-class result extends Model
+class repositoryRole extends Model
 {
     /**
-     * @example 30
+     * @example 40
      *
      * @var int
      */
     public $accessLevel;
 
     /**
-     * @example 2022-03-12 12:00:00
+     * @var string
+     */
+    public $cnRoleName;
+
+    /**
+     * @example Admin
      *
      * @var string
      */
-    public $createAt;
+    public $enRoleName;
 
     /**
-     * @example 30815
-     *
-     * @var int
-     */
-    public $id;
-
-    /**
-     * @example 2080398
+     * @example 37229
      *
      * @var int
      */
@@ -42,28 +40,12 @@ class result extends Model
      * @var string
      */
     public $sourceType;
-
-    /**
-     * @example 2022-03-12 12:00:00
-     *
-     * @var string
-     */
-    public $updateAt;
-
-    /**
-     * @example 19280
-     *
-     * @var int
-     */
-    public $userId;
     protected $_name = [
         'accessLevel' => 'accessLevel',
-        'createAt'    => 'createAt',
-        'id'          => 'id',
+        'cnRoleName'  => 'cnRoleName',
+        'enRoleName'  => 'enRoleName',
         'sourceId'    => 'sourceId',
         'sourceType'  => 'sourceType',
-        'updateAt'    => 'updateAt',
-        'userId'      => 'userId',
     ];
 
     public function validate()
@@ -76,23 +58,17 @@ class result extends Model
         if (null !== $this->accessLevel) {
             $res['accessLevel'] = $this->accessLevel;
         }
-        if (null !== $this->createAt) {
-            $res['createAt'] = $this->createAt;
+        if (null !== $this->cnRoleName) {
+            $res['cnRoleName'] = $this->cnRoleName;
         }
-        if (null !== $this->id) {
-            $res['id'] = $this->id;
+        if (null !== $this->enRoleName) {
+            $res['enRoleName'] = $this->enRoleName;
         }
         if (null !== $this->sourceId) {
             $res['sourceId'] = $this->sourceId;
         }
         if (null !== $this->sourceType) {
             $res['sourceType'] = $this->sourceType;
-        }
-        if (null !== $this->updateAt) {
-            $res['updateAt'] = $this->updateAt;
-        }
-        if (null !== $this->userId) {
-            $res['userId'] = $this->userId;
         }
 
         return $res;
@@ -101,7 +77,7 @@ class result extends Model
     /**
      * @param array $map
      *
-     * @return result
+     * @return repositoryRole
      */
     public static function fromMap($map = [])
     {
@@ -109,23 +85,17 @@ class result extends Model
         if (isset($map['accessLevel'])) {
             $model->accessLevel = $map['accessLevel'];
         }
-        if (isset($map['createAt'])) {
-            $model->createAt = $map['createAt'];
+        if (isset($map['cnRoleName'])) {
+            $model->cnRoleName = $map['cnRoleName'];
         }
-        if (isset($map['id'])) {
-            $model->id = $map['id'];
+        if (isset($map['enRoleName'])) {
+            $model->enRoleName = $map['enRoleName'];
         }
         if (isset($map['sourceId'])) {
             $model->sourceId = $map['sourceId'];
         }
         if (isset($map['sourceType'])) {
             $model->sourceType = $map['sourceType'];
-        }
-        if (isset($map['updateAt'])) {
-            $model->updateAt = $map['updateAt'];
-        }
-        if (isset($map['userId'])) {
-            $model->userId = $map['userId'];
         }
 
         return $model;

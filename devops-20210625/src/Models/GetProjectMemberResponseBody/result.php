@@ -23,13 +23,6 @@ class result extends Model
     public $avatarUrl;
 
     /**
-     * @example 5f969843cd2214ba0e24327d
-     *
-     * @var string
-     */
-    public $externUserId;
-
-    /**
      * @example 2959
      *
      * @var int
@@ -43,11 +36,10 @@ class result extends Model
      */
     public $name;
     protected $_name = [
-        'accessLevel'  => 'accessLevel',
-        'avatarUrl'    => 'avatarUrl',
-        'externUserId' => 'externUserId',
-        'id'           => 'id',
-        'name'         => 'name',
+        'accessLevel' => 'accessLevel',
+        'avatarUrl'   => 'avatarUrl',
+        'id'          => 'id',
+        'name'        => 'name',
     ];
 
     public function validate()
@@ -62,9 +54,6 @@ class result extends Model
         }
         if (null !== $this->avatarUrl) {
             $res['avatarUrl'] = $this->avatarUrl;
-        }
-        if (null !== $this->externUserId) {
-            $res['externUserId'] = $this->externUserId;
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
@@ -89,9 +78,6 @@ class result extends Model
         }
         if (isset($map['avatarUrl'])) {
             $model->avatarUrl = $map['avatarUrl'];
-        }
-        if (isset($map['externUserId'])) {
-            $model->externUserId = $map['externUserId'];
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];

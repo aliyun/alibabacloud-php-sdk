@@ -2,18 +2,12 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedResponseBody;
+namespace AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponseBody\result;
 
-use AlibabaCloud\SDK\Devops\V20210625\Models\ListRepositoryMemberWithInheritedResponseBody\result\inherited;
 use AlibabaCloud\Tea\Model;
 
-class result extends Model
+class userInfo extends Model
 {
-    /**
-     * @var int
-     */
-    public $accessLevel;
-
     /**
      * @example https://tcs-devops.aliyuncs.com/thumbnail/112afcb7a6a35c3f67f1bea827c4/w/100/h/100
      *
@@ -22,22 +16,21 @@ class result extends Model
     public $avatarUrl;
 
     /**
+     * @example username@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @example 19230
+     *
      * @var int
      */
     public $id;
 
     /**
-     * @var inherited
-     */
-    public $inherited;
-
-    /**
-     * @example codeup
+     * @example test-codeup
      *
      * @var string
      */
@@ -51,20 +44,18 @@ class result extends Model
     public $state;
 
     /**
-     * @example yunxiao
+     * @example test-codeup
      *
      * @var string
      */
     public $username;
     protected $_name = [
-        'accessLevel' => 'accessLevel',
-        'avatarUrl'   => 'avatarUrl',
-        'email'       => 'email',
-        'id'          => 'id',
-        'inherited'   => 'inherited',
-        'name'        => 'name',
-        'state'       => 'state',
-        'username'    => 'username',
+        'avatarUrl' => 'avatarUrl',
+        'email'     => 'email',
+        'id'        => 'id',
+        'name'      => 'name',
+        'state'     => 'state',
+        'username'  => 'username',
     ];
 
     public function validate()
@@ -74,9 +65,6 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accessLevel) {
-            $res['accessLevel'] = $this->accessLevel;
-        }
         if (null !== $this->avatarUrl) {
             $res['avatarUrl'] = $this->avatarUrl;
         }
@@ -85,9 +73,6 @@ class result extends Model
         }
         if (null !== $this->id) {
             $res['id'] = $this->id;
-        }
-        if (null !== $this->inherited) {
-            $res['inherited'] = null !== $this->inherited ? $this->inherited->toMap() : null;
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
@@ -105,14 +90,11 @@ class result extends Model
     /**
      * @param array $map
      *
-     * @return result
+     * @return userInfo
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['accessLevel'])) {
-            $model->accessLevel = $map['accessLevel'];
-        }
         if (isset($map['avatarUrl'])) {
             $model->avatarUrl = $map['avatarUrl'];
         }
@@ -121,9 +103,6 @@ class result extends Model
         }
         if (isset($map['id'])) {
             $model->id = $map['id'];
-        }
-        if (isset($map['inherited'])) {
-            $model->inherited = inherited::fromMap($map['inherited']);
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];

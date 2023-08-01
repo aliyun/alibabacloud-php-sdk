@@ -35,13 +35,6 @@ class allowMergeUsers extends Model
     public $name;
 
     /**
-     * @example 5f969843cd2214ba0e24327d
-     *
-     * @var string
-     */
-    public $tbUserId;
-
-    /**
      * @example codeup-test
      *
      * @var string
@@ -52,7 +45,6 @@ class allowMergeUsers extends Model
         'email'    => 'email',
         'id'       => 'id',
         'name'     => 'name',
-        'tbUserId' => 'tbUserId',
         'username' => 'username',
     ];
 
@@ -74,9 +66,6 @@ class allowMergeUsers extends Model
         }
         if (null !== $this->name) {
             $res['name'] = $this->name;
-        }
-        if (null !== $this->tbUserId) {
-            $res['tbUserId'] = $this->tbUserId;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -104,9 +93,6 @@ class allowMergeUsers extends Model
         }
         if (isset($map['name'])) {
             $model->name = $map['name'];
-        }
-        if (isset($map['tbUserId'])) {
-            $model->tbUserId = $map['tbUserId'];
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];

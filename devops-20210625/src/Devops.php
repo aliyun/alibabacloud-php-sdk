@@ -232,6 +232,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserKeysRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserKeysResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListUserResourcesResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
@@ -260,6 +262,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\StartPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StopPipelineJobRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StopPipelineRunResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\StopVMDeployOrderResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\TransferRepositoryRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\TransferRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TriggerRepositoryMirrorSyncRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\TriggerRepositoryMirrorSyncResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateFileRequest;
@@ -7337,6 +7341,64 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param ListUserResourcesRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListUserResourcesResponse
+     */
+    public function listUserResourcesWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->page)) {
+            $query['page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->userIds)) {
+            $query['userIds'] = $request->userIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserResources',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/user/vision/user_resources',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserResourcesRequest $request
+     *
+     * @return ListUserResourcesResponse
+     */
+    public function listUserResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listUserResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string                    $organizationId
      * @param ListVariableGroupsRequest $request
      * @param string[]                  $headers
@@ -8358,6 +8420,61 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->stopVMDeployOrderWithOptions($organizationId, $pipelineId, $deployOrderId, $headers, $runtime);
+    }
+
+    /**
+     * @param TransferRepositoryRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return TransferRepositoryResponse
+     */
+    public function transferRepositoryWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessToken)) {
+            $query['accessToken'] = $request->accessToken;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['groupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->organizationId)) {
+            $query['organizationId'] = $request->organizationId;
+        }
+        if (!Utils::isUnset($request->repositoryId)) {
+            $query['repositoryId'] = $request->repositoryId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TransferRepository',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v4/projects/repository/transfer',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return TransferRepositoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TransferRepositoryRequest $request
+     *
+     * @return TransferRepositoryResponse
+     */
+    public function transferRepository($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->transferRepositoryWithOptions($request, $headers, $runtime);
     }
 
     /**
