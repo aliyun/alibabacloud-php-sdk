@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryReque
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSLSRealTimeLogDeliveryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnWafGroupRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnWafGroupResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnWafPolicyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateDcdnWafPolicyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\CreateRoutineRequest;
@@ -68,6 +70,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafGroupRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafGroupResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafPolicyRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafPolicyResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteRoutineCodeRevisionRequest;
@@ -89,6 +93,9 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnCertificateListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosServiceResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDdosSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeletedDomainsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnDeliverListRequest;
@@ -227,6 +234,7 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealtimeLogDeliveryResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSLSRealTimeLogTypeResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnSMCertificateListRequest;
@@ -261,6 +269,9 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserSecDropResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnUserTagsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnVerifyContentResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafBotAppKeyResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDefaultRulesRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDefaultRulesResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainDetailRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainDetailResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafDomainRequest;
@@ -271,6 +282,10 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafFilterInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGeoInfoResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGroupRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGroupResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGroupsRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafGroupsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafLogsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafPoliciesRequest;
@@ -292,6 +307,11 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafServiceResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafSpecInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnWafUsageDataResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDdosAllEventListRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDdosAllEventListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeEncryptRoutineUidResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeHighlightInfoRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeHighlightInfoResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeRDDomainsRequest;
@@ -517,6 +537,9 @@ class Dcdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $query['Scene'] = $request->scene;
         }
         if (!Utils::isUnset($request->scope)) {
             $query['Scope'] = $request->scope;
@@ -1588,6 +1611,55 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param CreateDcdnWafGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDcdnWafGroupResponse
+     */
+    public function createDcdnWafGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->subscribe)) {
+            $body['Subscribe'] = $request->subscribe;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $body['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDcdnWafGroup',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDcdnWafGroupRequest $request
+     *
+     * @return CreateDcdnWafGroupResponse
+     */
+    public function createDcdnWafGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDcdnWafGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * *   You can call this operation up to 20 times per second per user.
      *   * *   Alibaba Cloud Dynamic Route for CDN (DCDN) supports POST requests.
      *   *
@@ -2270,6 +2342,49 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param DeleteDcdnWafGroupRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDcdnWafGroupResponse
+     */
+    public function deleteDcdnWafGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->id)) {
+            $body['Id'] = $request->id;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnWafGroup',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnWafGroupRequest $request
+     *
+     * @return DeleteDcdnWafGroupResponse
+     */
+    public function deleteDcdnWafGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnWafGroupWithOptions($request, $runtime);
+    }
+
+    /**
      * #
      *   * *   You can call this operation up to 20 times per second.
      *   * *   Alibaba Cloud Dynamic Content Delivery Network (DCDN) supports POST requests.
@@ -2809,6 +2924,85 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnDdosServiceRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDcdnDdosServiceResponse
+     */
+    public function describeDcdnDdosServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDdosService',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDdosServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnDdosServiceRequest $request
+     *
+     * @return DescribeDcdnDdosServiceResponse
+     */
+    public function describeDcdnDdosService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDdosServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnDdosSpecInfoResponse
+     */
+    public function describeDcdnDdosSpecInfoWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnDdosSpecInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnDdosSpecInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeDcdnDdosSpecInfoResponse
+     */
+    public function describeDcdnDdosSpecInfo()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnDdosSpecInfoWithOptions($runtime);
     }
 
     /**
@@ -6728,6 +6922,39 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnSLSRealTimeLogTypeResponse
+     */
+    public function describeDcdnSLSRealTimeLogTypeWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnSLSRealTimeLogType',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnSLSRealTimeLogTypeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeDcdnSLSRealTimeLogTypeResponse
+     */
+    public function describeDcdnSLSRealTimeLogType()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnSLSRealTimeLogTypeWithOptions($runtime);
+    }
+
+    /**
      * > You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeDcdnSLSRealtimeLogDeliveryRequest $request DescribeDcdnSLSRealtimeLogDeliveryRequest
@@ -7886,6 +8113,82 @@ class Dcdn extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeDcdnWafBotAppKeyResponse
+     */
+    public function describeDcdnWafBotAppKeyWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafBotAppKey',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafBotAppKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeDcdnWafBotAppKeyResponse
+     */
+    public function describeDcdnWafBotAppKey()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafBotAppKeyWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafDefaultRulesRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return DescribeDcdnWafDefaultRulesResponse
+     */
+    public function describeDcdnWafDefaultRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->queryArgs)) {
+            $query['QueryArgs'] = $request->queryArgs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafDefaultRules',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafDefaultRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafDefaultRulesRequest $request
+     *
+     * @return DescribeDcdnWafDefaultRulesResponse
+     */
+    public function describeDcdnWafDefaultRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafDefaultRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * > You can call this operation up to 50 times per second per account.
      *   *
      * @param DescribeDcdnWafDomainRequest $request DescribeDcdnWafDomainRequest
@@ -8137,6 +8440,116 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnWafGeoInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafGroupRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeDcdnWafGroupResponse
+     */
+    public function describeDcdnWafGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgs)) {
+            $query['QueryArgs'] = $request->queryArgs;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $query['Scope'] = $request->scope;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafGroup',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafGroupRequest $request
+     *
+     * @return DescribeDcdnWafGroupResponse
+     */
+    public function describeDcdnWafGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnWafGroupsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeDcdnWafGroupsResponse
+     */
+    public function describeDcdnWafGroupsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->queryArgs)) {
+            $query['QueryArgs'] = $request->queryArgs;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnWafGroups',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnWafGroupsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnWafGroupsRequest $request
+     *
+     * @return DescribeDcdnWafGroupsResponse
+     */
+    public function describeDcdnWafGroups($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnWafGroupsWithOptions($request, $runtime);
     }
 
     /**
@@ -8762,6 +9175,146 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnsecServiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDdosAllEventListRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDdosAllEventListResponse
+     */
+    public function describeDdosAllEventListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->eventType)) {
+            $query['EventType'] = $request->eventType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDdosAllEventList',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDdosAllEventListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDdosAllEventListRequest $request
+     *
+     * @return DescribeDdosAllEventListResponse
+     */
+    public function describeDdosAllEventList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDdosAllEventListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeEncryptRoutineUidResponse
+     */
+    public function describeEncryptRoutineUidWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'DescribeEncryptRoutineUid',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeEncryptRoutineUidResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return DescribeEncryptRoutineUidResponse
+     */
+    public function describeEncryptRoutineUid()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeEncryptRoutineUidWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeHighlightInfoRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DescribeHighlightInfoResponse
+     */
+    public function describeHighlightInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->traceId)) {
+            $query['TraceId'] = $request->traceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHighlightInfo',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHighlightInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHighlightInfoRequest $request
+     *
+     * @return DescribeHighlightInfoResponse
+     */
+    public function describeHighlightInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHighlightInfoWithOptions($request, $runtime);
     }
 
     /**

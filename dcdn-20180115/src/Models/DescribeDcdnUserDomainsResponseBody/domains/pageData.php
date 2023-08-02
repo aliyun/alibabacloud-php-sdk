@@ -110,6 +110,11 @@ class pageData extends Model
     public $sandbox;
 
     /**
+     * @var string
+     */
+    public $scene;
+
+    /**
      * @description The information about the origin server.
      *
      * @var sources
@@ -126,6 +131,7 @@ class pageData extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'SSLProtocol'     => 'SSLProtocol',
         'sandbox'         => 'Sandbox',
+        'scene'           => 'Scene',
         'sources'         => 'Sources',
     ];
 
@@ -165,6 +171,9 @@ class pageData extends Model
         }
         if (null !== $this->sandbox) {
             $res['Sandbox'] = $this->sandbox;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->sources) {
             $res['Sources'] = null !== $this->sources ? $this->sources->toMap() : null;
@@ -210,6 +219,9 @@ class pageData extends Model
         }
         if (isset($map['Sandbox'])) {
             $model->sandbox = $map['Sandbox'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['Sources'])) {
             $model->sources = sources::fromMap($map['Sources']);

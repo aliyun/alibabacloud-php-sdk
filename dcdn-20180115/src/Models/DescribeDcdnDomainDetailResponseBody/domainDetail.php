@@ -101,6 +101,11 @@ class domainDetail extends Model
     public $SSLPub;
 
     /**
+     * @var string
+     */
+    public $scene;
+
+    /**
      * @description The acceleration region. Default value: domestic. Valid values:
      *
      *   **domestic**: Chinese mainland
@@ -129,6 +134,7 @@ class domainDetail extends Model
         'resourceGroupId' => 'ResourceGroupId',
         'SSLProtocol'     => 'SSLProtocol',
         'SSLPub'          => 'SSLPub',
+        'scene'           => 'Scene',
         'scope'           => 'Scope',
         'sources'         => 'Sources',
     ];
@@ -166,6 +172,9 @@ class domainDetail extends Model
         }
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
@@ -211,6 +220,9 @@ class domainDetail extends Model
         }
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];

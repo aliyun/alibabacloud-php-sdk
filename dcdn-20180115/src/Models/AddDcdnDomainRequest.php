@@ -48,6 +48,11 @@ class AddDcdnDomainRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $scene;
+
+    /**
      * @description The acceleration region. Valid values:
      *
      *   **domestic**: Chinese mainland
@@ -96,6 +101,7 @@ class AddDcdnDomainRequest extends Model
         'ownerAccount'    => 'OwnerAccount',
         'ownerId'         => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
+        'scene'           => 'Scene',
         'scope'           => 'Scope',
         'securityToken'   => 'SecurityToken',
         'sources'         => 'Sources',
@@ -124,6 +130,9 @@ class AddDcdnDomainRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->scene) {
+            $res['Scene'] = $this->scene;
         }
         if (null !== $this->scope) {
             $res['Scope'] = $this->scope;
@@ -172,6 +181,9 @@ class AddDcdnDomainRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Scene'])) {
+            $model->scene = $map['Scene'];
         }
         if (isset($map['Scope'])) {
             $model->scope = $map['Scope'];
