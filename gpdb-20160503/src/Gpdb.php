@@ -133,6 +133,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\DownloadSQLLogsRecordsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\GrantCollectionResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\InitVectorDatabaseResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListCollectionsResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ListNamespacesRequest;
@@ -2120,6 +2122,9 @@ class Gpdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->connectionString)) {
+            $query['ConnectionString'] = $request->connectionString;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }
@@ -4224,6 +4229,61 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->grantCollectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InitVectorDatabaseRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return InitVectorDatabaseResponse
+     */
+    public function initVectorDatabaseWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->managerAccount)) {
+            $query['ManagerAccount'] = $request->managerAccount;
+        }
+        if (!Utils::isUnset($request->managerAccountPassword)) {
+            $query['ManagerAccountPassword'] = $request->managerAccountPassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InitVectorDatabase',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InitVectorDatabaseResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InitVectorDatabaseRequest $request
+     *
+     * @return InitVectorDatabaseResponse
+     */
+    public function initVectorDatabase($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->initVectorDatabaseWithOptions($request, $runtime);
     }
 
     /**

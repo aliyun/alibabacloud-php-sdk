@@ -4,17 +4,13 @@
 
 namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
-use AlibabaCloud\SDK\Gpdb\V20160503\Models\QueryCollectionDataResponseBody\matches;
 use AlibabaCloud\Tea\Model;
 
-class QueryCollectionDataResponseBody extends Model
+class InitVectorDatabaseResponseBody extends Model
 {
     /**
-     * @var matches
-     */
-    public $matches;
-
-    /**
+     * @example failed to connect database, detailMsg: getConnection fail::SQL State: 28P01, Error Code: 0, Error Message: FATAL: password
+     *
      * @var string
      */
     public $message;
@@ -33,7 +29,6 @@ class QueryCollectionDataResponseBody extends Model
      */
     public $status;
     protected $_name = [
-        'matches'   => 'Matches',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'status'    => 'Status',
@@ -46,9 +41,6 @@ class QueryCollectionDataResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->matches) {
-            $res['Matches'] = null !== $this->matches ? $this->matches->toMap() : null;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
@@ -65,14 +57,11 @@ class QueryCollectionDataResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryCollectionDataResponseBody
+     * @return InitVectorDatabaseResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Matches'])) {
-            $model->matches = matches::fromMap($map['Matches']);
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }

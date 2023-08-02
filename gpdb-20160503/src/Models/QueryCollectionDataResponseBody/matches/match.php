@@ -22,13 +22,19 @@ class match extends Model
     public $metadata;
 
     /**
+     * @var float
+     */
+    public $similarity;
+
+    /**
      * @var values
      */
     public $values;
     protected $_name = [
-        'id'       => 'Id',
-        'metadata' => 'Metadata',
-        'values'   => 'Values',
+        'id'         => 'Id',
+        'metadata'   => 'Metadata',
+        'similarity' => 'Similarity',
+        'values'     => 'Values',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class match extends Model
         }
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
+        }
+        if (null !== $this->similarity) {
+            $res['Similarity'] = $this->similarity;
         }
         if (null !== $this->values) {
             $res['Values'] = null !== $this->values ? $this->values->toMap() : null;
@@ -64,6 +73,9 @@ class match extends Model
         }
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
+        }
+        if (isset($map['Similarity'])) {
+            $model->similarity = $map['Similarity'];
         }
         if (isset($map['Values'])) {
             $model->values = values::fromMap($map['Values']);

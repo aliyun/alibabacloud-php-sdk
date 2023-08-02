@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $connectionString;
+
+    /**
      * @description The ID of the instance.
      *
      * >  You can call the [DescribeDBInstances](~~86911~~) operation to query details about all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
@@ -18,7 +23,8 @@ class DescribeDBInstanceNetInfoRequest extends Model
      */
     public $DBInstanceId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
+        'connectionString' => 'ConnectionString',
+        'DBInstanceId'     => 'DBInstanceId',
     ];
 
     public function validate()
@@ -28,6 +34,9 @@ class DescribeDBInstanceNetInfoRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->connectionString) {
+            $res['ConnectionString'] = $this->connectionString;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -43,6 +52,9 @@ class DescribeDBInstanceNetInfoRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ConnectionString'])) {
+            $model->connectionString = $map['ConnectionString'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
