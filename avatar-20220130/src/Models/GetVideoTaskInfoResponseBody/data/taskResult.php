@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class taskResult extends Model
 {
     /**
+     * @var string
+     */
+    public $alphaUrl;
+
+    /**
      * @example 20002
      *
      * @var string
@@ -48,6 +53,7 @@ class taskResult extends Model
      */
     public $wordSubtitlesUrl;
     protected $_name = [
+        'alphaUrl'         => 'AlphaUrl',
         'failCode'         => 'FailCode',
         'failReason'       => 'FailReason',
         'subtitlesUrl'     => 'SubtitlesUrl',
@@ -63,6 +69,9 @@ class taskResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->alphaUrl) {
+            $res['AlphaUrl'] = $this->alphaUrl;
+        }
         if (null !== $this->failCode) {
             $res['FailCode'] = $this->failCode;
         }
@@ -93,6 +102,9 @@ class taskResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AlphaUrl'])) {
+            $model->alphaUrl = $map['AlphaUrl'];
+        }
         if (isset($map['FailCode'])) {
             $model->failCode = $map['FailCode'];
         }

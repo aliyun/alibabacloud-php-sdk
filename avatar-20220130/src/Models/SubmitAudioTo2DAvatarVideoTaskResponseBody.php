@@ -36,7 +36,7 @@ class SubmitAudioTo2DAvatarVideoTaskResponseBody extends Model
     /**
      * @example true
      *
-     * @var string
+     * @var bool
      */
     public $success;
     protected $_name = [

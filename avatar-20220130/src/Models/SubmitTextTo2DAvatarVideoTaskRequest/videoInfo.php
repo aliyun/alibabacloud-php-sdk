@@ -28,6 +28,8 @@ class videoInfo extends Model
     /**
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $isSubtitles;
@@ -36,12 +38,18 @@ class videoInfo extends Model
      * @var int
      */
     public $resolution;
+
+    /**
+     * @var bool
+     */
+    public $subtitleEmbedded;
     protected $_name = [
         'alphaFormat'        => 'AlphaFormat',
         'backgroundImageUrl' => 'BackgroundImageUrl',
         'isAlpha'            => 'IsAlpha',
         'isSubtitles'        => 'IsSubtitles',
         'resolution'         => 'Resolution',
+        'subtitleEmbedded'   => 'SubtitleEmbedded',
     ];
 
     public function validate()
@@ -65,6 +73,9 @@ class videoInfo extends Model
         }
         if (null !== $this->resolution) {
             $res['Resolution'] = $this->resolution;
+        }
+        if (null !== $this->subtitleEmbedded) {
+            $res['SubtitleEmbedded'] = $this->subtitleEmbedded;
         }
 
         return $res;
@@ -92,6 +103,9 @@ class videoInfo extends Model
         }
         if (isset($map['Resolution'])) {
             $model->resolution = $map['Resolution'];
+        }
+        if (isset($map['SubtitleEmbedded'])) {
+            $model->subtitleEmbedded = $map['SubtitleEmbedded'];
         }
 
         return $model;
