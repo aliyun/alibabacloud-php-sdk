@@ -35,6 +35,26 @@ class dataList extends Model
     public $alipayTradeNo;
 
     /**
+     * @var string
+     */
+    public $applyArrCityCode;
+
+    /**
+     * @var string
+     */
+    public $applyArrCityName;
+
+    /**
+     * @var string
+     */
+    public $applyDepCityCode;
+
+    /**
+     * @var string
+     */
+    public $applyDepCityName;
+
+    /**
      * @description 审批扩展自定义字段
      *
      * @var string
@@ -59,6 +79,11 @@ class dataList extends Model
      * @var string
      */
     public $arrCity;
+
+    /**
+     * @var string
+     */
+    public $arrCityCode;
 
     /**
      * @example 2021-10-02
@@ -187,6 +212,11 @@ class dataList extends Model
      * @var string
      */
     public $depAirportCode;
+
+    /**
+     * @var string
+     */
+    public $depCityCode;
 
     /**
      * @var string
@@ -446,6 +476,11 @@ class dataList extends Model
     public $taxRate;
 
     /**
+     * @var string
+     */
+    public $thirdItineraryId;
+
+    /**
      * @example 781-6586234234324
      *
      * @var string
@@ -487,10 +522,15 @@ class dataList extends Model
         'airlineCorpCode'        => 'airline_corp_code',
         'airlineCorpName'        => 'airline_corp_name',
         'alipayTradeNo'          => 'alipay_trade_no',
+        'applyArrCityCode'       => 'apply_arr_city_code',
+        'applyArrCityName'       => 'apply_arr_city_name',
+        'applyDepCityCode'       => 'apply_dep_city_code',
+        'applyDepCityName'       => 'apply_dep_city_name',
         'applyExtendField'       => 'apply_extend_field',
         'applyId'                => 'apply_id',
         'arrAirportCode'         => 'arr_airport_code',
         'arrCity'                => 'arr_city',
+        'arrCityCode'            => 'arr_city_code',
         'arrDate'                => 'arr_date',
         'arrStation'             => 'arr_station',
         'arrTime'                => 'arr_time',
@@ -511,6 +551,7 @@ class dataList extends Model
         'costCenterNumber'       => 'cost_center_number',
         'coupon'                 => 'coupon',
         'depAirportCode'         => 'dep_airport_code',
+        'depCityCode'            => 'dep_city_code',
         'department'             => 'department',
         'departmentId'           => 'department_id',
         'deptCity'               => 'dept_city',
@@ -550,6 +591,7 @@ class dataList extends Model
         'settlementType'         => 'settlement_type',
         'status'                 => 'status',
         'taxRate'                => 'tax_rate',
+        'thirdItineraryId'       => 'third_itinerary_id',
         'ticketId'               => 'ticket_id',
         'travelerId'             => 'traveler_id',
         'travelerJobNo'          => 'traveler_job_no',
@@ -577,6 +619,18 @@ class dataList extends Model
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
         }
+        if (null !== $this->applyArrCityCode) {
+            $res['apply_arr_city_code'] = $this->applyArrCityCode;
+        }
+        if (null !== $this->applyArrCityName) {
+            $res['apply_arr_city_name'] = $this->applyArrCityName;
+        }
+        if (null !== $this->applyDepCityCode) {
+            $res['apply_dep_city_code'] = $this->applyDepCityCode;
+        }
+        if (null !== $this->applyDepCityName) {
+            $res['apply_dep_city_name'] = $this->applyDepCityName;
+        }
         if (null !== $this->applyExtendField) {
             $res['apply_extend_field'] = $this->applyExtendField;
         }
@@ -588,6 +642,9 @@ class dataList extends Model
         }
         if (null !== $this->arrCity) {
             $res['arr_city'] = $this->arrCity;
+        }
+        if (null !== $this->arrCityCode) {
+            $res['arr_city_code'] = $this->arrCityCode;
         }
         if (null !== $this->arrDate) {
             $res['arr_date'] = $this->arrDate;
@@ -648,6 +705,9 @@ class dataList extends Model
         }
         if (null !== $this->depAirportCode) {
             $res['dep_airport_code'] = $this->depAirportCode;
+        }
+        if (null !== $this->depCityCode) {
+            $res['dep_city_code'] = $this->depCityCode;
         }
         if (null !== $this->department) {
             $res['department'] = $this->department;
@@ -766,6 +826,9 @@ class dataList extends Model
         if (null !== $this->taxRate) {
             $res['tax_rate'] = $this->taxRate;
         }
+        if (null !== $this->thirdItineraryId) {
+            $res['third_itinerary_id'] = $this->thirdItineraryId;
+        }
         if (null !== $this->ticketId) {
             $res['ticket_id'] = $this->ticketId;
         }
@@ -808,6 +871,18 @@ class dataList extends Model
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
         }
+        if (isset($map['apply_arr_city_code'])) {
+            $model->applyArrCityCode = $map['apply_arr_city_code'];
+        }
+        if (isset($map['apply_arr_city_name'])) {
+            $model->applyArrCityName = $map['apply_arr_city_name'];
+        }
+        if (isset($map['apply_dep_city_code'])) {
+            $model->applyDepCityCode = $map['apply_dep_city_code'];
+        }
+        if (isset($map['apply_dep_city_name'])) {
+            $model->applyDepCityName = $map['apply_dep_city_name'];
+        }
         if (isset($map['apply_extend_field'])) {
             $model->applyExtendField = $map['apply_extend_field'];
         }
@@ -819,6 +894,9 @@ class dataList extends Model
         }
         if (isset($map['arr_city'])) {
             $model->arrCity = $map['arr_city'];
+        }
+        if (isset($map['arr_city_code'])) {
+            $model->arrCityCode = $map['arr_city_code'];
         }
         if (isset($map['arr_date'])) {
             $model->arrDate = $map['arr_date'];
@@ -879,6 +957,9 @@ class dataList extends Model
         }
         if (isset($map['dep_airport_code'])) {
             $model->depAirportCode = $map['dep_airport_code'];
+        }
+        if (isset($map['dep_city_code'])) {
+            $model->depCityCode = $map['dep_city_code'];
         }
         if (isset($map['department'])) {
             $model->department = $map['department'];
@@ -996,6 +1077,9 @@ class dataList extends Model
         }
         if (isset($map['tax_rate'])) {
             $model->taxRate = $map['tax_rate'];
+        }
+        if (isset($map['third_itinerary_id'])) {
+            $model->thirdItineraryId = $map['third_itinerary_id'];
         }
         if (isset($map['ticket_id'])) {
             $model->ticketId = $map['ticket_id'];

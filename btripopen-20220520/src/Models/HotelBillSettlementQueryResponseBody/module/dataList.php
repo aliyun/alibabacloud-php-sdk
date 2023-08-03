@@ -16,6 +16,26 @@ class dataList extends Model
     public $alipayTradeNo;
 
     /**
+     * @var string
+     */
+    public $applyArrCityCode;
+
+    /**
+     * @var string
+     */
+    public $applyArrCityName;
+
+    /**
+     * @var string
+     */
+    public $applyDepCityCode;
+
+    /**
+     * @var string
+     */
+    public $applyDepCityName;
+
+    /**
      * @description 审批扩展自定义字段
      *
      * @var string
@@ -329,6 +349,11 @@ class dataList extends Model
     public $taxRate;
 
     /**
+     * @var string
+     */
+    public $thirdItineraryId;
+
+    /**
      * @example 2
      *
      * @var int
@@ -360,6 +385,10 @@ class dataList extends Model
     public $voucherType;
     protected $_name = [
         'alipayTradeNo'      => 'alipay_trade_no',
+        'applyArrCityCode'   => 'apply_arr_city_code',
+        'applyArrCityName'   => 'apply_arr_city_name',
+        'applyDepCityCode'   => 'apply_dep_city_code',
+        'applyDepCityName'   => 'apply_dep_city_name',
         'applyExtendField'   => 'apply_extend_field',
         'applyId'            => 'apply_id',
         'billRecordTime'     => 'bill_record_time',
@@ -409,6 +438,7 @@ class dataList extends Model
         'settlementType'     => 'settlement_type',
         'status'             => 'status',
         'taxRate'            => 'tax_rate',
+        'thirdItineraryId'   => 'third_itinerary_id',
         'totalNights'        => 'total_nights',
         'travelerId'         => 'traveler_id',
         'travelerJobNo'      => 'traveler_job_no',
@@ -425,6 +455,18 @@ class dataList extends Model
         $res = [];
         if (null !== $this->alipayTradeNo) {
             $res['alipay_trade_no'] = $this->alipayTradeNo;
+        }
+        if (null !== $this->applyArrCityCode) {
+            $res['apply_arr_city_code'] = $this->applyArrCityCode;
+        }
+        if (null !== $this->applyArrCityName) {
+            $res['apply_arr_city_name'] = $this->applyArrCityName;
+        }
+        if (null !== $this->applyDepCityCode) {
+            $res['apply_dep_city_code'] = $this->applyDepCityCode;
+        }
+        if (null !== $this->applyDepCityName) {
+            $res['apply_dep_city_name'] = $this->applyDepCityName;
         }
         if (null !== $this->applyExtendField) {
             $res['apply_extend_field'] = $this->applyExtendField;
@@ -573,6 +615,9 @@ class dataList extends Model
         if (null !== $this->taxRate) {
             $res['tax_rate'] = $this->taxRate;
         }
+        if (null !== $this->thirdItineraryId) {
+            $res['third_itinerary_id'] = $this->thirdItineraryId;
+        }
         if (null !== $this->totalNights) {
             $res['total_nights'] = $this->totalNights;
         }
@@ -602,6 +647,18 @@ class dataList extends Model
         $model = new self();
         if (isset($map['alipay_trade_no'])) {
             $model->alipayTradeNo = $map['alipay_trade_no'];
+        }
+        if (isset($map['apply_arr_city_code'])) {
+            $model->applyArrCityCode = $map['apply_arr_city_code'];
+        }
+        if (isset($map['apply_arr_city_name'])) {
+            $model->applyArrCityName = $map['apply_arr_city_name'];
+        }
+        if (isset($map['apply_dep_city_code'])) {
+            $model->applyDepCityCode = $map['apply_dep_city_code'];
+        }
+        if (isset($map['apply_dep_city_name'])) {
+            $model->applyDepCityName = $map['apply_dep_city_name'];
         }
         if (isset($map['apply_extend_field'])) {
             $model->applyExtendField = $map['apply_extend_field'];
@@ -749,6 +806,9 @@ class dataList extends Model
         }
         if (isset($map['tax_rate'])) {
             $model->taxRate = $map['tax_rate'];
+        }
+        if (isset($map['third_itinerary_id'])) {
+            $model->thirdItineraryId = $map['third_itinerary_id'];
         }
         if (isset($map['total_nights'])) {
             $model->totalNights = $map['total_nights'];

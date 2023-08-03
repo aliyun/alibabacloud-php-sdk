@@ -102,6 +102,11 @@ class moduleList extends Model
     public $itinerarySetList;
 
     /**
+     * @var string
+     */
+    public $jobNo;
+
+    /**
      * @example 1
      *
      * @var int
@@ -189,6 +194,7 @@ class moduleList extends Model
         'itineraryList'        => 'itinerary_list',
         'itineraryRule'        => 'itinerary_rule',
         'itinerarySetList'     => 'itinerary_set_list',
+        'jobNo'                => 'job_no',
         'status'               => 'status',
         'statusDesc'           => 'status_desc',
         'thirdpartBusinessId'  => 'thirdpart_business_id',
@@ -275,6 +281,9 @@ class moduleList extends Model
                     $res['itinerary_set_list'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->jobNo) {
+            $res['job_no'] = $this->jobNo;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -395,6 +404,9 @@ class moduleList extends Model
                     $model->itinerarySetList[$n++] = null !== $item ? itinerarySetList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['job_no'])) {
+            $model->jobNo = $map['job_no'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];
