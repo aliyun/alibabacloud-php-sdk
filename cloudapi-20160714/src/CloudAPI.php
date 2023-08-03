@@ -178,6 +178,8 @@ use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDeployedApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDomainRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeDomainResponse;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupQpsRequest;
+use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeGroupQpsResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisRequest;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeHistoryApisResponse;
 use AlibabaCloud\SDK\CloudAPI\V20160714\Models\DescribeImportOASTaskRequest;
@@ -5243,6 +5245,61 @@ class CloudAPI extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeGroupQpsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeGroupQpsResponse
+     */
+    public function describeGroupQpsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->stageName)) {
+            $query['StageName'] = $request->stageName;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGroupQps',
+            'version'     => '2016-07-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGroupQpsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGroupQpsRequest $request
+     *
+     * @return DescribeGroupQpsResponse
+     */
+    public function describeGroupQps($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGroupQpsWithOptions($request, $runtime);
     }
 
     /**
