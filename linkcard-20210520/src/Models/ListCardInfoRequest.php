@@ -142,6 +142,11 @@ class ListCardInfoRequest extends Model
     public $msisdn;
 
     /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
      * @example 11111
      *
      * @var string
@@ -228,6 +233,7 @@ class ListCardInfoRequest extends Model
         'maxRestFlowPercentage' => 'MaxRestFlowPercentage',
         'minFlow'               => 'MinFlow',
         'msisdn'                => 'Msisdn',
+        'networkType'           => 'NetworkType',
         'notifyId'              => 'NotifyId',
         'osStatus'              => 'OsStatus',
         'pageNo'                => 'PageNo',
@@ -303,6 +309,9 @@ class ListCardInfoRequest extends Model
         }
         if (null !== $this->msisdn) {
             $res['Msisdn'] = $this->msisdn;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->notifyId) {
             $res['NotifyId'] = $this->notifyId;
@@ -402,6 +411,9 @@ class ListCardInfoRequest extends Model
         }
         if (isset($map['Msisdn'])) {
             $model->msisdn = $map['Msisdn'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['NotifyId'])) {
             $model->notifyId = $map['NotifyId'];

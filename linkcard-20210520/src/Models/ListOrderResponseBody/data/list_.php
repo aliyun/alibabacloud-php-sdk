@@ -93,6 +93,11 @@ class list_ extends Model
     public $functionFee;
 
     /**
+     * @var string
+     */
+    public $networkType;
+
+    /**
      * @example https://us******60589
      *
      * @var string
@@ -185,6 +190,7 @@ class list_ extends Model
         'expressNoList'     => 'ExpressNoList',
         'flowType'          => 'FlowType',
         'functionFee'       => 'FunctionFee',
+        'networkType'       => 'NetworkType',
         'orderDetailUrl'    => 'OrderDetailUrl',
         'orderId'           => 'OrderId',
         'orderInfo'         => 'OrderInfo',
@@ -244,6 +250,9 @@ class list_ extends Model
         }
         if (null !== $this->functionFee) {
             $res['FunctionFee'] = $this->functionFee;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->orderDetailUrl) {
             $res['OrderDetailUrl'] = $this->orderDetailUrl;
@@ -333,6 +342,9 @@ class list_ extends Model
         }
         if (isset($map['FunctionFee'])) {
             $model->functionFee = $map['FunctionFee'];
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['OrderDetailUrl'])) {
             $model->orderDetailUrl = $map['OrderDetailUrl'];

@@ -106,6 +106,11 @@ class list_ extends Model
     public $expireTime;
 
     /**
+     * @var string
+     */
+    public $flowLatestModifiedTime;
+
+    /**
      * @example 89860321******15668
      *
      * @var string
@@ -128,6 +133,11 @@ class list_ extends Model
      * @var string[]
      */
     public $msisdn;
+
+    /**
+     * @var string
+     */
+    public $networkType;
 
     /**
      * @example 11111
@@ -223,38 +233,40 @@ class list_ extends Model
      */
     public $vsimInstanceId;
     protected $_name = [
-        'activeTime'            => 'ActiveTime',
-        'activeType'            => 'ActiveType',
-        'aliFee'                => 'AliFee',
-        'aliyunOrderId'         => 'AliyunOrderId',
-        'apnName'               => 'ApnName',
-        'certifyType'           => 'CertifyType',
-        'credentialInstanceId'  => 'CredentialInstanceId',
-        'credentialNo'          => 'CredentialNo',
-        'credentialType'        => 'CredentialType',
-        'dataLevel'             => 'DataLevel',
-        'dataType'              => 'DataType',
-        'directionalGroupId'    => 'DirectionalGroupId',
-        'directionalGroupName'  => 'DirectionalGroupName',
-        'expireTime'            => 'ExpireTime',
-        'iccid'                 => 'Iccid',
-        'imsi'                  => 'Imsi',
-        'isAutoRecharge'        => 'IsAutoRecharge',
-        'msisdn'                => 'Msisdn',
-        'notifyId'              => 'NotifyId',
-        'openAccountTime'       => 'OpenAccountTime',
-        'osStatus'              => 'OsStatus',
-        'period'                => 'Period',
-        'periodAddFlow'         => 'PeriodAddFlow',
-        'periodRestFlow'        => 'PeriodRestFlow',
-        'periodSmsUse'          => 'PeriodSmsUse',
-        'privateNetworkSegment' => 'PrivateNetworkSegment',
-        'remark'                => 'Remark',
-        'simType'               => 'SimType',
-        'status'                => 'Status',
-        'tagList'               => 'TagList',
-        'vendor'                => 'Vendor',
-        'vsimInstanceId'        => 'VsimInstanceId',
+        'activeTime'             => 'ActiveTime',
+        'activeType'             => 'ActiveType',
+        'aliFee'                 => 'AliFee',
+        'aliyunOrderId'          => 'AliyunOrderId',
+        'apnName'                => 'ApnName',
+        'certifyType'            => 'CertifyType',
+        'credentialInstanceId'   => 'CredentialInstanceId',
+        'credentialNo'           => 'CredentialNo',
+        'credentialType'         => 'CredentialType',
+        'dataLevel'              => 'DataLevel',
+        'dataType'               => 'DataType',
+        'directionalGroupId'     => 'DirectionalGroupId',
+        'directionalGroupName'   => 'DirectionalGroupName',
+        'expireTime'             => 'ExpireTime',
+        'flowLatestModifiedTime' => 'FlowLatestModifiedTime',
+        'iccid'                  => 'Iccid',
+        'imsi'                   => 'Imsi',
+        'isAutoRecharge'         => 'IsAutoRecharge',
+        'msisdn'                 => 'Msisdn',
+        'networkType'            => 'NetworkType',
+        'notifyId'               => 'NotifyId',
+        'openAccountTime'        => 'OpenAccountTime',
+        'osStatus'               => 'OsStatus',
+        'period'                 => 'Period',
+        'periodAddFlow'          => 'PeriodAddFlow',
+        'periodRestFlow'         => 'PeriodRestFlow',
+        'periodSmsUse'           => 'PeriodSmsUse',
+        'privateNetworkSegment'  => 'PrivateNetworkSegment',
+        'remark'                 => 'Remark',
+        'simType'                => 'SimType',
+        'status'                 => 'Status',
+        'tagList'                => 'TagList',
+        'vendor'                 => 'Vendor',
+        'vsimInstanceId'         => 'VsimInstanceId',
     ];
 
     public function validate()
@@ -306,6 +318,9 @@ class list_ extends Model
         if (null !== $this->expireTime) {
             $res['ExpireTime'] = $this->expireTime;
         }
+        if (null !== $this->flowLatestModifiedTime) {
+            $res['FlowLatestModifiedTime'] = $this->flowLatestModifiedTime;
+        }
         if (null !== $this->iccid) {
             $res['Iccid'] = $this->iccid;
         }
@@ -317,6 +332,9 @@ class list_ extends Model
         }
         if (null !== $this->msisdn) {
             $res['Msisdn'] = $this->msisdn;
+        }
+        if (null !== $this->networkType) {
+            $res['NetworkType'] = $this->networkType;
         }
         if (null !== $this->notifyId) {
             $res['NotifyId'] = $this->notifyId;
@@ -420,6 +438,9 @@ class list_ extends Model
         if (isset($map['ExpireTime'])) {
             $model->expireTime = $map['ExpireTime'];
         }
+        if (isset($map['FlowLatestModifiedTime'])) {
+            $model->flowLatestModifiedTime = $map['FlowLatestModifiedTime'];
+        }
         if (isset($map['Iccid'])) {
             $model->iccid = $map['Iccid'];
         }
@@ -435,6 +456,9 @@ class list_ extends Model
             if (!empty($map['Msisdn'])) {
                 $model->msisdn = $map['Msisdn'];
             }
+        }
+        if (isset($map['NetworkType'])) {
+            $model->networkType = $map['NetworkType'];
         }
         if (isset($map['NotifyId'])) {
             $model->notifyId = $map['NotifyId'];

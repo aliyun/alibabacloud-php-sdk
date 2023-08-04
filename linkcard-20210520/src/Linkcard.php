@@ -1080,6 +1080,9 @@ class Linkcard extends OpenApiClient
         if (!Utils::isUnset($request->msisdn)) {
             $query['Msisdn'] = $request->msisdn;
         }
+        if (!Utils::isUnset($request->networkType)) {
+            $query['NetworkType'] = $request->networkType;
+        }
         if (!Utils::isUnset($request->notifyId)) {
             $query['NotifyId'] = $request->notifyId;
         }
