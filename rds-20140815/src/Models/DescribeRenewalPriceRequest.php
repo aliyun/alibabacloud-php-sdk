@@ -94,6 +94,10 @@ class DescribeRenewalPriceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the resource group.
+     *
+     * @example rg-acfmx****
+     *
      * @var string
      */
     public $resourceGroupId;
