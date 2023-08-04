@@ -2,32 +2,24 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DescribePrometheusAlertRuleResponseBody\prometheusAlertRule;
+namespace AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppRequest\deleteReason;
 
 use AlibabaCloud\Tea\Model;
 
-class labels extends Model
+class reasonIds extends Model
 {
     /**
-     * @description The name of the tag.
-     *
-     * @example severity
-     *
+     * @var int
+     */
+    public $id;
+
+    /**
      * @var string
      */
     public $name;
-
-    /**
-     * @description The value of the tag.
-     *
-     * @example critical
-     *
-     * @var string
-     */
-    public $value;
     protected $_name = [
-        'name'  => 'Name',
-        'value' => 'Value',
+        'id'   => 'Id',
+        'name' => 'Name',
     ];
 
     public function validate()
@@ -37,11 +29,11 @@ class labels extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->id) {
+            $res['Id'] = $this->id;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
-        }
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
         }
 
         return $res;
@@ -50,16 +42,16 @@ class labels extends Model
     /**
      * @param array $map
      *
-     * @return labels
+     * @return reasonIds
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Id'])) {
+            $model->id = $map['Id'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
-        }
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
         }
 
         return $model;

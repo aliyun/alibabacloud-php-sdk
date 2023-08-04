@@ -27,6 +27,16 @@ class UpdatePrometheusGlobalViewRequest extends Model
     public $clusterId;
 
     /**
+     * @var string
+     */
+    public $groupName;
+
+    /**
+     * @var string
+     */
+    public $mostRegionId;
+
+    /**
      * @description The region ID.
      *
      * @example cn-shenzhen
@@ -55,6 +65,8 @@ class UpdatePrometheusGlobalViewRequest extends Model
     protected $_name = [
         'allSubClustersSuccess' => 'AllSubClustersSuccess',
         'clusterId'             => 'ClusterId',
+        'groupName'             => 'GroupName',
+        'mostRegionId'          => 'MostRegionId',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'subClustersJson'       => 'SubClustersJson',
@@ -72,6 +84,12 @@ class UpdatePrometheusGlobalViewRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->groupName) {
+            $res['GroupName'] = $this->groupName;
+        }
+        if (null !== $this->mostRegionId) {
+            $res['MostRegionId'] = $this->mostRegionId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -99,6 +117,12 @@ class UpdatePrometheusGlobalViewRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['GroupName'])) {
+            $model->groupName = $map['GroupName'];
+        }
+        if (isset($map['MostRegionId'])) {
+            $model->mostRegionId = $map['MostRegionId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

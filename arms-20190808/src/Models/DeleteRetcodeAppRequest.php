@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteRetcodeAppRequest extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example 1231
      *
      * @var string
@@ -16,6 +18,8 @@ class DeleteRetcodeAppRequest extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example test-app
      *
      * @var string
@@ -23,6 +27,8 @@ class DeleteRetcodeAppRequest extends Model
     public $appName;
 
     /**
+     * @description The process identifier (PID) of the application.
+     *
      * @example aokcdqn3ly@741623b4e91****
      *
      * @var string
@@ -30,6 +36,8 @@ class DeleteRetcodeAppRequest extends Model
     public $pid;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

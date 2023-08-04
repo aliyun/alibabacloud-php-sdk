@@ -4,10 +4,9 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppRequest\deleteReason;
 use AlibabaCloud\Tea\Model;
 
-class DeleteTraceAppRequest extends Model
+class DeleteTraceAppShrinkRequest extends Model
 {
     /**
      * @description The ID of the application that you want to delete. You can call the SearchTraceAppByName operation to query the application ID. For more information, see [SearchTraceAppByName](~~130676~~).
@@ -19,9 +18,9 @@ class DeleteTraceAppRequest extends Model
     public $appId;
 
     /**
-     * @var deleteReason
+     * @var string
      */
-    public $deleteReason;
+    public $deleteReasonShrink;
 
     /**
      * @description The PID of the application that you want to delete. For more information about how to obtain the PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
@@ -53,11 +52,11 @@ class DeleteTraceAppRequest extends Model
      */
     public $type;
     protected $_name = [
-        'appId'        => 'AppId',
-        'deleteReason' => 'DeleteReason',
-        'pid'          => 'Pid',
-        'regionId'     => 'RegionId',
-        'type'         => 'Type',
+        'appId'              => 'AppId',
+        'deleteReasonShrink' => 'DeleteReason',
+        'pid'                => 'Pid',
+        'regionId'           => 'RegionId',
+        'type'               => 'Type',
     ];
 
     public function validate()
@@ -70,8 +69,8 @@ class DeleteTraceAppRequest extends Model
         if (null !== $this->appId) {
             $res['AppId'] = $this->appId;
         }
-        if (null !== $this->deleteReason) {
-            $res['DeleteReason'] = null !== $this->deleteReason ? $this->deleteReason->toMap() : null;
+        if (null !== $this->deleteReasonShrink) {
+            $res['DeleteReason'] = $this->deleteReasonShrink;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
@@ -89,7 +88,7 @@ class DeleteTraceAppRequest extends Model
     /**
      * @param array $map
      *
-     * @return DeleteTraceAppRequest
+     * @return DeleteTraceAppShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -98,7 +97,7 @@ class DeleteTraceAppRequest extends Model
             $model->appId = $map['AppId'];
         }
         if (isset($map['DeleteReason'])) {
-            $model->deleteReason = deleteReason::fromMap($map['DeleteReason']);
+            $model->deleteReasonShrink = $map['DeleteReason'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];

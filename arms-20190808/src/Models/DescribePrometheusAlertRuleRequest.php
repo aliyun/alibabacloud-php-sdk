@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribePrometheusAlertRuleRequest extends Model
 {
     /**
+     * @description The ID of the alert rule. You can call the ListPrometheusAlertRules operation to query the ID of the alert rule.
+     *
      * @example 3888704
      *
      * @var int

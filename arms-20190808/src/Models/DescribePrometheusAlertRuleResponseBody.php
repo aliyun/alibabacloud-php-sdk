@@ -20,11 +20,15 @@ class DescribePrometheusAlertRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The returned struct.
+     *
      * @var prometheusAlertRule
      */
     public $prometheusAlertRule;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9FEA6D00-317F-45E3-9004-7FB8B0B7****
      *
      * @var string

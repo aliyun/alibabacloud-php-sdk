@@ -127,6 +127,7 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSyntheticTaskRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteWebhookContactRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteWebhookContactResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DescribeContactGroupsRequest;
@@ -3582,17 +3583,25 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param DeleteTraceAppRequest $request
+     * @param DeleteTraceAppRequest $tmpReq
      * @param RuntimeOptions        $runtime
      *
      * @return DeleteTraceAppResponse
      */
-    public function deleteTraceAppWithOptions($request, $runtime)
+    public function deleteTraceAppWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new DeleteTraceAppShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deleteReason)) {
+            $request->deleteReasonShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deleteReason, 'DeleteReason', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->deleteReasonShrink)) {
+            $query['DeleteReason'] = $request->deleteReasonShrink;
         }
         if (!Utils::isUnset($request->pid)) {
             $query['Pid'] = $request->pid;
@@ -9250,6 +9259,12 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->mostRegionId)) {
+            $query['MostRegionId'] = $request->mostRegionId;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
