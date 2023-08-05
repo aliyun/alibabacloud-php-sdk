@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInterceptionTargetResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5B9ECCC0-38F7-***
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateInterceptionTargetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The response parameters.
+     *
      * @example true
      *
      * @var bool

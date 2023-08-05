@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionRuleDetailResponseBody extends Model
 {
     /**
+     * @description The details of the rule.
+     *
      * @var interceptionRuleDetail
      */
     public $interceptionRuleDetail;
 
     /**
+     * @description The request ID.
+     *
      * @example 9FBC6E47-7508-xxx
      *
      * @var string

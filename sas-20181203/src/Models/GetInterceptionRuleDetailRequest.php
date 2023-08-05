@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionRuleDetailRequest extends Model
 {
     /**
+     * @description The ID of the container cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c7f60fdabc84xxx
      *
      * @var string
@@ -16,6 +19,9 @@ class GetInterceptionRuleDetailRequest extends Model
     public $clusterId;
 
     /**
+     * @description The ID of the rule.
+     *
+     * > You can call the [ListInterceptionRulePage](~~ListInterceptionRulePage~~) operation to query the IDs of rules.
      * @example 500002
      *
      * @var string

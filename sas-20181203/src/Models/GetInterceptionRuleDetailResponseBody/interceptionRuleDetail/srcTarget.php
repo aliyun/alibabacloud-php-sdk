@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class srcTarget extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example console
      *
      * @var string
@@ -16,11 +18,15 @@ class srcTarget extends Model
     public $appName;
 
     /**
+     * @description The images of the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace to which the network object belongs.
+     *
      * @example default
      *
      * @var string
@@ -28,6 +34,8 @@ class srcTarget extends Model
     public $namespace;
 
     /**
+     * @description The type of the rule.
+     *
      * @example customize
      *
      * @var string
@@ -35,11 +43,15 @@ class srcTarget extends Model
     public $ruleType;
 
     /**
+     * @description The labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
      * @example 300635
      *
      * @var int
@@ -47,6 +59,8 @@ class srcTarget extends Model
     public $targetId;
 
     /**
+     * @description The name of the object.
+     *
      * @example dmz
      *
      * @var string
@@ -54,6 +68,8 @@ class srcTarget extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object.
+     *
      * @example IMAGE
      *
      * @var string

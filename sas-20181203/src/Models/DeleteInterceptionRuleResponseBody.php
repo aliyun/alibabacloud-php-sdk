@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInterceptionRuleResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D65AADFC-1D20-5A6A-8F6A-9FA53CXXXXX
      *
      * @var string

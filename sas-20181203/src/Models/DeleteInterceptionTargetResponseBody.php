@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteInterceptionTargetResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D81DD78E-E006-5C65-A171-C8CB09XXXXX
      *
      * @var string
@@ -16,6 +18,11 @@ class DeleteInterceptionTargetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the network objects are removed. Valid values:
+     *
+     *   **true**: The network objects are removed.
+     *   **false**: The network objects fail to be removed.
+     *
      * @example true
      *
      * @var bool

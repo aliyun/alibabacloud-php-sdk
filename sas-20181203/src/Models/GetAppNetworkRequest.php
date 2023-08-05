@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetAppNetworkRequest extends Model
 {
     /**
+     * @description The ID of the cluster to which the container belongs.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example cf77xxx
      *
      * @var string
@@ -16,6 +19,9 @@ class GetAppNetworkRequest extends Model
     public $clusterId;
 
     /**
+     * @description The end timestamp of the query. Unit: milliseconds.
+     *
+     * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
      * @example 1650470399999
      *
      * @var int
@@ -23,6 +29,9 @@ class GetAppNetworkRequest extends Model
     public $endTime;
 
     /**
+     * @description The start timestamp of the query. Unit: milliseconds.
+     *
+     * > The days between the start timestamp and the end timestamp cannot exceed **seven** days.
      * @example 1649260800000
      *
      * @var int

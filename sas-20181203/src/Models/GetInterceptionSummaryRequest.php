@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetInterceptionSummaryRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~421736~~) operation to query the IDs of clusters.
      * @example c2999***bb61b
      *
      * @var string

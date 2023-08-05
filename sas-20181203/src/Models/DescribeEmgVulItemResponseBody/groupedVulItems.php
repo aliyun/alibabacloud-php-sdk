@@ -73,6 +73,11 @@ class groupedVulItems extends Model
     public $progress;
 
     /**
+     * @var int
+     */
+    public $raspDefend;
+
+    /**
      * @description The detection status of the urgent vulnerability. Valid values:
      *
      *   **10**: The urgent vulnerability is not detected.
@@ -104,6 +109,7 @@ class groupedVulItems extends Model
         'name'         => 'Name',
         'pendingCount' => 'PendingCount',
         'progress'     => 'Progress',
+        'raspDefend'   => 'RaspDefend',
         'status'       => 'Status',
         'type'         => 'Type',
     ];
@@ -135,6 +141,9 @@ class groupedVulItems extends Model
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->raspDefend) {
+            $res['RaspDefend'] = $this->raspDefend;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -174,6 +183,9 @@ class groupedVulItems extends Model
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['RaspDefend'])) {
+            $model->raspDefend = $map['RaspDefend'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

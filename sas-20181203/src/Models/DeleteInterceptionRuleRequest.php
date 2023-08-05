@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteInterceptionRuleRequest extends Model
 {
     /**
+     * @description The ID of the cluster that you want to query.
+     *
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of clusters.
      * @example cdf629147cc3747d292a3f587xxxxxxxx
      *
      * @var string
@@ -16,6 +19,8 @@ class DeleteInterceptionRuleRequest extends Model
     public $clusterId;
 
     /**
+     * @description The IDs of the rules that you want to delete.
+     *
      * @var int[]
      */
     public $ruleIds;

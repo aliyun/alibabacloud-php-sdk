@@ -12,16 +12,22 @@ use AlibabaCloud\Tea\Model;
 class appNetwork extends Model
 {
     /**
+     * @description The information about the topology edge.
+     *
      * @var edge[]
      */
     public $edge;
 
     /**
+     * @description The namespace.
+     *
      * @var namespace_[]
      */
     public $namespace;
 
     /**
+     * @description The information about the application node.
+     *
      * @var node[]
      */
     public $node;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class namespace_ extends Model
 {
     /**
+     * @description The ID of the namespace.
+     *
      * @example 1
      *
      * @var string
@@ -16,6 +18,8 @@ class namespace_ extends Model
     public $id;
 
     /**
+     * @description The name of the custom namespace.
+     *
      * @example default
      *
      * @var string

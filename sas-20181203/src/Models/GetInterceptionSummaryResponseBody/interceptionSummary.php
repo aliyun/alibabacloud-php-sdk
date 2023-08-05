@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class interceptionSummary extends Model
 {
     /**
+     * @description The number of clusters that are not protected.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class interceptionSummary extends Model
     public $closeClusterCount;
 
     /**
+     * @description The number of disabled cluster defense rules.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class interceptionSummary extends Model
     public $closeRuleCount;
 
     /**
+     * @description The total number of clusters.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +36,8 @@ class interceptionSummary extends Model
     public $clusterCount;
 
     /**
+     * @description The total number of interception records for the specified cluster.
+     *
      * @example 0
      *
      * @var int
@@ -37,6 +45,8 @@ class interceptionSummary extends Model
     public $interceptionCountInDays;
 
     /**
+     * @description The number of clusters that are protected.
+     *
      * @example 0
      *
      * @var int
@@ -44,6 +54,8 @@ class interceptionSummary extends Model
     public $openClusterCount;
 
     /**
+     * @description The number of enabled cluster defense rules.
+     *
      * @example 0
      *
      * @var int
@@ -51,6 +63,8 @@ class interceptionSummary extends Model
     public $openRuleCount;
 
     /**
+     * @description The number of security risks that are detected in the last 180 days.
+     *
      * @example 0
      *
      * @var int
@@ -58,6 +72,8 @@ class interceptionSummary extends Model
     public $riskCount180Day;
 
     /**
+     * @description The number of security risks that are detected in the last 30 days.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +81,8 @@ class interceptionSummary extends Model
     public $riskCount30Day;
 
     /**
+     * @description The number of security risks that are detected in the last 24 hours.
+     *
      * @example 0
      *
      * @var int
@@ -72,6 +90,8 @@ class interceptionSummary extends Model
     public $riskCountToday;
 
     /**
+     * @description The total number of cluster defense rules.
+     *
      * @example 0
      *
      * @var int

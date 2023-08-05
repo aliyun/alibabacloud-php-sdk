@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class edge extends Model
 {
     /**
+     * @description The ID of the destination node.
+     *
      * @example 102
      *
      * @var string
@@ -16,6 +18,11 @@ class edge extends Model
     public $dstNodeId;
 
     /**
+     * @description The type of the destination node. Valid values:
+     *
+     *   **app**: an application
+     *   **internet**: a network node in another cluster
+     *
      * @example app
      *
      * @var string
@@ -23,6 +30,8 @@ class edge extends Model
     public $dstNodeType;
 
     /**
+     * @description The ID of the edge.
+     *
      * @example 3534
      *
      * @var string
@@ -30,6 +39,8 @@ class edge extends Model
     public $id;
 
     /**
+     * @description The number of the destination port.
+     *
      * @example 8080
      *
      * @var string
@@ -37,6 +48,8 @@ class edge extends Model
     public $port;
 
     /**
+     * @description The ID of the source node.
+     *
      * @example 101
      *
      * @var string
@@ -44,6 +57,11 @@ class edge extends Model
     public $srcNodeId;
 
     /**
+     * @description The type of the source node. Valid values:
+     *
+     *   **app**: an application
+     *   **internet**: a network node in another cluster
+     *
      * @example app
      *
      * @var string

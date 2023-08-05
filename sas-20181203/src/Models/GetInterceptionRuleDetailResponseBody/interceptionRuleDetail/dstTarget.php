@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dstTarget extends Model
 {
     /**
+     * @description The name of the application.
+     *
      * @example console
      *
      * @var string
@@ -16,11 +18,15 @@ class dstTarget extends Model
     public $appName;
 
     /**
+     * @description An array that consists of the name of the image specified for the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace to which the network object belongs.
+     *
      * @example kube-system
      *
      * @var string
@@ -28,11 +34,15 @@ class dstTarget extends Model
     public $namespace;
 
     /**
+     * @description An array that consists of the port range of the destination network object.
+     *
      * @var string[]
      */
     public $ports;
 
     /**
+     * @description The type of the rule.
+     *
      * @example customize
      *
      * @var string
@@ -40,11 +50,15 @@ class dstTarget extends Model
     public $ruleType;
 
     /**
+     * @description An array that consists of the labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The ID of the network object.
+     *
      * @example 200014
      *
      * @var int
@@ -52,6 +66,8 @@ class dstTarget extends Model
     public $targetId;
 
     /**
+     * @description The name of the object.
+     *
      * @example demo4-be1
      *
      * @var string
@@ -59,6 +75,8 @@ class dstTarget extends Model
     public $targetName;
 
     /**
+     * @description The type of the network object.
+     *
      * @example IMAGE
      *
      * @var string

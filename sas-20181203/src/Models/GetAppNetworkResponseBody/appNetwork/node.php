@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
+     * @description The list of the container IDs.
+     *
      * @var string[]
      */
     public $containerIds;
 
     /**
+     * @description The ID of the node.
+     *
      * @example 1274
      *
      * @var string
@@ -21,6 +25,8 @@ class node extends Model
     public $id;
 
     /**
+     * @description The name of the node.
+     *
      * @example console
      *
      * @var string
@@ -28,6 +34,8 @@ class node extends Model
     public $name;
 
     /**
+     * @description The ID of the namespace.
+     *
      * @example 1
      *
      * @var string
@@ -35,6 +43,14 @@ class node extends Model
     public $namespaceId;
 
     /**
+     * @description The risk level. Valid values:
+     *
+     *   **3**: high
+     *   **2**: medium
+     *   **1**: low
+     *   **0**: warning
+     *   **-1**: unknown
+     *
      * @example 0
      *
      * @var string
@@ -42,6 +58,11 @@ class node extends Model
     public $riskLevel;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **app**: an application
+     *   **internet**: a network node in another cluster
+     *
      * @example app
      *
      * @var string

@@ -36,7 +36,7 @@ class DescribeCheckWarningsRequest extends Model
     public $checkType;
 
     /**
-     * @description The name of container.
+     * @description The name of the container.
      *
      * @example /redis
      *

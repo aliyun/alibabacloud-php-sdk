@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAppNetworkResponseBody extends Model
 {
     /**
+     * @description The information about the application network topology.
+     *
      * @var appNetwork
      */
     public $appNetwork;
 
     /**
+     * @description The request ID.
+     *
      * @example 7D46EDB0-xxx
      *
      * @var string

@@ -11,11 +11,20 @@ use AlibabaCloud\Tea\Model;
 class interceptionRuleDetail extends Model
 {
     /**
+     * @description The destination network object.
+     *
      * @var dstTarget
      */
     public $dstTarget;
 
     /**
+     * @description The interception mode. Valid values:
+     *
+     *   **0**: monitor
+     *   **1**: block
+     *   **2**: alert
+     *   **3**: allow
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +32,8 @@ class interceptionRuleDetail extends Model
     public $interceptType;
 
     /**
+     * @description The priority of the rule. Valid values: 1 to 1000. A smaller value indicates a higher priority.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +41,8 @@ class interceptionRuleDetail extends Model
     public $orderIndex;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 467
      *
      * @var int
@@ -37,6 +50,8 @@ class interceptionRuleDetail extends Model
     public $ruleId;
 
     /**
+     * @description The name of the rule.
+     *
      * @example dmz-frontend-accept
      *
      * @var string
@@ -44,6 +59,11 @@ class interceptionRuleDetail extends Model
     public $ruleName;
 
     /**
+     * @description The status of the defense rule. Valid values:
+     *
+     *   **1**: The rule is enabled.
+     *   **0**: The rule is disabled.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +71,11 @@ class interceptionRuleDetail extends Model
     public $ruleSwitch;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     *   **suggest**: a suggestion rule
+     *   **customize**: a custom rule
+     *
      * @example customize
      *
      * @var string
@@ -58,6 +83,8 @@ class interceptionRuleDetail extends Model
     public $ruleType;
 
     /**
+     * @description The source network object.
+     *
      * @var srcTarget
      */
     public $srcTarget;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateInterceptionTargetRequest extends Model
 {
     /**
+     * @description The name of the application to which the network object belongs.
+     *
      * @example frontend
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateInterceptionTargetRequest extends Model
     public $appName;
 
     /**
+     * @description The cluster ID.
+     *
      * @example cc20a1024011c44b6a8710d6f8b****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateInterceptionTargetRequest extends Model
     public $clusterId;
 
     /**
+     * @description The cluster name.
+     *
      * @example sas-test-cnnf
      *
      * @var string
@@ -30,11 +36,15 @@ class CreateInterceptionTargetRequest extends Model
     public $clusterName;
 
     /**
+     * @description An array that consists of the images of the network object.
+     *
      * @var string[]
      */
     public $imageList;
 
     /**
+     * @description The namespace to which the network object belongs.
+     *
      * @example default
      *
      * @var string
@@ -42,16 +52,24 @@ class CreateInterceptionTargetRequest extends Model
     public $namespace;
 
     /**
+     * @description An array that consists of the labels specified for the network object.
+     *
      * @var string[]
      */
     public $tagList;
 
     /**
+     * @description The object name.
+     *
+     * @example test
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The object type. Valid value:
+     * - **IMAGE**: specifies an image
      * @example IMAGE
      *
      * @var string

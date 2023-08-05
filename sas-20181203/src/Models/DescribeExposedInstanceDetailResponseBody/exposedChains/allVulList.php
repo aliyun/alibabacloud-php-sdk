@@ -33,7 +33,7 @@ class allVulList extends Model
      *   **later**: medium
      *   **nntf**: low
      *
-     * >  We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
+     * > We recommend that you fix the vulnerabilities that have the **high** priority at the earliest opportunity.
      * @example asap
      *
      * @var string
@@ -43,12 +43,12 @@ class allVulList extends Model
     /**
      * @description The type of the vulnerability. Valid values:
      *
-     *   **cve**: Linux software vulnerabilities
-     *   **sys**: Windows system vulnerabilities
-     *   **cms**: Web-CMS vulnerabilities
-     *   **app**: application vulnerabilities
-     *   **emg**: urgent vulnerabilities
-     *   **sca**: middleware vulnerabilities
+     *   **cve**: Linux software vulnerability
+     *   **sys**: Windows system vulnerability
+     *   **cms**: Web-CMS vulnerability
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
+     *   **sca**: middleware vulnerability
      *
      * @example sca
      *
