@@ -29,7 +29,7 @@ class InviteAccountToResourceDirectoryRequest extends Model
     public $parentFolderId;
 
     /**
-     * @description The tag value.
+     * @description The tags.
      *
      * @var tag[]
      */
