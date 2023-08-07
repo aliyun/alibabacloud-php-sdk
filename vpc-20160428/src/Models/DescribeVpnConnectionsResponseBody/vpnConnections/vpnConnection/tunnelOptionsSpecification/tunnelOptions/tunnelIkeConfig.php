@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class tunnelIkeConfig extends Model
 {
     /**
+     * @description IKE阶段认证算法。
+     *
+     * @example sha1
+     *
      * @var string
      */
     public $ikeAuthAlg;
 
     /**
+     * @description IKE阶段加密算法。
+     *
+     * @example aes
+     *
      * @var string
      */
     public $ikeEncAlg;
 
     /**
+     * @description IKE阶段生存时间。单位：秒。
+     *
+     * @example 86400
+     *
      * @var string
      */
     public $ikeLifetime;
 
     /**
+     * @description IKE协商模式。
+     *
+     * - **main**：主模式，协商过程安全性高。
+     * - **aggressive**：野蛮模式，协商快速且协商成功率高。
+     * @example main
+     *
      * @var string
      */
     public $ikeMode;
 
     /**
+     * @description IKE阶段DH分组。
+     *
+     * @example group2
+     *
      * @var string
      */
     public $ikePfs;
 
     /**
+     * @description IKE协议版本。
+     *
+     * @example ikev1
+     *
      * @var string
      */
     public $ikeVersion;
 
     /**
+     * @description 隧道本端（阿里云侧）的标识。
+     *
+     * @example 47.21.XX.XX
+     *
      * @var string
      */
     public $localId;
 
     /**
+     * @description 预共享密钥。
+     *
+     * @example 123456****
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @description 隧道对端的标识。
+     *
+     * @example 47.42.XX.XX
+     *
      * @var string
      */
     public $remoteId;

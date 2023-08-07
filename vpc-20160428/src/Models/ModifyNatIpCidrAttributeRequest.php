@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatIpCidrAttributeRequest extends Model
 {
     /**
-     * @description The ID of the Virtual Private Cloud (VPC) NAT gateway to which the NAT CIDR block belongs.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -18,9 +21,11 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The new description of the NAT CIDR block.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
      *
-     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     *   **true**: checks the request but does not modify information about the NAT CIDR block. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and information about the NAT CIDR block is modified.
+     *
      * @example false
      *
      * @var bool
@@ -28,7 +33,7 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $dryRun;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyNatIpCidrAttribute**.
+     * @description The ID of the Virtual Private Cloud (VPC) NAT gateway to which the NAT CIDR block belongs.
      *
      * @example ngw-gw8v16wgvtq26vh59****
      *
@@ -37,7 +42,7 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $natGatewayId;
 
     /**
-     * @description The ID of the request.
+     * @description The NAT CIDR block whose name and description you want to modify.
      *
      * @example 172.16.0.0/24
      *
@@ -46,8 +51,9 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $natIpCidr;
 
     /**
-     * @description The NAT CIDR block whose name and description you want to modify.
+     * @description The new description of the NAT CIDR block.
      *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example newtest
      *
      * @var string
@@ -55,11 +61,9 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $natIpCidrDescription;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The new name of the NAT CIDR block.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * The name must be 2 to 128 characters in length and can contain digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      * @example newname
      *
      * @var string
@@ -77,11 +81,9 @@ class ModifyNatIpCidrAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description The region ID of the NAT gateway to which the NAT CIDR block belongs.
      *
-     *   **true**: checks the request but does not modify information about the NAT CIDR block. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and information about the NAT CIDR block is modified.
-     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example eu-central-1
      *
      * @var string

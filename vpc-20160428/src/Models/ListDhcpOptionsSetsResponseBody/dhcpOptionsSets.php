@@ -11,10 +11,7 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptionsSets extends Model
 {
     /**
-     * @description The lease time of the IPv4 addresses for the DHCP options set.
-     *
-     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     * @description The number of VPCs with which the DHCP options set is associated.
      *
      * @example 2
      *
@@ -23,12 +20,14 @@ class dhcpOptionsSets extends Model
     public $associateVpcCount;
 
     /**
+     * @description The configuration information about the DHCP options set.
+     *
      * @var dhcpOptions
      */
     public $dhcpOptions;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the DHCP options set belongs.
+     * @description The description of the DHCP options set.
      *
      * @example test
      *
@@ -37,7 +36,7 @@ class dhcpOptionsSets extends Model
     public $dhcpOptionsSetDescription;
 
     /**
-     * @description The DNS server IP address.
+     * @description The ID of the DHCP options set.
      *
      * @example dopt-o6w0df4epg9zo8isy****
      *
@@ -46,7 +45,7 @@ class dhcpOptionsSets extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description The suffix of the hostname.
+     * @description The name of the DHCP options set.
      *
      * @example test
      *
@@ -55,10 +54,7 @@ class dhcpOptionsSets extends Model
     public $dhcpOptionsSetName;
 
     /**
-     * @description The lease time of the IPv6 addresses for the DHCP options set.
-     *
-     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     * @description The ID of the Alibaba Cloud account to which the DHCP options set belongs.
      *
      * @example 253460731706911258
      *
@@ -74,7 +70,12 @@ class dhcpOptionsSets extends Model
     public $resourceGroupId;
 
     /**
-     * @description The configuration information about the DHCP options set.
+     * @description The status of the DHCP options set. Valid values:
+     *
+     *   **Available**: available
+     *   **InUse**: in use
+     *   **Pending**: being configured
+     *   **Deleted**: deleted
      *
      * @example Available
      *

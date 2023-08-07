@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ActivateRouterInterfaceResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 079874CD-AEC1-43E6-AC03-ADD96B6E4907
      *
      * @var string

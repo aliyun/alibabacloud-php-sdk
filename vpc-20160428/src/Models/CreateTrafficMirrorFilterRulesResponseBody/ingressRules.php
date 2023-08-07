@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ingressRules extends Model
 {
     /**
-     * @description The ID of the outbound rule.
+     * @description The ID of the inbound rule.
      *
      * @example tmr-j6c6rtallo51ouzv3****
      *

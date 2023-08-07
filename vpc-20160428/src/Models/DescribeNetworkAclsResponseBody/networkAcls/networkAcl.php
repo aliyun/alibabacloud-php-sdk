@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class networkAcl extends Model
 {
     /**
-     * @description The name of the outbound rule.
+     * @description The time when the network ACL was created.
      *
      * @example 2021-12-25 11:44:17
      *
@@ -22,10 +22,8 @@ class networkAcl extends Model
     public $creationTime;
 
     /**
-     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     * @description The description of the network ACL.
      *
-     * - **accept**: allows network traffic.
-     * - **drop**: blocks network traffic.
      * @example This is my NetworkAcl.
      *
      * @var string
@@ -33,28 +31,22 @@ class networkAcl extends Model
     public $description;
 
     /**
+     * @description The outbound rules.
+     *
      * @var egressAclEntries
      */
     public $egressAclEntries;
 
     /**
-     * @description The association status of the resource. Valid values:
+     * @description The inbound rules.
      *
-     * - **BINDED**: associated
-     * - **BINDING**: being associated
-     * - **UNBINDING**: disassociated
      * @var ingressAclEntries
      */
     public $ingressAclEntries;
 
     /**
-     * @description The protocol. Valid values:
+     * @description The ID of the network ACL.
      *
-     * - **icmp**: ICMP
-     * - **gre**: GRE
-     * - **tcp**: TCP
-     * - **udp**: UDP
-     * - **all**: all protocols
      * @example nacl-a2do9e413e0spxscd****
      *
      * @var string
@@ -62,7 +54,7 @@ class networkAcl extends Model
     public $networkAclId;
 
     /**
-     * @description The description of the outbound rule.
+     * @description The name of the network ACL.
      *
      * @example acl-1
      *
@@ -71,7 +63,7 @@ class networkAcl extends Model
     public $networkAclName;
 
     /**
-     * @description The destination CIDR block.
+     * @description The ID of the Alibaba Cloud account to which the network ACL belongs.
      *
      * @example 253460731706911258
      *
@@ -80,10 +72,8 @@ class networkAcl extends Model
     public $ownerId;
 
     /**
-     * @description The destination port range of the outbound traffic.
+     * @description The region ID of the network ACL.
      *
-     * - If **Protocol** of the outbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which specifies all ports.
-     * - If **Protocol** of the outbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**. 1/200 indicates port 1 to port 200. 80/80 indicates port 80. Valid values for a port: **1** to **65535**.
      * @example cn-hangzhou
      *
      * @var string
@@ -91,12 +81,17 @@ class networkAcl extends Model
     public $regionId;
 
     /**
+     * @description The resources that are associated with the network ACL.
+     *
      * @var resources
      */
     public $resources;
 
     /**
-     * @description The outbound rules.
+     * @description The status of the network ACL. Valid values:
+     *
+     *   **Available**
+     *   **Modifying**
      *
      * @example Available
      *
@@ -105,12 +100,14 @@ class networkAcl extends Model
     public $status;
 
     /**
+     * @description The tag list.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the outbound rule.
+     * @description The ID of the associated VPC.
      *
      * @example vpc-m5ebpc2xh64mqm27e****
      *

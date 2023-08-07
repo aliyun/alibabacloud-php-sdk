@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class failedRouteEntries extends Model
 {
     /**
-     * @description The error message.
+     * @description The destination CIDR block of the custom route entry that failed to be added.
      *
      * @example 192.168.0.0/24
      *
@@ -18,6 +18,8 @@ class failedRouteEntries extends Model
     public $dstCidrBlock;
 
     /**
+     * @description The error code.
+     *
      * @example VPC_ROUTE_ENTRY_CIDR_BLOCK_DUPLICATE
      *
      * @var string
@@ -25,6 +27,8 @@ class failedRouteEntries extends Model
     public $failedCode;
 
     /**
+     * @description The error message.
+     *
      * @example Specified CIDR block is already exists, entry.cidrBlock=xxxx
      *
      * @var string
@@ -32,7 +36,7 @@ class failedRouteEntries extends Model
     public $failedMessage;
 
     /**
-     * @description The ID of the custom route entry that was successfully added.
+     * @description The ID of the next hop of the custom route entry that failed to be added.
      *
      * @example i-j6c2fp57q8rr4jlu****
      *

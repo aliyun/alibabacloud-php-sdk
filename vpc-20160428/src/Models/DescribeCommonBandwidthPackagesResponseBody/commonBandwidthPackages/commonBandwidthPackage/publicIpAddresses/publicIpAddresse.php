@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddresse extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-bp13e9i2qst4g6jzi****
      *
      * @var string
@@ -16,6 +18,11 @@ class publicIpAddresse extends Model
     public $allocationId;
 
     /**
+     * @description Indicates whether the EIP is associated with the EIP bandwidth plan.
+     *
+     *   **BINDED**: The EIP is associated with the EIP bandwidth plan.
+     *   **BINDING**: The EIP is being associated with the EIP bandwidth plan.
+     *
      * @example BINDED
      *
      * @var string
@@ -23,10 +30,8 @@ class publicIpAddresse extends Model
     public $bandwidthPackageIpRelationStatus;
 
     /**
-     * @description The edition of Anti-DDoS.
+     * @description The public IP address.
      *
-     * - If this parameter is empty, it indicates that Anti-DDoS Origin Basic was enabled.
-     * - If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium was enabled.
      * @example 47.95.XX.XX
      *
      * @var string

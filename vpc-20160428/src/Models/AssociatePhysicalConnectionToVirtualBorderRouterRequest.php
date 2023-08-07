@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
 {
     /**
-     * @description The IP address of the gateway device in the data center.
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
      *
-     *   Only the owner of the VBR can set or modify this parameter.
-     *   When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
-     *
+     * >  Only the owner of the Express Connect circuit can set this parameter.
      * @example longtel001
      *
      * @var string
@@ -21,11 +19,11 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $circuitCode;
 
     /**
-     * @description The IPv6 address of the gateway device in the data center.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   Only the owner of the VBR can set or modify this parameter.
-     *   When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -33,6 +31,11 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to enable IPv6. Valid values:
+     *
+     *   **true**: enables IPv6
+     *   **false** (default): disables IPv6
+     *
      * @example false
      *
      * @var string
@@ -40,9 +43,8 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $enableIpv6;
 
     /**
-     * @description The subnet mask of the IP addresses of the VBR and the gateway device in the data center.
+     * @description The IP address of the VBR.
      *
-     * The two IP addresses must fall within the same subnet.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -50,9 +52,8 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $localGatewayIp;
 
     /**
-     * @description The subnet mask of the IPv6 addresses of the VBR and the gateway device in the data center.
+     * @description The IPv6 address of the VBR.
      *
-     * The two IPv6 addresses must fall within the same subnet.
      * @example 2001:XXXX:3c4d:0015:0000:0000:0000:1a2b
      *
      * @var string
@@ -70,7 +71,10 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **AssociatePhysicalConnectionToVirtualBorderRouter**.
+     * @description The IP address of the gateway device in the data center.
+     *
+     *   Only the owner of the VBR can set or modify this parameter.
+     *   When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
      *
      * @example 192.168.XX.XX
      *
@@ -79,10 +83,10 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $peerGatewayIp;
 
     /**
-     * @description Specifies whether to enable IPv6. Valid values:
+     * @description The IPv6 address of the gateway device in the data center.
      *
-     *   **true**: enables IPv6
-     *   **false** (default): disables IPv6
+     *   Only the owner of the VBR can set or modify this parameter.
+     *   When you create a VBR for the owner of the Express Connect circuit, this parameter is required.
      *
      * @example 2001:XXXX:4:4:4:4:4:4
      *
@@ -91,8 +95,9 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $peerIpv6GatewayIp;
 
     /**
-     * @description The ID of the request.
+     * @description The subnet mask of the IPv6 addresses of the VBR and the gateway device in the data center.
      *
+     * The two IPv6 addresses must fall within the same subnet.
      * @example 2408:4004:cc:400::/56
      *
      * @var string
@@ -100,11 +105,9 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $peeringIpv6SubnetMask;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The subnet mask of the IP addresses of the VBR and the gateway device in the data center.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * The two IP addresses must fall within the same subnet.
      * @example 255.255.255.0
      *
      * @var string
@@ -112,9 +115,8 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $peeringSubnetMask;
 
     /**
-     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     * @description The ID of the Express Connect circuit.
      *
-     * >  Only the owner of the Express Connect circuit can set this parameter.
      * @example pc-bp1qrb3044eqixog****
      *
      * @var string
@@ -122,8 +124,9 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The ID of the Express Connect circuit.
+     * @description The ID of the region where the Express Connect circuit is deployed.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -141,9 +144,8 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The VLAN ID of the VBR. Valid values: **0 to 2999**.
+     * @description The ID of the VBR.
      *
-     * >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
      * @example vbr-bp186tnz6rijyhj******
      *
      * @var string
@@ -151,8 +153,9 @@ class AssociatePhysicalConnectionToVirtualBorderRouterRequest extends Model
     public $vbrId;
 
     /**
-     * @description The IP address of the VBR.
+     * @description The VLAN ID of the VBR. Valid values: **0 to 2999**.
      *
+     * >  Only the owner of the Express Connect circuit can set this parameter. The VLAN IDs of two VBRs of the same the Express Connect circuit must be different.
      * @example 123
      *
      * @var string

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
 {
     /**
-     * @description The new priority of the inbound or outbound rule. A smaller value indicates a higher priority.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -18,9 +21,8 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The new destination port range of the inbound or outbound traffic.
+     * @description The new destination CIDR block of the inbound or outbound traffic.
      *
-     * >  If you set **Protocol** to **ICMP**, you cannot change the port range.
      * @example 10.0.0.0/24
      *
      * @var string
@@ -28,9 +30,9 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The ID of the region to which the mirrored traffic belongs.
+     * @description The new destination port range of the inbound or outbound traffic.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * >  If you set **Protocol** to **ICMP**, you cannot change the port range.
      * @example -1/-1
      *
      * @var string
@@ -38,12 +40,10 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $destinationPortRange;
 
     /**
-     * @description The new protocol that is used by the traffic to be mirrored by the inbound or outbound rule. Valid values:
+     * @description Specifies whether to check the request without performing the operation. Valid values:
      *
-     *   **ALL**: all protocols
-     *   **ICMP**: Internet Control Message Protocol (ICMP)
-     *   **TCP**: TCP
-     *   **UDP**: User Datagram Protocol (UDP)
+     *   **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
      *
      * @example false
      *
@@ -62,10 +62,7 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The new action of the inbound or outbound rule. Valid values:
-     *
-     *   **accept**: accepts network traffic.
-     *   **drop**: drops network traffic.
+     * @description The new priority of the inbound or outbound rule. A smaller value indicates a higher priority.
      *
      * @example 1
      *
@@ -74,7 +71,12 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $priority;
 
     /**
-     * @description The new destination CIDR block of the inbound or outbound traffic.
+     * @description The new protocol that is used by the traffic to be mirrored by the inbound or outbound rule. Valid values:
+     *
+     *   **ALL**: all protocols
+     *   **ICMP**: Internet Control Message Protocol (ICMP)
+     *   **TCP**: TCP
+     *   **UDP**: User Datagram Protocol (UDP)
      *
      * @example ICMP
      *
@@ -83,6 +85,9 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $protocol;
 
     /**
+     * @description The ID of the region to which the mirrored traffic belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example cn-hongkong
      *
      * @var string
@@ -100,7 +105,10 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The new source CIDR block of the inbound or outbound traffic.
+     * @description The new action of the inbound or outbound rule. Valid values:
+     *
+     *   **accept**: accepts network traffic.
+     *   **drop**: drops network traffic.
      *
      * @example accept
      *
@@ -109,9 +117,8 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $ruleAction;
 
     /**
-     * @description The new source port range of the inbound or outbound traffic.
+     * @description The new source CIDR block of the inbound or outbound traffic.
      *
-     * >  If you set **Protocol** to **ICMP**, you cannot change the port range.
      * @example 0.0.0.0/0
      *
      * @var string
@@ -119,8 +126,9 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $sourceCidrBlock;
 
     /**
-     * @description The ID of the request.
+     * @description The new source port range of the inbound or outbound traffic.
      *
+     * >  If you set **Protocol** to **ICMP**, you cannot change the port range.
      * @example 22/40
      *
      * @var string
@@ -128,10 +136,7 @@ class UpdateTrafficMirrorFilterRuleAttributeRequest extends Model
     public $sourcePortRange;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
-     *
-     *   **true**: only checks the API request. The configuration of the inbound or outbound rule is not modified. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. This is the default value. If the request passes the check, a 2xx HTTP status code is returned and the configuration of the inbound or outbound rule is modified.
+     * @description The ID of the inbound or outbound rule.
      *
      * @example tmr-j6c89rzmtd3hhdugq****
      *

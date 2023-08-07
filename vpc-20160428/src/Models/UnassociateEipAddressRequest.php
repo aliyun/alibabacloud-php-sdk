@@ -9,13 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassociateEipAddressRequest extends Model
 {
     /**
-     * @description The type of instance from which you want to disassociate the EIP. Valid values:
-     *
-     *   **EcsInstance** (default): an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
-     *   **SlbInstance**: a Server Load Balancer (SLB) instance in a VPC
-     *   **NetworkInterface**: a secondary elastic network interface (ENI) in a VPC
-     *   **Nat**: a NAT gateway
-     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     * @description The ID of the EIP that you want to disassociate.
      *
      * @example eip-2zeerraiwb7uj6i0d****
      *
@@ -24,6 +18,11 @@ class UnassociateEipAddressRequest extends Model
     public $allocationId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
      * @example 02fb3da4-130e-11****
      *
      * @var string
@@ -31,7 +30,10 @@ class UnassociateEipAddressRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the EIP that you want to disassociate.
+     * @description Specifies whether to disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway. Valid values:
+     *
+     *   **false** (default): does not disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+     *   **true**: disassociates the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
      *
      * @example false
      *
@@ -40,7 +42,7 @@ class UnassociateEipAddressRequest extends Model
     public $force;
 
     /**
-     * @description The private IP address of the ECS instance or the secondary ENI from which you want to disassociate the EIP.
+     * @description The ID of the instance from which you want to disassociate the EIP.
      *
      * @example i-hp3akk9irtd69jad****
      *
@@ -49,11 +51,14 @@ class UnassociateEipAddressRequest extends Model
     public $instanceId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The type of instance from which you want to disassociate the EIP. Valid values:
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *   **EcsInstance** (default): an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
+     *   **SlbInstance**: a Server Load Balancer (SLB) instance in a VPC
+     *   **NetworkInterface**: a secondary elastic network interface (ENI) in a VPC
+     *   **Nat**: a NAT gateway
+     *   **HaVip**: a high-availability virtual IP address (HAVIP)
      *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
      * @example EcsInstance
      *
      * @var string
@@ -71,7 +76,7 @@ class UnassociateEipAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the request.
+     * @description The private IP address of the ECS instance or the secondary ENI from which you want to disassociate the EIP.
      *
      * @example 192.XX.XX.2
      *
@@ -80,8 +85,9 @@ class UnassociateEipAddressRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the instance from which you want to disassociate the EIP.
+     * @description The ID of the region to which the EIP belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -62,7 +62,7 @@ class DescribeGrantRulesToCenRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *

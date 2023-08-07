@@ -9,10 +9,8 @@ use AlibabaCloud\Tea\Model;
 class associatedCen extends Model
 {
     /**
-     * @description Indicates whether the VPC supports IPv4 gateways.
+     * @description The ID of the CEN instance to which the VPC is attached.
      *
-     * - **true**: yes
-     * - **false**: no
      * @example cen-7qthudw0ll6jmc****
      *
      * @var string
@@ -20,7 +18,7 @@ class associatedCen extends Model
     public $cenId;
 
     /**
-     * @description The IPv6 CIDR block of the VPC.
+     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
      *
      * @example 283117732402483989
      *
@@ -29,7 +27,9 @@ class associatedCen extends Model
     public $cenOwnerId;
 
     /**
-     * @description The ID of the IPv4 gateway.
+     * @description The status of the CEN instance to which the VPC is attached.
+     *
+     **Attached** is returned only if the VPC is attached to a CEN instance.
      *
      * @example Attached
      *

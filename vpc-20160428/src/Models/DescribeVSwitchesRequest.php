@@ -4,12 +4,16 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVSwitchesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVSwitchesRequest extends Model
 {
     /**
-     * @description The ID of the resource group to which the vSwitch belongs.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
      *
      * @example true
      *
@@ -18,8 +22,12 @@ class DescribeVSwitchesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description Specifies whether to query the default vSwitch in the specified region. Valid values:
      *
+     *   **true**: queries the default vSwitch in the specified region.
+     *   **false**: does not query the default vSwitch in the specified region.
+     *
+     * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
      * @example true
      *
      * @var bool
@@ -37,7 +45,7 @@ class DescribeVSwitchesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -46,7 +54,7 @@ class DescribeVSwitchesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -55,12 +63,9 @@ class DescribeVSwitchesRequest extends Model
     public $pageSize;
 
     /**
-     * @description Specifies whether to query the default vSwitch in the specified region. Valid values:
+     * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
-     *   **true**: queries the default vSwitch in the specified region.
-     *   **false**: does not query the default vSwitch in the specified region.
-     *
-     * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
+     * >  You must set at least one of the **RegionId** and **VpcId** parameters.
      * @example cn-hangzhou
      *
      * @var string
@@ -68,7 +73,7 @@ class DescribeVSwitchesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description The ID of the resource group to which the vSwitch belongs.
      *
      * @example rg-bp67acfmxazb4ph****
      *
@@ -87,7 +92,7 @@ class DescribeVSwitchesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The ID of the route table.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -96,9 +101,13 @@ class DescribeVSwitchesRequest extends Model
     public $routeTableId;
 
     /**
-     * @description The name of the vSwitch.
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The ID of the vSwitch that you want to query.
      *
-     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example vsw-23dscddcffvf3****
      *
      * @var string
@@ -106,8 +115,9 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the route table.
+     * @description The name of the vSwitch.
      *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example vSwitch
      *
      * @var string
@@ -115,7 +125,7 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchName;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 2546073170691****
      *
@@ -124,7 +134,7 @@ class DescribeVSwitchesRequest extends Model
     public $vSwitchOwnerId;
 
     /**
-     * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the VPC to which the vSwitches belong.
      *
      * >  You must set at least one of the **RegionId** and **VpcId** parameters.
      * @example vpc-25cdvfeq58pl****
@@ -134,10 +144,7 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
-     *
-     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+     * @description The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-d
      *
@@ -156,6 +163,7 @@ class DescribeVSwitchesRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'routeTableId'         => 'RouteTableId',
+        'tag'                  => 'Tag',
         'vSwitchId'            => 'VSwitchId',
         'vSwitchName'          => 'VSwitchName',
         'vSwitchOwnerId'       => 'VSwitchOwnerId',
@@ -202,6 +210,15 @@ class DescribeVSwitchesRequest extends Model
         }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -262,6 +279,15 @@ class DescribeVSwitchesRequest extends Model
         }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

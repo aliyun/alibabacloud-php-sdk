@@ -12,7 +12,7 @@ class DescribeCustomerGatewaysRequest extends Model
     /**
      * @description The ID of the customer gateway.
      *
-     * >  If you do not specify a customer gateway ID, the system queries all customer gateways in the current region by default.
+     * > If you do not specify a customer gateway ID, the system queries all customer gateways in the current region by default.
      * @example cgw-bp1pvpl9r9adju6l5****
      *
      * @var string
@@ -48,7 +48,7 @@ class DescribeCustomerGatewaysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the customer gateway.
+     * @description The ID of the region where the customer gateway is deployed.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
@@ -68,6 +68,9 @@ class DescribeCustomerGatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag value.
+     *
+     * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
      * @var tag[]
      */
     public $tag;

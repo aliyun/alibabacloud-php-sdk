@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreatePublicIpAddressPoolRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreatePublicIpAddressPoolRequest extends Model
@@ -114,6 +115,11 @@ class CreatePublicIpAddressPoolRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
@@ -126,6 +132,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -167,6 +174,15 @@ class CreatePublicIpAddressPoolRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -212,6 +228,15 @@ class CreatePublicIpAddressPoolRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

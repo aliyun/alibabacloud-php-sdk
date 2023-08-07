@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayRequest extends Model
 {
     /**
-     * @description Specifies whether to enable the IPsec-VPN feature. Valid values:
+     * @description Specifies whether to enable automatic payment for the VPN gateway. Valid values:
      *
-     *   **true** (default): yes
-     *   **false**: no
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -21,11 +21,12 @@ class CreateVpnGatewayRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable the SSL-VPN feature for the VPN gateway. Valid values:
+     * @description The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
      *
-     *   **true**: yes
-     *   **false** (default): no
+     *   If you want to create a public VPN gateway, valid values are **10**, **100**, **200**, **500**, and **1000**.
+     *   If you want to create a private VPN gateway, valid values are **200** and **1000**.
      *
+     * >  The maximum bandwidth supported by VPN gateways in some regions is 200 Mbit/s. For more information, see [VPN gateway limits](~~65290~~).
      * @example 5
      *
      * @var int
@@ -33,8 +34,11 @@ class CreateVpnGatewayRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The ID of the VPN gateway.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4****
      *
      * @var string
@@ -42,12 +46,20 @@ class CreateVpnGatewayRequest extends Model
     public $clientToken;
 
     /**
+     * @description 指定VPN网关实例关联的第二个交换机实例。
+     *
+     * 关于支持双隧道模式IPsec-VPN连接的地域和可用区的信息，请参见[IPsec-VPN连接升级为双隧道模式](~~2358946~~)。
+     * @example vsw-p0wiz7obm0tbimu4r****
+     *
      * @var string
      */
     public $disasterRecoveryVSwitchId;
 
     /**
-     * @description The maximum number of clients that can be connected at the same time. Valid values: **5** (default), **10**, **20**, **50**, **100**, **200**, **500**, and **1000**.
+     * @description Specifies whether to enable the IPsec-VPN feature. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -56,7 +68,10 @@ class CreateVpnGatewayRequest extends Model
     public $enableIpsec;
 
     /**
-     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     * @description Specifies whether to enable the SSL-VPN feature for the VPN gateway. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -65,18 +80,17 @@ class CreateVpnGatewayRequest extends Model
     public $enableSsl;
 
     /**
-     * @description Specifies whether to enable automatic payment for the VPN gateway. Valid values:
+     * @description The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
      *
-     *   **true**: yes
-     *   **false** (default): no
-     *
+     * >  This parameter is required when you create a VPN gateway.
      * @var string
      */
     public $instanceChargeType;
 
     /**
-     * @description The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
+     * @description The name of the VPN gateway. The default value is the ID of the VPN gateway.
      *
+     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example MYVPN
      *
      * @var string
@@ -84,7 +98,10 @@ class CreateVpnGatewayRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The network type of the VPN gateway. Valid values:
+     *
+     *   **public** (default)
+     *   **private**
      *
      * @example public
      *
@@ -103,12 +120,8 @@ class CreateVpnGatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The maximum bandwidth of the VPN gateway. Unit: Mbit/s.
+     * @description The subscription duration. Unit: month. Valid values: **1** to **9**, **12**, **24**, and **36**.
      *
-     *   If you want to create a public VPN gateway, valid values are **10**, **100**, **200**, **500**, and **1000**.
-     *   If you want to create a private VPN gateway, valid values are **200** and **1000**.
-     *
-     * >  In some regions, the maximum bandwidth supported by a VPN gateway is 200 Mbit/s. For more information, see [Limits on VPN gateways](~~65290~~).
      * @example 1
      *
      * @var int
@@ -116,7 +129,7 @@ class CreateVpnGatewayRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) where you want to create the VPN gateway.
+     * @description The region ID of the VPN gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -135,9 +148,7 @@ class CreateVpnGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the VPN gateway. Valid values:
-     *
-     *   **Normal** (default): standard
+     * @description The maximum number of clients that can be connected at the same time. Valid values: **5** (default), **10**, **20**, **50**, **100**, **200**, **500**, and **1000**.
      *
      * @example 5
      *
@@ -146,11 +157,8 @@ class CreateVpnGatewayRequest extends Model
     public $sslConnections;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the vSwitch to which the VPN gateway belongs.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example vsw-bp1j5miw2bae9s2vt****
      *
      * @var string
@@ -158,7 +166,7 @@ class CreateVpnGatewayRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+     * @description The ID of the virtual private cloud (VPC) where you want to create the VPN gateway.
      *
      * @example vpc-bp1ub1yt9cvakoelj****
      *
@@ -167,11 +175,9 @@ class CreateVpnGatewayRequest extends Model
     public $vpcId;
 
     /**
-     * @description The network type of the VPN gateway. Valid values:
+     * @description The type of the VPN gateway.
      *
-     *   **public** (default): public VPN gateway
-     *   **private**: private VPN gateway
-     *
+     * Set the value to **Normal** (default), which specifies a standard NAT gateway.
      * @example Normal
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrafficMirrorSessionAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 64DCAF03-E2C7-479A-ACEA-38B79876B006
      *
      * @var string

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrafficMirrorSessionAttributeRequest extends Model
 {
     /**
-     * @description The ID of the traffic mirror session.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -18,7 +21,10 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the traffic mirror destination.
+     * @description Specifies whether to precheck the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
      *
      * @example false
      *
@@ -27,7 +33,10 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to enable the traffic mirror session.
+     *
+     *   **false**: disables the traffic mirror session. This is the default value.
+     *   **true**: enables the traffic mirror session.
      *
      * @example false
      *
@@ -51,8 +60,9 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $packetLength;
 
     /**
-     * @description The region ID of the traffic mirror session. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * @description The priority of the traffic mirror session. Valid values: **1** to **32766**.
      *
+     * A smaller value specifies a higher priority. You cannot specify identical priorities for traffic mirror sessions that are created in the same region by using the same account.
      * @example 2
      *
      * @var int
@@ -60,6 +70,8 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $priority;
 
     /**
+     * @description The region ID of the traffic mirror session. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     *
      * @example cn-hongkong
      *
      * @var string
@@ -77,9 +89,8 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The priority of the traffic mirror session. Valid values: **1** to **32766**.
+     * @description The ID of the traffic mirror filter.
      *
-     * A smaller value specifies a higher priority. You cannot specify identical priorities for traffic mirror sessions that are created in the same region by using the same account.
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -87,11 +98,9 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $trafficMirrorFilterId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The description of the traffic mirror session.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is a new session.
      *
      * @var string
@@ -99,10 +108,7 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $trafficMirrorSessionDescription;
 
     /**
-     * @description The type of the traffic mirror destination. Valid values:
-     *
-     *   **NetworkInterface**: an ENI
-     *   **SLB**: an internal-facing Server Load Balancer (SLB) instance
+     * @description The ID of the traffic mirror session.
      *
      * @example tms-j6cla50buc44ap8tu****
      *
@@ -111,11 +117,9 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $trafficMirrorSessionId;
 
     /**
-     * @description Specifies whether to precheck the request without performing the operation. Valid values:
+     * @description The name of the traffic mirror session.
      *
-     *   **true**: checks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed. This is the default value.
-     *
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
@@ -123,7 +127,7 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $trafficMirrorSessionName;
 
     /**
-     * @description The ID of the traffic mirror filter.
+     * @description The ID of the traffic mirror destination.
      *
      * @example eni-j6c2fp57q8rr47rp*****
      *
@@ -132,9 +136,11 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $trafficMirrorTargetId;
 
     /**
-     * @description The VXLAN network identifier (VNI) that is used to distinguish different mirrored traffic. Valid values: **0** to **16777215**.
+     * @description The type of the traffic mirror destination. Valid values:
      *
-     * You can use VNIs to identify mirrored traffic from different sessions at the traffic mirror destination. If you do not specify a VNI, the system randomly allocates a VNI. If you want the system to randomly allocate a VNI, ignore this parameter.
+     *   **NetworkInterface**: an ENI
+     *   **SLB**: an internal-facing Server Load Balancer (SLB) instance
+     *
      * @example NetworkInterface
      *
      * @var string
@@ -142,11 +148,9 @@ class UpdateTrafficMirrorSessionAttributeRequest extends Model
     public $trafficMirrorTargetType;
 
     /**
-     * @description Specifies whether to enable the traffic mirror session.
+     * @description The VXLAN network identifier (VNI) that is used to distinguish different mirrored traffic. Valid values: **0** to **16777215**.
      *
-     *   **false**: disables the traffic mirror session. This is the default value.
-     *   **true**: enables the traffic mirror session.
-     *
+     * You can use VNIs to identify mirrored traffic from different sessions at the traffic mirror destination. If you do not specify a VNI, the system randomly allocates a VNI. If you want the system to randomly allocate a VNI, ignore this parameter.
      * @example 10
      *
      * @var int

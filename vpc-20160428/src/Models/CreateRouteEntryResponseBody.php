@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteEntryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateRouteEntryResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the custom route entry.
+     *
      * @example rte-sn6vjkioxte1gz83z****
      *
      * @var string

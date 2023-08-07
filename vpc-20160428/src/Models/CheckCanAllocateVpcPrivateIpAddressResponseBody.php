@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
 {
     /**
+     * @description Indicates whether the private IP address is available. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class CheckCanAllocateVpcPrivateIpAddressResponseBody extends Model
     public $canAllocate;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 93360B0-2969-40BF-8542-EBB34FD358AB
      *
      * @var string

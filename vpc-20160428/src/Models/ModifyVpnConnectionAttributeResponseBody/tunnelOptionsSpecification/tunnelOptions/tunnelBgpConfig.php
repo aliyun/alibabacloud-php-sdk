@@ -9,16 +9,6 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $bgpStatus;
-
-    /**
-     * @var bool
-     */
-    public $enableBgp;
-
-    /**
      * @var int
      */
     public $localAsn;
@@ -43,8 +33,6 @@ class tunnelBgpConfig extends Model
      */
     public $tunnelCidr;
     protected $_name = [
-        'bgpStatus'  => 'BgpStatus',
-        'enableBgp'  => 'EnableBgp',
         'localAsn'   => 'LocalAsn',
         'localBgpIp' => 'LocalBgpIp',
         'peerAsn'    => 'PeerAsn',
@@ -59,12 +47,6 @@ class tunnelBgpConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bgpStatus) {
-            $res['BgpStatus'] = $this->bgpStatus;
-        }
-        if (null !== $this->enableBgp) {
-            $res['EnableBgp'] = $this->enableBgp;
-        }
         if (null !== $this->localAsn) {
             $res['LocalAsn'] = $this->localAsn;
         }
@@ -92,12 +74,6 @@ class tunnelBgpConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BgpStatus'])) {
-            $model->bgpStatus = $map['BgpStatus'];
-        }
-        if (isset($map['EnableBgp'])) {
-            $model->enableBgp = $map['EnableBgp'];
-        }
         if (isset($map['LocalAsn'])) {
             $model->localAsn = $map['LocalAsn'];
         }

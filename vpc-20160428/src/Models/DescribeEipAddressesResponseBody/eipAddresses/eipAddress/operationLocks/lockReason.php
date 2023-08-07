@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class lockReason extends Model
 {
     /**
+     * @description The reason why the EIP is locked. Valid values:
+     *
+     *   **financial**: The EIP is locked due to overdue payments.
+     *   **security**: The EIP is locked for security reasons.
+     *
      * @example financial
      *
      * @var string

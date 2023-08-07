@@ -9,6 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteNatGatewayRequest extends Model
 {
     /**
+     * @description Specifies whether to forcefully delete the NAT gateway. Valid values:
+     *
+     *   **true**: yes If you set the value to **true**:
+     *
+     *   If the NAT gateway has SNAT entries, the system automatically deletes them.
+     *   If the NAT gateway has DNAT entries, the system automatically deletes them.
+     *   If the NAT gateway is associated with an elastic IP address (EIP), the system automatically disassociates the EIP from the NAT gateway.
+     *   If the NAT gateway is associated with a NAT bandwidth plan, the system automatically disassociates the NAT bandwidth plan from the NAT gateway.
+     *
+     *   **false**(default): no If you set the value to **false**:
+     *
+     *   If the NAT gateway is associated with a NAT bandwidth plan, disassociate the NAT gateway from the NAT bandwidth plan first.
+     *   If the NAT gateway has SNAT entries, delete them first.
+     *   If the NAT gateway has DNAT entries, delete them first.
+     *   If the NAT gateway is associated with an EIP, disassociate the EIP from the NAT gateway first.
+     *
      * @example false
      *
      * @var bool
@@ -16,7 +32,7 @@ class DeleteNatGatewayRequest extends Model
     public $force;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the NAT gateway that you want to delete.
      *
      * @example ngw-bp1uewa15k4iy5770****
      *
@@ -35,22 +51,9 @@ class DeleteNatGatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to forcefully delete the NAT gateway. Valid values:
+     * @description The ID of the region where the NAT gateway is deployed.
      *
-     *   **true**: yes If you set the value to **true**:
-     *
-     *   If the NAT gateway has SNAT entries, the system automatically deletes them.
-     *   If the NAT gateway has DNAT entries, the system automatically deletes them.
-     *   If the NAT gateway is associated with an elastic IP address (EIP), the system automatically disassociates the EIP from the NAT gateway.
-     *   If the NAT gateway is associated with a NAT bandwidth plan, the system automatically disassociates the NAT bandwidth plan from the NAT gateway.
-     *
-     *   **false**(default): no If you set the value to **false**:
-     *
-     *   If the NAT gateway is associated with a NAT bandwidth plan, disassociate the NAT gateway from the NAT bandwidth plan first.
-     *   If the NAT gateway has SNAT entries, delete them first.
-     *   If the NAT gateway has DNAT entries, delete them first.
-     *   If the NAT gateway is associated with an EIP, disassociate the EIP from the NAT gateway first.
-     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

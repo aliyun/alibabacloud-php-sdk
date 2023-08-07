@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouteTableListRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeRouteTableListRequest extends Model
@@ -19,7 +20,7 @@ class DescribeRouteTableListRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -28,7 +29,7 @@ class DescribeRouteTableListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the resource group to which the route table to be queried belongs.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -37,8 +38,9 @@ class DescribeRouteTableListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID of the VPC to which the route table belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string
@@ -46,7 +48,7 @@ class DescribeRouteTableListRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeRouteTableList**.
+     * @description The ID of the resource group to which the route table to be queried belongs.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -65,7 +67,7 @@ class DescribeRouteTableListRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the route table that you want to query.
+     * @description The ID of the route table that you want to query.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -74,7 +76,7 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The name of the route table that you want to query.
      *
      * @example doctest
      *
@@ -83,9 +85,8 @@ class DescribeRouteTableListRequest extends Model
     public $routeTableName;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
+     * @description The ID of the router to which the route table belongs.
      *
-     * After this parameter is set, the value of the **RouterType** parameter is automatically set to **VRouter**.
      * @example vrt-bp1lhl0taikrteen8****
      *
      * @var string
@@ -93,7 +94,10 @@ class DescribeRouteTableListRequest extends Model
     public $routerId;
 
     /**
-     * @description The ID of the router to which the route table belongs.
+     * @description The type of the router to which the route table belongs. Valid values:
+     *
+     *   **VRouter** (default): a vRouter
+     *   **VBR**: a virtual border router (VBR)
      *
      * @example VRouter
      *
@@ -102,8 +106,14 @@ class DescribeRouteTableListRequest extends Model
     public $routerType;
 
     /**
-     * @description The ID of the route table that you want to query.
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The ID of the virtual private cloud (VPC) to which the route table belongs.
      *
+     * After this parameter is set, the value of the **RouterType** parameter is automatically set to **VRouter**.
      * @example vpc-bp15zckdt37pq72****
      *
      * @var string
@@ -122,6 +132,7 @@ class DescribeRouteTableListRequest extends Model
         'routeTableName'       => 'RouteTableName',
         'routerId'             => 'RouterId',
         'routerType'           => 'RouterType',
+        'tag'                  => 'Tag',
         'vpcId'                => 'VpcId',
     ];
 
@@ -167,6 +178,15 @@ class DescribeRouteTableListRequest extends Model
         }
         if (null !== $this->routerType) {
             $res['RouterType'] = $this->routerType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -218,6 +238,15 @@ class DescribeRouteTableListRequest extends Model
         }
         if (isset($map['RouterType'])) {
             $model->routerType = $map['RouterType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

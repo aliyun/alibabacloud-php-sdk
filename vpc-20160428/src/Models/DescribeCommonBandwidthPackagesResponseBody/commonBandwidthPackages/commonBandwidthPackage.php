@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class commonBandwidthPackage extends Model
 {
     /**
-     * @description The new maximum bandwidth. Unit: Mbit/s.
+     * @description The maximum bandwidth of the EIP bandwidth plan. Unit: Mbit/s.
      *
      * @example 20
      *
@@ -21,7 +21,7 @@ class commonBandwidthPackage extends Model
     public $bandwidth;
 
     /**
-     * @description The description of the EIP bandwidth plan.
+     * @description The ID of the EIP bandwidth plan.
      *
      * @example cbwp-bp1t3sm1ffzmshdki****
      *
@@ -30,10 +30,11 @@ class commonBandwidthPackage extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description Indicates whether the information about pending orders was returned.
+     * @description The service state of the EIP bandwidth plan.
      *
-     *   **false**: The information about pending orders was not returned.
-     *   **true**: The information about pending orders was returned.
+     *   **Normal**: The EIP bandwidth plan works as expected.
+     *   **FinancialLocked**: The EIP bandwidth plan has an overdue payment.
+     *   **Unactivated**: The EIP bandwidth plan is not activated.
      *
      * @example Normal
      *
@@ -42,9 +43,7 @@ class commonBandwidthPackage extends Model
     public $businessStatus;
 
     /**
-     * @description The new metering method.
-     *
-     **PayByTraffic**: the pay-by-data-transfer metering method
+     * @description The time when the EIP bandwidth plan was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2017-06-28T06:39:20Z
      *
@@ -53,9 +52,10 @@ class commonBandwidthPackage extends Model
     public $creationTime;
 
     /**
-     * @description The billing method of the EIP bandwidth plan.
+     * @description Indicates whether deletion protection was enabled.
      *
-     **PostPaid**: the pay-as-you-go billing method
+     *   **true**: Deletion protection was enabled.
+     *   **false**: Deletion protection was disabled.
      *
      * @example true
      *
@@ -64,7 +64,7 @@ class commonBandwidthPackage extends Model
     public $deletionProtection;
 
     /**
-     * @description The ID of the resource group.
+     * @description The description of the EIP bandwidth plan.
      *
      * @example none
      *
@@ -73,9 +73,7 @@ class commonBandwidthPackage extends Model
     public $description;
 
     /**
-     * @description The metering method of the EIP bandwidth plan.
-     *
-     **PayByTraffic**: the pay-by-data-transfer metering method.
+     * @description The time when the EIP bandwidth plan expired. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2019-01-15T03:08:37Z
      *
@@ -84,34 +82,16 @@ class commonBandwidthPackage extends Model
     public $expiredTime;
 
     /**
-     * @description The ID of the EIP.
+     * @description Indicates whether the information about pending orders was returned.
+     *
+     *   **false**: The information about pending orders was not returned.
+     *   **true**: The information about pending orders was returned.
      *
      * @example false
      *
      * @var string
      */
     public $hasReservationData;
-
-    /**
-     * @description The public IP address.
-     *
-     * @example BGP
-     *
-     * @var string
-     */
-    public $ISP;
-
-    /**
-     * @description Indicates whether the EIP bandwidth plan was created by the service account.
-     *
-     *   **0**: The EIP bandwidth plan was not created by the service account.
-     *   **1**: The EIP bandwidth plan was created by the service account.
-     *
-     * @example PostPaid
-     *
-     * @var string
-     */
-    public $instanceChargeType;
 
     /**
      * @description The line type.
@@ -129,6 +109,28 @@ class commonBandwidthPackage extends Model
      *   **ChinaMobile_L2**: China Mobile L2
      *
      * If your services are deployed in China East 1 Finance, **BGP_FinanceCloud** is returned.
+     * @example BGP
+     *
+     * @var string
+     */
+    public $ISP;
+
+    /**
+     * @description The billing method of the EIP bandwidth plan.
+     *
+     **PostPaid**: the pay-as-you-go billing method
+     *
+     * @example PostPaid
+     *
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @description The metering method of the EIP bandwidth plan.
+     *
+     **PayByTraffic**: the pay-by-data-transfer metering method.
+     *
      * @example PayByBandwidth
      *
      * @var string
@@ -136,7 +138,7 @@ class commonBandwidthPackage extends Model
     public $internetChargeType;
 
     /**
-     * @description The elastic IP addresses (EIPs) associated with the EIP bandwidth plan.
+     * @description The name of the EIP bandwidth plan.
      *
      * @example abc
      *
@@ -145,18 +147,16 @@ class commonBandwidthPackage extends Model
     public $name;
 
     /**
-     * @description Indicates whether the EIP is associated with the EIP bandwidth plan.
-     *
-     *   **BINDED**: The EIP is associated with the EIP bandwidth plan.
-     *   **BINDING**: The EIP is being associated with the EIP bandwidth plan.
+     * @description The elastic IP addresses (EIPs) associated with the EIP bandwidth plan.
      *
      * @var publicIpAddresses
      */
     public $publicIpAddresses;
 
     /**
-     * @description The ID of the EIP bandwidth plan.
+     * @description The percentage of the minimum bandwidth commitment. **20** is returned.
      *
+     * >  This parameter is available only on the Alibaba Cloud China site.
      * @example 20
      *
      * @var int
@@ -164,7 +164,7 @@ class commonBandwidthPackage extends Model
     public $ratio;
 
     /**
-     * @description The maximum bandwidth of the EIP bandwidth plan. Unit: Mbit/s.
+     * @description The region ID of the EIP bandwidth plan.
      *
      * @example cn-hangzhou
      *
@@ -173,11 +173,7 @@ class commonBandwidthPackage extends Model
     public $regionId;
 
     /**
-     * @description The renewal method.
-     *
-     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade
-     *   **TEMP_UPGRADE**: temporary upgrade
-     *   **UPGRADE**: upgrade
+     * @description The time when the renewal took effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
      *
      * @example 2018-08-30T16:00:00Z
      *
@@ -186,11 +182,7 @@ class commonBandwidthPackage extends Model
     public $reservationActiveTime;
 
     /**
-     * @description The service state of the EIP bandwidth plan.
-     *
-     *   **Normal**: The EIP bandwidth plan works as expected.
-     *   **FinancialLocked**: The EIP bandwidth plan has an overdue payment.
-     *   **Unactivated**: The EIP bandwidth plan is not activated.
+     * @description The new maximum bandwidth. Unit: Mbit/s.
      *
      * @example 1000
      *
@@ -199,7 +191,9 @@ class commonBandwidthPackage extends Model
     public $reservationBandwidth;
 
     /**
-     * @description The region ID of the EIP bandwidth plan.
+     * @description The new metering method.
+     *
+     **PayByTraffic**: the pay-by-data-transfer metering method
      *
      * @example PayByBandwidth
      *
@@ -208,9 +202,12 @@ class commonBandwidthPackage extends Model
     public $reservationInternetChargeType;
 
     /**
-     * @description The percentage of the minimum bandwidth commitment. **20** is returned.
+     * @description The renewal method.
      *
-     * >  This parameter is available only on the Alibaba Cloud China site.
+     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade
+     *   **TEMP_UPGRADE**: temporary upgrade
+     *   **UPGRADE**: upgrade
+     *
      * @example RENEWCHANGE
      *
      * @var string
@@ -218,7 +215,7 @@ class commonBandwidthPackage extends Model
     public $reservationOrderType;
 
     /**
-     * @description The name of the EIP bandwidth plan.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -227,12 +224,19 @@ class commonBandwidthPackage extends Model
     public $resourceGroupId;
 
     /**
+     * @description The edition of Anti-DDoS.
+     *
+     * - If this parameter is empty, it indicates that Anti-DDoS Origin Basic was enabled.
+     * - If **AntiDDoS_Enhanced** is returned, it indicates that Anti-DDoS Pro/Premium was enabled.
      * @var securityProtectionTypes
      */
     public $securityProtectionTypes;
 
     /**
-     * @description The time when the EIP bandwidth plan expired. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description Indicates whether the EIP bandwidth plan was created by the service account.
+     *
+     *   **0**: The EIP bandwidth plan was not created by the service account.
+     *   **1**: The EIP bandwidth plan was created by the service account.
      *
      * @example 1
      *
@@ -241,10 +245,10 @@ class commonBandwidthPackage extends Model
     public $serviceManaged;
 
     /**
-     * @description Indicates whether deletion protection was enabled.
+     * @description The status of the EIP bandwidth plan. Valid values:
      *
-     *   **true**: Deletion protection was enabled.
-     *   **false**: Deletion protection was disabled.
+     *   **Available**: The EIP bandwidth plan is available.
+     *   **Modifying**: The EIP bandwidth plan is being modified.
      *
      * @example Available
      *

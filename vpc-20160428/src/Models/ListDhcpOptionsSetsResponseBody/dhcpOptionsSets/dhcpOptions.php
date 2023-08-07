@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptions extends Model
 {
     /**
+     * @description The suffix of the hostname.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class dhcpOptions extends Model
     public $domainName;
 
     /**
+     * @description The DNS server IP address.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -23,6 +27,11 @@ class dhcpOptions extends Model
     public $domainNameServers;
 
     /**
+     * @description The lease time of the IPv6 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
      * @example 3650d
      *
      * @var string
@@ -30,6 +39,11 @@ class dhcpOptions extends Model
     public $ipv6LeaseTime;
 
     /**
+     * @description The lease time of the IPv4 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
      * @example 3650d
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nextHopList extends Model
 {
     /**
-     * @description The ID of the custom route entry.
+     * @description The ID of the next hop of the ECMP route.
      *
      * @example ri-2zeo3xzyf3cd8r4****
      *
@@ -18,6 +18,8 @@ class nextHopList extends Model
     public $nextHopId;
 
     /**
+     * @description The type of next hop of the ECMP route entry. Set the value to **RouterInterface**.
+     *
      * @example RouterInterface
      *
      * @var string
@@ -25,7 +27,7 @@ class nextHopList extends Model
     public $nextHopType;
 
     /**
-     * @description The ID of the request.
+     * @description The weight of the next hop of the ECMP route entry.
      *
      * @example 10
      *

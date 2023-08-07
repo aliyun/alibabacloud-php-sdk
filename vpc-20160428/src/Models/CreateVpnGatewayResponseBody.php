@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnGatewayResponseBody extends Model
 {
     /**
+     * @description The name of the VPN gateway.
+     *
      * @example MYVPN
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateVpnGatewayResponseBody extends Model
     public $name;
 
     /**
+     * @description The order ID.
+     *
+     * If automatic payment is disabled, you must manually complete the payment for the VPN gateway in the [Alibaba Cloud Management console](https://usercenter2-intl.aliyun.com/billing/#/account/overview).
      * @example 208240895400460
      *
      * @var int
@@ -23,9 +28,8 @@ class CreateVpnGatewayResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the order.
+     * @description The request ID.
      *
-     * If automatic payment is disabled, you must manually complete the payment for the VPN gateway in the [Alibaba Cloud Management console](https://usercenter2-intl.aliyun.com/billing/#/account/overview).
      * @example EB2C156A-41F8-49CC-A756-D55AFC8BFD69
      *
      * @var string
@@ -33,7 +37,7 @@ class CreateVpnGatewayResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the VPN gateway.
+     * @description The ID of the VPN gateway.
      *
      * @example vpn-uf68lxhgr7ftbqr3p****
      *

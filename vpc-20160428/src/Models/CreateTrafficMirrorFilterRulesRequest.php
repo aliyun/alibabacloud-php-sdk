@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorFilterRulesRequest extends Model
 {
     /**
-     * @description The action of the inbound rule. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **accept**: accepts network traffic.
-     *   **drop**: drops network traffic.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
      *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -23,7 +23,10 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The source CIDR block of the inbound traffic.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the check, the operation is performed.
      *
      * @example false
      *
@@ -52,8 +55,9 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The list of inbound rules.
+     * @description The ID of the region to which the mirrored traffic belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example cn-hongkong
      *
      * @var string
@@ -71,10 +75,7 @@ class CreateTrafficMirrorFilterRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
-     *
-     *   **true**: checks the request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. After the request passes the check, the operation is performed.
+     * @description The ID of the filter.
      *
      * @example tmf-j6cmls82xnc86vtpe****
      *

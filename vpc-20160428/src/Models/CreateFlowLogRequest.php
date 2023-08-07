@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateFlowLogRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateFlowLogRequest extends Model
@@ -124,6 +125,11 @@ class CreateFlowLogRequest extends Model
     public $resourceType;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @var string[]
      */
     public $trafficPath;
@@ -154,6 +160,7 @@ class CreateFlowLogRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceType'         => 'ResourceType',
+        'tag'                  => 'Tag',
         'trafficPath'          => 'TrafficPath',
         'trafficType'          => 'TrafficType',
     ];
@@ -203,6 +210,15 @@ class CreateFlowLogRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->trafficPath) {
             $res['TrafficPath'] = $this->trafficPath;
@@ -260,6 +276,15 @@ class CreateFlowLogRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TrafficPath'])) {
             if (!empty($map['TrafficPath'])) {

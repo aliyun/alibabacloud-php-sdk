@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveSourcesFromTrafficMirrorSessionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example A33B2C6A-89D1-4DEA-A807-A6E8CC552484
      *
      * @var string

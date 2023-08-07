@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateVpcRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateVpcRequest extends Model
@@ -136,6 +137,11 @@ class CreateVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The user CIDR block. Separate user CIDR blocks with commas (,). You can specify up to three user CIDR blocks.
      *
      * For more information about user CIDR blocks, see the `What is a user CIDR block?` section in [VPC FAQ](~~185311~~).
@@ -169,6 +175,7 @@ class CreateVpcRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
         'userCidr'             => 'UserCidr',
         'vpcName'              => 'VpcName',
     ];
@@ -221,6 +228,15 @@ class CreateVpcRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->userCidr) {
             $res['UserCidr'] = $this->userCidr;
@@ -281,6 +297,15 @@ class CreateVpcRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UserCidr'])) {
             $model->userCidr = $map['UserCidr'];

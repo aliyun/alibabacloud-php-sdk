@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the EIP.
+     *
      * @example eip-25877c70gddh****
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocateEipAddressResponseBody extends Model
     public $allocationId;
 
     /**
+     * @description The EIP that is allocated. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+     *
      * @example 192.0.XX.XX
      *
      * @var string
@@ -23,7 +27,7 @@ class AllocateEipAddressResponseBody extends Model
     public $eipAddress;
 
     /**
-     * @description The ID of the EIP.
+     * @description The ID of the order. This parameter is returned only when **InstanceChargeType** is set to **PrePaid**.
      *
      * @example 10
      *
@@ -32,7 +36,7 @@ class AllocateEipAddressResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The EIP that is allocated. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+     * @description The ID of the request.
      *
      * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
      *
@@ -41,6 +45,8 @@ class AllocateEipAddressResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
+     *
      * @example rg-acfmxazfdgdg****
      *
      * @var string

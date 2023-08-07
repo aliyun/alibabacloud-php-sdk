@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DetachDhcpOptionsSetFromVpcRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -18,11 +21,8 @@ class DetachDhcpOptionsSetFromVpcRequest extends Model
     public $clientToken;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the DHCP options set to be disassociated from a VPC.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
@@ -30,6 +30,12 @@ class DetachDhcpOptionsSetFromVpcRequest extends Model
     public $dhcpOptionsSetId;
 
     /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     **true**: checks the request without performing the operation. The system checks your AccessKey pair, the Resource Access Management (RAM) user permissions, and the required parameters. If the request fails to pass the check, the corresponding error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *
+     **false** (default): sends the request. If the request passes the check, a 2XX HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -47,7 +53,7 @@ class DetachDhcpOptionsSetFromVpcRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The region to which the DHCP options set belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -66,11 +72,7 @@ class DetachDhcpOptionsSetFromVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
-     *
-     **true**: checks the request without performing the operation. The system checks your AccessKey pair, the Resource Access Management (RAM) user permissions, and the required parameters. If the request fails to pass the check, the corresponding error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *
-     **false** (default): sends the request. If the request passes the check, a 2XX HTTP status code is returned and the operation is performed.
+     * @description The ID of the VPC.
      *
      * @example vpc-dfdgrgthhy****
      *

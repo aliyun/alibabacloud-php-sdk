@@ -47,7 +47,7 @@ class DescribeVpnConnectionsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the IPsec-VPN connection is established.
+     * @description The ID of the region where the IPsec-VPN connection is created.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -67,6 +67,9 @@ class DescribeVpnConnectionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag value.
+     *
+     * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
      * @var tag[]
      */
     public $tag;

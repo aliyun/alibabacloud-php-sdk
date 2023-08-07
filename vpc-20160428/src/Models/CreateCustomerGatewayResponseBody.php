@@ -37,7 +37,7 @@ class CreateCustomerGatewayResponseBody extends Model
     public $description;
 
     /**
-     * @description The static public IP address of the gateway device in the data center.
+     * @description The public IP address of the gateway device in the data center.
      *
      * @example 101.12.XX.XX
      *
@@ -55,7 +55,7 @@ class CreateCustomerGatewayResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D32B3C26-6C6C-4988-93E9-D2A6444CE6AE
      *

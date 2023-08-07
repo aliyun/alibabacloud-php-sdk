@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnassociateHaVipRequest extends Model
 {
     /**
-     * @description The ID of the HAVIP that you want to disassociate.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The `ClientToken` value can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
@@ -18,8 +18,12 @@ class UnassociateHaVipRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to forcefully disassociate the HAVIP from the ECS instance or ENI. Valid values:
      *
+     *   **True**: yes
+     *   **False** (default): no
+     *
+     * >  If you set the value to **False**, you cannot disassociate the HAVIP from the primary instance.
      * @example True
      *
      * @var string
@@ -27,17 +31,22 @@ class UnassociateHaVipRequest extends Model
     public $force;
 
     /**
-     * @description Specifies whether to forcefully disassociate the HAVIP from the ECS instance or ENI. Valid values:
+     * @description The ID of the HAVIP that you want to disassociate.
      *
-     *   **True**: yes
-     *   **False** (default): no
-     *
-     * >  If you set the value to **False**, you cannot disassociate the HAVIP from the primary instance.
      * @example havip-2zeo05qre24nhrqpy****
      *
      * @var string
      */
     public $haVipId;
+
+    /**
+     * @description The ID of the ECS instance or ENI from which you want to disassociate the HAVIP.
+     *
+     * @example i-faf344422ffsfad****
+     *
+     * @var string
+     */
+    public $instanceId;
 
     /**
      * @description The type of the instance from which you want to disassociate the HAVIP. Valid values:
@@ -46,13 +55,6 @@ class UnassociateHaVipRequest extends Model
      *   **NetworkInterface**: an ENI
      *
      * >  If you want to disassociate the HAVIP from an ENI, this parameter is required.
-     * @example i-faf344422ffsfad****
-     *
-     * @var string
-     */
-    public $instanceId;
-
-    /**
      * @example EcsInstance
      *
      * @var string
@@ -70,8 +72,9 @@ class UnassociateHaVipRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the ECS instance or ENI from which you want to disassociate the HAVIP.
+     * @description The ID of the region to which the HAVIP belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string

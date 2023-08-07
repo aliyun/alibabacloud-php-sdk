@@ -11,6 +11,77 @@ use AlibabaCloud\Tea\Model;
 class vpnGateway extends Model
 {
     /**
+     * @description Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $autoPropagate;
+
+    /**
+     * @description The payment status of the VPN gateway.
+     *
+     *   **Normal:** The VPN gateway is running as expected.
+     *   **FinancialLocked**: The VPN gateway is locked due to overdue payments.
+     *
+     * @example Normal
+     *
+     * @var string
+     */
+    public $businessStatus;
+
+    /**
+     * @description The billing method of the VPN gateway.
+     *
+     * The value is set to **POSTPAY**, which indicates the pay-as-you-go billing method.
+     * @var string
+     */
+    public $chargeType;
+
+    /**
+     * @description The timestamp when the VPN gateway was created. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 1515383700000
+     *
+     * @var int
+     */
+    public $createTime;
+
+    /**
+     * @description The description of the VPN gateway.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description 系统为VPN网关实例分配的用于创建IPsec-VPN连接的第二个IP地址。
+     *
+     * 仅支持创建双隧道模式IPsec-VPN连接的VPN网关实例会返回当前参数。
+     * @example 47.91.XX.XX
+     *
+     * @var string
+     */
+    public $disasterRecoveryInternetIp;
+
+    /**
+     * @description VPN网关实例关联的第二个交换机ID。
+     *
+     * 仅支持创建双隧道模式IPsec-VPN连接的VPN网关实例会返回当前参数。
+     * @example vsw-p0w95ql6tmr2ludkt****
+     *
+     * @var string
+     */
+    public $disasterRecoveryVSwitchId;
+
+    /**
      * @description The BGP status of the VPN gateway.
      *
      *   **true**: enabled
@@ -20,70 +91,12 @@ class vpnGateway extends Model
      *
      * @var bool
      */
-    public $autoPropagate;
-
-    /**
-     * @description The status of the pending order.
-     *
-     * - **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
-     * - **2**: indicates that the order for a temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
-     * @example Normal
-     *
-     * @var string
-     */
-    public $businessStatus;
-
-    /**
-     * @description The payment status of the VPN gateway.
-     *
-     *   **Normal:** The VPN gateway is running as expected.
-     *   **FinancialLocked**: The VPN gateway is locked due to overdue payments.
-     *
-     * @var string
-     */
-    public $chargeType;
-
-    /**
-     * @description The description of the VPN gateway.
-     *
-     * @example 1515383700000
-     *
-     * @var int
-     */
-    public $createTime;
-
-    /**
-     * @description The tag value.
-     *
-     * @example test
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $disasterRecoveryInternetIp;
-
-    /**
-     * @var string
-     */
-    public $disasterRecoveryVSwitchId;
-
-    /**
-     * @description The information about the pending orders.
-     *
-     * >  This parameter is returned only when **IncludeReservationData** is set to **true**.
-     * @example true
-     *
-     * @var bool
-     */
     public $enableBgp;
 
     /**
-     * @description The list of tags added to the VPN gateway.
+     * @description The timestamp when the VPN gateway expires. Unit: milliseconds.
      *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1518105600000
      *
      * @var int
@@ -91,7 +104,7 @@ class vpnGateway extends Model
     public $endTime;
 
     /**
-     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     * @description The public IP address of the VPN gateway.
      *
      * @example 47.12.XX.XX
      *
@@ -100,10 +113,10 @@ class vpnGateway extends Model
     public $internetIp;
 
     /**
-     * @description The network type of the VPN gateway.
+     * @description Indicates whether IPsec-VPN is enabled for the VPN gateway.
      *
-     *   **public**: public VPN gateway
-     *   **private**: private VPN gateway
+     *   **enable**: enabled
+     *   **disable**: disabled
      *
      * @example enable
      *
@@ -112,10 +125,8 @@ class vpnGateway extends Model
     public $ipsecVpn;
 
     /**
-     * @description The IPsec-VPN status of the order that has not taken effect. Valid values:
+     * @description The name of the VPN gateway.
      *
-     * - **enable**: enabled
-     * - **disable**: disabled
      * @example test
      *
      * @var string
@@ -123,7 +134,10 @@ class vpnGateway extends Model
     public $name;
 
     /**
-     * @description The bandwidth specification of the order that has not taken effect. Unit: Mbit/s.
+     * @description The network type of the VPN gateway.
+     *
+     *   **public**: public VPN gateway
+     *   **private**: private VPN gateway
      *
      * @example public
      *
@@ -132,14 +146,16 @@ class vpnGateway extends Model
     public $networkType;
 
     /**
+     * @description The information about the pending orders.
+     *
+     * >  This parameter is returned only when **IncludeReservationData** is set to **true**.
      * @var reservationData
      */
     public $reservationData;
 
     /**
-     * @description The timestamp when the VPN gateway expires. Unit: milliseconds.
+     * @description The maximum bandwidth of the VPN gateway. **M** indicates Mbit/s.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 5M
      *
      * @var string
@@ -147,10 +163,7 @@ class vpnGateway extends Model
     public $spec;
 
     /**
-     * @description Indicates whether IPsec-VPN is enabled for the VPN gateway.
-     *
-     *   **enable**: enabled
-     *   **disable**: disabled
+     * @description The number of SSL-VPN connections supported by the VPN gateway.
      *
      * @example 5
      *
@@ -159,11 +172,11 @@ class vpnGateway extends Model
     public $sslMaxConnections;
 
     /**
-     * @description The type of the order that has not taken effect. Valid values:
+     * @description Indicates whether SSL-VPN is enabled for the VPN gateway.
      *
-     * - **RENEWCHANGE**: renewal with a specification change
-     * - **TEMP_UPGRADE**: temporary upgrade
-     * - **RENEW**: renewal
+     *   **enable**: enabled
+     *   **disable**: disabled
+     *
      * @example enable
      *
      * @var string
@@ -171,43 +184,26 @@ class vpnGateway extends Model
     public $sslVpn;
 
     /**
+     * @description SSL-VPN连接的IP地址。
+     *
+     * 仅支持创建双隧道模式IPsec-VPN连接的公网网络类型的VPN网关实例开启SSL-VPN功能后，才会返回当前参数。
+     * @example 47.74.XX.XX
+     *
      * @var string
      */
     public $sslVpnInternetIp;
 
     /**
-     * @description The ID of the VPN gateway.
+     * @description The status of the pending order.
+     *
+     *   **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
+     *   **2**: indicates that the order for a temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
      *
      * @example active
      *
      * @var string
      */
     public $status;
-
-    /**
-     * @description The name of the VPN gateway.
-     *
-     * @var string
-     */
-    public $tag;
-
-    /**
-     * @description The SSL-VPN status of the order that has not taken effect. Valid values:
-     *
-     * - **enable**: enabled
-     * - **disable**: disabled
-     * @var tags
-     */
-    public $tags;
-
-    /**
-     * @description The tag key.
-     *
-     * @example vsw-bp15lbk8sgtr6r5b0****
-     *
-     * @var string
-     */
-    public $vSwitchId;
 
     /**
      * @description The automatically generated tag of the VPN gateway.
@@ -236,6 +232,29 @@ class vpnGateway extends Model
      *
      *   **VpnVersion**: the version of the VPN gateway.
      *
+     * @var string
+     */
+    public $tag;
+
+    /**
+     * @description The list of tags added to the VPN gateway.
+     *
+     * @var tags
+     */
+    public $tags;
+
+    /**
+     * @description The ID of the vSwitch to which the VPN gateway belongs.
+     *
+     * @example vsw-bp15lbk8sgtr6r5b0****
+     *
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @description The ID of the VPC to which the VPN gateway belongs.
+     *
      * @example vpc-bp1m3i0kn1nd4wiw9****
      *
      * @var string
@@ -243,10 +262,7 @@ class vpnGateway extends Model
     public $vpcId;
 
     /**
-     * @description Indicates whether SSL-VPN is enabled for the VPN gateway.
-     *
-     *   **enable**: enabled
-     *   **disable**: disabled
+     * @description The ID of the VPN gateway.
      *
      * @example vpn-bp17lofy9fd0dnvzv****
      *
@@ -255,9 +271,9 @@ class vpnGateway extends Model
     public $vpnGatewayId;
 
     /**
-     * @description The billing method of the VPN gateway.
+     * @description The type of the VPN gateway.
      *
-     * The value is set to **POSTPAY**, which indicates the pay-as-you-go billing method.
+     * The value is set to **Normal**, which indicates a standard NAT gateway.
      * @example Normal
      *
      * @var string

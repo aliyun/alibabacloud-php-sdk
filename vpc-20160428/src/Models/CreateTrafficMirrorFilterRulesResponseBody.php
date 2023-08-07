@@ -11,19 +11,21 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorFilterRulesResponseBody extends Model
 {
     /**
+     * @description The list of outbound rules.
+     *
      * @var egressRules[]
      */
     public $egressRules;
 
     /**
-     * @description The list of outbound rules.
+     * @description The list of inbound rules.
      *
      * @var ingressRules[]
      */
     public $ingressRules;
 
     /**
-     * @description The ID of the inbound rule.
+     * @description The ID of the request.
      *
      * @example 07F272E2-6AD5-433A-8207-A607C76F1676
      *

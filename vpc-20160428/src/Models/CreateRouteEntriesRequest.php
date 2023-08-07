@@ -20,8 +20,9 @@ class CreateRouteEntriesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the next hop of the custom route entry. You can specify up to 50 next hop IDs.
+     * @description The ID of the region where the route table is created.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

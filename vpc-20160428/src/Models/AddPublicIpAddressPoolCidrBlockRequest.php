@@ -9,20 +9,14 @@ use AlibabaCloud\Tea\Model;
 class AddPublicIpAddressPoolCidrBlockRequest extends Model
 {
     /**
-     * @description The region ID of the IP address pool to which you want to add the CIDR block.
+     * @description The CIDR block.
      *
+     * >  You cannot set the **CidrBlock** and **CidrMask** parameters at the same time.
      * @example 47.0.XX.XX/24
      *
      * @var string
      */
     public $cidrBlock;
-
-    /**
-     * @example 24
-     *
-     * @var int
-     */
-    public $cidrMask;
 
     /**
      * @description The subnet mask of the CIDR block.
@@ -32,6 +26,16 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
      * Valid values: **24** to **30**.
      *
      * >  You cannot set the **CidrBlock** and **CidrMask** parameters at the same time. Set one of them.
+     * @example 24
+     *
+     * @var int
+     */
+    public $cidrMask;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
      * @example 02fb3da4-130e-11****
      *
      * @var string
@@ -39,7 +43,10 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -58,10 +65,7 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
-     *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     * @description The ID of the IP address pool.
      *
      * @example pippool-6wetvn6fumkgycssx****
      *
@@ -70,6 +74,8 @@ class AddPublicIpAddressPoolCidrBlockRequest extends Model
     public $publicIpAddressPoolId;
 
     /**
+     * @description The region ID of the IP address pool to which you want to add the CIDR block.
+     *
      * @example cn-chengdu
      *
      * @var string

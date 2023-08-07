@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description The ID of the route table associated with the gateway endpoint.
+     *
      * @var string[]
      */
     public $associatedRouteTables;
 
     /**
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2021-09-08T08:43:04Z
      *
      * @var string
@@ -22,7 +26,7 @@ class endpoints extends Model
     public $creationTime;
 
     /**
-     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     * @description The description of the gateway endpoint.
      *
      * @example test_description
      *
@@ -31,7 +35,7 @@ class endpoints extends Model
     public $endpointDescription;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+     * @description The ID of the gateway endpoint.
      *
      * @example vpce-bp1i1212ss2whuwyw****
      *
@@ -40,9 +44,8 @@ class endpoints extends Model
     public $endpointId;
 
     /**
-     * @description The access policy for the cloud service.
+     * @description The name of the gateway endpoint.
      *
-     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](~~93739~~).
      * @example test
      *
      * @var string
@@ -50,6 +53,15 @@ class endpoints extends Model
     public $endpointName;
 
     /**
+     * @description The status of the gateway endpoint. Valid values:
+     *
+     *   **Creating**
+     *   **Created**
+     *   **Modifying**
+     *   **Associating**
+     *   **Dissociating**
+     *   **Deleting**
+     *
      * @example Created
      *
      * @var string
@@ -57,8 +69,9 @@ class endpoints extends Model
     public $endpointStatus;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The access policy for the cloud service.
      *
+     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](~~93739~~).
      * @example {\n  \"Version\": \"1\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": \"*\",\n      \"Principal\": \"*\",\n      \"Resource\": \"*\"\n    }\n  ]\n}
      *
      * @var string
@@ -73,14 +86,7 @@ class endpoints extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the gateway endpoint. Valid values:
-     *
-     *   **Creating**
-     *   **Created**
-     *   **Modifying**
-     *   **Associating**
-     *   **Dissociating**
-     *   **Deleting**
+     * @description The name of the endpoint service.
      *
      * @example com.aliyun.cn-hangzhou.oss
      *
@@ -94,7 +100,7 @@ class endpoints extends Model
     public $tags;
 
     /**
-     * @description The ID of the route table associated with the gateway endpoint.
+     * @description The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
      *
      * @example vpc-bp1gsk7h12ew7oegk****
      *

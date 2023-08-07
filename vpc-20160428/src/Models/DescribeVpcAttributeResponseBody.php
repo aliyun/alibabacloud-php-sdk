@@ -16,20 +16,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpcAttributeResponseBody extends Model
 {
     /**
-     * @description The type of the IPv6 CIDR block. Valid values:
+     * @description The list of Cloud Enterprise Network (CEN) instances to which the VPC is attached.
      *
-     * - **BGP** (default): an IPv6 CIDR block provided by Alibaba Cloud over Border Gateway Protocol (BGP)
-     * - **ChinaMobile**: an IPv6 CIDR block provided by China Mobile (single ISP)
-     * - **ChinaUnicom**: an IPv6 CIDR block provided by China Unicom (single ISP)
-     * - **ChinaTelecom**: an IPv6 CIDR block provided by China Telecom (single ISP)
-     *
-     * >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, valid values are: **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**.
+     * If the VPC is not attached to a CEN instance, the parameter is not returned.
      * @var associatedCens
      */
     public $associatedCens;
 
     /**
-     * @description The secondary IPv4 CIDR block of the VPC.
+     * @description The IPv4 CIDR block of the VPC.
      *
      * @example 192.168.0.0/16
      *
@@ -38,7 +33,10 @@ class DescribeVpcAttributeResponseBody extends Model
     public $cidrBlock;
 
     /**
-     * @description The description of the VPC.
+     * @description Indicates whether the ClassicLink feature is enabled. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
      *
      * @example false
      *
@@ -47,12 +45,14 @@ class DescribeVpcAttributeResponseBody extends Model
     public $classicLinkEnabled;
 
     /**
+     * @description The list of resources deployed in the VPC.
+     *
      * @var cloudResources
      */
     public $cloudResources;
 
     /**
-     * @description The ID of the vRouter that belongs to the VPC.
+     * @description The time when the VPC was created.
      *
      * @example 2021-10-16T07:31:09Z
      *
@@ -61,7 +61,7 @@ class DescribeVpcAttributeResponseBody extends Model
     public $creationTime;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the CEN instance belongs.
+     * @description The description of the VPC.
      *
      * @example VPC
      *
@@ -70,98 +70,13 @@ class DescribeVpcAttributeResponseBody extends Model
     public $description;
 
     /**
-     * @description The status of the CEN instance to which the VPC is attached.
-     *
-     **Attached** is returned only if the VPC is attached to a CEN instance.
+     * @description The ID of the DHCP options set.
      *
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
      */
     public $dhcpOptionsSetId;
-
-    /**
-     * @description The user CIDR block. Multiple CIDR blocks are separated by commas (,). At most three CIDR blocks are returned.
-     *
-     * @example Available
-     *
-     * @var string
-     */
-    public $dhcpOptionsSetStatus;
-
-    /**
-     * @example ipv4gw-5tsnc6s4ogsedtp3k****
-     *
-     * @var string
-     */
-    public $ipv4GatewayId;
-
-    /**
-     * @description The list of resources deployed in the VPC.
-     *
-     * @example 2408:XXXX:0:a600::/56
-     *
-     * @var string
-     */
-    public $ipv6CidrBlock;
-
-    /**
-     * @var ipv6CidrBlocks
-     */
-    public $ipv6CidrBlocks;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $isDefault;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * @example 283117732402483989
-     *
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @description The ID of the DHCP options set.
-     *
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $regionId;
-
-    /**
-     * @description The list of Cloud Enterprise Network (CEN) instances to which the VPC is attached.
-     *
-     * If the VPC is not attached to a CEN instance, the parameter is not returned.
-     * @example 7486AE4A-129D-43DB-A714-2432C074BA04
-     *
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @description The ID of the CEN instance to which the VPC is attached.
-     *
-     * @example rg-acfmxazbvgb4ph****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
-     * @description The information about the IPv6 CIDR blocks of the VPC.
-     *
-     * @var secondaryCidrBlocks
-     */
-    public $secondaryCidrBlocks;
 
     /**
      * @description The status of the DHCP options set. Valid values:
@@ -175,9 +90,105 @@ class DescribeVpcAttributeResponseBody extends Model
      *
      * @var string
      */
+    public $dhcpOptionsSetStatus;
+
+    /**
+     * @description The ID of the IPv4 gateway.
+     *
+     * @example ipv4gw-5tsnc6s4ogsedtp3k****
+     *
+     * @var string
+     */
+    public $ipv4GatewayId;
+
+    /**
+     * @description The IPv6 CIDR block of the VPC.
+     *
+     * @example 2408:XXXX:0:a600::/56
+     *
+     * @var string
+     */
+    public $ipv6CidrBlock;
+
+    /**
+     * @description The information about the IPv6 CIDR blocks of the VPC.
+     *
+     * @var ipv6CidrBlocks
+     */
+    public $ipv6CidrBlocks;
+
+    /**
+     * @description Indicates whether the VPC is the default VPC. Valid values:
+     *
+     *   **true**: yes
+     *   **false** (default): no
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     *
+     * @example 283117732402483989
+     *
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description The region ID of the VPC.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example 7486AE4A-129D-43DB-A714-2432C074BA04
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazbvgb4ph****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The secondary IPv4 CIDR block of the VPC.
+     *
+     * @var secondaryCidrBlocks
+     */
+    public $secondaryCidrBlocks;
+
+    /**
+     * @description The status of the VPC. Valid values:
+     *
+     *   **Available**: available
+     *   **Pending**: being configured
+     *
+     * @example Available
+     *
+     * @var string
+     */
     public $status;
 
     /**
+     * @description Indicates whether the VPC supports IPv4 gateways.
+     *
+     * - **true**: yes
+     * - **false**: no
      * @example true
      *
      * @var bool
@@ -190,17 +201,14 @@ class DescribeVpcAttributeResponseBody extends Model
     public $tags;
 
     /**
-     * @description The type of resources deployed in the VPC. Valid values:
+     * @description The user CIDR block. Multiple CIDR blocks are separated by commas (,). At most three CIDR blocks are returned.
      *
-     * - **VSwitch**: vSwitches
-     * - **VRouter**: vRouters
-     * - **RouteTable**: route tables
      * @var userCidrs
      */
     public $userCidrs;
 
     /**
-     * @description The list of vSwitches deployed in the VPC.
+     * @description The ID of the vRouter that belongs to the VPC.
      *
      * @example vrt-bp1jso6ng1at0ajsc****
      *
@@ -209,14 +217,14 @@ class DescribeVpcAttributeResponseBody extends Model
     public $VRouterId;
 
     /**
-     * @description The number of resources deployed in the VPC.
+     * @description The list of vSwitches deployed in the VPC.
      *
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The IPv4 CIDR block of the VPC.
+     * @description The ID of the VPC.
      *
      * @example vpc-bp18sth14qii3pnvo****
      *
@@ -225,7 +233,7 @@ class DescribeVpcAttributeResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The IPv6 CIDR block of the VPC.
+     * @description The name of the VPC.
      *
      * @example doctest2
      *

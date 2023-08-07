@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNatIpResponseBody extends Model
 {
     /**
-     * @description The ID of the NAT IP address.
+     * @description The NAT IP address.
      *
      * @example 192.168.0.34
      *
@@ -18,6 +18,8 @@ class CreateNatIpResponseBody extends Model
     public $natIp;
 
     /**
+     * @description The ID of the NAT IP address.
+     *
      * @example vpcnatip-gw8y7q3cpk3fggs8****
      *
      * @var string
@@ -25,6 +27,8 @@ class CreateNatIpResponseBody extends Model
     public $natIpId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example E9AD97A0-5338-43F8-8A80-5E274CCBA11B
      *
      * @var string

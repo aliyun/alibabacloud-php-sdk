@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateRouteEntriesResponseBody extends Model
 {
     /**
-     * @description The destination CIDR block of the custom route entry that failed to be added.
+     * @description The number of custom route entries that failed to be added.
      *
      * @example 2
      *
@@ -19,14 +19,14 @@ class CreateRouteEntriesResponseBody extends Model
     public $failedCount;
 
     /**
-     * @description The error code.
+     * @description The details about the custom route entry that failed to be added.
      *
      * @var failedRouteEntries[]
      */
     public $failedRouteEntries;
 
     /**
-     * @description The ID of the next hop of the custom route entry that failed to be added.
+     * @description The ID of the request.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
@@ -35,12 +35,14 @@ class CreateRouteEntriesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the custom route entry that was successfully added.
+     *
      * @var string[]
      */
     public $routeEntryIds;
 
     /**
-     * @description The details about the custom route entry that failed to be added.
+     * @description The number of custom route entries that were successfully added.
      *
      * @example 2
      *

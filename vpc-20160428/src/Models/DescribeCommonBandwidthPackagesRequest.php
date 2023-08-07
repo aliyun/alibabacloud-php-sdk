@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonBandwidthPackagesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The ID of the EIP bandwidth plan.
      *
      * @example cbwp-2ze2ic1xd2qeqk145****
      *
@@ -19,7 +19,10 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**: performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
      *
      * @example false
      *
@@ -28,7 +31,10 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the resource group.
+     * @description Specifies whether to return the information about pending orders. Valid values:
+     *
+     *   **false**: does not return the information about pending orders. This is the default value.
+     *   **true**: returns the information about pending orders.
      *
      * @example false
      *
@@ -37,10 +43,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $includeReservationData;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
-     *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and instance status. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false**: performs a dry run and sends the request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+     * @description The name of the EIP bandwidth plan.
      *
      * @example test123
      *
@@ -59,10 +62,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to enable Anti-DDoS Pro/Premium. Valid values:
-     *
-     *   **false**: disables Anti-DDoS Pro/Premium. This is the default value.
-     *   **true**: enables Anti-DDoS Pro/Premium.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -71,7 +71,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -80,8 +80,9 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the EIP bandwidth plan.
+     * @description The region ID of the EIP bandwidth plan.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -89,7 +90,7 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $regionId;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -108,7 +109,10 @@ class DescribeCommonBandwidthPackagesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The number of the returned page.
+     * @description Specifies whether to enable Anti-DDoS Pro/Premium. Valid values:
+     *
+     *   **false**: disables Anti-DDoS Pro/Premium. This is the default value.
+     *   **true**: enables Anti-DDoS Pro/Premium.
      *
      * @example false
      *

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyForwardEntryRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,24 +21,14 @@ class ModifyForwardEntryRequest extends Model
     public $clientToken;
 
     /**
-     * @description *   The private IP address of the ECS instance that uses DNAT entries to communicate with the Internet when you modify DNAT entries of Internet NAT gateways.
-     *   The private IP address that uses DNAT entries to communicate when you modify DNAT entries of VPC NAT gateways.
+     * @description *   When you modify DNAT entries of Internet NAT gateways, this parameter specifies the elastic IP addresses (EIPs) that are used to access the Internet.
+     *   When you modify DNAT entries of Virtual Private Cloud (VPC) NAT gateways, this parameter specifies the NAT IP addresses that are accessed by external networks.
      *
      * @example 116.85.XX.XX
      *
      * @var string
      */
     public $externalIp;
-
-    /**
-     * @description *   The internal port or port range that is used to forward traffic when you modify DNAT entries of Internet NAT gateways. Valid values: **1** to **65535**.
-     *   The port of the destination ECS instance to be mapped when you modify DNAT entries of VPC NAT gateways. Valid values: **1** to **65535**.
-     *
-     * @example 80
-     *
-     * @var string
-     */
-    public $externalPort;
 
     /**
      * @description *   The external port that is used to forward traffic when you modify DNAT entries of Internet NAT gateways.
@@ -46,6 +39,15 @@ class ModifyForwardEntryRequest extends Model
      *
      *   The port that is accessed by external networks when you modify DNAT entries of VPC NAT gateways. Valid values: **1** to **65535**.
      *
+     * @example 80
+     *
+     * @var string
+     */
+    public $externalPort;
+
+    /**
+     * @description The ID of the DNAT entry.
+     *
      * @example fwd-8vbn3bc8roygjp0gy****
      *
      * @var string
@@ -53,11 +55,9 @@ class ModifyForwardEntryRequest extends Model
     public $forwardEntryId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The new name of the DNAT entry.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -65,8 +65,7 @@ class ModifyForwardEntryRequest extends Model
     public $forwardEntryName;
 
     /**
-     * @description *   When you modify DNAT entries of Internet NAT gateways, this parameter specifies the elastic IP addresses (EIPs) that are used to access the Internet.
-     *   When you modify DNAT entries of Virtual Private Cloud (VPC) NAT gateways, this parameter specifies the NAT IP addresses that are accessed by external networks.
+     * @description The ID of the DNAT table to which the DNAT entry belongs.
      *
      * @example ftb-8vbx8xu2lqj9qb334****
      *
@@ -75,11 +74,8 @@ class ModifyForwardEntryRequest extends Model
     public $forwardTableId;
 
     /**
-     * @description The protocol type. Valid values:
-     *
-     *   **TCP**: The NAT gateway forwards TCP packets.
-     *   **UDP**: The NAT gateway forwards UDP packets.
-     *   **Any**: The NAT gateway forwards packets of all protocols.
+     * @description *   The private IP address of the ECS instance that uses DNAT entries to communicate with the Internet when you modify DNAT entries of Internet NAT gateways.
+     *   The private IP address that uses DNAT entries to communicate when you modify DNAT entries of VPC NAT gateways.
      *
      * @example 10.0.0.78
      *
@@ -88,9 +84,9 @@ class ModifyForwardEntryRequest extends Model
     public $internalIp;
 
     /**
-     * @description The new name of the DNAT entry.
+     * @description *   The internal port or port range that is used to forward traffic when you modify DNAT entries of Internet NAT gateways. Valid values: **1** to **65535**.
+     *   The port of the destination ECS instance to be mapped when you modify DNAT entries of VPC NAT gateways. Valid values: **1** to **65535**.
      *
-     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example 80
      *
      * @var string
@@ -98,9 +94,12 @@ class ModifyForwardEntryRequest extends Model
     public $internalPort;
 
     /**
-     * @description The region ID of the NAT gateway.
+     * @description The protocol type. Valid values:
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *   **TCP**: The NAT gateway forwards TCP packets.
+     *   **UDP**: The NAT gateway forwards UDP packets.
+     *   **Any**: The NAT gateway forwards packets of all protocols.
+     *
      * @example TCP
      *
      * @var string
@@ -118,6 +117,11 @@ class ModifyForwardEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to remove limits on the port range. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no If an SNAT entry and a DNAT entry use the same public IP address, and you want to specify a port number greater than `1024`, set `PortBreak` to `true`.
+     *
      * @example false
      *
      * @var bool
@@ -125,11 +129,9 @@ class ModifyForwardEntryRequest extends Model
     public $portBreak;
 
     /**
-     * @description Specifies whether to remove limits on the port range. Valid values:
+     * @description The region ID of the NAT gateway.
      *
-     *   **true**: yes
-     *   **false**: no If an SNAT entry and a DNAT entry use the same public IP address, and you want to specify a port number greater than `1024`, set `PortBreak` to `true`.
-     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

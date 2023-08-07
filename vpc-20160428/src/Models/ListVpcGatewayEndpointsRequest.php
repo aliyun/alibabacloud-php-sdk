@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVpcGatewayEndpointsRequest extends Model
 {
     /**
-     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
+     * @description The ID of the gateway endpoint.
      *
      * @example vpce-bp1i1212ss2whuwyw****
      *
@@ -19,9 +19,9 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $endpointId;
 
     /**
-     * @description The region ID of the gateway endpoint.
+     * @description The name of the gateway endpoint.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * The name must be 1 to 128 characters in length.
      * @example test
      *
      * @var string
@@ -29,7 +29,7 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $endpointName;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
      *
      * @example 20
      *
@@ -40,8 +40,8 @@ class ListVpcGatewayEndpointsRequest extends Model
     /**
      * @description The token that is used for the next query. Valid values:
      *
-     *   If no value is returned for **NextToken**, no next queries are sent.
-     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
+     *   If this is your first query and no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be performed, set the value to the NextToken value returned in the last call to the ListListenerCertificates operation.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -60,8 +60,9 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The list of gateway endpoints.
+     * @description The region ID of the gateway endpoint.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -86,7 +87,7 @@ class ListVpcGatewayEndpointsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the endpoint service.
      *
      * @example com.aliyun.cn-hangzhou.oss
      *

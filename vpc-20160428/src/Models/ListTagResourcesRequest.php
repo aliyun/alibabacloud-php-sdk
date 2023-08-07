@@ -19,10 +19,10 @@ class ListTagResourcesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned in the last call.
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -41,9 +41,9 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the resource belongs.
+     * @description The region ID of the resource.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +51,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource ID. You can specify up to 20 resource IDs.
+     *
      * @example vpc-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -68,14 +70,14 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The resource type. Valid values:
      *
-     *   **VPC**: virtual private cloud (VPC)
-     *   **VSWITCH**: vSwitch
-     *   **ROUTETABLE**: route table
-     *   **EIP**: EIP
-     *   **VpnGateWay**: VPN gateway
-     *   **NATGATEWAY**: NAT gateway
+     *   **VPC**
+     *   **VSWITCH**
+     *   **ROUTETABLE**
+     *   **EIP**
+     *   **VpnGateway**
+     *   **NATGATEWAY**
      *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
      *
      * @example VPC
@@ -85,6 +87,11 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag value. You can specify up to 20 tag values. It can be an empty string.
+     *
+     * The value can be up to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The value must start with a letter but cannot start with `aliyun` or `acs:`. The value cannot contain `http://` or `https://`.
+     *
+     * >  You must specify at least one of **ResourceId.N** and **Tag.N** (**Tag.N.Key** and **Tag.N.Value**).
      * @example ListTagResources
      *
      * @var tag[]

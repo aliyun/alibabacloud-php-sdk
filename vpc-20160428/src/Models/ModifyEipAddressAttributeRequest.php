@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyEipAddressAttributeRequest extends Model
 {
     /**
-     * @description The region ID of the EIP.
+     * @description The ID of the pay-as-you-go EIP.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example eip-2zeerraiwb7uj6i0d****
      *
      * @var string
@@ -19,9 +18,11 @@ class ModifyEipAddressAttributeRequest extends Model
     public $allocationId;
 
     /**
-     * @description The new name of the EIP.
+     * @description The new maximum bandwidth of the EIP. Valid values:
      *
-     * The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-).
+     *   **1** to **200** if the metering method is pay-by-data-transfer. Unit: Mbit/s.
+     *   **1** to **500** if the metering method is pay-by-bandwidth. Unit: Mbit/s.
+     *
      * @example 100
      *
      * @var string
@@ -29,6 +30,9 @@ class ModifyEipAddressAttributeRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The new description of the EIP.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
@@ -36,8 +40,9 @@ class ModifyEipAddressAttributeRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description The new name of the EIP.
      *
+     * The name must be 1 to 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-).
      * @example Test123
      *
      * @var string
@@ -55,9 +60,9 @@ class ModifyEipAddressAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The new description of the EIP.
+     * @description The region ID of the EIP.
      *
-     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

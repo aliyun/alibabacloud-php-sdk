@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclAttributesRequest extends Model
 {
     /**
-     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     *   **accept**: allows network traffic.
-     *   **drop**: blocks network traffic.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
      *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeNetworkAclAttributesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the inbound rule.
+     * @description The ID of the network ACL.
      *
      * @example nacl-a2do9e413e0spzasx****
      *
@@ -35,8 +35,9 @@ class DescribeNetworkAclAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the inbound rule.
+     * @description The region ID of the network ACL.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

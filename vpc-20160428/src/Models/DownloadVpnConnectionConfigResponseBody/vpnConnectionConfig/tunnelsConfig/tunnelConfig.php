@@ -33,18 +33,12 @@ class tunnelConfig extends Model
     /**
      * @var string
      */
-    public $rightCaCert;
-
-    /**
-     * @var string
-     */
     public $tunnelId;
     protected $_name = [
         'ikeConfig'   => 'IkeConfig',
         'ipsecConfig' => 'IpsecConfig',
         'local'       => 'Local',
         'remote'      => 'Remote',
-        'rightCaCert' => 'RightCaCert',
         'tunnelId'    => 'TunnelId',
     ];
 
@@ -66,9 +60,6 @@ class tunnelConfig extends Model
         }
         if (null !== $this->remote) {
             $res['Remote'] = $this->remote;
-        }
-        if (null !== $this->rightCaCert) {
-            $res['RightCaCert'] = $this->rightCaCert;
         }
         if (null !== $this->tunnelId) {
             $res['TunnelId'] = $this->tunnelId;
@@ -96,9 +87,6 @@ class tunnelConfig extends Model
         }
         if (isset($map['Remote'])) {
             $model->remote = $map['Remote'];
-        }
-        if (isset($map['RightCaCert'])) {
-            $model->rightCaCert = $map['RightCaCert'];
         }
         if (isset($map['TunnelId'])) {
             $model->tunnelId = $map['TunnelId'];

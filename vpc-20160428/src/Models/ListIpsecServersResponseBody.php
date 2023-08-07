@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServersResponseBody extends Model
 {
     /**
-     * @description The list of IPsec servers.
+     * @description The Diffie-Hellman key exchange algorithm.
      *
      * @var ipsecServers[]
      */
     public $ipsecServers;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -26,10 +26,10 @@ class ListIpsecServersResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If a value of **NextToken** is not returned, it indicates that no subsequent query is to be sent.
-     *   If a value of **NextToken** is returned, the value is the token that is used for the subsequent query.
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If a value is returned for **NextToken**, the value can be used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
@@ -38,7 +38,7 @@ class ListIpsecServersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
@@ -47,7 +47,7 @@ class ListIpsecServersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

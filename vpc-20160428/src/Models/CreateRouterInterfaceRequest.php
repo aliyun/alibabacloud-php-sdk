@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouterInterfaceRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class CreateRouterInterfaceRequest extends Model
@@ -221,6 +222,11 @@ class CreateRouterInterfaceRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -283,6 +289,11 @@ class CreateRouterInterfaceRequest extends Model
      * @var string
      */
     public $spec;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'accessPointId'            => 'AccessPointId',
         'autoPay'                  => 'AutoPay',
@@ -305,12 +316,14 @@ class CreateRouterInterfaceRequest extends Model
         'period'                   => 'Period',
         'pricingCycle'             => 'PricingCycle',
         'regionId'                 => 'RegionId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
         'role'                     => 'Role',
         'routerId'                 => 'RouterId',
         'routerType'               => 'RouterType',
         'spec'                     => 'Spec',
+        'tags'                     => 'Tags',
     ];
 
     public function validate()
@@ -383,6 +396,9 @@ class CreateRouterInterfaceRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -400,6 +416,15 @@ class CreateRouterInterfaceRequest extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -476,6 +501,9 @@ class CreateRouterInterfaceRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -493,6 +521,15 @@ class CreateRouterInterfaceRequest extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

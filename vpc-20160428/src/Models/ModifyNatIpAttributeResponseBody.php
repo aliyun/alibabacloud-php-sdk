@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyNatIpAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 6CC9456C-2E29-452A-9180-B6926E51B5CA
      *
      * @var string

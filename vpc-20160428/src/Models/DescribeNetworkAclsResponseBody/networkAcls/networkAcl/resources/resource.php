@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The ID of the associated resource.
+     *
      * @example vsw-bp1de348lntdwcdf****
      *
      * @var string
@@ -16,6 +18,8 @@ class resource extends Model
     public $resourceId;
 
     /**
+     * @description The type of the associated resource.
+     *
      * @example VSwitch
      *
      * @var string
@@ -23,6 +27,11 @@ class resource extends Model
     public $resourceType;
 
     /**
+     * @description The association status of the resource. Valid values:
+     *
+     * - **BINDED**: associated
+     * - **BINDING**: being associated
+     * - **UNBINDING**: disassociated
      * @example BINDED
      *
      * @var string

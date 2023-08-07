@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewaysResponseBody extends Model
 {
     /**
-     * @description The public IP address of the VPN gateway.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of SSL-VPN connections supported by the VPN gateway.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The maximum bandwidth of the VPN gateway. **M** indicates Mbit/s.
+     * @description The request ID.
      *
      * @example DF11D6F6-E35A-41C3-9B20-6FC8A901FE65
      *
@@ -37,9 +37,8 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The timestamp when the VPN gateway was created. Unit: milliseconds.
+     * @description The number of entries returned.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1
      *
      * @var int
@@ -47,11 +46,9 @@ class DescribeVpnGatewaysResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description Indicates whether BGP routes are automatically advertised to the VPC. Valid values:
+     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter specifies the time when the temporary upgrade expires.
      *
-     *   **true**: yes
-     *   **false**: no
-     *
+     * If the order type is **RENEWCHANGE** (renewal with a specification change) or **RENEW** (renewal), this parameter indicates the time when the renewal or renewal with a specification change takes effect.
      * @var vpnGateways
      */
     public $vpnGateways;

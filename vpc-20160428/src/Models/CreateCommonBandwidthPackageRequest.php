@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateCommonBandwidthPackageRequest extends Model
 {
     /**
-     * @description The billing method of the EIP bandwidth plan. Set the value to **PayByTraffic**, which refers to the pay-by-data-transfer metering method.
+     * @description The maximum bandwidth of the EIP bandwidth plan.
      *
+     * Valid values: **1** to **1000**. Unit: Mbit/s.
      * @example 1000
      *
      * @var int
@@ -18,9 +19,11 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $bandwidth;
 
     /**
-     * @description The maximum bandwidth of the EIP bandwidth plan.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * Valid values: **1** to **1000**. Unit: Mbit/s.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically sets the **ClientToken** parameter to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -28,65 +31,14 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the resource group.
+     * @description The description of the EIP bandwidth plan.
      *
+     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example abc
      *
      * @var string
      */
     public $description;
-
-    /**
-     * @description The description of the EIP bandwidth plan.
-     *
-     * The description must be 2 to 256 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
-     * @example BGP
-     *
-     * @var string
-     */
-    public $ISP;
-
-    /**
-     * @description The ID of the EIP bandwidth plan.
-     *
-     * @var string
-     */
-    public $internetChargeType;
-
-    /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system automatically sets the **ClientToken** parameter to the value of **RequestId**. The value of **RequestId** may be different for each API request.
-     * @example test123
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @description The edition of Anti-DDoS.
-     *
-     *   If you do not set this parameter, Anti-DDoS Origin Basic is used.
-     *   If you set the value to **AntiDDoS_Enhanced**, Anti-DDoS Pro/Premium is used.
-     *
-     * Valid values of **N**: **1** to **10**. You can specify only one Anti-DDoS edition. If you specify more than one edition, the operation may fail.
-     * @example 20
-     *
-     * @var int
-     */
-    public $ratio;
 
     /**
      * @description The line type. Valid values:
@@ -104,6 +56,53 @@ class CreateCommonBandwidthPackageRequest extends Model
      *   **ChinaMobile_L2**: China Mobile L2
      *
      * If your services are deployed in China East 1 Finance, you must set this parameter to **BGP_FinanceCloud**.
+     * @example BGP
+     *
+     * @var string
+     */
+    public $ISP;
+
+    /**
+     * @description The billing method of the EIP bandwidth plan. Set the value to **PayByTraffic**, which refers to the pay-by-data-transfer metering method.
+     *
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @description The name of the EIP bandwidth plan.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test123
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description The percentage of the minimum bandwidth commitment. Set the parameter to **20**.
+     *
+     * >  This parameter is available only on the Alibaba Cloud China site.
+     * @example 20
+     *
+     * @var int
+     */
+    public $ratio;
+
+    /**
+     * @description The region ID of the EIP bandwidth plan.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -111,9 +110,8 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $regionId;
 
     /**
-     * @description The percentage of the minimum bandwidth commitment. Set the parameter to **20**.
+     * @description The ID of the resource group.
      *
-     * >  This parameter is available only on the Alibaba Cloud China site.
      * @example rg-acfmxazdjdhd****
      *
      * @var string
@@ -138,9 +136,9 @@ class CreateCommonBandwidthPackageRequest extends Model
     public $securityProtectionTypes;
 
     /**
-     * @description The name of the EIP bandwidth plan.
+     * @description The zone of the EIP bandwidth plan.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * You do not need to set this parameter.
      * @example cn-hangzhou-a
      *
      * @var string

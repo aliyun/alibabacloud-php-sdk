@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The name of the EIP.
+     * @description The filter key used to query resources. Set the value to **CreationStartTime**, which indicates the time when the system started to create the resource.
      *
-     * The name must be 1 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example CreationStartTime
      *
      * @var string
@@ -19,7 +18,7 @@ class filter extends Model
     public $key;
 
     /**
-     * @description The IP address pool to which the EIP that you want to query belongs.
+     * @description The filter value used to query resources. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
      *
      * @example 2023-01-01T01:00Z
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualPhysicalConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example CD14EA74-E9C3-59A9-942A-DFEC7E12818D
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVirtualPhysicalConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the hosted connection.
+     *
      * @example pc-bp1mrgfbtmc9brre7****
      *
      * @var string

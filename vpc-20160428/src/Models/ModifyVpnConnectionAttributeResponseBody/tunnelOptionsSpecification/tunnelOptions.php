@@ -47,11 +47,6 @@ class tunnelOptions extends Model
     public $state;
 
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
@@ -83,7 +78,6 @@ class tunnelOptions extends Model
         'remoteCaCertificate' => 'RemoteCaCertificate',
         'role'                => 'Role',
         'state'               => 'State',
-        'status'              => 'Status',
         'tunnelBgpConfig'     => 'TunnelBgpConfig',
         'tunnelId'            => 'TunnelId',
         'tunnelIkeConfig'     => 'TunnelIkeConfig',
@@ -118,9 +112,6 @@ class tunnelOptions extends Model
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
         if (null !== $this->tunnelBgpConfig) {
             $res['TunnelBgpConfig'] = null !== $this->tunnelBgpConfig ? $this->tunnelBgpConfig->toMap() : null;
@@ -169,9 +160,6 @@ class tunnelOptions extends Model
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
         if (isset($map['TunnelBgpConfig'])) {
             $model->tunnelBgpConfig = tunnelBgpConfig::fromMap($map['TunnelBgpConfig']);

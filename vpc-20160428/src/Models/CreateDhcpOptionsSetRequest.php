@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateDhcpOptionsSetRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDhcpOptionsSetRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -16,6 +22,9 @@ class CreateDhcpOptionsSetRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the DHCP options set.
+     *
+     * The description must be 2 to 256 characters in length. It must start with a letter and cannot start with `http://` or `https://`. You can also leave the description empty.
      * @example description
      *
      * @var string
@@ -23,6 +32,9 @@ class CreateDhcpOptionsSetRequest extends Model
     public $dhcpOptionsSetDescription;
 
     /**
+     * @description The name of the DHCP options set.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example name
      *
      * @var string
@@ -30,6 +42,9 @@ class CreateDhcpOptionsSetRequest extends Model
     public $dhcpOptionsSetName;
 
     /**
+     * @description The root domain. For example, you can set the value to example.com.
+     *
+     * After a DHCP options set is associated with a virtual private cloud (VPC), the root domain in the DHCP options set is automatically synchronized with the ECS instances in the VPC.
      * @example example.com
      *
      * @var string
@@ -37,6 +52,9 @@ class CreateDhcpOptionsSetRequest extends Model
     public $domainName;
 
     /**
+     * @description The IP address of the DNS server. You can enter at most four DNS server IP addresses. Separate IP addresses with commas (,).
+     *
+     * >  If you do not specify a DNS server IP address, Elastic Compute Service (ECS) instances use the IP addresses of the Alibaba Cloud DNS servers, which are 100.100.2.136 and 100.100.2.138.
      * @example 192.XX.XX.123
      *
      * @var string
@@ -44,6 +62,12 @@ class CreateDhcpOptionsSetRequest extends Model
     public $domainNameServers;
 
     /**
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *
+     **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +75,12 @@ class CreateDhcpOptionsSetRequest extends Model
     public $dryRun;
 
     /**
+     * @description The lease time of the IPv6 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
+     * >  When you specify a value, you must also specify the unit.
      * @example 3650d
      *
      * @var string
@@ -58,6 +88,12 @@ class CreateDhcpOptionsSetRequest extends Model
     public $ipv6LeaseTime;
 
     /**
+     * @description The lease time of the IPv4 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
+     * >  When you specify a value, you must also specify the unit.
      * @example 3650d
      *
      * @var string
@@ -75,6 +111,9 @@ class CreateDhcpOptionsSetRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region to which the DHCP options set belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -97,6 +136,11 @@ class CreateDhcpOptionsSetRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'               => 'ClientToken',
         'dhcpOptionsSetDescription' => 'DhcpOptionsSetDescription',
@@ -112,6 +156,7 @@ class CreateDhcpOptionsSetRequest extends Model
         'resourceGroupId'           => 'ResourceGroupId',
         'resourceOwnerAccount'      => 'ResourceOwnerAccount',
         'resourceOwnerId'           => 'ResourceOwnerId',
+        'tag'                       => 'Tag',
     ];
 
     public function validate()
@@ -162,6 +207,15 @@ class CreateDhcpOptionsSetRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -216,6 +270,15 @@ class CreateDhcpOptionsSetRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

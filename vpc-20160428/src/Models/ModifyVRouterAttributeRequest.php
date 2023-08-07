@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyVRouterAttributeRequest extends Model
 {
     /**
+     * @description The description of the vRouter.
+     *
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example My VRouter
      *
      * @var string
@@ -26,9 +29,9 @@ class ModifyVRouterAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The description of the vRouter.
+     * @description The ID of the region where the vRouter is deployed.
      *
-     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -46,7 +49,7 @@ class ModifyVRouterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the vRouter.
      *
      * @example vrt-gw0p7zigake75znix****
      *
@@ -55,6 +58,9 @@ class ModifyVRouterAttributeRequest extends Model
     public $VRouterId;
 
     /**
+     * @description The name of the vRouter.
+     *
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example VRouter-1
      *
      * @var string

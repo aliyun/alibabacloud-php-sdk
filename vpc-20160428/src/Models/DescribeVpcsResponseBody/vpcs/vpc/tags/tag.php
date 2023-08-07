@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The IDs of the route tables.
+     * @description The key of the tag that is added to the VPC.
      *
      * @example env
      *
@@ -18,6 +18,8 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The value of the tag that is added to the VPC.
+     *
      * @example internal
      *
      * @var string

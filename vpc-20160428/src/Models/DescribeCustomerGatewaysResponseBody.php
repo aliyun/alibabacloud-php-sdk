@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomerGatewaysResponseBody extends Model
 {
     /**
-     * @description The list of customer gateways.
+     * @description The tag value.
      *
      * @var customerGateways
      */
     public $customerGateways;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeCustomerGatewaysResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E82612A9-CB90-4D7E-B394-1DB7F6509B29
      *
@@ -44,7 +44,7 @@ class DescribeCustomerGatewaysResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The number of returned entries.
      *
      * @example 1
      *

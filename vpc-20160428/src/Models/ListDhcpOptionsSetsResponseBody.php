@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListDhcpOptionsSetsResponseBody extends Model
 {
     /**
-     * @description The number of VPCs with which the DHCP options set is associated.
+     * @description The list of the DHCP options sets.
      *
      * @var dhcpOptionsSets[]
      */
     public $dhcpOptionsSets;
 
     /**
-     * @description The ID of the DHCP options set.
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If **NextToken** is empty, it indicates that no next query is to be sent.
+     *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd********
      *
@@ -26,7 +29,7 @@ class ListDhcpOptionsSetsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The name of the DHCP options set.
+     * @description The ID of the request.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *

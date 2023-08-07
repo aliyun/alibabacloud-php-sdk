@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateVpcGatewayEndpointAttributeRequest extends Model
 {
     /**
-     * @description The region ID of the gateway endpoint.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** of each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -19,7 +21,10 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks your AccessKey pair, the RAM user permissions, and the required parameters If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -28,11 +33,9 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $dryRun;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The new description of the gateway endpoint.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** of each API request may be different.
+     * The description must be 1 to 255 characters in length.
      * @example updateendpoint
      *
      * @var string
@@ -40,9 +43,8 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $endpointDescription;
 
     /**
-     * @description The new description of the gateway endpoint.
+     * @description The ID of the gateway endpoint that you want to modify.
      *
-     * The description must be 1 to 255 characters in length.
      * @example vpce-bp1w1dmdqjpwul0v3****
      *
      * @var string
@@ -50,9 +52,9 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $endpointId;
 
     /**
-     * @description The access policy for the cloud service.
+     * @description The new name of the gateway endpoint.
      *
-     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](~~93739~~).
+     * The name must be 1 to 128 characters in length.
      * @example update
      *
      * @var string
@@ -70,11 +72,9 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description The access policy for the cloud service.
      *
-     *   **true**: performs a dry run. The system checks your AccessKey pair, the RAM user permissions, and the required parameters If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
-     *
+     * For more information about the syntax and structure of the access policy, see [Policy syntax and structure](~~93739~~).
      * @example {   "Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
      *
      * @var string
@@ -82,6 +82,9 @@ class UpdateVpcGatewayEndpointAttributeRequest extends Model
     public $policyDocument;
 
     /**
+     * @description The region ID of the gateway endpoint.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

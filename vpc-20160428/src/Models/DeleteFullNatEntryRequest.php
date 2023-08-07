@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteFullNatEntryRequest extends Model
 {
     /**
-     * @description The ID of the FULLNAT table to which the FULLNAT entry to be deleted belongs.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can only contain ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -18,7 +21,10 @@ class DeleteFullNatEntryRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks your AccessKey pair, the RAM user permissions, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -27,9 +33,8 @@ class DeleteFullNatEntryRequest extends Model
     public $dryRun;
 
     /**
-     * @description The region ID of the VPC NAT gateway to which the FULLNAT entry to be deleted belongs.
+     * @description The ID of the FULLNAT entry that you want to delete.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example fullnat-gw8fz23jezpbblf1j****
      *
      * @var string
@@ -37,10 +42,7 @@ class DeleteFullNatEntryRequest extends Model
     public $fullNatEntryId;
 
     /**
-     * @description Specifies whether to to perform a dry run. Valid values:
-     *
-     *   **true**: performs a dry run. The system checks your AccessKey pair, the RAM user permissions, and the required parameters. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     * @description The ID of the FULLNAT table to which the FULLNAT entry to be deleted belongs.
      *
      * @example fulltb-gw88z7hhlv43rmb26****
      *
@@ -59,6 +61,9 @@ class DeleteFullNatEntryRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the VPC NAT gateway to which the FULLNAT entry to be deleted belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example eu-central-1
      *
      * @var string

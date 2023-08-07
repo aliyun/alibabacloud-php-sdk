@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetIpv4GatewayAttributeRequest extends Model
 {
     /**
-     * @description The ID of the virtual private cloud (VPC) with which the IPv4 gateway is associated.
+     * @description The ID of the IPv4 gateway.
      *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
@@ -28,8 +28,9 @@ class GetIpv4GatewayAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **GetIpv4GatewayAttribute**.
+     * @description The region ID of the IPv4 gateway.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string

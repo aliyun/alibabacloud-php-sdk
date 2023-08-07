@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DissociateRouteTableFromGatewayRequest extends Model
 {
     /**
-     * @description The ID of the IPv4 gateway.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,7 +21,10 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to only precheck the request. Valid values:
+     *
+     *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -27,6 +33,8 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $dryRun;
 
     /**
+     * @description The ID of the IPv4 gateway.
+     *
      * @example ipv4gw-5tsnc6s4ogsedtp3k****
      *
      * @var string
@@ -44,11 +52,9 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The region ID of the IPv4 gateway from which you want to disassociate the gateway route table.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
-     *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string
@@ -66,10 +72,7 @@ class DissociateRouteTableFromGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to only precheck the request. Valid values:
-     *
-     *   **true**: prechecks the request without performing the operation. The system prechecks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. After the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     * @description The ID of the gateway route table.
      *
      * @example vtb-5ts0ohchwkp3dydt2****
      *

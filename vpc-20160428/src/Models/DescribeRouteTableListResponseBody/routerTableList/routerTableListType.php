@@ -12,7 +12,10 @@ use AlibabaCloud\Tea\Model;
 class routerTableListType extends Model
 {
     /**
-     * @description The ID of the route table.
+     * @description The type of the cloud resource with which the route table is associated. Valid values:
+     *
+     *   **VSwitch**: a vSwitch
+     *   **Gateway**: an IPv4 gateway
      *
      * @example VSwitch
      *
@@ -21,11 +24,7 @@ class routerTableListType extends Model
     public $associateType;
 
     /**
-     * @description The status of the route table. Valid values:
-     *
-     *   **Pending**: being created
-     *   **Available**: available
-     *   **Deleting**: being deleted
+     * @description The time when the route table was created.
      *
      * @example 2021-08-22T10:40:25Z
      *
@@ -34,10 +33,7 @@ class routerTableListType extends Model
     public $creationTime;
 
     /**
-     * @description The type of the route table. Valid values:
-     *
-     *   **Custom**: a custom route table
-     *   **System**: a system route table
+     * @description The description of the route table.
      *
      * @example This is Route Table.
      *
@@ -46,12 +42,14 @@ class routerTableListType extends Model
     public $description;
 
     /**
+     * @description The detailed information about the IPv4 gateway.
+     *
      * @var gatewayIds
      */
     public $gatewayIds;
 
     /**
-     * @description The description of the route table.
+     * @description The ID of the Alibaba Cloud account to which the route table belongs.
      *
      * @example 253460731706911258
      *
@@ -60,10 +58,7 @@ class routerTableListType extends Model
     public $ownerId;
 
     /**
-     * @description The type of the router to which the route table belongs. Valid values:
-     *
-     *   **VRouter**: a vRouter
-     *   **VBR**: a VBR
+     * @description The ID of the resource group to which the route table belongs.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -72,7 +67,7 @@ class routerTableListType extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the route table belongs.
+     * @description The ID of the route table.
      *
      * @example vtb-bp145q7glnuzdvzu2****
      *
@@ -81,7 +76,7 @@ class routerTableListType extends Model
     public $routeTableId;
 
     /**
-     * @description The tag added to the route table.
+     * @description The name of the route table.
      *
      * @example doctest
      *
@@ -90,7 +85,10 @@ class routerTableListType extends Model
     public $routeTableName;
 
     /**
-     * @description The ID of the resource group to which the route table belongs.
+     * @description The type of the route table. Valid values:
+     *
+     *   **Custom**: a custom route table
+     *   **System**: a system route table
      *
      * @example System
      *
@@ -99,10 +97,7 @@ class routerTableListType extends Model
     public $routeTableType;
 
     /**
-     * @description The type of the cloud resource with which the route table is associated. Valid values:
-     *
-     *   **VSwitch**: a vSwitch
-     *   **Gateway**: an IPv4 gateway
+     * @description The ID of the router to which the route table belongs.
      *
      * @example vrt-bp1lhl0taikrteen8****
      *
@@ -111,7 +106,10 @@ class routerTableListType extends Model
     public $routerId;
 
     /**
-     * @description The name of the route table.
+     * @description The type of the router to which the route table belongs. Valid values:
+     *
+     *   **VRouter**: a vRouter
+     *   **VBR**: a VBR
      *
      * @example VRouter
      *
@@ -120,7 +118,11 @@ class routerTableListType extends Model
     public $routerType;
 
     /**
-     * @description The ID of the router to which the route table belongs.
+     * @description The status of the route table. Valid values:
+     *
+     *   **Pending**: being created
+     *   **Available**: available
+     *   **Deleting**: being deleted
      *
      * @example Available
      *
@@ -129,21 +131,21 @@ class routerTableListType extends Model
     public $status;
 
     /**
-     * @description The key of the tag that is added to the route table.
+     * @description The tag added to the route table.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The detailed information about the IPv4 gateway.
+     * @description The ID of the vSwitch.
      *
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The time when the route table was created.
+     * @description The ID of the VPC to which the route table belongs.
      *
      * @example vpc-bp15zckdt37pq72****
      *

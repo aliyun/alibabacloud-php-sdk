@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
 {
     /**
-     * @description Indicates whether the private IP address is available. Valid values:
+     * @description The version of the private IP address. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **ipv4**: IPv4 If you want to query an IPv4 address, this parameter is optional.
+     *   **ipv6**: IPv6 If you want to query an IPv6 address, this parameter is required.
      *
      * @example ipv4
      *
@@ -31,7 +31,7 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CheckCanAllocateVpcPrivateIpAddress**.
+     * @description To query whether a private IP address is available, the private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
      *
      * @example 10.0.0.7
      *
@@ -40,8 +40,9 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description To query whether a private IP address is available, the private IP address must belong to the vSwitch specified by the **VSwitchId** parameter.
+     * @description The region ID of the vSwitch to which the private IP address that you want to query belongs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-qingdao
      *
      * @var string
@@ -59,10 +60,7 @@ class CheckCanAllocateVpcPrivateIpAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The version of the private IP address. Valid values:
-     *
-     *   **ipv4**: IPv4 If you want to query an IPv4 address, this parameter is optional.
-     *   **ipv6**: IPv6 If you want to query an IPv6 address, this parameter is required.
+     * @description The ID of the vSwitch to which the private IP address to be queried belongs.
      *
      * @example vsw-m5ew3t46z2drmifnt****
      *

@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dhcpOptions extends Model
 {
     /**
-     * @description The status of the VPC that is associated with the DHCP options set. Valid values:
-     *
-     *   **InUse**: in use
-     *   **Pending**: being configured
+     * @description The suffix of the hostname.
      *
      * @example example.com
      *
@@ -21,7 +18,7 @@ class dhcpOptions extends Model
     public $domainName;
 
     /**
-     * @description The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
+     * @description The IP address of the DNS server.
      *
      * @example 192.XX.XX.123
      *
@@ -30,6 +27,11 @@ class dhcpOptions extends Model
     public $domainNameServers;
 
     /**
+     * @description The lease time of the IPv6 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     *
      * @example 3650d
      *
      * @var string
@@ -37,7 +39,10 @@ class dhcpOptions extends Model
     public $ipv6LeaseTime;
 
     /**
-     * @description The ID of the VPC that is associated with the DHCP options set.
+     * @description The lease time of the IPv4 addresses for the DHCP options set.
+     *
+     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
+     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
      *
      * @example 3650d
      *

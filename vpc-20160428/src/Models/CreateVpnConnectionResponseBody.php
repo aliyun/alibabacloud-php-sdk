@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateVpnConnectionResponseBody extends Model
 {
     /**
-     * @description The timestamp generated when the IPsec-VPN connection was created. Unit: milliseconds.
+     * @description The timestamp generated when the IPsec-VPN connection was established. Unit: milliseconds.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1544666102000
@@ -28,7 +28,7 @@ class CreateVpnConnectionResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 082AD562-B8DB-4BB2-861F-DA1FCA01FD76
      *

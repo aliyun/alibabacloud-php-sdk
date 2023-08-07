@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListIpsecServersRequest extends Model
 {
     /**
+     * @description The ID of the IPsec server.
+     *
      * @example iss-bp1bo3xuvcxo7ixll****
      *
      * @var string[]
@@ -18,7 +20,7 @@ class ListIpsecServersRequest extends Model
     /**
      * @description The name of the IPsec server.
      *
-     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -35,10 +37,10 @@ class ListIpsecServersRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used for the next query. Valid values:
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
      *
-     *   If this is your first query or no subsequent query is to be sent, ignore this parameter.
-     *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *   If this is your first request and no next requests are to be performed, you do not need to specify this parameter.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
      *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *

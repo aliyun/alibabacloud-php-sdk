@@ -23,14 +23,14 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $clientCert;
 
     /**
-     * @description The configuration of the client.
+     * @description The client configuration.
      *
      * @var string
      */
     public $clientConfig;
 
     /**
-     * @description The key of the client.
+     * @description The client key.
      *
      * @var string
      */
@@ -75,7 +75,7 @@ class DescribeSslVpnClientCertResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5BE01CD7-5A50-472D-AC14-CA181C5C03BE
      *
@@ -104,9 +104,9 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @description The status of the SSL client certificate. Valid values:
      *
-     *   **expiring-soon**: The certificate expires in one week.
-     *   **normal**: The certificate is active.
-     *   **expired**: The certificate has expired.
+     *   **expiring-soon**
+     *   **normal**
+     *   **expired**
      *
      * @example normal
      *

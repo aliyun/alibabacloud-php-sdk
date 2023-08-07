@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateTrafficMirrorFilterRequest\egressRules;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateTrafficMirrorFilterRequest\ingressRules;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateTrafficMirrorFilterRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateTrafficMirrorFilterRequest extends Model
@@ -84,6 +85,11 @@ class CreateTrafficMirrorFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The description of the filter.
      *
      * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
@@ -113,6 +119,7 @@ class CreateTrafficMirrorFilterRequest extends Model
         'resourceGroupId'                => 'ResourceGroupId',
         'resourceOwnerAccount'           => 'ResourceOwnerAccount',
         'resourceOwnerId'                => 'ResourceOwnerId',
+        'tag'                            => 'Tag',
         'trafficMirrorFilterDescription' => 'TrafficMirrorFilterDescription',
         'trafficMirrorFilterName'        => 'TrafficMirrorFilterName',
     ];
@@ -165,6 +172,15 @@ class CreateTrafficMirrorFilterRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->trafficMirrorFilterDescription) {
             $res['TrafficMirrorFilterDescription'] = $this->trafficMirrorFilterDescription;
@@ -225,6 +241,15 @@ class CreateTrafficMirrorFilterRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TrafficMirrorFilterDescription'])) {
             $model->trafficMirrorFilterDescription = $map['TrafficMirrorFilterDescription'];

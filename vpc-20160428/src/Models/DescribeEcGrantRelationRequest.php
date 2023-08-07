@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeEcGrantRelationRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The ID of the instance.
+     *
+     *   If you set **InstanceType** to **VBR**, specify a VBR ID.
+     *   If you set **InstanceType** to **VPC**, specify a VPC ID.
      *
      * @example vbr-bp12mw1f8k3jgygk9****
      *
@@ -18,10 +21,10 @@ class DescribeEcGrantRelationRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the instance.
+     * @description The type of instance. Valid values:
      *
-     *   If you set **InstanceType** to **VBR**, specify a VBR ID.
-     *   If you set **InstanceType** to **VPC**, specify a VPC ID.
+     *   **VBR**: queries the permissions that are granted to a VBR.
+     *   **VPC**: queries the permissions that are granted from a VPC.
      *
      * @example VBR
      *
@@ -30,7 +33,7 @@ class DescribeEcGrantRelationRequest extends Model
     public $instanceType;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -39,10 +42,7 @@ class DescribeEcGrantRelationRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the region where the instance is deployed.
-     *
-     *   If **InstanceType** is set to **VBR**, this parameter is required.
-     *   If **InstanceType** is set to **VPC**, you can ignore this parameter.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -51,7 +51,10 @@ class DescribeEcGrantRelationRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the region where the instance is deployed.
+     *
+     *   If **InstanceType** is set to **VBR**, this parameter is required.
+     *   If **InstanceType** is set to **VPC**, you can ignore this parameter.
      *
      * @example cn-hangzhou
      *

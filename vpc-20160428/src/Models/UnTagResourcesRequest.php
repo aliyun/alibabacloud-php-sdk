@@ -11,8 +11,8 @@ class UnTagResourcesRequest extends Model
     /**
      * @description Specifies whether to remove all tags from the specified resource. Valid values:
      *
-     *   **true**: removes all tags from the specified resource.
-     *   **false**: does not remove all tags from the specified resource. This is the default value.
+     *   **true**
+     *   **false** (default)
      *
      * @example false
      *
@@ -31,7 +31,7 @@ class UnTagResourcesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region to which the resource belongs.
+     * @description The region ID of the resource.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -41,6 +41,8 @@ class UnTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource ID. You can specify up to 20 resource IDs.
+     *
      * @example vpc-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -60,13 +62,13 @@ class UnTagResourcesRequest extends Model
     /**
      * @description The resource type. Valid values:
      *
-     *   **VPC**: a virtual private cloud (VPC)
-     *   **VSWITCH**: a vSwitch
-     *   **ROUTETABLE**: a route table
-     *   **EIP**: an elastic IP address (EIP)
-     *   **VpnGateway**: a VPN gateway
-     *   **NATGATEWAY**: a NAT gateway
-     *   **COMMONBANDWIDTHPACKAGE**: an EIP bandwidth plan
+     *   **VPC**
+     *   **VSWITCH**
+     *   **ROUTETABLE**
+     *   **EIP**
+     *   **VpnGateway**
+     *   **NATGATEWAY**
+     *   **COMMONBANDWIDTHPACKAGE**: EIP bandwidth plan
      *
      * @example VPC
      *
@@ -75,6 +77,9 @@ class UnTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The key of the tag that you want to remove. You can specify at most 20 tag keys. It can be an empty string.
+     *
+     * The key cannot exceed 64 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
      * @example FinanceDept
      *
      * @var string[]

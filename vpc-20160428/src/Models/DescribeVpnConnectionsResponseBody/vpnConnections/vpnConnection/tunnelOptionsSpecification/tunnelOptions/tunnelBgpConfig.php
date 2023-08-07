@@ -9,42 +9,62 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
+     * @description BGP的协商状态。
+     *
+     * - **success**：正常。
+     * - **false**：异常。
+     * @example success
+     *
      * @var string
      */
     public $bgpStatus;
 
     /**
-     * @var string
-     */
-    public $enableBgp;
-
-    /**
+     * @description 隧道本端（阿里云侧）的自治系统号。
+     *
+     * @example 65530
+     *
      * @var string
      */
     public $localAsn;
 
     /**
+     * @description 隧道本端（阿里云侧）的BGP地址。
+     *
+     * @example 169.254.10.1
+     *
      * @var string
      */
     public $localBgpIp;
 
     /**
+     * @description 隧道对端的自治系统号。
+     *
+     * @example 65531
+     *
      * @var string
      */
     public $peerAsn;
 
     /**
+     * @description 隧道对端的BGP地址。
+     *
+     * @example 169.254.10.2
+     *
      * @var string
      */
     public $peerBgpIp;
 
     /**
+     * @description 隧道的BGP网段。
+     *
+     * @example 169.254.10.0/30
+     *
      * @var string
      */
     public $tunnelCidr;
     protected $_name = [
         'bgpStatus'  => 'BgpStatus',
-        'enableBgp'  => 'EnableBgp',
         'localAsn'   => 'LocalAsn',
         'localBgpIp' => 'LocalBgpIp',
         'peerAsn'    => 'PeerAsn',
@@ -61,9 +81,6 @@ class tunnelBgpConfig extends Model
         $res = [];
         if (null !== $this->bgpStatus) {
             $res['BgpStatus'] = $this->bgpStatus;
-        }
-        if (null !== $this->enableBgp) {
-            $res['EnableBgp'] = $this->enableBgp;
         }
         if (null !== $this->localAsn) {
             $res['LocalAsn'] = $this->localAsn;
@@ -94,9 +111,6 @@ class tunnelBgpConfig extends Model
         $model = new self();
         if (isset($map['BgpStatus'])) {
             $model->bgpStatus = $map['BgpStatus'];
-        }
-        if (isset($map['EnableBgp'])) {
-            $model->enableBgp = $map['EnableBgp'];
         }
         if (isset($map['LocalAsn'])) {
             $model->localAsn = $map['LocalAsn'];

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteTableEntryAttributeRequest extends Model
 {
     /**
-     * @description The destination CIDR block of the route entry.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,11 +21,54 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the gateway route table.
+     *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example new
      *
      * @var string
      */
     public $description;
+
+    /**
+     * @description The destination CIDR block of the route entry.
+     *
+     * @example 47.100.XX.XX/16
+     *
+     * @var string
+     */
+    public $destinationCidrBlock;
+
+    /**
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request but does not modify the route entry. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the route entry is modified.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $dryRun;
+
+    /**
+     * @description The ID of the gateway route table that you want to modify.
+     *
+     * @example vtb-5ts0ohchwkp3dydt2****
+     *
+     * @var string
+     */
+    public $IPv4GatewayRouteTableId;
+
+    /**
+     * @description The name of the gateway route table.
+     *
+     * The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test
+     *
+     * @var string
+     */
+    public $name;
 
     /**
      * @description The next hop ID of the route entry after the route entry is modified.
@@ -32,11 +78,11 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
      *   If you set **NextHopType** to **Local**, leave the **NextHopId** parameter empty, which specifies a local next hop.
      *
      * >  If you want to modify a route entry whose next hop type is **Instance** or **NetworkInterface**, you must first change the value of the **NextHopType** parameter to **Local**. Then, change the value of **NextHopType** to **Instance** or **NetworkInterface** and specify the **NextHopId** parameter. When you modify a route entry whose next hop type is Instance or NetworkInterface, you cannot directly specify a different ENI ID or ECS instance ID for the NextHopId parameter.
-     * @example 47.100.XX.XX/16
+     * @example i-bp18xq9yguxoxe7m****
      *
      * @var string
      */
-    public $destinationCidrBlock;
+    public $nextHopId;
 
     /**
      * @description The next hop type of the route entry after the route entry is modified. Valid values:
@@ -45,47 +91,6 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
      *   **NetworkInterface**: an elastic network interface (ENI)
      *   **Local**: a local next hop
      *
-     * @example false
-     *
-     * @var bool
-     */
-    public $dryRun;
-
-    /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
-     *
-     *   **true**: checks the request but does not modify the route entry. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the route entry is modified.
-     *
-     * @example vtb-5ts0ohchwkp3dydt2****
-     *
-     * @var string
-     */
-    public $IPv4GatewayRouteTableId;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example test
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The description of the gateway route table.
-     *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
-     * @example i-bp18xq9yguxoxe7m****
-     *
-     * @var string
-     */
-    public $nextHopId;
-
-    /**
-     * @description The name of the gateway route table.
-     *
-     * The name must be 2 to 128 characters in length and can contain letter, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
      * @example EcsInstance
      *
      * @var string
@@ -103,11 +108,9 @@ class UpdateGatewayRouteTableEntryAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the region to which the gateway route table that you want to modify belongs.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** may be different for each API request.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ap-southeast-6
      *
      * @var string

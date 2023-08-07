@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommonBandwidthPackagesResponseBody extends Model
 {
     /**
-     * @description The time when the EIP bandwidth plan was created. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The details of the EIP bandwidth plan.
      *
      * @var commonBandwidthPackages
      */
     public $commonBandwidthPackages;
 
     /**
-     * @description The time when the renewal took effect. The time is displayed in the `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The details of the EIP bandwidth plan.
+     * @description The ID of the request.
      *
      * @example 20E6FD1C-7321-4DAD-BDFD-EC8769E4AA33
      *
@@ -44,10 +44,7 @@ class DescribeCommonBandwidthPackagesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the EIP bandwidth plan. Valid values:
-     *
-     *   **Available**: The EIP bandwidth plan is available.
-     *   **Modifying**: The EIP bandwidth plan is being modified.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

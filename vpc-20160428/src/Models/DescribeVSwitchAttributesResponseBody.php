@@ -47,6 +47,11 @@ class DescribeVSwitchAttributesResponseBody extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enabledIpv6;
+
+    /**
      * @description The IPv6 CIDR block of the vSwitch.
      *
      * @example 2408:XXXX:3c5:44e::/64
@@ -174,6 +179,7 @@ class DescribeVSwitchAttributesResponseBody extends Model
         'cidrBlock'               => 'CidrBlock',
         'creationTime'            => 'CreationTime',
         'description'             => 'Description',
+        'enabledIpv6'             => 'EnabledIpv6',
         'ipv6CidrBlock'           => 'Ipv6CidrBlock',
         'isDefault'               => 'IsDefault',
         'networkAclId'            => 'NetworkAclId',
@@ -208,6 +214,9 @@ class DescribeVSwitchAttributesResponseBody extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enabledIpv6) {
+            $res['EnabledIpv6'] = $this->enabledIpv6;
         }
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
@@ -274,6 +283,9 @@ class DescribeVSwitchAttributesResponseBody extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnabledIpv6'])) {
+            $model->enabledIpv6 = $map['EnabledIpv6'];
         }
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];

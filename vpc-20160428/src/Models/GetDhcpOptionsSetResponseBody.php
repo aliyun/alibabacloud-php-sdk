@@ -12,22 +12,21 @@ use AlibabaCloud\Tea\Model;
 class GetDhcpOptionsSetResponseBody extends Model
 {
     /**
+     * @description The information about the virtual private cloud (VPC) that is associated with the DHCP options set.
+     *
      * @var associateVpcs[]
      */
     public $associateVpcs;
 
     /**
-     * @description The lease time of the IPv6 addresses for the DHCP options set.
-     *
-     *   If you use hours as the unit, Valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-     *   If you use days as the unit, Valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     * @description The configuration information about the DHCP options set.
      *
      * @var dhcpOptions
      */
     public $dhcpOptions;
 
     /**
-     * @description The name of the DHCP options set.
+     * @description The description of the DHCP options set.
      *
      * @example test
      *
@@ -36,7 +35,7 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $dhcpOptionsSetDescription;
 
     /**
-     * @description The IP address of the DNS server.
+     * @description The ID of the DHCP options set.
      *
      * @example dopt-o6w0df4epg9zo8isy****
      *
@@ -45,7 +44,7 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description The suffix of the hostname.
+     * @description The name of the DHCP options set.
      *
      * @example test
      *
@@ -54,10 +53,7 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $dhcpOptionsSetName;
 
     /**
-     * @description The lease time of the IPv4 addresses for the DHCP options set.
-     *
-     *   If you use hours as the unit, valid values are **24h to 1176h** and **87600h to 175200h**. Default value: **87600h**.
-     *   If you use days as the unit, valid values are **1d to 49d** and **3650d to 7300d**. Default value: **3650d**.
+     * @description The ID of the Alibaba Cloud account to which the DHCP options set belongs.
      *
      * @example 283117732402483989
      *
@@ -66,7 +62,7 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $ownerId;
 
     /**
-     * @description The configuration information about the DHCP options set.
+     * @description The ID of the request.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
@@ -82,7 +78,12 @@ class GetDhcpOptionsSetResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the DHCP options set belongs.
+     * @description The status of the DHCP options set. Valid values:
+     *
+     *   **Available**: available
+     *   **InUse**: in use
+     *   **Deleted**: deleted
+     *   **Pending**: being configured
      *
      * @example Available
      *

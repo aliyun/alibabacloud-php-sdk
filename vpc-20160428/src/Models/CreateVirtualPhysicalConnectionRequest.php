@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateVirtualPhysicalConnectionRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The description of the hosted connection.
      *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
      * @example desctest
      *
      * @var string
@@ -19,9 +20,11 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $description;
 
     /**
-     * @description The region ID of the hosted connection.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
+     *   **true**: checks the request without performing the operation. The hosted connection is not created. The system checks the required parameters, request syntax, and instance status. If the request fails the check, an error message is returned. If the request passes the check, `DRYRUN.SUCCESS` is returned.
+     *   **false**: sends the request. If the request passes the check, the hosted connection is created. This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -29,11 +32,9 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $dryRun;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description The name of the hosted connection.
      *
-     *   **true**: checks the request without performing the operation. The hosted connection is not created. The system checks the required parameters, request syntax, and instance status. If the request fails the check, an error message is returned. If the request passes the check, `DRYRUN.SUCCESS` is returned.
-     *   **false**: sends the request. If the request passes the check, the hosted connection is created. This is the default value.
-     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string
@@ -41,13 +42,10 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $name;
 
     /**
-     * @description The bandwidth value of the hosted connection.
+     * @description The payer for the hosted connection. Valid values:
      *
-     * Valid values: **50M**, **100M**, **200M**, **300M**, **400M**, **500M**, **1G**, **2G**, **5G**, **8G**, and **10G**.
-     *
-     * >  By default, the values of **2G**, **5G**, **8G**, and **10G** are unavailable. If you want to specify these values, contact your customer manager.
-     *
-     **M** indicates Mbit/s, and **G** indicates Gbit/s.
+     *   **PayByPhysicalConnectionOwner**: The partner pays for the hosted connection.
+     *   **PayByVirtualPhysicalConnectionOwner**: The tenant pays for the hosted connection.
      *
      * @example PayByVirtualPhysicalConnectionOwner
      *
@@ -56,11 +54,8 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $orderMode;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The ID of the Express Connect circuit over which the hosted connection is created.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example pc-bp1ciz7ekd2grn1as****
      *
      * @var string
@@ -68,8 +63,9 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $physicalConnectionId;
 
     /**
-     * @description The ID of the hosted connection.
+     * @description The region ID of the hosted connection.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to obtain the region ID.
      * @example cn-hangzhou
      *
      * @var string
@@ -84,7 +80,13 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the Express Connect circuit over which the hosted connection is created.
+     * @description The bandwidth value of the hosted connection.
+     *
+     * Valid values: **50M**, **100M**, **200M**, **300M**, **400M**, **500M**, **1G**, **2G**, **5G**, **8G**, and **10G**.
+     *
+     * >  By default, the values of **2G**, **5G**, **8G**, and **10G** are unavailable. If you want to specify these values, contact your customer manager.
+     *
+     **M** indicates Mbit/s, and **G** indicates Gbit/s.
      *
      * @example 50M
      *
@@ -98,9 +100,11 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $tag;
 
     /**
-     * @description The description of the hosted connection.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system automatically sets **ClientToken** to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example CBCE910E-D396-4944-8****
      *
      * @var string
@@ -108,7 +112,10 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $token;
 
     /**
-     * @description The Alibaba Cloud account ID of the tenant.
+     * @description The virtual local area network (VLAN) ID of the hosted connection. Valid values: **0** to **2999**.
+     *
+     *   If the VLAN ID is set to **0**, it indicates that the switch port of the virtual border router (VBR) is a Layer 3 router interface instead of a VLAN interface. When a Layer 3 router interface is used, each Express Connect circuit corresponds to a VBR.
+     *   If the VLAN ID is set to a value from **1** to **2999**, the switch port of the VBR is a Layer 3 VLAN subinterface. When a Layer 3 VLAN subinterface is used, each VLAN ID corresponds to one VBR. In this case, the Express Connect circuit with which the VBR is associated can be used to connect to VPCs that belong to different Alibaba Cloud accounts. VBRs in different VLANs are isolated from each other at Layer 2.
      *
      * @example 4
      *
@@ -117,9 +124,8 @@ class CreateVirtualPhysicalConnectionRequest extends Model
     public $vlanId;
 
     /**
-     * @description The name of the hosted connection.
+     * @description The Alibaba Cloud account ID of the tenant.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example 1210123456123456
      *
      * @var int

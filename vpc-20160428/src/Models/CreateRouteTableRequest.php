@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateRouteTableRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateRouteTableRequest extends Model
@@ -83,6 +84,11 @@ class CreateRouteTableRequest extends Model
     public $routeTableName;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The ID of the VPC to which the custom route table belongs.
      *
      * You must upgrade or release the ECS instance before you can create a custom route table for the VPC.
@@ -106,6 +112,7 @@ class CreateRouteTableRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'routeTableName'       => 'RouteTableName',
+        'tag'                  => 'Tag',
         'vpcId'                => 'VpcId',
     ];
 
@@ -142,6 +149,15 @@ class CreateRouteTableRequest extends Model
         }
         if (null !== $this->routeTableName) {
             $res['RouteTableName'] = $this->routeTableName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -184,6 +200,15 @@ class CreateRouteTableRequest extends Model
         }
         if (isset($map['RouteTableName'])) {
             $model->routeTableName = $map['RouteTableName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVpcEndpointServicesByEndUserResponseBody extends Model
 {
     /**
-     * @description The ID of the endpoint service.
+     * @description The number of entries returned per page.
      *
      * @example 20
      *
@@ -19,7 +19,10 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The list of entries returned.
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If **NextToken** is returned, the value is the token that is used for the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -28,7 +31,7 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the request.
      *
      * @example 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
      *
@@ -37,7 +40,7 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the endpoint service.
+     * @description The list of entries returned.
      *
      * @var services[]
      */

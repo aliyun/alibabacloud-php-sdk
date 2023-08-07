@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListVpcGatewayEndpointsResponseBody extends Model
 {
     /**
-     * @description The name of the endpoint service.
+     * @description The list of gateway endpoints.
      *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -24,7 +26,10 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The name of the gateway endpoint.
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If no value is returned for **NextToken**, no next queries are sent.
+     *   If **NextToken** is not empty, the value indicates the token that is used for the next query.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -33,7 +38,7 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the gateway endpoint.
+     * @description The ID of the request.
      *
      * @example 0AB1129F-32C1-5E4D-9E22-E4A859CA46EB
      *
@@ -42,7 +47,7 @@ class ListVpcGatewayEndpointsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The description of the gateway endpoint.
+     * @description The total number of entries returned.
      *
      * @example 10
      *

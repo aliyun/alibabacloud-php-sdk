@@ -4,15 +4,13 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVpcsRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeVpcsRequest extends Model
 {
     /**
-     * @description Indicates whether the VPC is the default VPC in the region. Valid values:
-     *
-     *   **true**: yes
-     *   **false**: no
+     * @description The ID of the DHCP options set.
      *
      * @example dopt-o6w0df4epg9zo8isy****
      *
@@ -21,7 +19,10 @@ class DescribeVpcsRequest extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description The number of entries returned.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request but does not query VPCs. The system checks whether your AccessKey pair is valid, whether the Resource Access Management (RAM) user is authorized, and whether the required parameters are set. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and VPCs are queried.
      *
      * @example false
      *
@@ -30,7 +31,10 @@ class DescribeVpcsRequest extends Model
     public $dryRun;
 
     /**
-     * @description The number of the returned page.
+     * @description Specifies whether to query the default VPC in the specified region. Valid values:
+     *
+     *   **true** (default): yes
+     *   **false**: no
      *
      * @example false
      *
@@ -49,7 +53,7 @@ class DescribeVpcsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The time when the VPC was created.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -58,10 +62,7 @@ class DescribeVpcsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The status of the VPC. Valid values:
-     *
-     *   **Pending**: being configured
-     *   **Available**: available
+     * @description The number of entries to return per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -70,8 +71,9 @@ class DescribeVpcsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The region ID of the VPC.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -79,7 +81,7 @@ class DescribeVpcsRequest extends Model
     public $regionId;
 
     /**
-     * @description The details of the VPCs.
+     * @description The ID of the resource group to which the VPC to be queried belongs.
      *
      * @example rg-acfmxvfvazb4p****
      *
@@ -98,8 +100,14 @@ class DescribeVpcsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the DHCP options set.
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The ID of the VPC.
      *
+     * You can specify up to 20 VPC IDs. Separate multiple IDs with commas (,).
      * @example vpc-bp1b1xjllp3ve5yze****
      *
      * @var string
@@ -107,7 +115,7 @@ class DescribeVpcsRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the VPC.
      *
      * @example Vpc-1
      *
@@ -116,7 +124,7 @@ class DescribeVpcsRequest extends Model
     public $vpcName;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
      *
      * @example 253460731706911258
      *
@@ -135,6 +143,7 @@ class DescribeVpcsRequest extends Model
         'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'tag'                  => 'Tag',
         'vpcId'                => 'VpcId',
         'vpcName'              => 'VpcName',
         'vpcOwnerId'           => 'VpcOwnerId',
@@ -179,6 +188,15 @@ class DescribeVpcsRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -233,6 +251,15 @@ class DescribeVpcsRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

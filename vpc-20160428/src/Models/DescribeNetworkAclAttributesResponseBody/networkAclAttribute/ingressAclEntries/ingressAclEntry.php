@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ingressAclEntry extends Model
 {
     /**
-     * @description The tag list.
+     * @description The description of the inbound rule.
      *
      * @example This is IngressAclEntries.
      *
@@ -18,11 +18,8 @@ class ingressAclEntry extends Model
     public $description;
 
     /**
-     * @description The status of the associated resource. Valid values:
+     * @description The ID of the inbound rule.
      *
-     * - **BINDED**: The resource is associated with the network ACL.
-     * - **BINDING**: The resource is being associated with the network ACL.
-     * - **UNBINDING**: The resource is disassociated from the network ACL.
      * @example nae-a2dk86arlydmevfbg****
      *
      * @var string
@@ -30,7 +27,7 @@ class ingressAclEntry extends Model
     public $networkAclEntryId;
 
     /**
-     * @description The type of resource with which you want to associate the network ACL. The value is set to **VSwitch**.
+     * @description The name of the inbound rule.
      *
      * @example acl-3
      *
@@ -39,7 +36,10 @@ class ingressAclEntry extends Model
     public $networkAclEntryName;
 
     /**
-     * @description The ID of the associated resource.
+     * @description The action to be performed on network traffic that matches the rule. Valid values:
+     *
+     *   **accept**: allows network traffic.
+     *   **drop**: blocks network traffic.
      *
      * @example accept
      *
@@ -48,6 +48,11 @@ class ingressAclEntry extends Model
     public $policy;
 
     /**
+     * @description The destination port range of the inbound traffic.
+     *
+     *   If **Protocol** of the inbound rule is set to **all**, **icmp**, or **gre**, the port range is **-1/-1**, which indicates all ports.
+     *   If **Protocol** of the inbound rule is set to **tcp** or **udp**, the port range is in the following format: **1/200** or **80/80**, which indicates port 1 to port 200, or port 80. Valid values for a port: **1** to **65535**.
+     *
      * @example -1/-1
      *
      * @var string
@@ -55,7 +60,13 @@ class ingressAclEntry extends Model
     public $port;
 
     /**
-     * @description The tag value.
+     * @description The protocol. Valid values:
+     *
+     *   **icmp**: ICMP
+     *   **gre**: GRE
+     *   **tcp**: TCP
+     *   **udp**: UDP
+     *   **all**: all protocols
      *
      * @example all
      *
@@ -64,7 +75,7 @@ class ingressAclEntry extends Model
     public $protocol;
 
     /**
-     * @description The tag key.
+     * @description The source CIDR block.
      *
      * @example 10.0.0.0/24
      *

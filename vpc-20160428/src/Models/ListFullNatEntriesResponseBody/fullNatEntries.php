@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class fullNatEntries extends Model
 {
     /**
-     * @description The protocol of the packets that are forwarded. Valid values:
-     *
-     *   **TCP**
-     *   **UDP**
+     * @description The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
      *
      * @example 192.168.XX.XX
      *
@@ -21,13 +18,51 @@ class fullNatEntries extends Model
     public $accessIp;
 
     /**
-     * @description The ID of the ENI.
+     * @description The backend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
      *
      * @example 80
      *
      * @var string
      */
     public $accessPort;
+
+    /**
+     * @description The time when the FULLNAT entry was created.
+     *
+     * @example 2021-10-27T02:44:40Z
+     *
+     * @var string
+     */
+    public $creationTime;
+
+    /**
+     * @description The description of the FULLNAT entry.
+     *
+     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
+     * @example abc
+     *
+     * @var string
+     */
+    public $fullNatEntryDescription;
+
+    /**
+     * @description The ID of the FULLNAT entry.
+     *
+     * @example fullnat-gw8fz23jezpbblf1j****
+     *
+     * @var string
+     */
+    public $fullNatEntryId;
+
+    /**
+     * @description The name of the FULLNAT entry.
+     *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test
+     *
+     * @var string
+     */
+    public $fullNatEntryName;
 
     /**
      * @description The status of the FULLNAT entry. Valid values:
@@ -37,40 +72,6 @@ class fullNatEntries extends Model
      *   **Deleting**: The FULLNAT entry is being deleted.
      *   **Deleted**: The FULLNAT entry is deleted.
      *
-     * @example 2021-10-27T02:44:40Z
-     *
-     * @var string
-     */
-    public $creationTime;
-
-    /**
-     * @description The ID of the FULLNAT entry.
-     *
-     * @example abc
-     *
-     * @var string
-     */
-    public $fullNatEntryDescription;
-
-    /**
-     * @description The ID of the FULLNAT table to which the FULLNAT entry belongs.
-     *
-     * @example fullnat-gw8fz23jezpbblf1j****
-     *
-     * @var string
-     */
-    public $fullNatEntryId;
-
-    /**
-     * @description The time when the FULLNAT entry was created.
-     *
-     * @example test
-     *
-     * @var string
-     */
-    public $fullNatEntryName;
-
-    /**
      * @example Available
      *
      * @var string
@@ -78,6 +79,8 @@ class fullNatEntries extends Model
     public $fullNatEntryStatus;
 
     /**
+     * @description The ID of the FULLNAT table to which the FULLNAT entry belongs.
+     *
      * @example fulltb-gw88z7hhlv43rmb26****
      *
      * @var string
@@ -85,7 +88,10 @@ class fullNatEntries extends Model
     public $fullNatTableId;
 
     /**
-     * @description The type of the ENI. The value is set to **Endpoint**, which indicates a reverse endpoint.
+     * @description The protocol of the packets that are forwarded. Valid values:
+     *
+     *   **TCP**
+     *   **UDP**
      *
      * @example TCP
      *
@@ -94,7 +100,7 @@ class fullNatEntries extends Model
     public $ipProtocol;
 
     /**
-     * @description The backend IP address that is used for FULLNAT address translation in FULLNAT entries.
+     * @description The NAT IP address that is used for address translation in FULLNAT entries.
      *
      * @example 192.168.XX.XX
      *
@@ -103,7 +109,7 @@ class fullNatEntries extends Model
     public $natIp;
 
     /**
-     * @description The backend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
+     * @description The frontend port that is used for port mapping in FULLNAT entries. Valid values: **1** to **65535**.
      *
      * @example 80
      *
@@ -112,9 +118,8 @@ class fullNatEntries extends Model
     public $natIpPort;
 
     /**
-     * @description The name of the FULLNAT entry.
+     * @description The ID of the ENI.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example eni-gw80wedm8pq0tpr2****
      *
      * @var string
@@ -122,9 +127,8 @@ class fullNatEntries extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The description of the FULLNAT entry.
+     * @description The type of the ENI. The value is set to **Endpoint**, which indicates a reverse endpoint.
      *
-     * The name must be 2 to 128 characters in length. It must start with a letter but cannot start with `http://` or `https://`.
      * @example Endpoint
      *
      * @var string

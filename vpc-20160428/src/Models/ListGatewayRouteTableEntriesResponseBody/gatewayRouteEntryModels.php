@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class gatewayRouteEntryModels extends Model
 {
     /**
-     * @description The destination CIDR block of the route.
+     * @description The name of the route.
      *
      * @example test
      *
@@ -19,7 +19,7 @@ class gatewayRouteEntryModels extends Model
     public $description;
 
     /**
-     * @description The information about the next hop.
+     * @description The destination CIDR block of the route.
      *
      * @example 192.168.0.5
      *
@@ -28,8 +28,9 @@ class gatewayRouteEntryModels extends Model
     public $destinationCidrBlock;
 
     /**
-     * @description The ID of the next hop.
+     * @description The name of the route.
      *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
      * @example name
      *
      * @var string
@@ -37,11 +38,7 @@ class gatewayRouteEntryModels extends Model
     public $name;
 
     /**
-     * @description The type of the next hop. Valid values:
-     *
-     *   **EcsInstance**: an Elastic Compute Service (ECS) instance
-     *   **NetworkInterface**: an elastic network interface (ENI)
-     *   **Local**: a local next hop
+     * @description The ID of the next hop.
      *
      * @example i-bp11gcl0sm85t9bi****
      *
@@ -50,9 +47,12 @@ class gatewayRouteEntryModels extends Model
     public $nextHopId;
 
     /**
-     * @description The name of the route.
+     * @description The type of the next hop. Valid values:
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *   **EcsInstance**: an Elastic Compute Service (ECS) instance
+     *   **NetworkInterface**: an elastic network interface (ENI)
+     *   **Local**: a local next hop
+     *
      * @example EcsInstance
      *
      * @var string
@@ -60,23 +60,18 @@ class gatewayRouteEntryModels extends Model
     public $nextHopType;
 
     /**
-     * @description The type of the next hop. Valid values:
-     *
-     *   **Instance** (default): an ECS instance
-     *   **HaVip**: a high-availability virtual IP address (HAVIP)
-     *   **VpnGateway**: a VPN gateway
-     *   **NatGateway**: a NAT gateway
-     *   **NetworkInterface**: a secondary ENI
-     *   **RouterInterface**: a router interface
-     *   **IPv6Gateway**: an IPv6 gateway
-     *   **Attachment**: a transit router
+     * @description The information about the next hop.
      *
      * @var nextHops[]
      */
     public $nextHops;
 
     /**
-     * @description The name of the route.
+     * @description The status of the route. Valid values:
+     *
+     *   **Pending**
+     *   **Available**
+     *   **Modifying**
      *
      * @example Available
      *

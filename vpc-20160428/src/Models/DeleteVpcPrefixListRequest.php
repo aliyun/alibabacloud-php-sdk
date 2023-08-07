@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteVpcPrefixListRequest extends Model
 {
     /**
-     * @description The region ID of the prefix list.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -19,7 +21,10 @@ class DeleteVpcPrefixListRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -38,10 +43,7 @@ class DeleteVpcPrefixListRequest extends Model
     public $ownerId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
-     *
-     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails to pass the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
+     * @description The ID of the prefix list that you want to delete.
      *
      * @example pl-0b78hw45f****
      *
@@ -50,6 +52,9 @@ class DeleteVpcPrefixListRequest extends Model
     public $prefixListId;
 
     /**
+     * @description The region ID of the prefix list.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrafficMirrorSessionRequest extends Model
 {
     /**
-     * @description The ID of the traffic mirror session.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -18,7 +21,10 @@ class DeleteTrafficMirrorSessionRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * @description Specifies whether to to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request format, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, the operation is performed.
      *
      * @example false
      *
@@ -37,6 +43,8 @@ class DeleteTrafficMirrorSessionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the traffic mirror session belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     *
      * @example cn-hongkong
      *
      * @var string
@@ -54,7 +62,7 @@ class DeleteTrafficMirrorSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the traffic mirror session.
      *
      * @example tms-j6cla50buc44ap8tu****
      *

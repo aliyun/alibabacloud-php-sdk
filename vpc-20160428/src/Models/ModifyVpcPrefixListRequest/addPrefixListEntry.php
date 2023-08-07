@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class addPrefixListEntry extends Model
 {
     /**
-     * @description The CIDR block that you want to delete from the prefix list.
+     * @description The CIDR block to be added to the prefix list.
      *
+     * >  If the CIDR block already exists in the prefix list, you can only modify the description of the CIDR block by setting the **AddPrefixListEntry.N.Description** parameter.
      * @example 172.16.0.0/12
      *
      * @var string
@@ -18,8 +19,9 @@ class addPrefixListEntry extends Model
     public $cidr;
 
     /**
-     * @description The description of the CIDR block that you want to delete.
+     * @description The description of the CIDR block to be added to the prefix list.
      *
+     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example newcidr
      *
      * @var string

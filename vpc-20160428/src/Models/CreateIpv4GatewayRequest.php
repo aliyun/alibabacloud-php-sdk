@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\CreateIpv4GatewayRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateIpv4GatewayRequest extends Model
@@ -92,6 +93,11 @@ class CreateIpv4GatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description The ID of the VPC where you want to create the IPv4 gateway.
      *
      * You can create only one IPv4 gateway in a VPC.
@@ -111,6 +117,7 @@ class CreateIpv4GatewayRequest extends Model
         'resourceGroupId'        => 'ResourceGroupId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
+        'tag'                    => 'Tag',
         'vpcId'                  => 'VpcId',
     ];
 
@@ -150,6 +157,15 @@ class CreateIpv4GatewayRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -195,6 +211,15 @@ class CreateIpv4GatewayRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

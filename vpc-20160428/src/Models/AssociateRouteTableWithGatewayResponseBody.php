@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateRouteTableWithGatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example F89C2176-8F10-55EF-90CF-CF99D1E3F816
      *
      * @var string

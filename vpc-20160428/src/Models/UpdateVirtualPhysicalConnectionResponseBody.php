@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateVirtualPhysicalConnectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 7035627E-1C1D-5BC7-A830-F897A35912D1
      *
      * @var string
@@ -16,6 +18,11 @@ class UpdateVirtualPhysicalConnectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the VLAN ID of the hosted connection is changed. Valid values:
+     *
+     *   **true**: The VLAN ID of the hosted connection is changed.
+     *   **false**: The VLAN ID of the hosted connection is not changed.
+     *
      * @example true
      *
      * @var string

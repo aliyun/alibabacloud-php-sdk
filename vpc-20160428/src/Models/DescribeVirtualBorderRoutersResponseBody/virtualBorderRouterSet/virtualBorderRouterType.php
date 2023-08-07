@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResp
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType\associatedCens;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType\associatedPhysicalConnections;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeVirtualBorderRoutersResponseBody\virtualBorderRouterSet\virtualBorderRouterType\tags;
 use AlibabaCloud\Tea\Model;
 
 class virtualBorderRouterType extends Model
@@ -282,6 +283,11 @@ class virtualBorderRouterType extends Model
     public $recoveryTime;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The ID of the VBR route table.
      *
      * @example rtb-bp1****
@@ -305,6 +311,11 @@ class virtualBorderRouterType extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags
+     */
+    public $tags;
 
     /**
      * @description The last time when the VBR was disabled.
@@ -379,8 +390,10 @@ class virtualBorderRouterType extends Model
         'physicalConnectionOwnerUid'       => 'PhysicalConnectionOwnerUid',
         'physicalConnectionStatus'         => 'PhysicalConnectionStatus',
         'recoveryTime'                     => 'RecoveryTime',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'routeTableId'                     => 'RouteTableId',
         'status'                           => 'Status',
+        'tags'                             => 'Tags',
         'terminationTime'                  => 'TerminationTime',
         'type'                             => 'Type',
         'vbrId'                            => 'VbrId',
@@ -479,11 +492,17 @@ class virtualBorderRouterType extends Model
         if (null !== $this->recoveryTime) {
             $res['RecoveryTime'] = $this->recoveryTime;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->routeTableId) {
             $res['RouteTableId'] = $this->routeTableId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->terminationTime) {
             $res['TerminationTime'] = $this->terminationTime;
@@ -596,11 +615,17 @@ class virtualBorderRouterType extends Model
         if (isset($map['RecoveryTime'])) {
             $model->recoveryTime = $map['RecoveryTime'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['RouteTableId'])) {
             $model->routeTableId = $map['RouteTableId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['TerminationTime'])) {
             $model->terminationTime = $map['TerminationTime'];

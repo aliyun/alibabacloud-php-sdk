@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class reservationData extends Model
 {
     /**
-     * @description The custom tag of the VPN gateway.
+     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter specifies the time when the temporary upgrade expires.
      *
+     * If the order type is **RENEWCHANGE** (renewal with a specification change) or **RENEW** (renewal), this parameter indicates the time when the renewal or renewal with a specification change takes effect.
      * @example 2020-07-20T16:00:00Z
      *
      * @var string
@@ -18,7 +19,10 @@ class reservationData extends Model
     public $reservationEndTime;
 
     /**
-     * @description The bandwidth specification of the pending order. Unit: Mbit/s.
+     * @description The IPsec-VPN status of the pending order. Valid values:
+     *
+     *   **enable**
+     *   **disable**
      *
      * @example enable
      *
@@ -27,9 +31,8 @@ class reservationData extends Model
     public $reservationIpsec;
 
     /**
-     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter indicates the time when the temporary upgrade expires.
+     * @description The maximum number of concurrent SSL-VPN connections of the pending order.
      *
-     * If the order type is **RENEWCHANGE** (specification change) or **RENEW** (renewal), this parameter indicates the time when the renewal or specification change takes effect.
      * @example 5
      *
      * @var int
@@ -37,10 +40,11 @@ class reservationData extends Model
     public $reservationMaxConnections;
 
     /**
-     * @description The IPsec-VPN status of the pending order. Valid values:
+     * @description The type of the pending order. Valid values:
      *
-     *   **enable**: enabled
-     *   **disable**: disabled
+     *   **RENEWCHANGE**: renewal with upgrade or downgrade
+     *   **TEMP_UPGRADE**: temporary upgrade
+     *   **RENEW**: renewal
      *
      * @example TEMP_UPGRADE
      *
@@ -49,10 +53,7 @@ class reservationData extends Model
     public $reservationOrderType;
 
     /**
-     * @description The SSL-VPN status of the pending order. Valid values:
-     *
-     *   **enable**: enabled
-     *   **disable**: disabled
+     * @description The bandwidth of the pending order. Unit: Mbit/s.
      *
      * @example 5
      *
@@ -61,7 +62,10 @@ class reservationData extends Model
     public $reservationSpec;
 
     /**
-     * @description The maximum number of concurrent SSL-VPN connections for the pending order.
+     * @description The SSL-VPN status of the pending order. Valid values:
+     *
+     *   **enable**
+     *   **disable**
      *
      * @example enable
      *
@@ -70,11 +74,10 @@ class reservationData extends Model
     public $reservationSsl;
 
     /**
-     * @description The type of the pending order. Valid values:
+     * @description The status of the pending order. Valid values:
      *
-     *   **RENEWCHANGE**: renewal with upgrade or downgrade
-     *   **TEMP_UPGRADE**: temporary upgrade
-     *   **RENEW**: renewal
+     *   **1**: indicates that the order of the renewal or specification change has not taken effect.
+     *   **2**: indicates that the order is an order for temporary upgrade and the order has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
      *
      * @example 1
      *

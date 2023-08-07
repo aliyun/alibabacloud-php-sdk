@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewayRequest extends Model
 {
     /**
-     * @description The type of the VPN gateway.
+     * @description Specifies whether to return information about pending orders. Valid values:
      *
-     * The value is set to **Normal**, which indicates a standard NAT gateway.
+     *   **false** (default)
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -29,8 +31,9 @@ class DescribeVpnGatewayRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the VPN gateway.
+     * @description The region ID of the VPN gateway.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -48,10 +51,7 @@ class DescribeVpnGatewayRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description Specifies whether to return information about pending orders. Valid values:
-     *
-     *   **false** (default): no
-     *   **true**: yes
+     * @description The ID of the VPN gateway.
      *
      * @example vpn-bp1r3v1xqkl0w519g****
      *

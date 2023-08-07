@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteTrafficMirrorFilterRulesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example BD8A3F71-00C5-4655-8F55-11F3976C3274
      *
      * @var string

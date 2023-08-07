@@ -16,7 +16,9 @@ use AlibabaCloud\Tea\Model;
 class vpc extends Model
 {
     /**
-     * @description The list of user CIDR blocks.
+     * @description The status of the Cloud Enterprise Network (CEN) instance to which the VPC is attached.
+     *
+     **Attached** is returned only if the VPC is attached to a CEN instance.
      *
      * @example Attached
      *
@@ -25,7 +27,7 @@ class vpc extends Model
     public $cenStatus;
 
     /**
-     * @description The IPv6 CIDR blocks of the VPC.
+     * @description The IPv4 CIDR block of the VPC.
      *
      * @example 192.168.0.0/16
      *
@@ -34,7 +36,7 @@ class vpc extends Model
     public $cidrBlock;
 
     /**
-     * @description The IPv4 CIDR block of the VPC.
+     * @description The time when the VPC was created.
      *
      * @example 2021-04-18T15:02:37Z
      *
@@ -43,14 +45,8 @@ class vpc extends Model
     public $creationTime;
 
     /**
-     * @description The type of IPv6 CIDR block. Valid values:
+     * @description The description of the VPC.
      *
-     * - **BGP**: an IPv6 CIDR block provided by Alibaba Cloud over Border Gateway Protocol (BGP)
-     * - **ChinaMobile**: an IPv6 CIDR block provided by China Mobile (single ISP)
-     * - **ChinaUnicom**: an IPv6 CIDR block provided by China Unicom (single ISP)
-     * - **ChinaTelecom**: an IPv6 CIDR block provided by China Telecom (single ISP)
-     *
-     * >  If your Alibaba Cloud account is allowed to activate single-ISP bandwidth, valid values are: **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**.
      * @example This is my VPC.
      *
      * @var string
@@ -58,9 +54,8 @@ class vpc extends Model
     public $description;
 
     /**
-     * @description The vSwitches in the VPC.
+     * @description The ID of the DHCP options set.
      *
-     * You can query up to 300 vSwitches in the VPC. The information about the latest vSwitches is returned. If you want to query the information about all vSwitches in a VPC, call the [DescribeVSwitches](/help/en/virtual-private-cloud/latest/describevswitches) operation.
      * @example dopt-o6w0df4epg9zo8isy****
      *
      * @var string
@@ -68,7 +63,12 @@ class vpc extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description The value of the tag that is added to the VPC.
+     * @description The status of the DHCP options set. Valid values:
+     *
+     *   **Available**: available
+     *   **InUse**: in use
+     *   **Deleted**: deleted
+     *   **Pending**: being configured
      *
      * @example Available
      *
@@ -77,7 +77,7 @@ class vpc extends Model
     public $dhcpOptionsSetStatus;
 
     /**
-     * @description The secondary CIDR blocks of the VPC.
+     * @description The IPv6 CIDR block of the VPC.
      *
      * @example 2408:XXXX:0:a600::/56
      *
@@ -86,12 +86,17 @@ class vpc extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The IPv6 CIDR blocks of the VPC.
+     *
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
 
     /**
-     * @description The ID of the DHCP options set.
+     * @description Indicates whether the VPC is the default VPC in the region. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
      *
      * @example false
      *
@@ -100,12 +105,14 @@ class vpc extends Model
     public $isDefault;
 
     /**
+     * @description The IDs of the NAT gateways.
+     *
      * @var natGatewayIds
      */
     public $natGatewayIds;
 
     /**
-     * @description The IPv6 CIDR block of the VPC.
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
      *
      * @example 253460731706911258
      *
@@ -114,9 +121,7 @@ class vpc extends Model
     public $ownerId;
 
     /**
-     * @description The status of the Cloud Enterprise Network (CEN) instance to which the VPC is attached.
-     *
-     **Attached** is returned only if the VPC is attached to a CEN instance.
+     * @description The ID of the region to which the VPC belongs.
      *
      * @example cn-hangzhou
      *
@@ -125,7 +130,7 @@ class vpc extends Model
     public $regionId;
 
     /**
-     * @description The IPv6 CIDR block of the VPC.
+     * @description The ID of the resource group to which the VPC belongs.
      *
      * @example rg-acfmxazb4ph****
      *
@@ -134,17 +139,24 @@ class vpc extends Model
     public $resourceGroupId;
 
     /**
+     * @description The IDs of the route tables.
+     *
      * @var routerTableIds
      */
     public $routerTableIds;
 
     /**
+     * @description The secondary CIDR blocks of the VPC.
+     *
      * @var secondaryCidrBlocks
      */
     public $secondaryCidrBlocks;
 
     /**
-     * @description The description of the VPC.
+     * @description The status of the VPC. Valid values:
+     *
+     *   **Pending**: being configured
+     *   **Available**: available
      *
      * @example Available
      *
@@ -153,19 +165,21 @@ class vpc extends Model
     public $status;
 
     /**
-     * @description The IDs of the NAT gateways.
+     * @description The tag information about the VPC.
      *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The list of user CIDR blocks.
+     *
      * @var userCidrs
      */
     public $userCidrs;
 
     /**
-     * @description The key of the tag that is added to the VPC.
+     * @description The ID of the vRouter.
      *
      * @example vrt-bp1jcg5cmxjbl9xgc****
      *
@@ -174,12 +188,15 @@ class vpc extends Model
     public $VRouterId;
 
     /**
+     * @description The vSwitches in the VPC.
+     *
+     * You can query up to 300 vSwitches in the VPC. The information about the latest vSwitches is returned. If you want to query the information about all vSwitches in a VPC, call the [DescribeVSwitches](/help/en/virtual-private-cloud/latest/describevswitches) operation.
      * @var vSwitchIds
      */
     public $vSwitchIds;
 
     /**
-     * @description The ID of the resource group to which the VPC belongs.
+     * @description The ID of the VPC.
      *
      * @example vpc-bp1qpo0kug3a20qqe****
      *
@@ -188,7 +205,7 @@ class vpc extends Model
     public $vpcId;
 
     /**
-     * @description The tag information about the VPC.
+     * @description The name of the VPC.
      *
      * @example vpc1
      *

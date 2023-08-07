@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class associateVpcs extends Model
 {
     /**
+     * @description The status of the VPC that is associated with the DHCP options set. Valid values:
+     *
+     *   **InUse**: in use
+     *   **Pending**: being configured
+     *
      * @example InUse
      *
      * @var string
@@ -16,6 +21,8 @@ class associateVpcs extends Model
     public $associateStatus;
 
     /**
+     * @description The ID of the VPC that is associated with the DHCP options set.
+     *
      * @example vpc-eb3b54r6otues4tjj****
      *
      * @var string

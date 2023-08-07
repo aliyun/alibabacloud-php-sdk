@@ -10,11 +10,40 @@ use AlibabaCloud\Tea\Model;
 class GetVpcGatewayEndpointAttributeResponseBody extends Model
 {
     /**
+     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in UTC in the YYYY-MM-DDThh:mm:ssZ format.
+     *
      * @example 2021-08-27T01:58:37Z
      *
      * @var string
      */
     public $creationTime;
+
+    /**
+     * @description The description of the gateway endpoint.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $endpointDescription;
+
+    /**
+     * @description The ID of the gateway endpoint.
+     *
+     * @example vpce-bp1w1dmdqjpwul0v3****
+     *
+     * @var string
+     */
+    public $endpointId;
+
+    /**
+     * @description The name of the gateway endpoint.
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $endpointName;
 
     /**
      * @description The status of the gateway endpoint. Valid values:
@@ -26,31 +55,6 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
      *   **Dissociating**: being disassociated
      *   **Deleting**: being deleted
      *
-     * @example test
-     *
-     * @var string
-     */
-    public $endpointDescription;
-
-    /**
-     * @description The access policy for the cloud service.
-     *
-     * @example vpce-bp1w1dmdqjpwul0v3****
-     *
-     * @var string
-     */
-    public $endpointId;
-
-    /**
-     * @description The time when the endpoint was created. The time follows the ISO 8601 standard in UTC in the YYYY-MM-DDThh:mm:ssZ format.
-     *
-     * @example test
-     *
-     * @var string
-     */
-    public $endpointName;
-
-    /**
      * @example Created
      *
      * @var string
@@ -58,6 +62,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $endpointStatus;
 
     /**
+     * @description The access policy for the cloud service.
+     *
      * @example {"Version" : "1",   "Statement" : [ {     "Effect" : "Allow",     "Resource" : [ "*" ],     "Action" : [ "*" ],     "Principal" : [ "*" ]   } ] }
      *
      * @var string
@@ -65,7 +71,7 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $policyDocument;
 
     /**
-     * @description The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+     * @description The ID of the request.
      *
      * @example A1122D0F-7B3B-5445-BB19-17F27F97FE1C
      *
@@ -81,12 +87,14 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the route table associated with the gateway endpoint.
+     *
      * @var string[]
      */
     public $routeTables;
 
     /**
-     * @description The ID of the route table associated with the gateway endpoint.
+     * @description The name of the endpoint service.
      *
      * @example com.aliyun.cn-hangzhou.oss
      *
@@ -100,6 +108,8 @@ class GetVpcGatewayEndpointAttributeResponseBody extends Model
     public $tags;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) to which the gateway endpoint belongs.
+     *
      * @example vpc-bp1nh86rugg01zol0****
      *
      * @var string

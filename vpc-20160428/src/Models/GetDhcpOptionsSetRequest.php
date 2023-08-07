@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetDhcpOptionsSetRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the DHCP options set.
      *
      * @example dopt-o6w0df4epg9zo8isy****
      *
@@ -28,13 +28,9 @@ class GetDhcpOptionsSetRequest extends Model
     public $ownerId;
 
     /**
-     * @description The status of the DHCP options set. Valid values:
+     * @description The region ID of the DHCP options set that you want to query.
      *
-     *   **Available**: available
-     *   **InUse**: in use
-     *   **Deleted**: deleted
-     *   **Pending**: being configured
-     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

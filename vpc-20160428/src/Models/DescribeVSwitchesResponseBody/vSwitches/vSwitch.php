@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class vSwitch extends Model
 {
     /**
-     * @description The ID of the vSwitch.
+     * @description The number of available IP addresses in the vSwitch.
      *
      * @example 1
      *
@@ -20,7 +20,7 @@ class vSwitch extends Model
     public $availableIpAddressCount;
 
     /**
-     * @description The ID of the zone to which the vSwitch belongs.
+     * @description The IPv4 CIDR block of the vSwitch.
      *
      * @example 172.16.0.0/24
      *
@@ -29,7 +29,7 @@ class vSwitch extends Model
     public $cidrBlock;
 
     /**
-     * @description The ID of the network access control list (ACL).
+     * @description The time when the vSwitch was created.
      *
      * @example 2022-01-18T12:43:57Z
      *
@@ -38,7 +38,7 @@ class vSwitch extends Model
     public $creationTime;
 
     /**
-     * @description The IPv6 CIDR block of the vSwitch.
+     * @description The description of the vSwitches.
      *
      * @example VSwitchDescription
      *
@@ -47,7 +47,12 @@ class vSwitch extends Model
     public $description;
 
     /**
-     * @description The key of the tag that is added to the vSwitch.
+     * @var bool
+     */
+    public $enabledIpv6;
+
+    /**
+     * @description The IPv6 CIDR block of the vSwitch.
      *
      * @example 2408:4002:10c4:4e03::/64
      *
@@ -56,7 +61,10 @@ class vSwitch extends Model
     public $ipv6CidrBlock;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource belongs.
+     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
+     *
+     *   **true**: The vSwitch is the default vSwitch.
+     *   **false**: The vSwitch is not the default vSwitch.
      *
      * @example true
      *
@@ -65,7 +73,7 @@ class vSwitch extends Model
     public $isDefault;
 
     /**
-     * @description The IPv4 CIDR block of the vSwitch.
+     * @description The ID of the network access control list (ACL).
      *
      * @example nacl-a2do9e413e0spzasx****
      *
@@ -74,7 +82,7 @@ class vSwitch extends Model
     public $networkAclId;
 
     /**
-     * @description The description of the vSwitches.
+     * @description The ID of the Alibaba Cloud account to which the resource belongs.
      *
      * @example 253460731706911258
      *
@@ -83,7 +91,7 @@ class vSwitch extends Model
     public $ownerId;
 
     /**
-     * @description The name of the vSwitch.
+     * @description The ID of the resource group to which the vSwitch belongs.
      *
      * @example rg-acfmxazb4ph6aiy****
      *
@@ -92,6 +100,8 @@ class vSwitch extends Model
     public $resourceGroupId;
 
     /**
+     * @description The information about the route table.
+     *
      * @var routeTable
      */
     public $routeTable;
@@ -102,7 +112,10 @@ class vSwitch extends Model
     public $shareType;
 
     /**
-     * @description The number of available IP addresses in the vSwitch.
+     * @description The status of the vSwitch. Valid values:
+     *
+     *   **Pending**: The vSwitch is being configured.
+     *   **Available**: The vSwitch is available.
      *
      * @example Available
      *
@@ -111,14 +124,14 @@ class vSwitch extends Model
     public $status;
 
     /**
-     * @description The information about the route table.
+     * @description The tag information about the vSwitch.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The ID of the resource group to which the vSwitch belongs.
+     * @description The ID of the vSwitch.
      *
      * @example vsw-25bcdxs7pv1****
      *
@@ -127,7 +140,7 @@ class vSwitch extends Model
     public $vSwitchId;
 
     /**
-     * @description The value of the tag that is added to the vSwitch.
+     * @description The name of the vSwitch.
      *
      * @example vSwitch
      *
@@ -136,10 +149,7 @@ class vSwitch extends Model
     public $vSwitchName;
 
     /**
-     * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
-     *
-     *   **true**: The vSwitch is the default vSwitch.
-     *   **false**: The vSwitch is not the default vSwitch.
+     * @description The ID of the VPC to which the vSwitch belongs.
      *
      * @example vpc-257gcdcdq64****
      *
@@ -148,7 +158,7 @@ class vSwitch extends Model
     public $vpcId;
 
     /**
-     * @description The tag information about the vSwitch.
+     * @description The ID of the zone to which the vSwitch belongs.
      *
      * @example cn-hangzhou-d
      *
@@ -160,6 +170,7 @@ class vSwitch extends Model
         'cidrBlock'               => 'CidrBlock',
         'creationTime'            => 'CreationTime',
         'description'             => 'Description',
+        'enabledIpv6'             => 'EnabledIpv6',
         'ipv6CidrBlock'           => 'Ipv6CidrBlock',
         'isDefault'               => 'IsDefault',
         'networkAclId'            => 'NetworkAclId',
@@ -193,6 +204,9 @@ class vSwitch extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->enabledIpv6) {
+            $res['EnabledIpv6'] = $this->enabledIpv6;
         }
         if (null !== $this->ipv6CidrBlock) {
             $res['Ipv6CidrBlock'] = $this->ipv6CidrBlock;
@@ -256,6 +270,9 @@ class vSwitch extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['EnabledIpv6'])) {
+            $model->enabledIpv6 = $map['EnabledIpv6'];
         }
         if (isset($map['Ipv6CidrBlock'])) {
             $model->ipv6CidrBlock = $map['Ipv6CidrBlock'];

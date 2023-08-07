@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The region ID of the network ACL. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the resource from which you want to disassociate the network ACL.
      *
      * @example vsw-bp1de348lntdw****
      *
@@ -18,8 +18,9 @@ class resource extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the network ACL that you want to disassociate from a resource.
+     * @description The type of the resource from which you want to disassociate the network ACL. Set the value to **VSwitch**.
      *
+     * Valid values of **N**: 0 to 29. You can disassociate a network ACL from at most 30 resources at a time.
      * @example VSwitch
      *
      * @var string

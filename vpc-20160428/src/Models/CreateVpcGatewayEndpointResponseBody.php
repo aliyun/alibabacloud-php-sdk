@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateVpcGatewayEndpointResponseBody extends Model
 {
     /**
+     * @description The time when the gateway endpoint was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2021-08-27T01:58:37Z
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateVpcGatewayEndpointResponseBody extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the gateway endpoint.
+     *
      * @example vpce-bp1w1dmdqjpwul0v3****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateVpcGatewayEndpointResponseBody extends Model
     public $endpointId;
 
     /**
+     * @description The name of the gateway endpoint.
+     *
      * @example test
      *
      * @var string
@@ -30,6 +36,8 @@ class CreateVpcGatewayEndpointResponseBody extends Model
     public $endpointName;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 62CFC815-E08A-5CF4-92D1-54273EC9E406
      *
      * @var string
@@ -44,6 +52,8 @@ class CreateVpcGatewayEndpointResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The name of the endpoint service.
+     *
      * @example com.aliyun.cn-hangzhou.oss
      *
      * @var string

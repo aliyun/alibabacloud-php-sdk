@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkAclResponseBody extends Model
 {
     /**
-     * @description The description of the inbound rule.
+     * @description The attributes of the network ACL.
      *
      * @var networkAclAttribute
      */
     public $networkAclAttribute;
 
     /**
-     * @description The name of the inbound rule.
+     * @description The ID of the network ACL.
      *
      * @example nacl-a2do9e413e0spzasx****
      *
@@ -26,10 +26,7 @@ class CreateNetworkAclResponseBody extends Model
     public $networkAclId;
 
     /**
-     * @description The action that is performed on network traffic that matches the rule. Valid values:
-     *
-     *   **accept**: allows the network traffic.
-     *   **drop**: blocks the network traffic.
+     * @description The ID of the request.
      *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *

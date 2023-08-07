@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class AddSourcesToTrafficMirrorSessionRequest extends Model
 {
     /**
-     * @description The ID of the traffic mirror session.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -18,7 +21,10 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the traffic mirror source. You can specify only an elastic network interface (ENI) as the traffic mirror source. The default value of **N** is **1**, which indicates that you can add only one traffic mirror source to a traffic mirror session.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request format, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. After the request passes the check, the operation is performed.
      *
      * @example false
      *
@@ -37,6 +43,9 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the traffic mirror session belongs.
+     *
+     * For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example cn-hongkong
      *
      * @var string
@@ -54,9 +63,8 @@ class AddSourcesToTrafficMirrorSessionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the region to which the traffic mirror session belongs.
+     * @description The ID of the traffic mirror session.
      *
-     * For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example tms-j6cla50buc44ap8tu****
      *
      * @var string

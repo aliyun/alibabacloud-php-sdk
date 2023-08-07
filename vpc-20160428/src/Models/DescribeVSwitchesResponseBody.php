@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesResponseBody extends Model
 {
     /**
-     * @description The ID of the VPC to which the vSwitch belongs.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The details about the vSwitch.
+     * @description The ID of the request.
      *
      * @example 9A572171-4E27-40D1-BD36-D26C9E71E29E
      *
@@ -37,10 +37,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The status of the vSwitch. Valid values:
-     *
-     *   **Pending**: The vSwitch is being configured.
-     *   **Available**: The vSwitch is available.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
@@ -49,7 +46,7 @@ class DescribeVSwitchesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The time when the vSwitch was created.
+     * @description The details about the vSwitch.
      *
      * @var vSwitches
      */

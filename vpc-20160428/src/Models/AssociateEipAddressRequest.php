@@ -9,6 +9,47 @@ use AlibabaCloud\Tea\Model;
 class AssociateEipAddressRequest extends Model
 {
     /**
+     * @description The ID of the EIP that you want to associate with an instance.
+     *
+     * @example eip-2zeerraiwb7ujsxdc****
+     *
+     * @var string
+     */
+    public $allocationId;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description The ID of the instance with which you want to associate the EIP.
+     *
+     * You can enter the ID of a NAT gateway, CLB instance, ECS instance, secondary ENI, HAVIP, or IP address.
+     * @example i-2zebb08phyczzawe****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The region ID of the instance with which you want to associate the EIP.
+     *
+     * >  This parameter is required only when the EIP is associated with a shared-bandwidth Global Accelerator (GA) instance.
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $instanceRegionId;
+
+    /**
      * @description The type of instance with which you want to associate the EIP. Valid values:
      *
      *   **Nat**: a NAT gateway
@@ -19,28 +60,11 @@ class AssociateEipAddressRequest extends Model
      *   **IpAddress**: an IP address
      *
      * >  If you do not set this parameter, the type of the instance with which you want to associate the EIP is **EcsInstance**. If the type of the instance with which you want to associate the EIP is not **EcsInstance**, this parameter is required.
-     * @example eip-2zeerraiwb7ujsxdc****
+     * @example EcsInstance
      *
      * @var string
      */
-    public $allocationId;
-
-    /**
-     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description The region ID of the instance with which you want to associate the EIP.
-     *
-     * >  This parameter is required only when the EIP is associated with a shared-bandwidth Global Accelerator (GA) instance.
-     * @example i-2zebb08phyczzawe****
-     *
-     * @var string
-     */
-    public $instanceId;
+    public $instanceType;
 
     /**
      * @description The association mode. Valid values:
@@ -50,28 +74,6 @@ class AssociateEipAddressRequest extends Model
      *   **BINDED**: cut-through mode
      *
      * >  This parameter is required only when **InstanceType** is set to **NetworkInterface**.
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $instanceRegionId;
-
-    /**
-     * @description An IP address in the CIDR block of the vSwitch.
-     *
-     * If you do not set this parameter, the system allocates a private IP address based on the VPC ID and vSwitch ID.
-     * @example EcsInstance
-     *
-     * @var string
-     */
-    public $instanceType;
-
-    /**
-     * @description The client token that is used to ensure the idempotence of the request.
-     *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example NAT
      *
      * @var string
@@ -89,11 +91,9 @@ class AssociateEipAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the VPC that has IPv4 gateways enabled and that is deployed in the same region as the EIP.
+     * @description An IP address in the CIDR block of the vSwitch.
      *
-     * When you associate an EIP with an IP address, the system can enable the IP address to access the Internet based on VPC route configurations.
-     *
-     * >  This parameter is required if **InstanceType** is set to **IpAddress**. In this case, the EIP is associated with an IP address.
+     * If you do not set this parameter, the system allocates a private IP address based on the VPC ID and vSwitch ID.
      * @example 192.168.XX.XX
      *
      * @var string
@@ -101,9 +101,9 @@ class AssociateEipAddressRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the instance with which you want to associate the EIP.
+     * @description The ID of the region to which the EIP belongs.
      *
-     * You can enter the ID of a NAT gateway, CLB instance, ECS instance, secondary ENI, HAVIP, or IP address.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -121,8 +121,11 @@ class AssociateEipAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the VPC that has IPv4 gateways enabled and that is deployed in the same region as the EIP.
      *
+     * When you associate an EIP with an IP address, the system can enable the IP address to access the Internet based on VPC route configurations.
+     *
+     * >  This parameter is required if **InstanceType** is set to **IpAddress**. In this case, the EIP is associated with an IP address.
      * @example vpc-257gqcdfvx6n****
      *
      * @var string

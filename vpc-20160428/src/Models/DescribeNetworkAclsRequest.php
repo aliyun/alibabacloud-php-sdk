@@ -10,8 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclsRequest extends Model
 {
     /**
-     * @description The ID of the inbound rule.
+     * @description The client token that you want to use to ensure the idempotence of the request.
      *
+     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** for each API request may be different.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -19,7 +22,7 @@ class DescribeNetworkAclsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The total number of entries returned.
+     * @description The ID of the network ACL.
      *
      * @example nacl-bp1lhl0taikrbgnh****
      *
@@ -28,8 +31,9 @@ class DescribeNetworkAclsRequest extends Model
     public $networkAclId;
 
     /**
-     * @description The details about the network ACL.
+     * @description The name of the network ACL.
      *
+     * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
      * @example acl-1
      *
      * @var string
@@ -42,7 +46,7 @@ class DescribeNetworkAclsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The description of the network ACL.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -51,7 +55,7 @@ class DescribeNetworkAclsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The name of the network ACL.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -60,8 +64,9 @@ class DescribeNetworkAclsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the network ACL.
+     * @description The region ID of the network ACL.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -69,7 +74,7 @@ class DescribeNetworkAclsRequest extends Model
     public $regionId;
 
     /**
-     * @description The time when the network ACL was created.
+     * @description The ID of the associated instance.
      *
      * @example vsw-bp1de348lntdwnhbg****
      *
@@ -88,8 +93,9 @@ class DescribeNetworkAclsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the associated VPC.
+     * @description The type of the associated instance. Set the value to **VSwitch**.
      *
+     * This parameter is valid only if **ResourceType** and **ResourceId** are both set.
      * @example VSwitch
      *
      * @var string
@@ -102,10 +108,7 @@ class DescribeNetworkAclsRequest extends Model
     public $tags;
 
     /**
-     * @description The status of the network ACL. Valid values:
-     *
-     *   **Available**
-     *   **Modifying**
+     * @description The ID of the virtual private cloud (VPC) to which the network ACL belongs.
      *
      * @example vpc-m5ebpc2xh64mqm27e****
      *

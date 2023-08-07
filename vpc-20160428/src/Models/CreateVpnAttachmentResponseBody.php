@@ -46,7 +46,7 @@ class CreateVpnAttachmentResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 88187252-0E26-3C4D-9D1D-32A04454EBBA
      *
@@ -57,8 +57,8 @@ class CreateVpnAttachmentResponseBody extends Model
     /**
      * @description Indicates whether the current operation is successful.
      *
-     *   **true**: The operation is successful.
-     *   **false**: The operation failed.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

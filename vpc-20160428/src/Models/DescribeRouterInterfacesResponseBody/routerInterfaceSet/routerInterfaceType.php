@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouterInterfacesResponseBody\routerInterfaceSet;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouterInterfacesResponseBody\routerInterfaceSet\routerInterfaceType\tags;
 use AlibabaCloud\Tea\Model;
 
 class routerInterfaceType extends Model
@@ -310,6 +311,11 @@ class routerInterfaceType extends Model
     public $reservationOrderType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Indicates whether the router interface is the initiator or acceptor of the peering connection.
      *
      * @example InitiatingSide
@@ -367,6 +373,11 @@ class routerInterfaceType extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @description The ID of the local virtual private cloud (VPC) in the peering connection.
      *
      * @example vpc-2ze3tq4uxhysg717x****
@@ -407,12 +418,14 @@ class routerInterfaceType extends Model
         'reservationBandwidth'            => 'ReservationBandwidth',
         'reservationInternetChargeType'   => 'ReservationInternetChargeType',
         'reservationOrderType'            => 'ReservationOrderType',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'role'                            => 'Role',
         'routerId'                        => 'RouterId',
         'routerInterfaceId'               => 'RouterInterfaceId',
         'routerType'                      => 'RouterType',
         'spec'                            => 'Spec',
         'status'                          => 'Status',
+        'tags'                            => 'Tags',
         'vpcInstanceId'                   => 'VpcInstanceId',
     ];
 
@@ -519,6 +532,9 @@ class routerInterfaceType extends Model
         if (null !== $this->reservationOrderType) {
             $res['ReservationOrderType'] = $this->reservationOrderType;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -536,6 +552,9 @@ class routerInterfaceType extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
@@ -648,6 +667,9 @@ class routerInterfaceType extends Model
         if (isset($map['ReservationOrderType'])) {
             $model->reservationOrderType = $map['ReservationOrderType'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
@@ -665,6 +687,9 @@ class routerInterfaceType extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];

@@ -9,6 +9,32 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipSegmentAddressRequest extends Model
 {
     /**
+     * @description The maximum bandwidth of the EIP. Unit: Mbit/s.
+     *
+     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, the valid values for **Bandwidth** are **1** to **500**.
+     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, the valid values for **Bandwidth** are **1** to **200**.
+     *   When **InstanceChargeType** is set to **PrePaid**, the valid values for **Bandwidth** are **1** to **1000**.
+     *
+     * Default value: **5**. Unit: Mbit/s.
+     * @example 5
+     *
+     * @var string
+     */
+    public $bandwidth;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among all requests. The **client token** can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
      * @description The subnet mask length of the contiguous EIPs. Valid values:
      *
      * - **28**: applies for 16 contiguous EIPs in each call.
@@ -18,25 +44,11 @@ class AllocateEipSegmentAddressRequest extends Model
      * - **24**: applies for 256 contiguous EIPs in each call.
      *
      * >  The number of contiguous EIPs allocated by the system may be less than the requested number because one, three, or four EIPs may be reserved.
-     * @example 5
+     * @example 28
      *
      * @var string
      */
-    public $bandwidth;
-
-    /**
-     * @description The maximum bandwidth of the EIP. Unit: Mbit/s.
-     *
-     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, the valid values for **Bandwidth** are **1** to **500**.
-     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, the valid values for **Bandwidth** are **1** to **200**.
-     *   When **InstanceChargeType** is set to **PrePaid**, the valid values for **Bandwidth** are **1** to **1000**.
-     *
-     * Default value: **5**. Unit: Mbit/s.
-     * @example 02fb3da4-130e-11e9-8e44-001****
-     *
-     * @var string
-     */
-    public $clientToken;
+    public $eipMask;
 
     /**
      * @description The metering method of the contiguous EIPs. Valid values:
@@ -44,11 +56,11 @@ class AllocateEipSegmentAddressRequest extends Model
      *   **PayByBandwidth** (default): pay-by-bandwidth
      *   **PayByTraffic**: pay-by-data-transfer
      *
-     * @example 28
+     * @example PayByBandwidth
      *
      * @var string
      */
-    public $eipMask;
+    public $internetChargeType;
 
     /**
      * @description The line type. Valid values:
@@ -66,15 +78,6 @@ class AllocateEipSegmentAddressRequest extends Model
      *   **ChinaMobile_L2**: China Mobile L2
      *
      * If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
-     * @example PayByBandwidth
-     *
-     * @var string
-     */
-    public $internetChargeType;
-
-    /**
-     * @description The ID of the contiguous EIP group.
-     *
      * @example BGP
      *
      * @var string
@@ -82,7 +85,7 @@ class AllocateEipSegmentAddressRequest extends Model
     public $isp;
 
     /**
-     * @description The ID of the resource group.
+     * @description Set the value to **public**, which specifies the Internet.
      *
      * @example public
      *
@@ -101,8 +104,9 @@ class AllocateEipSegmentAddressRequest extends Model
     public $ownerId;
 
     /**
-     * @description Set the value to **public**, which specifies the Internet.
+     * @description The region ID of the contiguous EIPs.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -110,7 +114,7 @@ class AllocateEipSegmentAddressRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the resource group.
      *
      * @example rg-bp67acfmxazb4ph****
      *
@@ -129,6 +133,8 @@ class AllocateEipSegmentAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zone;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateNatIpCidrResponseBody extends Model
 {
     /**
+     * @description The ID of the NAT CIDR block.
+     *
      * @example vpcnatcidr-gw8lhqtvdn4qnea****
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateNatIpCidrResponseBody extends Model
     public $natIpCidrId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7021BEB1-210F-48A9-AB82-BE9A9110BB89
      *
      * @var string

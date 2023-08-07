@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTrafficMirrorSessionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 0ED8D006-F706-4D23-88ED-E11ED28DCAC0
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTrafficMirrorSessionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the mirrored traffic belongs.
+     *
      * @example rg-bp67acfmxazb4ph****
      *
      * @var string
@@ -23,7 +27,7 @@ class CreateTrafficMirrorSessionResponseBody extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of the resource group to which the mirrored traffic belongs.
+     * @description The ID of the traffic mirror session.
      *
      * @example tms-j6ce5di4w7nvigfjz****
      *

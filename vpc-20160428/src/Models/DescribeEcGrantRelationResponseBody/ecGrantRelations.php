@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ecGrantRelations extends Model
 {
     /**
-     * @description The ID of the region where the VPC is deployed.
+     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
      *
      * @example 1250123456123456
      *
@@ -18,10 +18,7 @@ class ecGrantRelations extends Model
     public $aliUid;
 
     /**
-     * @description The VBRs that have permissions on the VPC. Valid values:
-     *
-     *   **All**: VBRs that reside in the specified region and belong to the specified Alibaba Cloud account all have permissions on the VPC.
-     *   **Specify**: Only the specified VBR has permissions on the VPC.
+     * @description The time when permissions on the VPC were granted to the VBR.
      *
      * @example 2022-09-02T11:46Z
      *
@@ -30,7 +27,10 @@ class ecGrantRelations extends Model
     public $gmtCreate;
 
     /**
-     * @description The total number of entries returned.
+     * @description The VBRs that have permissions on the VPC. Valid values:
+     *
+     *   **All**: VBRs that reside in the specified region and belong to the specified Alibaba Cloud account all have permissions on the VPC.
+     *   **Specify**: Only the specified VBR has permissions on the VPC.
      *
      * @example All
      *
@@ -39,7 +39,7 @@ class ecGrantRelations extends Model
     public $grantType;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the VPC belongs.
+     * @description The ID of the VPC.
      *
      * @example vpc-bp1brjuegjc88v3u9****
      *
@@ -48,7 +48,7 @@ class ecGrantRelations extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the vRouter.
+     * @description The name of the VPC.
      *
      * @example VPCname
      *
@@ -57,7 +57,7 @@ class ecGrantRelations extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the region where the VBR is deployed.
+     * @description The ID of the vRouter.
      *
      * @example vrt-bp1i0yzgjd8ra05ec****
      *
@@ -66,10 +66,7 @@ class ecGrantRelations extends Model
     public $instanceRouterId;
 
     /**
-     * @description The query result. Valid values:
-     *
-     *   **Created**: The VBR has permissions on the VPC.
-     *   **Deleted**: The VBR does not have permissions on the VPC.
+     * @description The ID of the region where the VPC is deployed.
      *
      * @example cn-hangzhou
      *
@@ -78,7 +75,10 @@ class ecGrantRelations extends Model
     public $regionNo;
 
     /**
-     * @description The name of the VPC.
+     * @description The query result. Valid values:
+     *
+     *   **Created**: The VBR has permissions on the VPC.
+     *   **Deleted**: The VBR does not have permissions on the VPC.
      *
      * @example Created
      *
@@ -87,7 +87,7 @@ class ecGrantRelations extends Model
     public $status;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of the VBR.
      *
      * @example vbr-m5ex0xf63xk8s5bob****
      *
@@ -96,7 +96,7 @@ class ecGrantRelations extends Model
     public $vbrInstanceId;
 
     /**
-     * @description The ID of the VBR.
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
      *
      * @example 1210123456123456
      *
@@ -105,7 +105,7 @@ class ecGrantRelations extends Model
     public $vbrOwnerUid;
 
     /**
-     * @description The time when permissions on the VPC were granted to the VBR.
+     * @description The ID of the region where the VBR is deployed.
      *
      * @example cn-hangzhou
      *

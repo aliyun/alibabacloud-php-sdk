@@ -50,6 +50,16 @@ class flowLog extends Model
     public $description;
 
     /**
+     * @var string
+     */
+    public $flowLogDeliverErrorMessage;
+
+    /**
+     * @var string
+     */
+    public $flowLogDeliverStatus;
+
+    /**
      * @description The ID of the flow log.
      *
      * @example fl-bp1f6qqhsrc2c12ta****
@@ -182,23 +192,25 @@ class flowLog extends Model
      */
     public $trafficType;
     protected $_name = [
-        'aggregationInterval' => 'AggregationInterval',
-        'businessStatus'      => 'BusinessStatus',
-        'creationTime'        => 'CreationTime',
-        'description'         => 'Description',
-        'flowLogId'           => 'FlowLogId',
-        'flowLogName'         => 'FlowLogName',
-        'logStoreName'        => 'LogStoreName',
-        'projectName'         => 'ProjectName',
-        'regionId'            => 'RegionId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceId'          => 'ResourceId',
-        'resourceType'        => 'ResourceType',
-        'serviceType'         => 'ServiceType',
-        'status'              => 'Status',
-        'tags'                => 'Tags',
-        'trafficPath'         => 'TrafficPath',
-        'trafficType'         => 'TrafficType',
+        'aggregationInterval'        => 'AggregationInterval',
+        'businessStatus'             => 'BusinessStatus',
+        'creationTime'               => 'CreationTime',
+        'description'                => 'Description',
+        'flowLogDeliverErrorMessage' => 'FlowLogDeliverErrorMessage',
+        'flowLogDeliverStatus'       => 'FlowLogDeliverStatus',
+        'flowLogId'                  => 'FlowLogId',
+        'flowLogName'                => 'FlowLogName',
+        'logStoreName'               => 'LogStoreName',
+        'projectName'                => 'ProjectName',
+        'regionId'                   => 'RegionId',
+        'resourceGroupId'            => 'ResourceGroupId',
+        'resourceId'                 => 'ResourceId',
+        'resourceType'               => 'ResourceType',
+        'serviceType'                => 'ServiceType',
+        'status'                     => 'Status',
+        'tags'                       => 'Tags',
+        'trafficPath'                => 'TrafficPath',
+        'trafficType'                => 'TrafficType',
     ];
 
     public function validate()
@@ -219,6 +231,12 @@ class flowLog extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->flowLogDeliverErrorMessage) {
+            $res['FlowLogDeliverErrorMessage'] = $this->flowLogDeliverErrorMessage;
+        }
+        if (null !== $this->flowLogDeliverStatus) {
+            $res['FlowLogDeliverStatus'] = $this->flowLogDeliverStatus;
         }
         if (null !== $this->flowLogId) {
             $res['FlowLogId'] = $this->flowLogId;
@@ -282,6 +300,12 @@ class flowLog extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['FlowLogDeliverErrorMessage'])) {
+            $model->flowLogDeliverErrorMessage = $map['FlowLogDeliverErrorMessage'];
+        }
+        if (isset($map['FlowLogDeliverStatus'])) {
+            $model->flowLogDeliverStatus = $map['FlowLogDeliverStatus'];
         }
         if (isset($map['FlowLogId'])) {
             $model->flowLogId = $map['FlowLogId'];

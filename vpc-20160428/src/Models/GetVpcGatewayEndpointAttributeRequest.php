@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetVpcGatewayEndpointAttributeRequest extends Model
 {
     /**
-     * @description The description of the gateway endpoint.
+     * @description The ID of the gateway endpoint.
      *
      * @example vpce-bp1w1dmdqjpwul0v3****
      *
@@ -28,8 +28,9 @@ class GetVpcGatewayEndpointAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The name of the endpoint service.
+     * @description The region ID of the gateway endpoint.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

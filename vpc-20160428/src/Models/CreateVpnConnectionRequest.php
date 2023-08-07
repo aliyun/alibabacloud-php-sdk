@@ -13,8 +13,8 @@ class CreateVpnConnectionRequest extends Model
     /**
      * @description Specifies whether to automatically configure routes. Valid values:
      *
-     *   **true** (default): automatically configures routes.
-     *   **false**: does not automatically configure routes.
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -26,14 +26,16 @@ class CreateVpnConnectionRequest extends Model
      * @description The Border Gateway Protocol (BGP) configuration:
      *
      *   **BgpConfig.EnableBgp**: specifies whether to enable BGP. Valid values: **true** and **false**. Default value: false.
-     *   **BgpConfig.LocalAsn**: the autonomous system number (ASN) of Alibaba Cloud. Valid values: **1** to **4294967295**. Default value: **45104**.
-     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+     *   **BgpConfig.LocalAsn**: the ASN on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
+     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must fall within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *   **LocalBgpIp**: the BGP IP address on the Alibaba Cloud side. This IP address must fall within the CIDR block of the IPsec tunnel.
      *
      * >
+     *
      *   This parameter is required when the VPN gateway has dynamic BGP enabled.
-     *   Before you configure BGP, we recommend that you learn about how BGP works and the limits. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
-     *   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the valid range of a private ASN.
+     *
+     *   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see [VPN Gateway supports BGP dynamic routing](~~170235~~).
+     *   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
      *
      * @example {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
      *
@@ -44,9 +46,9 @@ class CreateVpnConnectionRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -63,10 +65,10 @@ class CreateVpnConnectionRequest extends Model
     public $customerGatewayId;
 
     /**
-     * @description Specifies whether to immediately start IPsec negotiations. Valid values:
+     * @description Specify whether to immediately start IPsec negotiations after the configuration takes effect. Valid values:
      *
      *   **true**: immediately starts IPsec negotiations after the configuration is complete.
-     *   **false**: starts IPsec negotiations when inbound traffic is detected. This is the default value.
+     *   **false** (default): starts IPsec negotiations when inbound traffic is received.
      *
      * @example false
      *
@@ -77,8 +79,8 @@ class CreateVpnConnectionRequest extends Model
     /**
      * @description Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
      *
-     *   **true** (default): enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-     *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
+     *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no response is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
+     *   **false**: disables DPD. The IPsec initiator does not send DPD packets.
      *
      * @example true
      *
@@ -89,8 +91,8 @@ class CreateVpnConnectionRequest extends Model
     /**
      * @description Specifies whether to enable NAT traversal. Valid values:
      *
-     *   **true** (default): yes After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the VPN tunnel.
-     *   **false**: no
+     *   **true** (default) After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the VPN tunnel.
+     *   **false**
      *
      * @example true
      *
@@ -99,6 +101,10 @@ class CreateVpnConnectionRequest extends Model
     public $enableNatTraversal;
 
     /**
+     * @description 是否为隧道开启BGP功能。取值：**true**或**false**（默认值）。
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableTunnelsBgp;
@@ -108,7 +114,7 @@ class CreateVpnConnectionRequest extends Model
      *
      *   **HealthCheckConfig.enable**: specifies whether to enable health checks. Valid values: **true** and **false**. Default value: false.
      *   **HealthCheckConfig.dip**: the destination IP address configured for health checks.
-     *   **HealthCheckConfig.sip**: the source IP address configured for health checks.
+     *   **HealthCheckConfig.sip:** the source IP address that is used for health checks.
      *   **HealthCheckConfig.interval**: the time interval of health check retries. Unit: seconds. Default value: **3**.
      *   **HealthCheckConfig.retry**: the maximum number of health check retries. Default value: **3**.
      *
@@ -123,9 +129,9 @@ class CreateVpnConnectionRequest extends Model
      *
      *   **IkeConfig.Psk**: The pre-shared key that is used for authentication between the VPN gateway and the data center. The key must be 1 to 100 characters in length.
      *
-     * > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, you cannot establish a connection between the data center and the VPN gateway.
+     * The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, the connection between the data center and the VPN gateway cannot be established.
      *
-     *   **IkeConfig.IkeVersion**: the version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
+     *   **IkeConfig.IkeVersion**: the IKE version. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
      *
      *   **IkeConfig.IkeMode**: the negotiation mode of IKEv1. Valid values: **main** and **aggressive**. Default value: **main**.
      *
@@ -148,12 +154,12 @@ class CreateVpnConnectionRequest extends Model
     public $ikeConfig;
 
     /**
-     * @description The configuration of Phase 2 negotiations:
+     * @description The configurations of Phase 2 negotiations:
      *
      *   **IpsecConfig.IpsecEncAlg**: the encryption algorithm that is used in Phase 2 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
      *   **IpsecConfig. IpsecAuthAlg**: the authentication algorithm that is used in Phase 2 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
      *   **IpsecConfig. IpsecPfs**: the Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations. Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**. Default value: **group2**.
-     *   **IpsecConfig. IpsecLifetime**: the SA lifetime determined by Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
+     *   **IpsecConfig. IpsecLifetime**: the SA lifetime that is determined by Phase 2 negotiations. Unit: seconds. Valid values: **0** to **86400**. Default value: **86400**.
      *
      * @example {"IpsecEncAlg":"aes","IpsecAuthAlg":"sha1","IpsecPfs":"group2","IpsecLifetime":86400}
      *
@@ -162,7 +168,7 @@ class CreateVpnConnectionRequest extends Model
     public $ipsecConfig;
 
     /**
-     * @description The CIDR block on the VPC side. The CIDR block is used in Phase 2 negotiations.
+     * @description The CIDR block on the virtual private cloud (VPC) side. The CIDR block is used in Phase 2 negotiations.
      *
      * The following routing modes are supported:
      *
@@ -196,7 +202,7 @@ class CreateVpnConnectionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where you want to create the IPsec-VPN connection. You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
+     * @description The ID of the region where the IPsec-VPN connection is created. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
      * @example cn-shanghai
      *
@@ -205,9 +211,9 @@ class CreateVpnConnectionRequest extends Model
     public $regionId;
 
     /**
-     * @description The certificate authority (CA) certificate of the peer when a ShangMi (SM) VPN gateway is used to create the IPsec-VPN connection.
+     * @description The peer CA certificate when a ShangMi (SM) VPN gateway is used to establish the IPsec-VPN connection.
      *
-     *   This parameter is required when an SM VPN gateway is used to create the IPsec-VPN connection.
+     *   This parameter is required when an SM VPN gateway is used to establish the IPsec-VPN connection.
      *   You can ignore this parameter when a standard VPN gateway is used to create the IPsec-VPN connection.
      *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
@@ -217,7 +223,7 @@ class CreateVpnConnectionRequest extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description The CIDR block of the data center. This CIDR block is used in Phase 2 negotiations.
+     * @description The CIDR block on the data center side. This CIDR block is used in Phase 2 negotiations.
      *
      * The following routing modes are supported:
      *
@@ -241,11 +247,17 @@ class CreateVpnConnectionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag value.
+     *
+     * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description 配置隧道。
+     *
+     * 如果当前VPN网关实例支持创建双隧道模式的IPsec-VPN连接，您必须同时为IPsec-VPN连接添加主隧道和备隧道的配置（即配置**TunnelOptionsSpecification**数组下的参数）。一个IPsec-VPN连接下仅支持添加主备两条隧道。
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;

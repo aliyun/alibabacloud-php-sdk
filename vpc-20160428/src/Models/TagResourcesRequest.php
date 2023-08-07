@@ -20,6 +20,9 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the resource.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -27,6 +30,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The resource ID. You can specify at most 20 IDs.
+     *
      * @example vpc-bp16qjewdsunr41m1****
      *
      * @var string[]
@@ -44,6 +49,16 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Valid values:
+     *
+     *   **VPC**: a VPC
+     *   **VSWITCH**: a vSwitch
+     *   **ROUTETABLE**: a route table
+     *   **EIP**: an EIP
+     *   **VpnGateway**: a VPN gateway
+     *   **NATGATEWAY**: a NAT gateway
+     *   **COMMONBANDWIDTHPACKAGE**: an EIP bandwidth plan
+     *
      * @example VPC
      *
      * @var string
@@ -51,6 +66,11 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag value of the resource. You must enter at least one tag value and at most 20 tag values. It can be an empty string.
+     *
+     * The tag value cannot exceed 128 characters in length, and can contain digits, periods (.), underscores (\_), and hyphens (-). The key must start with a letter but cannot start with `aliyun` or `acs:`. The key cannot contain `http://` or `https://`.
+     *
+     * >  When you call this operation, **Tag.N.Value** is required.
      * @example TagResources
      *
      * @var tag[]

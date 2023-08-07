@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cloudResourceSetType extends Model
 {
     /**
+     * @description The number of resources deployed in the VPC.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class cloudResourceSetType extends Model
     public $resourceCount;
 
     /**
+     * @description The type of resources deployed in the VPC. Valid values:
+     *
+     * - **VSwitch**: vSwitches
+     * - **VRouter**: vRouters
+     * - **RouteTable**: route tables
      * @example VSwitch
      *
      * @var string

@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeVpnGatewaysRequest extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The payment status of the VPN gateway. Valid values:
+     *
+     *   **Normal**
+     *   **FinancialLocked**
      *
      * @example Normal
      *
@@ -19,9 +22,11 @@ class DescribeVpnGatewaysRequest extends Model
     public $businessStatus;
 
     /**
-     * @description The type of the VPN gateway.
+     * @description Specifies whether to return information about pending orders. Valid values:
      *
-     * The value is set to **Normal**, which indicates a standard NAT gateway.
+     *   **false** (default)
+     *   **true**
+     *
      * @example true
      *
      * @var bool
@@ -39,7 +44,7 @@ class DescribeVpnGatewaysRequest extends Model
     public $ownerId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -48,7 +53,7 @@ class DescribeVpnGatewaysRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The list of VPN gateways.
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -57,9 +62,9 @@ class DescribeVpnGatewaysRequest extends Model
     public $pageSize;
 
     /**
-     * @description The tag key. The tag key cannot be an empty string.
+     * @description The region ID of the VPN gateway.
      *
-     * You can specify at most 20 tag keys in each call.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-zhangjiakou
      *
      * @var string
@@ -77,7 +82,13 @@ class DescribeVpnGatewaysRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The status of the VPN gateway. Valid values:
+     *
+     *   **init**
+     *   **provisioning**
+     *   **active**
+     *   **updating**
+     *   **deleting**
      *
      * @example active
      *
@@ -86,14 +97,16 @@ class DescribeVpnGatewaysRequest extends Model
     public $status;
 
     /**
+     * @description The value of tag N to add to the resource.
+     *
+     * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The tag value.
+     * @description The ID of the virtual private cloud (VPC) to which the VPN gateway belongs.
      *
-     * Each tag key corresponds to one tag value. You can specify at most 20 tag values in each call.
      * @example vpc-bp1m3i0kn1nd4wiw9****
      *
      * @var string
@@ -101,7 +114,7 @@ class DescribeVpnGatewaysRequest extends Model
     public $vpcId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the VPN gateway.
      *
      * @example vpn-bp17lofy9fd0dnvzv****
      *

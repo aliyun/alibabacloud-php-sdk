@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeRouterInterfaceAttributeResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeRouterInterfaceAttributeResponseBody extends Model
@@ -105,6 +106,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
      * @var string
      */
     public $endTime;
+
+    /**
+     * @var string
+     */
+    public $fastLinkMode;
 
     /**
      * @description The time when the router interface was modified.
@@ -370,6 +376,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $reservationOrderType;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description Indicates whether the router interface is the requester or the acceptor of the peering connection.
      *
      * @example InitiatingSide
@@ -459,6 +470,11 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
     public $success;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @description The ID of the virtual private cloud (VPC) to which the router interface belongs.
      *
      * @example vpc-bp1b49rqrybk45nio****
@@ -477,6 +493,7 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         'crossBorder'                     => 'CrossBorder',
         'description'                     => 'Description',
         'endTime'                         => 'EndTime',
+        'fastLinkMode'                    => 'FastLinkMode',
         'gmtModified'                     => 'GmtModified',
         'hasReservationData'              => 'HasReservationData',
         'hcRate'                          => 'HcRate',
@@ -502,6 +519,7 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         'reservationBandwidth'            => 'ReservationBandwidth',
         'reservationInternetChargeType'   => 'ReservationInternetChargeType',
         'reservationOrderType'            => 'ReservationOrderType',
+        'resourceGroupId'                 => 'ResourceGroupId',
         'role'                            => 'Role',
         'routerId'                        => 'RouterId',
         'routerInterfaceId'               => 'RouterInterfaceId',
@@ -509,6 +527,7 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         'spec'                            => 'Spec',
         'status'                          => 'Status',
         'success'                         => 'Success',
+        'tags'                            => 'Tags',
         'vpcInstanceId'                   => 'VpcInstanceId',
     ];
 
@@ -548,6 +567,9 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->fastLinkMode) {
+            $res['FastLinkMode'] = $this->fastLinkMode;
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
@@ -624,6 +646,9 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         if (null !== $this->reservationOrderType) {
             $res['ReservationOrderType'] = $this->reservationOrderType;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
         }
@@ -644,6 +669,9 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcInstanceId) {
             $res['VpcInstanceId'] = $this->vpcInstanceId;
@@ -689,6 +717,9 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['FastLinkMode'])) {
+            $model->fastLinkMode = $map['FastLinkMode'];
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
@@ -765,6 +796,9 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         if (isset($map['ReservationOrderType'])) {
             $model->reservationOrderType = $map['ReservationOrderType'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
         }
@@ -785,6 +819,9 @@ class DescribeRouterInterfaceAttributeResponseBody extends Model
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcInstanceId'])) {
             $model->vpcInstanceId = $map['VpcInstanceId'];

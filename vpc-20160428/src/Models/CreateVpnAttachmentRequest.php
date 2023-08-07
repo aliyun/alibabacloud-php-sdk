@@ -12,8 +12,8 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @description Specifies whether to automatically configure routes. Valid values:
      *
-     *   **true** (default): automatically configures routes.
-     *   **false**: does not automatically configure routes.
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -26,12 +26,14 @@ class CreateVpnAttachmentRequest extends Model
      *
      *   **BgpConfig.EnableBgp**: specifies whether to enable BGP. Valid values: **true** and **false**. Default value: false.
      *   **BgpConfig.LocalAsn**: the ASN on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
-     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
+     *   **BgpConfig.TunnelCidr**: the CIDR block of the IPsec tunnel. The CIDR block must fall within 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *   **LocalBgpIp**: the BGP IP address on the Alibaba Cloud side. This IP address must fall within the CIDR block of the IPsec tunnel.
      *
      * >
-     *   Before you configure BGP, we recommend that you learn about how BGP works and the limits. For more information, see [BGP dynamic routing](~~170235~~).
-     *   We recommend that you use a private ASN to establish a connection to Alibaba Cloud over BGP. Refer to the relevant documentation for the valid range of a private ASN.
+     *
+     *   Before you configure BGP, we recommend that you learn about how BGP works and its limits. For more information, see Notice of BGP dynamic routing.
+     *
+     *   We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
      *
      * @example {"EnableBgp":"true","LocalAsn":"45104","TunnelCidr":"169.254.11.0/30","LocalBgpIp":"169.254.11.1"}
      *
@@ -40,11 +42,11 @@ class CreateVpnAttachmentRequest extends Model
     public $bgpConfig;
 
     /**
-     * @description The client token that you want to use to ensure the idempotence of the request.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-4266****
      *
      * @var string
@@ -61,10 +63,10 @@ class CreateVpnAttachmentRequest extends Model
     public $customerGatewayId;
 
     /**
-     * @description Specifies whether to immediately start IPsec negotiations. Valid values:
+     * @description Specifies whether to immediately start IPsec negotiations after the configuration takes effect. Valid values:
      *
      *   **true**: immediately starts IPsec negotiations after the configuration is complete.
-     *   **false**: starts IPsec negotiations when inbound traffic is detected. This is the default value.
+     *   **false** (default): starts IPsec negotiations when inbound traffic is received.
      *
      * @example false
      *
@@ -75,8 +77,8 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @description Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
      *
-     *   **true** (default): enables DPD. The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no response is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
-     *   **false**: disables DPD. The initiator of the IPsec-VPN connection does not send DPD packets.
+     *   **true** (default) The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no response is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
+     *   **false**
      *
      * @example true
      *
@@ -87,8 +89,8 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @description Specifies whether to enable NAT traversal. Valid values:
      *
-     *   **true** (default): enables NAT traversal. After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the VPN tunnel.
-     *   **false**: disables NAT traversal.
+     *   **true** (default) After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the VPN tunnel.
+     *   **false**
      *
      * @example true
      *
@@ -111,9 +113,8 @@ class CreateVpnAttachmentRequest extends Model
      *
      *   **HealthCheckConfig.Policy**: specifies whether to withdraw published routes when health checks fail. Valid values:
      *
-     *   **revoke_route** (default): withdraws published routes.
-     *   **reserve_route**: does not withdraw published routes.
-     *
+     * - **revoke_route**(default): revokes published routes.
+     * - **reserve_route**: does not revoke published routes.
      * @example {"enable":"true","dip":"192.168.1.1","sip":"10.1.1.1","interval":"3","retry":"3","Policy": "revoke_route"}
      *
      * @var string
@@ -125,9 +126,9 @@ class CreateVpnAttachmentRequest extends Model
      *
      *   **IkeConfig.Psk**: The pre-shared key that is used for authentication between the VPN gateway and the data center. The key must be 1 to 100 characters in length.
      *
-     * > The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, you cannot establish a connection between the data center and the VPN gateway.
+     * The pre-shared key of the IPsec-VPN connection must be the same as the authentication key of the data center. Otherwise, the connection between the data center and the VPN gateway cannot be established.
      *
-     *   **IkeConfig.IkeVersion**: the version of the IKE protocol. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
+     *   **IkeConfig.IkeVersion**: the IKE version. Valid values: **ikev1** and **ikev2**. Default value: **ikev1**.
      *
      *   **IkeConfig.IkeMode**: the negotiation mode. Valid values: **main** and **aggressive**. Default value: **main**.
      *
@@ -150,7 +151,7 @@ class CreateVpnAttachmentRequest extends Model
     public $ikeConfig;
 
     /**
-     * @description The configuration of Phase 2 negotiations:
+     * @description The configurations of Phase 2 negotiations:
      *
      *   **IpsecConfig.IpsecEncAlg**: the encryption algorithm that is used in Phase 2 negotiations. Valid values: **aes**, **aes192**, **aes256**, **des**, and **3des**. Default value: **aes**.
      *   **IpsecConfig. IpsecAuthAlg**: the authentication algorithm that is used in Phase 2 negotiations. Valid values: **md5**, **sha1**, **sha256**, **sha384**, and **sha512**. Default value: **md5**.
@@ -180,7 +181,7 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @description The name of the IPsec-VPN connection.
      *
-     * The name must be 1 to 100 characters in length, and cannot start with `http://` or `https://`.
+     * The name must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      * @example nametest
      *
      * @var string
@@ -190,8 +191,8 @@ class CreateVpnAttachmentRequest extends Model
     /**
      * @description The network type of the IPsec-VPN connection. Valid values:
      *
-     *   **public**: an encrypted connection over the Internet. This is the default value.
-     *   **private**: an encrypted connection over private networks.
+     *   **public** (default)
+     *   **private**
      *
      * @example public
      *
@@ -205,7 +206,7 @@ class CreateVpnAttachmentRequest extends Model
     public $ownerAccount;
 
     /**
-     * @description The ID of the region to which the IPsec-VPN connection belongs.
+     * @description The ID of the region where the IPsec-VPN connection is established.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent list of regions.
      * @example ap-southeast-2
@@ -248,6 +249,9 @@ class CreateVpnAttachmentRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tag value.
+     *
+     * Each tag key corresponds to one tag value. You can specify up to 20 tag values in each call.
      * @var tags[]
      */
     public $tags;

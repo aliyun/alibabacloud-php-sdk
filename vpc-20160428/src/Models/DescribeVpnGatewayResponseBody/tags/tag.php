@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag value.
+     * @description The tag key
      *
      * @example aaa
      *
@@ -18,10 +18,8 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The network type of the VPN gateway.
+     * @description The tag value.
      *
-     * - **public**: public VPN gateway
-     * - **private**: private VPN gateway
      * @example bbb
      *
      * @var string

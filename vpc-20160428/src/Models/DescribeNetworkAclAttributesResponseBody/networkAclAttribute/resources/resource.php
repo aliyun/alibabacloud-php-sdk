@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The ID of the associated resource.
+     *
      * @example vsw-bp1de348lntdwxscd****
      *
      * @var string
@@ -16,6 +18,8 @@ class resource extends Model
     public $resourceId;
 
     /**
+     * @description The type of resource with which you want to associate the network ACL. The value is set to **VSwitch**.
+     *
      * @example VSwitch
      *
      * @var string
@@ -23,6 +27,11 @@ class resource extends Model
     public $resourceType;
 
     /**
+     * @description The status of the associated resource. Valid values:
+     *
+     * - **BINDED**: The resource is associated with the network ACL.
+     * - **BINDING**: The resource is being associated with the network ACL.
+     * - **UNBINDING**: The resource is disassociated from the network ACL.
      * @example BINDED
      *
      * @var string

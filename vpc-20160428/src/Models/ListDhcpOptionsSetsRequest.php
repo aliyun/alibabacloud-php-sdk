@@ -17,8 +17,9 @@ class ListDhcpOptionsSetsRequest extends Model
     public $dhcpOptionsSetId;
 
     /**
-     * @description The list of the DHCP options sets.
+     * @description The name of the DHCP options set.
      *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
      * @example test
      *
      * @var string
@@ -26,8 +27,9 @@ class ListDhcpOptionsSetsRequest extends Model
     public $dhcpOptionsSetName;
 
     /**
-     * @description The ID of the request.
+     * @description The root domain. For example, you can set the value to example.com.
      *
+     * After a DHCP options set is associated with a virtual private cloud (VPC), the root domain in the DHCP options set is automatically synchronized with the Elastic Compute Service (ECS) instances in the VPC.
      * @example example.com
      *
      * @var string
@@ -35,10 +37,7 @@ class ListDhcpOptionsSetsRequest extends Model
     public $domainName;
 
     /**
-     * @description The token that is used for the next query. Valid values:
-     *
-     *   If **NextToken** is empty, it indicates that no next query is to be sent.
-     *   If a value is returned for **NextToken**, the value is the token that is used for the next query.
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -47,7 +46,10 @@ class ListDhcpOptionsSetsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ListDhcpOptionsSets**.
+     * @description The token that is used for the next query. Valid values:
+     *
+     *   If this is your first query or no next queries are to be sent, ignore this parameter.
+     *   If a subsequent query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
      *
      * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
@@ -66,8 +68,9 @@ class ListDhcpOptionsSetsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the DHCP options set. You can specify at most 20 IDs.
+     * @description The region ID of the DHCP options sets that you want to query.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

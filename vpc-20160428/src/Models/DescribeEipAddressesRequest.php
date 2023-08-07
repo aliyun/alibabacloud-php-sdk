@@ -15,8 +15,11 @@ class DescribeEipAddressesRequest extends Model
     public $filter;
 
     /**
-     * @description The filter value used to query resources. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+     * @description The ID of the EIP that you want to query.
      *
+     * You can enter up to 50 IDs of EIPs. Separate multiple IDs with commas (,).
+     *
+     * >  If both the **EipAddress** and **AllocationId** parameters are set, you can enter up to 50 IDs of EIPs in **AllocationId**, and enter up to 50 IP addresses of EIPs in **EipAddress**.
      * @example eip-2zeerraiwb7ujxscd****
      *
      * @var string
@@ -24,7 +27,7 @@ class DescribeEipAddressesRequest extends Model
     public $allocationId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The ID of the cloud resource.
      *
      * @example i-2zebb08phyccdvf****
      *
@@ -33,8 +36,16 @@ class DescribeEipAddressesRequest extends Model
     public $associatedInstanceId;
 
     /**
-     * @description The page number of the returned page.
+     * @description The type of the cloud resource with which you want to associate the EIP. Valid values:
      *
+     *   **EcsInstance** (default): an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
+     *   **SlbInstance**: a Server Load Balancer (SLB) instance in a VPC
+     *   **Nat**: a NAT gateway
+     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     *   **NetworkInterface**: a secondary ENI
+     *   **IpAddress**: an IP address
+     *
+     * >  You can associate only one EIP with each ECS instance, SLB instance, HAVIP, or IP address. You can associate multiple EIPs with each NAT gateway. The number of EIPs that you can associate with a secondary ENI depends on the association mode. For more information, see [EIP overview](~~72125~~).
      * @example EcsInstance
      *
      * @var string
@@ -42,7 +53,10 @@ class DescribeEipAddressesRequest extends Model
     public $associatedInstanceType;
 
     /**
-     * @description The details about the EIP.
+     * @description The billing method of the EIP. Valid values:
+     *
+     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid**: subscription
      *
      * @example PostPaid
      *
@@ -51,7 +65,10 @@ class DescribeEipAddressesRequest extends Model
     public $chargeType;
 
     /**
-     * @description The time when the renewal takes effect. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description Specifies whether to perform a dry run. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -60,8 +77,11 @@ class DescribeEipAddressesRequest extends Model
     public $dryRun;
 
     /**
-     * @description The filter value used to query resources. Specify the time in the ISO 8601 standard in `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+     * @description The IP address of the EIP that you want to query.
      *
+     * You can enter up to 50 IP addresses of EIPs. Separate multiple IP addresses with commas (,).
+     *
+     * >  If both the **EipAddress** and **AllocationId** parameters are set, you can enter up to 50 IP addresses of EIPs in **EipAddress**, and enter up to 50 IDs of EIPs in **AllocationId**.
      * @example 47.75.XX.XX
      *
      * @var string
@@ -69,14 +89,9 @@ class DescribeEipAddressesRequest extends Model
     public $eipAddress;
 
     /**
-     * @description The status of the EIP. Valid values:
+     * @description The name of the EIP.
      *
-     *   **Associating**: being associated
-     *   **Unassociating**: being disassociated
-     *   **InUse**: allocated
-     *   **Available**: available
-     *   **Releasing**: being released
-     *
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      * @example EIP-01
      *
      * @var string
@@ -84,11 +99,21 @@ class DescribeEipAddressesRequest extends Model
     public $eipName;
 
     /**
-     * @description Specifies whether to perform a dry run. Valid values:
+     * @description The line type. Valid values:
      *
-     *   **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-     *   **false** (default): performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *   **BGP** (default): BGP (Multi-ISP) lines. All regions support BGP (Multi-ISP) EIPs.
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
      *
+     * If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
+     *
+     *   **ChinaTelecom**: China Telecom
+     *   **ChinaUnicom**: China Unicom
+     *   **ChinaMobile**: China Mobile
+     *   **ChinaTelecom_L2**: China Telecom L2
+     *   **ChinaUnicom_L2**: China Unicom L2
+     *   **ChinaMobile_L2**: China Mobile L2
+     *
+     * If your services are deployed in China East 1 Finance, you must set this parameter to **BGP_FinanceCloud**.
      * @example BGP
      *
      * @var string
@@ -96,7 +121,10 @@ class DescribeEipAddressesRequest extends Model
     public $ISP;
 
     /**
-     * @description The filter key used to query resources. Set the value to **CreationStartTime**, which indicates the time when the system started to create the resource.
+     * @description Specifies whether to return information about pending orders. Valid values:
+     *
+     *   **false** (default): does not return information about pending orders.
+     *   **true**: returns information about pending orders.
      *
      * @example false
      *
@@ -105,7 +133,10 @@ class DescribeEipAddressesRequest extends Model
     public $includeReservationData;
 
     /**
-     * @description The ID of the request.
+     * @description The reason why the EIP is locked. Valid values:
+     *
+     *   **financial**: The EIP is locked due to overdue payments.
+     *   **security**: The EIP is locked for security reasons.
      *
      * @example financial
      *
@@ -124,7 +155,7 @@ class DescribeEipAddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the cloud resource.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 10
      *
@@ -133,10 +164,7 @@ class DescribeEipAddressesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The billing method of the EIP. Valid values:
-     *
-     *   **PostPaid**: pay-as-you-go
-     *   **PrePaid**: subscription
+     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -145,7 +173,7 @@ class DescribeEipAddressesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The time when the EIP was created. The time is displayed in `YYYY-MM-DDThh:mm:ssZ` format.
+     * @description The IP address pool to which the EIP that you want to query belongs.
      *
      * @example pippool-2vc0kxcedhquybdsz****
      *
@@ -154,21 +182,9 @@ class DescribeEipAddressesRequest extends Model
     public $publicIpAddressPoolId;
 
     /**
-     * @description The line type. Valid values:
+     * @description The region ID of the EIP.
      *
-     *   **BGP** (default): BGP (Multi-ISP) lines. All regions support BGP (Multi-ISP) EIPs.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines. Only the following regions support BGP (Multi-ISP) Pro lines: China (Hong Kong), Singapore, Malaysia (Kuala Lumpur), Philippines (Manila), Indonesia (Jakarta), and Thailand (Bangkok).
-     *
-     * If you are allowed to use single-ISP bandwidth, you can also choose one of the following values:
-     *
-     *   **ChinaTelecom**: China Telecom
-     *   **ChinaUnicom**: China Unicom
-     *   **ChinaMobile**: China Mobile
-     *   **ChinaTelecom_L2**: China Telecom L2
-     *   **ChinaUnicom_L2**: China Unicom L2
-     *   **ChinaMobile_L2**: China Mobile L2
-     *
-     * If your services are deployed in China East 1 Finance, you must set this parameter to **BGP_FinanceCloud**.
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -176,16 +192,8 @@ class DescribeEipAddressesRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the cloud resource with which you want to associate the EIP. Valid values:
+     * @description The ID of the resource group to which the EIPs belong.
      *
-     *   **EcsInstance** (default): an Elastic Compute Service (ECS) instance in a virtual private cloud (VPC)
-     *   **SlbInstance**: a Server Load Balancer (SLB) instance in a VPC
-     *   **Nat**: a NAT gateway
-     *   **HaVip**: a high-availability virtual IP address (HAVIP)
-     *   **NetworkInterface**: a secondary ENI
-     *   **IpAddress**: an IP address
-     *
-     * >  You can associate only one EIP with each ECS instance, SLB instance, HAVIP, or IP address. You can associate multiple EIPs with each NAT gateway. The number of EIPs that you can associate with a secondary ENI depends on the association mode. For more information, see [EIP overview](~~72125~~).
      * @example rg-acfmxazb4pcdvf****
      *
      * @var string
@@ -203,11 +211,10 @@ class DescribeEipAddressesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The type of the renewal order. Valid values:
+     * @description Specifies whether to enable Anti-DDoS Pro/Premium. Valid values:
      *
-     *   **RENEWCHANGE**: renewal with an upgrade or a downgrade
-     *   **TEMP_UPGRADE**: temporary upgrade
-     *   **UPGRADE**: upgrade
+     *   **false** (default): no
+     *   **true**: yes
      *
      * @example false
      *
@@ -216,10 +223,7 @@ class DescribeEipAddressesRequest extends Model
     public $securityProtectionEnabled;
 
     /**
-     * @description The reason why the EIP is locked. Valid values:
-     *
-     *   **financial**: The EIP is locked due to overdue payments.
-     *   **security**: The EIP is locked for security reasons.
+     * @description The IDs of the contiguous EIPs.
      *
      * @example eipsg-t4nr90yik5oy38xdy****
      *
@@ -228,7 +232,13 @@ class DescribeEipAddressesRequest extends Model
     public $segmentInstanceId;
 
     /**
-     * @description The filter key used to query resources. Set the value to **CreationEndTime**, which indicates the time when the system completed creating the resource.
+     * @description The status of the EIP. Valid values:
+     *
+     *   **Associating**: being associated
+     *   **Unassociating**: being disassociated
+     *   **InUse**: allocated
+     *   **Available**: available
+     *   **Releasing**: being released
      *
      * @example Available
      *

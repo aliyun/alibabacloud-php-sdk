@@ -9,9 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateTrafficMirrorFilterAttributeRequest extends Model
 {
     /**
-     * @description The ID of the region to which the mirrored traffic belongs.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
@@ -19,7 +21,10 @@ class UpdateTrafficMirrorFilterAttributeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to check the request without performing the operation. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -38,6 +43,9 @@ class UpdateTrafficMirrorFilterAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region to which the mirrored traffic belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list. For more information about regions that support traffic mirroring, see [Overview of traffic mirroring](~~207513~~).
      * @example cn-hongkong
      *
      * @var string
@@ -55,11 +63,9 @@ class UpdateTrafficMirrorFilterAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The description of the filter.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters.
-     *
-     * >  If you do not specify this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
      * @example This is a new filter.
      *
      * @var string
@@ -67,9 +73,8 @@ class UpdateTrafficMirrorFilterAttributeRequest extends Model
     public $trafficMirrorFilterDescription;
 
     /**
-     * @description The name of the filter.
+     * @description The ID of the filter.
      *
-     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example tmf-j6cmls82xnc86vtpe****
      *
      * @var string
@@ -77,11 +82,9 @@ class UpdateTrafficMirrorFilterAttributeRequest extends Model
     public $trafficMirrorFilterId;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description The name of the filter.
      *
-     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the check, a 2xx HTTP status code is returned and the operation is performed.
-     *
+     * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DissociateRouteTableFromGatewayResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C5644C9A-7480-13B6-AECB-30FF142E3724
      *
      * @var string

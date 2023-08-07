@@ -10,6 +10,46 @@ use AlibabaCloud\Tea\Model;
 class CreatePhysicalConnectionRequest extends Model
 {
     /**
+     * @description The access point ID of the Express Connect circuit.
+     *
+     * @example ap-cn-beijing-ft-A
+     *
+     * @var string
+     */
+    public $accessPointId;
+
+    /**
+     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
+     *
+     * @example longtel001
+     *
+     * @var string
+     */
+    public $circuitCode;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The client token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
+     * @example 123e4567-e89b-12d3-a456-42665544****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description The description of the Express Connect circuit.
+     *
+     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     * @example description
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The connectivity provider of the Express Connect circuit. Valid values:
      *
      *   **CT**: China Telecom
@@ -19,42 +59,6 @@ class CreatePhysicalConnectionRequest extends Model
      *   **Equinix**: Equinix
      *   **Other**: other connectivity providers outside the Chinese mainland
      *
-     * @example ap-cn-beijing-ft-A
-     *
-     * @var string
-     */
-    public $accessPointId;
-
-    /**
-     * @description The operation that you want to perform. Set the value to **CreatePhysicalConnection**.
-     *
-     * @example longtel001
-     *
-     * @var string
-     */
-    public $circuitCode;
-
-    /**
-     * @description The ID of the resource group to which the Express Connect circuit belongs.
-     *
-     * @example 123e4567-e89b-12d3-a456-42665544****
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description The circuit code of the Express Connect circuit. The circuit code is provided by the connectivity provider.
-     *
-     * @example description
-     *
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @description The geographical location of the data center.
-     *
      * @example CT
      *
      * @var string
@@ -62,11 +66,9 @@ class CreatePhysicalConnectionRequest extends Model
     public $lineOperator;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The name of the Express Connect circuit.
      *
-     * You can use the client to generate the value, but you must ensure that the value is unique among all requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example test
      *
      * @var string
@@ -84,16 +86,24 @@ class CreatePhysicalConnectionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
+     * @description The geographical location of the data center.
      *
      * @var string
      */
     public $peerLocation;
 
     /**
-     * @description The description of the Express Connect circuit.
+     * @description The port type of the Express Connect circuit. Valid values:
      *
-     * The description must be 2 to 256 characters in length. The description must start with a letter but cannot start with `http://` or `https://`.
+     *   **100Base-T**: 100 Mbit/s copper Ethernet port
+     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
+     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
+     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
+     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
+     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
+     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
+     *
+     * >  If you want to use the 40GBase-LR or 100GBase-LR port for an Express Connect circuit, you must first contact your account manager to obtain information about resource supplies.
      * @example 1000Base-T
      *
      * @var string
@@ -101,9 +111,8 @@ class CreatePhysicalConnectionRequest extends Model
     public $portType;
 
     /**
-     * @description The name of the Express Connect circuit.
+     * @description The ID of the redundant Express Connect circuit. The redundant Express Connect circuit must be in the **Allocated**, **Confirmed**, or **Enabled** state.
      *
-     * The name must be 2 to 128 characters in length, and can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter but cannot start with `http://` or `https://`.
      * @example pc-119mfjzm****
      *
      * @var string
@@ -111,8 +120,9 @@ class CreatePhysicalConnectionRequest extends Model
     public $redundantPhysicalConnectionId;
 
     /**
-     * @description The type of the Express Connect circuit. Default value: **VPC**.
+     * @description The region ID of the Express Connect circuit.
      *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-shanghai
      *
      * @var string
@@ -120,7 +130,7 @@ class CreatePhysicalConnectionRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the resource group to which the Express Connect circuit belongs.
      *
      * @example rg-acfmoiyermp****
      *
@@ -144,9 +154,8 @@ class CreatePhysicalConnectionRequest extends Model
     public $tag;
 
     /**
-     * @description The maximum bandwidth of the hosted connection. Unit: Mbit/s.
+     * @description The type of the Express Connect circuit. Default value: **VPC**.
      *
-     * Valid values: **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2000**, **4000**, **5000**, **8000**, and **10000**.
      * @example VPC
      *
      * @var string
@@ -154,17 +163,9 @@ class CreatePhysicalConnectionRequest extends Model
     public $type;
 
     /**
-     * @description The port type of the Express Connect circuit. Valid values:
+     * @description The maximum bandwidth of the hosted connection. Unit: Mbit/s.
      *
-     *   **100Base-T**: 100 Mbit/s copper Ethernet port
-     *   **1000Base-T**: 1,000 Mbit/s copper Ethernet port
-     *   **1000Base-LX**: 1,000 Mbit/s single-mode optical port (10 km)
-     *   **10GBase-T**: 10,000 Mbit/s copper Ethernet port
-     *   **10GBase-LR**: 10,000 Mbit/s single-mode optical port (10 kilometers)
-     *   **40GBase-LR**: 40,000 Mbit/s single-mode optical port
-     *   **100GBase-LR**: 100,000 Mbit/s single-mode optical port
-     *
-     * >  If you want to use the 40GBase-LR or 100GBase-LR port for an Express Connect circuit, you must first contact your account manager to obtain information about resource supplies.
+     * Valid values: **50**, **100**, **200**, **300**, **400**, **500**, **1000**, **2000**, **4000**, **5000**, **8000**, and **10000**.
      * @example 50
      *
      * @var int

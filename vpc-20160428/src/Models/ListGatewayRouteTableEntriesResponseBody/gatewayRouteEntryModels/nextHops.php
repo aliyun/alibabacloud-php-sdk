@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class nextHops extends Model
 {
     /**
+     * @description Indicates whether the route is available. Valid values:
+     *
+     *   **0**: unavailable
+     *   **1**: available
+     *
      * @example 1
      *
      * @var string
@@ -16,7 +21,7 @@ class nextHops extends Model
     public $enabled;
 
     /**
-     * @description The weight of the route.
+     * @description The ID of the next hop.
      *
      * @example vpn-bp10zyaph5cc8b7c7****
      *
@@ -25,10 +30,16 @@ class nextHops extends Model
     public $nextHopId;
 
     /**
-     * @description Indicates whether the route is available. Valid values:
+     * @description The type of the next hop. Valid values:
      *
-     *   **0**: unavailable
-     *   **1**: available
+     *   **Instance** (default): an ECS instance
+     *   **HaVip**: a high-availability virtual IP address (HAVIP)
+     *   **VpnGateway**: a VPN gateway
+     *   **NatGateway**: a NAT gateway
+     *   **NetworkInterface**: a secondary ENI
+     *   **RouterInterface**: a router interface
+     *   **IPv6Gateway**: an IPv6 gateway
+     *   **Attachment**: a transit router
      *
      * @example Instance
      *
@@ -37,6 +48,8 @@ class nextHops extends Model
     public $nextHopType;
 
     /**
+     * @description The weight of the route.
+     *
      * @example 100
      *
      * @var string

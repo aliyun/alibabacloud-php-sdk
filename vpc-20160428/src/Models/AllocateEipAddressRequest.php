@@ -9,63 +9,13 @@ use AlibabaCloud\Tea\Model;
 class AllocateEipAddressRequest extends Model
 {
     /**
-     * @description The billing cycle of the subscription EIP. Valid values:
+     * @description The promotion code. Ignore this parameter.
      *
-     *   **Month** (default): The EIP is billed on a monthly basis.
-     *   **Year**: The EIP is billed on an annual basis.
-     *
-     * When **InstanceChargeType** is set to **PrePaid**, this parameter is required. When **InstanceChargeType** is set to **PostPaid**, this parameter is not required.
      * @example 123456
      *
      * @var int
      */
     public $activityId;
-
-    /**
-     * @description The metering method of the EIP. Valid values:
-     *
-     *   **PayByBandwidth** (default): pay-by-bandwidth
-     *   **PayByTraffic**: pay-by-data-transfer
-     *
-     * When **InstanceChargeType** is set to **PrePaid**, you must set **InternetChargeType** to **PayByBandwidth**.
-     *
-     * When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
-     * @example false
-     *
-     * @var bool
-     */
-    public $autoPay;
-
-    /**
-     * @description The promotion code. Ignore this parameter.
-     *
-     * @example 5
-     *
-     * @var string
-     */
-    public $bandwidth;
-
-    /**
-     * @description The edition of Anti-DDoS.
-     *
-     *   If you do not set this parameter, Anti-DDoS Origin Basic is used by default.
-     *   If you set the value to **AntiDDoS_Enhanced**, Anti-DDoS Pro/Premium is used.
-     *
-     * You can set up to 10 editions of Anti-DDoS.
-     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
-     *
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @description The ID of the request.
-     *
-     * @example test
-     *
-     * @var string
-     */
-    public $description;
 
     /**
      * @description Specifies whether to enable automatic payment. Default value: false. Valid values:
@@ -74,11 +24,25 @@ class AllocateEipAddressRequest extends Model
      *   **true**: enables automatic payment. Payments are automatically completed.
      *
      * When **InstanceChargeType** is set to **PrePaid**, this parameter is required. When **InstanceChargeType** is set to **PostPaid**, this parameter is not required.
-     * @example BGP
+     * @example false
+     *
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
+     * @description The maximum bandwidth of the EIP. Unit: Mbit/s.
+     *
+     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, valid values for **Bandwidth** are **1** to **500**.
+     *   When **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByTraffic**, valid values for **Bandwidth** are **1** to **200**.
+     *   When **InstanceChargeType** is set to **PrePaid**, valid values for **Bandwidth** are **1** to **1000**.
+     *
+     * Default value: **5**. Unit: Mbit/s.
+     * @example 5
      *
      * @var string
      */
-    public $ISP;
+    public $bandwidth;
 
     /**
      * @description The client token that is used to ensure the idempotence of the request.
@@ -86,91 +50,21 @@ class AllocateEipAddressRequest extends Model
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters.
      *
      * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request is different.
-     * @example PostPaid
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe637760
      *
      * @var string
      */
-    public $instanceChargeType;
+    public $clientToken;
 
     /**
-     * @var string
-     */
-    public $instanceId;
-
-    /**
-     * @description The name of the EIP.
+     * @description The description of the EIP.
      *
      * >  This parameter is unavailable when you create a subscription EIP.
-     * @example PayByTraffic
+     * @example test
      *
      * @var string
      */
-    public $internetChargeType;
-
-    /**
-     * @var string
-     */
-    public $ipAddress;
-
-    /**
-     * @description The ID of the IP address pool.
-     *
-     * You cannot use the IP address pool feature by default. To use the IP address pool feature, apply for the privilege in the Quota Center console. For more information, see [Request a quota increase in the Quota Center console](~~108213~~).
-     * @example EIP1
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @description The billing method of the EIP. Valid values:
-     *
-     *   **PrePaid**: subscription
-     *   **PostPaid** (default): pay-as-you-go
-     *
-     * When **InstanceChargeType** is set to **PrePaid**, set **InternetChargeType** to **PayByBandwidth**. When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
-     * @example public
-     *
-     * @var string
-     */
-    public $netmode;
-
-    /**
-     * @var string
-     */
-    public $ownerAccount;
-
-    /**
-     * @var int
-     */
-    public $ownerId;
-
-    /**
-     * @description The network type. Set the value to **public**, which specifies the Internet.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $period;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * @example Month
-     *
-     * @var string
-     */
-    public $pricingCycle;
-
-    /**
-     * @description The ID of the resource group. This parameter is returned only when **InstanceChargeType** is set to **PostPaid**.
-     *
-     * @example pippool-2vc0kxcedhquybdsz****
-     *
-     * @var string
-     */
-    public $publicIpAddressPoolId;
+    public $description;
 
     /**
      * @description The line type. Valid values:
@@ -191,6 +85,124 @@ class AllocateEipAddressRequest extends Model
      *
      *   If your services are deployed in China East 1 Finance, this parameter is required and you must set the value to **BGP_FinanceCloud**.
      *
+     * @example BGP
+     *
+     * @var string
+     */
+    public $ISP;
+
+    /**
+     * @description The billing method of the EIP. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid** (default): pay-as-you-go
+     *
+     * When **InstanceChargeType** is set to **PrePaid**, set **InternetChargeType** to **PayByBandwidth**. When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
+     * @example PostPaid
+     *
+     * @var string
+     */
+    public $instanceChargeType;
+
+    /**
+     * @example eip-25877c70gddh****
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @description The metering method of the EIP. Valid values:
+     *
+     *   **PayByBandwidth** (default): pay-by-bandwidth
+     *   **PayByTraffic**: pay-by-data-transfer
+     *
+     * When **InstanceChargeType** is set to **PrePaid**, you must set **InternetChargeType** to **PayByBandwidth**.
+     *
+     * When **InstanceChargeType** is set to **PostPaid**, set **InternetChargeType** to **PayByBandwidth** or **PayByTraffic**.
+     * @example PayByTraffic
+     *
+     * @var string
+     */
+    public $internetChargeType;
+
+    /**
+     * @example 192.0.XX.XX
+     *
+     * @var string
+     */
+    public $ipAddress;
+
+    /**
+     * @description The name of the EIP.
+     *
+     * >  This parameter is unavailable when you create a subscription EIP.
+     * @example EIP1
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The network type. Set the value to **public**, which specifies the Internet.
+     *
+     * @example public
+     *
+     * @var string
+     */
+    public $netmode;
+
+    /**
+     * @var string
+     */
+    public $ownerAccount;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @description The subscription duration of the instance.
+     *
+     * When **PricingCycle** is set to **Month**, set **Period** to a value from **1** to **9**.
+     *
+     * When **PricingCycle** is set to **Year**, set **Period** to a value from **1** to **5**.
+     *
+     * This parameter is required when **InstanceChargeType** is set to **PrePaid**. This parameter is optional when **InstanceChargeType** is set to **PostPaid**.
+     * @example 1
+     *
+     * @var int
+     */
+    public $period;
+
+    /**
+     * @description The billing cycle of the subscription EIP. Valid values:
+     *
+     *   **Month** (default): The EIP is billed on a monthly basis.
+     *   **Year**: The EIP is billed on an annual basis.
+     *
+     * When **InstanceChargeType** is set to **PrePaid**, this parameter is required. When **InstanceChargeType** is set to **PostPaid**, this parameter is not required.
+     * @example Month
+     *
+     * @var string
+     */
+    public $pricingCycle;
+
+    /**
+     * @description The ID of the IP address pool.
+     *
+     * You cannot use the IP address pool feature by default. To use the IP address pool feature, apply for the privilege in the Quota Center console. For more information, see [Request a quota increase in the Quota Center console](~~108213~~).
+     * @example pippool-2vc0kxcedhquybdsz****
+     *
+     * @var string
+     */
+    public $publicIpAddressPoolId;
+
+    /**
+     * @description The ID of the region to which the EIP belongs.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -198,9 +210,8 @@ class AllocateEipAddressRequest extends Model
     public $regionId;
 
     /**
-     * @description The description of the EIP.
+     * @description The ID of the resource group.
      *
-     * >  This parameter is unavailable when you create a subscription EIP.
      * @example rg-acfmxazffggds****
      *
      * @var string
@@ -225,6 +236,8 @@ class AllocateEipAddressRequest extends Model
     public $securityProtectionTypes;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zone;

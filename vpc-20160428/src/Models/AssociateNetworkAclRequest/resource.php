@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
-     * @description The region ID of the network ACL. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @description The ID of the resource with which you want to associate the network ACL.
      *
      * @example vsw-bp1de348lntdw****
      *
@@ -18,8 +18,9 @@ class resource extends Model
     public $resourceId;
 
     /**
-     * @description The ID of the network ACL.
+     * @description The type of resource with which you want to associate the network ACL. Set the value to **VSwitch**.
      *
+     * Valid values of **N**: **0** to **29**. You can associate a network ACL with up to 30 vSwitches.
      * @example VSwitch
      *
      * @var string

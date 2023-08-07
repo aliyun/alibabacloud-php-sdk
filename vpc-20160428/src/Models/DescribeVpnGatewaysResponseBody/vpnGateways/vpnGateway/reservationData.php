@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class reservationData extends Model
 {
     /**
+     * @description If the order type is **TEMP_UPGRADE** (temporary upgrade), this parameter specifies the time when the temporary upgrade expires.
+     *
+     * If the order type is **RENEWCHANGE** (renewal with an upgrade or a downgrade) or **RENEW** (renewal), this parameter indicates the time when the renewal or renewal with an upgrade or a downgrade takes effect.
      * @example 2021-07-20T16:00:00Z
      *
      * @var string
@@ -16,6 +19,10 @@ class reservationData extends Model
     public $reservationEndTime;
 
     /**
+     * @description The IPsec-VPN status of the order that has not taken effect. Valid values:
+     *
+     * - **enable**: enabled
+     * - **disable**: disabled
      * @example enable
      *
      * @var string
@@ -23,6 +30,8 @@ class reservationData extends Model
     public $reservationIpsec;
 
     /**
+     * @description The maximum number of concurrent SSL-VPN connections of the pending order.
+     *
      * @example 5
      *
      * @var int
@@ -30,6 +39,11 @@ class reservationData extends Model
     public $reservationMaxConnections;
 
     /**
+     * @description The type of the order that has not taken effect. Valid values:
+     *
+     * - **RENEWCHANGE**: renewal with a specification change
+     * - **TEMP_UPGRADE**: temporary upgrade
+     * - **RENEW**: renewal
      * @example TEMP_UPGRADE
      *
      * @var string
@@ -37,6 +51,8 @@ class reservationData extends Model
     public $reservationOrderType;
 
     /**
+     * @description The bandwidth specification of the order that has not taken effect. Unit: Mbit/s.
+     *
      * @example 5
      *
      * @var string
@@ -44,6 +60,10 @@ class reservationData extends Model
     public $reservationSpec;
 
     /**
+     * @description The SSL-VPN status of the order that has not taken effect. Valid values:
+     *
+     * - **enable**: enabled
+     * - **disable**: disabled
      * @example enable
      *
      * @var string
@@ -51,6 +71,10 @@ class reservationData extends Model
     public $reservationSsl;
 
     /**
+     * @description The status of the pending order.
+     *
+     * - **1**: indicates that the order for renewal or the order for renewal with a specification change has not taken effect.
+     * - **2**: indicates that the order for a temporary upgrade has taken effect. After the temporary upgrade expires, the system restores the VPN gateway to its previous specifications. In this case, **ReservationIpsec**, **ReservationMaxConnections**, **ReservationSpec**, and **ReservationSsl** indicate the previous specification.
      * @example 1
      *
      * @var string

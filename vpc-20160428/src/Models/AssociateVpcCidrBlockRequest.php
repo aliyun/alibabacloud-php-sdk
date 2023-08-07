@@ -9,15 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateVpcCidrBlockRequest extends Model
 {
     /**
-     * @description The secondary IPv4 CIDR block. Take note of the following requirements:
-     *
-     *   You can specify one of the following standard IPv4 CIDR blocks or their subnets as the secondary IPv4 CIDR block: 192.168.0.0/16, 172.16.0.0/12, and 10.0.0.0/8.
-     *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the secondary IPv4 CIDR block of the VPC.
-     *
-     * In addition, the following requirements must be met:
-     *
-     *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
-     *   The secondary CIDR block cannot overlap with the primary CIDR block or an existing secondary CIDR block.
+     * @description The IPv6 CIDR block.
      *
      * >  You must set one of the **SecondaryCidrBlock** and **Ipv6CidrBlock** parameters.
      * @example 2408:XXXX:0:6a::/56
@@ -25,6 +17,25 @@ class AssociateVpcCidrBlockRequest extends Model
      * @var string
      */
     public $IPv6CidrBlock;
+
+    /**
+     * @description The IP version. Valid values:
+     *
+     *   **IPV4**: IPv4
+     *   **IPV6**: IPv6. If you set **IpVersion** to **IPV6** and do not set **SecondaryCidrBlock**, you can add IPv6 CIDR blocks to the VPC.
+     *
+     * @example IPV4
+     *
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
+     * @example ipam-pool-sycmt3p2a9v63i****
+     *
+     * @var string
+     */
+    public $ipamPoolId;
 
     /**
      * @description The type of the IPv6 CIDR block. Valid values:
@@ -35,21 +46,6 @@ class AssociateVpcCidrBlockRequest extends Model
      *   **ChinaTelecom**: China Telecom (single line)
      *
      * >  If your Alibaba Cloud account is allowed to use single-ISP bandwidth, valid values are: **ChinaTelecom**, **ChinaUnicom**, and **ChinaMobile**.
-     * @example IPV4
-     *
-     * @var string
-     */
-    public $ipVersion;
-
-    /**
-     * @var string
-     */
-    public $ipamPoolId;
-
-    /**
-     * @description The IPv6 CIDR block.
-     *
-     * >  You must set one of the **SecondaryCidrBlock** and **Ipv6CidrBlock** parameters.
      * @example BGP
      *
      * @var string
@@ -67,13 +63,9 @@ class AssociateVpcCidrBlockRequest extends Model
     public $ownerId;
 
     /**
-     * @description *   The following list describes the limits on the maximum number of secondary CIDR blocks that can be added:
+     * @description The region ID of the VPC to which you want to add a secondary CIDR block.
      *
-     *   You can add up to five secondary IPv4 CIDR blocks to each VPC.
-     *   You can add up to three secondary IPv6 CIDR blocks to each VPC.
-     *
-     *   You cannot repeatedly call the **AssociateVpcCidrBlock** operation to add secondary CIDR blocks to a VPC within the specified period of time.
-     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example ch-hangzhou
      *
      * @var string
@@ -91,8 +83,17 @@ class AssociateVpcCidrBlockRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The secondary IPv4 CIDR block. Take note of the following requirements:
      *
+     *   You can specify one of the following standard IPv4 CIDR blocks or their subnets as the secondary IPv4 CIDR block: 192.168.0.0/16, 172.16.0.0/12, and 10.0.0.0/8.
+     *   You can also use a custom CIDR block other than 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets as the secondary IPv4 CIDR block of the VPC.
+     *
+     * In addition, the following requirements must be met:
+     *
+     *   The CIDR block cannot start with 0. The subnet mask must be 8 to 28 bits in length.
+     *   The secondary CIDR block cannot overlap with the primary CIDR block or an existing secondary CIDR block.
+     *
+     * >  You must set one of the **SecondaryCidrBlock** and **Ipv6CidrBlock** parameters.
      * @example 192.168.0.0/16
      *
      * @var string
@@ -100,9 +101,8 @@ class AssociateVpcCidrBlockRequest extends Model
     public $secondaryCidrBlock;
 
     /**
-     * @description The region ID of the VPC to which you want to add a secondary CIDR block.
+     * @description The ID of the VPC.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example vpc-o6wrloqsdqc9io3mg****
      *
      * @var string

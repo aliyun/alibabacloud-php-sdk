@@ -10,20 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeNetworkAclAttributesResponseBody extends Model
 {
     /**
-     * @description The protocol. Valid values:
-     *
-     *   **icmp**: ICMP
-     *   **gre**: GRE
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **all**: all protocols
+     * @description The details about the network ACL.
      *
      * @var networkAclAttribute
      */
     public $networkAclAttribute;
 
     /**
-     * @description The source CIDR block.
+     * @description The ID of the request.
      *
      * @example F5905F9C-0161-4E72-9CB1-1F3F3CF6268A
      *

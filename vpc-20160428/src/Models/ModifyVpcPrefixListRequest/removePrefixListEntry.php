@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class removePrefixListEntry extends Model
 {
     /**
-     * @description The region ID of the prefix list.
+     * @description The CIDR block that you want to delete from the prefix list.
      *
      * @example 192.168.0.0/16
      *
@@ -18,9 +18,8 @@ class removePrefixListEntry extends Model
     public $cidr;
 
     /**
-     * @description The new description of the prefix list.
+     * @description The description of the CIDR block that you want to delete.
      *
-     * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
      * @example cidr
      *
      * @var string
