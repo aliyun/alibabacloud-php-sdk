@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class opsItems extends Model
 {
     /**
+     * @example Security
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 2023-07-09T10:01Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example oi-d52b08695e2b46ae8413
+     *
      * @var string
      */
     public $opsItemId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $priority;
@@ -34,31 +42,43 @@ class opsItems extends Model
     public $resources;
 
     /**
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example /aliyun/ecs
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Open
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {"k1":"v1"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example 2023-07-09T10:01Z
+     *
      * @var string
      */
     public $updateDate;

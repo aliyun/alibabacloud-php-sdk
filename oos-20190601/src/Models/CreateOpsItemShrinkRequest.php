@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateOpsItemShrinkRequest extends Model
 {
     /**
+     * @example Security
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 123e56767-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ecs_instance_Sys
+     *
      * @var string
      */
     public $dedupString;
 
     /**
+     * @example OpsItem
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +63,8 @@ class CreateOpsItemShrinkRequest extends Model
     public $resources;
 
     /**
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
@@ -59,16 +75,22 @@ class CreateOpsItemShrinkRequest extends Model
     public $solutions;
 
     /**
+     * @example /aliyun/ecs
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example {
+     * }
      * @var string
      */
     public $tagsShrink;
 
     /**
+     * @example ECS reboot is scheduled
+     *
      * @var string
      */
     public $title;

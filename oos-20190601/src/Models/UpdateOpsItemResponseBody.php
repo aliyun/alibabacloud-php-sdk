@@ -15,6 +15,8 @@ class UpdateOpsItemResponseBody extends Model
     public $opsItem;
 
     /**
+     * @example C996DECB-3D2B-5321-B359-BE7031B6399E
+     *
      * @var string
      */
     public $requestId;

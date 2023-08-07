@@ -15,6 +15,8 @@ class GetOpsItemResponseBody extends Model
     public $opsItem;
 
     /**
+     * @example 8BED4C16-BD30-5E27-94D4-7EBCCECF70C1
+     *
      * @var string
      */
     public $requestId;

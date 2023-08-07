@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class UpdateOpsItemRequest extends Model
 {
     /**
+     * @example Security
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example DASKJJLKADS-AHKLJHJSAKL-AJK
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ecs_instance_SystemMaintenance.Reboot
+     *
      * @var string
      */
     public $dedupString;
 
     /**
+     * @example test-update
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example oi-e2264dcf040c472598e9
+     *
      * @var string
      */
     public $opsItemId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example [\"arn:acs:ecs:cn-heyuan:1139354755361920:instance/i-f8z928h7aqotd3o65032\"]
+     *
      * @var string
      */
     public $resources;
 
     /**
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
@@ -64,21 +84,29 @@ class UpdateOpsItemRequest extends Model
     public $solutions;
 
     /**
+     * @example /aliyun/ecs
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Open
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $title;

@@ -15,26 +15,36 @@ class ListOpsItemsRequest extends Model
     public $filter;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $resourceTags;
 
     /**
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;

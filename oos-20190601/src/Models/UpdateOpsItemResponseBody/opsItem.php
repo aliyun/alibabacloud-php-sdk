@@ -14,41 +14,57 @@ class opsItem extends Model
     public $attributes;
 
     /**
+     * @example Security
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example 2023-03-16T07:04Z
+     *
      * @var string
      */
     public $createDate;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $createdBy;
 
     /**
+     * @example test-update
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example root(130900000)
+     *
      * @var string
      */
     public $lastModifiedBy;
 
     /**
+     * @example oi-e2264dcf040c472598e9
+     *
      * @var string
      */
     public $opsItemId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @example rg-acfmxsn4m4******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,6 +75,8 @@ class opsItem extends Model
     public $resources;
 
     /**
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
@@ -69,26 +87,36 @@ class opsItem extends Model
     public $solutions;
 
     /**
+     * @example /aliyun/ecs
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example Open
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example {
+     * }
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @example Test
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example 2023-03-16T08:04Z
+     *
      * @var string
      */
     public $updateDate;

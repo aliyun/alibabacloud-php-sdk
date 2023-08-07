@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetOpsItemRequest extends Model
 {
     /**
+     * @example oi-d52b08695e2b46ae8413
+     *
      * @var string
      */
     public $opsItemId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
