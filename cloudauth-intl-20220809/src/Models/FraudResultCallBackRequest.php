@@ -16,6 +16,11 @@ class FraudResultCallBackRequest extends Model
     public $certifyId;
 
     /**
+     * @var string
+     */
+    public $extParams;
+
+    /**
      * @example PASS
      *
      * @var string
@@ -30,6 +35,7 @@ class FraudResultCallBackRequest extends Model
     public $verifyDeployEnv;
     protected $_name = [
         'certifyId'       => 'CertifyId',
+        'extParams'       => 'ExtParams',
         'resultCode'      => 'ResultCode',
         'verifyDeployEnv' => 'VerifyDeployEnv',
     ];
@@ -43,6 +49,9 @@ class FraudResultCallBackRequest extends Model
         $res = [];
         if (null !== $this->certifyId) {
             $res['CertifyId'] = $this->certifyId;
+        }
+        if (null !== $this->extParams) {
+            $res['ExtParams'] = $this->extParams;
         }
         if (null !== $this->resultCode) {
             $res['ResultCode'] = $this->resultCode;
@@ -64,6 +73,9 @@ class FraudResultCallBackRequest extends Model
         $model = new self();
         if (isset($map['CertifyId'])) {
             $model->certifyId = $map['CertifyId'];
+        }
+        if (isset($map['ExtParams'])) {
+            $model->extParams = $map['ExtParams'];
         }
         if (isset($map['ResultCode'])) {
             $model->resultCode = $map['ResultCode'];

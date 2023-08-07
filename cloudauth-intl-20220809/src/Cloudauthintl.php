@@ -706,6 +706,9 @@ class Cloudauthintl extends OpenApiClient
         if (!Utils::isUnset($request->certifyId)) {
             $query['CertifyId'] = $request->certifyId;
         }
+        if (!Utils::isUnset($request->extParams)) {
+            $query['ExtParams'] = $request->extParams;
+        }
         if (!Utils::isUnset($request->resultCode)) {
             $query['ResultCode'] = $request->resultCode;
         }
