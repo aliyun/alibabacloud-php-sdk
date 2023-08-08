@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBProxyEndpointAddressRequest extends Model
 {
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example rm-t4n3a****
      *
      * @var string
@@ -16,6 +18,15 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The network type of the proxy endpoint. Valid values:
+     *
+     *   **Public**: Internet
+     *   **VPC**: virtual private cloud (VPC)
+     *   **Classic**: classic network
+     *
+     * If the instance runs MySQL, the default value of this parameter is **Classic**.
+     *
+     * > If the instance runs PostgreSQL, you must set this parameter to **Public** or **VPC**.
      * @example Public
      *
      * @var string
@@ -23,6 +34,8 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public $DBProxyConnectStringNetType;
 
     /**
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
+     *
      * @example ta9um4****
      *
      * @var string
@@ -30,6 +43,8 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public $DBProxyEndpointId;
 
     /**
+     * @description A reserved parameter. You do not need to specify this parameter.
+     *
      * @example normal
      *
      * @var string
@@ -37,6 +52,8 @@ class DeleteDBProxyEndpointAddressRequest extends Model
     public $DBProxyEngineType;
 
     /**
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

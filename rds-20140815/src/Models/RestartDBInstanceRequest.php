@@ -27,6 +27,10 @@ class RestartDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The unique ID of the secondary instance. You can call [DescribeDBInstanceHAConfig](~~26244~~) to query the secondary instance ID.
+     *
+     * @example 2614****
+     *
      * @var string
      */
     public $nodeId;

@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class CloneDBInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     *
+     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. In this case, you must manually pay for the instance. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, click **Expenses**. On the page that appears, select **Orders** from the left-side navigation pane. On the Orders page, find the order and complete the payment.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
@@ -39,11 +46,19 @@ class CloneDBInstanceRequest extends Model
     public $backupType;
 
     /**
+     * @description This parameter is not publicly available.
+     *
+     * @example false
+     *
      * @var string
      */
     public $bpeEnabled;
 
     /**
+     * @description This parameter is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;

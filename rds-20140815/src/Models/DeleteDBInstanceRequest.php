@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBInstanceRequest extends Model
 {
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example rm-uf6wjk5****
      *
      * @var string
@@ -26,6 +28,13 @@ class DeleteDBInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The policy that is used to retain archived backup files if the instance is released. Default value: None. Valid values:
+     *
+     *   **None**: No archived backup files are retained.
+     *   **Lastest**: Only the last archived backup file is retained.
+     *   **All**: All archived backup files are retained.
+     *
+     * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * @example Lastest
      *
      * @var string

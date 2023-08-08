@@ -20,11 +20,17 @@ class database extends Model
     public $accounts;
 
     /**
+     * @description The advanced information about the database.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @var advancedInfo
      */
     public $advancedInfo;
 
     /**
+     * @description The basic information of the database.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @var basicInfo
      */
     public $basicInfo;
@@ -41,7 +47,7 @@ class database extends Model
     /**
      * @description The collation of the character set. The example value C stands for localization.
      *
-     * >  This parameter is returned only for instances that run PostgreSQL.
+     * > This parameter is returned only for instances that run PostgreSQL.
      * @example C
      *
      * @var string
@@ -51,7 +57,7 @@ class database extends Model
     /**
      * @description The limit on the number of concurrent requests. The value -1 indicates that the number of concurrent requests is unlimited.
      *
-     * >  This parameter is returned only for instances that run PostgreSQL.
+     * > This parameter is returned only for instances that run PostgreSQL.
      * @example -1
      *
      * @var string
@@ -61,7 +67,7 @@ class database extends Model
     /**
      * @description The type of the character set.
      *
-     * >  This parameter is returned only for instances that run PostgreSQL.
+     * > This parameter is returned only for instances that run PostgreSQL.
      * @example en_US.utf8
      *
      * @var string
@@ -109,7 +115,7 @@ class database extends Model
     public $DBStatus;
 
     /**
-     * @description The database engine of the instance to which the database belongs.
+     * @description The database engine of the instance.
      *
      * @example MySQL
      *
@@ -118,6 +124,8 @@ class database extends Model
     public $engine;
 
     /**
+     * @description A reserved parameter.
+     *
      * @example 1
      *
      * @var int
@@ -125,7 +133,7 @@ class database extends Model
     public $pageNumber;
 
     /**
-     * @description The reserved parameter.
+     * @description A reserved parameter.
      *
      * @example 30
      *
@@ -143,6 +151,9 @@ class database extends Model
     public $resourceGroupId;
 
     /**
+     * @description The running of the database.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @var runtimeInfo
      */
     public $runtimeInfo;
@@ -150,7 +161,7 @@ class database extends Model
     /**
      * @description The tablespace of the database.
      *
-     * >  This parameter is returned only for instances that run PostgreSQL.
+     * > This parameter is returned only for instances that run PostgreSQL.
      * @example pg_default
      *
      * @var string

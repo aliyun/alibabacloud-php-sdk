@@ -4273,10 +4273,22 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
-     * @param RuntimeOptions          $runtime
+     * ### Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### References
+     *   * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
+     *   * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
+     *   * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
+     *   * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~).
+     *   *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstanceWithOptions($request, $runtime)
     {
@@ -4319,9 +4331,21 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBInstanceRequest $request
+     * ### Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB
+     *   * ### References
+     *   * > Note Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     *   * *   [Release an ApsaraDB RDS for MySQL instance](~~96057~~)
+     *   * *   [Release an ApsaraDB RDS for PostgreSQL instance](~~96749~~)
+     *   * *   [Release an ApsaraDB RDS for SQL Server instance](~~95662~~)
+     *   * *   [Release an ApsaraDB RDS for MariaDB instance](~~97128~~).
+     *   *
+     * @param DeleteDBInstanceRequest $request DeleteDBInstanceRequest
      *
-     * @return DeleteDBInstanceResponse
+     * @return DeleteDBInstanceResponse DeleteDBInstanceResponse
      */
     public function deleteDBInstance($request)
     {
@@ -4523,10 +4547,18 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBProxyEndpointAddressRequest $request
-     * @param RuntimeOptions                      $runtime
+     * ### Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
+     *   * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
+     *   *
+     * @param DeleteDBProxyEndpointAddressRequest $request DeleteDBProxyEndpointAddressRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBProxyEndpointAddressResponse
+     * @return DeleteDBProxyEndpointAddressResponse DeleteDBProxyEndpointAddressResponse
      */
     public function deleteDBProxyEndpointAddressWithOptions($request, $runtime)
     {
@@ -4569,9 +4601,17 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBProxyEndpointAddressRequest $request
+     * ### Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * ### References
+     *   * > Before you call this operation, carefully read the following documentation. Make sure that you fully understand the prerequisites and impacts for calling this operation.
+     *   * *   [Configure the dedicated proxy endpoint of an ApsaraDB RDS for MySQL instance](~~184921~~)
+     *   * *   [Configure the dedicated proxy endpoint for an ApsaraDB RDS for PostgreSQL instance](~~418274~~).
+     *   *
+     * @param DeleteDBProxyEndpointAddressRequest $request DeleteDBProxyEndpointAddressRequest
      *
-     * @return DeleteDBProxyEndpointAddressResponse
+     * @return DeleteDBProxyEndpointAddressResponse DeleteDBProxyEndpointAddressResponse
      */
     public function deleteDBProxyEndpointAddress($request)
     {
@@ -8831,7 +8871,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  If the specified request parameters are invalid, no database information is returned.
+     * ### Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -8891,7 +8935,11 @@ class Rds extends OpenApiClient
     }
 
     /**
-     * >  If the specified request parameters are invalid, no database information is returned.
+     * ### Supported database engines
+     *   * *   MySQL
+     *   * *   PostgreSQL
+     *   * *   SQL Server
+     *   * *   MariaDB.
      *   *
      * @param DescribeDatabasesRequest $request DescribeDatabasesRequest
      *

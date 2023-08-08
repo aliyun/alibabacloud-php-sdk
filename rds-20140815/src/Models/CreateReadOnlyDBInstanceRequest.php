@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceRequest extends Model
 {
     /**
+     * @description Specifies whether payment is automatically made during renewal. Valid values:
+     *
+     *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
+     *   **False** (default): disables automatic payment. You have to manually pay the order in the console. Log on to the ApsaraDB RDS console. In the upper-right corner, choose **Expenses > User Center**. In the left-side navigation pane, click **Orders**. On the page that appears, find your order and complete the payment.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
@@ -28,11 +35,19 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
+     * @description This parameter is not publicly available.
+     *
+     * @example false
+     *
      * @var string
      */
     public $bpeEnabled;
 
     /**
+     * @description This parameter is not publicly available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;

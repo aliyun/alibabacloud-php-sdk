@@ -45,6 +45,10 @@ class DeleteDBNodesShrinkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmy****
+     *
      * @var string
      */
     public $resourceGroupId;

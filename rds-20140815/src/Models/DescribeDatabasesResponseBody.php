@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the information about databases.
+     * @description The information about databases.
      *
      * @var databases
      */
