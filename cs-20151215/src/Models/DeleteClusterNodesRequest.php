@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterNodesRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $drainNode;
@@ -19,6 +21,8 @@ class DeleteClusterNodesRequest extends Model
     public $nodes;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $releaseNode;

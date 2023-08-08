@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["xxxxx","xxxxxx"]
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @example CLUSTER
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example [{\"key\":\"env\",\"value\",\"dev\"},{\"key\":\"dev\", \"value\":\"IT\"}]
+     *
      * @var Tag[]
      */
     public $tags;

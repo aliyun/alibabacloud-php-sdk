@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class Addon extends Model
 {
     /**
+     * @example {\"IngressSlbNetworkType\":\"internet\"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disabled;
 
     /**
+     * @example nginx-ingress-controller
+     *
      * @var string
      */
     public $name;

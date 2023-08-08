@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplatesResponseBody extends Model
 {
     /**
+     * @description The pagination details.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The list of the templates returned .
+     *
      * @var templates[]
      */
     public $templates;

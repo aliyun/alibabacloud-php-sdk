@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
+     * @description The time when the node pool was created.
+     *
+     * @example 2020-09-27T19:14:09.156823496+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @description Indicates whether the node pool is a default node pool. An ACK cluster usually has only one default node pool. Valid values:
+     *
+     *   `true`: The node pool is a default node pool.
+     *   `false`: The node pool is not a default node pool.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isDefault;
 
     /**
+     * @description The name of the node pool.
+     *
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
+     * @example default-nodepool
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the node pool.
+     *
+     * @example np615c0e0966124216a0412e10afe0****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @description The ID of the region where the node pool is deployed.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the node pool belongs.
+     *
+     * @example rg-acfmyvw3wjm****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The type of the node pool. Valid values:
+     *
+     *   `edge`: edge node pools.
+     *   `ess`: cloud node pools.
+     *
+     * @example ess
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The time when the node pool was last updated.
+     *
+     * @example 2020-09-27T20:37:46+08:00
+     *
      * @var string
      */
     public $updated;

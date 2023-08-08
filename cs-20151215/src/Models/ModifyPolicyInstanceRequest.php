@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyInstanceRequest extends Model
 {
     /**
+     * @example deny
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example allowed-repos-cbhhb
+     *
      * @var string
      */
     public $instanceName;
@@ -24,6 +28,8 @@ class ModifyPolicyInstanceRequest extends Model
     public $namespaces;
 
     /**
+     * @example "restrictedNamespaces": [ "test" ]
+     *
      * @var mixed[]
      */
     public $parameters;

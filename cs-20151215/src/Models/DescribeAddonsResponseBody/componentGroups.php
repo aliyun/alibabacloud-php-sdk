@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class componentGroups extends Model
 {
     /**
+     * @description The name of the component group.
+     *
+     * @example storage
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The names of the components in the component group.
+     *
      * @var items[]
      */
     public $items;

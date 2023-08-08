@@ -21,6 +21,8 @@ class CreateClusterNodePoolRequest extends Model
     public $autoScaling;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
@@ -31,6 +33,8 @@ class CreateClusterNodePoolRequest extends Model
     public $interconnectConfig;
 
     /**
+     * @example basic
+     *
      * @var string
      */
     public $interconnectMode;
@@ -46,6 +50,8 @@ class CreateClusterNodePoolRequest extends Model
     public $management;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxNodes;

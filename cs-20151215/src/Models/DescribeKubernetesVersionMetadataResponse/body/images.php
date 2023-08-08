@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @example centos_7_7_x64_20G_alibase_20200426.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example CentOS 7.7
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @example CentOS
+     *
      * @var string
      */
     public $platform;
 
     /**
+     * @example 7.7
+     *
      * @var string
      */
     public $osVersion;
 
     /**
+     * @example centos_7_7_20
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @example Linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example system
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @example x86_64
+     *
      * @var string
      */
     public $architecture;

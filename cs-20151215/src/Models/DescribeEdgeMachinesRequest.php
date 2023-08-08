@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachinesRequest extends Model
 {
     /**
+     * @example ack-v-b010-ssdfw****
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @example activated/waitOnline/deleting
+     *
      * @var string
      */
     public $lifeState;
 
     /**
+     * @example ACK-V-B010
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @example offline/online
+     *
      * @var string
      */
     public $onlineState;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

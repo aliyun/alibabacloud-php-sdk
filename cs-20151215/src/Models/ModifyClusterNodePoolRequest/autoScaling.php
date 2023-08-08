@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
+     * @example 5
+     *
      * @var int
      */
     public $eipBandwidth;
 
     /**
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $eipInternetChargeType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isBondEip;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxInstances;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $minInstances;
 
     /**
+     * @example cpu
+     *
      * @var string
      */
     public $type;

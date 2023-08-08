@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example cb95aa626a47740afbf6aa099b650****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 687C5BAA-D103-4993-884B-C35E4314A1E1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-5a54309c80282e39ea00002f
+     *
      * @var string
      */
     public $taskId;

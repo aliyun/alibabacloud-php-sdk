@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyInstancesStatusResponseBody extends Model
 {
     /**
+     * @description Information about the number of policy instances of each severity level.
+     *
+     * @example { "high": 11,     "medium": 1  }
+     *
      * @var mixed[]
      */
     public $instancesSeverityCount;
 
     /**
+     * @description Details about policy instances of different types.
+     *
      * @var policyInstances[]
      */
     public $policyInstances;

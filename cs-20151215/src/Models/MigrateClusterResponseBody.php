@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class MigrateClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c8155823d057948c69a****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-62ccd14aacb8db06ca00****
+     *
      * @var string
      */
     public $taskId;

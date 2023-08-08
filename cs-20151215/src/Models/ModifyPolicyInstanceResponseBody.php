@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyPolicyInstanceResponseBody extends Model
 {
     /**
+     * @description The policy instance that is updated.
+     *
      * @var string[]
      */
     public $instances;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class addons extends Model
 {
     /**
+     * @example ack-node-problem-detector
+     *
      * @var string
      */
     public $name;

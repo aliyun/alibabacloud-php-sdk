@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vulList extends Model
 {
     /**
+     * @example RHSA-2019:3197-Important: sudo security update
+     *
      * @var string
      */
     public $aliasName;
@@ -19,11 +21,15 @@ class vulList extends Model
     public $cveList;
 
     /**
+     * @example oval:com.redhat.rhsa:def:20193197
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example asap
+     *
      * @var string
      */
     public $necessity;

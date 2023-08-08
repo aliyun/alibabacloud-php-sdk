@@ -15,41 +15,57 @@ class CreateClusterRequest extends Model
     public $addons;
 
     /**
+     * @example kubernetes.default.svc
+     *
      * @var string
      */
     public $apiAudiences;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $cisEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
+     * @example cluster.local
+     *
      * @var string
      */
     public $clusterDomain;
 
     /**
+     * @example ack.pro.small
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @example Kubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 172.20.0.0/16
+     *
      * @var string
      */
     public $containerCidr;
@@ -60,61 +76,85 @@ class CreateClusterRequest extends Model
     public $controlplaneLogComponents;
 
     /**
+     * @example k8s-log-xxx
+     *
      * @var string
      */
     public $controlplaneLogProject;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $controlplaneLogTtl;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
+     * @example cs.aliyun.com
+     *
      * @var string
      */
     public $customSan;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $disableRollback;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRrsa;
 
     /**
+     * @example 0fe64791-55eb-4fc7-84c5-c6c7cdca****
+     *
      * @var string
      */
     public $encryptionProviderKey;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $endpointPublicAccess;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $formatDisk;
 
     /**
+     * @example m-bp16z7xko3vvv8gt****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example AliyunLinux
+     *
      * @var string
      */
     public $imageType;
@@ -125,61 +165,85 @@ class CreateClusterRequest extends Model
     public $instances;
 
     /**
+     * @example 可选值：ipv4(单栈)/dual(双栈) ，默认值为IPv4。
+     *
      * @var string
      */
     public $ipStack;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isEnterpriseSecurityGroup;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keepInstanceName;
 
     /**
+     * @example secrity-key
+     *
      * @var string
      */
     public $keyPair;
 
     /**
+     * @example 1.16.9-aliyun.1
+     *
      * @var string
      */
     public $kubernetesVersion;
 
     /**
+     * @example slb.s2.small
+     *
      * @var string
      */
     public $loadBalancerSpec;
 
     /**
+     * @example SLS
+     *
      * @var string
      */
     public $loggingType;
 
     /**
+     * @example Hello@1234
+     *
      * @var string
      */
     public $loginPassword;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $masterAutoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterAutoRenewPeriod;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $masterCount;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $masterInstanceChargeType;
@@ -190,31 +254,43 @@ class CreateClusterRequest extends Model
     public $masterInstanceTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $masterPeriod;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $masterPeriodUnit;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $masterSystemDiskCategory;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $masterSystemDiskPerformanceLevel;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $masterSystemDiskSize;
 
     /**
+     * @example sp-2zej1nogjvovnz4z****
+     *
      * @var string
      */
     public $masterSystemDiskSnapshotPolicyId;
@@ -225,51 +301,71 @@ class CreateClusterRequest extends Model
     public $masterVswitchIds;
 
     /**
+     * @example cluster-demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $natGateway;
 
     /**
+     * @example 25
+     *
      * @var string
      */
     public $nodeCidrMask;
 
     /**
+     * @example aliyun.com00055test
+     *
      * @var string
      */
     public $nodeNameMode;
 
     /**
+     * @example 30000~32767
+     *
      * @var string
      */
     public $nodePortRange;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $numOfNodes;
 
     /**
+     * @example Linux
+     *
      * @var string
      */
     public $osType;
 
     /**
+     * @example FY2023
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example CentOS
+     *
      * @var string
      */
     public $platform;
@@ -280,11 +376,15 @@ class CreateClusterRequest extends Model
     public $podVswitchIds;
 
     /**
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example ipvs
+     *
      * @var string
      */
     public $proxyMode;
@@ -295,11 +395,15 @@ class CreateClusterRequest extends Model
     public $rdsInstances;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfm3mkrure****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -310,16 +414,22 @@ class CreateClusterRequest extends Model
     public $runtime;
 
     /**
+     * @example sg-bp1bdue0qc1g7k****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example kubernetes.default.svc
+     *
      * @var string
      */
     public $serviceAccountIssuer;
 
     /**
+     * @example 172.21.0.0/20
+     *
      * @var string
      */
     public $serviceCidr;
@@ -330,16 +440,22 @@ class CreateClusterRequest extends Model
     public $serviceDiscoveryTypes;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $snatEntry;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $socEnabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $sshFlags;
@@ -355,26 +471,36 @@ class CreateClusterRequest extends Model
     public $taints;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeoutMins;
 
     /**
+     * @example Asia/Shanghai
+     *
      * @var string
      */
     public $timezone;
 
     /**
+     * @example -----BEGIN CERTIFICATE-----****
+     *
      * @var string
      */
     public $userCa;
 
     /**
+     * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFD****
+     *
      * @var string
      */
     public $userData;
 
     /**
+     * @example vpc-2zeik9h3ahvv2zz95****
+     *
      * @var string
      */
     public $vpcid;
@@ -385,11 +511,15 @@ class CreateClusterRequest extends Model
     public $vswitchIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $workerAutoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $workerAutoRenewPeriod;
@@ -400,6 +530,8 @@ class CreateClusterRequest extends Model
     public $workerDataDisks;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $workerInstanceChargeType;
@@ -410,31 +542,43 @@ class CreateClusterRequest extends Model
     public $workerInstanceTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $workerPeriod;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $workerPeriodUnit;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $workerSystemDiskCategory;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $workerSystemDiskPerformanceLevel;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $workerSystemDiskSize;
 
     /**
+     * @example sp-2zej1nogjvovnz4z****
+     *
      * @var string
      */
     public $workerSystemDiskSnapshotPolicyId;
@@ -445,6 +589,8 @@ class CreateClusterRequest extends Model
     public $workerVswitchIds;
 
     /**
+     * @example cn-beiji****
+     *
      * @var string
      */
     public $zoneId;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateRequest extends Model
 {
     /**
+     * @example this is test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example service-account-template
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example apiVersion: v1\nkind: ServiceAccount\nmetadata:\n  name: test-sa
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @example kubernetes
+     *
      * @var string
      */
     public $templateType;

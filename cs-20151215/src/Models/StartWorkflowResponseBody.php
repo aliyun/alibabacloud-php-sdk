@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class StartWorkflowResponseBody extends Model
 {
     /**
+     * @description The name of the workflow that is created.
+     *
+     * @example mapping-gpu-66xv7
+     *
      * @var string
      */
     public $jobName;

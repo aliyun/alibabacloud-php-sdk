@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeExternalAgentRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var string
      */
     public $privateIpAddress;

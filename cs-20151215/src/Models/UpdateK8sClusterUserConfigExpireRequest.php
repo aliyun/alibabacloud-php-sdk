@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateK8sClusterUserConfigExpireRequest extends Model
 {
     /**
+     * @example 720
+     *
      * @var int
      */
     public $expireHour;

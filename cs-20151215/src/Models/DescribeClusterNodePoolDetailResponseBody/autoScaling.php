@@ -9,36 +9,78 @@ use AlibabaCloud\Tea\Model;
 class autoScaling extends Model
 {
     /**
+     * @description The peak bandwidth of the elastic IP address (EIP) that is associated with the node pool.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $eipBandwidth;
 
     /**
+     * @description The billing method of the EIP. Valid values:
+     *
+     *   `PayByBandwidth`: pay-by-bandwidth
+     *   `PayByTraffic`: pay-by-data-transfer
+     *
+     * @example PayByBandwidth
+     *
      * @var string
      */
     public $eipInternetChargeType;
 
     /**
+     * @description Indicates whether auto scaling is enabled. Valid values:
+     *
+     *   `true`: Auto scaling is enabled.
+     *   `false`: Auto scaling is disabled. If this parameter is set to false, other parameters in the `auto_scaling` section do not take effect.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description Indicates whether an EIP is associated with the node pool. Valid values:
+     *
+     *   `true`: An EIP is associated with the node pool.
+     *   `false`: No EIP is associated with the node pool.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isBondEip;
 
     /**
+     * @description The maximum number of Elastic Compute Service (ECS) instances supported by the node pool.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxInstances;
 
     /**
+     * @description The minimum number of ECS instances that must be kept in the node pool.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $minInstances;
 
     /**
+     * @description The instance types that can be used for the auto scaling of the node pool. Valid values:
+     *
+     *   `cpu`: regular instance
+     *   `gpu`: GPU-accelerated instance
+     *   `gpushare`: shared GPU-accelerated instance
+     *   `spot`: preemptible instance
+     *
+     * @example cpu
+     *
      * @var string
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class Runtime extends Model
 {
     /**
+     * @example docker
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 19.03.5
+     *
      * @var string
      */
     public $version;

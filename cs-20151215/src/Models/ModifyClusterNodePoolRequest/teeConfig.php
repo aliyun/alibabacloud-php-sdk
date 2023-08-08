@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class teeConfig extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $teeEnable;

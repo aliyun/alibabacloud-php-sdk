@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deny extends Model
 {
     /**
+     * @example high
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $violations;

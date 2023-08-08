@@ -10,31 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ScaleOutClusterRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $cloudMonitorFlags;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
+     * @example m-bp16z7xko3vvv8gt****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example secrity-key
+     *
      * @var string
      */
     public $keyPair;
 
     /**
+     * @example Hello@1234
+     *
      * @var string
      */
     public $loginPassword;
@@ -60,6 +72,8 @@ class ScaleOutClusterRequest extends Model
     public $taints;
 
     /**
+     * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFD****
+     *
      * @var string
      */
     public $userData;
@@ -70,11 +84,15 @@ class ScaleOutClusterRequest extends Model
     public $vswitchIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $workerAutoRenew;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $workerAutoRenewPeriod;
@@ -85,6 +103,8 @@ class ScaleOutClusterRequest extends Model
     public $workerDataDisks;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $workerInstanceChargeType;
@@ -95,21 +115,29 @@ class ScaleOutClusterRequest extends Model
     public $workerInstanceTypes;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $workerPeriod;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $workerPeriodUnit;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $workerSystemDiskCategory;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $workerSystemDiskSize;

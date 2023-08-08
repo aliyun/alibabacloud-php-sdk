@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EdgeClusterAddEdgeMachineRequest extends Model
 {
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $expired;
 
     /**
+     * @example c26607f52179f4472a0d9723e7595****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @example "{\"enableIptables\":true,\"quiet\":true,\"manageRuntime\":true,\"allowedClusterAddons\":[\"kube-proxy\",\"flannel\",\"coredns\"]}"
+     *
      * @var string
      */
     public $options;

@@ -9,17 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterEventsRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @var int
+     * @example T-xascadasd*****
+     *
+     * @var string
      */
     public $taskId;
     protected $_name = [

@@ -14,16 +14,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the ACK cluster.
+     *
+     * @example c78592bfe92244365b3c3ad47f1de****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The time when the task was created.
+     *
+     * @example 2020-11-10T16:02:04+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example DrainNodes
+     *
      * @var string
      */
     public $currentStage;
@@ -49,6 +59,14 @@ class DescribeTaskInfoResponseBody extends Model
     public $stages;
 
     /**
+     * @description The state of the task. Valid values:
+     *
+     *   `running`: The task is running.
+     *   `fail`: The task failed.
+     *   `success`: The task is complete.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
@@ -59,21 +77,35 @@ class DescribeTaskInfoResponseBody extends Model
     public $target;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-5faa48fb31b6b8078d000006
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The execution result of the task.
+     *
      * @var taskResult[]
      */
     public $taskResult;
 
     /**
+     * @description The task type. A value of `cluster_scaleout` indicates a scale-out task.
+     *
+     * @example cluster_scaleout
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @description The time when the task was updated.
+     *
+     * @example 2020-11-10T16:03:06+08:00
+     *
      * @var string
      */
     public $updated;

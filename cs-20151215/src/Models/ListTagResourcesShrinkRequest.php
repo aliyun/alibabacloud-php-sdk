@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesShrinkRequest extends Model
 {
     /**
+     * @example ***
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ["xxxxx","xxxxxx"]
+     *
      * @var string
      */
     public $resourceIdsShrink;
 
     /**
+     * @example CLUSTER
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example [{\"key\":\"env\",\"value\",\"dev\"},{\"key\":\"dev\", \"value\":\"IT\"}]
+     *
      * @var string
      */
     public $tagsShrink;

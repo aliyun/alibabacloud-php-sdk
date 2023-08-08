@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example 16298168****
+     *
      * @var string
      */
     public $aliUid;
 
     /**
+     * @example c8155823d057948c69a****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example no-env-var-secrets-****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example ACKPSPCapabilities
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example k8s-general
+     *
      * @var string
      */
     public $policyCategory;
 
     /**
+     * @example Restricts secrets used in pod envs
+     *
      * @var string
      */
     public $policyDescription;
 
     /**
+     * @example "restrictedNamespaces": [ "test" ]
+     *
      * @var string
      */
     public $policyParameters;
 
     /**
+     * @example low
+     *
      * @var string
      */
     public $policySeverity;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $policyScope;
 
     /**
+     * @example deny
+     *
      * @var string
      */
     public $policyAction;

@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class taskResult extends Model
 {
     /**
+     * @description The resources that are managed by the task. For a scale-out task, the value of this parameter the ID of the instance that is added by the task.
+     *
+     * @example i-xxx
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The state of the scaling of the resource. Valid values:
+     *
+     *   `success`: The scale-out task is successful.
+     *   `failed`: The scale-out task failed.
+     *   `initail`: The scale-out task is initializing.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;

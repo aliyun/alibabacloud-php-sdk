@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example c259f563386444ebb8d7****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example default/test-app
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example deployment
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example redeploy
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example eyJhbGci***
+     *
      * @var string
      */
     public $token;

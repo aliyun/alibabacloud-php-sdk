@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class target extends Model
 {
     /**
+     * @example c78592bfe92244365b3c3ad47f1de****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $type;

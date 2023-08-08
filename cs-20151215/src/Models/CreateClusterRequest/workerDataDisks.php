@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class workerDataDisks extends Model
 {
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $encrypted;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example 120
+     *
      * @var string
      */
     public $size;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class Taint extends Model
 {
     /**
+     * @example NoSchedule
+     *
      * @var string
      */
     public $effect;
 
     /**
+     * @example key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example value
+     *
      * @var string
      */
     public $value;

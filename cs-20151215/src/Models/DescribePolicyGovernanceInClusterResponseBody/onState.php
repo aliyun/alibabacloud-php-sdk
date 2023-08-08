@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class onState extends Model
 {
     /**
+     * @description The number of policies that are enabled.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $enabledCount;
 
     /**
+     * @description The severity level of the policy.
+     *
+     * @example high
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The total number of policies of the severity level.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $total;

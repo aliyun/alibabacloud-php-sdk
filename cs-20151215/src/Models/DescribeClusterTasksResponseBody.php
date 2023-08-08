@@ -16,6 +16,8 @@ class DescribeClusterTasksResponseBody extends Model
     public $pageInfo;
 
     /**
+     * @example 0527ac9a-c899-4341-a21a-xxxxxxxxx
+     *
      * @var string
      */
     public $requestId;

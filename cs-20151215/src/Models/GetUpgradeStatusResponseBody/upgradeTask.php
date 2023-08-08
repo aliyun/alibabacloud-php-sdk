@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class upgradeTask extends Model
 {
     /**
+     * @description The description of the update task.
+     *
+     * @example subject to actual return
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The status of the update task. Valid values:
+     *
+     *   `running`: The update task is being executed.
+     *   `Success`: The update task is successfully executed.
+     *   `Failed`: The update task failed.
+     *
+     * @example running
+     *
      * @var string
      */
     public $status;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerResponseBody extends Model
 {
     /**
+     * @description The action that the trigger performs. For example, a value of `redeploy` indicates that the trigger redeploys the application.
+     *
+     * @example redeploy
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c93095129fc41463aa455d89444fd****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the trigger.
+     *
+     * @example 102536
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the project.
+     *
+     * @example default/test-app
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The type of trigger. Default value: deployment.
+     *
+     * @example deployment
+     *
      * @var string
      */
     public $type;

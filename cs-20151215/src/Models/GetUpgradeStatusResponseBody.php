@@ -10,26 +10,55 @@ use AlibabaCloud\Tea\Model;
 class GetUpgradeStatusResponseBody extends Model
 {
     /**
+     * @description The error message returned during the update.
+     *
+     * @example subject to actual return
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the precheck report.
+     *
+     * @example be4c8eb72de94d459ea7ace7c811d119
+     *
      * @var string
      */
     public $precheckReportId;
 
     /**
+     * @description The status of the update. Valid values:
+     *
+     *   `success`: The update is successful.
+     *   `fail`: The update failed.
+     *   `pause`: The update is paused.
+     *   `running`: The update is in progress.
+     *
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The current phase of the update. Valid values:
+     *
+     *   `not_start`: The update is not started.
+     *   `prechecking`: The precheck is in progress.
+     *   `upgrading`: The update is in progress.
+     *   `pause`: The update is paused.
+     *   `success`: The update is successful.
+     *
+     * @example prechecking
+     *
      * @var string
      */
     public $upgradeStep;
 
     /**
+     * @description The details of the update task.
+     *
      * @var upgradeTask
      */
     public $upgradeTask;

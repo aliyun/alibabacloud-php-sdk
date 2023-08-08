@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenAckServiceRequest extends Model
 {
     /**
+     * @example propayasgo
+     *
      * @var string
      */
     public $type;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateTemplateRequest extends Model
 {
     /**
+     * @example web server cluster
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example webserver01
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example web
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example apiVersion: apps/v1\\nkind: Deployment\\nmetadata:\\n  name: nginx-deployment-basic\\n  labels:\\n    app: nginx\\nspec:\\n  replicas: 2\\n  selector:\\n    matchLabels:\\n      app: nginx\\n  template:\\n    metadata:\\n      labels:\\n        app: nginx\\n    spec:\\n      containers:\\n      - name: nginx\\n        image: busybox:latest\\n        ports:\\n        - containerPort: 8080
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @example kubernetes
+     *
      * @var string
      */
     public $templateType;

@@ -31,21 +31,39 @@ class body extends Model
     public $runtimes;
 
     /**
+     * @example 1.16.9-aliyun.1
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example 2023-04-30T00:00:00Z
+     *
      * @var string
      */
-    public $multiAz;
+    public $releaseDate;
+
+    /**
+     * @example 2025-04-30T00:00:00Z
+     *
+     * @var string
+     */
+    public $expirationDate;
+
+    /**
+     * @var bool
+     */
+    public $creatable;
     protected $_name = [
-        'capabilities' => 'capabilities',
-        'images'       => 'images',
-        'metaData'     => 'meta_data',
-        'runtimes'     => 'runtimes',
-        'version'      => 'version',
-        'multiAz'      => 'multi_az',
+        'capabilities'   => 'capabilities',
+        'images'         => 'images',
+        'metaData'       => 'meta_data',
+        'runtimes'       => 'runtimes',
+        'version'        => 'version',
+        'releaseDate'    => 'release_date',
+        'expirationDate' => 'expiration_date',
+        'creatable'      => 'creatable',
     ];
 
     public function validate()
@@ -82,8 +100,14 @@ class body extends Model
         if (null !== $this->version) {
             $res['version'] = $this->version;
         }
-        if (null !== $this->multiAz) {
-            $res['multi_az'] = $this->multiAz;
+        if (null !== $this->releaseDate) {
+            $res['release_date'] = $this->releaseDate;
+        }
+        if (null !== $this->expirationDate) {
+            $res['expiration_date'] = $this->expirationDate;
+        }
+        if (null !== $this->creatable) {
+            $res['creatable'] = $this->creatable;
         }
 
         return $res;
@@ -124,8 +148,14 @@ class body extends Model
         if (isset($map['version'])) {
             $model->version = $map['version'];
         }
-        if (isset($map['multi_az'])) {
-            $model->multiAz = $map['multi_az'];
+        if (isset($map['release_date'])) {
+            $model->releaseDate = $map['release_date'];
+        }
+        if (isset($map['expiration_date'])) {
+            $model->expirationDate = $map['expiration_date'];
+        }
+        if (isset($map['creatable'])) {
+            $model->creatable = $map['creatable'];
         }
 
         return $model;

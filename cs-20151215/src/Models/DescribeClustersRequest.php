@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersRequest extends Model
 {
     /**
+     * @description The cluster type.
+     *
+     * @example ManagedKubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The cluster name based on which the system performs fuzzy searches among the clusters that belong to the current Alibaba Cloud account.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;

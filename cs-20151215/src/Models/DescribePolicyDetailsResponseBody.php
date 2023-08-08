@@ -9,41 +9,84 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyDetailsResponseBody extends Model
 {
     /**
+     * @description The action of the policy. Valid values:
+     *
+     *   `enforce`: blocks deployments that match the policy.
+     *   `inform`: generates alerts for deployments that match the policy.
+     *
+     * @example enforce
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The type of the policy.
+     *
+     * @example k8s-general
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The description of the policy.
+     *
+     * @example Requires container images to begin with a repo string from a specified list
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the policy is deleted. Valid values:
+     *
+     *   0: The policy is not deleted.
+     *   1: The policy is deleted.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $isDeleted;
 
     /**
+     * @description The name of the policy that is returned.
+     *
+     * @example ACKAllowedRepos
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether parameters are required. Valid values:
+     *
+     *   0: Parameters are required.
+     *   1: Parameters are optional.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $noConfig;
 
     /**
+     * @description The severity level of the policy. Valid values:
+     *
+     *   `high`
+     *   `medium`
+     *   `low`
+     *
+     * @example high
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The content of the policy.
+     *
      * @var string
      */
     public $template;

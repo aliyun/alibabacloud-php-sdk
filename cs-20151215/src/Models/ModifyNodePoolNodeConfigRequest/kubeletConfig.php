@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class kubeletConfig extends Model
 {
     /**
+     * @example none
+     *
      * @var string
      */
     public $cpuManagerPolicy;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $eventBurst;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $eventRecordQPS;
@@ -39,11 +45,15 @@ class kubeletConfig extends Model
     public $evictionSoftGracePeriod;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $kubeAPIBurst;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $kubeAPIQPS;
@@ -54,16 +64,22 @@ class kubeletConfig extends Model
     public $kubeReserved;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $registryBurst;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $registryPullQPS;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $serializeImagePulls;

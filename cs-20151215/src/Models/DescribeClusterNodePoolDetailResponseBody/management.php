@@ -10,16 +10,32 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
+     * @description Indicates whether enable auto repair is enabled. This parameter takes effect only when `enable=true` is specified.
+     *
+     *   `true`: Auto repair is enabled.
+     *   `false`: Auto repair is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoRepair;
 
     /**
+     * @description Indicates whether to enable the managed node pool feature is enabled. Valid values:
+     *
+     *   `true`: The managed node pool feature is enabled.
+     *   `false`: The managed node pool feature is disabled. Other parameters in this section take effect only when `enable=true` is specified.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The configurations of auto upgrade. The configurations take effect only when `enable=true` is specified.
+     *
      * @var upgradeConfig
      */
     public $upgradeConfig;

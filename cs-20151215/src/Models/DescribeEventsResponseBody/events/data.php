@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The level of the event.
+     *
+     * @example info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @description The details of the event.
+     *
+     * @example Start to upgrade NodePool nodePool/nodePool-A
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The state of the event.
+     *
+     * @example Started
+     *
      * @var string
      */
     public $reason;

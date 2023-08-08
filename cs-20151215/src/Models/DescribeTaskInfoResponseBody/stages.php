@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class stages extends Model
 {
     /**
+     * @example 2022-12-15 23:00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example success to xxxxx
+     *
      * @var string
      */
     public $message;
@@ -24,11 +28,15 @@ class stages extends Model
     public $outputs;
 
     /**
+     * @example 2022-12-15 23:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $state;

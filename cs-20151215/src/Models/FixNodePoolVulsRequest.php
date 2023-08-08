@@ -22,11 +22,11 @@ class FixNodePoolVulsRequest extends Model
     /**
      * @var string[]
      */
-    public $vulList;
+    public $vuls;
     protected $_name = [
         'nodes'         => 'nodes',
         'rolloutPolicy' => 'rollout_policy',
-        'vulList'       => 'vul_list',
+        'vuls'          => 'vuls',
     ];
 
     public function validate()
@@ -42,8 +42,8 @@ class FixNodePoolVulsRequest extends Model
         if (null !== $this->rolloutPolicy) {
             $res['rollout_policy'] = null !== $this->rolloutPolicy ? $this->rolloutPolicy->toMap() : null;
         }
-        if (null !== $this->vulList) {
-            $res['vul_list'] = $this->vulList;
+        if (null !== $this->vuls) {
+            $res['vuls'] = $this->vuls;
         }
 
         return $res;
@@ -65,9 +65,9 @@ class FixNodePoolVulsRequest extends Model
         if (isset($map['rollout_policy'])) {
             $model->rolloutPolicy = rolloutPolicy::fromMap($map['rollout_policy']);
         }
-        if (isset($map['vul_list'])) {
-            if (!empty($map['vul_list'])) {
-                $model->vulList = $map['vul_list'];
+        if (isset($map['vuls'])) {
+            if (!empty($map['vuls'])) {
+                $model->vuls = $map['vuls'];
             }
         }
 

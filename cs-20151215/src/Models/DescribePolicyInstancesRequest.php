@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePolicyInstancesRequest extends Model
 {
     /**
+     * @example allowed-repos-cz4s2
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example ACKPSPCapabilities
+     *
      * @var string
      */
     public $policyName;

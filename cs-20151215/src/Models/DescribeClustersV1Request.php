@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeClustersV1Request extends Model
 {
     /**
+     * @example ack.pro.small
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @example Kubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example cluster-demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

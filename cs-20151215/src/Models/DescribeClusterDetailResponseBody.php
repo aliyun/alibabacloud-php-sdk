@@ -9,146 +9,305 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterDetailResponseBody extends Model
 {
     /**
+     * @description The ID of the queried ACK cluster.
+     *
+     * @example c82e6987e2961451182edacd74faf****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The type of the managed Kubernetes cluster. This parameter is returned for a managed Kubernetes cluster. Valid values:
+     *
+     *   `ack.pro.small`: professional managed Kubernetes cluster.
+     *   `ack.standard`: standard managed Kubernetes cluster.
+     *
+     * @example ack.pro.small
+     *
      * @var string
      */
     public $clusterSpec;
 
     /**
+     * @description The type of the cluster. Valid values:
+     *
+     *   `Kubernetes`: dedicated Kubernetes cluster
+     *   `ManagedKubernetes`: managed Kubernetes cluster
+     *   `Ask`: ASK cluster
+     *   `ExternalKubernetes`: registered external Kubernetes cluster
+     *
+     * @example Kubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description The time when the cluster was created.
+     *
+     * @example 2019-11-25T15:50:20+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @description The current Kubernetes version of the cluster. For more information about the Kubernetes versions supported by ACK, see [Release notes for Kubernetes versions](~~185269~~).
+     *
+     * @example 1.16.6-aliyun.1
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @description Indicates whether deletion protection is enabled. If deletion protection is enabled, the cluster cannot be deleted in the ACK console or by calling the API. Valid values:
+     *
+     *   `true`: Deletion protection is enabled. You cannot delete the cluster in the ACK console or by calling the API.
+     *   `false`: Deletion protection is not enabled. You can delete the cluster in the ACK console or by calling the API.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @description The Docker version that is used by the cluster.
+     *
+     * @example 19.03.5
+     *
      * @var string
      */
     public $dockerVersion;
 
     /**
+     * @description The ID of the Server Load Balancer (SLB) instance that is used for the Ingress of the cluster.
+     *
+     * @example lb-2ze3buguz3gx9920z****
+     *
      * @var string
      */
     public $externalLoadbalancerId;
 
     /**
+     * @description The Kubernetes version that is initially used by the cluster.
+     *
+     * @example 1.16.6-aliyun.1
+     *
      * @var string
      */
     public $initVersion;
 
     /**
+     * @description The maintenance window of the cluster. This feature is available in only professional managed Kubernetes clusters.
+     *
      * @var MaintenanceWindow
      */
     public $maintenanceWindow;
 
     /**
+     * @description The address of the cluster. It includes an internal endpoint and a public endpoint.
+     *
+     * @example {\"intranet_api_server_endpoint\":\"https://192.168.0.251:6443\"***}
+     *
      * @var string
      */
     public $masterUrl;
 
     /**
+     * @description The metadata of the cluster.
+     *
+     * @example \"Addons\":***
+     *
      * @var string
      */
     public $metaData;
 
     /**
+     * @description The name of the cluster.
+     *
+     * The name must be 1 to 63 characters in length, and can contain digits, letters, and hyphens (-). It cannot start with a hyphen (-).
+     * @example cluster-demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The network mode of the cluster. Valid values:
+     *
+     *   `classic`: the classic network
+     *   `vpc`: virtual private cloud (VPC)
+     *   `overlay`: overlay network
+     *   `calico`: network powered by Calico
+     *
+     * Default value`: vpc`.
+     * @example vpc
+     *
      * @var string
      */
     public $networkMode;
 
     /**
+     * @description The Kubernetes version to which the cluster can be upgraded.
+     *
+     * @example 1.18.8-aliyun.1
+     *
      * @var string
      */
     public $nextVersion;
 
     /**
+     * @var string[]
+     */
+    public $parameters;
+
+    /**
+     * @description Indicates whether Alibaba Cloud DNS PrivateZone is enabled.
+     *
+     *   `true`: indicates that Alibaba Cloud DNS PrivateZone is enabled.
+     *   `false`: indicates that Alibaba Cloud DNS PrivateZone is not enabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $privateZone;
 
     /**
+     * @description Indicates the scenario in which the cluster is used. Valid values:
+     *
+     *   `Default`: indicates that the cluster is used in non-edge computing scenarios.
+     *   `Edge`: indicates that the ACK cluster is used in edge computing scenarios.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @description The ID of the region where the cluster is deployed.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the cluster belongs.
+     *
+     * @example rg-acfmyvw3wjm****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the security group to which the instances of the cluster belong.
+     *
+     * @example sg-25yq****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The number of nodes in the cluster. Master nodes and worker nodes are included.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The state of the cluster. Valid values:
+     *
+     *   `initial`: The cluster is being created.
+     *   `failed`: The cluster failed to be created.
+     *   `running`: The cluster is running.
+     *   `updating`: The cluster is being upgraded.
+     *   `updating_failed`: The cluster failed to be upgraded.
+     *   `scaling`: The cluster is being scaled.
+     *   `waiting`: The registered cluster is waiting for connecting.
+     *   `disconnected`: The registeredcluster is disconnected.
+     *   `stopped`: The cluster is stopped.
+     *   `deleting`: The cluster is being deleted.
+     *   `deleted`: The cluster is deleted.
+     *   `delete_failed`: The cluster failed to be deleted.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The pod CIDR block. It must be a valid and private CIDR block, and must be one of the following CIDR blocks or their subnets:
+     *
+     *   10.0.0.0/8
+     *   172.16-31.0.0/12-16
+     *   192.168.0.0/16
+     *
+     * For more information about the network segmentation of ACK clusters, see [Plan CIDR blocks for ACK clusters in a VPC](~~186964~~).
+     * @example 172.20.0.0/16
+     *
      * @var string
      */
     public $subnetCidr;
 
     /**
+     * @description The labels of the cluster.
+     *
      * @var Tag[]
      */
     public $tags;
 
     /**
+     * @description The time when the cluster was updated.
+     *
+     * @example 2020-01-13T23:01:03+08:00
+     *
      * @var string
      */
     public $updated;
 
     /**
+     * @description The ID of the VPC where the cluster is deployed. This parameter is required when you create an ACK cluster.
+     *
+     * @example vpc-2zecuu62b9zw7a7qn****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The IDs of the vSwitches. You can select one to three vSwitches when you create an ACK cluster. vSwitches in different zones are recommended to ensure high availability.
+     *
+     * @example vsw-2zete8s4qocqg0mf6****,vsw-2zete8s4qocqg0mf6****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @description The name of the worker RAM role. The RAM role is assigned to the worker nodes of the cluster and allows the worker nodes to manage Elastic Compute Service (ECS) instances.
+     *
+     * @example KubernetesWorkerRole-ec87d15b-edca-4302-933f-c8a16bf0****
+     *
      * @var string
      */
     public $workerRamRoleName;
 
     /**
+     * @description The ID of the zone where the cluster is deployed.
+     *
+     * @example cn-beijing-a
+     *
      * @var string
      */
     public $zoneId;
@@ -168,6 +327,7 @@ class DescribeClusterDetailResponseBody extends Model
         'name'                   => 'name',
         'networkMode'            => 'network_mode',
         'nextVersion'            => 'next_version',
+        'parameters'             => 'parameters',
         'privateZone'            => 'private_zone',
         'profile'                => 'profile',
         'regionId'               => 'region_id',
@@ -235,6 +395,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
+        }
+        if (null !== $this->parameters) {
+            $res['parameters'] = $this->parameters;
         }
         if (null !== $this->privateZone) {
             $res['private_zone'] = $this->privateZone;
@@ -340,6 +503,9 @@ class DescribeClusterDetailResponseBody extends Model
         }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
+        }
+        if (isset($map['parameters'])) {
+            $model->parameters = $map['parameters'];
         }
         if (isset($map['private_zone'])) {
             $model->privateZone = $map['private_zone'];

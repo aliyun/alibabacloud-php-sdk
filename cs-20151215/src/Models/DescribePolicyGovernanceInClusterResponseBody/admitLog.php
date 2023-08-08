@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class admitLog extends Model
 {
     /**
+     * @description The number of audit log entries.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The audit log content.
+     *
      * @var log
      */
     public $log;
 
     /**
+     * @description The status of the query. Valid values:
+     *
+     *   `Complete`: The query succeeded and the complete query result is returned.
+     *   `Incomplete`: The query succeeded but the query result is incomplete. To obtain the complete query result, you must repeat the request.
+     *
+     * @example Complete
+     *
      * @var string
      */
     public $progress;

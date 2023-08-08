@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The code that indicates the task result.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example i-2ze0lgm3y6iylcbt****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the ECS instances are successfully added to the ACK cluster.
+     *
+     * @example successful
+     *
      * @var string
      */
     public $message;

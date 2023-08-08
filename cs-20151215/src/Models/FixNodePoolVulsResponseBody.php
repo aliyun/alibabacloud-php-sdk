@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FixNodePoolVulsResponseBody extends Model
 {
     /**
+     * @example T-60fea8ad2e277f087900****
+     *
      * @var string
      */
     public $taskId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeployPolicyInstanceResponseBody extends Model
 {
     /**
+     * @description The policy instances that are deployed.
+     *
      * @var string[]
      */
     public $instances;

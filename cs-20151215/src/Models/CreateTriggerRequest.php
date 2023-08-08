@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerRequest extends Model
 {
     /**
+     * @example redeploy
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example c5cdf7e3938bc4f8eb0e44b21a80f****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example default/test-app
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @example deployment
+     *
      * @var string
      */
     public $type;

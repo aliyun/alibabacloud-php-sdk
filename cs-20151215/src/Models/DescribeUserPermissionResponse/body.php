@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example c1b542****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example view
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @example admin
+     *
      * @var string
      */
     public $roleType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isOwner;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isRamRole;

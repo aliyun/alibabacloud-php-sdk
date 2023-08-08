@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rollingPolicy extends Model
 {
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxParallelism;

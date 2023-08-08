@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesResponseBody extends Model
 {
     /**
+     * @description The details of the added nodes.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-5a544aff80282e39ea000039
+     *
      * @var string
      */
     public $taskId;

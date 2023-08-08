@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class interconnectConfig extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @example ccn-qm5i0i0q9yi*******
+     *
      * @var string
      */
     public $ccnId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $ccnRegionId;
 
     /**
+     * @example cen-ey9k9nfhz0f*******
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $improvedPeriod;

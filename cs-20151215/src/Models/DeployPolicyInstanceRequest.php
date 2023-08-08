@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeployPolicyInstanceRequest extends Model
 {
     /**
+     * @example deny
+     *
      * @var string
      */
     public $action;
@@ -19,6 +21,8 @@ class DeployPolicyInstanceRequest extends Model
     public $namespaces;
 
     /**
+     * @example {"restrictedNamespaces": [ "test" ]}
+     *
      * @var mixed[]
      */
     public $parameters;

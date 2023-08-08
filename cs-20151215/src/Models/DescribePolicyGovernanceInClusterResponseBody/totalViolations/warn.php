@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
+     * @example low
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $violations;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterNodePoolResponseBody extends Model
 {
     /**
+     * @description The ID of the node pool that is created.
+     *
+     * @example np31da1b38983f4511b490fc62108a****
+     *
      * @var string
      */
     public $nodepoolId;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RepairClusterNodePoolResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example db82195b-75a8-40e5-9be4-16f1829dc624
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-613b19bbd160ad4928000001
+     *
      * @var string
      */
     public $taskId;

@@ -8,11 +8,14 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesToNodePoolRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\AttachInstancesToNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelClusterUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelComponentUpgradeResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelTaskResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CancelWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\CheckControlPlaneLogEnableResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateAutoscalingConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
@@ -48,6 +51,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DeployPolicyInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescirbeWorkflowResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeAddonsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonInstanceResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonMetadataResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterAddonsUpgradeStatusResponse;
@@ -74,6 +78,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterUserKubeconfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterV2UserKubeconfigResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeClusterVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineActiveProcessResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachineModelsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeEdgeMachinesRequest;
@@ -85,6 +90,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeExternalAgentResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeKubernetesVersionMetadataResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeNodePoolVulsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeNodePoolVulsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePoliciesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyDetailsResponse;
@@ -92,6 +98,8 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyGovernanceInClusterRespon
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribePolicyInstancesStatusResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeSubaccountK8sClusterUserConfigRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeSubaccountK8sClusterUserConfigResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTaskInfoResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplateAttributeResponse;
@@ -99,6 +107,7 @@ use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTemplatesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeTriggerResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserClusterNamespacesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserPermissionResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeUserQuotaResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\DescribeWorkflowsResponse;
@@ -154,15 +163,22 @@ use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleClusterResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\ScaleOutClusterResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\ScanClusterVulsResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StartAlertResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\StartWorkflowResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\StopAlertResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\SyncClusterNodePoolResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UnInstallClusterAddonsResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UntagResourcesShrinkRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateContactGroupForAlertResponse;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogRequest;
+use AlibabaCloud\SDK\CS\V20151215\Models\UpdateControlPlaneLogResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireRequest;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateK8sClusterUserConfigExpireResponse;
 use AlibabaCloud\SDK\CS\V20151215\Models\UpdateTemplateRequest;
@@ -248,20 +264,6 @@ class CS extends OpenApiClient
     /**
      * @param string                 $ClusterId
      * @param AttachInstancesRequest $request
-     *
-     * @return AttachInstancesResponse
-     */
-    public function attachInstances($ClusterId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->attachInstancesWithOptions($ClusterId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                 $ClusterId
-     * @param AttachInstancesRequest $request
      * @param string[]               $headers
      * @param RuntimeOptions         $runtime
      *
@@ -330,16 +332,76 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                 $ClusterId
+     * @param AttachInstancesRequest $request
      *
-     * @return CancelClusterUpgradeResponse
+     * @return AttachInstancesResponse
      */
-    public function cancelClusterUpgrade($ClusterId)
+    public function attachInstances($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
+        return $this->attachInstancesWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                           $ClusterId
+     * @param string                           $NodepoolId
+     * @param AttachInstancesToNodePoolRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return AttachInstancesToNodePoolResponse
+     */
+    public function attachInstancesToNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->formatDisk)) {
+            $body['format_disk'] = $request->formatDisk;
+        }
+        if (!Utils::isUnset($request->instances)) {
+            $body['instances'] = $request->instances;
+        }
+        if (!Utils::isUnset($request->keepInstanceName)) {
+            $body['keep_instance_name'] = $request->keepInstanceName;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachInstancesToNodePool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/nodepools/' . OpenApiUtilClient::getEncodeParam($NodepoolId) . '/attach',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachInstancesToNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $ClusterId
+     * @param string                           $NodepoolId
+     * @param AttachInstancesToNodePoolRequest $request
+     *
+     * @return AttachInstancesToNodePoolResponse
+     */
+    public function attachInstancesToNodePool($ClusterId, $NodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->attachInstancesToNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -370,17 +432,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
-     * @param string $componentId
+     * @param string $ClusterId
      *
-     * @return CancelComponentUpgradeResponse
+     * @return CancelClusterUpgradeResponse
      */
-    public function cancelComponentUpgrade($clusterId, $componentId)
+    public function cancelClusterUpgrade($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime);
+        return $this->cancelClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -412,16 +473,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $taskId
+     * @param string $clusterId
+     * @param string $componentId
      *
-     * @return CancelTaskResponse
+     * @return CancelComponentUpgradeResponse
      */
-    public function cancelTask($taskId)
+    public function cancelComponentUpgrade($clusterId, $componentId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelTaskWithOptions($taskId, $headers, $runtime);
+        return $this->cancelComponentUpgradeWithOptions($clusterId, $componentId, $headers, $runtime);
     }
 
     /**
@@ -452,17 +514,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                $workflowName
-     * @param CancelWorkflowRequest $request
+     * @param string $taskId
      *
-     * @return CancelWorkflowResponse
+     * @return CancelTaskResponse
      */
-    public function cancelWorkflow($workflowName, $request)
+    public function cancelTask($taskId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime);
+        return $this->cancelTaskWithOptions($taskId, $headers, $runtime);
     }
 
     /**
@@ -500,17 +561,57 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                         $ClusterId
-     * @param CreateAutoscalingConfigRequest $request
+     * @param string                $workflowName
+     * @param CancelWorkflowRequest $request
      *
-     * @return CreateAutoscalingConfigResponse
+     * @return CancelWorkflowResponse
      */
-    public function createAutoscalingConfig($ClusterId, $request)
+    public function cancelWorkflow($workflowName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->cancelWorkflowWithOptions($workflowName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return CheckControlPlaneLogEnableResponse
+     */
+    public function checkControlPlaneLogEnableWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'CheckControlPlaneLogEnable',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/controlplanelog',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckControlPlaneLogEnableResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return CheckControlPlaneLogEnableResponse
+     */
+    public function checkControlPlaneLogEnable($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->checkControlPlaneLogEnableWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -528,17 +629,38 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->coolDownDuration)) {
             $body['cool_down_duration'] = $request->coolDownDuration;
         }
+        if (!Utils::isUnset($request->daemonsetEvictionForNodes)) {
+            $body['daemonset_eviction_for_nodes'] = $request->daemonsetEvictionForNodes;
+        }
         if (!Utils::isUnset($request->expander)) {
             $body['expander'] = $request->expander;
         }
         if (!Utils::isUnset($request->gpuUtilizationThreshold)) {
             $body['gpu_utilization_threshold'] = $request->gpuUtilizationThreshold;
         }
+        if (!Utils::isUnset($request->maxGracefulTerminationSec)) {
+            $body['max_graceful_termination_sec'] = $request->maxGracefulTerminationSec;
+        }
+        if (!Utils::isUnset($request->minReplicaCount)) {
+            $body['min_replica_count'] = $request->minReplicaCount;
+        }
+        if (!Utils::isUnset($request->recycleNodeDeletionEnabled)) {
+            $body['recycle_node_deletion_enabled'] = $request->recycleNodeDeletionEnabled;
+        }
         if (!Utils::isUnset($request->scaleDownEnabled)) {
             $body['scale_down_enabled'] = $request->scaleDownEnabled;
         }
+        if (!Utils::isUnset($request->scaleUpFromZero)) {
+            $body['scale_up_from_zero'] = $request->scaleUpFromZero;
+        }
         if (!Utils::isUnset($request->scanInterval)) {
             $body['scan_interval'] = $request->scanInterval;
+        }
+        if (!Utils::isUnset($request->skipNodesWithLocalStorage)) {
+            $body['skip_nodes_with_local_storage'] = $request->skipNodesWithLocalStorage;
+        }
+        if (!Utils::isUnset($request->skipNodesWithSystemPods)) {
+            $body['skip_nodes_with_system_pods'] = $request->skipNodesWithSystemPods;
         }
         if (!Utils::isUnset($request->unneededDuration)) {
             $body['unneeded_duration'] = $request->unneededDuration;
@@ -566,16 +688,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateClusterRequest $request
+     * @param string                         $ClusterId
+     * @param CreateAutoscalingConfigRequest $request
      *
-     * @return CreateClusterResponse
+     * @return CreateAutoscalingConfigResponse
      */
-    public function createCluster($request)
+    public function createAutoscalingConfig($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createClusterWithOptions($request, $headers, $runtime);
+        return $this->createAutoscalingConfigWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -873,17 +996,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param CreateClusterNodePoolRequest $request
+     * @param CreateClusterRequest $request
      *
-     * @return CreateClusterNodePoolResponse
+     * @return CreateClusterResponse
      */
-    public function createClusterNodePool($ClusterId, $request)
+    public function createCluster($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createClusterNodePoolWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->createClusterWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -948,16 +1070,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateEdgeMachineRequest $request
+     * @param string                       $ClusterId
+     * @param CreateClusterNodePoolRequest $request
      *
-     * @return CreateEdgeMachineResponse
+     * @return CreateClusterNodePoolResponse
      */
-    public function createEdgeMachine($request)
+    public function createClusterNodePool($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createEdgeMachineWithOptions($request, $headers, $runtime);
+        return $this->createClusterNodePoolWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -1000,16 +1123,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateKubernetesTriggerRequest $request
+     * @param CreateEdgeMachineRequest $request
      *
-     * @return CreateKubernetesTriggerResponse
+     * @return CreateEdgeMachineResponse
      */
-    public function createKubernetesTrigger($request)
+    public function createEdgeMachine($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createKubernetesTriggerWithOptions($request, $headers, $runtime);
+        return $this->createEdgeMachineWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1055,16 +1178,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param CreateTemplateRequest $request
+     * @param CreateKubernetesTriggerRequest $request
      *
-     * @return CreateTemplateResponse
+     * @return CreateKubernetesTriggerResponse
      */
-    public function createTemplate($request)
+    public function createKubernetesTrigger($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTemplateWithOptions($request, $headers, $runtime);
+        return $this->createKubernetesTriggerWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1113,17 +1236,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string               $clusterId
-     * @param CreateTriggerRequest $request
+     * @param CreateTemplateRequest $request
      *
-     * @return CreateTriggerResponse
+     * @return CreateTemplateResponse
      */
-    public function createTrigger($clusterId, $request)
+    public function createTemplate($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createTriggerWithOptions($clusterId, $request, $headers, $runtime);
+        return $this->createTemplateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1170,14 +1292,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DeleteAlertContactResponse
+     * @param string               $clusterId
+     * @param CreateTriggerRequest $request
+     *
+     * @return CreateTriggerResponse
      */
-    public function deleteAlertContact()
+    public function createTrigger($clusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAlertContactWithOptions($headers, $runtime);
+        return $this->createTriggerWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -1207,14 +1332,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DeleteAlertContactGroupResponse
+     * @return DeleteAlertContactResponse
      */
-    public function deleteAlertContactGroup()
+    public function deleteAlertContact()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteAlertContactGroupWithOptions($headers, $runtime);
+        return $this->deleteAlertContactWithOptions($headers, $runtime);
     }
 
     /**
@@ -1244,17 +1369,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string               $ClusterId
-     * @param DeleteClusterRequest $request
-     *
-     * @return DeleteClusterResponse
+     * @return DeleteAlertContactGroupResponse
      */
-    public function deleteCluster($ClusterId, $request)
+    public function deleteAlertContactGroup()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteClusterWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->deleteAlertContactGroupWithOptions($headers, $runtime);
     }
 
     /**
@@ -1296,25 +1418,24 @@ class CS extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'none',
+            'bodyType'    => 'json',
         ]);
 
         return DeleteClusterResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param string                       $NodepoolId
-     * @param DeleteClusterNodepoolRequest $request
+     * @param string               $ClusterId
+     * @param DeleteClusterRequest $request
      *
-     * @return DeleteClusterNodepoolResponse
+     * @return DeleteClusterResponse
      */
-    public function deleteClusterNodepool($ClusterId, $NodepoolId, $request)
+    public function deleteCluster($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+        return $this->deleteClusterWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -1353,26 +1474,33 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                    $ClusterId
-     * @param DeleteClusterNodesRequest $request
+     * @param string                       $ClusterId
+     * @param string                       $NodepoolId
+     * @param DeleteClusterNodepoolRequest $request
      *
-     * @return DeleteClusterNodesResponse
+     * @return DeleteClusterNodepoolResponse
      */
-    public function deleteClusterNodes($ClusterId, $request)
+    public function deleteClusterNodepool($ClusterId, $NodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->deleteClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
+     * >
+     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     *   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+     *   * *   Nodes remain in the unschedulable state when they are being removed.
+     *   * *   You can remove only worker nodes by calling this operation.
+     *   *
      * @param string                    $ClusterId
-     * @param DeleteClusterNodesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param DeleteClusterNodesRequest $request   DeleteClusterNodesRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DeleteClusterNodesResponse
+     * @return DeleteClusterNodesResponse DeleteClusterNodesResponse
      */
     public function deleteClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -1407,17 +1535,23 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                   $edgeMachineid
-     * @param DeleteEdgeMachineRequest $request
+     * >
+     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     *   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+     *   * *   Nodes remain in the unschedulable state when they are being removed.
+     *   * *   You can remove only worker nodes by calling this operation.
+     *   *
+     * @param string                    $ClusterId
+     * @param DeleteClusterNodesRequest $request   DeleteClusterNodesRequest
      *
-     * @return DeleteEdgeMachineResponse
+     * @return DeleteClusterNodesResponse DeleteClusterNodesResponse
      */
-    public function deleteEdgeMachine($edgeMachineid, $request)
+    public function deleteClusterNodes($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime);
+        return $this->deleteClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -1455,16 +1589,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $Id
+     * @param string                   $edgeMachineid
+     * @param DeleteEdgeMachineRequest $request
      *
-     * @return DeleteKubernetesTriggerResponse
+     * @return DeleteEdgeMachineResponse
      */
-    public function deleteKubernetesTrigger($Id)
+    public function deleteEdgeMachine($edgeMachineid, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteKubernetesTriggerWithOptions($Id, $headers, $runtime);
+        return $this->deleteEdgeMachineWithOptions($edgeMachineid, $request, $headers, $runtime);
     }
 
     /**
@@ -1495,18 +1630,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $clusterId
-     * @param string                      $policyName
-     * @param DeletePolicyInstanceRequest $request
+     * @param string $Id
      *
-     * @return DeletePolicyInstanceResponse
+     * @return DeleteKubernetesTriggerResponse
      */
-    public function deletePolicyInstance($clusterId, $policyName, $request)
+    public function deleteKubernetesTrigger($Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
+        return $this->deleteKubernetesTriggerWithOptions($Id, $headers, $runtime);
     }
 
     /**
@@ -1545,16 +1678,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $TemplateId
+     * @param string                      $clusterId
+     * @param string                      $policyName
+     * @param DeletePolicyInstanceRequest $request
      *
-     * @return DeleteTemplateResponse
+     * @return DeletePolicyInstanceResponse
      */
-    public function deleteTemplate($TemplateId)
+    public function deletePolicyInstance($clusterId, $policyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTemplateWithOptions($TemplateId, $headers, $runtime);
+        return $this->deletePolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
     }
 
     /**
@@ -1585,17 +1720,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
-     * @param string $Id
+     * @param string $TemplateId
      *
-     * @return DeleteTriggerResponse
+     * @return DeleteTemplateResponse
      */
-    public function deleteTrigger($clusterId, $Id)
+    public function deleteTemplate($TemplateId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime);
+        return $this->deleteTemplateWithOptions($TemplateId, $headers, $runtime);
     }
 
     /**
@@ -1627,18 +1761,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $clusterId
-     * @param string                      $policyName
-     * @param DeployPolicyInstanceRequest $request
+     * @param string $clusterId
+     * @param string $Id
      *
-     * @return DeployPolicyInstanceResponse
+     * @return DeleteTriggerResponse
      */
-    public function deployPolicyInstance($clusterId, $policyName, $request)
+    public function deleteTrigger($clusterId, $Id)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->deployPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
+        return $this->deleteTriggerWithOptions($clusterId, $Id, $headers, $runtime);
     }
 
     /**
@@ -1683,16 +1816,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $workflowName
+     * @param string                      $clusterId
+     * @param string                      $policyName
+     * @param DeployPolicyInstanceRequest $request
      *
-     * @return DescirbeWorkflowResponse
+     * @return DeployPolicyInstanceResponse
      */
-    public function descirbeWorkflow($workflowName)
+    public function deployPolicyInstance($clusterId, $policyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->descirbeWorkflowWithOptions($workflowName, $headers, $runtime);
+        return $this->deployPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
     }
 
     /**
@@ -1723,16 +1858,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeAddonsRequest $request
+     * @param string $workflowName
      *
-     * @return DescribeAddonsResponse
+     * @return DescirbeWorkflowResponse
      */
-    public function describeAddons($request)
+    public function descirbeWorkflow($workflowName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeAddonsWithOptions($request, $headers, $runtime);
+        return $this->descirbeWorkflowWithOptions($workflowName, $headers, $runtime);
     }
 
     /**
@@ -1746,8 +1881,17 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clusterProfile)) {
+            $query['cluster_profile'] = $request->clusterProfile;
+        }
+        if (!Utils::isUnset($request->clusterSpec)) {
+            $query['cluster_spec'] = $request->clusterSpec;
+        }
         if (!Utils::isUnset($request->clusterType)) {
             $query['cluster_type'] = $request->clusterType;
+        }
+        if (!Utils::isUnset($request->clusterVersion)) {
+            $query['cluster_version'] = $request->clusterVersion;
         }
         if (!Utils::isUnset($request->region)) {
             $query['region'] = $request->region;
@@ -1772,18 +1916,58 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
-     * @param string $componentId
-     * @param string $version
+     * @param DescribeAddonsRequest $request
      *
-     * @return DescribeClusterAddonMetadataResponse
+     * @return DescribeAddonsResponse
      */
-    public function describeClusterAddonMetadata($clusterId, $componentId, $version)
+    public function describeAddons($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonMetadataWithOptions($clusterId, $componentId, $version, $headers, $runtime);
+        return $this->describeAddonsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterID
+     * @param string         $AddonName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeClusterAddonInstanceResponse
+     */
+    public function describeClusterAddonInstanceWithOptions($ClusterID, $AddonName, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterAddonInstance',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterID) . '/components/' . OpenApiUtilClient::getEncodeParam($AddonName) . '/instance',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterAddonInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterID
+     * @param string $AddonName
+     *
+     * @return DescribeClusterAddonInstanceResponse
+     */
+    public function describeClusterAddonInstance($ClusterID, $AddonName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterAddonInstanceWithOptions($ClusterID, $AddonName, $headers, $runtime);
     }
 
     /**
@@ -1816,26 +2000,31 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
-     * @param string $ComponentId
+     * @param string $clusterId
+     * @param string $componentId
+     * @param string $version
      *
-     * @return DescribeClusterAddonUpgradeStatusResponse
+     * @return DescribeClusterAddonMetadataResponse
      */
-    public function describeClusterAddonUpgradeStatus($ClusterId, $ComponentId)
+    public function describeClusterAddonMetadata($clusterId, $componentId, $version)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime);
+        return $this->describeClusterAddonMetadataWithOptions($clusterId, $componentId, $version, $headers, $runtime);
     }
 
     /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
      * @param string         $ClusterId
      * @param string         $ComponentId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string[]       $headers     map
+     * @param RuntimeOptions $runtime     runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterAddonUpgradeStatusResponse
+     * @return DescribeClusterAddonUpgradeStatusResponse DescribeClusterAddonUpgradeStatusResponse
      */
     public function describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime)
     {
@@ -1858,17 +2047,21 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                                    $ClusterId
-     * @param DescribeClusterAddonsUpgradeStatusRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClusterAddonsUpgradeStatusResponse
+     * @param string $ClusterId
+     * @param string $ComponentId
+     *
+     * @return DescribeClusterAddonUpgradeStatusResponse DescribeClusterAddonUpgradeStatusResponse
      */
-    public function describeClusterAddonsUpgradeStatus($ClusterId, $request)
+    public function describeClusterAddonUpgradeStatus($ClusterId, $ComponentId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterAddonUpgradeStatusWithOptions($ClusterId, $ComponentId, $headers, $runtime);
     }
 
     /**
@@ -1911,16 +2104,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                                    $ClusterId
+     * @param DescribeClusterAddonsUpgradeStatusRequest $request
      *
-     * @return DescribeClusterAddonsVersionResponse
+     * @return DescribeClusterAddonsUpgradeStatusResponse
      */
-    public function describeClusterAddonsVersion($ClusterId)
+    public function describeClusterAddonsUpgradeStatus($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterAddonsUpgradeStatusWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -1951,17 +2145,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                              $ClusterId
-     * @param DescribeClusterAttachScriptsRequest $request
+     * @param string $ClusterId
      *
-     * @return DescribeClusterAttachScriptsResponse
+     * @return DescribeClusterAddonsVersionResponse
      */
-    public function describeClusterAttachScripts($ClusterId, $request)
+    public function describeClusterAddonsVersion($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterAttachScriptsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterAddonsVersionWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -2014,16 +2207,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                              $ClusterId
+     * @param DescribeClusterAttachScriptsRequest $request
      *
-     * @return DescribeClusterDetailResponse
+     * @return DescribeClusterAttachScriptsResponse
      */
-    public function describeClusterDetail($ClusterId)
+    public function describeClusterAttachScripts($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterDetailWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterAttachScriptsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -2054,17 +2248,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param DescribeClusterEventsRequest $request
+     * @param string $ClusterId
      *
-     * @return DescribeClusterEventsResponse
+     * @return DescribeClusterDetailResponse
      */
-    public function describeClusterEvents($ClusterId, $request)
+    public function describeClusterDetail($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterDetailWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -2108,16 +2301,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                       $ClusterId
+     * @param DescribeClusterEventsRequest $request
      *
-     * @return DescribeClusterLogsResponse
+     * @return DescribeClusterEventsResponse
      */
-    public function describeClusterLogs($ClusterId)
+    public function describeClusterEvents($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterLogsWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterEventsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -2149,16 +2343,15 @@ class CS extends OpenApiClient
 
     /**
      * @param string $ClusterId
-     * @param string $NodepoolId
      *
-     * @return DescribeClusterNodePoolDetailResponse
+     * @return DescribeClusterLogsResponse
      */
-    public function describeClusterNodePoolDetail($ClusterId, $NodepoolId)
+    public function describeClusterLogs($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterNodePoolDetailWithOptions($ClusterId, $NodepoolId, $headers, $runtime);
+        return $this->describeClusterLogsWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -2191,15 +2384,16 @@ class CS extends OpenApiClient
 
     /**
      * @param string $ClusterId
+     * @param string $NodepoolId
      *
-     * @return DescribeClusterNodePoolsResponse
+     * @return DescribeClusterNodePoolDetailResponse
      */
-    public function describeClusterNodePools($ClusterId)
+    public function describeClusterNodePoolDetail($ClusterId, $NodepoolId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterNodePoolsWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterNodePoolDetailWithOptions($ClusterId, $NodepoolId, $headers, $runtime);
     }
 
     /**
@@ -2230,17 +2424,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param DescribeClusterNodesRequest $request
+     * @param string $ClusterId
      *
-     * @return DescribeClusterNodesResponse
+     * @return DescribeClusterNodePoolsResponse
      */
-    public function describeClusterNodes($ClusterId, $request)
+    public function describeClusterNodePools($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterNodePoolsWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -2290,16 +2483,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                      $ClusterId
+     * @param DescribeClusterNodesRequest $request
      *
-     * @return DescribeClusterResourcesResponse
+     * @return DescribeClusterNodesResponse
      */
-    public function describeClusterResources($ClusterId)
+    public function describeClusterNodes($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterResourcesWithOptions($ClusterId, $headers, $runtime);
+        return $this->describeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -2330,16 +2524,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
+     * @param string $ClusterId
      *
-     * @return DescribeClusterTasksResponse
+     * @return DescribeClusterResourcesResponse
      */
-    public function describeClusterTasks($clusterId)
+    public function describeClusterResources($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterTasksWithOptions($clusterId, $headers, $runtime);
+        return $this->describeClusterResourcesWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -2370,17 +2564,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                               $ClusterId
-     * @param DescribeClusterUserKubeconfigRequest $request
+     * @param string $clusterId
      *
-     * @return DescribeClusterUserKubeconfigResponse
+     * @return DescribeClusterTasksResponse
      */
-    public function describeClusterUserKubeconfig($ClusterId, $request)
+    public function describeClusterTasks($clusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterUserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterTasksWithOptions($clusterId, $headers, $runtime);
     }
 
     /**
@@ -2421,26 +2614,30 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                                 $ClusterId
-     * @param DescribeClusterV2UserKubeconfigRequest $request
+     * @param string                               $ClusterId
+     * @param DescribeClusterUserKubeconfigRequest $request
      *
-     * @return DescribeClusterV2UserKubeconfigResponse
+     * @return DescribeClusterUserKubeconfigResponse
      */
-    public function describeClusterV2UserKubeconfig($ClusterId, $request)
+    public function describeClusterUserKubeconfig($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeClusterUserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
-     * @param string                                 $ClusterId
-     * @param DescribeClusterV2UserKubeconfigRequest $request
-     * @param string[]                               $headers
-     * @param RuntimeOptions                         $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClusterV2UserKubeconfigResponse
+     * @param string                                 $ClusterId
+     * @param DescribeClusterV2UserKubeconfigRequest $request   DescribeClusterV2UserKubeconfigRequest
+     * @param string[]                               $headers   map
+     * @param RuntimeOptions                         $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClusterV2UserKubeconfigResponse DescribeClusterV2UserKubeconfigResponse
      */
     public function describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2469,24 +2666,73 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClustersResponse
+     * @param string                                 $ClusterId
+     * @param DescribeClusterV2UserKubeconfigRequest $request   DescribeClusterV2UserKubeconfigRequest
+     *
+     * @return DescribeClusterV2UserKubeconfigResponse DescribeClusterV2UserKubeconfigResponse
      */
-    public function describeClusters($request)
+    public function describeClusterV2UserKubeconfig($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClustersWithOptions($request, $headers, $runtime);
+        return $this->describeClusterV2UserKubeconfigWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
-     * @param DescribeClustersRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return DescribeClustersResponse
+     * @return DescribeClusterVulsResponse
+     */
+    public function describeClusterVulsWithOptions($clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterVuls',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/vuls',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterVulsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
+     *
+     * @return DescribeClusterVulsResponse
+     */
+    public function describeClusterVuls($clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeClusterVulsWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
+     * @deprecated
+     *   *
+     * Deprecated
+     *
+     * @param DescribeClustersRequest $request DescribeClustersRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeClustersResponse DescribeClustersResponse
      */
     public function describeClustersWithOptions($request, $headers, $runtime)
     {
@@ -2518,16 +2764,20 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeClustersV1Request $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return DescribeClustersV1Response
+     * @param DescribeClustersRequest $request DescribeClustersRequest
+     *
+     * @return DescribeClustersResponse DescribeClustersResponse
      */
-    public function describeClustersV1($request)
+    public function describeClusters($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeClustersV1WithOptions($request, $headers, $runtime);
+        return $this->describeClustersWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2582,16 +2832,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $edgeMachineid
+     * @param DescribeClustersV1Request $request
      *
-     * @return DescribeEdgeMachineActiveProcessResponse
+     * @return DescribeClustersV1Response
      */
-    public function describeEdgeMachineActiveProcess($edgeMachineid)
+    public function describeClustersV1($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime);
+        return $this->describeClustersV1WithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2622,14 +2872,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribeEdgeMachineModelsResponse
+     * @param string $edgeMachineid
+     *
+     * @return DescribeEdgeMachineActiveProcessResponse
      */
-    public function describeEdgeMachineModels()
+    public function describeEdgeMachineActiveProcess($edgeMachineid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeEdgeMachineModelsWithOptions($headers, $runtime);
+        return $this->describeEdgeMachineActiveProcessWithOptions($edgeMachineid, $headers, $runtime);
     }
 
     /**
@@ -2659,16 +2911,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $edgeMachineid
-     *
-     * @return DescribeEdgeMachineTunnelConfigDetailResponse
+     * @return DescribeEdgeMachineModelsResponse
      */
-    public function describeEdgeMachineTunnelConfigDetail($edgeMachineid)
+    public function describeEdgeMachineModels()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime);
+        return $this->describeEdgeMachineModelsWithOptions($headers, $runtime);
     }
 
     /**
@@ -2699,16 +2949,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEdgeMachinesRequest $request
+     * @param string $edgeMachineid
      *
-     * @return DescribeEdgeMachinesResponse
+     * @return DescribeEdgeMachineTunnelConfigDetailResponse
      */
-    public function describeEdgeMachines($request)
+    public function describeEdgeMachineTunnelConfigDetail($edgeMachineid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeEdgeMachinesWithOptions($request, $headers, $runtime);
+        return $this->describeEdgeMachineTunnelConfigDetailWithOptions($edgeMachineid, $headers, $runtime);
     }
 
     /**
@@ -2760,16 +3010,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeEventsRequest $request
+     * @param DescribeEdgeMachinesRequest $request
      *
-     * @return DescribeEventsResponse
+     * @return DescribeEdgeMachinesResponse
      */
-    public function describeEvents($request)
+    public function describeEdgeMachines($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeEventsWithOptions($request, $headers, $runtime);
+        return $this->describeEdgeMachinesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2815,26 +3065,27 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param DescribeExternalAgentRequest $request
+     * @param DescribeEventsRequest $request
      *
-     * @return DescribeExternalAgentResponse
+     * @return DescribeEventsResponse
      */
-    public function describeExternalAgent($ClusterId, $request)
+    public function describeEvents($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->describeEventsWithOptions($request, $headers, $runtime);
     }
 
     /**
+     * For more information, see [Register an external Kubernetes cluster](~~121053~~).
+     *   *
      * @param string                       $ClusterId
-     * @param DescribeExternalAgentRequest $request
-     * @param string[]                     $headers
-     * @param RuntimeOptions               $runtime
+     * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
+     * @param string[]                     $headers   map
+     * @param RuntimeOptions               $runtime   runtime options for this request RuntimeOptions
      *
-     * @return DescribeExternalAgentResponse
+     * @return DescribeExternalAgentResponse DescribeExternalAgentResponse
      */
     public function describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -2863,16 +3114,19 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeKubernetesVersionMetadataRequest $request
+     * For more information, see [Register an external Kubernetes cluster](~~121053~~).
+     *   *
+     * @param string                       $ClusterId
+     * @param DescribeExternalAgentRequest $request   DescribeExternalAgentRequest
      *
-     * @return DescribeKubernetesVersionMetadataResponse
+     * @return DescribeExternalAgentResponse DescribeExternalAgentResponse
      */
-    public function describeKubernetesVersionMetadata($request)
+    public function describeExternalAgent($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeKubernetesVersionMetadataWithOptions($request, $headers, $runtime);
+        return $this->describeExternalAgentWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -2891,6 +3145,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->kubernetesVersion)) {
             $query['KubernetesVersion'] = $request->kubernetesVersion;
+        }
+        if (!Utils::isUnset($request->mode)) {
+            $query['Mode'] = $request->mode;
         }
         if (!Utils::isUnset($request->profile)) {
             $query['Profile'] = $request->profile;
@@ -2921,31 +3178,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
-     * @param string $nodepoolId
+     * @param DescribeKubernetesVersionMetadataRequest $request
      *
-     * @return DescribeNodePoolVulsResponse
+     * @return DescribeKubernetesVersionMetadataResponse
      */
-    public function describeNodePoolVuls($clusterId, $nodepoolId)
+    public function describeKubernetesVersionMetadata($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $headers, $runtime);
+        return $this->describeKubernetesVersionMetadataWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param string         $clusterId
-     * @param string         $nodepoolId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                      $clusterId
+     * @param string                      $nodepoolId
+     * @param DescribeNodePoolVulsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
      *
      * @return DescribeNodePoolVulsResponse
      */
-    public function describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $headers, $runtime)
+    public function describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->necessity)) {
+            $query['necessity'] = $request->necessity;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DescribeNodePoolVuls',
@@ -2963,14 +3226,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribePoliciesResponse
+     * @param string                      $clusterId
+     * @param string                      $nodepoolId
+     * @param DescribeNodePoolVulsRequest $request
+     *
+     * @return DescribeNodePoolVulsResponse
      */
-    public function describePolicies()
+    public function describeNodePoolVuls($clusterId, $nodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePoliciesWithOptions($headers, $runtime);
+        return $this->describeNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -3000,16 +3267,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $policyName
-     *
-     * @return DescribePolicyDetailsResponse
+     * @return DescribePoliciesResponse
      */
-    public function describePolicyDetails($policyName)
+    public function describePolicies()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePolicyDetailsWithOptions($policyName, $headers, $runtime);
+        return $this->describePoliciesWithOptions($headers, $runtime);
     }
 
     /**
@@ -3040,16 +3305,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
+     * @param string $policyName
      *
-     * @return DescribePolicyGovernanceInClusterResponse
+     * @return DescribePolicyDetailsResponse
      */
-    public function describePolicyGovernanceInCluster($clusterId)
+    public function describePolicyDetails($policyName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePolicyGovernanceInClusterWithOptions($clusterId, $headers, $runtime);
+        return $this->describePolicyDetailsWithOptions($policyName, $headers, $runtime);
     }
 
     /**
@@ -3080,17 +3345,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                         $clusterId
-     * @param DescribePolicyInstancesRequest $request
+     * @param string $clusterId
      *
-     * @return DescribePolicyInstancesResponse
+     * @return DescribePolicyGovernanceInClusterResponse
      */
-    public function describePolicyInstances($clusterId, $request)
+    public function describePolicyGovernanceInCluster($clusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePolicyInstancesWithOptions($clusterId, $request, $headers, $runtime);
+        return $this->describePolicyGovernanceInClusterWithOptions($clusterId, $headers, $runtime);
     }
 
     /**
@@ -3131,16 +3395,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterId
+     * @param string                         $clusterId
+     * @param DescribePolicyInstancesRequest $request
      *
-     * @return DescribePolicyInstancesStatusResponse
+     * @return DescribePolicyInstancesResponse
      */
-    public function describePolicyInstancesStatus($clusterId)
+    public function describePolicyInstances($clusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describePolicyInstancesStatusWithOptions($clusterId, $headers, $runtime);
+        return $this->describePolicyInstancesWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -3171,16 +3436,73 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $taskId
+     * @param string $clusterId
      *
-     * @return DescribeTaskInfoResponse
+     * @return DescribePolicyInstancesStatusResponse
      */
-    public function describeTaskInfo($taskId)
+    public function describePolicyInstancesStatus($clusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTaskInfoWithOptions($taskId, $headers, $runtime);
+        return $this->describePolicyInstancesStatusWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
+     * >  You can call this operation only with an Alibaba Cloud account.
+     *   *
+     * @param string                                        $ClusterId
+     * @param string                                        $Uid
+     * @param DescribeSubaccountK8sClusterUserConfigRequest $request   DescribeSubaccountK8sClusterUserConfigRequest
+     * @param string[]                                      $headers   map
+     * @param RuntimeOptions                                $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return DescribeSubaccountK8sClusterUserConfigResponse DescribeSubaccountK8sClusterUserConfigResponse
+     */
+    public function describeSubaccountK8sClusterUserConfigWithOptions($ClusterId, $Uid, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->privateIpAddress)) {
+            $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->temporaryDurationMinutes)) {
+            $query['TemporaryDurationMinutes'] = $request->temporaryDurationMinutes;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSubaccountK8sClusterUserConfig',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/users/' . OpenApiUtilClient::getEncodeParam($Uid) . '/user_config',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeSubaccountK8sClusterUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * >  You can call this operation only with an Alibaba Cloud account.
+     *   *
+     * @param string                                        $ClusterId
+     * @param string                                        $Uid
+     * @param DescribeSubaccountK8sClusterUserConfigRequest $request   DescribeSubaccountK8sClusterUserConfigRequest
+     *
+     * @return DescribeSubaccountK8sClusterUserConfigResponse DescribeSubaccountK8sClusterUserConfigResponse
+     */
+    public function describeSubaccountK8sClusterUserConfig($ClusterId, $Uid, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeSubaccountK8sClusterUserConfigWithOptions($ClusterId, $Uid, $request, $headers, $runtime);
     }
 
     /**
@@ -3211,17 +3533,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                           $TemplateId
-     * @param DescribeTemplateAttributeRequest $request
+     * @param string $taskId
      *
-     * @return DescribeTemplateAttributeResponse
+     * @return DescribeTaskInfoResponse
      */
-    public function describeTemplateAttribute($TemplateId, $request)
+    public function describeTaskInfo($taskId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTemplateAttributeWithOptions($TemplateId, $request, $headers, $runtime);
+        return $this->describeTaskInfoWithOptions($taskId, $headers, $runtime);
     }
 
     /**
@@ -3259,16 +3580,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param DescribeTemplatesRequest $request
+     * @param string                           $TemplateId
+     * @param DescribeTemplateAttributeRequest $request
      *
-     * @return DescribeTemplatesResponse
+     * @return DescribeTemplateAttributeResponse
      */
-    public function describeTemplates($request)
+    public function describeTemplateAttribute($TemplateId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTemplatesWithOptions($request, $headers, $runtime);
+        return $this->describeTemplateAttributeWithOptions($TemplateId, $request, $headers, $runtime);
     }
 
     /**
@@ -3311,17 +3633,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                 $clusterId
-     * @param DescribeTriggerRequest $request
+     * @param DescribeTemplatesRequest $request
      *
-     * @return DescribeTriggerResponse
+     * @return DescribeTemplatesResponse
      */
-    public function describeTrigger($clusterId, $request)
+    public function describeTemplates($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeTriggerWithOptions($clusterId, $request, $headers, $runtime);
+        return $this->describeTemplatesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3356,7 +3677,7 @@ class CS extends OpenApiClient
             'action'      => 'DescribeTrigger',
             'version'     => '2015-12-15',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/clusters/%5Bcluster_id%5D/triggers',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/triggers',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -3368,16 +3689,57 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $uid
+     * @param string                 $clusterId
+     * @param DescribeTriggerRequest $request
      *
-     * @return DescribeUserPermissionResponse
+     * @return DescribeTriggerResponse
      */
-    public function describeUserPermission($uid)
+    public function describeTrigger($clusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeUserPermissionWithOptions($uid, $headers, $runtime);
+        return $this->describeTriggerWithOptions($clusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DescribeUserClusterNamespacesResponse
+     */
+    public function describeUserClusterNamespacesWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserClusterNamespaces',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/k8s/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/namespaces',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'array',
+        ]);
+
+        return DescribeUserClusterNamespacesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return DescribeUserClusterNamespacesResponse
+     */
+    public function describeUserClusterNamespaces($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->describeUserClusterNamespacesWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -3408,14 +3770,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribeUserQuotaResponse
+     * @param string $uid
+     *
+     * @return DescribeUserPermissionResponse
      */
-    public function describeUserQuota()
+    public function describeUserPermission($uid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeUserQuotaWithOptions($headers, $runtime);
+        return $this->describeUserPermissionWithOptions($uid, $headers, $runtime);
     }
 
     /**
@@ -3445,14 +3809,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @return DescribeWorkflowsResponse
+     * @return DescribeUserQuotaResponse
      */
-    public function describeWorkflows()
+    public function describeUserQuota()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->describeWorkflowsWithOptions($headers, $runtime);
+        return $this->describeUserQuotaWithOptions($headers, $runtime);
     }
 
     /**
@@ -3482,18 +3846,14 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                           $clusterid
-     * @param string                           $edgeMachineid
-     * @param EdgeClusterAddEdgeMachineRequest $request
-     *
-     * @return EdgeClusterAddEdgeMachineResponse
+     * @return DescribeWorkflowsResponse
      */
-    public function edgeClusterAddEdgeMachine($clusterid, $edgeMachineid, $request)
+    public function describeWorkflows()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime);
+        return $this->describeWorkflowsWithOptions($headers, $runtime);
     }
 
     /**
@@ -3538,18 +3898,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                 $clusterId
-     * @param string                 $nodepoolId
-     * @param FixNodePoolVulsRequest $request
+     * @param string                           $clusterid
+     * @param string                           $edgeMachineid
+     * @param EdgeClusterAddEdgeMachineRequest $request
      *
-     * @return FixNodePoolVulsResponse
+     * @return EdgeClusterAddEdgeMachineResponse
      */
-    public function fixNodePoolVuls($clusterId, $nodepoolId, $request)
+    public function edgeClusterAddEdgeMachine($clusterid, $edgeMachineid, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+        return $this->edgeClusterAddEdgeMachineWithOptions($clusterid, $edgeMachineid, $request, $headers, $runtime);
     }
 
     /**
@@ -3571,8 +3931,8 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->rolloutPolicy)) {
             $body['rollout_policy'] = $request->rolloutPolicy;
         }
-        if (!Utils::isUnset($request->vulList)) {
-            $body['vul_list'] = $request->vulList;
+        if (!Utils::isUnset($request->vuls)) {
+            $body['vuls'] = $request->vuls;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -3594,17 +3954,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param GetKubernetesTriggerRequest $request
+     * @param string                 $clusterId
+     * @param string                 $nodepoolId
+     * @param FixNodePoolVulsRequest $request
      *
-     * @return GetKubernetesTriggerResponse
+     * @return FixNodePoolVulsResponse
      */
-    public function getKubernetesTrigger($ClusterId, $request)
+    public function fixNodePoolVuls($clusterId, $nodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->fixNodePoolVulsWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -3651,16 +4012,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string                      $ClusterId
+     * @param GetKubernetesTriggerRequest $request
      *
-     * @return GetUpgradeStatusResponse
+     * @return GetKubernetesTriggerResponse
      */
-    public function getUpgradeStatus($ClusterId)
+    public function getKubernetesTrigger($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUpgradeStatusWithOptions($ClusterId, $headers, $runtime);
+        return $this->getKubernetesTriggerWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -3691,26 +4053,31 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                  $uid
-     * @param GrantPermissionsRequest $request
+     * @param string $ClusterId
      *
-     * @return GrantPermissionsResponse
+     * @return GetUpgradeStatusResponse
      */
-    public function grantPermissions($uid, $request)
+    public function getUpgradeStatus($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->grantPermissionsWithOptions($uid, $request, $headers, $runtime);
+        return $this->getUpgradeStatusWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
+     * **Precautions**:
+     *   * *   Make sure that you have granted the specified RAM user at least read permissions on the specified cluster by attaching RAM policies. Otherwise, the `ErrorRamPolicyConfig` error will be returned.
+     *   *     For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
+     *   * *   If you call this operation as a RAM user, make sure that this RAM user has the permissions to grant other RAM users the permissions to manage ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` errors will be returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
+     *   * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+     *   *
      * @param string                  $uid
-     * @param GrantPermissionsRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
+     * @param GrantPermissionsRequest $request GrantPermissionsRequest
+     * @param string[]                $headers map
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantPermissionsResponse
+     * @return GrantPermissionsResponse GrantPermissionsResponse
      */
     public function grantPermissionsWithOptions($uid, $request, $headers, $runtime)
     {
@@ -3735,17 +4102,23 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param InstallClusterAddonsRequest $request
+     * **Precautions**:
+     *   * *   Make sure that you have granted the specified RAM user at least read permissions on the specified cluster by attaching RAM policies. Otherwise, the `ErrorRamPolicyConfig` error will be returned.
+     *   *     For more information about how to authorize a RAM user by attaching RAM policies, see [Create a custom RAM policy](~~86485~~).
+     *   * *   If you call this operation as a RAM user, make sure that this RAM user has the permissions to grant other RAM users the permissions to manage ACK clusters. Otherwise, the `StatusForbidden` or `ForbiddenGrantPermissions` errors will be returned. For more information, see [Use a RAM user to grant RBAC permissions to other RAM users](~~119035~~).
+     *   * *   This operation overwrites the permissions that have been granted to the specified RAM user. When you call this operation, make sure that the required permissions are included.
+     *   *
+     * @param string                  $uid
+     * @param GrantPermissionsRequest $request GrantPermissionsRequest
      *
-     * @return InstallClusterAddonsResponse
+     * @return GrantPermissionsResponse GrantPermissionsResponse
      */
-    public function installClusterAddons($ClusterId, $request)
+    public function grantPermissions($uid, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->grantPermissionsWithOptions($uid, $request, $headers, $runtime);
     }
 
     /**
@@ -3779,16 +4152,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * @param string                      $ClusterId
+     * @param InstallClusterAddonsRequest $request
      *
-     * @return ListTagResourcesResponse
+     * @return InstallClusterAddonsResponse
      */
-    public function listTagResources($request)
+    public function installClusterAddons($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
+        return $this->installClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -3845,17 +4219,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                $clusterId
-     * @param MigrateClusterRequest $request
+     * @param ListTagResourcesRequest $request
      *
-     * @return MigrateClusterResponse
+     * @return ListTagResourcesResponse
      */
-    public function migrateCluster($clusterId, $request)
+    public function listTagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->migrateClusterWithOptions($clusterId, $request, $headers, $runtime);
+        return $this->listTagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3896,17 +4269,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string               $ClusterId
-     * @param ModifyClusterRequest $request
+     * @param string                $clusterId
+     * @param MigrateClusterRequest $request
      *
-     * @return ModifyClusterResponse
+     * @return MigrateClusterResponse
      */
-    public function modifyCluster($ClusterId, $request)
+    public function migrateCluster($clusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyClusterWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->migrateClusterWithOptions($clusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -3968,28 +4341,32 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                    $clusterId
-     * @param string                    $componentId
-     * @param ModifyClusterAddonRequest $request
+     * @param string               $ClusterId
+     * @param ModifyClusterRequest $request
      *
-     * @return ModifyClusterAddonResponse
+     * @return ModifyClusterResponse
      */
-    public function modifyClusterAddon($clusterId, $componentId, $request)
+    public function modifyCluster($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyClusterAddonWithOptions($clusterId, $componentId, $request, $headers, $runtime);
+        return $this->modifyClusterWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
+     * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+     *   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+     *   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+     *   * After you call this operation, the component may be redeployed and restarted. We recommend that you evaluate the impact before you call this operation.
+     *   *
      * @param string                    $clusterId
      * @param string                    $componentId
-     * @param ModifyClusterAddonRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @param ModifyClusterAddonRequest $request     ModifyClusterAddonRequest
+     * @param string[]                  $headers     map
+     * @param RuntimeOptions            $runtime     runtime options for this request RuntimeOptions
      *
-     * @return ModifyClusterAddonResponse
+     * @return ModifyClusterAddonResponse ModifyClusterAddonResponse
      */
     public function modifyClusterAddonWithOptions($clusterId, $componentId, $request, $headers, $runtime)
     {
@@ -4018,17 +4395,23 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                            $ClusterId
-     * @param ModifyClusterConfigurationRequest $request
+     * You can use this API operation to modify the components in a Container Service for Kubernetes (ACK) cluster or the control plane components in an ACK Pro cluster.
+     *   * *   To query the customizable parameters of a component, call the `DescribeClusterAddonMetadata` API operation. For more information, see [Query the metadata of a specified component version](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/query).
+     *   * *   For more information about the customizable parameters of control plane components in ACK Pro clusters, see [Customize the parameters of control plane components in ACK Pro clusters](https://www.alibabacloud.com/help/zh/container-service-for-kubernetes/latest/customize-control-plane-parameters-for-a-professional-kubernetes-cluster).
+     *   * After you call this operation, the component may be redeployed and restarted. We recommend that you evaluate the impact before you call this operation.
+     *   *
+     * @param string                    $clusterId
+     * @param string                    $componentId
+     * @param ModifyClusterAddonRequest $request     ModifyClusterAddonRequest
      *
-     * @return ModifyClusterConfigurationResponse
+     * @return ModifyClusterAddonResponse ModifyClusterAddonResponse
      */
-    public function modifyClusterConfiguration($ClusterId, $request)
+    public function modifyClusterAddon($clusterId, $componentId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->modifyClusterAddonWithOptions($clusterId, $componentId, $request, $headers, $runtime);
     }
 
     /**
@@ -4066,18 +4449,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $ClusterId
-     * @param string                       $NodepoolId
-     * @param ModifyClusterNodePoolRequest $request
+     * @param string                            $ClusterId
+     * @param ModifyClusterConfigurationRequest $request
      *
-     * @return ModifyClusterNodePoolResponse
+     * @return ModifyClusterConfigurationResponse
      */
-    public function modifyClusterNodePool($ClusterId, $NodepoolId, $request)
+    public function modifyClusterConfiguration($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+        return $this->modifyClusterConfigurationWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4134,17 +4516,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                   $ClusterId
-     * @param ModifyClusterTagsRequest $request
+     * @param string                       $ClusterId
+     * @param string                       $NodepoolId
+     * @param ModifyClusterNodePoolRequest $request
      *
-     * @return ModifyClusterTagsResponse
+     * @return ModifyClusterNodePoolResponse
      */
-    public function modifyClusterTags($ClusterId, $request)
+    public function modifyClusterNodePool($ClusterId, $NodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyClusterTagsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->modifyClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -4178,18 +4561,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                          $ClusterId
-     * @param string                          $NodepoolId
-     * @param ModifyNodePoolNodeConfigRequest $request
+     * @param string                   $ClusterId
+     * @param ModifyClusterTagsRequest $request
      *
-     * @return ModifyNodePoolNodeConfigResponse
+     * @return ModifyClusterTagsResponse
      */
-    public function modifyNodePoolNodeConfig($ClusterId, $NodepoolId, $request)
+    public function modifyClusterTags($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyNodePoolNodeConfigWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+        return $this->modifyClusterTagsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4231,18 +4613,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $clusterId
-     * @param string                      $policyName
-     * @param ModifyPolicyInstanceRequest $request
+     * @param string                          $ClusterId
+     * @param string                          $NodepoolId
+     * @param ModifyNodePoolNodeConfigRequest $request
      *
-     * @return ModifyPolicyInstanceResponse
+     * @return ModifyNodePoolNodeConfigResponse
      */
-    public function modifyPolicyInstance($clusterId, $policyName, $request)
+    public function modifyNodePoolNodeConfig($ClusterId, $NodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->modifyPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
+        return $this->modifyNodePoolNodeConfigWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -4290,24 +4672,28 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param OpenAckServiceRequest $request
+     * @param string                      $clusterId
+     * @param string                      $policyName
+     * @param ModifyPolicyInstanceRequest $request
      *
-     * @return OpenAckServiceResponse
+     * @return ModifyPolicyInstanceResponse
      */
-    public function openAckService($request)
+    public function modifyPolicyInstance($clusterId, $policyName, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->openAckServiceWithOptions($request, $headers, $runtime);
+        return $this->modifyPolicyInstanceWithOptions($clusterId, $policyName, $request, $headers, $runtime);
     }
 
     /**
-     * @param OpenAckServiceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
+     * You can activate ACK with Alibaba Cloud accounts or RAM users that have the authority of AdministratorAccess.
+     *   *
+     * @param OpenAckServiceRequest $request OpenAckServiceRequest
+     * @param string[]              $headers map
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenAckServiceResponse
+     * @return OpenAckServiceResponse OpenAckServiceResponse
      */
     public function openAckServiceWithOptions($request, $headers, $runtime)
     {
@@ -4336,16 +4722,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * You can activate ACK with Alibaba Cloud accounts or RAM users that have the authority of AdministratorAccess.
+     *   *
+     * @param OpenAckServiceRequest $request OpenAckServiceRequest
      *
-     * @return PauseClusterUpgradeResponse
+     * @return OpenAckServiceResponse OpenAckServiceResponse
      */
-    public function pauseClusterUpgrade($ClusterId)
+    public function openAckService($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->pauseClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
+        return $this->openAckServiceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4376,17 +4764,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterid
-     * @param string $componentid
+     * @param string $ClusterId
      *
-     * @return PauseComponentUpgradeResponse
+     * @return PauseClusterUpgradeResponse
      */
-    public function pauseComponentUpgrade($clusterid, $componentid)
+    public function pauseClusterUpgrade($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
+        return $this->pauseClusterUpgradeWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -4418,16 +4805,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $taskId
+     * @param string $clusterid
+     * @param string $componentid
      *
-     * @return PauseTaskResponse
+     * @return PauseComponentUpgradeResponse
      */
-    public function pauseTask($taskId)
+    public function pauseComponentUpgrade($clusterid, $componentid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->pauseTaskWithOptions($taskId, $headers, $runtime);
+        return $this->pauseComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
     }
 
     /**
@@ -4458,26 +4846,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                    $ClusterId
-     * @param RemoveClusterNodesRequest $request
+     * @param string $taskId
      *
-     * @return RemoveClusterNodesResponse
+     * @return PauseTaskResponse
      */
-    public function removeClusterNodes($ClusterId, $request)
+    public function pauseTask($taskId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->pauseTaskWithOptions($taskId, $headers, $runtime);
     }
 
     /**
-     * @param string                    $ClusterId
-     * @param RemoveClusterNodesRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return RemoveClusterNodesResponse
+     * @param string                    $ClusterId
+     * @param RemoveClusterNodesRequest $request   RemoveClusterNodesRequest
+     * @param string[]                  $headers   map
+     * @param RuntimeOptions            $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return RemoveClusterNodesResponse RemoveClusterNodesResponse
      */
     public function removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -4512,40 +4903,55 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                     $ClusterId
-     * @param string                     $NodepoolId
-     * @param RemoveNodePoolNodesRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return RemoveNodePoolNodesResponse
+     * @param string                    $ClusterId
+     * @param RemoveClusterNodesRequest $request   RemoveClusterNodesRequest
+     *
+     * @return RemoveClusterNodesResponse RemoveClusterNodesResponse
      */
-    public function removeNodePoolNodes($ClusterId, $NodepoolId, $request)
+    public function removeClusterNodes($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeNodePoolNodesWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+        return $this->removeClusterNodesWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
+     * >
+     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     *   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+     *   * *   Nodes remain in the Unschedulable state when they are being removed.
+     *   * *   You can remove only worker nodes. You cannot remove control planes.
+     *   *
      * @param string                     $ClusterId
      * @param string                     $NodepoolId
-     * @param RemoveNodePoolNodesRequest $tmpReq
-     * @param string[]                   $headers
-     * @param RuntimeOptions             $runtime
+     * @param RemoveNodePoolNodesRequest $tmpReq     RemoveNodePoolNodesRequest
+     * @param string[]                   $headers    map
+     * @param RuntimeOptions             $runtime    runtime options for this request RuntimeOptions
      *
-     * @return RemoveNodePoolNodesResponse
+     * @return RemoveNodePoolNodesResponse RemoveNodePoolNodesResponse
      */
     public function removeNodePoolNodesWithOptions($ClusterId, $NodepoolId, $tmpReq, $headers, $runtime)
     {
         Utils::validateModel($tmpReq);
         $request = new RemoveNodePoolNodesShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->instanceIds)) {
+            $request->instanceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceIds, 'instance_ids', 'json');
+        }
         if (!Utils::isUnset($tmpReq->nodes)) {
             $request->nodesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodes, 'nodes', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->drainNode)) {
             $query['drain_node'] = $request->drainNode;
+        }
+        if (!Utils::isUnset($request->instanceIdsShrink)) {
+            $query['instance_ids'] = $request->instanceIdsShrink;
         }
         if (!Utils::isUnset($request->nodesShrink)) {
             $query['nodes'] = $request->nodesShrink;
@@ -4573,16 +4979,24 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $workflowName
+     * >
+     *   * *   When you remove a node, the pods that run on the node are migrated to other nodes. This may cause service interruptions. We recommend that you remove nodes during off-peak hours.
+     *   * *   Unknown errors may occur when you remove nodes. Before you remove nodes, back up the data on the nodes.
+     *   * *   Nodes remain in the Unschedulable state when they are being removed.
+     *   * *   You can remove only worker nodes. You cannot remove control planes.
+     *   *
+     * @param string                     $ClusterId
+     * @param string                     $NodepoolId
+     * @param RemoveNodePoolNodesRequest $request    RemoveNodePoolNodesRequest
      *
-     * @return RemoveWorkflowResponse
+     * @return RemoveNodePoolNodesResponse RemoveNodePoolNodesResponse
      */
-    public function removeWorkflow($workflowName)
+    public function removeNodePoolNodes($ClusterId, $NodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeWorkflowWithOptions($workflowName, $headers, $runtime);
+        return $this->removeNodePoolNodesWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -4613,18 +5027,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                       $clusterId
-     * @param string                       $nodepoolId
-     * @param RepairClusterNodePoolRequest $request
+     * @param string $workflowName
      *
-     * @return RepairClusterNodePoolResponse
+     * @return RemoveWorkflowResponse
      */
-    public function repairClusterNodePool($clusterId, $nodepoolId, $request)
+    public function removeWorkflow($workflowName)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
+        return $this->removeWorkflowWithOptions($workflowName, $headers, $runtime);
     }
 
     /**
@@ -4663,17 +5075,18 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $clusterid
-     * @param string $componentid
+     * @param string                       $clusterId
+     * @param string                       $nodepoolId
+     * @param RepairClusterNodePoolRequest $request
      *
-     * @return ResumeComponentUpgradeResponse
+     * @return RepairClusterNodePoolResponse
      */
-    public function resumeComponentUpgrade($clusterid, $componentid)
+    public function repairClusterNodePool($clusterId, $nodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
+        return $this->repairClusterNodePoolWithOptions($clusterId, $nodepoolId, $request, $headers, $runtime);
     }
 
     /**
@@ -4705,16 +5118,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $taskId
+     * @param string $clusterid
+     * @param string $componentid
      *
-     * @return ResumeTaskResponse
+     * @return ResumeComponentUpgradeResponse
      */
-    public function resumeTask($taskId)
+    public function resumeComponentUpgrade($clusterid, $componentid)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeTaskWithOptions($taskId, $headers, $runtime);
+        return $this->resumeComponentUpgradeWithOptions($clusterid, $componentid, $headers, $runtime);
     }
 
     /**
@@ -4745,16 +5159,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param string $taskId
      *
-     * @return ResumeUpgradeClusterResponse
+     * @return ResumeTaskResponse
      */
-    public function resumeUpgradeCluster($ClusterId)
+    public function resumeTask($taskId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime);
+        return $this->resumeTaskWithOptions($taskId, $headers, $runtime);
     }
 
     /**
@@ -4785,26 +5199,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string              $ClusterId
-     * @param ScaleClusterRequest $request
+     * @param string $ClusterId
      *
-     * @return ScaleClusterResponse
+     * @return ResumeUpgradeClusterResponse
      */
-    public function scaleCluster($ClusterId, $request)
+    public function resumeUpgradeCluster($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleClusterWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->resumeUpgradeClusterWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string              $ClusterId
-     * @param ScaleClusterRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ScaleClusterResponse
+     * @param string              $ClusterId
+     * @param ScaleClusterRequest $request   ScaleClusterRequest
+     * @param string[]            $headers   map
+     * @param RuntimeOptions      $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return ScaleClusterResponse ScaleClusterResponse
      */
     public function scaleClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -4887,18 +5304,21 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param string                      $NodepoolId
-     * @param ScaleClusterNodePoolRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return ScaleClusterNodePoolResponse
+     * @param string              $ClusterId
+     * @param ScaleClusterRequest $request   ScaleClusterRequest
+     *
+     * @return ScaleClusterResponse ScaleClusterResponse
      */
-    public function scaleClusterNodePool($ClusterId, $NodepoolId, $request)
+    public function scaleCluster($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+        return $this->scaleClusterWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -4937,26 +5357,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                 $ClusterId
-     * @param ScaleOutClusterRequest $request
+     * @param string                      $ClusterId
+     * @param string                      $NodepoolId
+     * @param ScaleClusterNodePoolRequest $request
      *
-     * @return ScaleOutClusterResponse
+     * @return ScaleClusterNodePoolResponse
      */
-    public function scaleOutCluster($ClusterId, $request)
+    public function scaleClusterNodePool($ClusterId, $NodepoolId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->scaleOutClusterWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->scaleClusterNodePoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 
     /**
+     * >  The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to an ACK cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
+     *   *
      * @param string                 $ClusterId
-     * @param ScaleOutClusterRequest $request
-     * @param string[]               $headers
-     * @param RuntimeOptions         $runtime
+     * @param ScaleOutClusterRequest $request   ScaleOutClusterRequest
+     * @param string[]               $headers   map
+     * @param RuntimeOptions         $runtime   runtime options for this request RuntimeOptions
      *
-     * @return ScaleOutClusterResponse
+     * @return ScaleOutClusterResponse ScaleOutClusterResponse
      */
     public function scaleOutClusterWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -5045,16 +5468,99 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param StartWorkflowRequest $request
+     * >  The ScaleOutCluster API operation is phased out. You must call the node pool-related API operations to manage nodes. If you want to add worker nodes to an ACK cluster, call the ScaleClusterNodePool API operation. For more information, see [ScaleClusterNodePool](~~184928~~).
+     *   *
+     * @param string                 $ClusterId
+     * @param ScaleOutClusterRequest $request   ScaleOutClusterRequest
      *
-     * @return StartWorkflowResponse
+     * @return ScaleOutClusterResponse ScaleOutClusterResponse
      */
-    public function startWorkflow($request)
+    public function scaleOutCluster($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->startWorkflowWithOptions($request, $headers, $runtime);
+        return $this->scaleOutClusterWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $clusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ScanClusterVulsResponse
+     */
+    public function scanClusterVulsWithOptions($clusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ScanClusterVuls',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($clusterId) . '/vuls/scan',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ScanClusterVulsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $clusterId
+     *
+     * @return ScanClusterVulsResponse
+     */
+    public function scanClusterVuls($clusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->scanClusterVulsWithOptions($clusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartAlertResponse
+     */
+    public function startAlertWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartAlert',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/alert_rule/start',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return StartAlertResponse
+     */
+    public function startAlert($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->startAlertWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -5145,16 +5651,96 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * @param StartWorkflowRequest $request
      *
-     * @return TagResourcesResponse
+     * @return StartWorkflowResponse
      */
-    public function tagResources($request)
+    public function startWorkflow($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->tagResourcesWithOptions($request, $headers, $runtime);
+        return $this->startWorkflowWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StopAlertResponse
+     */
+    public function stopAlertWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StopAlert',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/alert/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/alert_rule/stop',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopAlertResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return StopAlertResponse
+     */
+    public function stopAlert($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->stopAlertWithOptions($ClusterId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $ClusterId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return SyncClusterNodePoolResponse
+     */
+    public function syncClusterNodePoolWithOptions($ClusterId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'SyncClusterNodePool',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/sync_nodepools',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return SyncClusterNodePoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $ClusterId
+     *
+     * @return SyncClusterNodePoolResponse
+     */
+    public function syncClusterNodePool($ClusterId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->syncClusterNodePoolWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
@@ -5200,17 +5786,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                        $ClusterId
-     * @param UnInstallClusterAddonsRequest $request
+     * @param TagResourcesRequest $request
      *
-     * @return UnInstallClusterAddonsResponse
+     * @return TagResourcesResponse
      */
-    public function unInstallClusterAddons($ClusterId, $request)
+    public function tagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->unInstallClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->tagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5244,28 +5829,37 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param string                        $ClusterId
+     * @param UnInstallClusterAddonsRequest $request
      *
-     * @return UntagResourcesResponse
+     * @return UnInstallClusterAddonsResponse
      */
-    public function untagResources($request)
+    public function unInstallClusterAddons($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->untagResourcesWithOptions($request, $headers, $runtime);
+        return $this->unInstallClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * @param UntagResourcesRequest $tmpReq
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
      * @return UntagResourcesResponse
      */
-    public function untagResourcesWithOptions($request, $headers, $runtime)
+    public function untagResourcesWithOptions($tmpReq, $headers, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new UntagResourcesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->resourceIds)) {
+            $request->resourceIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->resourceIds, 'resource_ids', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tagKeys)) {
+            $request->tagKeysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'tag_keys', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->all)) {
             $query['all'] = $request->all;
@@ -5273,14 +5867,14 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['region_id'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceIds)) {
-            $query['resource_ids'] = $request->resourceIds;
+        if (!Utils::isUnset($request->resourceIdsShrink)) {
+            $query['resource_ids'] = $request->resourceIdsShrink;
         }
         if (!Utils::isUnset($request->resourceType)) {
             $query['resource_type'] = $request->resourceType;
         }
-        if (!Utils::isUnset($request->tagKeys)) {
-            $query['tag_keys'] = $request->tagKeys;
+        if (!Utils::isUnset($request->tagKeysShrink)) {
+            $query['tag_keys'] = $request->tagKeysShrink;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -5302,16 +5896,16 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string $ClusterId
+     * @param UntagResourcesRequest $request
      *
-     * @return UpdateContactGroupForAlertResponse
+     * @return UntagResourcesResponse
      */
-    public function updateContactGroupForAlert($ClusterId)
+    public function untagResources($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime);
+        return $this->untagResourcesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5342,26 +5936,86 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                                  $ClusterId
-     * @param UpdateK8sClusterUserConfigExpireRequest $request
+     * @param string $ClusterId
      *
-     * @return UpdateK8sClusterUserConfigExpireResponse
+     * @return UpdateContactGroupForAlertResponse
      */
-    public function updateK8sClusterUserConfigExpire($ClusterId, $request)
+    public function updateContactGroupForAlert($ClusterId)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->updateContactGroupForAlertWithOptions($ClusterId, $headers, $runtime);
     }
 
     /**
-     * @param string                                  $ClusterId
-     * @param UpdateK8sClusterUserConfigExpireRequest $request
-     * @param string[]                                $headers
-     * @param RuntimeOptions                          $runtime
+     * @param string                       $ClusterId
+     * @param UpdateControlPlaneLogRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
      *
-     * @return UpdateK8sClusterUserConfigExpireResponse
+     * @return UpdateControlPlaneLogResponse
+     */
+    public function updateControlPlaneLogWithOptions($ClusterId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->aliuid)) {
+            $body['aliuid'] = $request->aliuid;
+        }
+        if (!Utils::isUnset($request->components)) {
+            $body['components'] = $request->components;
+        }
+        if (!Utils::isUnset($request->logProject)) {
+            $body['log_project'] = $request->logProject;
+        }
+        if (!Utils::isUnset($request->logTtl)) {
+            $body['log_ttl'] = $request->logTtl;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateControlPlaneLog',
+            'version'     => '2015-12-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/clusters/' . OpenApiUtilClient::getEncodeParam($ClusterId) . '/controlplanelog',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateControlPlaneLogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $ClusterId
+     * @param UpdateControlPlaneLogRequest $request
+     *
+     * @return UpdateControlPlaneLogResponse
+     */
+    public function updateControlPlaneLog($ClusterId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateControlPlaneLogWithOptions($ClusterId, $request, $headers, $runtime);
+    }
+
+    /**
+     * >
+     *   * *   You can call this operation only with an Alibaba Cloud account.
+     *   * *   After you revoke the kubeconfig file of a cluster, the validity period of the kubeconfig file that you specified becomes invalid. You can call this API operation to specify the validity period again.
+     *   *
+     * @param string                                  $ClusterId
+     * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
+     * @param string[]                                $headers   map
+     * @param RuntimeOptions                          $runtime   runtime options for this request RuntimeOptions
+     *
+     * @return UpdateK8sClusterUserConfigExpireResponse UpdateK8sClusterUserConfigExpireResponse
      */
     public function updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime)
     {
@@ -5393,17 +6047,21 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                $TemplateId
-     * @param UpdateTemplateRequest $request
+     * >
+     *   * *   You can call this operation only with an Alibaba Cloud account.
+     *   * *   After you revoke the kubeconfig file of a cluster, the validity period of the kubeconfig file that you specified becomes invalid. You can call this API operation to specify the validity period again.
+     *   *
+     * @param string                                  $ClusterId
+     * @param UpdateK8sClusterUserConfigExpireRequest $request   UpdateK8sClusterUserConfigExpireRequest
      *
-     * @return UpdateTemplateResponse
+     * @return UpdateK8sClusterUserConfigExpireResponse UpdateK8sClusterUserConfigExpireResponse
      */
-    public function updateTemplate($TemplateId, $request)
+    public function updateK8sClusterUserConfigExpire($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->updateTemplateWithOptions($TemplateId, $request, $headers, $runtime);
+        return $this->updateK8sClusterUserConfigExpireWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -5453,17 +6111,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                $ClusterId
-     * @param UpgradeClusterRequest $request
+     * @param string                $TemplateId
+     * @param UpdateTemplateRequest $request
      *
-     * @return UpgradeClusterResponse
+     * @return UpdateTemplateResponse
      */
-    public function upgradeCluster($ClusterId, $request)
+    public function updateTemplate($TemplateId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->upgradeClusterWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->updateTemplateWithOptions($TemplateId, $request, $headers, $runtime);
     }
 
     /**
@@ -5480,6 +6138,9 @@ class CS extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->componentName)) {
             $body['component_name'] = $request->componentName;
+        }
+        if (!Utils::isUnset($request->masterOnly)) {
+            $body['master_only'] = $request->masterOnly;
         }
         if (!Utils::isUnset($request->nextVersion)) {
             $body['next_version'] = $request->nextVersion;
@@ -5507,17 +6168,17 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                      $ClusterId
-     * @param UpgradeClusterAddonsRequest $request
+     * @param string                $ClusterId
+     * @param UpgradeClusterRequest $request
      *
-     * @return UpgradeClusterAddonsResponse
+     * @return UpgradeClusterResponse
      */
-    public function upgradeClusterAddons($ClusterId, $request)
+    public function upgradeCluster($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->upgradeClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
+        return $this->upgradeClusterWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
@@ -5551,28 +6212,29 @@ class CS extends OpenApiClient
     }
 
     /**
-     * @param string                        $ClusterId
-     * @param string                        $NodepoolId
-     * @param UpgradeClusterNodepoolRequest $request
+     * @param string                      $ClusterId
+     * @param UpgradeClusterAddonsRequest $request
      *
-     * @return UpgradeClusterNodepoolResponse
+     * @return UpgradeClusterAddonsResponse
      */
-    public function upgradeClusterNodepool($ClusterId, $NodepoolId, $request)
+    public function upgradeClusterAddons($ClusterId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
+        return $this->upgradeClusterAddonsWithOptions($ClusterId, $request, $headers, $runtime);
     }
 
     /**
+     * You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *   *
      * @param string                        $ClusterId
      * @param string                        $NodepoolId
-     * @param UpgradeClusterNodepoolRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param UpgradeClusterNodepoolRequest $request    UpgradeClusterNodepoolRequest
+     * @param string[]                      $headers    map
+     * @param RuntimeOptions                $runtime    runtime options for this request RuntimeOptions
      *
-     * @return UpgradeClusterNodepoolResponse
+     * @return UpgradeClusterNodepoolResponse UpgradeClusterNodepoolResponse
      */
     public function upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime)
     {
@@ -5583,6 +6245,9 @@ class CS extends OpenApiClient
         }
         if (!Utils::isUnset($request->kubernetesVersion)) {
             $body['kubernetes_version'] = $request->kubernetesVersion;
+        }
+        if (!Utils::isUnset($request->runtimeType)) {
+            $body['runtime_type'] = $request->runtimeType;
         }
         if (!Utils::isUnset($request->runtimeVersion)) {
             $body['runtime_version'] = $request->runtimeVersion;
@@ -5604,5 +6269,22 @@ class CS extends OpenApiClient
         ]);
 
         return UpgradeClusterNodepoolResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call the UpgradeClusterNodepool operation to update the Kubernetes version, OS version, or container runtime version of the nodes in a node pool.
+     *   *
+     * @param string                        $ClusterId
+     * @param string                        $NodepoolId
+     * @param UpgradeClusterNodepoolRequest $request    UpgradeClusterNodepoolRequest
+     *
+     * @return UpgradeClusterNodepoolResponse UpgradeClusterNodepoolResponse
+     */
+    public function upgradeClusterNodepool($ClusterId, $NodepoolId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->upgradeClusterNodepoolWithOptions($ClusterId, $NodepoolId, $request, $headers, $runtime);
     }
 }

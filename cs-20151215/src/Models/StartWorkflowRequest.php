@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class StartWorkflowRequest extends Model
 {
     /**
+     * @example abc.bam
+     *
      * @var string
      */
     public $mappingBamOutFilename;
 
     /**
+     * @example output/bamDirName
+     *
      * @var string
      */
     public $mappingBamOutPath;
 
     /**
+     * @example gene-shenzhen
+     *
      * @var string
      */
     public $mappingBucketName;
 
     /**
+     * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_1.fq.gz
+     *
      * @var string
      */
     public $mappingFastqFirstFilename;
 
     /**
+     * @example fastq/MGISEQ2000
+     *
      * @var string
      */
     public $mappingFastqPath;
 
     /**
+     * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_2.fq.gz
+     *
      * @var string
      */
     public $mappingFastqSecondFilename;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $mappingIsMarkDup;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $mappingOssRegion;
 
     /**
+     * @example reference/hg19
+     *
      * @var string
      */
     public $mappingReferencePath;
 
     /**
+     * @example s
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @example gene-shenzhen
+     *
      * @var string
      */
     public $wgsBucketName;
 
     /**
+     * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_1.fq.gz
+     *
      * @var string
      */
     public $wgsFastqFirstFilename;
 
     /**
+     * @example fastq/MGISEQ2000
+     *
      * @var string
      */
     public $wgsFastqPath;
 
     /**
+     * @example MGISEQ2000_PCR-free_NA12878_1_V100003043_L01_2.fq.gz
+     *
      * @var string
      */
     public $wgsFastqSecondFilename;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $wgsOssRegion;
 
     /**
+     * @example reference/hg19
+     *
      * @var string
      */
     public $wgsReferencePath;
 
     /**
+     * @example abc.vcf
+     *
      * @var string
      */
     public $wgsVcfOutFilename;
 
     /**
+     * @example output/vcf
+     *
      * @var string
      */
     public $wgsVcfOutPath;
 
     /**
+     * @example mapping
+     *
      * @var string
      */
     public $workflowType;

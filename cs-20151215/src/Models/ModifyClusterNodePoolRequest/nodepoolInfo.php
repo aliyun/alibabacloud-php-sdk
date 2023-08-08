@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
+     * @example default-nodepool
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example rg-acfmyvw3wjm****
+     *
      * @var string
      */
     public $resourceGroupId;

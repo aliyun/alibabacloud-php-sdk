@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the component.
+     *
+     * @example flexvolume
+     *
      * @var string
      */
     public $name;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AttachInstancesRequest extends Model
 {
     /**
+     * @example none
+     *
      * @var string
      */
     public $cpuPolicy;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $formatDisk;
 
     /**
+     * @example aliyun_2_1903_x64_20G_alibase_20200529.vhd
+     *
      * @var string
      */
     public $imageId;
@@ -29,26 +35,36 @@ class AttachInstancesRequest extends Model
     public $instances;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isEdgeWorker;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keepInstanceName;
 
     /**
+     * @example secrity-key
+     *
      * @var string
      */
     public $keyPair;
 
     /**
+     * @example np615c0e0966124216a0412e10afe0****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @example Hello1234
+     *
      * @var string
      */
     public $password;
@@ -69,6 +85,8 @@ class AttachInstancesRequest extends Model
     public $tags;
 
     /**
+     * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
+     *
      * @var string
      */
     public $userData;

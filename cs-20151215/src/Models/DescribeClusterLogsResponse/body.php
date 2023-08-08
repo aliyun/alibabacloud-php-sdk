@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example 590749245
+     *
      * @var int
      */
     public $ID;
 
     /**
+     * @example c23421cfa74454bc8b37163fd19af***
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example start to update cluster status to CREATE_COMPLETE
+     *
      * @var string
      */
     public $clusterLog;
 
     /**
+     * @example 2020-09-11T10:11:51+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example 2020-09-11T10:11:51+08:00
+     *
      * @var string
      */
     public $updated;

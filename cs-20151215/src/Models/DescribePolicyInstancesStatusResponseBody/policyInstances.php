@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class policyInstances extends Model
 {
     /**
+     * @description The type of the policy. For more information about different types of policies and their descriptions, see [Predefined security policies of ACK](https://www.alibabacloud.com/help/doc-detail/359819.html).
+     *
+     * @example cis-k8s
+     *
      * @var string
      */
     public $policyCategory;
 
     /**
+     * @description The description of the policy.
+     *
+     * @example Restricts use of the cluster-admin role.
+     *
      * @var string
      */
     public $policyDescription;
 
     /**
+     * @description The number of policy instances that are deployed. If this parameter is empty, it indicates that no policy instance is deployed from the policy.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $policyInstancesCount;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example ACKRestrictRoleBindings
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @description The severity level of the policy.
+     *
+     * @example medium
+     *
      * @var string
      */
     public $policySeverity;

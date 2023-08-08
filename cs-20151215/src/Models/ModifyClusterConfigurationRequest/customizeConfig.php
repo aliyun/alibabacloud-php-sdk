@@ -15,6 +15,8 @@ class customizeConfig extends Model
     public $configs;
 
     /**
+     * @example kube-apiserver
+     *
      * @var string
      */
     public $name;

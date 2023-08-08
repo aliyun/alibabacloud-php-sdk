@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest;
 
+use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\privatePoolOptions;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\spotPriceLimit;
 use AlibabaCloud\SDK\CS\V20151215\Models\CreateClusterNodePoolRequest\scalingGroup\tags;
 use AlibabaCloud\SDK\CS\V20151215\Models\DataDisk;
@@ -12,16 +13,22 @@ use AlibabaCloud\Tea\Model;
 class scalingGroup extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $compensateWithOnDemand;
@@ -32,26 +39,36 @@ class scalingGroup extends Model
     public $dataDisks;
 
     /**
+     * @example ds-bp1d19mmbsv3jf6xxxxx
+     *
      * @var string
      */
     public $deploymentsetId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $desiredSize;
 
     /**
+     * @example aliyun_2_1903_x64_20G_alibase_20200529.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example AliyunLinux
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
@@ -62,54 +79,79 @@ class scalingGroup extends Model
     public $instanceTypes;
 
     /**
+     * @example PayByTraffic
+     *
      * @var string
      */
     public $internetChargeType;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $internetMaxBandwidthOut;
 
     /**
+     * @example np-key-name
+     *
      * @var string
      */
     public $keyPair;
 
     /**
+     * @example Hello1234
+     *
      * @var string
      */
     public $loginPassword;
 
     /**
+     * @example COST_OPTIMIZED
+     *
      * @var string
      */
     public $multiAzPolicy;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $onDemandBaseCapacity;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example AliyunLinux
+     *
      * @var string
      */
     public $platform;
+
+    /**
+     * @var privatePoolOptions
+     */
+    public $privatePoolOptions;
 
     /**
      * @var string[]
@@ -117,11 +159,15 @@ class scalingGroup extends Model
     public $rdsInstances;
 
     /**
+     * @example release
+     *
      * @var string
      */
     public $scalingPolicy;
 
     /**
+     * @example sg-wz9a8g2mt6x5llu0****
+     *
      * @var string
      */
     public $securityGroupId;
@@ -132,11 +178,15 @@ class scalingGroup extends Model
     public $securityGroupIds;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $spotInstancePools;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $spotInstanceRemedy;
@@ -147,21 +197,29 @@ class scalingGroup extends Model
     public $spotPriceLimit;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $systemDiskCategory;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $systemDiskPerformanceLevel;
 
     /**
+     * @example 120
+     *
      * @var int
      */
     public $systemDiskSize;
@@ -196,6 +254,7 @@ class scalingGroup extends Model
         'period'                              => 'period',
         'periodUnit'                          => 'period_unit',
         'platform'                            => 'platform',
+        'privatePoolOptions'                  => 'private_pool_options',
         'rdsInstances'                        => 'rds_instances',
         'scalingPolicy'                       => 'scaling_policy',
         'securityGroupId'                     => 'security_group_id',
@@ -283,6 +342,9 @@ class scalingGroup extends Model
         }
         if (null !== $this->platform) {
             $res['platform'] = $this->platform;
+        }
+        if (null !== $this->privatePoolOptions) {
+            $res['private_pool_options'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
         }
         if (null !== $this->rdsInstances) {
             $res['rds_instances'] = $this->rdsInstances;
@@ -414,6 +476,9 @@ class scalingGroup extends Model
         }
         if (isset($map['platform'])) {
             $model->platform = $map['platform'];
+        }
+        if (isset($map['private_pool_options'])) {
+            $model->privatePoolOptions = privatePoolOptions::fromMap($map['private_pool_options']);
         }
         if (isset($map['rds_instances'])) {
             if (!empty($map['rds_instances'])) {

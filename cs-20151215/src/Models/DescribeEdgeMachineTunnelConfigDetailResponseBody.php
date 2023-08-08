@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineTunnelConfigDetailResponseBody extends Model
 {
     /**
+     * @description The name of the cloud-native box.
+     *
+     * @example TEST0621N0FF****
+     *
      * @var string
      */
     public $deviceName;
 
     /**
+     * @description The model of the cloud-native box.
+     *
+     * @example ACK-A-S001
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @description The product key.
+     *
+     * @example a11rXul****
+     *
      * @var string
      */
     public $productKey;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example bfd12953-31cb-42f1-8a36-7b80ec345094
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The serial number of the cloud-native box.
+     *
+     * @example Q2CB5XZAFBFG****
+     *
      * @var string
      */
     public $sn;
 
     /**
+     * @description The token.
+     *
+     * @example abcd****
+     *
      * @var string
      */
     public $token;
 
     /**
+     * @description The backend endpoint of the tunnel.
+     *
+     * @example wss://frontend-iotx-r-debug.aliyun-inc.test
+     *
      * @var string
      */
     public $tunnelEndpoint;

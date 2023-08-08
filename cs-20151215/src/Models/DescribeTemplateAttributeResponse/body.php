@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example 72d20cf8-a533-4ea9-a10d-e7630d3d****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example private
+     *
      * @var string
      */
     public $acl;
 
     /**
+     * @example web
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example apiVersion: V1\n***
+     *
      * @var string
      */
     public $template;
 
     /**
+     * @example kubernetes
+     *
      * @var string
      */
     public $templateType;
 
     /**
+     * @example test template
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example sa
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example 874ec485-e7e6-4373-8a3b-47bde8ae****
+     *
      * @var string
      */
     public $templateWithHistId;
 
     /**
+     * @example 2020-09-16T19:21:29+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example 2020-09-16T19:21:29+08:00
+     *
      * @var string
      */
     public $updated;

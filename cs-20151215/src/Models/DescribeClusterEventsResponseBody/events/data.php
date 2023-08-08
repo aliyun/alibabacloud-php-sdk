@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example info
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example Start to upgrade NodePool nodePool/npdd89dc2b76c04f14b06774883b******
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example Started
+     *
      * @var string
      */
     public $reason;

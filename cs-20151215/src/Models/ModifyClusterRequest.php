@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $apiServerEip;
 
     /**
+     * @example eip-wz9fnasl6dsfhmvci****
+     *
      * @var string
      */
     public $apiServerEipId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $deletionProtection;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableRrsa;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $ingressDomainRebinding;
 
     /**
+     * @example lb-wz97kes8tnndkpodw****
+     *
      * @var string
      */
     public $ingressLoadbalancerId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $instanceDeletionProtection;
@@ -49,6 +63,8 @@ class ModifyClusterRequest extends Model
     public $maintenanceWindow;
 
     /**
+     * @example rg-acfmyvw3wjm****
+     *
      * @var string
      */
     public $resourceGroupId;

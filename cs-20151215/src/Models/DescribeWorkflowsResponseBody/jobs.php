@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @description The ID of the ACK cluster.
+     *
+     * @example cb1a7214cfc0b41d9bb086affc2d8f51c
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The time when the workflow was created.
+     *
+     * @example 2020-01-15T13:18:52Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the workflow.
+     *
+     * @example wgs-gpu-qb4dk
+     *
      * @var string
      */
     public $jobName;

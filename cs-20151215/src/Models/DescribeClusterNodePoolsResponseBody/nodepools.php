@@ -17,6 +17,8 @@ use AlibabaCloud\Tea\Model;
 class nodepools extends Model
 {
     /**
+     * @description The configurations of auto scaling.
+     *
      * @var autoScaling
      */
     public $autoScaling;
@@ -27,41 +29,57 @@ class nodepools extends Model
     public $interconnectConfig;
 
     /**
+     * @example improved
+     *
      * @var string
      */
     public $interconnectMode;
 
     /**
+     * @description The configurations of the cluster.
+     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
+     * @description The configurations of managed node pools. Managed node pools are available only in professional managed Kubernetes clusters.
+     *
      * @var management
      */
     public $management;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxNodes;
 
     /**
+     * @description The information about the node pool.
+     *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
+     * @description The configurations of the scaling group.
+     *
      * @var scalingGroup
      */
     public $scalingGroup;
 
     /**
+     * @description The status details about the node pool.
+     *
      * @var status
      */
     public $status;
 
     /**
+     * @description The configurations of confidential computing.
+     *
      * @var teeConfig
      */
     public $teeConfig;

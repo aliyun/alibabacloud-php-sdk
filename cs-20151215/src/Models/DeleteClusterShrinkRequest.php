@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterShrinkRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $keepSlb;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $retainAllResources;

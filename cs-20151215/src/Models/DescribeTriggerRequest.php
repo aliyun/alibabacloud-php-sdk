@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeTriggerRequest extends Model
 {
     /**
+     * @example web-server
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
 
     /**
+     * @example deployment
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example redeploy
+     *
      * @var string
      */
     public $action;

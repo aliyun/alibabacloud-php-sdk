@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class error extends Model
 {
     /**
+     * @example BadRequest
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example Addon status not match
+     *
      * @var string
      */
     public $message;

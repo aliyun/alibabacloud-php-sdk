@@ -9,23 +9,41 @@ use AlibabaCloud\Tea\Model;
 class RemoveNodePoolNodesShrinkRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $drainNode;
 
     /**
+     * @description i-bp1c70fqbv1nlu9xxxxx
+     *
+     * @var string
+     */
+    public $instanceIdsShrink;
+
+    /**
+     * @description cn-hangzhou.172.16.xxx.xxx
+     *
      * @var string
      */
     public $nodesShrink;
 
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $releaseNode;
     protected $_name = [
-        'drainNode'   => 'drain_node',
-        'nodesShrink' => 'nodes',
-        'releaseNode' => 'release_node',
+        'drainNode'         => 'drain_node',
+        'instanceIdsShrink' => 'instance_ids',
+        'nodesShrink'       => 'nodes',
+        'releaseNode'       => 'release_node',
     ];
 
     public function validate()
@@ -37,6 +55,9 @@ class RemoveNodePoolNodesShrinkRequest extends Model
         $res = [];
         if (null !== $this->drainNode) {
             $res['drain_node'] = $this->drainNode;
+        }
+        if (null !== $this->instanceIdsShrink) {
+            $res['instance_ids'] = $this->instanceIdsShrink;
         }
         if (null !== $this->nodesShrink) {
             $res['nodes'] = $this->nodesShrink;
@@ -58,6 +79,9 @@ class RemoveNodePoolNodesShrinkRequest extends Model
         $model = new self();
         if (isset($map['drain_node'])) {
             $model->drainNode = $map['drain_node'];
+        }
+        if (isset($map['instance_ids'])) {
+            $model->instanceIdsShrink = $map['instance_ids'];
         }
         if (isset($map['nodes'])) {
             $model->nodesShrink = $map['nodes'];

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class MaintenanceWindow extends Model
 {
     /**
+     * @example 3h
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @example 03:00:00Z
+     *
      * @var string
      */
     public $maintenanceTime;
 
     /**
+     * @example Monday,Thursday
+     *
      * @var string
      */
     public $weeklyPeriod;

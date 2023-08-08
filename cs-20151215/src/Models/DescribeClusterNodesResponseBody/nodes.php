@@ -9,101 +9,203 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @description The time when the node was created.
+     *
+     * @example 2020-08-25T11:25:35+08:00
+     *
      * @var string
      */
     public $creationTime;
 
     /**
+     * @description The error message that was generated when the node was created.
+     *
+     * @example error***
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The expiration time of the node.
+     *
+     * @example 2099-12-31T23:59:00+08:00
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The name of the host.
+     *
+     * @example iZ2vcckdmxp7u0urj2k****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The ID of the system image that is used by the node.
+     *
+     * @example aliyun_2_1903_x64_20G_alibase_20200529.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The billing method of the instance on which the node is deployed. Valid values:
+     *
+     *   `PrePaid`: the subscription billing method. If the value is PrePaid, make sure that you have a sufficient balance or credit in your account. Otherwise, an `InvalidPayMethod` error is returned.
+     *   `PostPaid`: the pay-as-you-go billing method.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The ID of the instance on which the node is deployed.
+     *
+     * @example i-2vcckdmxp7u0urj2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance on which the node is deployed.
+     *
+     * @example worker-k8s-for-cs-c5cdf7e3938bc4f8eb0e44b21a80f****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   Master: master node
+     *   Worker: worker node
+     *
+     * @example Worker
+     *
      * @var string
      */
     public $instanceRole;
 
     /**
+     * @description The status of the node.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The instance type of the node.
+     *
+     * @example ecs.c5.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The Elastic Compute Service (ECS) instance family of the node.
+     *
+     * @example ecs.c5
+     *
      * @var string
      */
     public $instanceTypeFamily;
 
     /**
+     * @description The IP address of the node.
+     *
      * @var string[]
      */
     public $ipAddress;
 
     /**
+     * @description Indicates whether the instance on which the node is deployed is provided by Alibaba Cloud. Valid values:
+     *
+     *   `true`: The instance is provided by Alibaba Cloud.
+     *   `false`: The instance is not provided by Alibaba Cloud.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isAliyunNode;
 
     /**
+     * @description The name of the node. This name is the identifier of the node in the cluster.
+     *
+     * @example cn-chengdu.192.168.0.36
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description Indicates whether the node is ready. Valid values:
+     *
+     *   `Ready`: The node is ready.
+     *   `NotReady`: The node is not ready.
+     *   `Unknown`: The status of the node is unknown.
+     *   `Offline`: The node is offline.
+     *
+     * @example Ready
+     *
      * @var string
      */
     public $nodeStatus;
 
     /**
+     * @description The ID of the node pool.
+     *
+     * @example np0794239424a84eb7a95327369d56****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @description Indicates how the node is initialized. A node can be manually created or created by using Resource Orchestration Service (ROS).
+     *
+     * @example ess_attach
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The type of the preemptible instance. Valid values:
+     *
+     *   NoSpot: a non-preemptible instance.
+     *   SpotWithPriceLimit: a preemptible instance that is configured with the highest bid price.
+     *   SpotAsPriceGo: a preemptible instance for which the system automatically bids based on the current market price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description The status of the node. Valid values:
+     *
+     *   `pending`: The node is being created.
+     *   `running`: The node is running.
+     *   `starting`: The node is being started.
+     *   `stopping`: The node is being stopped.
+     *   `stopped`: The node is stopped.
+     *
+     * @example running
+     *
      * @var string
      */
     public $state;

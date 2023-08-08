@@ -9,32 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeKubernetesVersionMetadataRequest extends Model
 {
     /**
+     * @example Kubernetes
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 1.16.9-aliyun.1
+     *
      * @var string
      */
     public $kubernetesVersion;
 
     /**
+     * @example supported
+     *
+     * @var string
+     */
+    public $mode;
+
+    /**
+     * @example Default
+     *
      * @var string
      */
     public $profile;
 
     /**
+     * @example cn-beijing
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example docker
+     *
      * @var string
      */
     public $runtime;
     protected $_name = [
         'clusterType'       => 'ClusterType',
         'kubernetesVersion' => 'KubernetesVersion',
+        'mode'              => 'Mode',
         'profile'           => 'Profile',
         'region'            => 'Region',
         'runtime'           => 'runtime',
@@ -52,6 +70,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (null !== $this->kubernetesVersion) {
             $res['KubernetesVersion'] = $this->kubernetesVersion;
+        }
+        if (null !== $this->mode) {
+            $res['Mode'] = $this->mode;
         }
         if (null !== $this->profile) {
             $res['Profile'] = $this->profile;
@@ -79,6 +100,9 @@ class DescribeKubernetesVersionMetadataRequest extends Model
         }
         if (isset($map['KubernetesVersion'])) {
             $model->kubernetesVersion = $map['KubernetesVersion'];
+        }
+        if (isset($map['Mode'])) {
+            $model->mode = $map['Mode'];
         }
         if (isset($map['Profile'])) {
             $model->profile = $map['Profile'];

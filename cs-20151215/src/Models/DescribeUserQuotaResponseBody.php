@@ -10,34 +10,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserQuotaResponseBody extends Model
 {
     /**
+     * @description The quota of Container Service for Kubernetes (ACK) managed clusters. Default value: 20. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     *
+     * @example 20
+     *
      * @var int
      */
     public $amkClusterQuota;
 
     /**
+     * @description The quota of serverless Kubernetes (ASK) clusters. Default value: 20. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     *
+     * @example 3
+     *
      * @var int
      */
     public $askClusterQuota;
 
     /**
+     * @description The quota of node pools in an ACK cluster. Default value: 20. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     *
+     * @example 10
+     *
      * @var int
      */
     public $clusterNodepoolQuota;
 
     /**
+     * @description The quota of clusters within an Alibaba Cloud account. Default value: 50. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     *
+     * @example 50
+     *
      * @var int
      */
     public $clusterQuota;
 
     /**
+     * @description The quota of enhanced edge node pools.
+     *
      * @var edgeImprovedNodepoolQuota
      */
     public $edgeImprovedNodepoolQuota;
 
     /**
+     * @description The quota of nodes in an ACK cluster. Default value: 100. To increase the quota, [go to the Quota Center page to submit a ticket](https://quotas.console.aliyun.com/products/csk/quotas).
+     *
+     * @example 100
+     *
      * @var int
      */
     public $nodeQuota;
+
+    /**
+     * @var QuotasValue[]
+     */
+    public $quotas;
     protected $_name = [
         'amkClusterQuota'           => 'amk_cluster_quota',
         'askClusterQuota'           => 'ask_cluster_quota',
@@ -45,6 +72,7 @@ class DescribeUserQuotaResponseBody extends Model
         'clusterQuota'              => 'cluster_quota',
         'edgeImprovedNodepoolQuota' => 'edge_improved_nodepool_quota',
         'nodeQuota'                 => 'node_quota',
+        'quotas'                    => 'quotas',
     ];
 
     public function validate()
@@ -71,6 +99,14 @@ class DescribeUserQuotaResponseBody extends Model
         }
         if (null !== $this->nodeQuota) {
             $res['node_quota'] = $this->nodeQuota;
+        }
+        if (null !== $this->quotas) {
+            $res['quotas'] = [];
+            if (null !== $this->quotas && \is_array($this->quotas)) {
+                foreach ($this->quotas as $key => $val) {
+                    $res['quotas'][$key] = null !== $val ? $val->toMap() : $val;
+                }
+            }
         }
 
         return $res;
@@ -101,6 +137,9 @@ class DescribeUserQuotaResponseBody extends Model
         }
         if (isset($map['node_quota'])) {
             $model->nodeQuota = $map['node_quota'];
+        }
+        if (isset($map['quotas'])) {
+            $model->quotas = $map['quotas'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeTemplateAttributeRequest extends Model
 {
     /**
+     * @example kubernetes
+     *
      * @var string
      */
     public $templateType;

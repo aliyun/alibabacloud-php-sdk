@@ -45,6 +45,8 @@ class ModifyClusterNodePoolRequest extends Model
     public $teeConfig;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $updateNodes;

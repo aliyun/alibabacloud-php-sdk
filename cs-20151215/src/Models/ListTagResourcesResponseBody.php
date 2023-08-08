@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The token that is used to start the next query.
+     *
+     * @example c374bf4864448****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E368C761-F8F6-4A36-9B58-BD53D5CD0CEB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the queried labels and resources.
+     *
      * @var tagResources
      */
     public $tagResources;

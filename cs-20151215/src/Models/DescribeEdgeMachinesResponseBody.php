@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachinesResponseBody extends Model
 {
     /**
+     * @description The list of details about cloud-native boxes.
+     *
      * @var edgeMachines[]
      */
     public $edgeMachines;
 
     /**
+     * @description The pagination details.
+     *
      * @var pageInfo
      */
     public $pageInfo;

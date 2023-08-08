@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example {\"IngressDashboardEnabled\":\"true\",\"sls_project_name\":\"your_sls_project_name\"}"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example ags-metrics-collector
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example v1.0.0.2-cc3b2d6-aliyun
+     *
      * @var string
      */
     public $version;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example coredns
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @example {\"CpuRequest\":\"800m\"}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example 1.6.7
+     *
      * @var string
      */
     public $nextVersion;
@@ -26,11 +32,19 @@ class body extends Model
     /**
      * @var string
      */
+    public $policy;
+
+    /**
+     * @example v1.6.2
+     *
+     * @var string
+     */
     public $version;
     protected $_name = [
         'componentName' => 'component_name',
         'config'        => 'config',
         'nextVersion'   => 'next_version',
+        'policy'        => 'policy',
         'version'       => 'version',
     ];
 
@@ -49,6 +63,9 @@ class body extends Model
         }
         if (null !== $this->nextVersion) {
             $res['next_version'] = $this->nextVersion;
+        }
+        if (null !== $this->policy) {
+            $res['policy'] = $this->policy;
         }
         if (null !== $this->version) {
             $res['version'] = $this->version;
@@ -73,6 +90,9 @@ class body extends Model
         }
         if (isset($map['next_version'])) {
             $model->nextVersion = $map['next_version'];
+        }
+        if (isset($map['policy'])) {
+            $model->policy = $map['policy'];
         }
         if (isset($map['version'])) {
             $model->version = $map['version'];

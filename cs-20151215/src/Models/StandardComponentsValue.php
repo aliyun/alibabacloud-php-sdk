@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class StandardComponentsValue extends Model
 {
     /**
+     * @example ack-arena
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 0.5.0
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @example ***
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $required;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $disabled;

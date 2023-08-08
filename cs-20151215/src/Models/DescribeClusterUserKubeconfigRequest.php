@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterUserKubeconfigRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $privateIpAddress;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $temporaryDurationMinutes;

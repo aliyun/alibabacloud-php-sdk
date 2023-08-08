@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @example start
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $level;
 
     /**
+     * @example start to xxx
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example NodePoolUpgradeStart
+     *
      * @var string
      */
     public $reason;
 
     /**
+     * @example ACK
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example 1669706229286
+     *
      * @var string
      */
     public $timestamp;

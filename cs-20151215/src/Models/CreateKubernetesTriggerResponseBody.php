@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class CreateKubernetesTriggerResponseBody extends Model
 {
     /**
+     * @description The action that the trigger performs. For example, a value of `redeploy` indicates that the trigger redeploys the application.
+     *
+     * @example redeploy
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The ID of the ACK cluster.
+     *
+     * @example c5cdf7e3938bc4f8eb0e44b21a80f****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the trigger.
+     *
+     * @example 111
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the project.
+     *
+     * @example default/test-app
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The type of trigger.
+     *
+     * Valid values:
+     *
+     *   `deployment`: performs actions on Deployments.
+     *   `application`: performs actions on applications that are deployed in Application Center.
+     *
+     * @example deployment
+     *
      * @var string
      */
     public $type;

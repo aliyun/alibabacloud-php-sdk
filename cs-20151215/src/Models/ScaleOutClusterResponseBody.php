@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ScaleOutClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c82e6987e2961451182edacd74faf****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 687C5BAA-D103-4993-884B-C35E4314A1E1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example T-5a54309c80282e39ea00002f
+     *
      * @var string
      */
     public $taskId;

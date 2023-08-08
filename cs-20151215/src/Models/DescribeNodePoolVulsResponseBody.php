@@ -15,6 +15,8 @@ class DescribeNodePoolVulsResponseBody extends Model
     public $vulRecords;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $vulsFixServicePurchased;

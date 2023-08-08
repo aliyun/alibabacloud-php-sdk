@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class management extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRepair;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enable;

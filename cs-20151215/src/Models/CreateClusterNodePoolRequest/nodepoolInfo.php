@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class nodepoolInfo extends Model
 {
     /**
+     * @example cluster-demo
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example rg-acfmyvw3wjmb****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example ess
+     *
      * @var string
      */
     public $type;

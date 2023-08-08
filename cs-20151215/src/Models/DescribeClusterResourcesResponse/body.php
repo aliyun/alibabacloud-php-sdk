@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class body extends Model
 {
     /**
+     * @example cb95aa626a47740afbf6aa099b65****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 2020-09-11T10:11:54+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example lb-wz9poz4r0ymh8u0uf****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example {\"Id\":\"k8s_master_slb\",\"Name\":\"k8s_master_slb\",\"Type\":\"ALIYUN::SLB::LoadBalancer\",\"Status\":\"CREATE_COMPLETE\",\"StatusReason\":\"state changed\",\"Updated\":\"2020-05-21T13:25:02\",\"PhysicalId\":\"lb-wz9poz4r0ymh8u0uf****\"}
+     *
      * @var string
      */
     public $resourceInfo;
 
     /**
+     * @example ALIYUN::SLB::LoadBalancer
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example CREATE_COMPLETE
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoCreate;

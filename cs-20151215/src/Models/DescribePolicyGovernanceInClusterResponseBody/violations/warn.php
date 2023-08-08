@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
+     * @example Controls Linux capabilities.
+     *
      * @var string
      */
     public $policyDescription;
 
     /**
+     * @example policy-gatekeeper-ackpspcapabilities
+     *
      * @var string
      */
     public $policyName;
 
     /**
+     * @example high
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @example 81
+     *
      * @var int
      */
     public $violations;

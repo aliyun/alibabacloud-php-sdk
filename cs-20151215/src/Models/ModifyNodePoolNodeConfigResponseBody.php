@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyNodePoolNodeConfigResponseBody extends Model
 {
     /**
+     * @example np737c3ac1ac684703b9e10673aa2c****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @example D7631D83-6E98-1949-B665-766A62xxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example T-5fd211e924e1d00787xxxxxx
+     *
      * @var string
      */
     public $taskId;

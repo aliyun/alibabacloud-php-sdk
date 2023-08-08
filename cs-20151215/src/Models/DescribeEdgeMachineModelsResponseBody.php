@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeEdgeMachineModelsResponseBody extends Model
 {
     /**
+     * @description The list of details about the models of cloud-native boxes.
+     *
      * @var models[]
      */
     public $models;

@@ -17,6 +17,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodePoolDetailResponseBody extends Model
 {
     /**
+     * @description The auto scaling configurations of the queried node pool.
+     *
      * @var autoScaling
      */
     public $autoScaling;
@@ -27,31 +29,47 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $interconnectConfig;
 
     /**
+     * @description The network type of the edge node pool. Valid values: basic and enhanced. This parameter takes effect only for edge node pools.
+     *
+     * @example improved
+     *
      * @var string
      */
     public $interconnectMode;
 
     /**
+     * @description The configurations of the cluster where the node pool is deployed.
+     *
      * @var kubernetesConfig
      */
     public $kubernetesConfig;
 
     /**
+     * @description The configurations about the managed node pool feature.
+     *
      * @var management
      */
     public $management;
 
     /**
+     * @description The maximum number of nodes that are supported by the edge node pool. The value of this parameter must be equal to or greater than 0. A value of 0 indicates that the number of nodes in the node pool is limited only by the quota of nodes in the cluster. In most cases, this parameter is set to a value larger than 0 for edge node pools. This parameter is set to 0 for node pools of the ess type or default edge node pools.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxNodes;
 
     /**
+     * @description The configurations of the node pool.
+     *
      * @var nodepoolInfo
      */
     public $nodepoolInfo;
 
     /**
+     * @description The configurations of the scaling group.
+     *
      * @var scalingGroup
      */
     public $scalingGroup;
@@ -62,6 +80,8 @@ class DescribeClusterNodePoolDetailResponseBody extends Model
     public $status;
 
     /**
+     * @description The configurations of confidential computing.
+     *
      * @var teeConfig
      */
     public $teeConfig;

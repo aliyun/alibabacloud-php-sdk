@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class status extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $failedNodes;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $healthyNodes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $initialNodes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $offlineNodes;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $removingNodes;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $servingNodes;
 
     /**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalNodes;

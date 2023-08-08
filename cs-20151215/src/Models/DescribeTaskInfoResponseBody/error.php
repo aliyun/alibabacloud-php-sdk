@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class error extends Model
 {
     /**
+     * @example 400
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example failed to xxx
+     *
      * @var string
      */
     public $message;

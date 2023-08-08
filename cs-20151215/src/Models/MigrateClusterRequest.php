@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MigrateClusterRequest extends Model
 {
     /**
+     * @example *******.oss-cn-hangzhou.aliyuncs.com
+     *
      * @var string
      */
     public $ossBucketEndpoint;
 
     /**
+     * @example bucket-****
+     *
      * @var string
      */
     public $ossBucketName;

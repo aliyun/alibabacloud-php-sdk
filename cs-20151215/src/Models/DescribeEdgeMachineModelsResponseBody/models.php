@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class models extends Model
 {
     /**
+     * @description The number of CPU cores.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @description The CPU architecture.
+     *
+     * @example x86_64/arm64
+     *
      * @var string
      */
     public $cpuArch;
 
     /**
+     * @description The time when the cloud-native box was created.
+     *
+     * @example 2021-07-07T20:44:00+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @description The description.
+     *
+     * @example B010
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description Indicates whether the Docker runtime is managed.
+     *
+     * @example 0/1
+     *
      * @var int
      */
     public $manageRuntime;
 
     /**
+     * @description The memory size. Unit: GB.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @description The model of the cloud-native box.
+     *
+     * @example ACK-V-B010
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @description The ID of the cloud-native box.
+     *
+     * @example c34cc753-8908-4739-bd10-ebd922a4****
+     *
      * @var string
      */
     public $modelId;

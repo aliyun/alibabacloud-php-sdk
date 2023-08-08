@@ -10,9 +10,16 @@ use AlibabaCloud\Tea\Model;
 class vulRecords extends Model
 {
     /**
+     * @example i-t4n2qolb0wtzt0pz****
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $nodeName;
 
     /**
      * @var vulList[]
@@ -20,6 +27,7 @@ class vulRecords extends Model
     public $vulList;
     protected $_name = [
         'instanceId' => 'instance_id',
+        'nodeName'   => 'node_name',
         'vulList'    => 'vul_list',
     ];
 
@@ -32,6 +40,9 @@ class vulRecords extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['instance_id'] = $this->instanceId;
+        }
+        if (null !== $this->nodeName) {
+            $res['node_name'] = $this->nodeName;
         }
         if (null !== $this->vulList) {
             $res['vul_list'] = [];
@@ -56,6 +67,9 @@ class vulRecords extends Model
         $model = new self();
         if (isset($map['instance_id'])) {
             $model->instanceId = $map['instance_id'];
+        }
+        if (isset($map['node_name'])) {
+            $model->nodeName = $map['node_name'];
         }
         if (isset($map['vul_list'])) {
             if (!empty($map['vul_list'])) {

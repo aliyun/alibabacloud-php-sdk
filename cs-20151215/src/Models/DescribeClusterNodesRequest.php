@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterNodesRequest extends Model
 {
     /**
+     * @example "i-bp11xjhwkj8k966u****,i-bp1dmhc2bu5igkyq****"
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @example np****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example running
+     *
      * @var string
      */
     public $state;

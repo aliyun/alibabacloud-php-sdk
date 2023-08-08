@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterAttachScriptsRequest extends Model
 {
     /**
+     * @example amd64
+     *
      * @var string
      */
     public $arch;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $formatDisk;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $keepInstanceName;
 
     /**
+     * @example np1c9229d9be2d432c93f77a88fca0****
+     *
      * @var string
      */
     public $nodepoolId;
 
     /**
+     * @example {\"enableIptables\": true,\"manageRuntime\": true,\"quiet\": true,\"allowedClusterAddons\": [\"kube-proxy\",\"flannel\",\"coredns\"]}
+     *
      * @var string
      */
     public $options;

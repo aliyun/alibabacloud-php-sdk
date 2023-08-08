@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class edgeMachines extends Model
 {
     /**
+     * @description The time when the cloud-native box was activated.
+     *
+     * @example 2021-07-19T16:07:48+08:00
+     *
      * @var string
      */
     public $activeTime;
 
     /**
+     * @description The time when the cloud-native box was created.
+     *
+     * @example 2021-07-07T20:44:00+08:00
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @description The ID of the cloud-native box.
+     *
+     * @example c61083909b13f4a95b8554bda9577****
+     *
      * @var string
      */
     public $edgeMachineId;
 
     /**
+     * @description The `hostname` of the cloud-native box.
+     *
+     * @example ack-v-b010-ssdfw****
+     *
      * @var string
      */
     public $hostname;
 
     /**
+     * @description The lifecycle status of the cloud-native box.
+     *
+     * @example activated
+     *
      * @var string
      */
     public $lifeState;
 
     /**
+     * @description The model of the cloud-native box.
+     *
+     * @example ACK-V-B010
+     *
      * @var string
      */
     public $model;
 
     /**
+     * @description The name of the cloud-native box.
+     *
+     * @example ack-v-b010-ssdfw****
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The online status of the cloud-native box.
+     *
+     * @example online
+     *
      * @var string
      */
     public $onlineState;
 
     /**
+     * @description The serial number of the cloud-native box.
+     *
+     * @example ACK9GBL31SXX****
+     *
      * @var string
      */
     public $sn;
 
     /**
+     * @description The time when the cloud-native box was last updated.
+     *
+     * @example 2021-07-07T20:44:00+08:00
+     *
      * @var string
      */
     public $updated;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class kubernetesConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $cmsEnabled;
 
     /**
+     * @example none
+     *
      * @var string
      */
     public $cpuPolicy;
@@ -26,11 +30,15 @@ class kubernetesConfig extends Model
     public $labels;
 
     /**
+     * @example docker
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example 19.03.5
+     *
      * @var string
      */
     public $runtimeVersion;
@@ -41,6 +49,8 @@ class kubernetesConfig extends Model
     public $taints;
 
     /**
+     * @example IyEvdXNyL2Jpbi9iYXNoCmVjaG8gIkhlbGxvIEFDSyEi
+     *
      * @var string
      */
     public $userData;
