@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\CheckResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeletePictureRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeletePictureResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DeleteVerifyResultResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressLabelsResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeAddressOverviewRequest;
@@ -245,6 +247,55 @@ class Cloudauthintl extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deletePictureWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteVerifyResultRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteVerifyResultResponse
+     */
+    public function deleteVerifyResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deleteAfterQuery)) {
+            $query['DeleteAfterQuery'] = $request->deleteAfterQuery;
+        }
+        if (!Utils::isUnset($request->deleteType)) {
+            $query['DeleteType'] = $request->deleteType;
+        }
+        if (!Utils::isUnset($request->transactionId)) {
+            $query['TransactionId'] = $request->transactionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteVerifyResult',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteVerifyResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteVerifyResultRequest $request
+     *
+     * @return DeleteVerifyResultResponse
+     */
+    public function deleteVerifyResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteVerifyResultWithOptions($request, $runtime);
     }
 
     /**
