@@ -9,6 +9,27 @@ use AlibabaCloud\Tea\Model;
 class TempUpgradeCenBandwidthPackageSpecRequest extends Model
 {
     /**
+     * @example 20
+     *
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @example cenbwp-y08yosedeqlpua****
+     *
+     * @var string
+     */
+    public $cenBandwidthPackageId;
+
+    /**
+     * @example 2022-07-24T13:00:52Z
+     *
+     * @var string
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,29 +48,14 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenBandwidthPackageId;
-
-    /**
-     * @var int
-     */
-    public $bandwidth;
-
-    /**
-     * @var string
-     */
-    public $endTime;
     protected $_name = [
+        'bandwidth'             => 'Bandwidth',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
+        'endTime'               => 'EndTime',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
-        'bandwidth'             => 'Bandwidth',
-        'endTime'               => 'EndTime',
     ];
 
     public function validate()
@@ -59,6 +65,15 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->cenBandwidthPackageId) {
+            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
+        }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -70,15 +85,6 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenBandwidthPackageId) {
-            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
-        }
-        if (null !== $this->endTime) {
-            $res['EndTime'] = $this->endTime;
         }
 
         return $res;
@@ -92,6 +98,15 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['CenBandwidthPackageId'])) {
+            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
+        }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -103,15 +118,6 @@ class TempUpgradeCenBandwidthPackageSpecRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenBandwidthPackageId'])) {
-            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
-        }
-        if (isset($map['EndTime'])) {
-            $model->endTime = $map['EndTime'];
         }
 
         return $model;

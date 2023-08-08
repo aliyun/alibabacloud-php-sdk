@@ -9,6 +9,34 @@ use AlibabaCloud\Tea\Model;
 class SetCenInterRegionBandwidthLimitRequest extends Model
 {
     /**
+     * @example 8
+     *
+     * @var int
+     */
+    public $bandwidthLimit;
+
+    /**
+     * @example cen-7qthudw0ll6jmx****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $localRegionId;
+
+    /**
+     * @example us-west-1
+     *
+     * @var string
+     */
+    public $oppositeRegionId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,35 +55,15 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $localRegionId;
-
-    /**
-     * @var string
-     */
-    public $oppositeRegionId;
-
-    /**
-     * @var int
-     */
-    public $bandwidthLimit;
     protected $_name = [
+        'bandwidthLimit'       => 'BandwidthLimit',
+        'cenId'                => 'CenId',
+        'localRegionId'        => 'LocalRegionId',
+        'oppositeRegionId'     => 'OppositeRegionId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'cenId'                => 'CenId',
-        'localRegionId'        => 'LocalRegionId',
-        'oppositeRegionId'     => 'OppositeRegionId',
-        'bandwidthLimit'       => 'BandwidthLimit',
     ];
 
     public function validate()
@@ -65,6 +73,18 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthLimit) {
+            $res['BandwidthLimit'] = $this->bandwidthLimit;
+        }
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->localRegionId) {
+            $res['LocalRegionId'] = $this->localRegionId;
+        }
+        if (null !== $this->oppositeRegionId) {
+            $res['OppositeRegionId'] = $this->oppositeRegionId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -76,18 +96,6 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->localRegionId) {
-            $res['LocalRegionId'] = $this->localRegionId;
-        }
-        if (null !== $this->oppositeRegionId) {
-            $res['OppositeRegionId'] = $this->oppositeRegionId;
-        }
-        if (null !== $this->bandwidthLimit) {
-            $res['BandwidthLimit'] = $this->bandwidthLimit;
         }
 
         return $res;
@@ -101,6 +109,18 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthLimit'])) {
+            $model->bandwidthLimit = $map['BandwidthLimit'];
+        }
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
+        if (isset($map['LocalRegionId'])) {
+            $model->localRegionId = $map['LocalRegionId'];
+        }
+        if (isset($map['OppositeRegionId'])) {
+            $model->oppositeRegionId = $map['OppositeRegionId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -112,18 +132,6 @@ class SetCenInterRegionBandwidthLimitRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['LocalRegionId'])) {
-            $model->localRegionId = $map['LocalRegionId'];
-        }
-        if (isset($map['OppositeRegionId'])) {
-            $model->oppositeRegionId = $map['OppositeRegionId'];
-        }
-        if (isset($map['BandwidthLimit'])) {
-            $model->bandwidthLimit = $map['BandwidthLimit'];
         }
 
         return $model;

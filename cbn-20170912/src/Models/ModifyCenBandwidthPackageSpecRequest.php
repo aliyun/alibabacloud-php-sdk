@@ -9,6 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ModifyCenBandwidthPackageSpecRequest extends Model
 {
     /**
+     * @description The new maximum bandwidth value of the bandwidth plan. Unit: Mbit/s.
+     *
+     * Valid values: **2** to **10000**.
+     * @example 2
+     *
+     * @var int
+     */
+    public $bandwidth;
+
+    /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example cenbwp-4c2zaavbvh5x****
+     *
+     * @var string
+     */
+    public $cenBandwidthPackageId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,23 +46,13 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenBandwidthPackageId;
-
-    /**
-     * @var int
-     */
-    public $bandwidth;
     protected $_name = [
+        'bandwidth'             => 'Bandwidth',
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
-        'bandwidth'             => 'Bandwidth',
     ];
 
     public function validate()
@@ -53,6 +62,12 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidth) {
+            $res['Bandwidth'] = $this->bandwidth;
+        }
+        if (null !== $this->cenBandwidthPackageId) {
+            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -64,12 +79,6 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenBandwidthPackageId) {
-            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
-        }
-        if (null !== $this->bandwidth) {
-            $res['Bandwidth'] = $this->bandwidth;
         }
 
         return $res;
@@ -83,6 +92,12 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Bandwidth'])) {
+            $model->bandwidth = $map['Bandwidth'];
+        }
+        if (isset($map['CenBandwidthPackageId'])) {
+            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -94,12 +109,6 @@ class ModifyCenBandwidthPackageSpecRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenBandwidthPackageId'])) {
-            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
-        }
-        if (isset($map['Bandwidth'])) {
-            $model->bandwidth = $map['Bandwidth'];
         }
 
         return $model;

@@ -10,35 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeRouteServicesInCenResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The number of the page to return. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the region where the cloud service is deployed.
+     *
+     * @example 10
+     *
      * @var int
      */
-    public $totalCount;
+    public $pageSize;
 
     /**
+     * @description The ID of the region where the cloud service is accessed.
+     *
+     * @example 196C99CA-6997-5951-9721-AE89720DF856
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The ID of the region where the cloud service is accessed.
+     *
      * @var routeServiceEntries
      */
     public $routeServiceEntries;
+
+    /**
+     * @description The ID of the VPC that is associated with the cloud service.
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
+        'pageNumber'          => 'PageNumber',
         'pageSize'            => 'PageSize',
         'requestId'           => 'RequestId',
-        'pageNumber'          => 'PageNumber',
-        'totalCount'          => 'TotalCount',
         'routeServiceEntries' => 'RouteServiceEntries',
+        'totalCount'          => 'TotalCount',
     ];
 
     public function validate()
@@ -48,20 +66,20 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
+        if (null !== $this->routeServiceEntries) {
+            $res['RouteServiceEntries'] = null !== $this->routeServiceEntries ? $this->routeServiceEntries->toMap() : null;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->routeServiceEntries) {
-            $res['RouteServiceEntries'] = null !== $this->routeServiceEntries ? $this->routeServiceEntries->toMap() : null;
         }
 
         return $res;
@@ -75,20 +93,20 @@ class DescribeRouteServicesInCenResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
+        if (isset($map['RouteServiceEntries'])) {
+            $model->routeServiceEntries = routeServiceEntries::fromMap($map['RouteServiceEntries']);
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['RouteServiceEntries'])) {
-            $model->routeServiceEntries = routeServiceEntries::fromMap($map['RouteServiceEntries']);
         }
 
         return $model;

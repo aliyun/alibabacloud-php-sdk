@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SetCenInterRegionBandwidthLimitResponseBody extends Model
 {
     /**
+     * @example 530BC816-F575-412A-AAB2-435125D26328
+     *
      * @var string
      */
     public $requestId;

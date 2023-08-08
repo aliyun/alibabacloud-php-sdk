@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateCenChildInstanceRouteEntryToCenResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 437ED236-BE47-5370-8695-15C58C7A8014
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,71 @@ use AlibabaCloud\Tea\Model;
 class EnableCenVbrHealthCheckRequest extends Model
 {
     /**
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
+     *
+     * @example cen-hahhfskfkseig****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
+     * @description The time interval at which probe packets are sent during a health check. Unit: seconds. Default value: **2**. Valid values: **2 to 3**.
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $healthCheckInterval;
+
+    /**
+     * @description Specifies whether to enable probing during the health check. Valid values:
+     *
+     *   **true**: yes
+     *
+     * Make sure that a redundant route is available. Otherwise, network disconnections may occur.
+     *
+     *   **false** (default): no
+     *
+     * Probing is disabled by default. If a redundant route is specified, the system switches to the redundant route if the detected route is not reachable.
+     * @example false
+     *
+     * @var bool
+     */
+    public $healthCheckOnly;
+
+    /**
+     * @description The source IP address for the health check. You can set the source IP address in the following ways:
+     *
+     *   **Automatic IP Address** (recommended): The system automatically assigns an IP address from the 100.96.0.0/16 CIDR block.
+     *   **Custom IP Address**: You must specify an idle IP address from the 10.0.0.0/8, 192.168.0.0/16, or 172.16.0.0/12 CIDR block. The specified IP address cannot be the IP address of the VBR on the Alibaba Cloud side, the IP address of the VBR on the customer side, or other IP addresses with which the VBR communicates through the CEN instance.
+     *
+     * @example 192.XX.XX.1
+     *
+     * @var string
+     */
+    public $healthCheckSourceIp;
+
+    /**
+     * @description The destination IP address for the health check.
+     *
+     * Set the destination IP address to the IP address of the VBR on the customer side.
+     * @example 10.XX.XX.1
+     *
+     * @var string
+     */
+    public $healthCheckTargetIp;
+
+    /**
+     * @description The number of probe packets that are sent during a health check. Unit: packets. Valid values: **3 to 8**. Default value: **8**.
+     *
+     * @example 8
+     *
+     * @var int
+     */
+    public $healthyThreshold;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -29,57 +94,47 @@ class EnableCenVbrHealthCheckRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $vbrInstanceRegionId;
-
-    /**
+     * @description The ID of the VBR.
+     *
+     * @example vbr-wz95o9aylj181n5mzk****
+     *
      * @var string
      */
     public $vbrInstanceId;
 
     /**
-     * @var string
-     */
-    public $healthCheckSourceIp;
-
-    /**
-     * @var string
-     */
-    public $healthCheckTargetIp;
-
-    /**
+     * @description The ID of the Alibaba Cloud account to which the VBR belongs.
+     *
+     * > This parameter is required if the VBR and the CEN instance belong to different Alibaba Cloud accounts.
+     * @example 1250123456123456
+     *
      * @var int
      */
     public $vbrInstanceOwnerId;
 
     /**
-     * @var int
+     * @description The ID of the region where the VBR is deployed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * @example cn-shenzhen
+     *
+     * @var string
      */
-    public $healthCheckInterval;
-
-    /**
-     * @var int
-     */
-    public $healthyThreshold;
+    public $vbrInstanceRegionId;
     protected $_name = [
+        'cenId'                => 'CenId',
+        'healthCheckInterval'  => 'HealthCheckInterval',
+        'healthCheckOnly'      => 'HealthCheckOnly',
+        'healthCheckSourceIp'  => 'HealthCheckSourceIp',
+        'healthCheckTargetIp'  => 'HealthCheckTargetIp',
+        'healthyThreshold'     => 'HealthyThreshold',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'cenId'                => 'CenId',
-        'vbrInstanceRegionId'  => 'VbrInstanceRegionId',
         'vbrInstanceId'        => 'VbrInstanceId',
-        'healthCheckSourceIp'  => 'HealthCheckSourceIp',
-        'healthCheckTargetIp'  => 'HealthCheckTargetIp',
         'vbrInstanceOwnerId'   => 'VbrInstanceOwnerId',
-        'healthCheckInterval'  => 'HealthCheckInterval',
-        'healthyThreshold'     => 'HealthyThreshold',
+        'vbrInstanceRegionId'  => 'VbrInstanceRegionId',
     ];
 
     public function validate()
@@ -89,6 +144,24 @@ class EnableCenVbrHealthCheckRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->healthCheckInterval) {
+            $res['HealthCheckInterval'] = $this->healthCheckInterval;
+        }
+        if (null !== $this->healthCheckOnly) {
+            $res['HealthCheckOnly'] = $this->healthCheckOnly;
+        }
+        if (null !== $this->healthCheckSourceIp) {
+            $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
+        }
+        if (null !== $this->healthCheckTargetIp) {
+            $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
+        }
+        if (null !== $this->healthyThreshold) {
+            $res['HealthyThreshold'] = $this->healthyThreshold;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -101,29 +174,14 @@ class EnableCenVbrHealthCheckRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->vbrInstanceRegionId) {
-            $res['VbrInstanceRegionId'] = $this->vbrInstanceRegionId;
-        }
         if (null !== $this->vbrInstanceId) {
             $res['VbrInstanceId'] = $this->vbrInstanceId;
-        }
-        if (null !== $this->healthCheckSourceIp) {
-            $res['HealthCheckSourceIp'] = $this->healthCheckSourceIp;
-        }
-        if (null !== $this->healthCheckTargetIp) {
-            $res['HealthCheckTargetIp'] = $this->healthCheckTargetIp;
         }
         if (null !== $this->vbrInstanceOwnerId) {
             $res['VbrInstanceOwnerId'] = $this->vbrInstanceOwnerId;
         }
-        if (null !== $this->healthCheckInterval) {
-            $res['HealthCheckInterval'] = $this->healthCheckInterval;
-        }
-        if (null !== $this->healthyThreshold) {
-            $res['HealthyThreshold'] = $this->healthyThreshold;
+        if (null !== $this->vbrInstanceRegionId) {
+            $res['VbrInstanceRegionId'] = $this->vbrInstanceRegionId;
         }
 
         return $res;
@@ -137,6 +195,24 @@ class EnableCenVbrHealthCheckRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
+        if (isset($map['HealthCheckInterval'])) {
+            $model->healthCheckInterval = $map['HealthCheckInterval'];
+        }
+        if (isset($map['HealthCheckOnly'])) {
+            $model->healthCheckOnly = $map['HealthCheckOnly'];
+        }
+        if (isset($map['HealthCheckSourceIp'])) {
+            $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
+        }
+        if (isset($map['HealthCheckTargetIp'])) {
+            $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
+        }
+        if (isset($map['HealthyThreshold'])) {
+            $model->healthyThreshold = $map['HealthyThreshold'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -149,29 +225,14 @@ class EnableCenVbrHealthCheckRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['VbrInstanceRegionId'])) {
-            $model->vbrInstanceRegionId = $map['VbrInstanceRegionId'];
-        }
         if (isset($map['VbrInstanceId'])) {
             $model->vbrInstanceId = $map['VbrInstanceId'];
-        }
-        if (isset($map['HealthCheckSourceIp'])) {
-            $model->healthCheckSourceIp = $map['HealthCheckSourceIp'];
-        }
-        if (isset($map['HealthCheckTargetIp'])) {
-            $model->healthCheckTargetIp = $map['HealthCheckTargetIp'];
         }
         if (isset($map['VbrInstanceOwnerId'])) {
             $model->vbrInstanceOwnerId = $map['VbrInstanceOwnerId'];
         }
-        if (isset($map['HealthCheckInterval'])) {
-            $model->healthCheckInterval = $map['HealthCheckInterval'];
-        }
-        if (isset($map['HealthyThreshold'])) {
-            $model->healthyThreshold = $map['HealthyThreshold'];
+        if (isset($map['VbrInstanceRegionId'])) {
+            $model->vbrInstanceRegionId = $map['VbrInstanceRegionId'];
         }
 
         return $model;

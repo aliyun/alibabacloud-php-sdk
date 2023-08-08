@@ -9,17 +9,25 @@ use AlibabaCloud\Tea\Model;
 class cenOutRouteMapRecord extends Model
 {
     /**
-     * @var string
-     */
-    public $routeMapId;
-
-    /**
+     * @description 312501
+     *
+     * @example ccn-cn-shanghai
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description DescribeCenRegionDomainRouteEntries
+     *
+     * @example cenrmap-dbarzidzp7ek4k****
+     *
+     * @var string
+     */
+    public $routeMapId;
     protected $_name = [
-        'routeMapId' => 'RouteMapId',
         'regionId'   => 'RegionId',
+        'routeMapId' => 'RouteMapId',
     ];
 
     public function validate()
@@ -29,11 +37,11 @@ class cenOutRouteMapRecord extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->routeMapId) {
-            $res['RouteMapId'] = $this->routeMapId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->routeMapId) {
+            $res['RouteMapId'] = $this->routeMapId;
         }
 
         return $res;
@@ -47,11 +55,11 @@ class cenOutRouteMapRecord extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RouteMapId'])) {
-            $model->routeMapId = $map['RouteMapId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['RouteMapId'])) {
+            $model->routeMapId = $map['RouteMapId'];
         }
 
         return $model;

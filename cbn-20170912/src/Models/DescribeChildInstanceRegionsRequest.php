@@ -19,6 +19,19 @@ class DescribeChildInstanceRegionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VBR**: virtual border router (VBR)
+     *   **CCN**: Cloud Connect Network (CCN) instance
+     *
+     * @example VPC
+     *
+     * @var string
+     */
+    public $productType;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -27,17 +40,12 @@ class DescribeChildInstanceRegionsRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $productType;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'productType'          => 'ProductType',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'productType'          => 'ProductType',
     ];
 
     public function validate()
@@ -53,14 +61,14 @@ class DescribeChildInstanceRegionsRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->productType) {
+            $res['ProductType'] = $this->productType;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->productType) {
-            $res['ProductType'] = $this->productType;
         }
 
         return $res;
@@ -80,14 +88,14 @@ class DescribeChildInstanceRegionsRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['ProductType'])) {
+            $model->productType = $map['ProductType'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ProductType'])) {
-            $model->productType = $map['ProductType'];
         }
 
         return $model;

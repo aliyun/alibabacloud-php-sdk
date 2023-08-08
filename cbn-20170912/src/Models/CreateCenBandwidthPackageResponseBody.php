@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateCenBandwidthPackageResponseBody extends Model
 {
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example cenbwp-4c2zaavbvh5fx****
+     *
      * @var string
      */
     public $cenBandwidthPackageId;
 
     /**
+     * @description The ID of the order for the bandwidth plan.
+     *
+     * @example 20156420004****
+     *
      * @var string
      */
     public $cenBandwidthPackageOrderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E4B345CD-2CBA-4881-AF6D-E5D9BAE1CA7B
+     *
      * @var string
      */
     public $requestId;

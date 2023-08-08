@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenBandwidthPackageRequest extends Model
 {
     /**
+     * @example cenbwp-4c2zaavbvh5f42****
+     *
+     * @var string
+     */
+    public $cenBandwidthPackageId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,17 +34,12 @@ class DeleteCenBandwidthPackageRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenBandwidthPackageId;
     protected $_name = [
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
     ];
 
     public function validate()
@@ -47,6 +49,9 @@ class DeleteCenBandwidthPackageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cenBandwidthPackageId) {
+            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -58,9 +63,6 @@ class DeleteCenBandwidthPackageRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenBandwidthPackageId) {
-            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
         }
 
         return $res;
@@ -74,6 +76,9 @@ class DeleteCenBandwidthPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CenBandwidthPackageId'])) {
+            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -85,9 +90,6 @@ class DeleteCenBandwidthPackageRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenBandwidthPackageId'])) {
-            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
         }
 
         return $model;

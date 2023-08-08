@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description Queries detailed information about Cloud Enterprise Network (CEN) instances within the current Alibaba Cloud account.
+     *
+     * @example tagtest
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example tagtest
+     *
      * @var string
      */
     public $value;

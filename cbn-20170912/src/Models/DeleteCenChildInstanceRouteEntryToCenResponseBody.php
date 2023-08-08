@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenChildInstanceRouteEntryToCenResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C05000A4-2FC5-5B2C-9527-954044DE2CF3
+     *
      * @var string
      */
     public $requestId;

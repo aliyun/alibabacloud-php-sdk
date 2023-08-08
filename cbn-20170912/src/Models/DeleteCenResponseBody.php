@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5903EE99-D542-4E14-BC65-AAC1CB2D3D03
+     *
      * @var string
      */
     public $requestId;

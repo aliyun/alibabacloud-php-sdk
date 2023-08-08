@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class UnroutePrivateZoneInCenToVpcRequest extends Model
 {
     /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $accessRegionId;
+
+    /**
+     * @example cen-7qthudw0ll6jmc****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,23 +41,13 @@ class UnroutePrivateZoneInCenToVpcRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $accessRegionId;
     protected $_name = [
+        'accessRegionId'       => 'AccessRegionId',
+        'cenId'                => 'CenId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'cenId'                => 'CenId',
-        'accessRegionId'       => 'AccessRegionId',
     ];
 
     public function validate()
@@ -53,6 +57,12 @@ class UnroutePrivateZoneInCenToVpcRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessRegionId) {
+            $res['AccessRegionId'] = $this->accessRegionId;
+        }
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -64,12 +74,6 @@ class UnroutePrivateZoneInCenToVpcRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->accessRegionId) {
-            $res['AccessRegionId'] = $this->accessRegionId;
         }
 
         return $res;
@@ -83,6 +87,12 @@ class UnroutePrivateZoneInCenToVpcRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessRegionId'])) {
+            $model->accessRegionId = $map['AccessRegionId'];
+        }
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -94,12 +104,6 @@ class UnroutePrivateZoneInCenToVpcRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['AccessRegionId'])) {
-            $model->accessRegionId = $map['AccessRegionId'];
         }
 
         return $model;

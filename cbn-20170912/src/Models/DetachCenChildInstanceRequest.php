@@ -9,6 +9,60 @@ use AlibabaCloud\Tea\Model;
 class DetachCenChildInstanceRequest extends Model
 {
     /**
+     * @description InvalidParameter
+     *
+     * @example cen-7qthudw0ll6jmx****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
+     * @description Unauthorized
+     *
+     * @example 1688000000000000
+     *
+     * @var int
+     */
+    public $cenOwnerId;
+
+    /**
+     * @description InvalidParameter
+     *
+     * @example vpc-bp18sth14qii3pnvx****
+     *
+     * @var string
+     */
+    public $childInstanceId;
+
+    /**
+     * @description Unauthorized
+     *
+     * @example 1699000000000000
+     *
+     * @var int
+     */
+    public $childInstanceOwnerId;
+
+    /**
+     * @description 参数不合法。
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $childInstanceRegionId;
+
+    /**
+     * @description Invalid parameter.
+     *
+     * @example VPC
+     *
+     * @var string
+     */
+    public $childInstanceType;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,47 +81,17 @@ class DetachCenChildInstanceRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceType;
-
-    /**
-     * @var string
-     */
-    public $childInstanceRegionId;
-
-    /**
-     * @var int
-     */
-    public $childInstanceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $cenOwnerId;
     protected $_name = [
+        'cenId'                 => 'CenId',
+        'cenOwnerId'            => 'CenOwnerId',
+        'childInstanceId'       => 'ChildInstanceId',
+        'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
+        'childInstanceRegionId' => 'ChildInstanceRegionId',
+        'childInstanceType'     => 'ChildInstanceType',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'cenId'                 => 'CenId',
-        'childInstanceId'       => 'ChildInstanceId',
-        'childInstanceType'     => 'ChildInstanceType',
-        'childInstanceRegionId' => 'ChildInstanceRegionId',
-        'childInstanceOwnerId'  => 'ChildInstanceOwnerId',
-        'cenOwnerId'            => 'CenOwnerId',
     ];
 
     public function validate()
@@ -77,6 +101,24 @@ class DetachCenChildInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->cenOwnerId) {
+            $res['CenOwnerId'] = $this->cenOwnerId;
+        }
+        if (null !== $this->childInstanceId) {
+            $res['ChildInstanceId'] = $this->childInstanceId;
+        }
+        if (null !== $this->childInstanceOwnerId) {
+            $res['ChildInstanceOwnerId'] = $this->childInstanceOwnerId;
+        }
+        if (null !== $this->childInstanceRegionId) {
+            $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
+        }
+        if (null !== $this->childInstanceType) {
+            $res['ChildInstanceType'] = $this->childInstanceType;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -88,24 +130,6 @@ class DetachCenChildInstanceRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->childInstanceId) {
-            $res['ChildInstanceId'] = $this->childInstanceId;
-        }
-        if (null !== $this->childInstanceType) {
-            $res['ChildInstanceType'] = $this->childInstanceType;
-        }
-        if (null !== $this->childInstanceRegionId) {
-            $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
-        }
-        if (null !== $this->childInstanceOwnerId) {
-            $res['ChildInstanceOwnerId'] = $this->childInstanceOwnerId;
-        }
-        if (null !== $this->cenOwnerId) {
-            $res['CenOwnerId'] = $this->cenOwnerId;
         }
 
         return $res;
@@ -119,6 +143,24 @@ class DetachCenChildInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
+        if (isset($map['CenOwnerId'])) {
+            $model->cenOwnerId = $map['CenOwnerId'];
+        }
+        if (isset($map['ChildInstanceId'])) {
+            $model->childInstanceId = $map['ChildInstanceId'];
+        }
+        if (isset($map['ChildInstanceOwnerId'])) {
+            $model->childInstanceOwnerId = $map['ChildInstanceOwnerId'];
+        }
+        if (isset($map['ChildInstanceRegionId'])) {
+            $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
+        }
+        if (isset($map['ChildInstanceType'])) {
+            $model->childInstanceType = $map['ChildInstanceType'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -130,24 +172,6 @@ class DetachCenChildInstanceRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['ChildInstanceId'])) {
-            $model->childInstanceId = $map['ChildInstanceId'];
-        }
-        if (isset($map['ChildInstanceType'])) {
-            $model->childInstanceType = $map['ChildInstanceType'];
-        }
-        if (isset($map['ChildInstanceRegionId'])) {
-            $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
-        }
-        if (isset($map['ChildInstanceOwnerId'])) {
-            $model->childInstanceOwnerId = $map['ChildInstanceOwnerId'];
-        }
-        if (isset($map['CenOwnerId'])) {
-            $model->cenOwnerId = $map['CenOwnerId'];
         }
 
         return $model;

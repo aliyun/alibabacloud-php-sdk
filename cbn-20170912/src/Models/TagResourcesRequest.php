@@ -20,6 +20,22 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description Creates tags and adds them to a resource.
+     *
+     * @example cen-7qthudw0ll6jmc****
+     *
+     * @var string[]
+     */
+    public $resourceId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -30,26 +46,28 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description $.parameters[2].schema.example
+     *
+     * @example cen
+     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @var string[]
-     */
-    public $resourceId;
-
-    /**
+     * @description 79517
+     *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
+        'resourceId'           => 'ResourceId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'resourceType'         => 'ResourceType',
-        'resourceId'           => 'ResourceId',
         'tag'                  => 'Tag',
     ];
 
@@ -66,6 +84,12 @@ class TagResourcesRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceId) {
+            $res['ResourceId'] = $this->resourceId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -74,9 +98,6 @@ class TagResourcesRequest extends Model
         }
         if (null !== $this->resourceType) {
             $res['ResourceType'] = $this->resourceType;
-        }
-        if (null !== $this->resourceId) {
-            $res['ResourceId'] = $this->resourceId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -105,6 +126,14 @@ class TagResourcesRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceId'])) {
+            if (!empty($map['ResourceId'])) {
+                $model->resourceId = $map['ResourceId'];
+            }
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -113,11 +142,6 @@ class TagResourcesRequest extends Model
         }
         if (isset($map['ResourceType'])) {
             $model->resourceType = $map['ResourceType'];
-        }
-        if (isset($map['ResourceId'])) {
-            if (!empty($map['ResourceId'])) {
-                $model->resourceId = $map['ResourceId'];
-            }
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

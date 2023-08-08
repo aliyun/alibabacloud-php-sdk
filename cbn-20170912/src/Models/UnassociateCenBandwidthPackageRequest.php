@@ -9,6 +9,24 @@ use AlibabaCloud\Tea\Model;
 class UnassociateCenBandwidthPackageRequest extends Model
 {
     /**
+     * @description The ID of the bandwidth plan.
+     *
+     * @example cenbwp-4c2zaavbvh5****
+     *
+     * @var string
+     */
+    public $cenBandwidthPackageId;
+
+    /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-7qthudw0ll6j****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,23 +45,13 @@ class UnassociateCenBandwidthPackageRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $cenBandwidthPackageId;
     protected $_name = [
+        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
+        'cenId'                 => 'CenId',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
-        'cenId'                 => 'CenId',
-        'cenBandwidthPackageId' => 'CenBandwidthPackageId',
     ];
 
     public function validate()
@@ -53,6 +61,12 @@ class UnassociateCenBandwidthPackageRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cenBandwidthPackageId) {
+            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
+        }
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -64,12 +78,6 @@ class UnassociateCenBandwidthPackageRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->cenBandwidthPackageId) {
-            $res['CenBandwidthPackageId'] = $this->cenBandwidthPackageId;
         }
 
         return $res;
@@ -83,6 +91,12 @@ class UnassociateCenBandwidthPackageRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CenBandwidthPackageId'])) {
+            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
+        }
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -94,12 +108,6 @@ class UnassociateCenBandwidthPackageRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['CenBandwidthPackageId'])) {
-            $model->cenBandwidthPackageId = $map['CenBandwidthPackageId'];
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCenAttributeResponseBody extends Model
 {
     /**
+     * @example 13526224-5780-4426-8BDF-BC8B08700F22
+     *
      * @var string
      */
     public $requestId;

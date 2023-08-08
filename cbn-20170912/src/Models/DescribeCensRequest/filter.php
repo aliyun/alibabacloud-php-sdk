@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The name of the CEN instance.
+     *
+     * @example CenId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The time when the CEN instance was created.
+     *
+     * The time follows the ISO8601 standard in the `YYYY-MM-DDThh:mmZ` format. The time is displayed in UTC.
+     * @example cen-0xyeagctz5sfg9****
+     *
      * @var string[]
      */
     public $value;

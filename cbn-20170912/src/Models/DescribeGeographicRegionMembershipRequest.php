@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeGeographicRegionMembershipRequest extends Model
 {
     /**
+     * @example china
+     *
+     * @var string
+     */
+    public $geographicRegionId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -19,6 +26,20 @@ class DescribeGeographicRegionMembershipRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNumber;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -27,29 +48,14 @@ class DescribeGeographicRegionMembershipRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $geographicRegionId;
     protected $_name = [
+        'geographicRegionId'   => 'GeographicRegionId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'geographicRegionId'   => 'GeographicRegionId',
+        'resourceOwnerAccount' => 'ResourceOwnerAccount',
+        'resourceOwnerId'      => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -59,17 +65,14 @@ class DescribeGeographicRegionMembershipRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->geographicRegionId) {
+            $res['GeographicRegionId'] = $this->geographicRegionId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -77,8 +80,11 @@ class DescribeGeographicRegionMembershipRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->geographicRegionId) {
-            $res['GeographicRegionId'] = $this->geographicRegionId;
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -92,17 +98,14 @@ class DescribeGeographicRegionMembershipRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['GeographicRegionId'])) {
+            $model->geographicRegionId = $map['GeographicRegionId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
@@ -110,8 +113,11 @@ class DescribeGeographicRegionMembershipRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['GeographicRegionId'])) {
-            $model->geographicRegionId = $map['GeographicRegionId'];
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

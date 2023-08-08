@@ -9,29 +9,39 @@ use AlibabaCloud\Tea\Model;
 class orginInterRegionBandwidthLimit extends Model
 {
     /**
+     * @description WB01235021
+     *
+     * @example 1
+     *
      * @var string
      */
     public $bandwidthLimit;
 
     /**
-     * @var string
-     */
-    public $oppositeRegionId;
-
-    /**
+     * @example north-america_china
+     *
      * @var string
      */
     public $geographicSpanId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $localRegionId;
+
+    /**
+     * @example us-west-1
+     *
+     * @var string
+     */
+    public $oppositeRegionId;
     protected $_name = [
         'bandwidthLimit'   => 'BandwidthLimit',
-        'oppositeRegionId' => 'OppositeRegionId',
         'geographicSpanId' => 'GeographicSpanId',
         'localRegionId'    => 'LocalRegionId',
+        'oppositeRegionId' => 'OppositeRegionId',
     ];
 
     public function validate()
@@ -44,14 +54,14 @@ class orginInterRegionBandwidthLimit extends Model
         if (null !== $this->bandwidthLimit) {
             $res['BandwidthLimit'] = $this->bandwidthLimit;
         }
-        if (null !== $this->oppositeRegionId) {
-            $res['OppositeRegionId'] = $this->oppositeRegionId;
-        }
         if (null !== $this->geographicSpanId) {
             $res['GeographicSpanId'] = $this->geographicSpanId;
         }
         if (null !== $this->localRegionId) {
             $res['LocalRegionId'] = $this->localRegionId;
+        }
+        if (null !== $this->oppositeRegionId) {
+            $res['OppositeRegionId'] = $this->oppositeRegionId;
         }
 
         return $res;
@@ -68,14 +78,14 @@ class orginInterRegionBandwidthLimit extends Model
         if (isset($map['BandwidthLimit'])) {
             $model->bandwidthLimit = $map['BandwidthLimit'];
         }
-        if (isset($map['OppositeRegionId'])) {
-            $model->oppositeRegionId = $map['OppositeRegionId'];
-        }
         if (isset($map['GeographicSpanId'])) {
             $model->geographicSpanId = $map['GeographicSpanId'];
         }
         if (isset($map['LocalRegionId'])) {
             $model->localRegionId = $map['LocalRegionId'];
+        }
+        if (isset($map['OppositeRegionId'])) {
+            $model->oppositeRegionId = $map['OppositeRegionId'];
         }
 
         return $model;

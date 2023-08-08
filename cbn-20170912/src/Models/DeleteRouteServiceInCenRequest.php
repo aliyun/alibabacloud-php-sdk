@@ -9,6 +9,52 @@ use AlibabaCloud\Tea\Model;
 class DeleteRouteServiceInCenRequest extends Model
 {
     /**
+     * @description The ID of the region in which the network instance of the cloud service that you want to access is deployed.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $accessRegionId;
+
+    /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-7qthudw0ll6jmc****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
+     * @description The IP addresses or CIDR blocks of the cloud service.
+     *
+     * @example 100.118.28.0/24
+     *
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @description The ID of the region in which the cloud service is deployed.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $hostRegionId;
+
+    /**
+     * @description The ID of the virtual private cloud (VPC) that is associated with the cloud service.
+     *
+     * @example vpc-bp1t36rn9l53iwbsf****
+     *
+     * @var string
+     */
+    public $hostVpcId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,41 +73,16 @@ class DeleteRouteServiceInCenRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $hostRegionId;
-
-    /**
-     * @var string
-     */
-    public $accessRegionId;
-
-    /**
-     * @var string
-     */
-    public $hostVpcId;
     protected $_name = [
+        'accessRegionId'       => 'AccessRegionId',
+        'cenId'                => 'CenId',
+        'host'                 => 'Host',
+        'hostRegionId'         => 'HostRegionId',
+        'hostVpcId'            => 'HostVpcId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'cenId'                => 'CenId',
-        'host'                 => 'Host',
-        'hostRegionId'         => 'HostRegionId',
-        'accessRegionId'       => 'AccessRegionId',
-        'hostVpcId'            => 'HostVpcId',
     ];
 
     public function validate()
@@ -71,6 +92,21 @@ class DeleteRouteServiceInCenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessRegionId) {
+            $res['AccessRegionId'] = $this->accessRegionId;
+        }
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
+        }
+        if (null !== $this->hostRegionId) {
+            $res['HostRegionId'] = $this->hostRegionId;
+        }
+        if (null !== $this->hostVpcId) {
+            $res['HostVpcId'] = $this->hostVpcId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -82,21 +118,6 @@ class DeleteRouteServiceInCenRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
-        }
-        if (null !== $this->hostRegionId) {
-            $res['HostRegionId'] = $this->hostRegionId;
-        }
-        if (null !== $this->accessRegionId) {
-            $res['AccessRegionId'] = $this->accessRegionId;
-        }
-        if (null !== $this->hostVpcId) {
-            $res['HostVpcId'] = $this->hostVpcId;
         }
 
         return $res;
@@ -110,6 +131,21 @@ class DeleteRouteServiceInCenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessRegionId'])) {
+            $model->accessRegionId = $map['AccessRegionId'];
+        }
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
+        }
+        if (isset($map['HostRegionId'])) {
+            $model->hostRegionId = $map['HostRegionId'];
+        }
+        if (isset($map['HostVpcId'])) {
+            $model->hostVpcId = $map['HostVpcId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -121,21 +157,6 @@ class DeleteRouteServiceInCenRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
-        }
-        if (isset($map['HostRegionId'])) {
-            $model->hostRegionId = $map['HostRegionId'];
-        }
-        if (isset($map['AccessRegionId'])) {
-            $model->accessRegionId = $map['AccessRegionId'];
-        }
-        if (isset($map['HostVpcId'])) {
-            $model->hostVpcId = $map['HostVpcId'];
         }
 
         return $model;

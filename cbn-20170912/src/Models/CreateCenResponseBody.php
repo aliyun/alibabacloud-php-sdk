@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateCenResponseBody extends Model
 {
     /**
+     * @example cen-dc4vwznpwbobrl****
+     *
      * @var string
      */
     public $cenId;
 
     /**
+     * @example 0C2EE7A8-74D4-4081-8236-CEBDE3BBCF50
+     *
      * @var string
      */
     public $requestId;

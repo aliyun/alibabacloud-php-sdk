@@ -4,10 +4,39 @@
 
 namespace AlibabaCloud\SDK\Cbn\V20170912\Models;
 
+use AlibabaCloud\SDK\Cbn\V20170912\Models\CreateCenRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateCenRequest extends Model
 {
+    /**
+     * @description The tag keys of the resources.
+     *
+     * You can specify at most 20 tag keys.
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description The operation that you want to perform. Set the value to **CreateCen**.
+     *
+     * @example testdesc
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example testname
+     *
+     * @var string
+     */
+    public $name;
+
     /**
      * @var string
      */
@@ -17,6 +46,15 @@ class CreateCenRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @description The tags.
+     *
+     * @example REDUCED
+     *
+     * @var string
+     */
+    public $protectionLevel;
 
     /**
      * @var string
@@ -29,33 +67,21 @@ class CreateCenRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @var string
+     * @description Creates a Cloud Enterprise Network (CEN) instance.
+     *
+     * @var tag[]
      */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string
-     */
-    public $protectionLevel;
+    public $tag;
     protected $_name = [
+        'clientToken'          => 'ClientToken',
+        'description'          => 'Description',
+        'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'protectionLevel'      => 'ProtectionLevel',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
-        'name'                 => 'Name',
-        'description'          => 'Description',
-        'protectionLevel'      => 'ProtectionLevel',
+        'tag'                  => 'Tag',
     ];
 
     public function validate()
@@ -65,11 +91,23 @@ class CreateCenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->protectionLevel) {
+            $res['ProtectionLevel'] = $this->protectionLevel;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -77,17 +115,14 @@ class CreateCenRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->protectionLevel) {
-            $res['ProtectionLevel'] = $this->protectionLevel;
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,11 +136,23 @@ class CreateCenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ProtectionLevel'])) {
+            $model->protectionLevel = $map['ProtectionLevel'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -113,17 +160,14 @@ class CreateCenRequest extends Model
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['ProtectionLevel'])) {
-            $model->protectionLevel = $map['ProtectionLevel'];
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

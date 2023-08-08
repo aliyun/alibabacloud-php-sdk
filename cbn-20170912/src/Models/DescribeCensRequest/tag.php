@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The list of the filter conditions.
+     *
+     * @example tagtest
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The description of the CEN instance.
+     *
+     * @example tagtest
+     *
      * @var string
      */
     public $value;

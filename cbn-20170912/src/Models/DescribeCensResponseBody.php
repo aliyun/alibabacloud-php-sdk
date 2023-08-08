@@ -10,35 +10,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeCensResponseBody extends Model
 {
     /**
-     * @var int
+     * @description The value of the tag.
+     *
+     * @var cens
      */
-    public $pageSize;
+    public $cens;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @description The level of CIDR block overlapping.
+     *
+     **REDUCED**: Overlapped CIDR blocks are allowed. This value specifies that CIDR blocks can overlap but CIDR blocks cannot be duplicates.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The status of the CEN instance.
+     *
+     *   **Creating**: The CEN instance is being created.
+     *   **Active**: The CEN instance is running.
+     *   **Deleting**: The instance is being deleted.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The ID of the resource group to which the CEN instance belongs.
+     *
+     * @example 2BFA6822-240E-4E27-B4C8-AA400EF7474D
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @description The IDs of the bandwidth plans that are associated with the CEN instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;
-
-    /**
-     * @var cens
-     */
-    public $cens;
     protected $_name = [
+        'cens'       => 'Cens',
+        'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
         'requestId'  => 'RequestId',
-        'pageNumber' => 'PageNumber',
         'totalCount' => 'TotalCount',
-        'cens'       => 'Cens',
     ];
 
     public function validate()
@@ -48,20 +72,20 @@ class DescribeCensResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cens) {
+            $res['Cens'] = null !== $this->cens ? $this->cens->toMap() : null;
+        }
+        if (null !== $this->pageNumber) {
+            $res['PageNumber'] = $this->pageNumber;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
-        }
-        if (null !== $this->cens) {
-            $res['Cens'] = null !== $this->cens ? $this->cens->toMap() : null;
         }
 
         return $res;
@@ -75,20 +99,20 @@ class DescribeCensResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cens'])) {
+            $model->cens = cens::fromMap($map['Cens']);
+        }
+        if (isset($map['PageNumber'])) {
+            $model->pageNumber = $map['PageNumber'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];
-        }
-        if (isset($map['Cens'])) {
-            $model->cens = cens::fromMap($map['Cens']);
         }
 
         return $model;

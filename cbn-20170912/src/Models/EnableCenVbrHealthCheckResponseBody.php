@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class EnableCenVbrHealthCheckResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1F59F19C-EFD2-40B1-94D5-65B40CA8E34A
+     *
      * @var string
      */
     public $requestId;

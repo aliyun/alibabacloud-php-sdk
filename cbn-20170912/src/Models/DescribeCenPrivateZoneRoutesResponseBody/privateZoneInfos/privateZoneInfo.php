@@ -9,29 +9,49 @@ use AlibabaCloud\Tea\Model;
 class privateZoneInfo extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
+     * @description The ID of the region where PrivateZone is accessed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $accessRegionId;
 
     /**
+     * @description The ID of the region where PrivateZone is deployed.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $hostRegionId;
 
     /**
+     * @description The ID of the VPC that is associated with PrivateZone.
+     *
+     * @example vpc-bp18sth14qii3pnvo****
+     *
      * @var string
      */
     public $hostVpcId;
+
+    /**
+     * @description The status of PrivateZone. Valid values:
+     *
+     *   **Creating**: being created
+     *   **Active**: available
+     *   **Deleting**: being deleted
+     *
+     * @example Active
+     *
+     * @var string
+     */
+    public $status;
     protected $_name = [
-        'status'         => 'Status',
         'accessRegionId' => 'AccessRegionId',
         'hostRegionId'   => 'HostRegionId',
         'hostVpcId'      => 'HostVpcId',
+        'status'         => 'Status',
     ];
 
     public function validate()
@@ -41,9 +61,6 @@ class privateZoneInfo extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->accessRegionId) {
             $res['AccessRegionId'] = $this->accessRegionId;
         }
@@ -52,6 +69,9 @@ class privateZoneInfo extends Model
         }
         if (null !== $this->hostVpcId) {
             $res['HostVpcId'] = $this->hostVpcId;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -65,9 +85,6 @@ class privateZoneInfo extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['AccessRegionId'])) {
             $model->accessRegionId = $map['AccessRegionId'];
         }
@@ -76,6 +93,9 @@ class privateZoneInfo extends Model
         }
         if (isset($map['HostVpcId'])) {
             $model->hostVpcId = $map['HostVpcId'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-7qthudw0ll6jmc****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,17 +36,12 @@ class DeleteCenRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
     protected $_name = [
+        'cenId'                => 'CenId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'cenId'                => 'CenId',
     ];
 
     public function validate()
@@ -47,6 +51,9 @@ class DeleteCenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -58,9 +65,6 @@ class DeleteCenRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
         }
 
         return $res;
@@ -74,6 +78,9 @@ class DeleteCenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -85,9 +92,6 @@ class DeleteCenRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
         }
 
         return $model;

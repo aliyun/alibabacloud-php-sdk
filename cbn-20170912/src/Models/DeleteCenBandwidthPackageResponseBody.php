@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteCenBandwidthPackageResponseBody extends Model
 {
     /**
+     * @example C0245BEF-52AC-44A8-A776-EF96FD26A5CA
+     *
      * @var string
      */
     public $requestId;

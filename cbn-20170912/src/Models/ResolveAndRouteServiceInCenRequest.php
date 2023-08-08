@@ -9,6 +9,75 @@ use AlibabaCloud\Tea\Model;
 class ResolveAndRouteServiceInCenRequest extends Model
 {
     /**
+     * @description The ID of the region in which the cloud service that you want to access is deployed.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
+     * @var string[]
+     */
+    public $accessRegionIds;
+
+    /**
+     * @description The ID of the CEN instance.
+     *
+     * @example cen-ckwa2hhmuislse****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** for each API request may be different.
+     * @example 02fb3da4****
+     *
+     * @var string
+     */
+    public $clientToken;
+
+    /**
+     * @description The description of the cloud service.
+     *
+     * The description can be empty or 2 to 256 characters in length. It must start with a letter, and can contain digits, hyphens (-), periods (.), and underscores (\_). It cannot start with `http://` or `https://`.
+     * @example descname
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @description The IP addresses or CIDR blocks of the cloud service.
+     *
+     * > In most cases, multiple IP addresses or CIDR blocks are assigned to a cloud service. We recommend that you call this operation multiple times to add all IP addresses and CIDR blocks of the cloud service.
+     * @example 100.118.28.0/24
+     *
+     * @var string
+     */
+    public $host;
+
+    /**
+     * @description The ID of the region in which the cloud service is deployed.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $hostRegionId;
+
+    /**
+     * @description The ID of the VPC that is associated with the cloud service.
+     *
+     * @example vpc-o6woh5s494zueq40v****
+     *
+     * @var string
+     */
+    public $hostVpcId;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -27,53 +96,18 @@ class ResolveAndRouteServiceInCenRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $clientToken;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $host;
-
-    /**
-     * @var string
-     */
-    public $hostRegionId;
-
-    /**
-     * @var string
-     */
-    public $hostVpcId;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var string[]
-     */
-    public $accessRegionIds;
     protected $_name = [
+        'accessRegionIds'      => 'AccessRegionIds',
+        'cenId'                => 'CenId',
+        'clientToken'          => 'ClientToken',
+        'description'          => 'Description',
+        'host'                 => 'Host',
+        'hostRegionId'         => 'HostRegionId',
+        'hostVpcId'            => 'HostVpcId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
-        'clientToken'          => 'ClientToken',
-        'cenId'                => 'CenId',
-        'host'                 => 'Host',
-        'hostRegionId'         => 'HostRegionId',
-        'hostVpcId'            => 'HostVpcId',
-        'description'          => 'Description',
-        'accessRegionIds'      => 'AccessRegionIds',
     ];
 
     public function validate()
@@ -83,6 +117,27 @@ class ResolveAndRouteServiceInCenRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessRegionIds) {
+            $res['AccessRegionIds'] = $this->accessRegionIds;
+        }
+        if (null !== $this->cenId) {
+            $res['CenId'] = $this->cenId;
+        }
+        if (null !== $this->clientToken) {
+            $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->host) {
+            $res['Host'] = $this->host;
+        }
+        if (null !== $this->hostRegionId) {
+            $res['HostRegionId'] = $this->hostRegionId;
+        }
+        if (null !== $this->hostVpcId) {
+            $res['HostVpcId'] = $this->hostVpcId;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -94,27 +149,6 @@ class ResolveAndRouteServiceInCenRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
-        if (null !== $this->clientToken) {
-            $res['ClientToken'] = $this->clientToken;
-        }
-        if (null !== $this->cenId) {
-            $res['CenId'] = $this->cenId;
-        }
-        if (null !== $this->host) {
-            $res['Host'] = $this->host;
-        }
-        if (null !== $this->hostRegionId) {
-            $res['HostRegionId'] = $this->hostRegionId;
-        }
-        if (null !== $this->hostVpcId) {
-            $res['HostVpcId'] = $this->hostVpcId;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
-        if (null !== $this->accessRegionIds) {
-            $res['AccessRegionIds'] = $this->accessRegionIds;
         }
 
         return $res;
@@ -128,6 +162,29 @@ class ResolveAndRouteServiceInCenRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessRegionIds'])) {
+            if (!empty($map['AccessRegionIds'])) {
+                $model->accessRegionIds = $map['AccessRegionIds'];
+            }
+        }
+        if (isset($map['CenId'])) {
+            $model->cenId = $map['CenId'];
+        }
+        if (isset($map['ClientToken'])) {
+            $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['Host'])) {
+            $model->host = $map['Host'];
+        }
+        if (isset($map['HostRegionId'])) {
+            $model->hostRegionId = $map['HostRegionId'];
+        }
+        if (isset($map['HostVpcId'])) {
+            $model->hostVpcId = $map['HostVpcId'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -139,29 +196,6 @@ class ResolveAndRouteServiceInCenRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
-        if (isset($map['ClientToken'])) {
-            $model->clientToken = $map['ClientToken'];
-        }
-        if (isset($map['CenId'])) {
-            $model->cenId = $map['CenId'];
-        }
-        if (isset($map['Host'])) {
-            $model->host = $map['Host'];
-        }
-        if (isset($map['HostRegionId'])) {
-            $model->hostRegionId = $map['HostRegionId'];
-        }
-        if (isset($map['HostVpcId'])) {
-            $model->hostVpcId = $map['HostVpcId'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
-        if (isset($map['AccessRegionIds'])) {
-            if (!empty($map['AccessRegionIds'])) {
-                $model->accessRegionIds = $map['AccessRegionIds'];
-            }
         }
 
         return $model;

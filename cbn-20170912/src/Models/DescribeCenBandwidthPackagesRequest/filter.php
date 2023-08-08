@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeCenBandwidthPackages**.
+     *
+     * @example CenId
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The status of the bandwidth plan. Valid values:
+     *
+     *   **Normal**: normal
+     *   **FinancialLocked**: locked due to overdue payments
+     *   **SecurityLocked**: locked due to security reasons
+     *
+     * @example Idle
+     *
      * @var string[]
      */
     public $value;

@@ -9,6 +9,46 @@ use AlibabaCloud\Tea\Model;
 class WithdrawPublishedRouteEntriesRequest extends Model
 {
     /**
+     * @example cen-sxjfjkjfkjfiein****
+     *
+     * @var string
+     */
+    public $cenId;
+
+    /**
+     * @example vpc-rj9gt5nll27onu7****
+     *
+     * @var string
+     */
+    public $childInstanceId;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $childInstanceRegionId;
+
+    /**
+     * @example vtb-bp174d1gje79u1g4t****
+     *
+     * @var string
+     */
+    public $childInstanceRouteTableId;
+
+    /**
+     * @example VPC
+     *
+     * @var string
+     */
+    public $childInstanceType;
+
+    /**
+     * @var string
+     */
+    public $destinationCidrBlock;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -17,45 +57,15 @@ class WithdrawPublishedRouteEntriesRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
-
-    /**
-     * @var string
-     */
-    public $cenId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceType;
-
-    /**
-     * @var string
-     */
-    public $childInstanceRegionId;
-
-    /**
-     * @var string
-     */
-    public $childInstanceRouteTableId;
-
-    /**
-     * @var string
-     */
-    public $destinationCidrBlock;
     protected $_name = [
-        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
-        'resourceOwnerId'           => 'ResourceOwnerId',
         'cenId'                     => 'CenId',
         'childInstanceId'           => 'ChildInstanceId',
-        'childInstanceType'         => 'ChildInstanceType',
         'childInstanceRegionId'     => 'ChildInstanceRegionId',
         'childInstanceRouteTableId' => 'ChildInstanceRouteTableId',
+        'childInstanceType'         => 'ChildInstanceType',
         'destinationCidrBlock'      => 'DestinationCidrBlock',
+        'resourceOwnerAccount'      => 'ResourceOwnerAccount',
+        'resourceOwnerId'           => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -65,20 +75,11 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceOwnerAccount) {
-            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
-        }
-        if (null !== $this->resourceOwnerId) {
-            $res['ResourceOwnerId'] = $this->resourceOwnerId;
-        }
         if (null !== $this->cenId) {
             $res['CenId'] = $this->cenId;
         }
         if (null !== $this->childInstanceId) {
             $res['ChildInstanceId'] = $this->childInstanceId;
-        }
-        if (null !== $this->childInstanceType) {
-            $res['ChildInstanceType'] = $this->childInstanceType;
         }
         if (null !== $this->childInstanceRegionId) {
             $res['ChildInstanceRegionId'] = $this->childInstanceRegionId;
@@ -86,8 +87,17 @@ class WithdrawPublishedRouteEntriesRequest extends Model
         if (null !== $this->childInstanceRouteTableId) {
             $res['ChildInstanceRouteTableId'] = $this->childInstanceRouteTableId;
         }
+        if (null !== $this->childInstanceType) {
+            $res['ChildInstanceType'] = $this->childInstanceType;
+        }
         if (null !== $this->destinationCidrBlock) {
             $res['DestinationCidrBlock'] = $this->destinationCidrBlock;
+        }
+        if (null !== $this->resourceOwnerAccount) {
+            $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -101,20 +111,11 @@ class WithdrawPublishedRouteEntriesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceOwnerAccount'])) {
-            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
-        }
-        if (isset($map['ResourceOwnerId'])) {
-            $model->resourceOwnerId = $map['ResourceOwnerId'];
-        }
         if (isset($map['CenId'])) {
             $model->cenId = $map['CenId'];
         }
         if (isset($map['ChildInstanceId'])) {
             $model->childInstanceId = $map['ChildInstanceId'];
-        }
-        if (isset($map['ChildInstanceType'])) {
-            $model->childInstanceType = $map['ChildInstanceType'];
         }
         if (isset($map['ChildInstanceRegionId'])) {
             $model->childInstanceRegionId = $map['ChildInstanceRegionId'];
@@ -122,8 +123,17 @@ class WithdrawPublishedRouteEntriesRequest extends Model
         if (isset($map['ChildInstanceRouteTableId'])) {
             $model->childInstanceRouteTableId = $map['ChildInstanceRouteTableId'];
         }
+        if (isset($map['ChildInstanceType'])) {
+            $model->childInstanceType = $map['ChildInstanceType'];
+        }
         if (isset($map['DestinationCidrBlock'])) {
             $model->destinationCidrBlock = $map['DestinationCidrBlock'];
+        }
+        if (isset($map['ResourceOwnerAccount'])) {
+            $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;
