@@ -31,6 +31,13 @@ class CreateSiteMonitorRequest extends Model
     public $alertIds;
 
     /**
+     * @example {"start_hour":0,"end_hour":24, "days":[0], "time_zone":"Local"}
+     *
+     * @var string
+     */
+    public $customSchedule;
+
+    /**
      * @description The operation that you want to perform. Set the value to **CreateSiteMonitor**.
      *
      * @example 1
@@ -83,14 +90,15 @@ class CreateSiteMonitorRequest extends Model
      */
     public $taskType;
     protected $_name = [
-        'address'     => 'Address',
-        'alertIds'    => 'AlertIds',
-        'interval'    => 'Interval',
-        'ispCities'   => 'IspCities',
-        'optionsJson' => 'OptionsJson',
-        'regionId'    => 'RegionId',
-        'taskName'    => 'TaskName',
-        'taskType'    => 'TaskType',
+        'address'        => 'Address',
+        'alertIds'       => 'AlertIds',
+        'customSchedule' => 'CustomSchedule',
+        'interval'       => 'Interval',
+        'ispCities'      => 'IspCities',
+        'optionsJson'    => 'OptionsJson',
+        'regionId'       => 'RegionId',
+        'taskName'       => 'TaskName',
+        'taskType'       => 'TaskType',
     ];
 
     public function validate()
@@ -105,6 +113,9 @@ class CreateSiteMonitorRequest extends Model
         }
         if (null !== $this->alertIds) {
             $res['AlertIds'] = $this->alertIds;
+        }
+        if (null !== $this->customSchedule) {
+            $res['CustomSchedule'] = $this->customSchedule;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -141,6 +152,9 @@ class CreateSiteMonitorRequest extends Model
         }
         if (isset($map['AlertIds'])) {
             $model->alertIds = $map['AlertIds'];
+        }
+        if (isset($map['CustomSchedule'])) {
+            $model->customSchedule = $map['CustomSchedule'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];

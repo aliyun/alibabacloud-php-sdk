@@ -1884,6 +1884,9 @@ class Cms extends OpenApiClient
         if (!Utils::isUnset($request->alertIds)) {
             $query['AlertIds'] = $request->alertIds;
         }
+        if (!Utils::isUnset($request->customSchedule)) {
+            $query['CustomSchedule'] = $request->customSchedule;
+        }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;
         }
@@ -8218,6 +8221,9 @@ class Cms extends OpenApiClient
         }
         if (!Utils::isUnset($request->alertIds)) {
             $query['AlertIds'] = $request->alertIds;
+        }
+        if (!Utils::isUnset($request->customSchedule)) {
+            $query['CustomSchedule'] = $request->customSchedule;
         }
         if (!Utils::isUnset($request->interval)) {
             $query['Interval'] = $request->interval;

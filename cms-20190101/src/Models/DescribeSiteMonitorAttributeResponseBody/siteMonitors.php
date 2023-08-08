@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody;
 
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\customSchedule;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\ispCities;
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson;
 use AlibabaCloud\Tea\Model;
@@ -23,6 +24,11 @@ class siteMonitors extends Model
      * @var string
      */
     public $agentGroup;
+
+    /**
+     * @var customSchedule
+     */
+    public $customSchedule;
 
     /**
      * @description The name of the site monitoring task.
@@ -84,15 +90,16 @@ class siteMonitors extends Model
      */
     public $taskType;
     protected $_name = [
-        'address'    => 'Address',
-        'agentGroup' => 'AgentGroup',
-        'interval'   => 'Interval',
-        'ispCities'  => 'IspCities',
-        'optionJson' => 'OptionJson',
-        'taskId'     => 'TaskId',
-        'taskName'   => 'TaskName',
-        'taskState'  => 'TaskState',
-        'taskType'   => 'TaskType',
+        'address'        => 'Address',
+        'agentGroup'     => 'AgentGroup',
+        'customSchedule' => 'CustomSchedule',
+        'interval'       => 'Interval',
+        'ispCities'      => 'IspCities',
+        'optionJson'     => 'OptionJson',
+        'taskId'         => 'TaskId',
+        'taskName'       => 'TaskName',
+        'taskState'      => 'TaskState',
+        'taskType'       => 'TaskType',
     ];
 
     public function validate()
@@ -107,6 +114,9 @@ class siteMonitors extends Model
         }
         if (null !== $this->agentGroup) {
             $res['AgentGroup'] = $this->agentGroup;
+        }
+        if (null !== $this->customSchedule) {
+            $res['CustomSchedule'] = null !== $this->customSchedule ? $this->customSchedule->toMap() : null;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -146,6 +156,9 @@ class siteMonitors extends Model
         }
         if (isset($map['AgentGroup'])) {
             $model->agentGroup = $map['AgentGroup'];
+        }
+        if (isset($map['CustomSchedule'])) {
+            $model->customSchedule = customSchedule::fromMap($map['CustomSchedule']);
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];

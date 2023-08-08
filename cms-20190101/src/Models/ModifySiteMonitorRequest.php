@@ -27,6 +27,13 @@ class ModifySiteMonitorRequest extends Model
     public $alertIds;
 
     /**
+     * @example {"start_hour":0,"end_hour":24, "days":[0], "time_zone":"Local"}
+     *
+     * @var string
+     */
+    public $customSchedule;
+
+    /**
      * @description The HTTP status code.
      *
      * >  The status code 200 indicates that the call was successful.
@@ -87,15 +94,16 @@ class ModifySiteMonitorRequest extends Model
      */
     public $taskName;
     protected $_name = [
-        'address'      => 'Address',
-        'alertIds'     => 'AlertIds',
-        'interval'     => 'Interval',
-        'intervalUnit' => 'IntervalUnit',
-        'ispCities'    => 'IspCities',
-        'optionsJson'  => 'OptionsJson',
-        'regionId'     => 'RegionId',
-        'taskId'       => 'TaskId',
-        'taskName'     => 'TaskName',
+        'address'        => 'Address',
+        'alertIds'       => 'AlertIds',
+        'customSchedule' => 'CustomSchedule',
+        'interval'       => 'Interval',
+        'intervalUnit'   => 'IntervalUnit',
+        'ispCities'      => 'IspCities',
+        'optionsJson'    => 'OptionsJson',
+        'regionId'       => 'RegionId',
+        'taskId'         => 'TaskId',
+        'taskName'       => 'TaskName',
     ];
 
     public function validate()
@@ -110,6 +118,9 @@ class ModifySiteMonitorRequest extends Model
         }
         if (null !== $this->alertIds) {
             $res['AlertIds'] = $this->alertIds;
+        }
+        if (null !== $this->customSchedule) {
+            $res['CustomSchedule'] = $this->customSchedule;
         }
         if (null !== $this->interval) {
             $res['Interval'] = $this->interval;
@@ -149,6 +160,9 @@ class ModifySiteMonitorRequest extends Model
         }
         if (isset($map['AlertIds'])) {
             $model->alertIds = $map['AlertIds'];
+        }
+        if (isset($map['CustomSchedule'])) {
+            $model->customSchedule = $map['CustomSchedule'];
         }
         if (isset($map['Interval'])) {
             $model->interval = $map['Interval'];

@@ -1,3 +1,6 @@
+2023-08-08 Version: 7.0.47
+- Generated php 2019-01-01 for Cms.
+
 2023-07-28 Version: 7.0.46
 - Add batch create once task.
 
