@@ -132,8 +132,6 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCustomLogConfigRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainCustomLogConfigResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainDetailDataByLayerRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainDetailDataByLayerResponse;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainFileSizeProportionDataRequest;
-use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainFileSizeProportionDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHitRateDataRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHitRateDataResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeDomainHttpCodeDataByLayerRequest;
@@ -387,9 +385,6 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->globalResourcePlan)) {
-            $query['GlobalResourcePlan'] = $request->globalResourcePlan;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -3896,69 +3891,6 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDomainDetailDataByLayerWithOptions($request, $runtime);
-    }
-
-    /**
-     * >
-     *   * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
-     * @param DescribeDomainFileSizeProportionDataRequest $request DescribeDomainFileSizeProportionDataRequest
-     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
-     *
-     * @return DescribeDomainFileSizeProportionDataResponse DescribeDomainFileSizeProportionDataResponse
-     */
-    public function describeDomainFileSizeProportionDataWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->domainName)) {
-            $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->endTime)) {
-            $query['EndTime'] = $request->endTime;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->startTime)) {
-            $query['StartTime'] = $request->startTime;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeDomainFileSizeProportionData',
-            'version'     => '2018-05-10',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeDomainFileSizeProportionDataResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * >
-     *   * *   If you do not specify StartTime or EndTime, the request returns the data collected in the last 24 hours. If you specify both StartTime and EndTime, the request returns the data collected within the specified time range.
-     *   * *   You can call this operation up to 10 times per second per account.
-     *   *
-     * @param DescribeDomainFileSizeProportionDataRequest $request DescribeDomainFileSizeProportionDataRequest
-     *
-     * @return DescribeDomainFileSizeProportionDataResponse DescribeDomainFileSizeProportionDataResponse
-     */
-    public function describeDomainFileSizeProportionData($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeDomainFileSizeProportionDataWithOptions($request, $runtime);
     }
 
     /**
@@ -9271,9 +9203,6 @@ class Cdn extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
-        }
-        if (!Utils::isUnset($request->globalResourcePlan)) {
-            $query['GlobalResourcePlan'] = $request->globalResourcePlan;
         }
         if (!Utils::isUnset($request->verifyType)) {
             $query['VerifyType'] = $request->verifyType;

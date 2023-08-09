@@ -18,11 +18,6 @@ class VerifyDomainOwnerRequest extends Model
     public $domainName;
 
     /**
-     * @var string
-     */
-    public $globalResourcePlan;
-
-    /**
      * @description The verification method. Valid values:
      *
      *   **dnsCheck**: by DNS record
@@ -34,9 +29,8 @@ class VerifyDomainOwnerRequest extends Model
      */
     public $verifyType;
     protected $_name = [
-        'domainName'         => 'DomainName',
-        'globalResourcePlan' => 'GlobalResourcePlan',
-        'verifyType'         => 'VerifyType',
+        'domainName' => 'DomainName',
+        'verifyType' => 'VerifyType',
     ];
 
     public function validate()
@@ -48,9 +42,6 @@ class VerifyDomainOwnerRequest extends Model
         $res = [];
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
-        }
-        if (null !== $this->globalResourcePlan) {
-            $res['GlobalResourcePlan'] = $this->globalResourcePlan;
         }
         if (null !== $this->verifyType) {
             $res['VerifyType'] = $this->verifyType;
@@ -69,9 +60,6 @@ class VerifyDomainOwnerRequest extends Model
         $model = new self();
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
-        }
-        if (isset($map['GlobalResourcePlan'])) {
-            $model->globalResourcePlan = $map['GlobalResourcePlan'];
         }
         if (isset($map['VerifyType'])) {
             $model->verifyType = $map['VerifyType'];
