@@ -19,11 +19,19 @@ class ListRemediationTemplatesRequest extends Model
     public $managedRuleIdentifier;
 
     /**
+     * @description The page number. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

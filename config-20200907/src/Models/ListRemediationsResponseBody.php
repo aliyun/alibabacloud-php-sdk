@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationsResponseBody extends Model
 {
     /**
-     * @description 修正列表的页码。起始值：1。
+     * @description The page number. Pages start from page 1.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListRemediationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description 分页查询时设置的每页行数。取值范围：1~50。
+     * @description The number of entries per page. Valid values: 1 to 50.
      *
      * @example 10
      *
@@ -28,7 +28,7 @@ class ListRemediationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description An array that contains the remediation templates.
+     * @description The converted configuration of the remediation template. This parameter is returned only for an OOS remediation template.
      *
      * @var remediations[]
      */
@@ -44,7 +44,7 @@ class ListRemediationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 修正设置总数。
+     * @description The total number of remediation settings.
      *
      * @example 1
      *

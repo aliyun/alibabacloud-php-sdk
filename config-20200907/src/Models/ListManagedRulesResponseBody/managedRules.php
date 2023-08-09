@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class managedRules extends Model
 {
     /**
-     * @description The details of the managed rules.
+     * @description The name of the remediation template.
      *
      * @var managedRuleList[]
      */

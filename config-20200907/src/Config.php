@@ -18,6 +18,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\CopyCompliancePacksRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CopyCompliancePacksResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CopyConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CopyConfigRulesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAdvancedSearchFileRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAdvancedSearchFileResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateAdvancedSearchFileRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateAdvancedSearchFileResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\CreateAggregateCompliancePackShrinkRequest;
@@ -84,8 +88,11 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GenerateConfigRulesReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateConfigRulesReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateResourceInventoryRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GenerateResourceInventoryResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAdvancedSearchFileResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAccountComplianceByPackResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAdvancedSearchFileRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateAdvancedSearchFileResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackReportResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateCompliancePackRequest;
@@ -120,6 +127,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByRe
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByRegionResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByResourceTypeRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceCountsGroupByResourceTypeResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceInventoryRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregateResourceInventoryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetAggregatorResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetCompliancePackReportRequest;
@@ -161,6 +170,7 @@ use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineReques
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceComplianceTimelineResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceConfigurationTimelineResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\GetResourceInventoryResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetSupportedResourceRelationConfigRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\GetSupportedResourceRelationConfigResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\IgnoreAggregateEvaluationResultsRequest;
@@ -175,16 +185,22 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannels
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigDeliveryChannelsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationStatisticsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRuleEvaluationStatisticsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateDiscoveredResourcesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationExecutionsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationExecutionsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateRemediationsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceRelationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourceRelationsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourcesByAdvancedSearchRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregateResourcesByAdvancedSearchResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListAggregatorsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListCompliancePacksRequest;
@@ -195,10 +211,12 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigDeliveryChannelsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigDeliveryChannelsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationResultsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRuleEvaluationStatisticsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListDiscoveredResourcesResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListIntegratedServiceResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListManagedRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListPreManagedRulesRequest;
@@ -214,6 +232,10 @@ use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsReques
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceEvaluationResultsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceRelationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListResourceRelationsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListResourcesByAdvancedSearchRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListResourcesByAdvancedSearchResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListSupportedProductsRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\ListSupportedProductsResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\ListTagResourcesShrinkRequest;
@@ -604,6 +626,95 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->copyConfigRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAdvancedSearchFileRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateAdvancedSearchFileResponse
+     */
+    public function createAdvancedSearchFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sql)) {
+            $query['Sql'] = $request->sql;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAdvancedSearchFile',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAdvancedSearchFileRequest $request
+     *
+     * @return CreateAdvancedSearchFileResponse
+     */
+    public function createAdvancedSearchFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAdvancedSearchFileWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateAggregateAdvancedSearchFileRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return CreateAggregateAdvancedSearchFileResponse
+     */
+    public function createAggregateAdvancedSearchFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->sql)) {
+            $query['Sql'] = $request->sql;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAggregateAdvancedSearchFile',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAggregateAdvancedSearchFileRequest $request
+     *
+     * @return CreateAggregateAdvancedSearchFileResponse
+     */
+    public function createAggregateAdvancedSearchFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAggregateAdvancedSearchFileWithOptions($request, $runtime);
     }
 
     /**
@@ -2484,6 +2595,39 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAdvancedSearchFileResponse
+     */
+    public function getAdvancedSearchFileWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAdvancedSearchFile',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetAdvancedSearchFileResponse
+     */
+    public function getAdvancedSearchFile()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdvancedSearchFileWithOptions($runtime);
+    }
+
+    /**
      * This topic provides an example on how to query the compliance evaluation results of member accounts for which the `cp-541e626622af0087****` compliance package takes effect in the `ca-04b3fd170e340007****` account group. The returned result shows that two member accounts are monitored by the compliance package and they are both evaluated as compliant.
      *   *
      * @param GetAggregateAccountComplianceByPackRequest $request GetAggregateAccountComplianceByPackRequest
@@ -2525,6 +2669,49 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAggregateAccountComplianceByPackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateAdvancedSearchFileRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return GetAggregateAdvancedSearchFileResponse
+     */
+    public function getAggregateAdvancedSearchFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateAdvancedSearchFile',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAggregateAdvancedSearchFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateAdvancedSearchFileRequest $request
+     *
+     * @return GetAggregateAdvancedSearchFileResponse
+     */
+    public function getAggregateAdvancedSearchFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateAdvancedSearchFileWithOptions($request, $runtime);
     }
 
     /**
@@ -3283,7 +3470,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that a total of `seven` resources of the `ACS::RAM::Role` resource type exist.
+     * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
      *   *
      * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request GetAggregateResourceCountsGroupByResourceTypeRequest
      * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
@@ -3328,7 +3515,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that a total of `seven` resources of the `ACS::RAM::Role` resource type exist.
+     * This topic provides an example on how to query the statistics on the resources in an account group whose ID is `ca-a260626622af0005****` by resource type. The returned result shows that the account group has a total of `seven` resources of the `ACS::RAM::Role` resource type.
      *   *
      * @param GetAggregateResourceCountsGroupByResourceTypeRequest $request GetAggregateResourceCountsGroupByResourceTypeRequest
      *
@@ -3339,6 +3526,49 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAggregateResourceCountsGroupByResourceTypeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAggregateResourceInventoryRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return GetAggregateResourceInventoryResponse
+     */
+    public function getAggregateResourceInventoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAggregateResourceInventory',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAggregateResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAggregateResourceInventoryRequest $request
+     *
+     * @return GetAggregateResourceInventoryResponse
+     */
+    public function getAggregateResourceInventory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAggregateResourceInventoryWithOptions($request, $runtime);
     }
 
     /**
@@ -4295,6 +4525,39 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetResourceInventoryResponse
+     */
+    public function getResourceInventoryWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetResourceInventory',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceInventoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetResourceInventoryResponse
+     */
+    public function getResourceInventory()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getResourceInventoryWithOptions($runtime);
+    }
+
+    /**
      * This topic provides an example to show how to query the resource relationships that are supported by the ACS::ECS::Instance resource type.
      *   *
      * @param GetSupportedResourceRelationConfigRequest $request GetSupportedResourceRelationConfigRequest
@@ -4650,6 +4913,49 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+     */
+    public function listAggregateConfigRuleEvaluationStatisticsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateConfigRuleEvaluationStatistics',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateConfigRuleEvaluationStatisticsRequest $request
+     *
+     * @return ListAggregateConfigRuleEvaluationStatisticsResponse
+     */
+    public function listAggregateConfigRuleEvaluationStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateConfigRuleEvaluationStatisticsWithOptions($request, $runtime);
+    }
+
+    /**
      * This topic provides an example on how to query the rules in an account group whose ID is `ca-f632626622af0079****`. The returned result shows a total of one rule and two evaluated resources. The resources are both evaluated as `COMPLIANT`.
      *   *
      * @param ListAggregateConfigRulesRequest $request ListAggregateConfigRulesRequest
@@ -4789,6 +5095,64 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAggregateDiscoveredResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateRemediationExecutionsRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return ListAggregateRemediationExecutionsResponse
+     */
+    public function listAggregateRemediationExecutionsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->configRuleId)) {
+            $query['ConfigRuleId'] = $request->configRuleId;
+        }
+        if (!Utils::isUnset($request->executionStatus)) {
+            $query['ExecutionStatus'] = $request->executionStatus;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceAccountId)) {
+            $query['ResourceAccountId'] = $request->resourceAccountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateRemediationExecutions',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateRemediationExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateRemediationExecutionsRequest $request
+     *
+     * @return ListAggregateRemediationExecutionsResponse
+     */
+    public function listAggregateRemediationExecutions($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateRemediationExecutionsWithOptions($request, $runtime);
     }
 
     /**
@@ -4978,6 +5342,52 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAggregateResourceRelationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAggregateResourcesByAdvancedSearchRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ListAggregateResourcesByAdvancedSearchResponse
+     */
+    public function listAggregateResourcesByAdvancedSearchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aggregatorId)) {
+            $query['AggregatorId'] = $request->aggregatorId;
+        }
+        if (!Utils::isUnset($request->sql)) {
+            $query['Sql'] = $request->sql;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAggregateResourcesByAdvancedSearch',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAggregateResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAggregateResourcesByAdvancedSearchRequest $request
+     *
+     * @return ListAggregateResourcesByAdvancedSearchResponse
+     */
+    public function listAggregateResourcesByAdvancedSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAggregateResourcesByAdvancedSearchWithOptions($request, $runtime);
     }
 
     /**
@@ -5227,10 +5637,45 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListConfigRulesRequest $request
-     * @param RuntimeOptions         $runtime
+     * @param RuntimeOptions $runtime
      *
-     * @return ListConfigRulesResponse
+     * @return ListConfigRuleEvaluationStatisticsResponse
+     */
+    public function listConfigRuleEvaluationStatisticsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListConfigRuleEvaluationStatistics',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListConfigRuleEvaluationStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListConfigRuleEvaluationStatisticsResponse
+     */
+    public function listConfigRuleEvaluationStatistics()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listConfigRuleEvaluationStatisticsWithOptions($runtime);
+    }
+
+    /**
+     * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+     *   *
+     * @param ListConfigRulesRequest $request ListConfigRulesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListConfigRulesResponse ListConfigRulesResponse
      */
     public function listConfigRulesWithOptions($request, $runtime)
     {
@@ -5279,9 +5724,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListConfigRulesRequest $request
+     * This topic provides an example on how to query the rules of the current account. The response shows that the current account has a total of one rule and three evaluated resources. The resources are evaluated as compliant.
+     *   *
+     * @param ListConfigRulesRequest $request ListConfigRulesRequest
      *
-     * @return ListConfigRulesResponse
+     * @return ListConfigRulesResponse ListConfigRulesResponse
      */
     public function listConfigRules($request)
     {
@@ -5350,6 +5797,39 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDiscoveredResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListIntegratedServiceResponse
+     */
+    public function listIntegratedServiceWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListIntegratedService',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListIntegratedServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListIntegratedServiceResponse
+     */
+    public function listIntegratedService()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listIntegratedServiceWithOptions($runtime);
     }
 
     /**
@@ -5757,6 +6237,95 @@ class Config extends OpenApiClient
     }
 
     /**
+     * @param ListResourcesByAdvancedSearchRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return ListResourcesByAdvancedSearchResponse
+     */
+    public function listResourcesByAdvancedSearchWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sql)) {
+            $query['Sql'] = $request->sql;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListResourcesByAdvancedSearch',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListResourcesByAdvancedSearchResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListResourcesByAdvancedSearchRequest $request
+     *
+     * @return ListResourcesByAdvancedSearchResponse
+     */
+    public function listResourcesByAdvancedSearch($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listResourcesByAdvancedSearchWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSupportedProductsRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListSupportedProductsResponse
+     */
+    public function listSupportedProductsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSupportedProducts',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSupportedProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSupportedProductsRequest $request
+     *
+     * @return ListSupportedProductsResponse
+     */
+    public function listSupportedProducts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSupportedProductsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagResourcesRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
@@ -6049,7 +6618,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the manual execution is successful.
+     * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
      *   *
      * @param StartAggregateRemediationRequest $request StartAggregateRemediationRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6088,7 +6657,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The returned result shows that the manual execution is successful.
+     * This topic provides an example on how to manually perform a remediation operation by using the rule whose ID is `cr-6b7c626622af00b4****` in the account group whose ID is `ca-6b4a626622af0012****`. The return result shows that the manual execution is successful.
      *   *
      * @param StartAggregateRemediationRequest $request StartAggregateRemediationRequest
      *

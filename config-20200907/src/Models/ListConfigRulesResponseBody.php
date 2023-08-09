@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRulesResponseBody extends Model
 {
     /**
+     * @description The queried rules.
+     *
      * @var configRules
      */
     public $configRules;
 
     /**
+     * @description The request ID.
+     *
      * @example AC3A7E12-72E6-5CC9-A5C1-D8D8919829A7
      *
      * @var string

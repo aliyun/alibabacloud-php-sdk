@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class scope extends Model
 {
     /**
+     * @description The types of the resources to be evaluated against the rule. You can also view the resource types by using the ResourceTypesScope parameter.
+     *
      * @var string[]
      */
     public $complianceResourceTypes;

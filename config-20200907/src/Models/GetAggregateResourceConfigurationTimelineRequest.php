@@ -19,7 +19,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The timestamp that specifies the end of the time range to query. The default value indicates the time when the GetAggregateResourceConfigurationTimeline operation is called. Unit: milliseconds.
+     * @description The end of the time range to query. The default value indicates the time when the GetAggregateResourceConfigurationTimeline operation is called. Unit: milliseconds.
      *
      * @example 1625821156000
      *
@@ -37,7 +37,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the next request. If the response of the current request is truncated, this token is used to initiate another request and obtain the remaining entries.
+     * @description The `token` that is used to initiate the next request if the response of the current request is truncated. You can use the token to initiate another request and obtain the remaining records.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *
@@ -56,6 +56,9 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     public $region;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resource in the account group belongs.
+     *
+     * > You can use either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you use the ResourceAccountId parameter.
      * @example 100931896542****
      *
      * @var int
@@ -63,9 +66,9 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     public $resourceAccountId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
-     * For more information about how to obtain the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
+     * For more information about how to query the ID of a resource, see [ListAggregateDiscoveredResources](~~265983~~).
      * @example new-bucket
      *
      * @var string
@@ -90,7 +93,7 @@ class GetAggregateResourceConfigurationTimelineRequest extends Model
     public $resourceType;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
+     * @description The beginning of the time range to query. By default, Cloud Config retrieves the configuration changes in the last 30 days for the specified resource. Unit: milliseconds.
      *
      * @example 1623211156000
      *

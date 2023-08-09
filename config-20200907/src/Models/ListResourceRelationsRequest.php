@@ -27,7 +27,7 @@ class ListResourceRelationsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the resource resides.
+     * @description The ID of the region in which the resource resides.
      *
      * @example cn-shanghai
      *
@@ -52,7 +52,7 @@ class ListResourceRelationsRequest extends Model
      *
      * <!-- -->
      *
-     *   Contains: The object contains the resource.
+     *   Contains: The actual value contains the expected value.
      *
      * <!-- -->
      * @example IsAttachedTo

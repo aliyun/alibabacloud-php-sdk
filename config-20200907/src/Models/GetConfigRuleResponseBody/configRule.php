@@ -200,6 +200,8 @@ class configRule extends Model
     public $riskLevel;
 
     /**
+     * @description The effective scope of the rule.
+     *
      * @var scope
      */
     public $scope;

@@ -45,7 +45,11 @@ class compliancePack extends Model
     public $compliancePackTemplateId;
 
     /**
-     * @description The rules in the compliance package.
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @var configRules[]
      */

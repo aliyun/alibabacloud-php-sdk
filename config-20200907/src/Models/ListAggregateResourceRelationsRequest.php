@@ -36,7 +36,7 @@ class ListAggregateResourceRelationsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region where the resource resides.
+     * @description The ID of the region in which the resource resides.
      *
      * @example cn-shanghai
      *
@@ -61,7 +61,7 @@ class ListAggregateResourceRelationsRequest extends Model
      *
      * <!-- -->
      *
-     *   Contains: The object contains the resource.
+     *   Contains: The actual value contains the expected value.
      *
      * <!-- -->
      * @example IsAttachedTo
@@ -71,7 +71,7 @@ class ListAggregateResourceRelationsRequest extends Model
     public $relationType;
 
     /**
-     * @description The ID of the Alibaba Cloud account to which the resource in the account group belongs.
+     * @description The ID of the Alibaba Cloud account to which the resources in the account group belong.
      *
      * @example 100931896542****
      *

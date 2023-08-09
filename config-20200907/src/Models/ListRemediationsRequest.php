@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationsRequest extends Model
 {
     /**
-     * @description The rule ID. Separate multiple rule IDs with commas (,).
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
      * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~169607~~).
      * @example cr-6b7c626622af00b4****
@@ -19,7 +19,7 @@ class ListRemediationsRequest extends Model
     public $configRuleIds;
 
     /**
-     * @description 资源列表的页码。起始值：1。
+     * @description The page number. Pages start from page 1.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListRemediationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description 分页查询时设置的每页行数。取值范围：1~50。
+     * @description The number of entries per page. Valid values: 1 to 50.
      *
      * @example 10
      *

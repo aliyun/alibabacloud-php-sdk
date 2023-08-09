@@ -49,6 +49,8 @@ class configRules extends Model
     public $managedRuleIdentifier;
 
     /**
+     * @example ACS::EIP::EipAddress
+     *
      * @var string
      */
     public $resourceTypesScope;

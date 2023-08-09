@@ -49,6 +49,8 @@ class managedRuleList extends Model
     public $labels;
 
     /**
+     * @example ACS-CDN-SetDomainServerCertificate
+     *
      * @var string
      */
     public $remediationTemplateIdentifier;
@@ -77,6 +79,8 @@ class managedRuleList extends Model
     public $scope;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $supportPreviewManagedRule;

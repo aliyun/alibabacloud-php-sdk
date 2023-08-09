@@ -11,7 +11,7 @@ class StartAggregateRemediationRequest extends Model
     /**
      * @description The ID of the account group.
      *
-     * For more information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
+     * For information about how to obtain the ID of an account group, see [ListAggregators](~~255797~~).
      * @example ca-6b4a626622af0012****
      *
      * @var string
@@ -29,6 +29,9 @@ class StartAggregateRemediationRequest extends Model
     public $configRuleId;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resources to be remediated belong. If this parameter is left empty, non-compliant resources of all accounts in the account group are remediated.
+     *
+     * > You must specify the ID of the current management account or a member account in the account group of the management account.
      * @example 100271897542****
      *
      * @var int

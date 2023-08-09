@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class resourceRelations extends Model
 {
     /**
-     * @description The maximum number of entries returned per page.
+     * @description The maximum number of entries returned on each page.
      *
      * @example 10
      *
@@ -19,7 +19,7 @@ class resourceRelations extends Model
     public $maxResults;
 
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     * @description The token that was used to initiate the next request.
      *
      * @example AcBjqMYSy0is7zSMGu16****
      *
@@ -28,8 +28,25 @@ class resourceRelations extends Model
     public $nextToken;
 
     /**
-     * @description An array that contains the relationships.
+     * @description The type of the relationship between the resource and the object.
      *
+     * Valid values:
+     *
+     *   IsContained: The object is included as part of the resource.
+     *
+     * <!-- -->
+     *
+     *   IsAttachedTo: The object is added to the resource.
+     *
+     * <!-- -->
+     *
+     *   IsAssociatedIn: The object is associated with the resource.
+     *
+     * <!-- -->
+     *
+     *   Contains: The actual value contains the expected value.
+     *
+     * <!-- -->
      * @var resourceRelationList[]
      */
     public $resourceRelationList;

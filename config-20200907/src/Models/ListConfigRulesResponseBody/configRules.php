@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
+     * @description The types of resources evaluated by the rule. Separate multiple resource types with commas (,).
+     *
      * @var configRuleList[]
      */
     public $configRuleList;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class configRules extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class configRules extends Model
     public $pageSize;
 
     /**
+     * @description The total number of rules.
+     *
      * @example 1
      *
      * @var int

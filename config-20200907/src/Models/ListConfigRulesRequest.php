@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ListConfigRulesRequest extends Model
 {
     /**
+     * @description The compliance evaluation result. Valid values:
+     *
+     *   COMPLIANT: The resources are evaluated as compliant.
+     *   NON_COMPLIANT: The resources are evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resources.
+     *   INSUFFICIENT_DATA: No resource data is available.
+     *
      * @example COMPLIANT
      *
      * @var string
@@ -16,11 +23,20 @@ class ListConfigRulesRequest extends Model
     public $complianceType;
 
     /**
+     * @description The name of the rule.
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     *   ACTIVE: The rule is enabled.
+     *   DELETING: The rule is being deleted.
+     *   EVALUATING: The rule is triggered and is being used to monitor resource configurations.
+     *   INACTIVE: The rule is disabled.
+     *
      * @example ACTIVE
      *
      * @var string
@@ -28,6 +44,9 @@ class ListConfigRulesRequest extends Model
     public $configRuleState;
 
     /**
+     * @description The query keyword.
+     *
+     * You can perform a fuzzy search by rule ID, rule name, rule description, or managed rule ID.
      * @example ecs
      *
      * @var string
@@ -35,6 +54,9 @@ class ListConfigRulesRequest extends Model
     public $keyword;
 
     /**
+     * @description The page number.
+     *
+     * Pages start from page 1. Default value: 1
      * @example 1
      *
      * @var int
@@ -42,6 +64,9 @@ class ListConfigRulesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Valid values: 1 to 100. Minimum value: 1. Default value: 10.
      * @example 10
      *
      * @var int
@@ -49,6 +74,8 @@ class ListConfigRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the resources to be evaluated based on the rule.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string
@@ -56,6 +83,12 @@ class ListConfigRulesRequest extends Model
     public $resourceTypes;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     *   1: high
+     *   2: medium
+     *   3: low
+     *
      * @example 1
      *
      * @var int

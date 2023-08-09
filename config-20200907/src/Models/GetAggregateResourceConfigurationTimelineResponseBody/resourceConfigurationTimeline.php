@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class resourceConfigurationTimeline extends Model
 {
     /**
-     * @description The configuration changes on the configuration timeline.
+     * @description The resource name.
      *
      * @var configurationList[]
      */

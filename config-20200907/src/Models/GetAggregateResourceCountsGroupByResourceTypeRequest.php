@@ -29,7 +29,7 @@ class GetAggregateResourceCountsGroupByResourceTypeRequest extends Model
     public $folderId;
 
     /**
-     * @description The ID of the region in which the resource resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -38,6 +38,9 @@ class GetAggregateResourceCountsGroupByResourceTypeRequest extends Model
     public $region;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the resources in the account group belong.
+     *
+     * > You can specify either the ResourceAccountId or ResourceOwnerId parameter. We recommend that you specify the ResourceAccountId parameter.
      * @example 100931896542****
      *
      * @var int

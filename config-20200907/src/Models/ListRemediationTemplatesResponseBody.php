@@ -10,17 +10,25 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationTemplatesResponseBody extends Model
 {
     /**
+     * @description The page number. Pages start from page 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 1 to 100.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description The details of the remediation template.
+     * @description The description of the remediation template.
      *
      * @var remediationTemplates[]
      */
@@ -36,6 +44,10 @@ class ListRemediationTemplatesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of remediation templates.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

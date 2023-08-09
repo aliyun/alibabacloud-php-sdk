@@ -67,6 +67,8 @@ class configRuleList extends Model
     public $description;
 
     /**
+     * @example ACS::EIP::EipAddress
+     *
      * @var string
      */
     public $resourceTypesScope;
