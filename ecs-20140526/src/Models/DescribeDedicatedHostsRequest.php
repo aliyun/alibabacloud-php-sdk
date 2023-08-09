@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsRequest extends Model
 {
     /**
-     * @description The ID of the dedicated host cluster.
+     * @description The ID of the dedicated host cluster to which the dedicated host belongs.
      *
      * @example dc-bp12wlf6am0vz9v2****
      *
@@ -19,7 +19,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostClusterId;
 
     /**
-     * @description The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate multiple IDs with commas (,).
+     * @description The IDs of dedicated hosts. You can specify up to 100 dedicated host IDs in a single request. Separate the IDs with commas (,).
      *
      * @example ["dh-bp165p6xk2tlw61e****", "dh-bp1f9vxmno7emy96****"]
      *
@@ -37,7 +37,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $dedicatedHostName;
 
     /**
-     * @description The type of the dedicated host. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to query the most recent list of dedicated host types.
+     * @description The dedicated host type. You can call the [DescribeDedicatedHostTypes](~~134240~~) operation to obtain the most recent list of dedicated host types.
      *
      * @example ddh.g5
      *
@@ -48,8 +48,8 @@ class DescribeDedicatedHostsRequest extends Model
     /**
      * @description The reason why the dedicated host is locked. Valid values:
      *
-     *   financial: The dedicated host is locked due to overdue payments.
-     *   security: The dedicated host is locked due to security reasons.
+     *   financial
+     *   security
      *
      * @example financial
      *
@@ -68,7 +68,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries per page.
      *
      * Default value: 1.
      * @example 1
@@ -78,7 +78,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page.
+     * @description The page number.
      *
      * Default value: 10.
      * @example 10
@@ -88,7 +88,7 @@ class DescribeDedicatedHostsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the dedicated host resides. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the dedicated host. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -97,9 +97,9 @@ class DescribeDedicatedHostsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the dedicated host belongs. If you specify this parameter, the details of up to 1,000 resources that belong to the specified resource group are returned.
+     * @description The ID of the resource group to which the dedicated host belongs. When this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of the value that you specified for this parameter.
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-aek3b6jzp66****
      *
      * @var string
@@ -117,6 +117,11 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to display socket information. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string
@@ -124,11 +129,11 @@ class DescribeDedicatedHostsRequest extends Model
     public $socketDetails;
 
     /**
-     * @description The service status of the dedicated host. Valid values:
+     * @description The service state of the dedicated host. Valid values:
      *
-     *   Available: The dedicated host is running as expected.
-     *   UnderAssessment: The dedicated host is available. However, the dedicated host has potential risks that may cause the ECS instances on the dedicated host to fail.
-     *   PermanentFailure: The dedicated host has permanent failures and cannot be used.
+     *   Available: The dedicated host is running normally.
+     *   UnderAssessment: The dedicated host is available but has potential risks that may cause the ECS instances on the dedicated host to fail.
+     *   PermanentFailure: The dedicated host encounters permanent failures and is unavailable.
      *   TempUnavailable: The dedicated host is temporarily unavailable.
      *   Redeploying: The dedicated host is being restored.
      *
@@ -140,14 +145,14 @@ class DescribeDedicatedHostsRequest extends Model
     public $status;
 
     /**
-     * @description The tags of the dedicated hosts.
+     * @description The key of tag N of the dedicated host. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the zone where the dedicated host resides. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the dedicated host. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-g
      *

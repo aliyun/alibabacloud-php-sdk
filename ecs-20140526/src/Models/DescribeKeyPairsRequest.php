@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsRequest extends Model
 {
     /**
-     * @description The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716. For more information, see [RFC 4716](https://tools.ietf.org/html/rfc4716).
+     * @description Details about the key pairs.
      *
      * @example ABC1234567
      *
@@ -19,12 +19,7 @@ class DescribeKeyPairsRequest extends Model
     public $keyPairFingerPrint;
 
     /**
-     * @description The name of the key pair. You can use the asterisk (\*) symbol as a wildcard in regular expressions to perform a fuzzy search for key pairs. Sample patterns:
-     *
-     *   `*SshKey`: queries key pairs whose names end with SshKey, including the key pair named SshKey.
-     *   `SshKey*`: queries key pairs whose names start with SshKey, including the key pair named SshKey.
-     *   `*SshKey*`: queries key pairs whose names include SshKey, including the key pair named SshKey.
-     *   `SshKey`: queries the key pair named SshKey.
+     * @description The value of tag N of the key pair. Valid values of N: 1 to 20.
      *
      * @example *SshKey*
      *
@@ -38,9 +33,8 @@ class DescribeKeyPairsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The operation that you want to perform. Set the value to **DescribeKeyPairs**.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -58,7 +52,7 @@ class DescribeKeyPairsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the key pair. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The fingerprint of the key pair. The message-digest algorithm 5 (MD5) is used based on the public key fingerprint format defined in RFC 4716. For more information, see [RFC 4716](https://tools.ietf.org/html/rfc4716).
      *
      * @example cn-hangzhou
      *
@@ -67,9 +61,8 @@ class DescribeKeyPairsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The tag key of the key pair.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-amnhr7u7c7hj****
      *
      * @var string
@@ -87,7 +80,7 @@ class DescribeKeyPairsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The fingerprint of the key pair.
      *
      * @var tag[]
      */

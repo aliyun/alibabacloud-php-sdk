@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RunCommandResponseBody extends Model
 {
     /**
+     * @description The command ID.
+     *
      * @example c-7d2a745b412b4601b2d47f6a768d****
      *
      * @var string
@@ -16,6 +18,8 @@ class RunCommandResponseBody extends Model
     public $commandId;
 
     /**
+     * @description The command task ID.
+     *
      * @example t-7d2a745b412b4601b2d47f6a768d****
      *
      * @var string

@@ -38,9 +38,9 @@ class DescribeLaunchTemplatesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The number of entries to return on each page.
      *
-     * Default value: 1.
+     * Default value: 10.
      * @example 1
      *
      * @var int
@@ -48,9 +48,9 @@ class DescribeLaunchTemplatesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
      *
-     * Default value: 10.
+     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
      * @example 10
      *
      * @var int
@@ -58,7 +58,7 @@ class DescribeLaunchTemplatesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The tags of the launch template.
      *
      * @example cn-hangzhou
      *
@@ -77,9 +77,8 @@ class DescribeLaunchTemplatesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the resource group to which the launch template belongs. If you specify this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
+     * @description The IDs of launch templates. You can specify up to 100 launch template IDs. You must specify LaunchTemplateId or LaunchTemplateName to determine a launch template.
      *
-     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
      * @example rg-acfmxazb4p****
      *
      * @var string
@@ -87,7 +86,7 @@ class DescribeLaunchTemplatesRequest extends Model
     public $templateResourceGroupId;
 
     /**
-     * @description The tags of the launch template.
+     * @description The tag of the launch template.
      *
      * @var templateTag[]
      */

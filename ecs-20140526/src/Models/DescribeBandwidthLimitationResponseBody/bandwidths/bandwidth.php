@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class bandwidth extends Model
 {
     /**
-     * @description The billing method for network usage. Valid values:
-     *
-     *   PayByBandwidth
-     *   PayByTraffic
+     * @description The minimum public bandwidth.
      *
      * @example PayByTraffic
      *
@@ -21,7 +18,7 @@ class bandwidth extends Model
     public $internetChargeType;
 
     /**
-     * @description The maximum public bandwidth.
+     * @description The unit of the public bandwidth.
      *
      * @example 100
      *
@@ -30,7 +27,7 @@ class bandwidth extends Model
     public $max;
 
     /**
-     * @description The minimum public bandwidth.
+     * @description DescribeBandwidthLimitation
      *
      * @example 0
      *
@@ -39,8 +36,6 @@ class bandwidth extends Model
     public $min;
 
     /**
-     * @description The unit of the public bandwidth.
-     *
      * @example Mbps
      *
      * @var string

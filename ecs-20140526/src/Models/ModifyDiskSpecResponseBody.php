@@ -11,7 +11,7 @@ class ModifyDiskSpecResponseBody extends Model
     /**
      * @description The order ID.
      *
-     * > This parameter is returned only when the category of a subscription cloud disk or the performance level of a subscription cloud disk is modified.
+     * >  This parameter is returned only when the category of a subscription disk or the performance level of a subscription ESSD is modified.
      * @example 20413515388****
      *
      * @var string
@@ -28,9 +28,9 @@ class ModifyDiskSpecResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The task ID of changing the disk category.
+     * @description The ID of the disk category change task.
      *
-     * > If you modify only the performance level of an ESSD, this parameter is not returned.
+     * >  If you only modify the performance level of an ESSD, this parameter is not returned.
      * @example t-bp67acfmxazb4p****
      *
      * @var string

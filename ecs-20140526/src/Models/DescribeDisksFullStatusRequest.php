@@ -25,7 +25,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $diskId;
 
     /**
-     * @description The ID of the event. Valid values of N: 1 to 100.
+     * @description The ID of event N. Valid values of N: 1 to 100.
      *
      * @example e-bp67acfmxazb4p****
      *
@@ -34,7 +34,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $eventId;
 
     /**
-     * @description The event type. Valid values:
+     * @description The event type of the EBS device. Valid values:
      *
      *   Degraded: The performance of the EBS device is degraded.
      *   SeverelyDegraded: The performance of the EBS device is severely degraded.
@@ -51,8 +51,8 @@ class DescribeDisksFullStatusRequest extends Model
      * @description The health status of the EBS device. Valid values:
      *
      *   Impaired: The EBS device is damaged.
-     *   Warning: The performance of the EBS device may be degraded.
-     *   Initializing: The disk is being initialized.
+     *   Warning: The performance of the EBS device is degraded.
+     *   Initializing: The EBS device is being initialized.
      *   InsufficientData: The status cannot be determined due to insufficient data.
      *   NotApplicable: The EBS device cannot be used.
      *
@@ -73,7 +73,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be a positive integer.
+     * @description The page number. Pages start from page 1. The value must be a positive integer.
      *
      * Default value: 1.
      * @example 1
@@ -83,7 +83,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -102,7 +102,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the EBS device belongs. When you use this property to query resources, the number of resources that are contained in the specified resource group cannot exceed 1,000.
+     * @description The ID of the resource group to which the EBS device belongs. If you configure this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
      * @example rg-aek2kkmhmhs****
      *
@@ -123,12 +123,12 @@ class DescribeDisksFullStatusRequest extends Model
     /**
      * @description The lifecycle status of the EBS device. For more information, see [Disk status](~~25689~~). Valid values:
      *
-     *   In_use: The disk is in use.
-     *   Available: The disk can be attached.
-     *   Attaching: The disk is being attached.
-     *   Detaching: The disk is being detached.
-     *   Creating: The disk is being created.
-     *   ReIniting: The disk is being initialized.
+     *   In_use: The EBS device is in use.
+     *   Available: The EBS device can be attached.
+     *   Attaching: The EBS device is being attached.
+     *   Detaching: The EBS device is being detached.
+     *   Creating: The EBS device is being created.
+     *   ReIniting: The EBS device is being initialized.
      *
      * @example Available
      *
@@ -137,7 +137,7 @@ class DescribeDisksFullStatusRequest extends Model
     public $status;
 
     /**
-     * @description The tags of the instance.
+     * @description The tags to add to the EBS device.
      *
      * @var tag[]
      */

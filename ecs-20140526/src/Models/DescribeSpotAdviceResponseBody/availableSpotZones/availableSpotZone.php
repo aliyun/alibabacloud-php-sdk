@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class availableSpotZone extends Model
 {
     /**
-     * @description Details about preemptible instances in the last 30 days, including release rates and percentages of average preemptible instance prices relative to pay-as-you-go instance prices.
+     * @description Details about preemptible instances in the last 30 days, including the release rate of preemptible instances and percentages of average prices of preemptible instances relative to pay-as-you-go instance prices.
      *
      * @var availableSpotResources
      */

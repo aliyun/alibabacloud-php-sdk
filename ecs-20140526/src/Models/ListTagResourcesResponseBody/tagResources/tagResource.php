@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example i-bp1j6qtvdm8w0z1o****
      *
@@ -18,7 +18,7 @@ class tagResource extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of a resource. Valid values:
      *
      *   instance: ECS instance
      *   disk: disk
@@ -35,7 +35,7 @@ class tagResource extends Model
      *   snapshotpolicy: automatic snapshot policy
      *   elasticityassurance: elasticity assurance
      *   capacityreservation: capacity reservation
-     *   command: Cloud Assistant command.
+     *   command: Cloud Assistant command
      *   invocation: Cloud Assistant command execution result
      *
      * @example instance
@@ -45,7 +45,7 @@ class tagResource extends Model
     public $resourceType;
 
     /**
-     * @description The tag key.
+     * @description The key of the tag.
      *
      * @example TestKey
      *
@@ -54,7 +54,7 @@ class tagResource extends Model
     public $tagKey;
 
     /**
-     * @description The tag value.
+     * @description The value of the tag.
      *
      * @example TestValue
      *

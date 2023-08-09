@@ -27,6 +27,8 @@ class task extends Model
     public $finishedTime;
 
     /**
+     * @description The ID of the resource.
+     *
      * @example m-bp1i8huqm5u7****
      *
      * @var string
@@ -61,7 +63,7 @@ class task extends Model
     public $taskId;
 
     /**
-     * @description The status of the task.
+     * @description The state of the task.
      *
      * @example Finished
      *

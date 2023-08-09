@@ -77,6 +77,12 @@ class systemDisk extends Model
     public $size;
 
     /**
+     * @description Specifies whether to enable the burst feature for the system disk. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * > This parameter is available only if you set `SystemDisk.Category` to `cloud_auto`.
      * @example false
      *
      * @var bool
@@ -119,6 +125,9 @@ class systemDisk extends Model
     public $KMSKeyId;
 
     /**
+     * @description The provisioned read/write IOPS of the ESSD AutoPL disk to use as the system disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
+     *
+     * > This parameter is available only if you set the SystemDisk.Category parameter to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 40000
      *
      * @var int

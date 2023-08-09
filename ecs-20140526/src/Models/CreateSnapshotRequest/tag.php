@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N that you want to add to the snapshot. Valid values of N: 1 to 20. The tag value cannot be an empty string. The tag key must be 1 to 128 characters in length. It cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+     * @description The tags to add to the snapshot.
      *
      * @example TestKey
      *
@@ -18,8 +18,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of tag N that you want to add to the snapshot. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or contain [http:// or https://.](http://https://。)
+     * @description The tag key to add to the snapshot.
      *
+     * > This parameter will be deprecated in the future. We recommend that you use the Tag.N.key parameter to ensure future compatibility.
      * @example TestValue
      *
      * @var string

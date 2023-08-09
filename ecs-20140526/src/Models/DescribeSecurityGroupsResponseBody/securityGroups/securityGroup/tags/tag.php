@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The total number of security groups. If you specify the `MaxResults` and `NextToken` parameters in the request, this parameter is empty.
+     * @description The tag key of the security group.
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The tag keys of the security group.
+     * @description The tag value of the security group.
      *
      * @example TestValue
      *

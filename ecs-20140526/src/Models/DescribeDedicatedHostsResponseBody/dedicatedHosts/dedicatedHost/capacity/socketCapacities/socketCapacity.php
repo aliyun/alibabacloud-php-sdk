@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class socketCapacity extends Model
 {
     /**
+     * @description The remaining capacity of the memory. Unit: GiB.
+     *
      * @example 65
      *
      * @var float
@@ -16,6 +18,8 @@ class socketCapacity extends Model
     public $availableMemory;
 
     /**
+     * @description The total number of vCPUs.
+     *
      * @example 64
      *
      * @var int
@@ -23,6 +27,8 @@ class socketCapacity extends Model
     public $availableVcpu;
 
     /**
+     * @description The socket ID.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +36,8 @@ class socketCapacity extends Model
     public $socketId;
 
     /**
+     * @description The total capacity of the memory. Unit: GiB.
+     *
      * @example 128
      *
      * @var float
@@ -37,6 +45,8 @@ class socketCapacity extends Model
     public $totalMemory;
 
     /**
+     * @description The number of available vCPUs.
+     *
      * @example 128
      *
      * @var int

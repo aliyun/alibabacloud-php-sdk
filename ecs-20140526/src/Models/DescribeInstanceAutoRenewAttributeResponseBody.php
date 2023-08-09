@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeResponseBody extends Model
 {
     /**
-     * @description Details about the renewal attributes of instances.
+     * @description The renewal attributes of instances.
      *
      * @var instanceRenewAttributes
      */
@@ -44,7 +44,7 @@ class DescribeInstanceAutoRenewAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of queried instances.
      *
      * @example 6
      *

@@ -11,6 +11,8 @@ class metricSets extends Model
     /**
      * @description The description of the diagnostic metric set.
      *
+     * @example connection issue diagnostics
+     *
      * @var string
      */
     public $description;
@@ -33,6 +35,8 @@ class metricSets extends Model
 
     /**
      * @description The name of the diagnostic metric set.
+     *
+     * @example connection issue diagnostics
      *
      * @var string
      */

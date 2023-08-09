@@ -41,9 +41,9 @@ class DescribeReservedInstancesRequest extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The locked mode of the instance. Valid values:
+     * @description The reason why the instance is locked. Valid values:
      *
-     *   financial: Your account has one or more overdue payments or the reserved instance has expired.
+     *   financial: You have an overdue payment in your account, or the reserved instance has expired.
      *   security: The reserved instance is locked for security reasons.
      *
      * @example security
@@ -53,7 +53,7 @@ class DescribeReservedInstancesRequest extends Model
     public $lockReason;
 
     /**
-     * @description The payment option for the reserved instance. Valid values:
+     * @description The payment option of the reserved instances. Valid values:
      *
      *   No Upfront
      *   Partial Upfront
@@ -76,7 +76,7 @@ class DescribeReservedInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number to return. Pages start from page 1.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: 1.
      * @example 1
@@ -86,7 +86,7 @@ class DescribeReservedInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries per page. Maximum value: 100.
      *
      * Default value: 10.
      * @example 50
@@ -96,7 +96,7 @@ class DescribeReservedInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the instances. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -105,7 +105,7 @@ class DescribeReservedInstancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the reserved instances. Valid values of N: 1 to 100.
+     * @description The ID of reserved instance N. Valid values of N: 1 to 100.
      *
      * @example ri-bpzhex2ulpzf53****
      *
@@ -114,7 +114,7 @@ class DescribeReservedInstancesRequest extends Model
     public $reservedInstanceId;
 
     /**
-     * @description The reserved instance name.
+     * @description The name of the reserved instance.
      *
      * @example testReservedInstanceName
      *
@@ -133,10 +133,10 @@ class DescribeReservedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The scope of reserved instance N. Valid values:
+     * @description The scope of the reserved instances. Valid values:
      *
-     *   Region: regional
-     *   Zone: zonal
+     *   Region
+     *   Zone
      *
      * Default value: Region.
      * @example Region
@@ -160,14 +160,14 @@ class DescribeReservedInstancesRequest extends Model
     public $status;
 
     /**
-     * @description The tags list.
+     * @description The tags to add to the instances.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the reserved instance is required when Scope is set to Zone. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     * @description The zone ID of the reserved instances. This parameter is required when Scope is set to Zone. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-z
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkInterfacePermissionRequest extends Model
 {
     /**
-     * @description The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
+     * @description The ID of the ENI.
      *
      * @example 1234567890
      *
@@ -18,8 +18,9 @@ class CreateNetworkInterfacePermissionRequest extends Model
     public $accountId;
 
     /**
-     * @description The ID of the ENI.
+     * @description The permission on the ENI. Set the value to InstanceAttach.
      *
+     * InstanceAttach: allows authorized users to attach the ENI to an ECS instance. The ENI and the ECS instance must reside in the same zone.
      * @example eni-bp14v2sdd3v8htln****
      *
      * @var string
@@ -37,9 +38,8 @@ class CreateNetworkInterfacePermissionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The permission on the ENI. Set the value to InstanceAttach.
+     * @description The ID of the request.
      *
-     * InstanceAttach: allows authorized users to attach the ENI to an ECS instance. The ENI and the ECS instance must reside in the same zone.
      * @example InstanceAttach
      *
      * @var string
@@ -47,7 +47,7 @@ class CreateNetworkInterfacePermissionRequest extends Model
     public $permission;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the Alibaba Cloud partner (a certified ISV) or individual user.
      *
      * @example cn-hangzhou
      *

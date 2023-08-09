@@ -19,7 +19,7 @@ class DescribePrefixListAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the prefix list.
+     * @description The time when the prefix list was created.
      *
      * @example pl-x1j1k5ykzqlixdcy****
      *
@@ -28,7 +28,7 @@ class DescribePrefixListAttributesRequest extends Model
     public $prefixListId;
 
     /**
-     * @description The region ID of the prefix list. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the prefix list.
      *
      * @example cn-chengdu
      *

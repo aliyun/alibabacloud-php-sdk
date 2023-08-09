@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class StartTerminalSessionResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EB5173B0-8E80-564E-AAD1-3135412*****
      *
@@ -27,7 +27,7 @@ class StartTerminalSessionResponseBody extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the session.
+     * @description The session ID.
      *
      * @example s-hz023od0x9****
      *

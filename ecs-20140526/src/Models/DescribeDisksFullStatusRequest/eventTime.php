@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class eventTime extends Model
 {
     /**
-     * @description The end of the time range in which to query occurred events.
+     * @description The end of the time range to query occurred events.
      *
-     * The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is specified in UTC.
+     * Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      * @example 2018-05-08T02:48:52Z
      *
      * @var string
@@ -19,9 +19,9 @@ class eventTime extends Model
     public $end;
 
     /**
-     * @description The start of the time range in which to query occurred events.
+     * @description The beginning of the time range to query occurred events.
      *
-     * The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time specified in UTC.
+     * Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      * @example 2018-05-06T02:43:10Z
      *
      * @var string

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSpotPriceHistoryRequest extends Model
 {
     /**
-     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. The specified time can be up to 30 days earlier than the specified EndTime value.
      *
-     * This parameter is empty by default. If this parameter is empty, the current time is used.
+     * This parameter is empty by default. If this parameter is empty, the time that is 3 hours earlier than the specified EndTime value is used.
      * @example 2017-08-22T08:45:08Z
      *
      * @var string
@@ -19,7 +19,10 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $endTime;
 
     /**
-     * @description The instance type of the preemptible instance.
+     * @description The network type of the preemptible instance. Valid values:
+     *
+     *   classic: classic network
+     *   vpc: Virtual Private Cloud (VPC)
      *
      * @example ecs.t1.xsmall
      *
@@ -28,12 +31,12 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $instanceType;
 
     /**
-     * @description Specifies whether the instance is I/O optimized. Valid values:
+     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
      *
-     *   optimized: The instance is I/O optimized.
-     *   none: The instance is not I/O optimized.
+     *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
+     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
      *
-     * For instances of other instance families, the default value is optimized.
+     * Default value: 1.
      * @example optimized
      *
      * @var string
@@ -41,10 +44,7 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $ioOptimized;
 
     /**
-     * @description The network type of the preemptible instance. Valid values:
-     *
-     *   classic: classic network
-     *   vpc: Virtual Private Cloud (VPC)
+     * @description The zone ID of the preemptible instance.
      *
      * @example vpc
      *
@@ -53,11 +53,9 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $networkType;
 
     /**
-     * @description The type of the operating system platform. Valid values:
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
-     *   linux
-     *   windows
-     *
+     * This parameter is empty by default. If this parameter is empty, the current time is used.
      * @example linux
      *
      * @var string
@@ -65,9 +63,11 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $OSType;
 
     /**
-     * @description The line from which the next query starts.
+     * @description The type of the operating system platform. Valid values:
      *
-     * Default value: 0.
+     *   linux
+     *   windows
+     *
      * @example 0
      *
      * @var int
@@ -85,7 +85,7 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the preemptible instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description Queries the price history of a preemptible instance within the last 30 days.
      *
      * @example cn-hangzhou
      *
@@ -104,12 +104,8 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The protection period of the preemptible instance. Unit: hours. Valid values: 0, 1, 2, 3, 4, 5, and 6.
+     * @description The instance type of the preemptible instance.
      *
-     *   The following protection periods are available in invitational preview: 2, 3, 4, 5, and 6 hours. If you want to set this parameter to one of these values, submit a ticket.
-     *   If this parameter is set to 0, no protection period is configured for the preemptible instance.
-     *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -117,9 +113,12 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $spotDuration;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC. The specified time can be up to 30 days earlier than the specified EndTime value.
+     * @description Specifies whether the instance is I/O optimized. Valid values:
      *
-     * This parameter is empty by default. If this parameter is empty, the time that is 3 hours earlier than the specified EndTime value is used.
+     *   optimized: The instance is I/O optimized.
+     *   none: The instance is not I/O optimized.
+     *
+     * For instances of other instance families, the default value is optimized.
      * @example 2017-08-22T08:45:08Z
      *
      * @var string
@@ -127,7 +126,7 @@ class DescribeSpotPriceHistoryRequest extends Model
     public $startTime;
 
     /**
-     * @description The zone ID of the preemptible instance.
+     * @description The region ID of the preemptible instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou-g
      *

@@ -27,6 +27,8 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message for this instance operation. The return value Success indicates that this operation is successful. For more information, see the "Error codes" section in this topic.
+     *
      * @example Success
      *
      * @var string
@@ -34,6 +36,8 @@ class ModifyReservedInstanceAttributeResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

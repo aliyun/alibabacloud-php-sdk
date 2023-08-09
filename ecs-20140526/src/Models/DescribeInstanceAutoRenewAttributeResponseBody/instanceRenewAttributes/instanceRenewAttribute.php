@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceRenewAttribute extends Model
 {
     /**
-     * @description Indicates whether auto-renewal was enabled.
+     * @description Indicates whether auto-renewal is enabled.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class instanceRenewAttribute extends Model
     public $duration;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example i-bp18x3z4hc7bixhx****
      *
@@ -49,7 +49,7 @@ class instanceRenewAttribute extends Model
      *
      *   AutoRenewal: Auto-renewal is enabled for the instance.
      *   Normal: Auto-renewal is disabled for the instance.
-     *   NotRenewal: The instance is not to be renewed. The system no longer sends expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](~~52843~~) operation to change its auto-renewal state to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
+     *   NotRenewal: The instance is not to be renewed. The system sends no more expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](~~52843~~) operation to change its auto-renewal status to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
      *
      * @example Normal
      *

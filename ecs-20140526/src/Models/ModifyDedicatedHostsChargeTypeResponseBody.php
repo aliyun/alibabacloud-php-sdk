@@ -17,7 +17,7 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
     public $feeOfInstances;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 20413515388****
      *
@@ -26,7 +26,7 @@ class ModifyDedicatedHostsChargeTypeResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B61C08E5-403A-46A2-96C1-F7B1216DB10C
      *

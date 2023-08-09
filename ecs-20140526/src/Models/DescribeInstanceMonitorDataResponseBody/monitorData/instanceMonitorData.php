@@ -45,7 +45,7 @@ class instanceMonitorData extends Model
     public $CPUAdvanceCreditBalance;
 
     /**
-     * @description The total CPU credits of the burstable instance.
+     * @description The total number of CPU credits of the burstable instance.
      *
      * @example 120
      *
@@ -90,7 +90,7 @@ class instanceMonitorData extends Model
     public $IOPSWrite;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp1a36962lrhj4****
      *
@@ -108,7 +108,7 @@ class instanceMonitorData extends Model
     public $internetBandwidth;
 
     /**
-     * @description The public data traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The Internet traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
      *
      * @example 122
      *
@@ -117,7 +117,7 @@ class instanceMonitorData extends Model
     public $internetRX;
 
     /**
-     * @description The public data traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The Internet traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
      *
      * @example 343
      *
@@ -135,7 +135,7 @@ class instanceMonitorData extends Model
     public $intranetBandwidth;
 
     /**
-     * @description The internal data traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The internal data traffic received by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
      *
      * @example 122
      *
@@ -144,7 +144,7 @@ class instanceMonitorData extends Model
     public $intranetRX;
 
     /**
-     * @description The internal data traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit/s.
+     * @description The internal data traffic sent by the instance during the period that is specified by the `Period` parameter. The period starts from the point in time that is specified by the `TimeStamp` parameter. Unit: Kbit.
      *
      * @example 343
      *

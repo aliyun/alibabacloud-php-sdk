@@ -18,7 +18,7 @@ class ModifyDemandRequest extends Model
     public $amount;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -45,7 +45,7 @@ class ModifyDemandRequest extends Model
     public $demandId;
 
     /**
-     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The name of the demand. The name must be 2 to 128 characters in length. The name must start with a letter but cannot start with [http:// or https://](http://https://). It can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * The default value is the instance type name.
      * @example testDemandName
@@ -55,9 +55,9 @@ class ModifyDemandRequest extends Model
     public $demandName;
 
     /**
-     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     * @description The end time of the subscription period. Specify the time in the [ISO 8601](~~25696~~)standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
      *
-     * Typically, the interval between the two times cannot be more than 10 days.
+     * in most cases, the interval between StartTime and EndTime cannot be more than 10 days.
      * @example 2019-12-10 12:05:00
      *
      * @var string
@@ -65,10 +65,10 @@ class ModifyDemandRequest extends Model
     public $endTime;
 
     /**
-     * @description The billing method of the instance. Default value: PostPaid. Valid values:
+     * @description The billing method of the instance. Valid values:
      *
      *   PrePaid: subscription
-     *   PostPaid: pay-as-you-go
+     *   PostPaid (default): pay-as-you-go
      *
      * @example PrePaid
      *
@@ -77,7 +77,7 @@ class ModifyDemandRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance type. For more information, see [Instance families](~~25378~~) or call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of the filed instance type, or see [Select instance types](~~58291~~) to learn how to select instance types.
+     * @description The instance type. For more information, see [Instance families](~~25378~~). You can also call the [DescribeInstanceTypes](~~25620~~) operation to query the performance data of the specified instance type. To learn how to select instance types, see [Select instance types](~~58291~~).
      *
      * @example ecs.c6.large
      *
@@ -96,7 +96,7 @@ class ModifyDemandRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription period of the resource. Unit: month. You must specify the parameter. This parameter is valid only when `InstanceChargeType` is set to PrePaid. Valid values:
+     * @description The subscription period of the resource. Unit: month. You must specify this parameter. This parameter is valid only if you set `InstanceChargeType` to PrePaid. Valid values:
      *
      *   Valid values when PeriodUnit is set to Week: 1, 2, 3, and 4.
      *   Valid values when PeriodUnit is set to Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
@@ -108,11 +108,11 @@ class ModifyDemandRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the subscription period of the resource. Default value: Month. Valid values:
+     * @description The unit of the subscription period of the resource. Valid values:
      *
      *   Day
      *   Week
-     *   Month
+     *   Month. This is the default value.
      *
      * @example Month
      *
@@ -142,7 +142,7 @@ class ModifyDemandRequest extends Model
     /**
      * @description The start time of the subscription period. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
      *
-     * Typically, the interval between the two times cannot be more than 10 days.
+     * In most cases, the interval between StartTime and EndTime cannot be more than 10 days.
      * @example 2019-12-01 12:05:00
      *
      * @var string
@@ -152,7 +152,7 @@ class ModifyDemandRequest extends Model
     /**
      * @description The zone ID of the instance. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
      *
-     * This parameter is empty by default. If you do not specify a zone, the system randomly selects one.
+     * This parameter is empty by default. If you leave this parameter empty, the system randomly selects a zone.
      * @example cn-hangzhou-g
      *
      * @var string

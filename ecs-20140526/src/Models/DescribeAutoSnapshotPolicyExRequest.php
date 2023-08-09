@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoSnapshotPolicyExRequest extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy.
+     * @description The name of the automatic snapshot policy.
      *
      * @example sp-bp67acfmxazb4ph****
      *
@@ -19,8 +19,9 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The name of the automatic snapshot policy.
+     * @description The number of the page to return.
      *
+     * Default value: 1.
      * @example TestName
      *
      * @var string
@@ -38,9 +39,9 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
-     * Default value: 1.
+     * Default value: 10.
      * @example 1
      *
      * @var int
@@ -48,9 +49,8 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The tags.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -58,7 +58,7 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the automatic snapshot policy. You can call the [DescribeRegions](~~25609~~) operation to query the current list of regions.
+     * @description The ID of the automatic snapshot policy.
      *
      * @example cn-hangzhou
      *
@@ -67,9 +67,8 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
+     * @description The number of entries returned per page.
      *
-     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-aek2kkmhmhs****
      *
      * @var string
@@ -87,7 +86,7 @@ class DescribeAutoSnapshotPolicyExRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The key of tag N of the automatic snapshot policy. Valid values of N: 1 to 20. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot start with acs: or aliyun. It cannot contain http:// or https://.
      *
      * @var tag[]
      */

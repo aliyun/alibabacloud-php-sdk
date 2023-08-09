@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticityAssurancesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the elasticity assurances.
+     * @description Details about the elasticity assurances.
      *
      * @var elasticityAssuranceSet
      */
     public $elasticityAssuranceSet;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The maximum number of entries returned per page.
      *
      * @example 10
      *
@@ -26,7 +26,7 @@ class DescribeElasticityAssurancesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the next query.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -35,7 +35,7 @@ class DescribeElasticityAssurancesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

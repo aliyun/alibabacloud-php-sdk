@@ -16,7 +16,7 @@ class hpcCluster extends Model
     public $description;
 
     /**
-     * @description The name of the HPC cluster.
+     * @description The description of the HPC cluster.
      *
      * @example hpc-bp1a5zr3u7nq9cx****
      *
@@ -25,8 +25,6 @@ class hpcCluster extends Model
     public $hpcClusterId;
 
     /**
-     * @description The description of the HPC cluster.
-     *
      * @example testName
      *
      * @var string

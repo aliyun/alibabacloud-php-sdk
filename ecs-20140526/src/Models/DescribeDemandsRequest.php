@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDemandsRequest extends Model
 {
     /**
+     * @description The ID of the filing ticket. If this parameter is specified, other optional request parameters are ignored.
+     *
      * @example ed-bp11n21kq00sl71p****
      *
      * @var string
@@ -17,6 +19,15 @@ class DescribeDemandsRequest extends Model
     public $demandId;
 
     /**
+     * @description The status of the filing ticket or resource consumption. Valid values:
+     *
+     *   Creating: The filing ticket is being created.
+     *   Active: The filed resources are being supplied.
+     *   Expired: The filing ticket expires.
+     *   Finished: The filed resources are consumed.
+     *   Refused: The filing request is denied. To view the reason for denial, see the `Comment` parameter in the response.
+     *   Cancelled: The filing request is canceled.
+     *
      * @example Active
      *
      * @var string[]
@@ -24,6 +35,11 @@ class DescribeDemandsRequest extends Model
     public $demandStatus;
 
     /**
+     * @description The source of the filed instance. Default value: System. Valid values:
+     *
+     *   Custom: filed on your own.
+     *   System: filed by Alibaba Cloud.
+     *
      * @example Custom
      *
      * @var string
@@ -31,6 +47,11 @@ class DescribeDemandsRequest extends Model
     public $demandType;
 
     /**
+     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
+     *
+     *   true: performs a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted required permissions, and whether the required parameters are set. If the request fails the dry run, the corresponding error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   false: performs a dry run and sends the request . If the request passes the dry run, a 2XX HTTP status code is returned and the operation is performed.
+     *
      * @example false
      *
      * @var bool
@@ -38,6 +59,11 @@ class DescribeDemandsRequest extends Model
     public $dryRun;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
+     *
      * @example PostPaid
      *
      * @var string
@@ -45,6 +71,8 @@ class DescribeDemandsRequest extends Model
     public $instanceChargeType;
 
     /**
+     * @description The instance type of the filed instance.
+     *
      * @example ecs.g6.xlarge
      *
      * @var string
@@ -52,6 +80,8 @@ class DescribeDemandsRequest extends Model
     public $instanceType;
 
     /**
+     * @description The instance family of the filed instance.
+     *
      * @example ecs.g6
      *
      * @var string
@@ -69,6 +99,9 @@ class DescribeDemandsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return. Pages start from page 1.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -76,6 +109,9 @@ class DescribeDemandsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -83,6 +119,8 @@ class DescribeDemandsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region for which to query resources. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -100,11 +138,15 @@ class DescribeDemandsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the zone for which to query resources. You can call the [DescribeZones](~~25610~~) operation to query the most recent list of zones.
+     *
      * @example cn-hangzhou-g
      *
      * @var string

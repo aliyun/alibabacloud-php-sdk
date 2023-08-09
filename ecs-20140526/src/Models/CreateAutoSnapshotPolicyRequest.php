@@ -12,8 +12,8 @@ class CreateAutoSnapshotPolicyRequest extends Model
     /**
      * @description The retention period of the snapshot copy in the destination region. Unit: days. Valid values:
      *
-     *   \-1: The snapshot is permanently retained.
-     *   1 to 65535: The automatic snapshot is retained for the specified number of days.
+     *   \-1: The snapshot copy is permanently retained.
+     *   A value in the range of 1 to 65535: The snapshot copy is retained for the specified number of days.
      *
      * Default value: -1.
      * @example 30
@@ -23,10 +23,10 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $copiedSnapshotsRetentionDays;
 
     /**
-     * @description Specifies whether to enable cross-region replication for the automatic snapshot.
+     * @description Specifies whether to enable cross-region replication for snapshots.
      *
-     *   true: enables cross-region replication for snapshots.
-     *   false: disables cross-region replication for snapshots.
+     *   true
+     *   false
      *
      * @example false
      *
@@ -40,7 +40,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-aek2kkmhmhs****
      *
@@ -59,7 +59,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description > This parameter is not publicly available.
      *
      * @example null
      *
@@ -68,7 +68,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description The tags to add to the automatic snapshot policy.
+     * @description The tags to add to the snapshot.
      *
      * @var tag[]
      */
@@ -84,7 +84,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $targetCopyRegions;
 
     /**
-     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. The name must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).
+     * @description The name of the automatic snapshot policy. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with [http:// or https://. It can contain letters, digits, colons (.), underscores (\_), and hyphens (-).](http://https://。、（:）、（\_）（-）。)
      *
      * This parameter is empty by default.
      * @example TestName
@@ -103,7 +103,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The days of the week on which to create automatic snapshots. Valid values: 1 to 7, which correspond to Monday to Sunday. 1 indicates Monday.
+     * @description The days of the week on which to create automatic snapshots. Valid values: 1 to 7, which correspond to Monday to Sunday. 1 indicates Monday. Format description:
      *
      *   Set this parameter to a JSON-formatted array. For example, a value of \["1"] specifies automatic snapshots to be created every Monday.
      *   To schedule multiple automatic snapshots to be created in a week, you can specify multiple values. Separate the values with commas (,). You can specify a maximum of seven days. For example, a value of \["1","3","5"] specifies automatic snapshots to be created every Monday, Wednesday, and Friday.
@@ -118,7 +118,7 @@ class CreateAutoSnapshotPolicyRequest extends Model
      * @description The retention period of the automatic snapshot. Unit: days. Valid values:
      *
      *   \-1: The snapshot is permanently retained.
-     *   1 to 65535: The automatic snapshot is retained for the specified number of days.
+     *   A value in the range of 1 to 65535: The snapshot is retained for the specified number of days.
      *
      * Default value: -1.
      * @example 30
@@ -128,9 +128,9 @@ class CreateAutoSnapshotPolicyRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The points in time of the day at which to create automatic snapshots. The time must be in UTC+8. Unit: hours. Valid values are 0 to 23, which correspond to the 24 on-the-hour points in time from 00:00:00 to 23:00:00. 1 indicates 01:00:00. Format description:
+     * @description The points in time of the day at which to create automatic snapshots. The time must be in UTC+8. Unit: hours. Valid values: 0 to 23, which correspond to the 24 on-the-hour points in time from 00:00:00 to 23:00:00. 1 indicates 01:00:00. Format description:
      *
-     *   You must set this parameter to a JSON-formatted array. For example, a value of \["1"] specifies automatic snapshots to be created at 01:00:00.
+     *   Set this parameter to a JSON-formatted array. For example, a value of \["1"] specifies automatic snapshots to be created at 01:00:00.
      *   To schedule multiple automatic snapshots to be created in a day, you can specify multiple values. Separate the values with commas (,). You can specify a maximum of 24 points in time. For example, a value of \["1","3","5"] specifies automatic snapshots to be created at 01:00:00, 03:00:00, and 05:00:00.
      *
      * @example ["0", "1", … "23"]

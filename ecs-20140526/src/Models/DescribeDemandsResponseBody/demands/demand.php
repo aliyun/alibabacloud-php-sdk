@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class demand extends Model
 {
     /**
+     * @description The number of instances available for the filed resources.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class demand extends Model
     public $availableAmount;
 
     /**
+     * @description The feedback on the denied request for filing resources.
+     *
      * @example test-for-comment
      *
      * @var string
@@ -24,6 +28,8 @@ class demand extends Model
     public $comment;
 
     /**
+     * @description The number of instances to be delivered in the filed resources.
+     *
      * @example 20
      *
      * @var int
@@ -31,6 +37,8 @@ class demand extends Model
     public $deliveringAmount;
 
     /**
+     * @description The description of the filing ticket.
+     *
      * @example test-DemandDescription
      *
      * @var string
@@ -38,6 +46,8 @@ class demand extends Model
     public $demandDescription;
 
     /**
+     * @description The ID of the filing ticket.
+     *
      * @example ed-bp11n21kq00sl71p****
      *
      * @var string
@@ -45,6 +55,8 @@ class demand extends Model
     public $demandId;
 
     /**
+     * @description The name of the filing ticket.
+     *
      * @example k8s-node-demand
      *
      * @var string
@@ -52,6 +64,15 @@ class demand extends Model
     public $demandName;
 
     /**
+     * @description The status of the filing ticket or resource consumption. Valid values:
+     *
+     *   Creating: The filing ticket is being created.
+     *   Active: The filed resources are being supplied.
+     *   Expired: The filing ticket expires.
+     *   Finished: The filed resources are consumed.
+     *   Refused: The filing request is denied. For reasons why the request is denied, see the `Comment` parameter in the response.
+     *   Cancelled: The filing request is canceled. After the filing request is canceled, the delivery status of the resources becomes invalid.
+     *
      * @example Active
      *
      * @var string
@@ -59,6 +80,8 @@ class demand extends Model
     public $demandStatus;
 
     /**
+     * @description The time when the filing ticket was created. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-02-26T12:00:00Z
      *
      * @var string
@@ -66,6 +89,8 @@ class demand extends Model
     public $demandTime;
 
     /**
+     * @description The expected end time for the purchase of the filed resources. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-03-03T15:00:00Z
      *
      * @var string
@@ -73,6 +98,11 @@ class demand extends Model
     public $endTime;
 
     /**
+     * @description The billing method of the filed resources. Valid values:
+     *
+     *   Prepaid: subscription
+     *   Postpaid: pay-as-you-go
+     *
      * @example Prepaid
      *
      * @var string
@@ -80,6 +110,8 @@ class demand extends Model
     public $instanceChargeType;
 
     /**
+     * @description The instance type of the filed instance.
+     *
      * @example ecs.g6.xlarge
      *
      * @var string
@@ -87,6 +119,8 @@ class demand extends Model
     public $instanceType;
 
     /**
+     * @description The instance family of the filed instance.
+     *
      * @example ecs.g6
      *
      * @var string
@@ -94,6 +128,8 @@ class demand extends Model
     public $instanceTypeFamily;
 
     /**
+     * @description The usage duration of the filed resources.
+     *
      * @example 3
      *
      * @var int
@@ -101,6 +137,13 @@ class demand extends Model
     public $period;
 
     /**
+     * @description The unit of the usage duration of the filed resources. Valid values:
+     *
+     *   Hour
+     *   Day
+     *
+     *   Month
+     *
      * @example Month
      *
      * @var string
@@ -108,6 +151,8 @@ class demand extends Model
     public $periodUnit;
 
     /**
+     * @description The expected start time for the purchase of the filed resources. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2019-02-27T12:00:00Z
      *
      * @var string
@@ -115,11 +160,15 @@ class demand extends Model
     public $startTime;
 
     /**
+     * @description Details about the delivery status of the filed resources.
+     *
      * @var supplyInfos
      */
     public $supplyInfos;
 
     /**
+     * @description The number of filed instances.
+     *
      * @example 50
      *
      * @var int
@@ -127,6 +176,8 @@ class demand extends Model
     public $totalAmount;
 
     /**
+     * @description The number of consumed instances.
+     *
      * @example 20
      *
      * @var int
@@ -134,6 +185,8 @@ class demand extends Model
     public $usedAmount;
 
     /**
+     * @description The ID of the zone where the filed resource resides.
+     *
      * @example cn-hangzhou-g
      *
      * @var string

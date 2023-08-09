@@ -18,7 +18,7 @@ class maintenanceAttribute extends Model
     public $actionOnMaintenance;
 
     /**
-     * @description The ID of the instance
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -27,14 +27,14 @@ class maintenanceAttribute extends Model
     public $instanceId;
 
     /**
-     * @description Details about the maintenance window.
+     * @description The maintenance windows.
      *
      * @var maintenanceWindows
      */
     public $maintenanceWindows;
 
     /**
-     * @description Indicates whether an event notification was sent before instance shutdown.
+     * @description Indicates whether an event notification was sent before maintenance.
      *
      * @example false
      *

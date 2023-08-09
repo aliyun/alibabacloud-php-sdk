@@ -19,7 +19,7 @@ class actionOnMaintenance extends Model
     public $defaultValue;
 
     /**
-     * @description Details about the supported maintenance actions.
+     * @description The supported maintenance actions.
      *
      * @var supportedValues
      */
@@ -28,9 +28,9 @@ class actionOnMaintenance extends Model
     /**
      * @description The current maintenance action. Valid values:
      *
-     *   Stop: The instance goes down.
-     *   AutoRecover: The instance is automatically recovered.
-     *   AutoRedeploy: Failover is performed on the instance, which may damage the data disks.
+     *   Stop: stops the instance.
+     *   AutoRecover: automatically recovers the instance.
+     *   AutoRedeploy: redeploys the instance, which may damage the data disks attached to the instance.
      *
      * @example Stop
      *

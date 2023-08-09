@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class priceInfo extends Model
 {
     /**
-     * @description Queries the pricing information about newly attached subscription data disks or about the new instance types when you upgrade the configurations of unexpired subscription Elastic Compute Service (ECS) instances.
+     * @description The price.
      *
      * @var price
      */
     public $price;
 
     /**
-     * @description $.parameters[5].schema.description
+     * @description The promotion rules.
      *
      * @var rules
      */

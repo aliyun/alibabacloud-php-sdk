@@ -15,9 +15,8 @@ class DescribeCapacityReservationInstancesRequest extends Model
     public $privatePoolOptions;
 
     /**
-     * @description The number of entries per page.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -25,7 +24,7 @@ class DescribeCapacityReservationInstancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
+     * @description The ID of the capacity reservation.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -44,8 +43,9 @@ class DescribeCapacityReservationInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the capacity reservation. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The number of entries per page.
      *
+     * Default value: 10.
      * @example cn-hangzhou
      *
      * @var string

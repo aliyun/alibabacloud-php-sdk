@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The token used to start the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -39,7 +39,7 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of resource N. Valid values of N: 1 to 50.
+     * @description The resource IDs. Valid values of N: 1 to 50.
      *
      * @example i-bp1j6qtvdm8w0z1o****
      *
@@ -66,7 +66,7 @@ class ListTagResourcesRequest extends Model
      *   image: image
      *   securitygroup: security group
      *   volume: storage volume
-     *   eni: elastic network interface (ENI)
+     *   eni: ENI
      *   ddh: dedicated host
      *   ddhcluster: dedicated host cluster
      *   keypair: SSH key pair
@@ -75,7 +75,7 @@ class ListTagResourcesRequest extends Model
      *   snapshotpolicy: automatic snapshot policy
      *   elasticityassurance: elasticity assurance
      *   capacityreservation: capacity reservation
-     *   command: Cloud Assistant command.
+     *   command: Cloud Assistant command
      *   invocation: Cloud Assistant command execution result
      *
      * @example instance
@@ -85,14 +85,14 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags that are added to the resources.
+     * @description The tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The regular expression used to filter tags.
+     * @description The regular expressions used to filter tags.
      *
      * @var tagFilter[]
      */

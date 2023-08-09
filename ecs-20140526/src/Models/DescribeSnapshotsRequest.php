@@ -16,17 +16,17 @@ class DescribeSnapshotsRequest extends Model
     public $filter;
 
     /**
-     * @description The snapshot type. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
-     *   Standard: the normal snapshot.
-     *   Flash: the local snapshot.
+     *   Standard: normal snapshot
+     *   Flash: local snapshot
      *
-     * The local snapshot feature is replaced by the instant access feature. When you specify this parameter, take note of the following items:
+     * The local snapshot feature is replaced by the instant access feature. When you configure this parameter, take note of the following items:
      *
      *   If you have used local snapshots before December 14, 2020, you can use this parameter.
      *   If you have not used local snapshots before December 14, 2020, you cannot use this parameter.
      *
-     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * > This parameter will be deprecated in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example Standard
      *
      * @var string
@@ -45,7 +45,7 @@ class DescribeSnapshotsRequest extends Model
     /**
      * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: performs only a dry run. The system checks whether your AccessKey pair is valid, whether RAM users are granted permissions, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+     *   true: performs only a dry run. The system checks your AccessKey pair, the permissions of the RAM user, and the required parameters. If the request passes the dry run, the DryRunOperation error code is returned. Otherwise, an error message is returned.
      *   false (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
@@ -82,7 +82,7 @@ class DescribeSnapshotsRequest extends Model
     public $KMSKeyId;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
+     * @description The maximum number of entries per page. Maximum value: 1 to 100.
      *
      * Default value: 10.
      * @example 10
@@ -140,9 +140,9 @@ class DescribeSnapshotsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the snapshot belongs. When you use this property to filter resources, the number of resources that are contained in the specified resource group cannot exceed 1,000.
+     * @description The resource group ID. If you configure this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
-     * > Resources in the default resource group are displayed in the response regardless of whether you specify this parameter.
+     * > Resources in the default resource group are displayed in the response regardless of whether you configure this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -160,7 +160,7 @@ class DescribeSnapshotsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IDs of snapshots. The value can be a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
+     * @description The IDs of snapshots. You can specify a JSON array that consists of up to 100 snapshot IDs. Separate the snapshot IDs with commas (,).
      *
      * @example ["s-bp67acfmxazb4p****", "s-bp67acfmxazb5p****", … "s-bp67acfmxazb6p****"]
      *
@@ -169,16 +169,16 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotIds;
 
     /**
-     * @description The ID of the snapshot chain.
+     * @description The snapshot chain ID. You can specify a JSON array that contains up to 100 snapshot chain IDs. Separate the snapshot chain IDs with commas (,).
      *
-     * @example sl-bp1grgphbcc9brb5****
+     * @example ["sl-bp1grgphbcc9brb5****", "sl-bp1c4izumvq0i5bs****", … "sl-bp1akk7isz866dds****"]
      *
      * @var string
      */
     public $snapshotLinkId;
 
     /**
-     * @description The snapshot name.
+     * @description The name of the snapshot.
      *
      * @example testSnapshotName
      *
@@ -187,11 +187,11 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotName;
 
     /**
-     * @description The snapshot type. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
-     *   auto: automatic snapshot.
-     *   user: manual snapshot.
-     *   all (default): This parameter indicates all snapshot types.
+     *   auto: automatic snapshot
+     *   user: manual snapshot
+     *   all (default): all snapshot types
      *
      * @example all
      *
@@ -200,10 +200,10 @@ class DescribeSnapshotsRequest extends Model
     public $snapshotType;
 
     /**
-     * @description The type of the source disk for which you want to create the snapshot. Valid values:
+     * @description The type of the source disk. Valid values:
      *
-     *   System: the system disk.
-     *   data: the data disk.
+     *   System: system disk
+     *   data: data disk
      *
      * > The value of this parameter is case-insensitive.
      * @example Data
@@ -213,12 +213,12 @@ class DescribeSnapshotsRequest extends Model
     public $sourceDiskType;
 
     /**
-     * @description The snapshot status. Valid values:
+     * @description The status of the snapshot. Valid values:
      *
      *   progressing: The snapshot is being created.
      *   accomplished: The snapshot is created.
      *   failed: The snapshot fails to be created.
-     *   all (default): This parameter indicates all snapshot states.
+     *   all (default): This value indicates all snapshot states.
      *
      * @example all
      *

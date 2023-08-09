@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N of the dedicated host.
+     * @description The tag key of the dedicated host.
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $tagKey;
 
     /**
-     * @description The value of tag N of the dedicated host.
+     * @description The tag value of the dedicated host.
      *
      * @example TestValue
      *

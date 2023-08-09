@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The token used to start the next query.
+     * @description A pagination token.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -19,7 +19,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 484256DA-D816-44D2-9D86-B6EE4D5BA78C
      *
@@ -28,7 +28,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the resources and tags, including resource IDs, resource types, and tag key-value pairs.
+     * @description The details about the resources and tags, such as the resource ID, the resource type, tag keys, and tag values.
      *
      * @var tagResources
      */

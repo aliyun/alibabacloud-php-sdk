@@ -11,12 +11,14 @@ class ModifyDiagnosticMetricSetRequest extends Model
     /**
      * @description The new description of the diagnostic metric set.
      *
+     * @example connection diagnostics
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @description The IDs of diagnostic metrics.
+     * @description The ID of diagnostic metric N.
      *
      * @var string[]
      */

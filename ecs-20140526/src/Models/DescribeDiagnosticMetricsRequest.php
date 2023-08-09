@@ -9,12 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticMetricsRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return on each page. Maximum value: 100.
-     *
-     * Default value:
-     *
-     *   If this parameter is left empty, the default value is 10.
-     *   If this parameter is set to a value greater than 100, the default value is 100.
+     * @description The ID of the request.
      *
      * @example 10
      *
@@ -23,14 +18,19 @@ class DescribeDiagnosticMetricsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The IDs of diagnostic metrics.
+     * @description The ID of diagnostic metric.
      *
      * @var string[]
      */
     public $metricIds;
 
     /**
-     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeDiagnosticMetrics operation. Leave this parameter empty the first time you call this operation.
+     * @description The maximum number of entries to return on each page. Maximum value: 100.
+     *
+     * Default value:
+     *
+     *   If this parameter is left empty, the default value is 10.
+     *   If this parameter is set to a value greater than 100, the default value is 100.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -39,7 +39,7 @@ class DescribeDiagnosticMetricsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID of the diagnostic metric. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The IDs of diagnostic metrics.
      *
      * @example cn-hangzhou
      *
@@ -48,7 +48,7 @@ class DescribeDiagnosticMetricsRequest extends Model
     public $regionId;
 
     /**
-     * @description The resource type supported by the diagnostic metric.
+     * @description The query token. Set the value to the `NextToken` value returned in the last call to the DescribeDiagnosticMetrics operation. Leave this parameter empty the first time you call this operation.
      *
      * @example instance
      *

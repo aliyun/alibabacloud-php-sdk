@@ -18,7 +18,7 @@ class link extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-test
      *

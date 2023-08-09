@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationResultsRequest extends Model
 {
     /**
-     * @description The page number of the page to return.
+     * @description The execution results.
      *
-     * Default value: 1.
      * @example c-hz0jdfwcsr****
      *
      * @var string
@@ -20,8 +19,9 @@ class DescribeInvocationResultsRequest extends Model
     public $commandId;
 
     /**
-     * @description The information about the tag.
+     * @description The number of entries to return on each page.
      *
+     * Default value: 10.
      * @example PlainText
      *
      * @var string
@@ -29,7 +29,7 @@ class DescribeInvocationResultsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description The tags to use for query.
+     * @description The information about the tag.
      *
      * @example false
      *
@@ -38,12 +38,8 @@ class DescribeInvocationResultsRequest extends Model
     public $includeHistory;
 
     /**
-     * @description The encoding method of the `Output` response parameter. Valid values:
+     * @description The page number of the returned page.
      *
-     *   PlainText: returns the original command content and command output.
-     *   Base64: returns the Base64-encoded command content and command output.
-     *
-     * Default value: Base64.
      * @example i-bp1i7gg30r52z2em****
      *
      * @var string
@@ -51,12 +47,8 @@ class DescribeInvocationResultsRequest extends Model
     public $instanceId;
 
     /**
-     * @description Specifies whether to return the results of historical scheduled executions. Valid values:
+     * @description The ID of the command execution.
      *
-     *   true: returns the results of historical scheduled executions. When this parameter is set to true, the `InvokeId` parameter must be set to the ID of a scheduled execution.
-     *   false: does not return the results of historical scheduled executions.
-     *
-     * Default value: false.
      * @example t-hz0jdfwd9f****
      *
      * @var string
@@ -64,9 +56,9 @@ class DescribeInvocationResultsRequest extends Model
     public $invokeId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The page number of the page to return.
      *
-     * Default value: 10.
+     * Default value: 1.
      * @example Running
      *
      * @var string
@@ -84,9 +76,8 @@ class DescribeInvocationResultsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The key of tag N of the command execution. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+     * @description The ID of the command.
      *
-     * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      * @example 1
      *
      * @var int
@@ -94,9 +85,8 @@ class DescribeInvocationResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The value of tag N of the command execution. Valid values of N: 1 to 20. The tag value can be an empty string.
+     * @description The ID of the container.
      *
-     * It can be up to 128 characters in length and cannot contain `http://` or `https://`.
      * @example 1
      *
      * @var int
@@ -104,7 +94,7 @@ class DescribeInvocationResultsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the command.
+     * @description The number of entries returned per page.
      *
      * @example cn-hangzhou
      *
@@ -113,14 +103,8 @@ class DescribeInvocationResultsRequest extends Model
     public $regionId;
 
     /**
-     * @description The execution state of the command. Valid values:
+     * @description The name of the user who ran the command on the instance.
      *
-     *   Running
-     *   Finished
-     *   Failed
-     *   Stopped
-     *
-     * > To ensure compatibility, we recommend that you use the `InvocationStatus` parameter instead of the InvokeRecordStatus parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -138,7 +122,25 @@ class DescribeInvocationResultsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description The error code returned when the command cannot be sent or run. Valid values:
+     *
+     *   If this parameter is empty, the command is run normally.
+     *   InstanceNotExists: The specified instance does not exist is released.
+     *   InstanceReleased: The instance was released while the command was being run on the instance.
+     *   InstanceNotRunning: The instance is not in the Running state while the command is being run.
+     *   CommandNotApplicable: The command is not applicable to the specified instance.
+     *   AccountNotExists: The specified account does not exist.
+     *   DirectoryNotExists: The specified directory does not exist.
+     *   BadCronExpression: The cron expression used to specify the execution time is invalid.
+     *   ClientNotRunning: The Cloud Assistant client is not running.
+     *   ClientNotResponse: The Cloud Assistant client is not responding.
+     *   ClientIsUpgrading: The Cloud Assistant client is being upgraded.
+     *   ClientNeedUpgrade: The Cloud Assistant client needs to be upgraded.
+     *   DeliveryTimeout: The request to send the command timed out.
+     *   ExecutionTimeout: The command execution timed out.
+     *   ExecutionException: An exception occurred while the command was being run.
+     *   ExecutionInterrupted: The execution was interrupted.
+     *   ExitCodeNonzero: The command execution is complete, but the exit code is not 0.
      *
      * @var tag[]
      */

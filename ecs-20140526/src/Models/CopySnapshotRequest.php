@@ -47,6 +47,11 @@ class CopySnapshotRequest extends Model
     public $destinationSnapshotName;
 
     /**
+     * @var string
+     */
+    public $destinationStorageLocationArn;
+
+    /**
      * @description Specifies whether to encrypt the disk. Valid values:
      *
      *   true: encrypts the disk.
@@ -131,6 +136,7 @@ class CopySnapshotRequest extends Model
         'destinationRegionId'            => 'DestinationRegionId',
         'destinationSnapshotDescription' => 'DestinationSnapshotDescription',
         'destinationSnapshotName'        => 'DestinationSnapshotName',
+        'destinationStorageLocationArn'  => 'DestinationStorageLocationArn',
         'encrypted'                      => 'Encrypted',
         'KMSKeyId'                       => 'KMSKeyId',
         'ownerId'                        => 'OwnerId',
@@ -167,6 +173,9 @@ class CopySnapshotRequest extends Model
         }
         if (null !== $this->destinationSnapshotName) {
             $res['DestinationSnapshotName'] = $this->destinationSnapshotName;
+        }
+        if (null !== $this->destinationStorageLocationArn) {
+            $res['DestinationStorageLocationArn'] = $this->destinationStorageLocationArn;
         }
         if (null !== $this->encrypted) {
             $res['Encrypted'] = $this->encrypted;
@@ -233,6 +242,9 @@ class CopySnapshotRequest extends Model
         }
         if (isset($map['DestinationSnapshotName'])) {
             $model->destinationSnapshotName = $map['DestinationSnapshotName'];
+        }
+        if (isset($map['DestinationStorageLocationArn'])) {
+            $model->destinationStorageLocationArn = $map['DestinationStorageLocationArn'];
         }
         if (isset($map['Encrypted'])) {
             $model->encrypted = $map['Encrypted'];

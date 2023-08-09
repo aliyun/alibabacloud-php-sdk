@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeEniMonitorDataResponseBody extends Model
 {
     /**
-     * @description Details about the monitored data of the ENI.
+     * @description The details about the monitoring data of the secondary ENI.
      *
      * @var monitorData
      */
     public $monitorData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -26,7 +26,7 @@ class DescribeEniMonitorDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 4
      *

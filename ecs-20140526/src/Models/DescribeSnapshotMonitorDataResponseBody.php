@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotMonitorDataResponseBody extends Model
 {
     /**
-     * @description Details about the monitoring data of snapshot sizes.
+     * @description The monitoring data of snapshot sizes.
      *
      * @var monitorData
      */

@@ -28,7 +28,7 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return.
+     * @description The number of the page to return.
      *
      * Default value: 1.
      * @example 1
@@ -57,6 +57,12 @@ class DescribeTasksRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of resource N that is associated with the task. Valid values of N: 1 to 100.
+     *
+     *   If TaskAction is set to ImportImage or ExportImage, set the resource ID to an image ID.
+     *   If TaskAction is set to RedeployInstance, set the resource ID to an Elastic Compute Service (ECS) instance ID.
+     *   If TaskAction is set to ModifyDiskSpec, set the resource ID to a disk ID.
+     *
      * @var string[]
      */
     public $resourceIds;
@@ -95,7 +101,7 @@ class DescribeTasksRequest extends Model
     public $taskAction;
 
     /**
-     * @description The IDs of the tasks. You can specify up to 100 tasks at a time. Separate multiple task IDs with commas (,).
+     * @description The ID of the task. You can specify up to 100 task IDs at a time. Separate the task IDs with commas (,).
      *
      * @example t-bp1hvgwromzv32iq****,t-bp179lofu2pv768w****
      *
@@ -104,7 +110,7 @@ class DescribeTasksRequest extends Model
     public $taskIds;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The state of the task. Valid values:
      *
      *   Finished
      *   Processing

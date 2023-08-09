@@ -19,6 +19,8 @@ class DeleteSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the security group. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +38,8 @@ class DeleteSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The security group ID. You can call the [DescribeSecurityGroups](~~25556~~) operation to query the security group ID.
+     *
      * @example sg-bp1fg655nh68xyz9****
      *
      * @var string

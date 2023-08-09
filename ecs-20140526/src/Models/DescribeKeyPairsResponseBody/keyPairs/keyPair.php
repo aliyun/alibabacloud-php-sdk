@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class keyPair extends Model
 {
     /**
-     * @description The time when the key pair was created.
+     * @description The number of entries returned per page.
      *
      * @example 2019-12-04T13:35:00Z
      *
@@ -19,7 +19,7 @@ class keyPair extends Model
     public $creationTime;
 
     /**
-     * @description The fingerprint of the key pair.
+     * @description Queries one or more key pairs.
      *
      * @example ABC1234567
      *
@@ -28,7 +28,7 @@ class keyPair extends Model
     public $keyPairFingerPrint;
 
     /**
-     * @description The name of the key pair.
+     * @description The ID of the request.
      *
      * @example testKeyPairName
      *
@@ -37,8 +37,6 @@ class keyPair extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the resource group.
-     *
      * @example rg-amnhr7u7c7hj****
      *
      * @var string
@@ -46,8 +44,6 @@ class keyPair extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags of the key pair.
-     *
      * @var tags
      */
     public $tags;

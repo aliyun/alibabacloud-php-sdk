@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkInterfacePermissionResponseBody extends Model
 {
     /**
-     * @description Details about permissions on ENIs.
+     * @description The permission on the ENI.
      *
      * @var networkInterfacePermission
      */
     public $networkInterfacePermission;
 
     /**
-     * @description The ID of the request.
+     * @description Details about permissions on ENIs.
      *
      * @example 0FCD3DEF-63D3-4605-A818-805C8BD7DB87
      *

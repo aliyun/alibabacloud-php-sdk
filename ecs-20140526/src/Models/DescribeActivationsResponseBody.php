@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeActivationsResponseBody extends Model
 {
     /**
-     * @description The number of instances that were deregistered.
+     * @description The activation codes and their usage information.
      *
      * @var activationList[]
      */
     public $activationList;
 
     /**
-     * @description Details about the activation code and its usage information.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeActivationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeActivationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries returned.
+     * @description The request ID.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F74625134
      *
@@ -44,7 +44,7 @@ class DescribeActivationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the activation code was created.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

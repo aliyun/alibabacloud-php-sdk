@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
-     * @description The snapshot type.
+     * @description The type of the snapshot.
      *
-     * >  This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility.
+     * >  This parameter will be deprecated in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
      * @example standard
      *
      * @var string
@@ -49,8 +49,8 @@ class snapshot extends Model
     /**
      * @description Indicates whether the instant access feature is enabled. Valid values:
      *
-     *   true: The instant access feature is enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *   false: The instant access feature is disabled. The snapshot is a normal snapshot for which the instant access feature is disabled.
+     *   true. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *   false. The snapshot is a normal snapshot for which the instant access feature is disabled.
      *
      * @example false
      *
@@ -105,7 +105,7 @@ class snapshot extends Model
     public $progress;
 
     /**
-     * @description The remaining time required to create the snapshot. Unit: seconds.
+     * @description The remaining time that is required to create the snapshot. Unit: seconds.
      *
      * @example 38
      *
@@ -114,7 +114,7 @@ class snapshot extends Model
     public $remainTime;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -123,7 +123,7 @@ class snapshot extends Model
     public $resourceGroupId;
 
     /**
-     * @description The retention period of the automatic snapshot. Unit: days.
+     * @description The retention period of the automatic snapshot. Unit: day.
      *
      * @example 30
      *
@@ -141,7 +141,7 @@ class snapshot extends Model
     public $snapshotId;
 
     /**
-     * @description The name of the snapshot. This parameter is returned only if a snapshot name was specified when the snapshot was created.
+     * @description The display name of the snapshot. This parameter is returned only if a snapshot display name was specified when the snapshot was created.
      *
      * @example testSnapshotName
      *
@@ -159,11 +159,11 @@ class snapshot extends Model
     public $snapshotSN;
 
     /**
-     * @description The type of snapshot. Valid values:
+     * @description The type of the snapshot. Valid values:
      *
-     *   auto or timer: automatic snapshot.
-     *   user: manual snapshot.
-     *   all: all snapshot types.
+     *   auto or timer: automatic snapshot
+     *   user: manual snapshot
+     *   all: all snapshot types
      *
      * @example all
      *
@@ -172,7 +172,7 @@ class snapshot extends Model
     public $snapshotType;
 
     /**
-     * @description The ID of the source disk. This parameter is retained even after the source disk is released.
+     * @description The source disk ID. This parameter is retained even after the source disk is released.
      *
      * @example d-bp67acfmxazb4ph****
      *
@@ -181,7 +181,7 @@ class snapshot extends Model
     public $sourceDiskId;
 
     /**
-     * @description The capacity of the source disk for which the snapshot was created. Unit: GiB.
+     * @description The capacity of the source disk. Unit: GiB.
      *
      * @example 40
      *
@@ -211,7 +211,7 @@ class snapshot extends Model
     public $sourceRegionId;
 
     /**
-     * @description The ID of the source snapshot.
+     * @description The source snapshot ID.
      *
      * @example s-bp67acfmxazb4p****
      *
@@ -222,7 +222,7 @@ class snapshot extends Model
     /**
      * @description The type of the source disk.
      *
-     * > This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
+     * > This parameter will be deprecated in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example disk
      *
      * @var string
@@ -230,7 +230,7 @@ class snapshot extends Model
     public $sourceStorageType;
 
     /**
-     * @description The snapshot status. Valid values:
+     * @description The status of the snapshot. Valid values:
      *
      *   progressing
      *   accomplished
@@ -243,7 +243,7 @@ class snapshot extends Model
     public $status;
 
     /**
-     * @description The tags of the snapshot.
+     * @description The tags.
      *
      * @var tags
      */

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class conditionSupportedResource extends Model
 {
     /**
+     * @description The conditions.
+     *
      * @var conditions
      */
     public $conditions;
 
     /**
+     * @description The maximum resource specification value. This parameter is not returned if it has no value.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +26,8 @@ class conditionSupportedResource extends Model
     public $max;
 
     /**
+     * @description The minimum resource specification value. This parameter is not returned if it has no value.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,9 @@ class conditionSupportedResource extends Model
     public $min;
 
     /**
+     * @description The stock status of the resource. Valid values:
+     *
+     * - SoldOut
      * @example Available
      *
      * @var string
@@ -36,6 +45,9 @@ class conditionSupportedResource extends Model
     public $status;
 
     /**
+     * @description The category of resource based on stock status. Valid values:
+     *
+     * - WithoutStock: resources that are out of stock
      * @example WithStock
      *
      * @var string
@@ -43,6 +55,8 @@ class conditionSupportedResource extends Model
     public $statusCategory;
 
     /**
+     * @description The resource specification unit. This parameter is not returned if it has no value.
+     *
      * @example null
      *
      * @var string
@@ -50,6 +64,8 @@ class conditionSupportedResource extends Model
     public $unit;
 
     /**
+     * @description The resource type.
+     *
      * @example ecs.g5.large
      *
      * @var string

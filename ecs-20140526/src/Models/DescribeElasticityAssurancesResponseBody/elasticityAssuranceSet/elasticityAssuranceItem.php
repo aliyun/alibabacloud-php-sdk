@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class elasticityAssuranceItem extends Model
 {
     /**
-     * @description An array that consists of the details about the allocated resources.
+     * @description Details about the allocated resources.
      *
      * @var allocatedResources
      */
@@ -36,7 +36,7 @@ class elasticityAssuranceItem extends Model
     public $endTime;
 
     /**
-     * @description The billing method of the instance. Set the value to PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
+     * @description The billing method of the instance. The value can be only PostPaid. Only pay-as-you-go instances can be created by using elasticity assurances.
      *
      * @example PostPaid
      *
@@ -45,7 +45,7 @@ class elasticityAssuranceItem extends Model
     public $instanceChargeType;
 
     /**
-     * @description > This parameter is unavailable for public use.
+     * @description > This parameter is not publicly available.
      *
      * @example null
      *
@@ -66,7 +66,7 @@ class elasticityAssuranceItem extends Model
      * @description The type of the private pool associated with the elasticity assurance. Valid values:
      *
      *   Open: open private pool
-     *   Target: targeted private pool
+     *   Target: specific private pool
      *
      * @example Target
      *
@@ -84,7 +84,7 @@ class elasticityAssuranceItem extends Model
     public $privatePoolOptionsName;
 
     /**
-     * @description The ID of the region to which the elasticity assurance belongs.
+     * @description The region ID of the elasticity assurance.
      *
      * @example cn-hangzhou
      *
@@ -93,7 +93,7 @@ class elasticityAssuranceItem extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the elasticity assurance is assigned.
+     * @description The ID of the resource group.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -113,8 +113,8 @@ class elasticityAssuranceItem extends Model
     /**
      * @description Indicates when the elasticity assurance takes effect. Valid values:
      *
-     *   Now: The elasticity assurance takes effect as soon as it is created.
-     *   Later: The elasticity assurance takes effect at the specified time.
+     *   Now: The elasticity assurance takes effect immediately after it is created.
+     *   Later: The elasticity assurance takes effect at a specified time.
      *
      * @example Now
      *
@@ -123,12 +123,12 @@ class elasticityAssuranceItem extends Model
     public $startTimeType;
 
     /**
-     * @description The state of the elasticity assurance. Valid values:
+     * @description The status of the elasticity assurance. Valid values:
      *
-     *   Preparing: The elasticity assurance is being prepared.
-     *   Prepared: The elasticity assurance has not taken effect.
-     *   Active: The elasticity assurance is in effect.
-     *   Released: The elasticity assurance is released.
+     *   Preparing
+     *   Prepared
+     *   Active
+     *   Released
      *
      * @example Active
      *
@@ -137,14 +137,14 @@ class elasticityAssuranceItem extends Model
     public $status;
 
     /**
-     * @description The tags of the elasticity assurances.
+     * @description The tags of the elasticity assurance.
      *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The total number of times that the elasticity assurance has been applied.
+     * @description The total number of times that the elasticity assurance is applied.
      *
      * @example Unlimited
      *
@@ -153,7 +153,7 @@ class elasticityAssuranceItem extends Model
     public $totalAssuranceTimes;
 
     /**
-     * @description > This parameter is unavailable for public use.
+     * @description > This parameter is not publicly available.
      *
      * @example 0
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class spotPriceType extends Model
 {
     /**
-     * @description The instance type of the preemptible instance.
-     *
      * @example ecs.g5.large
      *
      * @var string
@@ -18,7 +16,7 @@ class spotPriceType extends Model
     public $instanceType;
 
     /**
-     * @description Indicates whether the preemptible instance is I/O optimized.
+     * @description Details about the price history of the preemptible instance.
      *
      * @example optimized
      *
@@ -27,7 +25,7 @@ class spotPriceType extends Model
     public $ioOptimized;
 
     /**
-     * @description The network type of the preemptible instance.
+     * @description The time that corresponds to the queried spot price. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format.
      *
      * @example vpc
      *
@@ -36,8 +34,6 @@ class spotPriceType extends Model
     public $networkType;
 
     /**
-     * @description The price for a pay-as-you-go instance that has the same configurations as the preemptible instance.
-     *
      * @example 0.354
      *
      * @var float
@@ -45,7 +41,7 @@ class spotPriceType extends Model
     public $originPrice;
 
     /**
-     * @description The spot price (market price) of the preemptible instance.
+     * @description The zone ID of the preemptible instance.
      *
      * @example 0.036
      *
@@ -54,7 +50,7 @@ class spotPriceType extends Model
     public $spotPrice;
 
     /**
-     * @description The time that corresponds to the queried spot price. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format.
+     * @description The spot price (market price) of the preemptible instance.
      *
      * @example 2019-11-19T06:00:00Z
      *
@@ -63,7 +59,7 @@ class spotPriceType extends Model
     public $timestamp;
 
     /**
-     * @description The zone ID of the preemptible instance.
+     * @description Indicates whether the preemptible instance is I/O optimized.
      *
      * @example cn-hangzhou-c
      *

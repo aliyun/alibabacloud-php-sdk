@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
-     * @description The ID of the capacity reservation.
+     * @description The token used to start the next query.
      *
      * @example crp-bp67acfmxazb4****
      *

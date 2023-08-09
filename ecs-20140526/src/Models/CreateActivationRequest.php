@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateActivationRequest extends Model
 {
     /**
-     * @description The maximum number of times that you can use the activation code to register managed instances. Valid values: 1 to 1000.
+     * @description The description of the activation code. The description can be 1 to 100 characters in length and cannot start with `http://` or `https://`.
      *
-     * Default value: 10.
      * @example This is description.
      *
      * @var string
@@ -20,9 +19,9 @@ class CreateActivationRequest extends Model
     public $description;
 
     /**
-     * @description The validity period of the activation code. The activation code cannot be used to register new instances after the validity period ends. Unit: hours. Valid values: 1 to 24.
+     * @description The maximum number of times that the activation code can be used to register managed instances. Valid values: 1 to 1000.
      *
-     * Default value: 4.
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,8 +29,9 @@ class CreateActivationRequest extends Model
     public $instanceCount;
 
     /**
-     * @description The description of the activation code. The description must be 1 to 100 characters in length and cannot start with `http://` or `https://`.
+     * @description The default instance name prefix. The instance name prefix must be 1 to 50 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The instance name prefix can contain only letters, digits, periods (.), underscores (\_), hyphens (-), and colons (:).
      *
+     * If you specify InstanceName when you register a managed instance, an instance name in the format of `<InstanceName>-<Number>` is generated. The number of digits in the \<Number> value is determined by that in the `InstanceCount` value. Example: `001`. If you do not specify InstanceName, the hostname (Hostname) is used as the instance name.
      * @example test-InstanceName
      *
      * @var string
@@ -39,7 +39,7 @@ class CreateActivationRequest extends Model
     public $instanceName;
 
     /**
-     * @description The tags to add to the activation code.
+     * @description The IP addresses of hosts that are allowed to use the activation code. The value can be IPv4 addresses, IPv6 addresses, or CIDR blocks.
      *
      * @example 0.0.0.0/0
      *
@@ -58,9 +58,9 @@ class CreateActivationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The default instance name prefix. The instance name prefix must be 1 to 50 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The instance name prefix can contain letters, digits, periods (.), underscores (\_), hyphens (-), and colons (:).
+     * @description The ID of the region in which to create the activation code. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
      *
-     * If you use an activation code for which you specify InstanceName to register a managed instance, an instance name in the format of `<InstanceName>-<Number>` is generated. The number of digits in the \<Number> value is determined by that in the `InstanceCount` value. Example: `001`. If you do not specify InstanceName, the hostname (Hostname) is used as the instance name.
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -78,15 +78,16 @@ class CreateActivationRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tag to add to the activation code.
+     * @description The tags to add to the activation code.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The IP addresses of hosts that are allowed to use the activation code. The value can be IPv4 addresses, IPv6 addresses, or CIDR blocks.
+     * @description The validity period of the activation code. The activation code cannot be used to register new instances after the validity period expires. Unit: hours. Valid values: 1 to 24.
      *
+     * Default value: 4.
      * @example 4
      *
      * @var int

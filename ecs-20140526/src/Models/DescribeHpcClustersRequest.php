@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHpcClustersRequest extends Model
 {
     /**
-     * @description The IDs of HPC clusters. The value is a JSON array that consists of up to 100 HPC cluster IDs. Separate the HPC cluster IDs with commas (,).
+     * @description The page number.
      *
+     * Default value: 1.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -18,9 +19,9 @@ class DescribeHpcClustersRequest extends Model
     public $clientToken;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries per page.
      *
-     * Default value: 1.
+     * Default value: 10.
      * @example ["hpc-xxxxxxxxx", "hpc-yyyyyyyyy", … "hpc-zzzzzzzzz"]
      *
      * @var string
@@ -38,9 +39,8 @@ class DescribeHpcClustersRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Default value: 10.
      * @example 1
      *
      * @var int
@@ -48,7 +48,7 @@ class DescribeHpcClustersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The request ID.
      *
      * @example 10
      *
@@ -57,7 +57,7 @@ class DescribeHpcClustersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique among the requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The IDs of HPC clusters. The value is a JSON array that consists of up to 100 HPC cluster IDs. Separate the HPC cluster IDs with commas (,).
      *
      * @example cn-hangzhou
      *

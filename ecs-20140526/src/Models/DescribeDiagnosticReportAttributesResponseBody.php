@@ -12,8 +12,8 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     /**
      * @description The extended attributes of the diagnostic report.
      *
-     * @example {"OfflineDiagReportStatus":"CONFIRMED"}
-     *
+     * @example {
+     * }
      * @var string
      */
     public $attributes;
@@ -71,7 +71,7 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     public $reportId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
@@ -80,7 +80,7 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource ID.
      *
      * @example i-uf6i0tv2refv8wz*****
      *
@@ -89,7 +89,7 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     public $resourceId;
 
     /**
-     * @description The resource type. The value of ResourceType can only be instance, which indicates that only instances are supported.
+     * @description The type of the resource. ResourceType can only be set to instance, which indicates that only instances are supported.
      *
      * @example instance
      *
@@ -98,7 +98,7 @@ class DescribeDiagnosticReportAttributesResponseBody extends Model
     public $resourceType;
 
     /**
-     * @description The severity level of the diagnostic report. The value of this parameter is determined by the metric with the highest severity level among all diagnostic metrics. Valid values:
+     * @description The severity level of the diagnostic report. The value of this parameter is determined by the highest severity level of all diagnostic metrics. Valid values:
      *
      *   Unknown: The diagnostic has not started, failed to run, or exited unexpectedly without a diagnosis.
      *   Normal: No exceptions were detected.

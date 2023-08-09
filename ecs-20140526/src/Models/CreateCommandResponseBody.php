@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateCommandResponseBody extends Model
 {
     /**
-     * @description The ID of the command.
+     * @description The ID of the request.
      *
      * @example c-7d2a745b412b4601b2d47f6a768d****
      *
@@ -18,8 +18,6 @@ class CreateCommandResponseBody extends Model
     public $commandId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

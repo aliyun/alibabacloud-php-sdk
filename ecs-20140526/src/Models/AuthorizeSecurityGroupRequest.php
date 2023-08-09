@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AuthorizeSecurityGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -46,7 +46,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $ipProtocol;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.Ipv6DestCidrIp` to specify the destination IPv6 CIDR block.
+     * @description This parameter is deprecated. Use `Permissions.N.Ipv6SourceCidrIp` to specify the source IPv6 CIDR block.
      *
      * @example 2001:250:6000::***
      *
@@ -83,7 +83,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The inbound rules that you want to add to the security group. Valid values of N: 1 to 100.
+     * @description The security group rules. You can specify up to 100 security group rules.
      *
      * @var permissions[]
      */
@@ -136,7 +136,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the security group to which you want to add inbound rules.
+     * @description The ID of the security group.
      *
      * @example sg-bp67acfmxazb4p****
      *
@@ -190,7 +190,7 @@ class AuthorizeSecurityGroupRequest extends Model
     public $sourcePortRange;
 
     /**
-     * @description This parameter is deprecated. Use `Permissions.N.SourcePrefixListId`to specify the ID of the source prefix list.
+     * @description This parameter is deprecated. Use `Permissions.N.SourcePrefixListId` to specify the ID of the source prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
      *

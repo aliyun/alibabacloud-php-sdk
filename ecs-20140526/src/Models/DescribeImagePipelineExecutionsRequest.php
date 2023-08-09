@@ -28,7 +28,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $imagePipelineId;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 500.
+     * @description The maximum number of entries per page. Valid values: 1 to 500.
      *
      * Default value: 50.
      * @example 50
@@ -38,7 +38,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
+     * @description The pagination token that is used in the request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of `NextToken`.
      *
      * @example AAAAAdDWBF2****
      *
@@ -57,7 +57,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -76,7 +76,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The status of the image creation task. You can specify multiple values at the same time. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
+     * @description The status of the image creation task. You can specify multiple values. Separate the values with commas (,). Example: `BUILDING,DISTRIBUTING`. Valid values:
      *
      *   BUILDING
      *   DISTRIBUTING
@@ -94,7 +94,7 @@ class DescribeImagePipelineExecutionsRequest extends Model
     public $status;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description > This parameter is not publicly available.
      *
      * @var tag[]
      */

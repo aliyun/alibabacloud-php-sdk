@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyManagedInstanceResponseBody extends Model
 {
     /**
-     * @description Details of the managed instance.
+     * @description The name of the managed instance.
      *
      * @var instance
      */
     public $instance;
 
     /**
-     * @description The request ID.
+     * @description Details of the managed instance.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

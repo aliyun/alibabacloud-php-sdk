@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateAutoSnapshotPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the automatic snapshot policy.
+     * @description The automatic snapshot policy ID.
      *
      * @example sp-bp12m37ccmxvbmi5****
      *
@@ -18,7 +18,7 @@ class CreateAutoSnapshotPolicyResponseBody extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

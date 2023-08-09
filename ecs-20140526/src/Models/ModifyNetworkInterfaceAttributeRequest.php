@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyNetworkInterfaceAttributeRequest extends Model
 {
     /**
-     * @description The description of the ENI. The description must be 2 to 255 characters in length and cannot start with http:// or https://.
+     * @description The description of the ENI. The description must be 2 to 255 characters in length and cannot start with [http:// or https://](http://https://。).
      *
-     * This parameter is empty by default.
+     * This parameter is left empty by default.
      * @example testDescription
      *
      * @var string
@@ -28,9 +28,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The name of the ENI. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with http:// or https://. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the ENI. The name must be 2 to 128 characters in length and can contain letters, digits, colons (:), underscores (\_), and hyphens (-). It must start with a letter and cannot start with [http:// or https:// ](http://https://。、（:）、（\_）（-）。).
      *
-     * This parameter is empty by default.
+     * This parameter is left empty by default.
      * @example eniTestName
      *
      * @var string
@@ -48,11 +48,11 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of queues per ENI. Valid values: 1 to 2048.
+     * @description The number of queues supported by the ENI. Valid values: 1 to 2048.
      *
-     *   You can modify the number of queues supported only by the secondary ENI.
-     *   You can modify the number of queues supported by the secondary ENI only when the ENI is in the `Available` state, or the secondary ENI is bound (`InUse`) to an instance that is in the `Stopped` state.
-     *   The number of queues supported by the secondary ENI cannot exceed the maximum number of queues that the instance allows for each ENI. The total number of queues for all ENIs on the instance cannot exceed the queue quota that the instance allows. To obtain information about the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation to query the `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` values.
+     *   You can change only the number of queues supported by the secondary ENI.
+     *   You can change the number of queues supported by the secondary ENI only when the ENI is in the `Available` state or the ENI is attached (`InUse`) to an instance that is in the `Stopped` state.
+     *   The number of queues supported by the secondary ENI cannot exceed the maximum number of queues that the instance allows for each ENI. The total number of queues for all ENIs on the instance cannot exceed the queue quota that the instance allows. To query the maximum number of queues per ENI and the queue quota for an instance type, you can call the [DescribeInstanceTypes](~~25620~~) operation and check the values of `MaximumQueueNumberPerEni` and `TotalEniQueueQuantity` in the response.
      *
      * @example 8
      *
@@ -61,7 +61,7 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $queueNumber;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query thecurrent list of regions.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -80,9 +80,9 @@ class ModifyNetworkInterfaceAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The list of security group IDs. You can specify up to 5 security group IDs.
+     * @description The ID of security group N to which the secondary ENI finally belongs. If a security group to which the ENI has belonged is in the ID list, that security group is removed from the list. Valid values of N: 1, 2, 3, 4, and 5.
      *
-     * >  After you modify the security group, the modification takes effect after a short delay.
+     * > After you change the security group, the change takes effect after a short delay.
      * @var string[]
      */
     public $securityGroupId;

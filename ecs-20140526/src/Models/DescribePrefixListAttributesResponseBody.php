@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePrefixListAttributesResponseBody extends Model
 {
     /**
-     * @description The IP address family of the prefix list. Valid values:
-     *
-     *   IPv4
-     *   IPv6
+     * @description The name of the prefix list.
      *
      * @example IPv4
      *
@@ -22,7 +19,7 @@ class DescribePrefixListAttributesResponseBody extends Model
     public $addressFamily;
 
     /**
-     * @description The time when the prefix list was created.
+     * @description The maximum number of entries that the prefix list can contain.
      *
      * @example 2021-02-20T07:11Z
      *
@@ -31,7 +28,10 @@ class DescribePrefixListAttributesResponseBody extends Model
     public $creationTime;
 
     /**
-     * @description The description of the prefix list.
+     * @description The IP address family of the prefix list. Valid values:
+     *
+     *   IPv4
+     *   IPv6
      *
      * @example This is description.
      *
@@ -40,14 +40,14 @@ class DescribePrefixListAttributesResponseBody extends Model
     public $description;
 
     /**
-     * @description Details about the entries in the prefix list.
+     * @description The description of the entry in the prefix list.
      *
      * @var entries
      */
     public $entries;
 
     /**
-     * @description The maximum number of entries that the prefix list can contain.
+     * @description The ID of the request.
      *
      * @example 10
      *
@@ -56,7 +56,7 @@ class DescribePrefixListAttributesResponseBody extends Model
     public $maxEntries;
 
     /**
-     * @description The ID of the prefix list.
+     * @description Details about the entries in the prefix list.
      *
      * @example pl-x1j1k5ykzqlixdcy****
      *
@@ -65,7 +65,7 @@ class DescribePrefixListAttributesResponseBody extends Model
     public $prefixListId;
 
     /**
-     * @description The name of the prefix list.
+     * @description The ID of the prefix list.
      *
      * @example PrefixListNameSample
      *
@@ -74,7 +74,7 @@ class DescribePrefixListAttributesResponseBody extends Model
     public $prefixListName;
 
     /**
-     * @description The ID of the request.
+     * @description The description of the prefix list.
      *
      * @example 38793DB8-A4B2-4AEC-BFD3-111234E9188D
      *

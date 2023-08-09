@@ -10,17 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeManagedInstancesResponseBody extends Model
 {
     /**
-     * @description Indicates whether the managed instance is connected. Valid values:
-     *
-     *   true: The managed instance is connected and you can manage the instance by using Cloud Assistant.
-     *   false: The managed instance is not connected because the managed instance is down or because the Cloud Assistant client is not installed correctly.
+     * @description The queried managed instances.
      *
      * @var instances[]
      */
     public $instances;
 
     /**
-     * @description The queried instances.
+     * @description The page number.
      *
      * @example 1
      *
@@ -29,7 +26,7 @@ class DescribeManagedInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -38,7 +35,7 @@ class DescribeManagedInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The total number of managed instances returned.
+     * @description The request ID.
      *
      * @example 77115469-F2C5-4ECA-94F7-FA04F2FD****
      *
@@ -47,7 +44,7 @@ class DescribeManagedInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The last Cloud Assistant task execution time.
+     * @description The total number of queried managed instances.
      *
      * @example 1
      *

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class performanceControlOptions extends Model
 {
     /**
-     * @description 目标云盘IOPS。仅支持修改专属存储集群云盘IOPS。
+     * @description The new IOPS of the disk. You can modify the IOPS of only disks in dedicated block storage clusters.
      *
-     * 更多信息，请参见[云盘性能](~~25382~~)。
+     * For more information, see [EBS performance](~~25382~~).
      * @example 2000
      *
      * @var int
@@ -19,9 +19,9 @@ class performanceControlOptions extends Model
     public $IOPS;
 
     /**
-     * @description 重置云盘性能，仅支持专属存储集群云盘。
+     * @description The new IOPS and throughput of the disk. This parameter is valid only when the disk is in a dedicated block storage cluster.
      *
-     * 目前仅支持设置为All（重置云盘IOPS和吞吐量到初始值）。
+     * Set the value to All, which indicates that the IOPS and throughput of the disk is reset to the initial values.
      * @example All
      *
      * @var string
@@ -29,9 +29,9 @@ class performanceControlOptions extends Model
     public $recover;
 
     /**
-     * @description 目标云盘吞吐量，仅支持修改专属存储集群云盘吞吐量，单位MB/s。
+     * @description The new throughput of the disk. You can modify the throughput of only disks in dedicated block storage clusters. Unit: MB/s.
      *
-     * 更多信息，请参见[云盘性能](~~25382~~)。
+     * For more information, see [EBS performance](~~25382~~).
      * @example 200
      *
      * @var int

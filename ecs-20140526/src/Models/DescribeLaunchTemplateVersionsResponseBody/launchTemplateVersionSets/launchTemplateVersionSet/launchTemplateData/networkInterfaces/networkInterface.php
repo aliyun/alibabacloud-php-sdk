@@ -37,11 +37,12 @@ class networkInterface extends Model
     public $networkInterfaceName;
 
     /**
-     * @description The communication mode of the primary ENI. Valid values:
+     * @description The communication mode of the ENI. Valid values:
      *
      *   Standard: The TCP communication mode is used.
      *   HighPerformance: Elastic RDMA Interface (ERI) is enabled and the remote direct memory access (RDMA) communication mode is used.
      *
+     * > This parameter can have a value of HighPerformance only when the ENI is attached to a c7re RDMA-enhanced instance that resides in Beijing Zone K.
      * @example Standard
      *
      * @var string
@@ -58,9 +59,9 @@ class networkInterface extends Model
     public $primaryIpAddress;
 
     /**
-     * @description The IDs of the security groups to which the secondary ENI is assigned. The security group and the ENI must belong to the same VPC.
+     * @description The ID of the security group to which to assign the ENI. The security group and the ENI must belong to the same VPC.
      *
-     * > The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
+     * > You must specify `SecurityGroupId` or `SecurityGroupIds.N` but not both.
      * @example sg-bp67acfmxazb4p****
      *
      * @var string
@@ -68,15 +69,15 @@ class networkInterface extends Model
     public $securityGroupId;
 
     /**
-     * @description The IDs of the security groups to which the secondary ENI is assigned.
+     * @description The ID of security group *N* with which you want to associate the ECS instance. Valid values of *N* vary based on the maximum number of security groups with which the instance can be associated. For more information, see the "Security group limits" section in the [Limits](~~25412~~) topic.
      *
-     * > The SecurityGroupId and SecurityGroupIds parameters are mutually exclusive in the response.
+     * >  You cannot specify the **SecurityGroupId** and **SecurityGroupIds.N** parameters at the same time.
      * @var securityGroupIds
      */
     public $securityGroupIds;
 
     /**
-     * @description The ID of the vSwitch to which the ENI is connected.
+     * @description The ID of the vSwitch to which to connect the secondary ENI.
      *
      * @example vsw-bp67acfmxazb4p****
      *

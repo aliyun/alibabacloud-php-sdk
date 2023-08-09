@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class condition extends Model
 {
     /**
+     * @description The condition name. Valid value:
+     *
+     * DiskCategory, which indicates a disk category change.
      * @example DiskCategory
      *
      * @var string

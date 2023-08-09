@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The tag values of the security group. You can specify up to 20 tag values for the security group.
+     * @description The key of tag N to add to the security group. Valid values of N: 1 to 20.
      *
+     * Up to 1,000 resources that match the tags specified can be returned in the response. To query more than 1,000 resources that have specified tags added, call the [ListTagResources](~~110425~~) operation.
      * @example TestKey
      *
      * @var string
@@ -18,9 +19,8 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The tag values of the security group.
+     * @description The value of tag N to add to the security group. Valid values of N: 1 to 20.
      *
-     * > This parameter will be removed in the future. We recommend that you use the Tag.N.Value parameter to ensure future compatibility.
      * @example TestValue
      *
      * @var string

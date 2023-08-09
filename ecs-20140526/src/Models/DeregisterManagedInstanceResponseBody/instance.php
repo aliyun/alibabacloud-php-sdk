@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
-     * @description The ID of the activation code.
+     * @description The ID of the managed instance.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F7494****
      *
@@ -18,7 +18,7 @@ class instance extends Model
     public $activationId;
 
     /**
-     * @description The version number of the Cloud Assistant client.
+     * @description The internal IP address of the managed instance.
      *
      * @example 2.2.0.102
      *
@@ -27,7 +27,7 @@ class instance extends Model
     public $agentVersion;
 
     /**
-     * @description The hostname of the managed instance.
+     * @description The public IP address of the managed instance.
      *
      * @example test-Hostname
      *
@@ -36,7 +36,7 @@ class instance extends Model
     public $hostname;
 
     /**
-     * @description The ID of the managed instance.
+     * @description The hostname of the managed instance.
      *
      * @example mi-hz01axdfas****
      *
@@ -45,7 +45,7 @@ class instance extends Model
     public $instanceId;
 
     /**
-     * @description The name of the managed instance.
+     * @description The time when the managed instance was registered.
      *
      * @example test-InstanceName-001
      *
@@ -54,7 +54,7 @@ class instance extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address of the managed instance.
+     * @description The time when the Cloud Assistant task was last executed.
      *
      * @example 47.8.**.**
      *
@@ -63,7 +63,7 @@ class instance extends Model
     public $internetIp;
 
     /**
-     * @description The internal IP address of the managed instance.
+     * @description The ID of the activation code.
      *
      * @example 10.0.**.**
      *
@@ -72,8 +72,6 @@ class instance extends Model
     public $intranetIp;
 
     /**
-     * @description The number of times that Cloud Assistant tasks were executed on the managed instance.
-     *
      * @example 2
      *
      * @var int
@@ -81,7 +79,7 @@ class instance extends Model
     public $invocationCount;
 
     /**
-     * @description The time when the Cloud Assistant task was last executed.
+     * @description Details of the managed instance.
      *
      * @example 2021-01-20T09:00:40Z
      *
@@ -90,8 +88,6 @@ class instance extends Model
     public $lastInvokedTime;
 
     /**
-     * @description The machine code of the managed instance.
-     *
      * @example e03231b37ab14e53b5795ad625fc****
      *
      * @var string
@@ -99,7 +95,7 @@ class instance extends Model
     public $machineId;
 
     /**
-     * @description The operating system type of the managed instance.
+     * @description The name of the managed instance.
      *
      * @example linux
      *
@@ -108,7 +104,7 @@ class instance extends Model
     public $osType;
 
     /**
-     * @description The version information of the operating system.
+     * @description The operating system type of the managed instance.
      *
      * @example Linux_#38~18.04.1-Ubuntu SMP Wed Jan 6 18:26:30 UTC 2021_x86_64
      *
@@ -117,7 +113,7 @@ class instance extends Model
     public $osVersion;
 
     /**
-     * @description The time when the managed instance was registered.
+     * @description The version number of the Cloud Assistant client.
      *
      * @example 2021-01-20T08:57:56Z
      *

@@ -20,7 +20,7 @@ class reservedInstanceRenewAttribute extends Model
     /**
      * @description The unit of the auto-renewal duration.
      *
-     * Valid value: Year.
+     * Valid values: Year and Month.
      * @example Month
      *
      * @var string
@@ -28,7 +28,7 @@ class reservedInstanceRenewAttribute extends Model
     public $periodUnit;
 
     /**
-     * @description The auto-renewal state of the reserved instance. Valid values:
+     * @description The auto-renewal status of the reserved instance. Valid values:
      *
      *   AutoRenewal: The reserved instance is automatically renewed.
      *   Normal: You must manually renew the reserved instance.

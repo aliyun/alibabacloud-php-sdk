@@ -20,7 +20,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $amount;
 
     /**
-     * @description The SCU capacity. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5210, 10240, 20480, and 52100.
+     * @description The capacity of the SCU. Unit: GiB. Valid values: 20, 40, 100, 200, 500, 1024, 2048, 5210, 10240, 20480, and 52100.
      *
      * @example 20
      *
@@ -29,7 +29,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $capacity;
 
     /**
-     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the token, but make sure that the token is unique across requests. The value of `ClientToken` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique across requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -47,7 +47,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $description;
 
     /**
-     * @description The request source. The value is automatically set to OpenAPI and does not need to be changed. Default value: OpenAPI.
+     * @description The source of the request. The value is automatically set to OpenAPI and does not need to be changed. Default value: OpenAPI.
      *
      * @example OpenAPI
      *
@@ -56,7 +56,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $fromApp;
 
     /**
-     * @description The SCU name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the SCU. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example ScuPurchaseDemo
      *
@@ -75,7 +75,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $ownerId;
 
     /**
-     * @description The SCU validity period. Valid values:
+     * @description The validity period of the SCU. Valid values:
      *
      *   Valid values when PeriodUnit is set to Month: 1, 2, 3, and 6.
      *   Valid values when PeriodUnit is set to Year: 1, 3, and 5.
@@ -88,7 +88,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $period;
 
     /**
-     * @description The unit of the the SCU validity period. Valid values:
+     * @description The unit of the validity period of the SCU. Valid values:
      *
      *   Month
      *   Year
@@ -101,7 +101,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $periodUnit;
 
     /**
-     * @description The ID of the region in which to purchase the SCU. After this parameter is specified, the purchased SCU can be used to offset the bills of only pay-as-you-go disks that reside in the specified region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the region in which to purchase the SCU. The purchased SCU can offset the bills of pay-as-you-go disks that reside in the specified region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -120,7 +120,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The time when the SCU takes effect. This can be up to six months later than the time when the SCU is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The time at which the SCU takes effect. It can be up to six months later than the time at which the SCU is created. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
      * This parameter is empty by default. If this parameter is left empty, the SCU takes effect immediately after it is created.
      * @example 2020-09-09T02:00:00Z
@@ -130,7 +130,7 @@ class PurchaseStorageCapacityUnitRequest extends Model
     public $startTime;
 
     /**
-     * @description The tags to add to the SCUs.
+     * @description The list of tags.
      *
      * @var tag[]
      */

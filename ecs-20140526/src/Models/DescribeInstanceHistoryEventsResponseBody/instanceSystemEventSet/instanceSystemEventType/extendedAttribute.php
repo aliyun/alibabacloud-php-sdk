@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class extendedAttribute extends Model
 {
     /**
+     * @description Indicates whether the event can be handled.
+     *
      * @example true
      *
      * @var string
@@ -18,6 +20,8 @@ class extendedAttribute extends Model
     public $canAccept;
 
     /**
+     * @description The code of the security violation.
+     *
      * @example PR111
      *
      * @var string
@@ -54,9 +58,7 @@ class extendedAttribute extends Model
     /**
      * @description The type of the host. Valid values:
      *
-     *   ddh: dedicated host
-     *   managehost: physical machine in a smart hosting pool
-     *
+     * - managehost: physical machine in a smart hosting pool
      * @example ddh
      *
      * @var string
@@ -64,21 +66,21 @@ class extendedAttribute extends Model
     public $hostType;
 
     /**
-     * @description Details about the inactive disks that have been released and must be cleared.
+     * @description The information about the inactive disks that have been released and must be cleared.
      *
      * @var inactiveDisks
      */
     public $inactiveDisks;
 
     /**
-     * @description The migration solution of the instance. Valid value: MigrationPlan. Instances can be migrated only by using migration plans.
+     * @description The migration solution of the instance. Valid value: MigrationPlan, which indicates that instances can be migrated only by using migration plans.
      *
      * @var migrationOptions
      */
     public $migrationOptions;
 
     /**
-     * @description The online repair policy of the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.
+     * @description The online repair policy for the damaged disk. Valid value: IsolateOnly, which indicates that damaged disks are isolated but not repaired.
      *
      * @example IsolateOnly
      *
@@ -87,6 +89,8 @@ class extendedAttribute extends Model
     public $onlineRepairPolicy;
 
     /**
+     * @description The illegal domain name.
+     *
      * @example 1228.test.com
      *
      * @var string
@@ -94,6 +98,8 @@ class extendedAttribute extends Model
     public $punishDomain;
 
     /**
+     * @description The type of the penalty.
+     *
      * @example ecs_message_alert
      *
      * @var string
@@ -101,6 +107,8 @@ class extendedAttribute extends Model
     public $punishType;
 
     /**
+     * @description The illegal URL.
+     *
      * @example http://1228.test.com/1
      *
      * @var string
@@ -115,6 +123,11 @@ class extendedAttribute extends Model
      * @var string
      */
     public $rack;
+
+    /**
+     * @var string
+     */
+    public $responseResult;
     protected $_name = [
         'canAccept'          => 'CanAccept',
         'code'               => 'Code',
@@ -129,6 +142,7 @@ class extendedAttribute extends Model
         'punishType'         => 'PunishType',
         'punishUrl'          => 'PunishUrl',
         'rack'               => 'Rack',
+        'responseResult'     => 'ResponseResult',
     ];
 
     public function validate()
@@ -176,6 +190,9 @@ class extendedAttribute extends Model
         }
         if (null !== $this->rack) {
             $res['Rack'] = $this->rack;
+        }
+        if (null !== $this->responseResult) {
+            $res['ResponseResult'] = $this->responseResult;
         }
 
         return $res;
@@ -227,6 +244,9 @@ class extendedAttribute extends Model
         }
         if (isset($map['Rack'])) {
             $model->rack = $map['Rack'];
+        }
+        if (isset($map['ResponseResult'])) {
+            $model->responseResult = $map['ResponseResult'];
         }
 
         return $model;

@@ -11,12 +11,14 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
+     * @description The resource types that resources can be changed to after the resources meet specified conditions.
+     *
      * @var conditionSupportedResources
      */
     public $conditionSupportedResources;
 
     /**
-     * @description Details about the resources.
+     * @description The information about the resources.
      *
      * @var supportedResources
      */

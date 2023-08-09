@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class assignedPrivateIpAddressesSet extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description > 该参数正在邀测中，暂未开放使用。
      *
      * @var ipv4PrefixSet
      */
@@ -27,7 +27,7 @@ class assignedPrivateIpAddressesSet extends Model
     public $networkInterfaceId;
 
     /**
-     * @description The private IP addresses assigned to the ENI.
+     * @description The secondary private IP addresses that are assigned to the ENI.
      *
      * @var privateIpSet
      */

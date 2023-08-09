@@ -27,7 +27,7 @@ class supportedResource extends Model
     public $min;
 
     /**
-     * @description The state of the resource. Valid values:
+     * @description The status of the resource. Valid values:
      *
      *   Available
      *   SoldOut
@@ -42,7 +42,7 @@ class supportedResource extends Model
      * @description The category of resource based on stock status. Valid values:
      *
      *   WithStock: resources that are in sufficient stock
-     *   ClosedWithStock: resources that are ininsufficient stock
+     *   ClosedWithStock: resources that are in insufficient stock
      *   WithoutStock: resources that are out of stock
      *
      * @example WithStock
@@ -61,7 +61,7 @@ class supportedResource extends Model
     public $unit;
 
     /**
-     * @description The resource value.
+     * @description The resource type.
      *
      * @example ecs.g5.large
      *

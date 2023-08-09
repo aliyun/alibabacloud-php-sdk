@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCommandsRequest extends Model
 {
     /**
-     * @description The name of the command. Partial command names are not supported.
+     * @description The command ID.
      *
      * @example c-hz01272yr52****
      *
@@ -19,9 +19,12 @@ class DescribeCommandsRequest extends Model
     public $commandId;
 
     /**
-     * @description The page number of the page to return.
+     * @description The encoding mode of the `CommandContent` and `Output` response parameters. Valid values:
      *
-     * Default value: 1.
+     *   PlainText: returns the original command content and command output.
+     *   Base64: returns the Base64-encoded command content and command output.
+     *
+     * Default value: Base64.
      * @example PlainText
      *
      * @var string
@@ -29,11 +32,7 @@ class DescribeCommandsRequest extends Model
     public $contentEncoding;
 
     /**
-     * @description The command type. Valid values:
-     *
-     *   RunBatScript: batch command, applicable to Windows instances
-     *   RunPowerShellScript: PowerShell command, applicable to Windows instances
-     *   RunShellScript: shell command, applicable to Linux instances
+     * @description > This parameter is deprecated and does not take effect.
      *
      * @example testDescription
      *
@@ -42,8 +41,12 @@ class DescribeCommandsRequest extends Model
     public $description;
 
     /**
-     * @description The list of tags.
+     * @description Specifies whether to query only the latest version of common commands if common commands are queried. This parameter does not affect the query for private commands. Valid values:
      *
+     *   true: queries only the latest version of common commands.
+     *   false: queries all versions of common commands.
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool
@@ -51,7 +54,7 @@ class DescribeCommandsRequest extends Model
     public $latest;
 
     /**
-     * @description > This parameter is deprecated and does not take effect.
+     * @description The command name. Partial command names are not supported.
      *
      * @example testName
      *
@@ -70,9 +73,9 @@ class DescribeCommandsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The page number.
      *
-     * Default value: 10.
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -80,26 +83,14 @@ class DescribeCommandsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Specifies whether to query only the latest version of common commands when common commands are queried. This parameter does not affect the query for private commands. Valid values:
+     * @description The number of entries per page.
      *
-     *   true: queries only the latest version of common commands.
-     *   false: queries all versions of common commands.
-     *
-     * Default value: false.
+     * Default value: 10.
      * @example 10
      *
      * @var int
      */
     public $pageSize;
-
-    /**
-     * @description The ID of the command.
-     *
-     * @example AlibabaCloud
-     *
-     * @var string
-     */
-    public $provider;
 
     /**
      * @description The provider of the common command. Take note of the following items:
@@ -112,6 +103,15 @@ class DescribeCommandsRequest extends Model
      *
      *   If you set `Provider` to AlibabaCloud.ECS.GuestOS, all the common commands provided by `AlibabaCloud.ECS.GuestOS` are queried.
      *   If you set `Provider` to AlibabaCloud.ECS.GuestOSDiagnose, all the common commands provided by `AlibabaCloud.ECS.GuestOSDiagnose` are queried.
+     *
+     * @example AlibabaCloud
+     *
+     * @var string
+     */
+    public $provider;
+
+    /**
+     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -130,19 +130,19 @@ class DescribeCommandsRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The tags.
+     * @description The tags of the command.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The encoding mode of the `CommandContent` and `Output` response parameters. Valid values:
+     * @description The command type. Valid values:
      *
-     *   PlainText: returns the original command content and command output.
-     *   Base64: returns the Base64-encoded command content and command output
+     *   RunBatScript: batch command, applicable to Windows instances.
+     *   RunPowerShellScript: PowerShell command, applicable to Windows instances.
+     *   RunShellScript: shell command, applicable to Linux instances.
      *
-     * Default value: Base64.
      * @example RunShellScript
      *
      * @var string

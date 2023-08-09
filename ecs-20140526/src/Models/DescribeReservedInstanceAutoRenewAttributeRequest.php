@@ -19,7 +19,7 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the reserved instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the reserved instances. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -28,7 +28,7 @@ class DescribeReservedInstanceAutoRenewAttributeRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of reserved instance N.
+     * @description The IDs of the reserved instances.
      *
      * @var string[]
      */

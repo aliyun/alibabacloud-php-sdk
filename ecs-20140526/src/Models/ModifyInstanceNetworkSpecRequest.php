@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNetworkSpecRequest extends Model
 {
     /**
-     * @description The start time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC and accurate to **minutes (mm)**.
+     * @description Specifies whether to assign a public IP address.
      *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -18,8 +19,12 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $allocatePublicIp;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description Specifies whether to automatically complete the payment. Valid values:
      *
+     *   true: After you modify the bandwidth configurations, the payment is automatically complete. Make sure that your account balance is sufficient when you set AutoPay to true. If your account balance is insufficient, your order cannot be paid in the ECS console and becomes invalid. You must cancel the order.
+     *   false: After you modify the bandwidth configurations, an order is generated but the payment is not complete. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com) to pay for the order.
+     *
+     * Default value: true.
      * @example true
      *
      * @var bool
@@ -27,7 +32,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $autoPay;
 
     /**
-     * @description The ID of the order.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -36,12 +41,9 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to automatically complete the payment. Valid values:
+     * @description The end time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThhZ format. The time must be in UTC and accurate to **hours** (hh).
      *
-     *   true: After you modify the bandwidth configurations, the payment (if any) is automatically completed. Make sure that your account balance is sufficient when you set AutoPay to true. If your account balance is insufficient, your order becomes invalid and is cancelled.
-     *   false: After you modify the bandwidth configurations, an order is generated but the payment may not be completed. If your account balance is insufficient, you can set AutoPay to false to generate an unpaid order. Then, you can log on to the [ECS console](https://ecs.console.aliyun.com) to pay for the order.
-     *
-     * Default value: true.
+     * > The interval between the end time and the start time of the temporary bandwidth upgrade must be greater than or equal to 3 hours.
      * @example 2017-12-06T22Z
      *
      * @var string
@@ -49,12 +51,8 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $endTime;
 
     /**
-     * @description The new billing method for network usage. Valid values:
+     * @description > This parameter is in invitational preview and is not publicly available.
      *
-     *   PayByBandwidth: pay-by-bandwidth
-     *   PayByTraffic: pay-by-traffic
-     *
-     * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidths are used as the upper limits of bandwidths instead of guaranteed performance specifications. In scenarios where demand outstrips resource supplies, these maximum bandwidth values may not be reached. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example null
      *
      * @var string
@@ -62,7 +60,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $ISP;
 
     /**
-     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
+     * @description The ID of the instance for which you want to modify bandwidth configurations.
      *
      * @example i-bp67acfmxazb4****
      *
@@ -71,7 +69,10 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $instanceId;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
+     *
+     *   If the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter range from 1 to 10, and the default value is 10.
+     *   If the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter range from 1 to the value of `InternetMaxBandwidthOut`, and the default value is the value of `InternetMaxBandwidthOut`.
      *
      * @example 10
      *
@@ -80,10 +81,7 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $internetMaxBandwidthIn;
 
     /**
-     * @description The maximum inbound public bandwidth. Unit: Mbit/s. Valid values:
-     *
-     *   When the purchased outbound public bandwidth is less than or equal to 10 Mbit/s, the valid values of this parameter are 1 to 10 and the default value is 10.
-     *   When the purchased outbound public bandwidth is greater than 10 Mbit/s, the valid values of this parameter are 1 to the `InternetMaxBandwidthOut` value and the default value is the `InternetMaxBandwidthOut` value.
+     * @description The maximum outbound public bandwidth. Unit: Mbit/s. Valid values: 0 to 100.
      *
      * @example 10
      *
@@ -92,9 +90,12 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $internetMaxBandwidthOut;
 
     /**
-     * @description Specifies whether to assign a public IP address.
+     * @description The billing method for network usage. Valid values:
      *
-     * Default value: false.
+     *   PayByBandwidth
+     *   PayByTraffic
+     *
+     * > When the **pay-by-traffic** billing method for network usage is used, the maximum inbound and outbound bandwidth values are used as the upper limits of bandwidths instead of guaranteed values. In scenarios where demand outstrips resource supplies, these maximum bandwidths may be limited. If you want guaranteed bandwidths for your instance, use the **pay-by-bandwidth** billing method for network usage.
      * @example PayByTraffic
      *
      * @var string
@@ -122,9 +123,8 @@ class ModifyInstanceNetworkSpecRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The end time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThhZ format. The time must be in UTC and accurate to **hours (hh)**.
+     * @description The start time of the temporary bandwidth upgrade. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mmZ format. The time must be in UTC and accurate to **minutes** (mm).
      *
-     * > The interval between the end time and the start time of the temporary bandwidth upgrade must be greater than or equal to 3 hours.
      * @example 2017-12-05T22:40Z
      *
      * @var string

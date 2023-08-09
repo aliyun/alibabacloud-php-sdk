@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteActivationRequest extends Model
 {
     /**
-     * @description The ID of the activation code.
+     * @description The ID of the request.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
@@ -28,9 +28,8 @@ class DeleteActivationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the activation code. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
+     * @description The ID of the activation code.
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

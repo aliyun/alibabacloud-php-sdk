@@ -23,6 +23,8 @@ class DescribeDiagnosticMetricSetsRequest extends Model
     public $maxResults;
 
     /**
+     * @description The ID of diagnostic metric set N.
+     *
      * @var string[]
      */
     public $metricSetIds;

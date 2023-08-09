@@ -20,10 +20,10 @@ class eventType extends Model
     /**
      * @description The name of the event type. Valid values:
      *
-     *   Degraded: The performance of the EBS device was degraded.
-     *   SeverelyDegraded: The performance of the EBS device was severely degraded.
-     *   Stalled: The performance of the EBS device was severely affected.
-     *   ErrorDetected: The local disk was damaged.
+     *   Degraded: The performance of the EBS device is degraded.
+     *   SeverelyDegraded: The performance of the EBS device is severely degraded.
+     *   Stalled: The performance of the EBS device is severely affected.
+     *   ErrorDetected: The local disk is damaged.
      *
      * @example Stalled
      *

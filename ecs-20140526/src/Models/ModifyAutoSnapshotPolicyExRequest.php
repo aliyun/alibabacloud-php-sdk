@@ -9,12 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoSnapshotPolicyExRequest extends Model
 {
     /**
-     * @description The retention period of the snapshot copy in the destination region. Unit: days. Valid values:
+     * @description The ID of the request.
      *
-     *   \-1: The snapshot is permanently retained.
-     *   1 to 65535: The automatic snapshot is retained for the specified number of days.
-     *
-     * Default value: -1.
      * @example 30
      *
      * @var int
@@ -22,10 +18,7 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $copiedSnapshotsRetentionDays;
 
     /**
-     * @description Specifies whether to enable cross-region replication for the automatic snapshot.
-     *
-     *   true: enables cross-region replication for the automatic snapshot.
-     *   false: disables cross-region replication for the automatic snapshot.
+     * @description The destination region to which to copy the snapshot. You can specify only a single destination region.
      *
      * @example false
      *
@@ -49,8 +42,12 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The destination region to which to copy the snapshot. You can specify only a single destination region.
+     * @description The retention period of the snapshot copy in the destination region. Unit: days. Valid values:
      *
+     *   \-1: The snapshot is permanently retained.
+     *   1 to 65535: The automatic snapshot is retained for the specified number of days.
+     *
+     * Default value: -1.
      * @example ["cn-hangzhou"]
      *
      * @var string
@@ -58,7 +55,7 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $targetCopyRegions;
 
     /**
-     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](~~25530~~) operation to query available automatic snapshot policies.
+     * @description The name of the automatic snapshot policy. If this parameter is not specified, the original name of the automatic snapshot policy is retained.
      *
      * @example sp-bp12m37ccmxvbmi5****
      *
@@ -67,7 +64,12 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $autoSnapshotPolicyId;
 
     /**
-     * @description The name of the automatic snapshot policy. If this parameter is not specified, the original name of the automatic snapshot policy is retained.
+     * @description The points in time of the day at which to create automatic snapshots. The time must be in UTC+8. Unit: hours. Valid values are 0 to 23, which correspond to the 24 points in time on the hour from 00:00:00 to 23:00:00. For example, a value of 1 indicates 01:00:00.
+     *
+     * To schedule multiple automatic snapshots to be created in a day, you can specify multiple hours.
+     *
+     *   You can specify up to 24 points in time.
+     *   You must set this parameter to a JSON array such as `["0", "1", ... "23"]`. Separate the points in time with commas (,).
      *
      * @example SPTestName
      *
@@ -76,7 +78,7 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $autoSnapshotPolicyName;
 
     /**
-     * @description The region ID of the automatic snapshot policy to be modified. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the automatic snapshot policy. You can call the [DescribeAutoSnapshotPolicyEx](~~25530~~) operation to query available automatic snapshot policies.
      *
      * @example cn-hangzhou
      *
@@ -85,13 +87,12 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $regionId;
 
     /**
-     * @description The days of the week on which to create automatic snapshots. Valid values are 1 to 7, which correspond to the days of the week. For example, a value of 1 indicates Monday.
+     * @description The retention period of the automatic snapshot. Unit: days. Valid values:
      *
-     * To schedule multiple automatic snapshots to be created in a week, you can specify multiple days.
+     *   \-1: The automatic snapshot is permanently retained.
+     *   1 to 65536: The auto snapshot is retained for the specified number of days.
      *
-     *   You can specify up to seven days over a one-week period.
-     *   You must set this parameter to a JSON array such as `["1", "2" ... "7"]`. Separate the values in the array with commas (,).
-     *
+     * Default value: -1.
      * @example ["1", "7"]
      *
      * @var string
@@ -99,12 +100,11 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $repeatWeekdays;
 
     /**
-     * @description The retention period of the automatic snapshot. Unit: days. Valid values:
+     * @description Specifies whether to enable cross-region replication for the automatic snapshot.
      *
-     *   \-1: The automatic snapshot is permanently retained.
-     *   1 to 65536: The auto snapshot is retained for the specified number of days.
+     *   true: enables cross-region replication for the automatic snapshot.
+     *   false: disables cross-region replication for the automatic snapshot.
      *
-     * Default value: -1.
      * @example 30
      *
      * @var int
@@ -112,12 +112,12 @@ class ModifyAutoSnapshotPolicyExRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The points in time of the day at which to create automatic snapshots. The time must be in UTC+8. Unit: hours. Valid values are 0 to 23, which correspond to the 24 points in time on the hour from 00:00:00 to 23:00:00. For example, a value of 1 indicates 01:00:00.
+     * @description The days of the week on which to create automatic snapshots. Valid values are 1 to 7, which correspond to the days of the week. For example, a value of 1 indicates Monday.
      *
-     * To schedule multiple automatic snapshots to be created in a day, you can specify multiple hours.
+     * To schedule multiple automatic snapshots to be created in a week, you can specify multiple days.
      *
-     *   You can specify up to 24 points in time.
-     *   You must set this parameter to a JSON array such as `["0", "1", ... "23"]`. Separate the points in time with commas (,).
+     *   You can specify up to seven days over a one-week period.
+     *   You must set this parameter to a JSON array such as `["1", "2" ... "7"]`. Separate the values in the array with commas (,).
      *
      * @example ["0", "1"]
      *

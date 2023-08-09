@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSnapshotsResponseBody extends Model
 {
     /**
-     * @description A pagination token. It can be used in the next request to retrieve a new page of results.If NextToken is empty, no next page exists.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -46,14 +46,14 @@ class DescribeSnapshotsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the snapshots.
+     * @description The details about the snapshots.
      *
      * @var snapshots
      */
     public $snapshots;
 
     /**
-     * @description The total number of snapshots.
+     * @description The total number of snapshots returned.
      *
      * @example 1
      *

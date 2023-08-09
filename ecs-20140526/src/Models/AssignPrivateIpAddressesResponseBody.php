@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class AssignPrivateIpAddressesResponseBody extends Model
 {
     /**
-     * @description Details about the ENI.
+     * @description Details about the ENI and the secondary private IP addresses that are assigned to the ENI.
      *
      * @var assignedPrivateIpAddressesSet
      */
     public $assignedPrivateIpAddressesSet;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

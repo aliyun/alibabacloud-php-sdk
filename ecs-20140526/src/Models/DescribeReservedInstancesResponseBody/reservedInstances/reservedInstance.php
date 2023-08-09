@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class reservedInstance extends Model
 {
     /**
-     * @description Indicates the allocation status of the reserved instance when the AllocationType parameter is set to Shared. Valid values:
+     * @description Indicates the sharing status of the reserved instance when the AllocationType parameter is set to Shared. Valid values:
      *
      *   allocated: The reserved instance is allocated to another account.
      *   beAllocated: The reserved instance is allocated by another account.
@@ -68,7 +68,7 @@ class reservedInstance extends Model
     public $instanceType;
 
     /**
-     * @description The payment options for the reserved instance.
+     * @description The payment option.
      *
      * @example All Upfront
      *
@@ -86,8 +86,8 @@ class reservedInstance extends Model
     /**
      * @description The operating system of the image used by the instance. Valid values:
      *
-     *   Windows: Windows Server operating system
-     *   Linux: Linux and UNIX-like operating system
+     *   Windows
+     *   Linux
      *
      * @example Linux
      *
@@ -96,7 +96,7 @@ class reservedInstance extends Model
     public $platform;
 
     /**
-     * @description The ID of the region where the instance resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -132,7 +132,7 @@ class reservedInstance extends Model
     public $resourceGroupId;
 
     /**
-     * @description Indicates range.
+     * @description The scope.
      *
      * @example region
      *
@@ -141,7 +141,7 @@ class reservedInstance extends Model
     public $scope;
 
     /**
-     * @description The validation time.
+     * @description The effective time.
      *
      * @example 2018-12-10T12:00Z
      *
@@ -159,7 +159,7 @@ class reservedInstance extends Model
     public $status;
 
     /**
-     * @description Details about the reserved instance tags.
+     * @description Details about the tags of the reserved instance.
      *
      * @var tags
      */

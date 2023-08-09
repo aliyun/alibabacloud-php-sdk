@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceHistoryEventsResponseBody extends Model
 {
     /**
-     * @description Details about historical system events of the instance.
+     * @description The information about instance system events.
      *
      * @var instanceSystemEventSet
      */
     public $instanceSystemEventSet;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class DescribeInstanceHistoryEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of instances returned.
      *
      * @example 2
      *

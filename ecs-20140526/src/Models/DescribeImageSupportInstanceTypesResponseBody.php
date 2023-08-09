@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesResponseBody extends Model
 {
     /**
-     * @description The ID of the image.
+     * @description The key of filter N. Only the image ID can be used to filter instance types. Valid values:
+     *
+     *   imagId: image ID
+     *   filter: image ID
      *
      * @example m-o6w3gy99qf89rkga****
      *
@@ -19,15 +22,15 @@ class DescribeImageSupportInstanceTypesResponseBody extends Model
     public $imageId;
 
     /**
-     * @description Details about the instance types that are supported by the image.
-     *
+     * @description {
+     * }
      * @var instanceTypes
      */
     public $instanceTypes;
 
     /**
-     * @description The region ID of the image.
-     *
+     * @description {
+     * }
      * @example cn-hangzhou
      *
      * @var string

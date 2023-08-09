@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SendFileRequest extends Model
 {
     /**
-     * @description The content of the file. The content must not exceed 32 KB in size after it is encoded in Base64.
+     * @description The content of the remote file. The content must not exceed 32 KB in size after it is encoded in Base64.
      *
      *   If `ContentType` is set to `PlainText`, the Content value is in plaintext.
      *   If `ContentType` is set to `Base64`, the Content value is Base64-encoded.
@@ -24,8 +24,8 @@ class SendFileRequest extends Model
     /**
      * @description The content type of the file. Valid values:
      *
-     *   PlainText: The command content is not encoded.
-     *   Base64: The command content is Base64-encoded.
+     *   PlainText: The file content is not encoded.
+     *   Base64: The file content is Base64-encoded.
      *
      * Default value: PlainText.
      * @example PlainText
@@ -44,18 +44,19 @@ class SendFileRequest extends Model
     public $description;
 
     /**
-     * @description The user group of the file. This parameter takes effect only on Linux instances. Default value: root.
+     * @description The user group of the file. This parameter takes effect only for Linux instances. Default value: root. The user group name can be up to 64 characters in length.
      *
-     * @example root
+     * >  If you want to use a non-root user group, make sure that the user group exists in the instances.
+     * @example test
      *
      * @var string
      */
     public $fileGroup;
 
     /**
-     * @description The permissions on the file. This parameter takes effect only on Linux instances. You can configure this parameter in the same way as you configure the chmod command.
+     * @description The permissions on the file. This parameter takes effect only for Linux instances. You can configure this parameter in the same way as you configure the chmod command.
      *
-     * Default value: 0644, which indicates that the owner of the file has the read and write permissions on the file and that the user group of the file and other users have only the read permissions on the file.
+     * Default value: 0644, which indicates that the owner of the file has the read and write permissions on the file and that the user group of the file and other users have the read-only permissions on the file.
      * @example 0644
      *
      * @var string
@@ -63,16 +64,17 @@ class SendFileRequest extends Model
     public $fileMode;
 
     /**
-     * @description The owner of the file. This parameter takes effect only on Linux instances. Default value: root.
+     * @description The owner of the file. This parameter takes effect only for Linux instances. Default value: root. The value can be up to 64 characters in length.
      *
-     * @example root
+     * >  If you want to use a non-root user, make sure that the user exists in the instances.
+     * @example test
      *
      * @var string
      */
     public $fileOwner;
 
     /**
-     * @description The IDs of instances to which to send the file. A maximum of 50 instance IDs can be specified.
+     * @description The ID of instance N to which to send the file. Up to 50 instance IDs can be specified in each request. Valid values of N: 1 to 50.
      *
      * @example i-bp185dy2o3o6n****
      *
@@ -122,9 +124,11 @@ class SendFileRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group for send files. When specify this parameter:
+     * @description The ID of the resource group. When you specify this parameter, take note of the following items:
      *
-     * - Support via the parameter to filter out results of send file(via Call [DescribeSendFileResults](~~184117~~)).
+     *   The ECS instance specified by the InstanceId parameter must belong to this resource group.
+     *   If you specify this parameter, you can call the [DescribeSendFileResults](~~184117~~) operation to query file sending results in the specified resource group.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -142,12 +146,14 @@ class SendFileRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The destination directory on the instance to which to send the file. If the specified directory does not exist, the system creates the directory on the instance.
+     * @description The destination directory on the instance to which to send the file. If the specified directory does not exist, the system creates the directory on the instance. The value supports all character sets and cannot exceed 255 characters in length.
      *
      * @example /home
      *
@@ -156,10 +162,10 @@ class SendFileRequest extends Model
     public $targetDir;
 
     /**
-     * @description The timeout period for sending the file. Unit: seconds.
+     * @description The timeout period for the file sending task. Unit: seconds.
      *
-     *   A timeout error occurs when a file cannot be sent because the process slows down or because a specific module or the Cloud Assistant client does not exist.
-     *   If the specified timeout period is less than 10 seconds, the system automatically sets the timeout period to 10 seconds to ensure that the file is sent to the instances.
+     *   A timeout error occurs when a file cannot be sent because the process slows down or because a specific module or Cloud Assistant Agent does not exist.
+     *   If the specified timeout period is less than 10 seconds, the system sets the timeout period to 10 seconds to ensure that the file can be sent to the instances.
      *
      * Default value: 60.
      * @example 60

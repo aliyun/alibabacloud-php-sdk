@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSendFileResultsRequest extends Model
 {
     /**
-     * @description The ID of the instance whose records you want to query.
+     * @description The ID of the instance for which you want to query file sending records.
      *
      * @example i-hz0jdfwd9f****
      *
@@ -28,7 +28,7 @@ class DescribeSendFileResultsRequest extends Model
     public $invokeId;
 
     /**
-     * @description The name of the file whose records you want to query.
+     * @description The name of the file whose sending records you want to query.
      *
      * @example test.txt
      *
@@ -47,7 +47,7 @@ class DescribeSendFileResultsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -57,7 +57,7 @@ class DescribeSendFileResultsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -67,7 +67,7 @@ class DescribeSendFileResultsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the ECS instance. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -76,7 +76,7 @@ class DescribeSendFileResultsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. After you set this parameter, you need to specify ResourceGroupId when you send files to query the file sending results in the specified resource group.
+     * @description The ID of the resource group. After you set this parameter, file sending results in the specified resource group are queried.
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -95,6 +95,8 @@ class DescribeSendFileResultsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags list.
+     *
      * @var tag[]
      */
     public $tag;

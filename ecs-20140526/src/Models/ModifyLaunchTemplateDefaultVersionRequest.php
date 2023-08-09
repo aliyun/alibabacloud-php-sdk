@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyLaunchTemplateDefaultVersionRequest extends Model
 {
     /**
-     * @description The default version number of the launch template.
+     * @description The default version number of the instance launch template.
      *
      * @example 2
      *
@@ -18,7 +18,7 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     public $defaultVersionNumber;
 
     /**
-     * @description The ID of the launch template. You must configure LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     * @description The ID of the launch template. You must specify the LaunchTemplateId or LaunchTemplateName parameter to determine an instance launch template.
      *
      * @example lt-s-bp177juajht6****
      *
@@ -27,7 +27,7 @@ class ModifyLaunchTemplateDefaultVersionRequest extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the launch template. You must configure LaunchTemplateId or LaunchTemplateName to specify a launch template.
+     * @description The name of the instance launch template. You must specify the LaunchTemplateId or LaunchTemplateName parameter to determine an instance launch template.
      *
      * @example testLaunchTemplateName
      *

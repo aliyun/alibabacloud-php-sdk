@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassicLinkInstancesResponseBody extends Model
 {
     /**
-     * @description The details about the ClassicLink connections between the instances located in the classic network and the VPCs.
+     * @description The details of the ClassicLink connections between the instances reside in the classic network and VPCs.
      *
      * @var links
      */

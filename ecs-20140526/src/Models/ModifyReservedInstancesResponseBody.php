@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyReservedInstancesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Details about the reserved instance.
      *
      * @example ED9E4A5F-FF4D-4C96-BE80-6B4227060DD7
      *
@@ -19,7 +19,7 @@ class ModifyReservedInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the reserved instance.
+     * @description The ID of the reserved instance.
      *
      * @var reservedInstanceIdSets
      */

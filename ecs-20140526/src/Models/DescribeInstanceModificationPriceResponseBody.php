@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceModificationPriceResponseBody extends Model
 {
     /**
-     * @description $.parameters[4].schema.enumValueTitles
+     * @description Details about the prices and promotion rules.
      *
      * @var priceInfo
      */
     public $priceInfo;
 
     /**
-     * @description $.parameters[4].schema.example
+     * @description The request ID.
      *
      * @example A3DC3196-379B-4F32-A2C5-B937134FAD8A
      *

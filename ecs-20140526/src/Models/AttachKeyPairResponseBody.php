@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AttachKeyPairResponseBody extends Model
 {
     /**
-     * @description The number of instances to which the key pair fails to be bound.
+     * @description The number of instances to which the SSH key pair fails to be bound.
      *
      * @example 0
      *
@@ -19,7 +19,7 @@ class AttachKeyPairResponseBody extends Model
     public $failCount;
 
     /**
-     * @description The names of the key pairs.
+     * @description The name of the SSH key pair.
      *
      * @example testKeyPairName
      *
@@ -28,7 +28,7 @@ class AttachKeyPairResponseBody extends Model
     public $keyPairName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

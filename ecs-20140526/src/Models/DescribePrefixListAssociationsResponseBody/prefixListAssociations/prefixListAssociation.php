@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class prefixListAssociation extends Model
 {
     /**
-     * @description The ID of the resource.
+     * @description The type of the resource.
      *
      * @example sg-bp11ujym6xsff6l0****
      *
@@ -18,8 +18,6 @@ class prefixListAssociation extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
-     *
      * @example securitygroup
      *
      * @var string

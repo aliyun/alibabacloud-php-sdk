@@ -18,7 +18,7 @@ class StopInvocationRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the command task. You can call the [DescribeInvocations](~~64840~~) operation to query the IDs of all command tasks.
+     * @description The ID of instance N on which you want to stop the process of the Cloud Assistant command. You can specify up to 50 instance IDs in each request. Valid values of N: 1 to 50.
      *
      * @example t-7d2a745b412b4601b2d47f6a768d****
      *
@@ -37,7 +37,7 @@ class StopInvocationRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the command task. You can call the [DescribeInvocations](~~64840~~) operation to query the IDs of all command tasks.
      *
      * @example cn-hangzhou
      *

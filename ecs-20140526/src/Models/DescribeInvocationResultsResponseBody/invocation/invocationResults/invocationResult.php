@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class invocationResult extends Model
 {
     /**
-     * @description The time when the command stopped being run on the instance. If you called the `StopInvocation` operation to manually stop the execution, the value is the time when you called the operation.
+     * @description The ID of the request.
      *
      * @example c-hz0jdfwcsr****
      *
@@ -19,7 +19,7 @@ class invocationResult extends Model
     public $commandId;
 
     /**
-     * @description The value of the tag.
+     * @description The container ID.
      *
      * @example ab141ddfbacfe02d9dbc25966ed971536124527097398d419a6746873fea****
      *
@@ -28,11 +28,40 @@ class invocationResult extends Model
     public $containerId;
 
     /**
+     * @description The name of the container.
+     *
      * @example test-container
      *
      * @var string
      */
     public $containerName;
+
+    /**
+     * @description The key of the tag.
+     *
+     * @example 0
+     *
+     * @var int
+     */
+    public $dropped;
+
+    /**
+     * @description The tags of the command execution.
+     *
+     * @example InstanceNotExists
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
+     * @description The name of the container.
+     *
+     * @example the specified instance does not exists
+     *
+     * @var string
+     */
+    public $errorInfo;
 
     /**
      * @description The error message returned when the command is not successfully sent or run. Valid values:
@@ -59,37 +88,10 @@ class invocationResult extends Model
      *
      * @var int
      */
-    public $dropped;
-
-    /**
-     * @description The name of the user who ran the command on the instance.
-     *
-     * @example InstanceNotExists
-     *
-     * @var string
-     */
-    public $errorCode;
-
-    /**
-     * @description The execution state of the command.
-     *
-     * @example the specified instance does not exists
-     *
-     * @var string
-     */
-    public $errorInfo;
-
-    /**
-     * @description The end time of the execution. If an execution times out, the end time of the execution is subject to the value of the TimedOut parameter specified in the [CreateCommand](~~64844~~) operation.
-     *
-     * @example 0
-     *
-     * @var int
-     */
     public $exitCode;
 
     /**
-     * @description The ID of the container.
+     * @description The ID of the command execution. You can call the [DescribeInvocations](~~64840~~) operation to query the execution IDs.
      *
      * @example 2019-12-20T06:15:56Z
      *
@@ -98,11 +100,9 @@ class invocationResult extends Model
     public $finishedTime;
 
     /**
-     * @description The exit code of the command execution.
+     * @description The key of tag N of the command execution. Valid values of N: 1 to 20. The tag key cannot be an empty string.
      *
-     *   For Linux instances, the value is the exit code of the shell command.
-     *   For Windows instances, the value is the exit code of the batch or PowerShell command.
-     *
+     * The tag key can be up to 64 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
      * @example i-bp1i7gg30r52z2em****
      *
      * @var string
@@ -110,7 +110,10 @@ class invocationResult extends Model
     public $instanceId;
 
     /**
-     * @description The command output.
+     * @description The exit code of the command execution.
+     *
+     *   For Linux instances, the value is the exit code of the shell command.
+     *   For Windows instances, the value is the exit code of the batch or PowerShell command.
      *
      * @example Success
      *
@@ -119,7 +122,7 @@ class invocationResult extends Model
     public $invocationStatus;
 
     /**
-     * @description The name of the container.
+     * @description The ID of the instance.
      *
      * @example t-hz0jdfwd9f****
      *
@@ -128,7 +131,7 @@ class invocationResult extends Model
     public $invokeId;
 
     /**
-     * @description The tags of the command execution.
+     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example Running
      *
@@ -137,7 +140,40 @@ class invocationResult extends Model
     public $invokeRecordStatus;
 
     /**
-     * @description The time when the command started to be run on the instance.
+     * @description The execution state on a single instance. Valid values:
+     *
+     *   Pending: The command is being verified or sent.
+     *
+     *   Invalid: The specified command type or parameter is invalid.
+     *
+     *   Aborted: The command failed to be sent. To send a command to an instance, make sure that the instance is in the Running state and the command is sent to the instance within 1 minute.
+     *
+     *   Running: The command is being run on the instance.
+     *
+     *   Success:
+     *
+     *   Command that is set to run only once: The execution is complete, and the exit code is 0.
+     *   Command that is set to run on a schedule: The last execution succeeds, the exit code is 0, and the specified cycle ends.
+     *
+     *   Failed:
+     *
+     *   Command that is set to run only once: The execution is complete, but the exit code is not 0.
+     *   Command that is set to run on a schedule: The last execution is complete, the exit code is not 0, and the specified cycle is about to end.
+     *
+     *   Error: The execution cannot proceed due to an exception.
+     *
+     *   Timeout: The execution times out.
+     *
+     *   Cancelled: The execution is canceled, and the command is not run.
+     *
+     *   Stopping: The running command is being stopped.
+     *
+     *   Terminated: The command is terminated while it is being run.
+     *
+     *   Scheduled:
+     *
+     *   Command that is set to run only once: The command is not applicable.
+     *   Command that is set to run on a schedule: The command is waiting to be run.
      *
      * @example MTU6MzA6MDEK
      *
@@ -146,7 +182,7 @@ class invocationResult extends Model
     public $output;
 
     /**
-     * @description The size of the text that is truncated and discarded when the `Output` value exceeds 24 KB in size.
+     * @description The value of the tag.
      *
      * @example 0
      *
@@ -155,7 +191,7 @@ class invocationResult extends Model
     public $repeats;
 
     /**
-     * @description The ID of the command execution.
+     * @description The total number of the commands.
      *
      * @example 2019-12-20T06:15:55Z
      *
@@ -164,26 +200,12 @@ class invocationResult extends Model
     public $startTime;
 
     /**
-     * @description The error code returned when the command cannot be sent or run. Valid values:
+     * @description The encoding method of the `Output` response parameter. Valid values:
      *
-     *   If this parameter is empty, the command is run normally.
-     *   InstanceNotExists: The specified instance does not exist is released.
-     *   InstanceReleased: The instance was released while the command was being run on the instance.
-     *   InstanceNotRunning: The instance is not in the Running state while the command is being run.
-     *   CommandNotApplicable: The command is not applicable to the specified instance.
-     *   AccountNotExists: The specified account does not exist.
-     *   DirectoryNotExists: The specified directory does not exist.
-     *   BadCronExpression: The cron expression used to specify the execution time is invalid.
-     *   ClientNotRunning: The Cloud Assistant client is not running.
-     *   ClientNotResponse: The Cloud Assistant client is not responding.
-     *   ClientIsUpgrading: The Cloud Assistant client is being upgraded.
-     *   ClientNeedUpgrade: The Cloud Assistant client needs to be upgraded.
-     *   DeliveryTimeout: The request to send the command timed out.
-     *   ExecutionTimeout: The command execution timed out.
-     *   ExecutionException: An exception occurred while the command was being run.
-     *   ExecutionInterrupted: The execution was interrupted.
-     *   ExitCodeNonzero: The command execution is complete, but the exit code is not 0.
+     *   PlainText: returns the original command content and command output.
+     *   Base64: returns the Base64-encoded command content and command output.
      *
+     * Default value: Base64.
      * @example 2020-01-19T09:15:47Z
      *
      * @var string
@@ -191,14 +213,16 @@ class invocationResult extends Model
     public $stopTime;
 
     /**
+     * @description The tags of the command task.
+     *
      * @var tags
      */
     public $tags;
 
     /**
-     * @description The information about the tag.
+     * @description Queries the execution results of one or more Cloud Assistant commands on an Elastic Compute Service (ECS) instance.
      *
-     * @example The key of the tag.
+     * @example test
      *
      * @var string
      */

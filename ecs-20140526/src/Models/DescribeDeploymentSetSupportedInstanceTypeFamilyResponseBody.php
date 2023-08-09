@@ -18,9 +18,9 @@ class DescribeDeploymentSetSupportedInstanceTypeFamilyResponseBody extends Model
     public $instanceTypeFamilies;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example 473469C7-AA6F-4DC5-B7DB-A3DC7DE1C52E
+     * @example 473469C7-AA6F-4DC5-B7DB-A3DC7DE1****
      *
      * @var string
      */

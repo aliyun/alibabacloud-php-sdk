@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class activationList extends Model
 {
     /**
-     * @description Information about the tags of the activation code.
+     * @description The ID of the activation code.
      *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
@@ -19,7 +19,7 @@ class activationList extends Model
     public $activationId;
 
     /**
-     * @description The maximum number of times that the activation code can be used to register managed instances.
+     * @description The time when the activation code was created.
      *
      * @example 2021-01-20T06:00:00Z
      *
@@ -28,7 +28,7 @@ class activationList extends Model
     public $creationTime;
 
     /**
-     * @description The description of the activation code.
+     * @description The number of instances that were deregistered.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class activationList extends Model
     public $deregisteredCount;
 
     /**
-     * @description The default instance name prefix.
+     * @description The description of the activation code.
      *
      * @example This is description.
      *
@@ -46,7 +46,7 @@ class activationList extends Model
     public $description;
 
     /**
-     * @description The validity period of the activation code. Unit: hours.
+     * @description Indicates whether the activation code is disabled.
      *
      * @example false
      *
@@ -55,7 +55,7 @@ class activationList extends Model
     public $disabled;
 
     /**
-     * @description The number of registered instances.
+     * @description The maximum number of times that the activation code can be used to register managed instances.
      *
      * @example 1
      *
@@ -64,7 +64,7 @@ class activationList extends Model
     public $instanceCount;
 
     /**
-     * @description The IP addresses of the hosts that can use the activation code.
+     * @description The default instance name prefix.
      *
      * @example test-InstanceName
      *
@@ -73,7 +73,7 @@ class activationList extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the activation code.
+     * @description The IP addresses of hosts that are allowed to use the activation code.
      *
      * @example 0.0.0.0/0
      *
@@ -82,7 +82,7 @@ class activationList extends Model
     public $ipAddressRange;
 
     /**
-     * @description Indicates whether the activation code is disabled.
+     * @description The number of instances that were registered.
      *
      * @example 1
      *
@@ -91,14 +91,14 @@ class activationList extends Model
     public $registeredCount;
 
     /**
-     * @description The key of tag N of the activation code.
+     * @description The tags of the activation code.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description An array that consists of the tags of the activation code.
+     * @description The validity period of the activation code. Unit: hours.
      *
      * @example 4
      *

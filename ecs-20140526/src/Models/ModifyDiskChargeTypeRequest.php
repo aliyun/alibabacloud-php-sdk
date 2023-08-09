@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskChargeTypeRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Valid values:
+     * @description Specifies whether to automatically complete the payment. Valid values:
      *
      *   true (default): The payment is automatically completed. Make sure that the balance in your account is sufficient. Otherwise, your order becomes invalid and is canceled.
      *   false: An order is generated but no payment is made. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ECS console to pay for the order.
@@ -21,7 +21,7 @@ class ModifyDiskChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The **token** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [Ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -32,8 +32,8 @@ class ModifyDiskChargeTypeRequest extends Model
     /**
      * @description The new billing method of the disk. Valid values:
      *
-     *   PrePaid (default): subscription.
-     *   PostPaid: pay-as-you-go.
+     *   PrePaid (default): changes the billing method from pay-as-you-go to subscription.
+     *   PostPaid: changes the billing method from subscription to pay-as-you-go.
      *
      * @example PostPaid
      *
@@ -42,7 +42,7 @@ class ModifyDiskChargeTypeRequest extends Model
     public $diskChargeType;
 
     /**
-     * @description The IDs of disks. The value is a JSON array that consists of up to 16 disk IDs. Separate the disk IDs with commas (,).
+     * @description The disk IDs. Set this parameter to a JSON array that consists of up to 16 disk IDs. Separate the disk IDs with commas (,).
      *
      * @example [“d-bp67acfmxazb4ph****”, “d-bp67acfmxazb4pi****”, … “d-bp67acfmxazb4pj****”]
      *
@@ -51,7 +51,7 @@ class ModifyDiskChargeTypeRequest extends Model
     public $diskIds;
 
     /**
-     * @description The ID of the instance to which the disk is attached.
+     * @description The ID of the instance to which disks are attached.
      *
      * @example i-bp1i778bq705cvx1****
      *

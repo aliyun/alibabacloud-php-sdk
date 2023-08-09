@@ -10,16 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeBandwidthLimitationResponseBody extends Model
 {
     /**
-     * @description Details about the maximum public bandwidth.
+     * @description The maximum public bandwidth.
      *
      * @var bandwidths
      */
     public $bandwidths;
 
     /**
-     * @description The ID of the request.
+     * @description Details about the maximum public bandwidth.
      *
-     * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
+     * @example The billing method for network usage. Valid values:
+     *
+     *   PayByBandwidth
+     *   PayByTraffic
      *
      * @var string
      */

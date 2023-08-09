@@ -12,7 +12,7 @@ class privatePoolOptions extends Model
      * @description The type of the private pool with which the elasticity assurance is associated. Valid values:
      *
      *   Open: open private pool
-     *   Target: targeted private pool
+     *   Target: specified private pool
      *
      * Default value: Open.
      * @example Open
@@ -22,7 +22,7 @@ class privatePoolOptions extends Model
     public $matchCriteria;
 
     /**
-     * @description The name of the elasticity assurance. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The name of the elasticity assurance. The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
      * @example eapTestName
      *

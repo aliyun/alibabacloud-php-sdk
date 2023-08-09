@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosticMetricSetsResponseBody extends Model
 {
     /**
+     * @description A collection of diagnostic metrics.
+     *
      * @var metricSets[]
      */
     public $metricSets;

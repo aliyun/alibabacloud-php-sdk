@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudAssistantStatusResponseBody extends Model
 {
     /**
-     * @description The information about Cloud Assistant on the instances.
+     * @description The installation states of Cloud Assistant Agent on the instances.
      *
      * @var instanceCloudAssistantStatusSet
      */
     public $instanceCloudAssistantStatusSet;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeCloudAssistantStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of instances.
+     * @description The total number of queried instances.
      *
      * @example 1
      *

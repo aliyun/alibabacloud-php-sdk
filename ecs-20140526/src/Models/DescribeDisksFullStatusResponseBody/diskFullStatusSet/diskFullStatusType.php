@@ -29,7 +29,7 @@ class diskFullStatusType extends Model
     public $diskEventSet;
 
     /**
-     * @description The ID of EBS device N.
+     * @description The EBS device ID.
      *
      * @example d-bp67acfmxazb4p****
      *
@@ -45,7 +45,7 @@ class diskFullStatusType extends Model
     public $healthStatus;
 
     /**
-     * @description The ID of the instance that you query.
+     * @description The instance ID.
      *
      * @example i-bp67acfmxazb4p****
      *

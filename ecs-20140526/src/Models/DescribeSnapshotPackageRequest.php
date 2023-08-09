@@ -19,9 +19,8 @@ class DescribeSnapshotPackageRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Pages start from page 1.
+     * @description The region ID of the snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
-     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -29,9 +28,8 @@ class DescribeSnapshotPackageRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries returned per page.
      *
-     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -39,7 +37,7 @@ class DescribeSnapshotPackageRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the snapshot. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the request.
      *
      * @example cn-hangzhou
      *

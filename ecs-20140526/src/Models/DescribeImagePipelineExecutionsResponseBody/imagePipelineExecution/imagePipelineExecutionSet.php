@@ -46,7 +46,7 @@ class imagePipelineExecutionSet extends Model
     public $imagePipelineId;
 
     /**
-     * @description The data that is returned.
+     * @description The data returned.
      *
      * @example Create transition vpc "vpc-2ze70rc7093j9idu6****" success!
      *
@@ -81,7 +81,7 @@ class imagePipelineExecutionSet extends Model
      *   SUCCESS
      *   FAILED
      *   CANCELLING
-     *   CANCELED
+     *   CANCELLED
      *
      * @example BUILDING
      *
@@ -90,7 +90,7 @@ class imagePipelineExecutionSet extends Model
     public $status;
 
     /**
-     * @description > This parameter is unavailable.
+     * @description > This parameter is not publicly available.
      *
      * @var tags
      */

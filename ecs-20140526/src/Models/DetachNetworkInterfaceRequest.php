@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DetachNetworkInterfaceRequest extends Model
 {
     /**
-     * @description The ID of the instance
+     * @description The ID of the trunk ENI.
      *
+     * >  This parameter is unavailable for use.
      * @example i-bp67acfmxazb4p****
      *
      * @var string
@@ -18,7 +19,7 @@ class DetachNetworkInterfaceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the ENI.
+     * @description The ID of the instance
      *
      * @example eni-bp67acfmxazb4p****
      *
@@ -37,7 +38,7 @@ class DetachNetworkInterfaceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the ENI.
      *
      * @example cn-hangzhou
      *
@@ -56,9 +57,8 @@ class DetachNetworkInterfaceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the trunk ENI.
+     * @description The ID of the request.
      *
-     * >  This parameter is unavailable for use.
      * @example eni-f8zapqwj1v1j4ia3****
      *
      * @var string

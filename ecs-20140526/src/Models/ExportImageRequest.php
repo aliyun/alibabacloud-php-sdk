@@ -43,7 +43,7 @@ class ExportImageRequest extends Model
     public $OSSBucket;
 
     /**
-     * @description The prefix for the name of the OSS object in which you want to store the exported custom image. The prefix must be 1 to 30 characters in length and can contain digits and letters.
+     * @description The prefix for the name of the OSS object. The prefix must be 1 to 30 characters in length and can contain digits and letters.
      *
      * @example EcsExport
      *

@@ -24,14 +24,14 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $description;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > 该参数正在邀测中，暂未开放使用。
      *
      * @var ipv4PrefixSets
      */
     public $ipv4PrefixSets;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > 该参数正在邀测中，暂未开放使用。
      *
      * @var ipv6PrefixSets
      */
@@ -54,7 +54,7 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $macAddress;
 
     /**
-     * @description The ENI ID.
+     * @description The ID of the ENI.
      *
      * @example eni-bp14v2sdd3v8htln****
      *
@@ -90,7 +90,7 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $privateIpAddress;
 
     /**
-     * @description Details about the private IP addresses.
+     * @description The private IP addresses.
      *
      * @var privateIpSets
      */
@@ -165,7 +165,7 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $type;
 
     /**
-     * @description The ID of the vSwitch with which the ENI is associated.
+     * @description The ID of the vSwitch to which the ENI is connected.
      *
      * @example vsw-bp16usj2p27htro3****
      *
@@ -183,7 +183,7 @@ class CreateNetworkInterfaceResponseBody extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone in which the ENI resides.
+     * @description The zone ID of the ENI.
      *
      * @example cn-hangzhou-e
      *

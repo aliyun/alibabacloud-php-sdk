@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ipv4PrefixSet extends Model
 {
     /**
-     * @description > This parameter is in invitational preview and is unavailable.
+     * @description > 该参数正在邀测中，暂未开放使用。
      *
      * @example hide
      *

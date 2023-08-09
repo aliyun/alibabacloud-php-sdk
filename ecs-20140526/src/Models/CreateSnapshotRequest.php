@@ -10,12 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotRequest extends Model
 {
     /**
-     * @description The snapshot type. Valid values:
+     * @description The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
-     *   Standard: normal snapshot
-     *   Flash: local snapshot
-     *
-     * > This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility. This parameter and the `InstantAccess` parameter cannot be specified at the same time. For more information, see the "Description" section of this topic.
+     * By default, this parameter is left empty.
      * @example Standard
      *
      * @var string
@@ -23,8 +20,9 @@ class CreateSnapshotRequest extends Model
     public $category;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique across requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.
      *
+     * This parameter is empty by default, which indicates that the snapshot is not automatically released.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -32,9 +30,8 @@ class CreateSnapshotRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the snapshot. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     * @description The cloud disk ID.
      *
-     * By default, this parameter is left empty.
      * @example testDescription
      *
      * @var string
@@ -42,7 +39,7 @@ class CreateSnapshotRequest extends Model
     public $description;
 
     /**
-     * @description The cloud disk ID.
+     * @description Creates a snapshot for a disk.
      *
      * @example d-bp1s5fnvk4gn2tws0****
      *
@@ -51,17 +48,8 @@ class CreateSnapshotRequest extends Model
     public $diskId;
 
     /**
-     * @description Specifies whether to enable the instant access feature. Valid values:
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but make sure that the token is unique across requests. **The token can contain only ASCII characters and cannot exceed 64 characters in length.** For more information, see [How to ensure idempotence](~~25693~~).
      *
-     *   true: enables the instant access feature. This feature can be enabled only for enhanced SSDs (ESSDs).
-     *
-     **
-     *
-     **Note**After the instant access feature is enabled, an instant access (IA) snapshot is created and can be used to roll back disks or create disks across zones even when the snapshot is being created. This feature ensures that a new ESSD snapshot is available for use as soon as possible regardless of its size.
-     *
-     *   false: does not enable the instant access feature. If InstantAccess is set to false, a normal snapshot is created.
-     *
-     * > This parameter and the `Category` parameter cannot be specified at the same time. For more information, see the "Description" section of this topic.
      * @example false
      *
      * @var bool
@@ -69,9 +57,8 @@ class CreateSnapshotRequest extends Model
     public $instantAccess;
 
     /**
-     * @description The validity period of the instant access feature. When the validity period ends, the feature is disabled and the IA snapshot is automatically released. This parameter takes effect only when `InstantAccess` is set to true. Unit: days. Valid values: 1 to 65535.
+     * @description The ID of the resource group to which to assign the snapshot.
      *
-     * By default, the value of this parameter is the same as that of `RetentionDays`.
      * @example 1
      *
      * @var int
@@ -89,8 +76,12 @@ class CreateSnapshotRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which to assign the snapshot.
+     * @description The snapshot type. Valid values:
      *
+     *   Standard: normal snapshot
+     *   Flash: local snapshot
+     *
+     * > This parameter will be removed in the future. We recommend that you use the `InstantAccess` parameter to ensure future compatibility. This parameter and the `InstantAccess` parameter cannot be specified at the same time. For more information, see the "Description" section of this topic.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -108,9 +99,9 @@ class CreateSnapshotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The retention period of the snapshot. Valid values: 1 to 65536. Unit: days. The snapshot is automatically released when its retention period expires.
+     * @description The snapshot name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
      *
-     * This parameter is empty by default, which indicates that the snapshot is not automatically released.
+     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
      * @example 30
      *
      * @var int
@@ -118,9 +109,29 @@ class CreateSnapshotRequest extends Model
     public $retentionDays;
 
     /**
-     * @description The snapshot name. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     * @description The local snapshot feature is replaced by the instant access feature. Parameter description:
      *
-     * The name cannot start with `auto` because snapshots whose names start with auto are recognized as automatic snapshots.
+     *   If you used the local snapshot feature before December 14, 2020, you can use the `Category` or `InstantAccess` parameter as expected and must take note of the following items:
+     *
+     *   The `Category` and `InstantAccess` parameters cannot be specified at the same time.
+     *   If neither the `Category` nor `InstantAccess` parameters is specified, normal snapshots are created.
+     *
+     *   If you did not use the local snapshot feature before December 14, 2020, you can use the `InstantAccess` parameter but cannot use the `Category` parameter.
+     *
+     * You cannot create snapshots for a disk in the following scenarios:
+     *
+     *   The number of manual snapshots of the disk has reached 256.
+     *   A snapshot is being created for the disk.
+     *   The instance to which the disk is attached has never been started.
+     *   The ECS instance to which the disk is attached is not in the **Stopped** or **Running** state.````
+     *   If the response contains `{"OperationLocks": {"LockReason" : "security"}}`, the instance is locked for security reasons. No operations are allowed on the instance.
+     *
+     * When you create a snapshot, take note of the following items:
+     *
+     *   If a snapshot is being created, you cannot use this snapshot to create a custom image by calling the [CreateImage](~~25535~~) operation.
+     *   When a snapshot is being created for a disk that is attached to an instance, do not change the instance state.
+     *   You can create snapshots for a disk that is in the **Expired** state.`` If the release time scheduled for a disk arrives while a snapshot is being created for the disk, the snapshot is in the **Creating** state and is deleted when the disk is released.``
+     *
      * @example testSnapshotName
      *
      * @var string
@@ -128,7 +139,7 @@ class CreateSnapshotRequest extends Model
     public $snapshotName;
 
     /**
-     * @description > This parameter is unavailable for public use.
+     * @description The value of tag N that you want to add to the snapshot. Valid values of N: 1 to 20. The tag value can be an empty string. It can be up to 128 characters in length and cannot start with acs: or contain [http:// or https://.](http://https://。)
      *
      * @example null
      *
@@ -137,8 +148,17 @@ class CreateSnapshotRequest extends Model
     public $storageLocationArn;
 
     /**
-     * @description The list of tags.
+     * @description Specifies whether to enable the instant access feature. Valid values:
      *
+     *   true: enables the instant access feature. This feature can be enabled only for enhanced SSDs (ESSDs).
+     *
+     **
+     *
+     **Note**After the instant access feature is enabled, an instant access (IA) snapshot is created and can be used to roll back disks or create disks across zones even when the snapshot is being created. This feature ensures that a new ESSD snapshot is available for use as soon as possible regardless of its size.
+     *
+     *   false: does not enable the instant access feature. If InstantAccess is set to false, a normal snapshot is created.
+     *
+     * > This parameter and the `Category` parameter cannot be specified at the same time. For more information, see the "Description" section of this topic.
      * @var tag[]
      */
     public $tag;

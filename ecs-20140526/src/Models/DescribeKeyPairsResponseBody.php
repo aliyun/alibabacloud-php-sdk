@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeKeyPairsResponseBody extends Model
 {
     /**
-     * @description Details about the key pairs.
+     * @description The page number of the returned page.
      *
      * @var keyPairs
      */
     public $keyPairs;
 
     /**
-     * @description The page number of the returned page.
+     * @description The ID of the resource group.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeKeyPairsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The tags of the key pair.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeKeyPairsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The tag value of the key pair.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *
@@ -44,8 +44,9 @@ class DescribeKeyPairsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of key pairs.
+     * @description The number of the page to return. Pages start from page 1.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int

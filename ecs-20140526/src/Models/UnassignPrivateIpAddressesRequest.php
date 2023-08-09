@@ -16,7 +16,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $ipv4Prefix;
 
     /**
-     * @description The ID of the ENI.
+     * @description The secondary private IP addresses to unassign.
      *
      * @example eni-bp67acfmxazb4ph****
      *
@@ -35,7 +35,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The secondary private IP addresses to unassign.
+     * @description Secondary private IP address N to unassign Valid values of N: 1 to 10.
      *
      * @example 192.168.**.**
      *
@@ -44,7 +44,7 @@ class UnassignPrivateIpAddressesRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The ID of the ENI.
      *
      * @example cn-hangzhou
      *

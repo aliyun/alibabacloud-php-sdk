@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostAutoRenewRequest extends Model
 {
     /**
-     * @description The IDs of the dedicated hosts. You can specify up to 100 subscription dedicated host IDs. Separate multiple IDs with commas (,).
+     * @description The region ID of the dedicated host.
      *
      * @example dh-bp165p6xk2tlw61e****,dh-bp1f9vxmno****
      *
@@ -28,7 +28,7 @@ class DescribeDedicatedHostAutoRenewRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated host.
+     * @description The ID of the request.
      *
      * @example cn-hangzhou
      *

@@ -18,6 +18,10 @@ class account extends Model
     public $aliyunId;
 
     /**
+     * @description The time when the image was shared. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+     *
+     * @example 2023-01-01T12:05:00Z
+     *
      * @var string
      */
     public $sharedTime;

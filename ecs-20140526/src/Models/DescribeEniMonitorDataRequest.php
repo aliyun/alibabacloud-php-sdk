@@ -18,7 +18,7 @@ class DescribeEniMonitorDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the secondary ENI. By default, all secondary ENIs that are bound to the specified instance are queried.
+     * @description The secondary ENI ID. By default, all secondary ENIs that are bound to the specified instance are queried.
      *
      * @example eni-bp19da36d6xdwey****
      *
@@ -46,7 +46,7 @@ class DescribeEniMonitorDataRequest extends Model
     public $ownerId;
 
     /**
-     * @description The interval at which to retrieve monitored data. Unit: seconds. Valid values:
+     * @description The interval at which to retrieve monitoring data. Unit: seconds. Valid values:
      *
      *   60
      *   600
@@ -60,7 +60,7 @@ class DescribeEniMonitorDataRequest extends Model
     public $period;
 
     /**
-     * @description The region ID of the secondary ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

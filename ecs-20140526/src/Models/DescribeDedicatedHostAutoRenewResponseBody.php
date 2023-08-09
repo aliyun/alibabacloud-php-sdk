@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostAutoRenewResponseBody extends Model
 {
     /**
-     * @description Details about the auto-renewal attributes of the dedicated hosts.
+     * @description The unit of the auto-renewal period. Valid values:
+     *
+     *   Week
+     *   Month
      *
      * @var dedicatedHostRenewAttributes
      */
     public $dedicatedHostRenewAttributes;
 
     /**
-     * @description The ID of the request.
+     * @description Details about the auto-renewal attributes of the dedicated hosts.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

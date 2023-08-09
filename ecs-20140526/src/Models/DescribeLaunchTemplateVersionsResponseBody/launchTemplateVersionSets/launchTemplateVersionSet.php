@@ -28,7 +28,7 @@ class launchTemplateVersionSet extends Model
     public $createdBy;
 
     /**
-     * @description Indicates whether the launch template is of the default version.
+     * @description Indicates whether the launch template version is the default version.
      *
      * @example true
      *
@@ -80,7 +80,7 @@ class launchTemplateVersionSet extends Model
     public $versionDescription;
 
     /**
-     * @description The version number of the launch template.
+     * @description The number of the launch template version.
      *
      * @example 1
      *

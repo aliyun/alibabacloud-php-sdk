@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the instance
      *
      * @example TestKey
      *
@@ -18,7 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The page number of the returned page.
+     * @description The execution state of the command.
      *
      * @example TestValue
      *

@@ -20,8 +20,8 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     /**
      * @description Specifies whether to query the configurations of the launch template. Valid values:
      *
-     *   true: queries the basic information and other details of the launch template. The details include the image ID and the size of the system disk.
-     *   false: queries only the basic information of the launch template. The basic information includes the template ID, the template name, and the default version.
+     *   true: queries the basic information and other details of the launch template. The details include the image ID and system disk size.
+     *   false: queries only the basic information of the launch template. The basic information includes the template ID, template name, and default version.
      *
      * Default value: true.
      * @example true
@@ -33,7 +33,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     /**
      * @description The ID of the launch template.
      *
-     * You must specify LaunchTemplateId or LaunchTemplateName to determine a launch template.
+     * You must set LaunchTemplateId or LaunchTemplateName to specify a launch template.
      * @example lt-bp168lnahrdwl39p****
      *
      * @var string
@@ -50,7 +50,7 @@ class DescribeLaunchTemplateVersionsRequest extends Model
     public $launchTemplateName;
 
     /**
-     * @description The one or more versions of the launch template.
+     * @description Version N of the launch template.
      *
      * @example 1
      *

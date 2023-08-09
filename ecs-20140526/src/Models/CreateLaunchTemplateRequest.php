@@ -39,6 +39,11 @@ class CreateLaunchTemplateRequest extends Model
     public $dataDisk;
 
     /**
+     * @var bool
+     */
+    public $deletionProtection;
+
+    /**
      * @description The ID of the deployment set to which to deploy the instance.
      *
      * @example ds-bp1brhwhoqinyjd6****
@@ -441,6 +446,7 @@ class CreateLaunchTemplateRequest extends Model
         'systemDisk'                  => 'SystemDisk',
         'autoReleaseTime'             => 'AutoReleaseTime',
         'dataDisk'                    => 'DataDisk',
+        'deletionProtection'          => 'DeletionProtection',
         'deploymentSetId'             => 'DeploymentSetId',
         'description'                 => 'Description',
         'enableVmOsConfig'            => 'EnableVmOsConfig',
@@ -506,6 +512,9 @@ class CreateLaunchTemplateRequest extends Model
                     $res['DataDisk'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->deploymentSetId) {
             $res['DeploymentSetId'] = $this->deploymentSetId;
@@ -677,6 +686,9 @@ class CreateLaunchTemplateRequest extends Model
                     $model->dataDisk[$n++] = null !== $item ? dataDisk::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['DeploymentSetId'])) {
             $model->deploymentSetId = $map['DeploymentSetId'];

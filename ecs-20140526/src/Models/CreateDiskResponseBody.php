@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskResponseBody extends Model
 {
     /**
-     * @description The cloud disk ID.
+     * @description The disk ID.
      *
      * @example d-bp131n0q38u3a4zi****
      *

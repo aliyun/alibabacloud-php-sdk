@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class availableZone extends Model
 {
     /**
-     * @description Details about the resources available in the zone.
+     * @description The resources that are available in the zone.
      *
      * @var availableResources
      */
     public $availableResources;
 
     /**
-     * @description The region ID of the zone.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -26,7 +26,7 @@ class availableZone extends Model
     public $regionId;
 
     /**
-     * @description The state of the resource. Valid values:
+     * @description The status of the resource. Valid values:
      *
      *   Available
      *   SoldOut

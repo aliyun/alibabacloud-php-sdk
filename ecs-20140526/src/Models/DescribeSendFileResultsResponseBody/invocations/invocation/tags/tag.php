@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key of the file sending task.
+     *
+     * @example owner
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the file sending task.
+     *
+     * @example zhangsan
+     *
      * @var string
      */
     public $tagValue;

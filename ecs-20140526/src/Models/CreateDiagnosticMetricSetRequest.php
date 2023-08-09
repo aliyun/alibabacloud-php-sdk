@@ -9,33 +9,34 @@ use AlibabaCloud\Tea\Model;
 class CreateDiagnosticMetricSetRequest extends Model
 {
     /**
-     * @description The description of the diagnostic metric set.
+     * @description testDescription
      *
-     * @example testDescription
+     * @example The ID of the request.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The IDs of diagnostic metrics. You can specify up to 100 diagnostic metric IDs.
+     * @description The ID of diagnostic metric.
      *
      * @var string[]
      */
     public $metricIds;
 
     /**
-     * @description The name of the diagnostic metric set.
+     * @description my_dms
      *
-     * @example my_dms
+     * @example The IDs of diagnostic metrics. You can specify up to 100 diagnostic metric IDs.
      *
      * @var string
      */
     public $metricSetName;
 
     /**
-     * @description The ID of the region in which to create the diagnostic metric set. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The type of the resource.
      *
+     * Default value: instance.
      * @example cn-hangzhou
      *
      * @var string
@@ -43,9 +44,8 @@ class CreateDiagnosticMetricSetRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the resource.
+     * @description The name of the diagnostic metric set.
      *
-     * Default value: instance.
      * @example instance
      *
      * @var string

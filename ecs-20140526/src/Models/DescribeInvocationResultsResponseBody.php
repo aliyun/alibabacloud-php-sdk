@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationResultsResponseBody extends Model
 {
     /**
-     * @description The execution results.
+     * @description The time when the command stopped being run on the instance. If you called the `StopInvocation` operation to manually stop the execution, the value is the time when you called the operation.
      *
      * @var invocation
      */
     public $invocation;
 
     /**
-     * @description The total number of the commands.
+     * @description The size of the text that is truncated and discarded when the `Output` value exceeds 24 KB in size.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE*****
      *

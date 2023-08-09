@@ -27,7 +27,7 @@ class eniMonitorData extends Model
     public $dropPacketTx;
 
     /**
-     * @description The ID of the secondary ENI.
+     * @description The secondary ENI ID.
      *
      * @example eni-bp19da36d6xdwey****
      *
@@ -36,7 +36,7 @@ class eniMonitorData extends Model
     public $eniId;
 
     /**
-     * @description The average rate of data traffic received by the secondary ENI over the internal network. Unit: Kbit/s.
+     * @description The average rate of data received by the secondary ENI over the internal network. Unit: Kbit/s.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class eniMonitorData extends Model
     public $intranetRx;
 
     /**
-     * @description The average rate of data traffic sent by the secondary ENI over the internal network. Unit: Kbit/s.
+     * @description The average rate of data sent by the secondary ENI over the internal network. Unit: Kbit/s.
      *
      * @example 0
      *
@@ -72,7 +72,7 @@ class eniMonitorData extends Model
     public $packetTx;
 
     /**
-     * @description The timestamp of the monitored data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The timestamp to query the monitoring data. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2018-05-21T03:22:00Z
      *

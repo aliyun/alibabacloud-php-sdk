@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class metricResult extends Model
 {
     /**
-     * @description An array that consists of the details about the diagnosed issues.
+     * @description The diagnosed issues.
      *
      * @var issues
      */
@@ -53,9 +53,9 @@ class metricResult extends Model
     /**
      * @description The state of the diagnostic metric. Valid values:
      *
-     *   InProgress: The diagnostic is in progress.
-     *   Finished: The diagnostic is complete.
-     *   Failed: The diagnostic failed.
+     *   InProgress.
+     *   Finished.
+     *   Failed.
      *
      * @example Finished
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class parameterDefinition extends Model
 {
     /**
-     * @description The name of the custom parameter.
+     * @description The default value of the custom parameter.
      *
      * @example https://aliyun-client-assist.oss-accelerate.aliyuncs.com/linux/aliyun_assist_latest.rpm
      *
@@ -19,16 +19,16 @@ class parameterDefinition extends Model
     public $defaultValue;
 
     /**
-     * @description Download path of the Cloud Assistant client installation package
+     * @description The description of the custom parameter.
      *
-     * @example The default value of the custom parameter.
+     * @example Download path of Cloud Assistant Agent installation package
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The valid values of the custom enumeration parameter.
+     * @description The name of the custom parameter.
      *
      * @example DownloadUrl
      *
@@ -44,8 +44,12 @@ class parameterDefinition extends Model
     public $possibleValues;
 
     /**
-     * @description The description of the custom parameter.
+     * @description Indicates whether the custom parameter is required. Valid values:
      *
+     *   true
+     *   false
+     *
+     * Default value: false.
      * @example true
      *
      * @var bool

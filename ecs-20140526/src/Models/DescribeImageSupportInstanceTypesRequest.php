@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageSupportInstanceTypesRequest extends Model
 {
     /**
+     * @description The scenario in which you want to use the image. Valid values:
+     *
+     * - ChangeOS: replacement of the system disk or operating system
      * @example CreateEcs
      *
      * @var string
@@ -17,14 +20,14 @@ class DescribeImageSupportInstanceTypesRequest extends Model
     public $actionType;
 
     /**
-     * @description The filters used to filter instance types.
+     * @description The number of vCPUs of the instance type.
      *
      * @var filter[]
      */
     public $filter;
 
     /**
-     * @description The ID of the image.
+     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example m-o6w3gy99qf89rkga****
      *
@@ -38,7 +41,7 @@ class DescribeImageSupportInstanceTypesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the image. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description Details about the instance types that are supported by the image.
      *
      * @example cn-hangzhou
      *

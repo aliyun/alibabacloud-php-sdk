@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class activation extends Model
 {
     /**
-     * @description The ID of the activation code.
-     *
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F1234****
      *
      * @var string
@@ -18,7 +16,7 @@ class activation extends Model
     public $activationId;
 
     /**
-     * @description The time when the activation code was created.
+     * @description The number of instances that were deregistered.
      *
      * @example 2021-01-20T06:00:00Z
      *
@@ -27,7 +25,7 @@ class activation extends Model
     public $creationTime;
 
     /**
-     * @description The number of instances that were deregistered.
+     * @description The maximum number of times that the activation code can be used to register managed instances.
      *
      * @example 0
      *
@@ -36,7 +34,7 @@ class activation extends Model
     public $deregisteredCount;
 
     /**
-     * @description The description of the activation code.
+     * @description The number of registered instances.
      *
      * @example This is description.
      *
@@ -45,7 +43,7 @@ class activation extends Model
     public $description;
 
     /**
-     * @description The maximum number of times that the activation code can be used to register managed instances.
+     * @description The description of the activation code.
      *
      * @example 1
      *
@@ -54,7 +52,7 @@ class activation extends Model
     public $instanceCount;
 
     /**
-     * @description The default instance name prefix.
+     * @description The IP addresses of hosts that are allowed to use the activation code.
      *
      * @example test-InstanceName
      *
@@ -63,7 +61,7 @@ class activation extends Model
     public $instanceName;
 
     /**
-     * @description The IP addresses of hosts that are allowed to use the activation code.
+     * @description The validity period of the activation code. Unit: hours.
      *
      * @example 0.0.0.0/0
      *
@@ -72,7 +70,7 @@ class activation extends Model
     public $ipAddressRange;
 
     /**
-     * @description The number of registered instances.
+     * @description The default instance name prefix.
      *
      * @example 0
      *
@@ -81,7 +79,7 @@ class activation extends Model
     public $registeredCount;
 
     /**
-     * @description The validity period of the activation code. Unit: hours.
+     * @description The ID of the activation code.
      *
      * @example 4
      *

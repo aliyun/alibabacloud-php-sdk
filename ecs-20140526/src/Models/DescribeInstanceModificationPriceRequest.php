@@ -16,14 +16,14 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $systemDisk;
 
     /**
-     * @description $.parameters[2].schema.description
+     * @description The information about the data disk.
      *
      * @var dataDisk[]
      */
     public $dataDisk;
 
     /**
-     * @description $.parameters[6].schema.description
+     * @description The ID of the instance for which you want to query pricing information for a configuration upgrade.
      *
      * @example i-bp1f2o4ldh8l****
      *
@@ -32,8 +32,9 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $instanceId;
 
     /**
-     * @description $.parameters[6].schema.example
+     * @description The new instance type. We recommend that you call the [DescribeResourcesModification](~~66187~~) operation to query the instance types available for configuration upgrades in a specified zone.
      *
+     * > When you call the DescribeInstanceModificationPrice operation, you must specify at least one of the following parameters: `InstanceType` and `DataDisk.N.*`.
      * @example ecs.g6e.large
      *
      * @var string
@@ -51,7 +52,7 @@ class DescribeInstanceModificationPriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description $.parameters[6].schema.items.enumValueTitles
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

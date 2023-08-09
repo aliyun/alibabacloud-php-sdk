@@ -18,7 +18,6 @@ class CreateSimulatedSystemEventsRequest extends Model
      *   SystemMaintenance.Redeploy: The instance is redeployed due to system maintenance.
      *   SystemFailure.Redeploy: The instance is redeployed due to a system error.
      *   SystemFailure.Stop: The instance is stopped due to a system error.
-     *   InstanceFailure.Reboot: The instance is restarted due to an instance error.
      *
      * @example SystemMaintenance.Reboot
      *
@@ -27,7 +26,7 @@ class CreateSimulatedSystemEventsRequest extends Model
     public $eventType;
 
     /**
-     * @description The IDs of instances. You can specify the IDs of up to 100 instances.
+     * @description The IDs of the instances. You can specify up to 100 instance IDs.
      *
      * @example i-bp1gtjxuuvwj17zr****
      *
@@ -36,9 +35,9 @@ class CreateSimulatedSystemEventsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The scheduled start time of the scheduled event. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The scheduled start time of the event. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * > For system events that occur due to system errors or instance errors, the simulated events of such system events enter the Executing (`Executing`) state when the simulated events are created. The value of `NotBefore` is the time when the simulated events enter the Executed (`Executed`) state.
+     * > For events that occur due to system errors or instance errors, the simulated events of such events enter the `Executing` state when the simulated events are created. The value of `NotBefore` is the time when the simulated events enter the `Executed` state.
      * @example 2018-12-01T06:32:31Z
      *
      * @var string
@@ -56,7 +55,7 @@ class CreateSimulatedSystemEventsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the event. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

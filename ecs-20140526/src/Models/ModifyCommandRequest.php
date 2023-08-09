@@ -9,7 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ModifyCommandRequest extends Model
 {
     /**
-     * @description The command description. The description supports all character sets and can be up to 512 characters in length.
+     * @description The command content. The command content can be plaintext or Base64-encoded. Take note of the following items:
+     *
+     *   The Base64-encoded command content can be up to 16 KB in size.
+     *
+     *   If the command content is Base64-encoded, set `ContentEncoding` to Base64.
+     *
+     *   If you set `EnableParameter` to true, the custom parameter feature is enabled and you can specify custom parameters based on the following rules:
+     *
+     *   Specify custom parameters in the `{{}}` format. When parameter names are enclosed in `{{}}`, the spaces and line feeds before and after the parameter names are ignored.
+     *   You can specify up to 20 custom parameters.
+     *   A custom parameter name can contain only letters, digits, underscores (\_), and hyphens (-). The name is not case-sensitive.
+     *   Each custom parameter name cannot exceed 64 bytes in length.
      *
      * @example echo
      *
@@ -18,7 +29,7 @@ class ModifyCommandRequest extends Model
     public $commandContent;
 
     /**
-     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The command ID. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
      *
      * @example c-hz01272yr52****
      *
@@ -27,7 +38,7 @@ class ModifyCommandRequest extends Model
     public $commandId;
 
     /**
-     * @description The command name. The name supports all character sets and can be up to 128 characters in length.
+     * @description The command description. The description supports all character sets and can be up to 512 characters in length.
      *
      * @example This is description.
      *
@@ -36,7 +47,7 @@ class ModifyCommandRequest extends Model
     public $description;
 
     /**
-     * @description The command ID. You can call the [DescribeCommands](~~64843~~) operation to query all available command IDs.
+     * @description The command name. The name supports all character sets and can be up to 128 characters in length.
      *
      * @example test-CommandName
      *
@@ -55,9 +66,8 @@ class ModifyCommandRequest extends Model
     public $ownerId;
 
     /**
-     * @description You can modify a command when it is run. After the command is modified, the new command content applies to subsequent executions.
+     * @description The region ID of the command. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
-     * You cannot modify the command type. For example, you cannot change a shell command (RunShellScript) to a batch command (RunBatScript).
      * @example cn-hangzhou
      *
      * @var string
@@ -75,7 +85,7 @@ class ModifyCommandRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The working directory of the command.
+     * @description The maximum timeout period for the command to be run on the instance. Unit: seconds. When a command cannot run within the specified time range, the command times out. Then, the command process is forcibly terminated by canceling the process ID (PID) of the command.
      *
      * @example 120
      *
@@ -84,18 +94,7 @@ class ModifyCommandRequest extends Model
     public $timeout;
 
     /**
-     * @description The command content. The command content can be plaintext or Base64-encoded. Take note of the following items:
-     *
-     *   The Base64-encoded command content can be up to 16 KB in size.
-     *
-     *   If the command content is Base64-encoded, set `ContentEncoding` to Base64.
-     *
-     *   If you set `EnableParameter` to true, the custom parameter feature is enabled and you can specify custom parameters based on the following rules:
-     *
-     *   Specify custom parameters in the `{{}}` format. When parameter names are enclosed in `{{}}`, the spaces and line feeds before and after the parameter names are ignored.
-     *   You can specify up to 20 custom parameters.
-     *   A custom parameter name can contain only letters, digits, underscores (\_), and hyphens (-). The name is not case-sensitive.
-     *   Each custom parameter name cannot exceed 64 bytes in length.
+     * @description The working directory of the command.
      *
      * @example /home/
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelinesRequest extends Model
 {
     /**
-     * @description The IDs of the image templates. You can specify at most 20 IDs.
+     * @description The ID of image template N. Valid values of N: 1 to 20.
      *
      * @example ip-2ze5tsl5bp6nf2b3****
      *
@@ -68,7 +68,7 @@ class DescribeImagePipelinesRequest extends Model
     /**
      * @description The ID of the resource group. If this parameter is specified to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
-     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * >  Resources in the default resource group are displayed in the response regardless of how this parameter is set.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -86,6 +86,8 @@ class DescribeImagePipelinesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The key of tag N of the image template. Valid values of N: 1 to 20.
+     *
      * @var tag[]
      */
     public $tag;

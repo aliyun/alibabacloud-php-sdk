@@ -10,9 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeManagedInstancesRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The ID of the activation code.
      *
-     * Default value: 1.
      * @example 4ECEEE12-56F1-4FBC-9AB1-890F7494****
      *
      * @var string
@@ -20,7 +19,7 @@ class DescribeManagedInstancesRequest extends Model
     public $activationId;
 
     /**
-     * @description The tags that are added to the resource.
+     * @description The ID of managed instance N. Valid values of N: 1 to 50.
      *
      * @example mi-hz018jrc1o0****
      *
@@ -29,7 +28,7 @@ class DescribeManagedInstancesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The name of the managed instance.
+     * @description The internal or public IP address of the managed instance.
      *
      * @example 192.168.**.**
      *
@@ -38,9 +37,8 @@ class DescribeManagedInstancesRequest extends Model
     public $instanceIp;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The name of the managed instance.
      *
-     * Default value: 10.
      * @example my-webapp-server
      *
      * @var string
@@ -48,7 +46,10 @@ class DescribeManagedInstancesRequest extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the activation code.
+     * @description The operating system type of the managed instance. Valid values:
+     *
+     *   windows
+     *   linux
      *
      * @example windows
      *
@@ -67,8 +68,9 @@ class DescribeManagedInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The instance IDs. Valid values of N: 1 to 50.
+     * @description The page number.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -76,8 +78,9 @@ class DescribeManagedInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The instance ID. Valid values of N: 1 to 50.
+     * @description The number of entries per page.
      *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -85,8 +88,9 @@ class DescribeManagedInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The internal or public IP address of the managed instance.
+     * @description The region ID of the managed instance. Supported regions: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
      *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -104,9 +108,8 @@ class DescribeManagedInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The key of tag N that is added to the instance. Valid values of N: 1 to 20. The tag key cannot be an empty string.
+     * @description The tags of the managed instance.
      *
-     * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. The tag key cannot start with `acs:` or `aliyun`.
      * @var tag[]
      */
     public $tag;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dataPoint extends Model
 {
     /**
-     * @description The snapshot size. Unit: bytes.
+     * @description The total size of snapshots. Unit: bytes.
      *
      * @example 243036848128
      *
@@ -18,7 +18,7 @@ class dataPoint extends Model
     public $size;
 
     /**
-     * @description The timestamp that corresponds to the snapshot size.
+     * @description The timestamp that corresponds to a snapshot size.
      *
      * @example 2019-05-10T04:00:00Z
      *

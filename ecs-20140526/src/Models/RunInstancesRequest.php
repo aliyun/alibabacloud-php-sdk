@@ -81,6 +81,11 @@ class RunInstancesRequest extends Model
     public $arn;
 
     /**
+     * @var bool
+     */
+    public $autoPay;
+
+    /**
      * @description The time when to automatically release the pay-as-you-go instance. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      *   If the value of seconds (`ss`) is not `00`, the time is automatically rounded to the nearest minute based on the value of minutes (`mm`).
@@ -810,6 +815,7 @@ class RunInstancesRequest extends Model
         'affinity'                    => 'Affinity',
         'amount'                      => 'Amount',
         'arn'                         => 'Arn',
+        'autoPay'                     => 'AutoPay',
         'autoReleaseTime'             => 'AutoReleaseTime',
         'autoRenew'                   => 'AutoRenew',
         'autoRenewPeriod'             => 'AutoRenewPeriod',
@@ -917,6 +923,9 @@ class RunInstancesRequest extends Model
                     $res['Arn'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->autoPay) {
+            $res['AutoPay'] = $this->autoPay;
         }
         if (null !== $this->autoReleaseTime) {
             $res['AutoReleaseTime'] = $this->autoReleaseTime;
@@ -1178,6 +1187,9 @@ class RunInstancesRequest extends Model
                     $model->arn[$n++] = null !== $item ? arn::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['AutoPay'])) {
+            $model->autoPay = $map['AutoPay'];
         }
         if (isset($map['AutoReleaseTime'])) {
             $model->autoReleaseTime = $map['AutoReleaseTime'];

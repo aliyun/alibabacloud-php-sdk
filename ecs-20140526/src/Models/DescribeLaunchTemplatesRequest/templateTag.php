@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class templateTag extends Model
 {
     /**
-     * @description The key of tag N of the launch template. Valid values of N: 1 to 20.
+     * @description The value of tag N of the launch template. Valid values of N: 1 to 20.
      *
-     * Up to 1,000 resources that match the specified tags can be returned in the response. To query more than 1,000 resources that match the specified tags, call the [ListTagResources](~~110425~~) operation.
      * @example TestKey
      *
      * @var string
@@ -19,8 +18,9 @@ class templateTag extends Model
     public $key;
 
     /**
-     * @description The value of tag N of the launch template. Valid values of N: 1 to 20.
+     * @description The number of the page to return. Pages start from page 1.
      *
+     * Default value: 1.
      * @example TestValue
      *
      * @var string

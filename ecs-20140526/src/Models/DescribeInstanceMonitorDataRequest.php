@@ -18,7 +18,7 @@ class DescribeInstanceMonitorDataRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example i-bp1a36962lrhj4ab****
      *

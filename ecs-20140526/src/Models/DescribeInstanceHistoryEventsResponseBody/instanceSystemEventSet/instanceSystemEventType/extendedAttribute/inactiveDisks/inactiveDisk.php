@@ -24,7 +24,7 @@ class inactiveDisk extends Model
      *   cloud_efficiency: ultra disk
      *   cloud_ssd: standard SSD
      *   cloud_essd: enhanced SSD (ESSD)
-     *   local_ssd_pro: I/O-intensive local disk.
+     *   local_ssd_pro: I/O-intensive local disk
      *   local_hdd_pro: throughput-intensive local disk
      *   ephemeral: retired local disk
      *   ephemeral_ssd: retired local SSD

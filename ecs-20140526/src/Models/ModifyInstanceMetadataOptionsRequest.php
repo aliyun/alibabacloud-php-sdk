@@ -31,10 +31,10 @@ class ModifyInstanceMetadataOptionsRequest extends Model
     public $httpPutResponseHopLimit;
 
     /**
-     * @description Specifies whether to forcibly use the security hardening mode (IMDSv2) to access instance metadata. Valid values:
+     * @description Specifies whether to forcefully use the security-enhanced mode (IMDSv2) to access instance metadata. Valid values:
      *
-     *   optional: does not forcibly use the security hardening mode (IMDSv2).
-     *   required: forcibly uses the security hardening mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
+     *   optional: does not forcefully use the security-enhanced mode (IMDSv2).
+     *   required: forcefully uses the security-enhanced mode (IMDSv2). After you set this parameter to required, you cannot access instance metadata in normal mode.
      *
      * > For more information about the modes of accessing instance metadata, see [Access mode of instance metadata](~~150575~~).
      * @example optional

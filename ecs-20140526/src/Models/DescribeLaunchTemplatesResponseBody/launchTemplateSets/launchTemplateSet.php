@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class launchTemplateSet extends Model
 {
     /**
-     * @description The time when the launch template was created.
+     * @description The ID of the resource group to which the launch template belongs.
      *
      * @example 2018-05-14T14:18:00Z
      *
@@ -19,7 +19,7 @@ class launchTemplateSet extends Model
     public $createTime;
 
     /**
-     * @description The creator of the launch template.
+     * @description The latest version number of the launch template.
      *
      * @example 1234567890
      *
@@ -28,7 +28,7 @@ class launchTemplateSet extends Model
     public $createdBy;
 
     /**
-     * @description The default version number of the launch template.
+     * @description The time when the launch template was modified.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class launchTemplateSet extends Model
     public $defaultVersionNumber;
 
     /**
-     * @description The latest version number of the launch template.
+     * @description The tags of the launch template.
      *
      * @example 1
      *
@@ -46,7 +46,7 @@ class launchTemplateSet extends Model
     public $latestVersionNumber;
 
     /**
-     * @description The ID of the launch template.
+     * @description The time when the launch template was created.
      *
      * @example lt-m5e3ofjr1zn1aw7q****
      *
@@ -55,7 +55,7 @@ class launchTemplateSet extends Model
     public $launchTemplateId;
 
     /**
-     * @description The name of the launch template.
+     * @description The default version number of the launch template.
      *
      * @example wd-152630748****
      *
@@ -64,7 +64,7 @@ class launchTemplateSet extends Model
     public $launchTemplateName;
 
     /**
-     * @description The time when the launch template was modified.
+     * @description The ID of the launch template.
      *
      * @example 2018-05-14T14:18:00Z
      *
@@ -73,7 +73,7 @@ class launchTemplateSet extends Model
     public $modifiedTime;
 
     /**
-     * @description The ID of the resource group to which the launch template belongs.
+     * @description The creator of the launch template.
      *
      * @example rg-acfmxazb4p****
      *
@@ -82,7 +82,7 @@ class launchTemplateSet extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags of the launch template.
+     * @description The tag of the launch template.
      *
      * @var tags
      */

@@ -393,6 +393,8 @@ class instance extends Model
     /**
      * @description The name of the operating system of the instance.
      *
+     * @example CentOS  7.4 64 位
+     *
      * @var string
      */
     public $OSName;

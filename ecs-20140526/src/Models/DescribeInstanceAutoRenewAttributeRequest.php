@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAutoRenewAttributeRequest extends Model
 {
     /**
-     * @description The instance ID. You can specify up to 100 subscription instance IDs in a single request. Separate the instance IDs with commas (,).
+     * @description The IDs of the instances. You can specify up to 100 subscription instance IDs in a single request. Separate multiple instance IDs with commas (,).
      *
-     * > The `InstanceId` and `RenewalStatus` parameters cannot be left empty at the same time.
+     * > `InstanceId` and `RenewalStatus` cannot be empty at the same time.
      * @example i-bp18x3z4hc7bixhx****,i-bp1g6zv0ce8oghu7****
      *
      * @var string
@@ -62,7 +62,7 @@ class DescribeInstanceAutoRenewAttributeRequest extends Model
      *
      *   AutoRenewal: Auto-renewal is enabled for the instance.
      *   Normal: Auto-renewal is disabled for the instance.
-     *   NotRenewal: The instance is not to be renewed. The system no longer sends expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](~~52843~~) operation to change its auto-renewal state to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
+     *   NotRenewal: The instance is not to be renewed. The system sends no more expiration reminders, but sends only a non-renewal reminder three days before the expiration date. For an instance that is not to be renewed, you can call the [ModifyInstanceAutoRenewAttribute](~~52843~~) operation to change its auto-renewal status to `Normal`. Then, you can manually renew the instance or enable auto-renewal for the instance.
      *
      * @example AutoRenewal
      *

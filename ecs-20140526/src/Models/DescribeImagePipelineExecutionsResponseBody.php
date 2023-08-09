@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeImagePipelineExecutionsResponseBody extends Model
 {
     /**
-     * @description The details of the image creation task.
+     * @description Details of the image creation task.
      *
      * @var imagePipelineExecution
      */
     public $imagePipelineExecution;
 
     /**
-     * @description The number of entries per page.
+     * @description The maximum number of entries per page.
      *
      * @example 50
      *
@@ -35,7 +35,7 @@ class DescribeImagePipelineExecutionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
      *

@@ -18,7 +18,7 @@ class instanceType extends Model
     public $cpuCoreCount;
 
     /**
-     * @description The instance family.
+     * @description DescribeImageSupportInstanceTypes
      *
      * @example ecs.t1
      *
@@ -27,7 +27,7 @@ class instanceType extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The ID of the instance type.
+     * @description Queries the instance types supported by an image.
      *
      * @example ecs.t1.xsmall
      *

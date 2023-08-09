@@ -18,14 +18,14 @@ class AssignPrivateIpAddressesRequest extends Model
     public $clientToken;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description > 该参数正在邀测中，暂未开放使用。
      *
      * @var string[]
      */
     public $ipv4Prefix;
 
     /**
-     * @description > This parameter is in invitational preview and is unavailable for general users.
+     * @description > 该参数正在邀测中，暂未开放使用。
      *
      * @example hide
      *
@@ -34,7 +34,7 @@ class AssignPrivateIpAddressesRequest extends Model
     public $ipv4PrefixCount;
 
     /**
-     * @description The ENI ID.
+     * @description The ID of the ENI.
      *
      * @example eni-bp67acfmxazb4p****
      *
@@ -53,12 +53,12 @@ class AssignPrivateIpAddressesRequest extends Model
     public $ownerId;
 
     /**
-     * @description One or more secondary private IP addresses that are selected from the CIDR block of the vSwitch that is connected to the ENI. Valid values of the number of secondary private IP addresses:
+     * @description Secondary private IP address N to be automatically assigned from the CIDR block of the vSwitch that is connected to the ENI. Valid values of N:
      *
-     *   When the ENI is in the Available (`Available`) state, the valid values range from 1 to 32.
-     *   When the ENI is in the InUse (`InUse`) state, the valid values are subject to the instance type. For more information, see [Instance families](~~25378~~).
+     *   When the ENI is in the Available (`Available`) state, the valid values of N are 1 to 50.
+     *   When the ENI is in the InUse (`InUse`) state, the valid values of N are subject to the instance type. For more information, see [Overview of instance families](~~25378~~).
      *
-     * To assign secondary private IP addresses to the ENI, you cannot specify the `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` parameters at the same time.
+     * To assign secondary private IP addresses to the ENI, you must specify `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` but not both.
      * @example 10.1.**.**
      *
      * @var string[]
@@ -66,7 +66,7 @@ class AssignPrivateIpAddressesRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID of the ENI. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -87,7 +87,7 @@ class AssignPrivateIpAddressesRequest extends Model
     /**
      * @description The number of private IP addresses to be automatically assigned from the CIDR block of the vSwitch that is connected to the ENI.
      *
-     * To assign secondary private IP addresses to the ENI, you cannot specify the `PrivateIpAddress.N` and `SecondaryPrivateIpAddressCount` parameters at the same time.
+     * To assign secondary private IP addresses to the ENI, you must specify `PrivateIpAddress.N` or `SecondaryPrivateIpAddressCount` but not both.
      * @example 1
      *
      * @var int

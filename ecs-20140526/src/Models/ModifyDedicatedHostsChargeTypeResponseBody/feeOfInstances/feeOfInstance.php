@@ -11,7 +11,7 @@ class feeOfInstance extends Model
     /**
      * @description The unit of currency for the bill.
      *
-     * Alibaba Cloud International site (alibabacloud.com): USD.
+     * Alibaba Cloud International site (alibabacloud.com): USD
      * @example CNY
      *
      * @var string
@@ -19,7 +19,7 @@ class feeOfInstance extends Model
     public $currency;
 
     /**
-     * @description The cost value.
+     * @description The charged amount.
      *
      * @example 0
      *
@@ -28,7 +28,7 @@ class feeOfInstance extends Model
     public $fee;
 
     /**
-     * @description The ID of the dedicated host.
+     * @description The IDs of the dedicated hosts.
      *
      * @example dh-bp181e5064b5sotrr****
      *

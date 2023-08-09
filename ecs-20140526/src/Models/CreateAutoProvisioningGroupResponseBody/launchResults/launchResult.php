@@ -10,6 +10,15 @@ use AlibabaCloud\Tea\Model;
 class launchResult extends Model
 {
     /**
+     * @description The number of instances. Valid values: 1 to 100000.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $amount;
+
+    /**
      * @description The error code returned when the instance cannot be created.
      *
      * @example InvalidParameter
@@ -65,6 +74,7 @@ class launchResult extends Model
      */
     public $zoneId;
     protected $_name = [
+        'amount'       => 'Amount',
         'errorCode'    => 'ErrorCode',
         'errorMsg'     => 'ErrorMsg',
         'instanceIds'  => 'InstanceIds',
@@ -80,6 +90,9 @@ class launchResult extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->amount) {
+            $res['Amount'] = $this->amount;
+        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
         }
@@ -110,6 +123,9 @@ class launchResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Amount'])) {
+            $model->amount = $map['Amount'];
+        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
         }

@@ -26,7 +26,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $instanceChargeType;
 
     /**
-     * @description The instance types.
+     * @description The instance type.
      *
      * @example ecs.c6.large
      *
@@ -35,7 +35,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $instanceType;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The maximum number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -45,7 +45,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token used to start the query. Set the value to the NextToken value obtained from the response to the previous request.
+     * @description The pagination token that is used in the request to retrieve a new page of results. You must specify the token that is obtained from the previous query as the value of NextToken.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -64,7 +64,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description > This parameter is no longer used.
+     * @description > This parameter is deprecated.
      *
      * @example null
      *
@@ -73,7 +73,7 @@ class DescribeElasticityAssurancesRequest extends Model
     public $platform;
 
     /**
-     * @description The ID of the region to which the elasticity assurance belongs. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     * @description The region ID of the elasticity assurances. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -82,9 +82,9 @@ class DescribeElasticityAssurancesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the snapshot belongs. When you use this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be returned.
+     * @description The ID of the resource group. If you configure this parameter to query resources, up to 1,000 resources that belong to the specified resource group can be displayed in the response.
      *
-     * > Resources in the default resource group are displayed in the response regardless of how this parameter is set.
+     * > Resources in the default resource group are displayed in the response regardless of whether you configure this parameter.
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
@@ -102,13 +102,13 @@ class DescribeElasticityAssurancesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The state of the elasticity assurance to query. Valid values:
+     * @description The status of the elasticity assurances. Valid values:
      *
-     *   All: Queries the elasticity assurances in all states.
-     *   Preparing: The elasticity assurance is being prepared.
-     *   Prepared: Queries the elasticity assurances that have not taken effect.
-     *   Active: Queries the elasticity assurances that are in effect.
-     *   Released: Queries the elasticity assurances that are released.
+     *   All
+     *   Preparing
+     *   Prepared
+     *   Active
+     *   Released
      *
      * Default value: Active.
      * @example Active
@@ -118,14 +118,14 @@ class DescribeElasticityAssurancesRequest extends Model
     public $status;
 
     /**
-     * @description The tags to use for the query.
+     * @description The tags.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The zone ID of the elasticity assurance.
+     * @description The zone ID of the elasticity assurances.
      *
      * @example cn-hangzhou-h
      *

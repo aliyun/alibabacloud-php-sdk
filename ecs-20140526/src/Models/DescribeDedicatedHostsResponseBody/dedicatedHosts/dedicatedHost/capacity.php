@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class capacity extends Model
 {
     /**
-     * @description The available space of the local disks. Unit: GiB.
+     * @description The amount of available capacity on the local disks. Unit: GiB.
      *
      * @example 65
      *
@@ -19,7 +19,7 @@ class capacity extends Model
     public $availableLocalStorage;
 
     /**
-     * @description The amount of available memory space. Unit: GiB.
+     * @description The amount of available memory. Unit: GiB.
      *
      * @example 25
      *
@@ -46,7 +46,7 @@ class capacity extends Model
     public $availableVgpus;
 
     /**
-     * @description The category of the local disks.
+     * @description The instance family that uses local disks.
      *
      * @example i2
      *
@@ -55,12 +55,14 @@ class capacity extends Model
     public $localStorageCategory;
 
     /**
+     * @description The socket capacities.
+     *
      * @var socketCapacities
      */
     public $socketCapacities;
 
     /**
-     * @description The total capacity of the local disks. Unit: GiB.
+     * @description The total capacity of local disks. Unit: GiB.
      *
      * @example 512
      *

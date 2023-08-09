@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskSpecRequest extends Model
 {
     /**
-     * @description The new category of the disk. Default value: PL1. Valid values:
+     * @description The new category of the disk. Valid values:
      *
-     *   cloud_essd: ESSD.
-     *   cloud_auto: ESSD AutoPL disk.
-     *   cloud_ssd: The system creates an SSD.
-     *   cloud_efficiency: The system creates an ultra disk.
+     *   cloud_essd: ESSD
+     *   cloud_auto: ESSD AutoPL disk
+     *   cloud_ssd: standard SSD
+     *   cloud_efficiency: ultra disk
      *
-     * > The preceding values are listed in descending order of disk performance. The performance level of a subscription cloud disk cannot be downgraded.
+     * >  The preceding values are listed in descending order of disk performance. Subscription disks cannot be downgraded.
      * @example cloud_essd
      *
      * @var string
@@ -34,12 +34,12 @@ class ModifyDiskSpecRequest extends Model
     public $diskId;
 
     /**
-     * @description Specifies whether to perform only a dry run without performing the actual request. Default value: PL1. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   true: performs only a dry run. The system checks the required parameters, request syntax, service limits, and available ECS resources. If the request fails the dry run, the corresponding error message is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-     *   false: The validity of the request is checked. If the check succeeds, a 2xx HTTP status code is returned and the request is made.
+     *   true: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, service limits, and insufficient ECS resources. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   false: performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -57,21 +57,21 @@ class ModifyDiskSpecRequest extends Model
     public $ownerId;
 
     /**
-     * @description 磁盘性能控制参数集合
+     * @description A collection of disk performance control parameters
      *
      * @var performanceControlOptions
      */
     public $performanceControlOptions;
 
     /**
-     * @description The new performance level of the ESSD. Default value: PL1. Valid values:
+     * @description The new performance level of the ESSD. Valid values:
      *
      *   PL0: An ESSD can deliver up to 10,000 random read/write IOPS.
      *   PL1: An ESSD can deliver up to 50,000 random read/write IOPS.
      *   PL2: An ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: An ESSD delivers up to 1,000,000 random read/write IOPS.
      *
-     * Default value: PL1
+     * Default value: PL1.
      * @example PL2
      *
      * @var string
@@ -81,7 +81,7 @@ class ModifyDiskSpecRequest extends Model
     /**
      * @description The provisioned read/write IOPS of the ESSD AutoPL disk. Valid values: 0 to min{50,000, 1,000 × Capacity - Baseline IOPS}
      *
-     * > This parameter is available only if you set DiskCategory to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
+     * >  This parameter is available only if the DiskCategory parameter is set to cloud_auto. For more information, see [ESSD AutoPL disks](~~368372~~) and [Modify the performance configurations of an ESSD AutoPL disk](~~413275~~).
      * @example 50000
      *
      * @var int

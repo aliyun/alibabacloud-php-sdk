@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class instanceCloudAssistantStatus extends Model
 {
     /**
-     * @description The number of tasks that were run by Cloud Assistant on the instance.
+     * @description The number of tasks that Cloud Assistant was running on the instance.
      *
      * @example 0
      *
@@ -30,7 +30,7 @@ class instanceCloudAssistantStatus extends Model
     public $cloudAssistantStatus;
 
     /**
-     * @description The version number of the Cloud Assistant client. If the Cloud Assistant client is not installed or is not running, this parameter is left empty.
+     * @description The version number of Cloud Assistant Agent. If Cloud Assistant Agent is not installed or is not running, this parameter is left empty.
      *
      * @example 2.2.0.106
      *
@@ -39,7 +39,7 @@ class instanceCloudAssistantStatus extends Model
     public $cloudAssistantVersion;
 
     /**
-     * @description The instance ID
+     * @description The ID of the instance.
      *
      * @example i-bp1iudwa5b1tqa****
      *
@@ -48,7 +48,7 @@ class instanceCloudAssistantStatus extends Model
     public $instanceId;
 
     /**
-     * @description The number of tasks that were completed by Cloud Assistant on the instance.
+     * @description The number of tasks that Cloud Assistant completed on the instance.
      *
      * @example 2
      *
@@ -57,7 +57,7 @@ class instanceCloudAssistantStatus extends Model
     public $invocationCount;
 
     /**
-     * @description The most recent heartbeat time value of Cloud Assistant. The value is updated once every minute.
+     * @description The last heartbeat time of Cloud Assistant. The value is updated once every minute.
      *
      * @example 2021-03-15T09:00:00Z
      *
@@ -75,7 +75,7 @@ class instanceCloudAssistantStatus extends Model
     public $lastInvokedTime;
 
     /**
-     * @description The operating system of the instance. Valid values:
+     * @description The operating system type of the instance. Valid values:
      *
      *   Windows
      *   Linux

@@ -18,7 +18,7 @@ class DescribeSpotAdviceRequest extends Model
     public $cores;
 
     /**
-     * @description The number of GPUs that the GPU-accelerated instance has. For information about the valid values, see [GPU-accelerated compute optimized instance types](~~108496~~).
+     * @description The number of GPUs that a GPU-accelerated instance has. For information about the valid values, see [GPU-accelerated compute optimized instance types](~~108496~~).
      *
      * @example 2
      *
@@ -35,7 +35,7 @@ class DescribeSpotAdviceRequest extends Model
      *   NVIDIA V100
      *   NVIDIA A100
      *
-     * This parameter is empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute optimized instance types](~~108496~~).
+     * This parameter is left empty by default, which indicates that all GPU types are queried. For more information, see [GPU-accelerated compute optimized instance types](~~108496~~).
      * @example NVIDIA T4
      *
      * @var string
@@ -45,11 +45,11 @@ class DescribeSpotAdviceRequest extends Model
     /**
      * @description The level of the instance family. Valid values:
      *
-     *   EntryLevel: entry level.
-     *   EnterpriseLevel: enterprise level.
-     *   CreditEntryLevel: credit-based entry level. For more information, see [Overview](~~59977~~) of burstable instances.
+     *   EntryLevel.
+     *   EnterpriseLevel.
+     *   CreditEntryLevel. For more information, see [Overview of burstable instances](~~59977~~).
      *
-     * This parameter is empty by default, which indicates that instance families of all levels are queried.
+     * This parameter is left empty by default, which indicates that instance families at all levels are queried.
      * @example EntryLevel
      *
      * @var string
@@ -66,7 +66,7 @@ class DescribeSpotAdviceRequest extends Model
     public $instanceTypeFamily;
 
     /**
-     * @description The instance types. You can specify to 10 instance types.
+     * @description The instance types. You can specify up to 10 instance types.
      *
      * @example ecs.c5.large
      *
@@ -112,7 +112,7 @@ class DescribeSpotAdviceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~25609~~) operation to query the most recent list of regions.
+     * @description The region ID. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -131,9 +131,9 @@ class DescribeSpotAdviceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
-     * This parameter is empty by default, which indicates that all zones in the specified region are queried.
+     * This parameter is left empty by default, which indicates that all zones in the specified region are queried.
      * @example cn-hangzhou-i
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceMaintenanceAttributesRequest extends Model
 {
     /**
-     * @description The IDs of instances. You can specify the IDs of up to 100 instances.
+     * @description The instance IDs. You can specify up to 100 instance IDs.
      *
      * @example i-bp67acfmxazb4p****
      *
@@ -28,7 +28,7 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -38,7 +38,7 @@ class DescribeInstanceMaintenanceAttributesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     * @description The number of entries per page. Valid values: 1 to 100.
      *
      * Default value: 10.
      * @example 10

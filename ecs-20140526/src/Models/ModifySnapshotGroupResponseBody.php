@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySnapshotGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The new description of the snapshot-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
      *
      * @example A00B5E55-76B7-42C8-8A80-AF10E980DCC7
      *

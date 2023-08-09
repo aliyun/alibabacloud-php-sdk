@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeregisterManagedInstanceRequest extends Model
 {
     /**
-     * @description The ID of the managed instance.
+     * @description The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
      *
+     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      * @example mi-hz01axdfas****
      *
      * @var string
@@ -28,9 +29,8 @@ class DeregisterManagedInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID. The following regions are supported: China (Qingdao), China (Beijing), China (Zhangjiakou), China (Hohhot), China (Hangzhou), China (Shanghai), China (Shenzhen), China (Heyuan), and China (Hong Kong).
+     * @description $.parameters[1].schema.enumValueTitles
      *
-     * You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

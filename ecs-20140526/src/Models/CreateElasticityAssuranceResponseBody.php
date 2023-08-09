@@ -18,7 +18,7 @@ class CreateElasticityAssuranceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the elasticity assurance.
+     * @description The elasticity assurance ID.
      *
      * @example eap-bp67acfmxazb4****
      *
