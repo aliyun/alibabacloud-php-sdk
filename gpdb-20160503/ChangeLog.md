@@ -1,3 +1,6 @@
+2023-08-09 Version: 1.0.28
+- Generated php 2016-05-03 for gpdb.
+
 2023-08-02 Version: 1.0.27
 - Add Cloud Disk Encryption.
 

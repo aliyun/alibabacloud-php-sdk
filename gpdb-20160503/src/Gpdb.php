@@ -461,6 +461,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->fullTextRetrievalFields)) {
             $query['FullTextRetrievalFields'] = $request->fullTextRetrievalFields;
         }
+        if (!Utils::isUnset($request->hnswM)) {
+            $query['HnswM'] = $request->hnswM;
+        }
         if (!Utils::isUnset($request->managerAccount)) {
             $query['ManagerAccount'] = $request->managerAccount;
         }
@@ -470,6 +473,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->metadata)) {
             $query['Metadata'] = $request->metadata;
         }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
@@ -478,6 +484,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->parser)) {
             $query['Parser'] = $request->parser;
+        }
+        if (!Utils::isUnset($request->pqEnable)) {
+            $query['PqEnable'] = $request->pqEnable;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -934,6 +943,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->dimension)) {
             $query['Dimension'] = $request->dimension;
         }
+        if (!Utils::isUnset($request->hnswM)) {
+            $query['HnswM'] = $request->hnswM;
+        }
         if (!Utils::isUnset($request->managerAccount)) {
             $query['ManagerAccount'] = $request->managerAccount;
         }
@@ -948,6 +960,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pqEnable)) {
+            $query['PqEnable'] = $request->pqEnable;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

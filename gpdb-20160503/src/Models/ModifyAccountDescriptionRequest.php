@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountDescriptionRequest extends Model
 {
     /**
-     * @description The description of the account. The description must meet the following requirements:
+     * @description The new description of the database account.
      *
      *   The description must start with a letter.
-     *   The description can contain letters, digits, underscores (\_), and hyphens (-).
      *   The description cannot start with `http://` or `https://`.
+     *   The description can contain letters, underscores (\_), hyphens (-), and digits.
      *   The description must be 2 to 256 characters in length.
      *
      * @example testAccoutdescribe
@@ -25,7 +25,6 @@ class ModifyAccountDescriptionRequest extends Model
     /**
      * @description The name of the database account.
      *
-     * > You can call the [DescribeAccounts](~~~~) operation to query the information about database accounts in a cluster, including the database account name.
      * @example testAccout
      *
      * @var string
@@ -33,8 +32,9 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
      * @example gp-bp12ga6v69h86****
      *
      * @var string

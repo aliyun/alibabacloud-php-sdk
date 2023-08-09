@@ -30,6 +30,11 @@ class CreateVectorIndexRequest extends Model
     public $dimension;
 
     /**
+     * @var int
+     */
+    public $hnswM;
+
+    /**
      * @example testaccount
      *
      * @var string
@@ -65,6 +70,11 @@ class CreateVectorIndexRequest extends Model
     public $ownerId;
 
     /**
+     * @var int
+     */
+    public $pqEnable;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -74,11 +84,13 @@ class CreateVectorIndexRequest extends Model
         'collection'             => 'Collection',
         'DBInstanceId'           => 'DBInstanceId',
         'dimension'              => 'Dimension',
+        'hnswM'                  => 'HnswM',
         'managerAccount'         => 'ManagerAccount',
         'managerAccountPassword' => 'ManagerAccountPassword',
         'metrics'                => 'Metrics',
         'namespace'              => 'Namespace',
         'ownerId'                => 'OwnerId',
+        'pqEnable'               => 'PqEnable',
         'regionId'               => 'RegionId',
     ];
 
@@ -98,6 +110,9 @@ class CreateVectorIndexRequest extends Model
         if (null !== $this->dimension) {
             $res['Dimension'] = $this->dimension;
         }
+        if (null !== $this->hnswM) {
+            $res['HnswM'] = $this->hnswM;
+        }
         if (null !== $this->managerAccount) {
             $res['ManagerAccount'] = $this->managerAccount;
         }
@@ -112,6 +127,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->pqEnable) {
+            $res['PqEnable'] = $this->pqEnable;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -137,6 +155,9 @@ class CreateVectorIndexRequest extends Model
         if (isset($map['Dimension'])) {
             $model->dimension = $map['Dimension'];
         }
+        if (isset($map['HnswM'])) {
+            $model->hnswM = $map['HnswM'];
+        }
         if (isset($map['ManagerAccount'])) {
             $model->managerAccount = $map['ManagerAccount'];
         }
@@ -151,6 +172,9 @@ class CreateVectorIndexRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PqEnable'])) {
+            $model->pqEnable = $map['PqEnable'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

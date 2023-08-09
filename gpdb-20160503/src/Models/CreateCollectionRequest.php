@@ -37,6 +37,11 @@ class CreateCollectionRequest extends Model
     public $fullTextRetrievalFields;
 
     /**
+     * @var int
+     */
+    public $hnswM;
+
+    /**
      * @example testaccount
      *
      * @var string
@@ -58,6 +63,11 @@ class CreateCollectionRequest extends Model
     public $metadata;
 
     /**
+     * @var string
+     */
+    public $metrics;
+
+    /**
      * @example mynamespace
      *
      * @var string
@@ -77,6 +87,11 @@ class CreateCollectionRequest extends Model
     public $parser;
 
     /**
+     * @var int
+     */
+    public $pqEnable;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -87,12 +102,15 @@ class CreateCollectionRequest extends Model
         'DBInstanceId'            => 'DBInstanceId',
         'dimension'               => 'Dimension',
         'fullTextRetrievalFields' => 'FullTextRetrievalFields',
+        'hnswM'                   => 'HnswM',
         'managerAccount'          => 'ManagerAccount',
         'managerAccountPassword'  => 'ManagerAccountPassword',
         'metadata'                => 'Metadata',
+        'metrics'                 => 'Metrics',
         'namespace'               => 'Namespace',
         'ownerId'                 => 'OwnerId',
         'parser'                  => 'Parser',
+        'pqEnable'                => 'PqEnable',
         'regionId'                => 'RegionId',
     ];
 
@@ -115,6 +133,9 @@ class CreateCollectionRequest extends Model
         if (null !== $this->fullTextRetrievalFields) {
             $res['FullTextRetrievalFields'] = $this->fullTextRetrievalFields;
         }
+        if (null !== $this->hnswM) {
+            $res['HnswM'] = $this->hnswM;
+        }
         if (null !== $this->managerAccount) {
             $res['ManagerAccount'] = $this->managerAccount;
         }
@@ -124,6 +145,9 @@ class CreateCollectionRequest extends Model
         if (null !== $this->metadata) {
             $res['Metadata'] = $this->metadata;
         }
+        if (null !== $this->metrics) {
+            $res['Metrics'] = $this->metrics;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -132,6 +156,9 @@ class CreateCollectionRequest extends Model
         }
         if (null !== $this->parser) {
             $res['Parser'] = $this->parser;
+        }
+        if (null !== $this->pqEnable) {
+            $res['PqEnable'] = $this->pqEnable;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -160,6 +187,9 @@ class CreateCollectionRequest extends Model
         if (isset($map['FullTextRetrievalFields'])) {
             $model->fullTextRetrievalFields = $map['FullTextRetrievalFields'];
         }
+        if (isset($map['HnswM'])) {
+            $model->hnswM = $map['HnswM'];
+        }
         if (isset($map['ManagerAccount'])) {
             $model->managerAccount = $map['ManagerAccount'];
         }
@@ -169,6 +199,9 @@ class CreateCollectionRequest extends Model
         if (isset($map['Metadata'])) {
             $model->metadata = $map['Metadata'];
         }
+        if (isset($map['Metrics'])) {
+            $model->metrics = $map['Metrics'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
@@ -177,6 +210,9 @@ class CreateCollectionRequest extends Model
         }
         if (isset($map['Parser'])) {
             $model->parser = $map['Parser'];
+        }
+        if (isset($map['PqEnable'])) {
+            $model->pqEnable = $map['PqEnable'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
