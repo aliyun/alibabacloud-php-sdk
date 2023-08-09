@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressCloudConnectionBandwidthRequest extends Model
 {
     /**
-     * @description The bandwidth of the ECC instance.
-     *
-     * @example 2
-     *
      * @var string
      */
     public $bandwidth;
 
     /**
-     * @description The ID of the ECC instance.
-     *
-     * @example ecc-xxxxxxxxx
-     *
      * @var string
      */
     public $eccId;
@@ -37,10 +29,6 @@ class ModifyExpressCloudConnectionBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID.
-     *
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;

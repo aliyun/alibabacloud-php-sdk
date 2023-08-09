@@ -30,6 +30,11 @@ class commonBandwidthPackage extends Model
     public $bandwidthPackageId;
 
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @description The service state of the EIP bandwidth plan.
      *
      *   **Normal**: The EIP bandwidth plan works as expected.
@@ -260,9 +265,15 @@ class commonBandwidthPackage extends Model
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var string
+     */
+    public $zone;
     protected $_name = [
         'bandwidth'                     => 'Bandwidth',
         'bandwidthPackageId'            => 'BandwidthPackageId',
+        'bizType'                       => 'BizType',
         'businessStatus'                => 'BusinessStatus',
         'creationTime'                  => 'CreationTime',
         'deletionProtection'            => 'DeletionProtection',
@@ -285,6 +296,7 @@ class commonBandwidthPackage extends Model
         'serviceManaged'                => 'ServiceManaged',
         'status'                        => 'Status',
         'tags'                          => 'Tags',
+        'zone'                          => 'Zone',
     ];
 
     public function validate()
@@ -299,6 +311,9 @@ class commonBandwidthPackage extends Model
         }
         if (null !== $this->bandwidthPackageId) {
             $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
@@ -366,6 +381,9 @@ class commonBandwidthPackage extends Model
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
+        if (null !== $this->zone) {
+            $res['Zone'] = $this->zone;
+        }
 
         return $res;
     }
@@ -383,6 +401,9 @@ class commonBandwidthPackage extends Model
         }
         if (isset($map['BandwidthPackageId'])) {
             $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];
@@ -449,6 +470,9 @@ class commonBandwidthPackage extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['Zone'])) {
+            $model->zone = $map['Zone'];
         }
 
         return $model;

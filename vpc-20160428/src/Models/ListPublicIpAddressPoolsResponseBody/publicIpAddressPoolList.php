@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class publicIpAddressPoolList extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @description The region ID of the IP address pool.
      *
      * @example 2022-05-10T01:37:38Z
@@ -160,7 +165,13 @@ class publicIpAddressPoolList extends Model
      * @var bool
      */
     public $userType;
+
+    /**
+     * @var string[]
+     */
+    public $zones;
     protected $_name = [
+        'bizType'               => 'BizType',
         'creationTime'          => 'CreationTime',
         'description'           => 'Description',
         'ipAddressRemaining'    => 'IpAddressRemaining',
@@ -176,6 +187,7 @@ class publicIpAddressPoolList extends Model
         'totalIpNum'            => 'TotalIpNum',
         'usedIpNum'             => 'UsedIpNum',
         'userType'              => 'UserType',
+        'zones'                 => 'Zones',
     ];
 
     public function validate()
@@ -185,6 +197,9 @@ class publicIpAddressPoolList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->creationTime) {
             $res['CreationTime'] = $this->creationTime;
         }
@@ -236,6 +251,9 @@ class publicIpAddressPoolList extends Model
         if (null !== $this->userType) {
             $res['UserType'] = $this->userType;
         }
+        if (null !== $this->zones) {
+            $res['Zones'] = $this->zones;
+        }
 
         return $res;
     }
@@ -248,6 +266,9 @@ class publicIpAddressPoolList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['CreationTime'])) {
             $model->creationTime = $map['CreationTime'];
         }
@@ -298,6 +319,11 @@ class publicIpAddressPoolList extends Model
         }
         if (isset($map['UserType'])) {
             $model->userType = $map['UserType'];
+        }
+        if (isset($map['Zones'])) {
+            if (!empty($map['Zones'])) {
+                $model->zones = $map['Zones'];
+            }
         }
 
         return $model;

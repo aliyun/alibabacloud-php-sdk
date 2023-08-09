@@ -9,10 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyExpressCloudConnectionBandwidthResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example E6385514-B0CC-48E3-B9F9-F7BFF64460A2
-     *
      * @var string
      */
     public $requestId;

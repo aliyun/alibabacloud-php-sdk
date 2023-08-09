@@ -66,6 +66,11 @@ class eipAddress extends Model
     public $bandwidthPackageType;
 
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @description The service status of the EIP. Valid values:
      *
      *   **Normal**: active
@@ -417,6 +422,7 @@ class eipAddress extends Model
         'bandwidthPackageBandwidth'     => 'BandwidthPackageBandwidth',
         'bandwidthPackageId'            => 'BandwidthPackageId',
         'bandwidthPackageType'          => 'BandwidthPackageType',
+        'bizType'                       => 'BizType',
         'businessStatus'                => 'BusinessStatus',
         'chargeType'                    => 'ChargeType',
         'deletionProtection'            => 'DeletionProtection',
@@ -475,6 +481,9 @@ class eipAddress extends Model
         }
         if (null !== $this->bandwidthPackageType) {
             $res['BandwidthPackageType'] = $this->bandwidthPackageType;
+        }
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
         }
         if (null !== $this->businessStatus) {
             $res['BusinessStatus'] = $this->businessStatus;
@@ -601,6 +610,9 @@ class eipAddress extends Model
         }
         if (isset($map['BandwidthPackageType'])) {
             $model->bandwidthPackageType = $map['BandwidthPackageType'];
+        }
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
         }
         if (isset($map['BusinessStatus'])) {
             $model->businessStatus = $map['BusinessStatus'];

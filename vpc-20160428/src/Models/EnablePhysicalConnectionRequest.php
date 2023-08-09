@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class EnablePhysicalConnectionRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $byPassSp;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
      * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
@@ -57,6 +62,7 @@ class EnablePhysicalConnectionRequest extends Model
      */
     public $resourceOwnerId;
     protected $_name = [
+        'byPassSp'             => 'ByPassSp',
         'clientToken'          => 'ClientToken',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -73,6 +79,9 @@ class EnablePhysicalConnectionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->byPassSp) {
+            $res['ByPassSp'] = $this->byPassSp;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -106,6 +115,9 @@ class EnablePhysicalConnectionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ByPassSp'])) {
+            $model->byPassSp = $map['ByPassSp'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\ListVirtualPhysicalConnectionsResponseBody;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ListVirtualPhysicalConnectionsResponseBody\virtualPhysicalConnections\tags;
 use AlibabaCloud\Tea\Model;
 
 class virtualPhysicalConnections extends Model
@@ -296,6 +297,11 @@ class virtualPhysicalConnections extends Model
     public $status;
 
     /**
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
      * @description The type of Express Connect circuit. Default value: **VPC**.
      *
      * @example VPC
@@ -353,6 +359,7 @@ class virtualPhysicalConnections extends Model
         'resourceGroupId'                 => 'ResourceGroupId',
         'spec'                            => 'Spec',
         'status'                          => 'Status',
+        'tags'                            => 'Tags',
         'type'                            => 'Type',
         'virtualPhysicalConnectionStatus' => 'VirtualPhysicalConnectionStatus',
         'vlanId'                          => 'VlanId',
@@ -445,6 +452,15 @@ class virtualPhysicalConnections extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -547,6 +563,15 @@ class virtualPhysicalConnections extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

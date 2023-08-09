@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponseBody\physicalConnectionSet;
 
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribePhysicalConnectionsResponseBody\physicalConnectionSet\physicalConnectionType\tags;
 use AlibabaCloud\Tea\Model;
 
 class physicalConnectionType extends Model
@@ -343,6 +344,11 @@ class physicalConnectionType extends Model
     public $status;
 
     /**
+     * @var tags
+     */
+    public $tags;
+
+    /**
      * @description The type of the Express Connect circuit. The value is set to **VPC**.
      *
      * @example VPC
@@ -414,6 +420,7 @@ class physicalConnectionType extends Model
         'resourceGroupId'                => 'ResourceGroupId',
         'spec'                           => 'Spec',
         'status'                         => 'Status',
+        'tags'                           => 'Tags',
         'type'                           => 'Type',
         'virtualPhysicalConnectionCount' => 'VirtualPhysicalConnectionCount',
         'vlanId'                         => 'VlanId',
@@ -522,6 +529,9 @@ class physicalConnectionType extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -642,6 +652,9 @@ class physicalConnectionType extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

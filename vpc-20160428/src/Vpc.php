@@ -6091,6 +6091,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->bizType)) {
+            $query['BizType'] = $request->bizType;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -6126,6 +6129,9 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->zones)) {
+            $query['Zones'] = $request->zones;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -17595,6 +17601,9 @@ class Vpc extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->byPassSp)) {
+            $query['ByPassSp'] = $request->byPassSp;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }

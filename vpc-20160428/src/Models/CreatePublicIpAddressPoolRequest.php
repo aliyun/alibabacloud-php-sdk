@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreatePublicIpAddressPoolRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $bizType;
+
+    /**
      * @description The client token that you want to use to ensure the idempotence of the request.
      *
      * You can use the client to generate the value, but you must make sure that the value is unique among all requests. ClientToken can contain only ASCII characters.
@@ -120,7 +125,13 @@ class CreatePublicIpAddressPoolRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string[]
+     */
+    public $zones;
     protected $_name = [
+        'bizType'              => 'BizType',
         'clientToken'          => 'ClientToken',
         'description'          => 'Description',
         'dryRun'               => 'DryRun',
@@ -133,6 +144,7 @@ class CreatePublicIpAddressPoolRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'tag'                  => 'Tag',
+        'zones'                => 'Zones',
     ];
 
     public function validate()
@@ -142,6 +154,9 @@ class CreatePublicIpAddressPoolRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizType) {
+            $res['BizType'] = $this->bizType;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -184,6 +199,9 @@ class CreatePublicIpAddressPoolRequest extends Model
                 }
             }
         }
+        if (null !== $this->zones) {
+            $res['Zones'] = $this->zones;
+        }
 
         return $res;
     }
@@ -196,6 +214,9 @@ class CreatePublicIpAddressPoolRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -236,6 +257,11 @@ class CreatePublicIpAddressPoolRequest extends Model
                 foreach ($map['Tag'] as $item) {
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['Zones'])) {
+            if (!empty($map['Zones'])) {
+                $model->zones = $map['Zones'];
             }
         }
 
