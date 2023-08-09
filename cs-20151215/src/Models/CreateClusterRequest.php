@@ -336,7 +336,14 @@ class CreateClusterRequest extends Model
     public $nodePortRange;
 
     /**
+     * @var Nodepool[]
+     */
+    public $nodepools;
+
+    /**
      * @example 3
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -513,6 +520,8 @@ class CreateClusterRequest extends Model
     /**
      * @example true
      *
+     * @deprecated
+     *
      * @var bool
      */
     public $workerAutoRenew;
@@ -520,11 +529,15 @@ class CreateClusterRequest extends Model
     /**
      * @example 1
      *
+     * @deprecated
+     *
      * @var int
      */
     public $workerAutoRenewPeriod;
 
     /**
+     * @deprecated
+     *
      * @var workerDataDisks[]
      */
     public $workerDataDisks;
@@ -532,17 +545,23 @@ class CreateClusterRequest extends Model
     /**
      * @example PrePaid
      *
+     * @deprecated
+     *
      * @var string
      */
     public $workerInstanceChargeType;
 
     /**
+     * @deprecated
+     *
      * @var string[]
      */
     public $workerInstanceTypes;
 
     /**
      * @example 1
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -551,12 +570,16 @@ class CreateClusterRequest extends Model
     /**
      * @example Month
      *
+     * @deprecated
+     *
      * @var string
      */
     public $workerPeriodUnit;
 
     /**
      * @example cloud_efficiency
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -565,12 +588,16 @@ class CreateClusterRequest extends Model
     /**
      * @example PL1
      *
+     * @deprecated
+     *
      * @var string
      */
     public $workerSystemDiskPerformanceLevel;
 
     /**
      * @example 120
+     *
+     * @deprecated
      *
      * @var int
      */
@@ -579,11 +606,15 @@ class CreateClusterRequest extends Model
     /**
      * @example sp-2zej1nogjvovnz4z****
      *
+     * @deprecated
+     *
      * @var string
      */
     public $workerSystemDiskSnapshotPolicyId;
 
     /**
+     * @deprecated
+     *
      * @var string[]
      */
     public $workerVswitchIds;
@@ -643,6 +674,7 @@ class CreateClusterRequest extends Model
         'nodeCidrMask'                     => 'node_cidr_mask',
         'nodeNameMode'                     => 'node_name_mode',
         'nodePortRange'                    => 'node_port_range',
+        'nodepools'                        => 'nodepools',
         'numOfNodes'                       => 'num_of_nodes',
         'osType'                           => 'os_type',
         'period'                           => 'period',
@@ -841,6 +873,15 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->nodePortRange) {
             $res['node_port_range'] = $this->nodePortRange;
+        }
+        if (null !== $this->nodepools) {
+            $res['nodepools'] = [];
+            if (null !== $this->nodepools && \is_array($this->nodepools)) {
+                $n = 0;
+                foreach ($this->nodepools as $item) {
+                    $res['nodepools'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->numOfNodes) {
             $res['num_of_nodes'] = $this->numOfNodes;
@@ -1149,6 +1190,15 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['node_port_range'])) {
             $model->nodePortRange = $map['node_port_range'];
+        }
+        if (isset($map['nodepools'])) {
+            if (!empty($map['nodepools'])) {
+                $model->nodepools = [];
+                $n                = 0;
+                foreach ($map['nodepools'] as $item) {
+                    $model->nodepools[$n++] = null !== $item ? Nodepool::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['num_of_nodes'])) {
             $model->numOfNodes = $map['num_of_nodes'];

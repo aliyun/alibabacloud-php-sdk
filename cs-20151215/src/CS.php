@@ -856,6 +856,9 @@ class CS extends OpenApiClient
         if (!Utils::isUnset($request->nodePortRange)) {
             $body['node_port_range'] = $request->nodePortRange;
         }
+        if (!Utils::isUnset($request->nodepools)) {
+            $body['nodepools'] = $request->nodepools;
+        }
         if (!Utils::isUnset($request->numOfNodes)) {
             $body['num_of_nodes'] = $request->numOfNodes;
         }

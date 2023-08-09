@@ -204,6 +204,13 @@ class scalingGroup extends Model
     public $spotStrategy;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $systemDiskBurstingEnabled;
+
+    /**
      * @example cloud_efficiency
      *
      * @var string
@@ -216,6 +223,13 @@ class scalingGroup extends Model
      * @var string
      */
     public $systemDiskPerformanceLevel;
+
+    /**
+     * @example 1000
+     *
+     * @var int
+     */
+    public $systemDiskProvisionedIops;
 
     /**
      * @example 120
@@ -263,8 +277,10 @@ class scalingGroup extends Model
         'spotInstanceRemedy'                  => 'spot_instance_remedy',
         'spotPriceLimit'                      => 'spot_price_limit',
         'spotStrategy'                        => 'spot_strategy',
+        'systemDiskBurstingEnabled'           => 'system_disk_bursting_enabled',
         'systemDiskCategory'                  => 'system_disk_category',
         'systemDiskPerformanceLevel'          => 'system_disk_performance_level',
+        'systemDiskProvisionedIops'           => 'system_disk_provisioned_iops',
         'systemDiskSize'                      => 'system_disk_size',
         'tags'                                => 'tags',
         'vswitchIds'                          => 'vswitch_ids',
@@ -376,11 +392,17 @@ class scalingGroup extends Model
         if (null !== $this->spotStrategy) {
             $res['spot_strategy'] = $this->spotStrategy;
         }
+        if (null !== $this->systemDiskBurstingEnabled) {
+            $res['system_disk_bursting_enabled'] = $this->systemDiskBurstingEnabled;
+        }
         if (null !== $this->systemDiskCategory) {
             $res['system_disk_category'] = $this->systemDiskCategory;
         }
         if (null !== $this->systemDiskPerformanceLevel) {
             $res['system_disk_performance_level'] = $this->systemDiskPerformanceLevel;
+        }
+        if (null !== $this->systemDiskProvisionedIops) {
+            $res['system_disk_provisioned_iops'] = $this->systemDiskProvisionedIops;
         }
         if (null !== $this->systemDiskSize) {
             $res['system_disk_size'] = $this->systemDiskSize;
@@ -514,11 +536,17 @@ class scalingGroup extends Model
         if (isset($map['spot_strategy'])) {
             $model->spotStrategy = $map['spot_strategy'];
         }
+        if (isset($map['system_disk_bursting_enabled'])) {
+            $model->systemDiskBurstingEnabled = $map['system_disk_bursting_enabled'];
+        }
         if (isset($map['system_disk_category'])) {
             $model->systemDiskCategory = $map['system_disk_category'];
         }
         if (isset($map['system_disk_performance_level'])) {
             $model->systemDiskPerformanceLevel = $map['system_disk_performance_level'];
+        }
+        if (isset($map['system_disk_provisioned_iops'])) {
+            $model->systemDiskProvisionedIops = $map['system_disk_provisioned_iops'];
         }
         if (isset($map['system_disk_size'])) {
             $model->systemDiskSize = $map['system_disk_size'];
