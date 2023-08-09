@@ -58,7 +58,7 @@ class OperationSuspEventsRequest extends Model
     /**
      * @description The IDs of alert events.
      *
-     * >  You can call the [DescribeAlarmEventList](~~DescribeAlarmEventList~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
+     * >  You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the IDs of alert events from the SecurityEventIds response parameter.
      * @example 290852
      *
      * @var string

@@ -114,6 +114,11 @@ class cves extends Model
     public $intranetIp;
 
     /**
+     * @var string
+     */
+    public $otherId;
+
+    /**
      * @description The POC content.
      *
      * @example NewDomain.html
@@ -246,6 +251,7 @@ class cves extends Model
         'instanceName'      => 'InstanceName',
         'internetIp'        => 'InternetIp',
         'intranetIp'        => 'IntranetIp',
+        'otherId'           => 'OtherId',
         'poc'               => 'Poc',
         'pocCreateTime'     => 'PocCreateTime',
         'pocDisclosureTime' => 'PocDisclosureTime',
@@ -306,6 +312,9 @@ class cves extends Model
         }
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
+        }
+        if (null !== $this->otherId) {
+            $res['OtherId'] = $this->otherId;
         }
         if (null !== $this->poc) {
             $res['Poc'] = $this->poc;
@@ -396,6 +405,9 @@ class cves extends Model
         }
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
+        }
+        if (isset($map['OtherId'])) {
+            $model->otherId = $map['OtherId'];
         }
         if (isset($map['Poc'])) {
             $model->poc = $map['Poc'];
