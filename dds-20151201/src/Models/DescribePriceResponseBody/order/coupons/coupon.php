@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class coupon extends Model
 {
     /**
+     * @description The billing method to which the coupon was applied. Valid values: **payondemand**: subscription. **payasyougo**: pay-as-you-go.
+     *
+     * @example payondemand
+     *
      * @var string
      */
     public $activityCategory;
 
     /**
-     * @description The coupon number.
+     * @description The coupon ID.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -24,7 +28,7 @@ class coupon extends Model
     public $couponNo;
 
     /**
-     * @description The description of the topic.
+     * @description The description of the coupon.
      *
      * @example ceshi
      *
@@ -33,7 +37,10 @@ class coupon extends Model
     public $description;
 
     /**
-     * @description Indicates whether the coupon was selected.
+     * @description Indicates whether the coupon was selected. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -42,7 +49,7 @@ class coupon extends Model
     public $isSelected;
 
     /**
-     * @description The name of the coupon.
+     * @description The coupon name.
      *
      * @example youhuiquan111
      *
@@ -51,16 +58,26 @@ class coupon extends Model
     public $name;
 
     /**
+     * @description The code of the coupon.
+     *
+     * @example youhui_quan
+     *
      * @var string
      */
     public $optionCode;
 
     /**
+     * @description The promotional option code.
+     *
+     * @example youhui_quan
+     *
      * @var string
      */
     public $promotionOptionCode;
 
     /**
+     * @description The rules that match the coupon.
+     *
      * @var promotionRuleIdList
      */
     public $promotionRuleIdList;

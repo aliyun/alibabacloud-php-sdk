@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class EvaluateResourceRequest extends Model
 {
     /**
-     * @description The instance type.
+     * @description The stype of the instance.
      *
      * > This parameter is required when you check whether resources are sufficient for creating or upgrading a replica set instance. For more information about instance types, see [Instance types](~~57141~~).
      * @example dds.mongo.mid
@@ -37,15 +37,15 @@ class EvaluateResourceRequest extends Model
     public $engine;
 
     /**
-     * @description The major engine version of the instance. Valid values:
+     * @description The version of the database engine. Valid values:
      *
-     *   **6.0**
      *   **5.0**
      *   **4.4**
      *   **4.2**
      *   **4.0**
+     *   **3.4**
      *
-     * @example 4.2
+     * @example 4.0
      *
      * @var string
      */
@@ -62,7 +62,7 @@ class EvaluateResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of read-only nodes. Valid values: **1** to **5**.
+     * @description The number of read-only nodes in the instance. Valid values: **1** to **5**.
      *
      * > This parameter is not required for standalone or serverless instances.
      * @example 1
@@ -72,7 +72,7 @@ class EvaluateResourceRequest extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID.
      *
      * @example cn-hangzhou
      *
@@ -83,7 +83,7 @@ class EvaluateResourceRequest extends Model
     /**
      * @description The number of nodes in the instance.
      *
-     *   Valid values for standalone instances: **1**
+     *   Set the value to **1** for standalone instances.
      *   Valid values for replica set instances: **3**, **5**, and **7**
      *
      * > This parameter is not required for serverless instances.
@@ -109,7 +109,7 @@ class EvaluateResourceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The node information. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
+     * @description The node information about the sharded cluster instance. This parameter is required when you check whether resources are sufficient for creating or upgrading a sharded cluster instance.
      *
      * Parameters in the example:
      *
@@ -133,9 +133,8 @@ class EvaluateResourceRequest extends Model
     public $shardsInfo;
 
     /**
-     * @description The storage capacity of the replica set instance. Unit: GB.
-     *
-     * > This parameter is required for the instances that use cloud disks.
+     * @description 副本集的存储空间，单位为GB。
+     * > 实例规格为云盘型时，该参数必填。</props>
      * @example 10
      *
      * @var string
@@ -143,7 +142,7 @@ class EvaluateResourceRequest extends Model
     public $storage;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the zone ID.
      *
      * @example cn-hangzhou-h
      *

@@ -9,9 +9,12 @@ use AlibabaCloud\Tea\Model;
 class replicaSet extends Model
 {
     /**
-     * @description The instance type of the shard node. For more information, see [Instance types](~~311414~~).
+     * @description The instance type of the shard node. For more information, see [Sharded cluster instance types](~~311414~~).
      *
-     * > *   **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
+     * >
+     *
+     *   **N** specifies the serial number of the shard node for which the instance type is specified. For example, **ReplicaSet.2.Class** specifies the instance type of the second shard node.
+     *
      *   Valid values for **N**: **2** to **32**.
      *
      * @example dds.shard.standard
@@ -33,10 +36,13 @@ class replicaSet extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The storage capacity of the shard node. Unit: GB.
+     * @description The storage space of the shard node. Unit: GB.
      *
-     * > *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Instance types](~~311414~~).
-     *   **N** specifies the serial number of the shard node for which the storage capacity is specified. For example, **ReplicaSet.2.Storage** specifies the storage capacity of the second shard node.
+     * >
+     *
+     *   The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](~~311414~~).
+     *
+     *   **N** specifies the serial number of the shard node for which the storage space is specified. For example, **ReplicaSet.2.Storage** specifies the storage space of the second shard node.
      *
      * @example 10
      *

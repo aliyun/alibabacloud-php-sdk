@@ -28,7 +28,7 @@ class ModifyResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID.
      *
      * @example cn-hangzhou
      *

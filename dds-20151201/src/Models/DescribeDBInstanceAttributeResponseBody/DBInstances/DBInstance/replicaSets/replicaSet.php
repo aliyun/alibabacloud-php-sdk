@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class replicaSet extends Model
 {
     /**
-     * @description The endpoint of the node.
+     * @description The network type of the instance. Valid values:
+     *
+     *   **Classic**
+     *   **VPC**
      *
      * @example dds-bp11483712c1****.mongodb.rds.aliyuncs.com
      *
@@ -18,7 +21,7 @@ class replicaSet extends Model
     public $connectionDomain;
 
     /**
-     * @description The port number that is used to connect to the node.
+     * @description The endpoint of the node.
      *
      * @example 3717
      *
@@ -27,11 +30,9 @@ class replicaSet extends Model
     public $connectionPort;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The logical ID of the replica instance.
      *
-     *   **Classic**
-     *   **VPC**
-     *
+     * > ApsaraDB for MongoDB does not support new instances of this type. This parameter applies only to previous-version replica instances.
      * @example VPC
      *
      * @var string
@@ -39,11 +40,9 @@ class replicaSet extends Model
     public $networkType;
 
     /**
-     * @description The role of the node. Valid values:
+     * @description The ID of the instance.
      *
-     *   **Primary**
-     *   **Secondary**
-     *
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example Primary
      *
      * @var string
@@ -51,7 +50,7 @@ class replicaSet extends Model
     public $replicaSetRole;
 
     /**
-     * @description The ID of the instance.
+     * @description The VPC ID of the instance.
      *
      * > This parameter is returned if the network type of the instance is VPC.
      * @example dds-bp11483712c1****
@@ -61,9 +60,8 @@ class replicaSet extends Model
     public $VPCCloudInstanceId;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description Details about instance tags.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1jk5vwkcri27qme****
      *
      * @var string
@@ -71,9 +69,11 @@ class replicaSet extends Model
     public $VPCId;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The role of the node. Valid values:
      *
-     * > This parameter is returned if the network type of the instance is VPC.
+     *   **Primary**
+     *   **Secondary**
+     *
      * @example vpc-bp1jk5vwkcri27qme****
      *
      * @var string

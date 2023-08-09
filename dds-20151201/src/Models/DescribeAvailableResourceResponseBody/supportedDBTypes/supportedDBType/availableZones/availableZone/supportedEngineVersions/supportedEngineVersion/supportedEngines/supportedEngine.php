@@ -19,7 +19,7 @@ class supportedEngine extends Model
     public $engine;
 
     /**
-     * @description The available node types.
+     * @description The supported instance types.
      *
      * @var supportedNodeTypes
      */

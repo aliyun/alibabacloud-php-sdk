@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckRecoveryConditionRequest extends Model
 {
     /**
-     * @description The ID of the backup.
+     * @description The point in time to which the instance is restored. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * > * You can call the [DescribeBackups](~~62172~~) operation to query the ID of the backup.
-     * > * You must specify one of the **RestoreTime** and BackupId parameters.
-     * > * This parameter is not applicable to sharded cluster instances.
+     * > * The value can be any time within the past seven days. The time must be earlier than the current time, but later than the time when the instance was created.
+     * > * You must specify one of the RestoreTime and **BackupId** parameters.
      * @example 5664****
      *
      * @var string
@@ -21,9 +20,8 @@ class CheckRecoveryConditionRequest extends Model
     public $backupId;
 
     /**
-     * @description The name of the source database. The value is a JSON array.
+     * @description The ID of the source instance.
      *
-     * >  If you do not specify this parameter, all databases are restored.
      * @example ["db1","db2"]
      *
      * @var string
@@ -41,8 +39,11 @@ class CheckRecoveryConditionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the backup.
      *
+     * > * You can call the [DescribeBackups](~~62172~~) operation to query the ID of the backup.
+     * > * You must specify one of the **RestoreTime** and BackupId parameters.
+     * > * This parameter is not applicable to sharded cluster instances.
      * @example sg-bp179****
      *
      * @var string
@@ -60,10 +61,9 @@ class CheckRecoveryConditionRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The point in time to which the instance is restored. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The name of the source database. The value is a JSON array.
      *
-     * > * The value can be any time within the past seven days. The time must be earlier than the current time, but later than the time when the instance was created.
-     * > * You must specify one of the RestoreTime and **BackupId** parameters.
+     * >  If you do not specify this parameter, all databases are restored.
      * @example 2022-08-22T08:00:00Z
      *
      * @var string
@@ -76,7 +76,7 @@ class CheckRecoveryConditionRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the source instance.
+     * @description The operation that you want to perform. Set the value to **CheckRecoveryCondition**.
      *
      * @example dds-bp1378****
      *

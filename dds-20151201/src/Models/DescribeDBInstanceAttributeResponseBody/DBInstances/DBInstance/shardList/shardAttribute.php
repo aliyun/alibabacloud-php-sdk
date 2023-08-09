@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class shardAttribute extends Model
 {
     /**
-     * @description The endpoint of the shard node.
+     * @description The maximum number of connections to the shard node.
      *
      * @example d-bp1af0680a9c6d3****.mongodb.rds.aliyuncs.com:****
      *
@@ -18,7 +18,7 @@ class shardAttribute extends Model
     public $connectString;
 
     /**
-     * @description The maximum number of connections to the shard node.
+     * @description The name of the shard node.
      *
      * @example 8000
      *
@@ -27,7 +27,7 @@ class shardAttribute extends Model
     public $maxConnections;
 
     /**
-     * @description The maximum IOPS of the shard node.
+     * @description The instance type of the shard node.
      *
      * @example 8000
      *
@@ -36,7 +36,7 @@ class shardAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The instance type of the shard node.
+     * @description The port number that is used to connect to the shard node.
      *
      * @example dds.shard.mid
      *
@@ -45,7 +45,7 @@ class shardAttribute extends Model
     public $nodeClass;
 
     /**
-     * @description The name of the shard node.
+     * @description The storage capacity of the shard node.
      *
      * @example testshard
      *
@@ -54,7 +54,7 @@ class shardAttribute extends Model
     public $nodeDescription;
 
     /**
-     * @description The ID of the shard node.
+     * @description The number of read-only nodes in the shard node. Valid values: **0** to **5**. The value must be an integer.
      *
      * @example d-bp16e09d9c5d****
      *
@@ -63,7 +63,7 @@ class shardAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the shard node.
+     * @description The state of the shard node. For more information, see [Instance states](~~63870~~).
      *
      * @example 10
      *
@@ -72,7 +72,7 @@ class shardAttribute extends Model
     public $nodeStorage;
 
     /**
-     * @description The port number that is used to connect to the shard node.
+     * @description The ID of the shard node.
      *
      * @example 3717
      *
@@ -81,7 +81,7 @@ class shardAttribute extends Model
     public $port;
 
     /**
-     * @description The number of read-only nodes in the shard node. Valid values: **0** to **5**. The value must be an integer.
+     * @description The end time of the maintenance window. The time is in the *HH:mm*Z format. The time is displayed in UTC.
      *
      * @example 0
      *
@@ -90,7 +90,7 @@ class shardAttribute extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The state of the shard node. For more information, see [Instance states](~~63870~~).
+     * @description The state of the instance. For more information, see [Instance states](~~63870~~).
      *
      * @example Running
      *

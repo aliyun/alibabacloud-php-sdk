@@ -20,6 +20,8 @@ class shardList extends Model
     /**
      * @description The description of the shard node.
      *
+     * @example testshard
+     *
      * @var string
      */
     public $nodeDescription;

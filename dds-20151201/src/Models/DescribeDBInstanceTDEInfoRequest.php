@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceTDEInfoRequest extends Model
 {
     /**
-     * @description The ID of the Message Queue for Apache Kafka instance to be deleted.
-     *
      * @example dds-bpxxxxxxxx
      *
      * @var string

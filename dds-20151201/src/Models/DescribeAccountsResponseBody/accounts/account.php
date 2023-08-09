@@ -11,6 +11,8 @@ class account extends Model
     /**
      * @description The description of the account.
      *
+     * @example account description.
+     *
      * @var string
      */
     public $accountDescription;

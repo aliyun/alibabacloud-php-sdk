@@ -14,7 +14,7 @@ class TransformInstanceChargeTypeRequest extends Model
      *   **true**
      *   **false**
      *
-     * > The default value is **true**.
+     * > Default value: **true**.
      * @example true
      *
      * @var bool
@@ -22,12 +22,12 @@ class TransformInstanceChargeTypeRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
+     * @description Specifies whether to enable auto-renewal. Valid values:
      *
      *   **true**
      *   **false**
      *
-     * > The default value is **false**.
+     * > Default value: **false**.
      * @example false
      *
      * @var string
@@ -84,7 +84,7 @@ class TransformInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription duration of the instance. Unit: months. Valid values: **1**\~ **9**, **12**, **24**, and **36**.
+     * @description The subscription duration of the instance. Unit: months. Valid values: **1, 2, 3, 4, 5, 6, 7, 8, 9******, **12**, **24**, and **36**.
      *
      * @example 1
      *

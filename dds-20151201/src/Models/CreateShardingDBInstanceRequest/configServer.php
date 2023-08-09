@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configServer extends Model
 {
     /**
-     * @description The instance type of the Configserver node. Valid value:
+     * @description The instance type of the ConfigServer node. Valid values:
      *
      *   **mdb.shard.2x.xlarge.d**: 4 cores, 8 GB (dedicated). Only instances that run MongoDB 4.4 and later support this instance type.
      *   **dds.cs.mid** :1 core, 2 GB (general-purpose). Only instances that run MongoDB 4.2 and earlier support this instance type.
@@ -21,7 +21,7 @@ class configServer extends Model
     public $class;
 
     /**
-     * @description The storage capacity of the Configserver node. Unit: GB.
+     * @description The storage space of the ConfigServer node. Unit: GB.
      *
      * > The values that can be specified for this parameter vary based on the instance types. For more information, see [Sharded cluster instance types](~~311414~~).
      * @example 20

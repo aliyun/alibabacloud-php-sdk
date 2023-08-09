@@ -19,7 +19,7 @@ class DescribeAvailableResourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The available database types.
+     * @description The supported database types.
      *
      * @var supportedDBTypes
      */

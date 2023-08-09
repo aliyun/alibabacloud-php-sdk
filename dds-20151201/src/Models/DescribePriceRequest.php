@@ -18,14 +18,14 @@ class DescribePriceRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The code of the cluster. Valid values:
+     * @description The code of the instance. Valid values:
      *
-     *   dds: a replica set instance that uses the pay-as-you-go billing method
-     *   badds: a replica set instance that uses the subscription billing method
-     *   dds_sharding: a sharded cluster instance that uses the pay-as-you-go billing method
-     *   badds_sharding: a sharded cluster instance that uses the subscription billing method
-     *   badds_sharding_intl: a sharded cluster instance that uses the subscription billing method and is available on the International site (alibabacloud.com)
-     *   badds_sharding_jp: a sharded cluster instance that uses the subscription billing method and is available on the Japan site (jp.alibabacloud.com)
+     *   **dds**: a replica set instance that uses the pay-as-you-go billing method
+     *   **badds**: a replica set instance that uses the subscription billing method
+     *   **dds_sharding**: a sharded cluster instance that uses the pay-as-you-go billing method
+     *   **badds_sharding**: a sharded cluster instance that uses the subscription billing method
+     *   **badds_sharding_intl**: a sharded cluster instance that uses the subscription billing method and is available on the International site (alibabacloud.com)
+     *   **badds_sharding_jp**: a sharded cluster instance that uses the subscription billing method and is available on the Japan site (jp.alibabacloud.com)
      *
      * @example badds
      *
@@ -43,7 +43,7 @@ class DescribePriceRequest extends Model
     public $couponNo;
 
     /**
-     * @description A JSON string that contains the details of the ApsaraDB for MongoDB instance. For more information, see Details of the [DBInstances](~~197291~~) parameter in the DescribePrice operation.
+     * @description A JSON string that contains the details of the ApsaraDB for MongoDB instance. For more information, see the [DBInstances](~~197291~~) parameter in the DescribePrice operation.
      *
      * @example [ { "DBInstanceId":"dds-bp1b6e54e7cc****", "RegionId":"cn-hangzhou", "ZoneId":"cn-hangzhou-h", "Engine":"MongoDB", "EngineVersion":" 5.0", "DBInstanceClass":"mdb.shard.2x.xlarge.d", "DBInstanceStorage":30, "ChargeType":"PrePaid", "Period":1, "StorageType":"cloud_essd1" } ]
      *
@@ -52,12 +52,11 @@ class DescribePriceRequest extends Model
     public $DBInstances;
 
     /**
-     * @description Specifies whether to return the parameters about the order. Valid values:
+     * @description Specifies whether to return the OrderParams parameter. Valid values:
      *
-     *   false
-     *   true
+     *   **false** (default)
+     *   **true**
      *
-     * Default value: **false**.
      * @example true
      *
      * @var string
@@ -65,11 +64,11 @@ class DescribePriceRequest extends Model
     public $orderParamOut;
 
     /**
-     * @description The type of the order. Valid values:
+     * @description The order type. Valid values:
      *
-     *   BUY: instance creation
-     *   UPGRADE: instance configuration change
-     *   RENEW: instance renewal
+     *   **BUY**
+     *   **UPGRADE**
+     *   **RENEW**
      *
      * @example BUY
      *
@@ -88,7 +87,7 @@ class DescribePriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The code of the service to which the instance belongs. Default value: **dds**.
+     * @description The code of the service. Default value: **dds**.
      *
      * @example dds
      *

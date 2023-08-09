@@ -18,7 +18,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $certCommonName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 36BB1BC2-789C-4BBA-A519-C5B388E4B0D4
      *
@@ -27,7 +27,7 @@ class DescribeDBInstanceSSLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The time when the SSL certificate expires. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The time when the SSL certificate expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in Coordinated Universal Time (UTC).
      *
      * @example 2020-03-11T02:28:25Z
      *

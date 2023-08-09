@@ -11,8 +11,8 @@ class DescribeParametersRequest extends Model
     /**
      * @description The type of the database account. Valid values:
      *
-     *   mongos: an account that can be used to log on to mongos
-     *   shard: an account that can be used to log on to shards
+     *   mongos: an account that can be used to log on to a mongos node.
+     *   shard: an account that can be used to log on to a shard node.
      *
      * @example mongos
      *
@@ -21,9 +21,9 @@ class DescribeParametersRequest extends Model
     public $characterType;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
-     * >  If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
+     * > If you set this parameter to the ID of a sharded cluster instance, you must also specify the **NodeId** parameter.
      * @example dds-bpxxxxxxxx
      *
      * @var string
@@ -31,14 +31,18 @@ class DescribeParametersRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description terrform use
+     *
+     * @example terrform
+     *
      * @var string
      */
     public $extraParam;
 
     /**
-     * @description The ID of the mongos or shard in the specified sharded cluster instance.
+     * @description The ID of the mongos or shard node in the specified sharded cluster instance.
      *
-     * >  This parameter is valid only if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
+     * > This parameter is valid when the **DBInstanceId** parameter is set to the ID of a sharded cluster instance.
      * @example d-bpxxxxxxxx
      *
      * @var string

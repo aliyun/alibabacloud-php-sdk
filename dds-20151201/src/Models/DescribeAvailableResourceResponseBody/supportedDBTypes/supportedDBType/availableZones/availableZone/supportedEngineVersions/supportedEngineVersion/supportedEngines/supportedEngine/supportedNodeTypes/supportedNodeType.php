@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class supportedNodeType extends Model
 {
     /**
-     * @description Details about the available resources.
+     * @description The details of the available resources.
      *
      * @var availableResources
      */

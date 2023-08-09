@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class configserverAttribute extends Model
 {
     /**
-     * @description The endpoint of the Configserver node.
+     * @description The maximum number of connections to the Configserver node.
      *
      * @example dds-bp18b0934e7053e4-cs****.mongodb.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class configserverAttribute extends Model
     public $connectString;
 
     /**
-     * @description The maximum number of connections to the Configserver node.
+     * @description The name of the Configserver node.
      *
      * @example 1000
      *
@@ -27,7 +27,7 @@ class configserverAttribute extends Model
     public $maxConnections;
 
     /**
-     * @description The maximum IOPS of the Configserver node.
+     * @description The instance type of the Configserver node.
      *
      * @example 1000
      *
@@ -36,7 +36,7 @@ class configserverAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The instance type of the Configserver node.
+     * @description The port number that is used to connect to the Configserver node.
      *
      * @example dds.cs.mid
      *
@@ -45,7 +45,7 @@ class configserverAttribute extends Model
     public $nodeClass;
 
     /**
-     * @description The name of the Configserver node.
+     * @description The storage capacity of the Configserver node.
      *
      * @example testConfigserver
      *
@@ -54,7 +54,7 @@ class configserverAttribute extends Model
     public $nodeDescription;
 
     /**
-     * @description The ID of the Configserver node.
+     * @description The state of the Configserver node. For more information, see [Instance states](~~63870~~).
      *
      * @example dds-bp11483712c1****-cs
      *
@@ -63,8 +63,9 @@ class configserverAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The storage capacity of the Configserver node.
+     * @description The ID of the resource group.
      *
+     * > This parameter is returned only if you use the China site (aliyun.com).
      * @example 20
      *
      * @var int
@@ -72,7 +73,7 @@ class configserverAttribute extends Model
     public $nodeStorage;
 
     /**
-     * @description The port number that is used to connect to the Configserver node.
+     * @description The ID of the Configserver node.
      *
      * @example 3717
      *
@@ -81,7 +82,7 @@ class configserverAttribute extends Model
     public $port;
 
     /**
-     * @description The state of the Configserver node. For more information, see [Instance states](~~63870~~).
+     * @description The zone ID of the instance.
      *
      * @example Running
      *

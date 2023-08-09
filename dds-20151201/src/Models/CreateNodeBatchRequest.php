@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeBatchRequest extends Model
 {
     /**
-     * @description The username of the account. The username must meet the following requirements:
-     *
-     * The username starts with a lowercase letter.
-     * The username contains lowercase letters, digits, and underscores (\_).
-     * The username is 4 to 16 characters in length.
-     *
-     * > * Keywords cannot be used as account usernames.
-     * > * The permissions of this account are fixed at read-only.
-     * > * The username and password are required to be set only when you apply for an endpoint for the shard node for the first time.
      * @example ceshi
      *
      * @var string
@@ -25,13 +16,6 @@ class CreateNodeBatchRequest extends Model
     public $accountName;
 
     /**
-     * @description The password of the account. The password must meet the following requirements:
-     *
-     *   The password contains at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters.
-     *   These special characters include ! @ # $ % ^ & \* ( ) \_ + - =
-     *   The password is 8 to 32 characters in length.
-     *
-     * >  The account password of the shard node cannot be reset.
      * @example 123+abc
      *
      * @var string
@@ -39,11 +23,6 @@ class CreateNodeBatchRequest extends Model
     public $accountPassword;
 
     /**
-     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
-     *
-     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
-     *   **false**: disables automatic payment. In this case, you must manually pay for the instance. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > **Orders**. On the Orders page, find the order and complete the payment.
-     *
      * @example true
      *
      * @var bool
@@ -51,8 +30,6 @@ class CreateNodeBatchRequest extends Model
     public $autoPay;
 
     /**
-     * @description The business information.
-     *
      * @example {“ActivityId":"000000000"}
      *
      * @var string
@@ -60,7 +37,7 @@ class CreateNodeBatchRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The ID of the added mongos or shard node.
      *
      * @example ETnLKlblzczshOTUbOCz****
      *
@@ -69,8 +46,6 @@ class CreateNodeBatchRequest extends Model
     public $clientToken;
 
     /**
-     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
-     *
      * @example youhuiquan_promotion_option_id_for_blank
      *
      * @var string
@@ -78,8 +53,6 @@ class CreateNodeBatchRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance for which you want to add nodes.
-     *
      * @example dds-bp18b0934e70****
      *
      * @var string
@@ -87,11 +60,6 @@ class CreateNodeBatchRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The source of the request. Valid values:
-     *
-     *   **OpenApi**: ApsaraDB for MongoDB API
-     *   **mongo_buy**: ApsaraDB for MongoDB console
-     *
      * @example OpenApi
      *
      * @var string
@@ -99,11 +67,6 @@ class CreateNodeBatchRequest extends Model
     public $fromApp;
 
     /**
-     * @description The specifications of the mongos or shard node that you want to add. For more information, see [Instance types](~~57141~~).
-     *
-     * >  Up to 32 mongos or shard nodes are supported for each sharded cluster instance.
-     * @example {"DBInstanceId":"dds-1ud73a59b6fa****","NodesInfo":"{\"Shards\":[{\"DBInstanceClass\":\"dds.shard.mid\",\"Storage\":10}]}"}
-     *
      * @var string
      */
     public $nodesInfo;
@@ -134,11 +97,6 @@ class CreateNodeBatchRequest extends Model
     public $securityToken;
 
     /**
-     * @description Specifies whether to apply for an endpoint for the shard node. Default value: false. Valid values:
-     *
-     *   **true**: applies for an endpoint for the shard node.
-     *   **false**: does not apply for an endpoint for the shard node.
-     *
      * @example false
      *
      * @var bool

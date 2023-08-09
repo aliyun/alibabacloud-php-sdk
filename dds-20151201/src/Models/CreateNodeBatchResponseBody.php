@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeBatchResponseBody extends Model
 {
     /**
-     * @description The ID of the added mongos or shard node.
-     *
      * @example d-bp18f7d6b6a7****
      *
      * @var string
@@ -18,8 +16,6 @@ class CreateNodeBatchResponseBody extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the order.
-     *
      * @example 50179021707****
      *
      * @var string
@@ -27,8 +23,6 @@ class CreateNodeBatchResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
-     *
      * @example 55D41A94-1ACE-55E8-8BC7-67D622E7****
      *
      * @var string

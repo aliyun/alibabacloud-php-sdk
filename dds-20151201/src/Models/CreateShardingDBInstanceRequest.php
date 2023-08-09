@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest\configServer;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest\mongos;
 use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest\replicaSet;
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateShardingDBInstanceRequest extends Model
@@ -15,8 +16,8 @@ class CreateShardingDBInstanceRequest extends Model
      * @description The password of the root account. The password must meet the following requirements:
      *
      *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-     *   Special characters include ! # $ % ^ & \* ( ) \_ + - =
-     *   The password must be 8 to 32 characters in length.
+     *   The special characters include ! # $ % ^ & \* ( ) \_ + - =
+     *   The password of the account must be 8 to 32 characters in length.
      *
      * @example 123456Aa
      *
@@ -25,12 +26,12 @@ class CreateShardingDBInstanceRequest extends Model
     public $accountPassword;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+     * @description Specifies whether to enable auto-renewal for the instance. Valid values:
      *
      *   **true**
-     *   **false**
+     *   **false** (default)
      *
-     * > If you set the **ChargeType** parameter to **PrePaid**, this parameter is available and optional.
+     * > This parameter is available and optional if you set the value of **ChargeType** to **PrePaid**.
      * @example true
      *
      * @var string
@@ -40,10 +41,10 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **PostPaid:** pay-as-you-go.
-     *   **PrePaid:** subscription
+     *   **PostPaid** (default): pay-as-you-go
+     *   **PrePaid**: subscription
      *
-     * > If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
+     * > **Period** is required if you set the value of this parameter to **PrePaid**.
      * @example PrePaid
      *
      * @var string
@@ -51,7 +52,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCz****
      *
@@ -60,17 +61,17 @@ class CreateShardingDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description Details of the Configserver nodes.
+     * @description The ConfigServer nodes of the instance.
      *
      * @var configServer[]
      */
     public $configServer;
 
     /**
-     * @description The name of the instance. The name must meet the following requirements:
+     * @description The name of the instance. The name of the instance must meet the following requirements:
      *
      *   The name must start with a letter.
-     *   The name can contain digits, letters, underscores (\_), and hyphens (-).
+     *   It can contain digits, letters, underscores (\_), and hyphens (-).
      *   It must be 2 to 256 characters in length.
      *
      * @example test
@@ -78,6 +79,28 @@ class CreateShardingDBInstanceRequest extends Model
      * @var string
      */
     public $DBInstanceDescription;
+
+    /**
+     * @description Specifies whether to encrypt the disk. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * Default value: false.
+     * @example true
+     *
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @description The ID of the custom key.
+     *
+     * @example 2axxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+     *
+     * @var string
+     */
+    public $encryptionKey;
 
     /**
      * @description The database engine of the instance. Set the value to **MongoDB**.
@@ -96,10 +119,13 @@ class CreateShardingDBInstanceRequest extends Model
      *   **4.4**
      *   **4.2**
      *   **4.0**
+     *   **3.4**
      *
      * >
+     *
      *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
-     *   If you call this operation to clone an instance, set the value to the engine of the source instance.
+     *
+     *   If you call this operation to clone an instance, set the value of this parameter to the engine version of the source instance.
      *
      * @example 4.4
      *
@@ -108,19 +134,23 @@ class CreateShardingDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @description 实例的全局IP白名单模板，多个IP白名单模板请用英文逗号（,）分隔，不可重复。
+     *
+     * @example g-qxieqf40xjst1ngpr3jz
+     *
      * @var string
      */
     public $globalSecurityGroupIds;
 
     /**
-     * @description The secondary zone 2 for multi-zone deployment. Valid values:
+     * @description The ID of secondary zone 2 for multi-zone deployment. Valid values:
      *
      *   **cn-hangzhou-g**: Hangzhou Zone G
      *   **cn-hangzhou-h**: Hangzhou Zone H
      *   **cn-hangzhou-i**: Hangzhou Zone I
-     *   **cn-hongkong-b**: Hongkong Zone B.
-     *   **cn-hongkong-c**: Hongkong Zone C
-     *   **cn-hongkong-d**: Hongkong Zone D
+     *   **cn-hongkong-b**: Hong Kong Zone B
+     *   **cn-hongkong-c**: Hong Kong Zone C
+     *   **cn-hongkong-d**: Hong Kong Zone D
      *   **cn-wulanchabu-a**: Ulanqab Zone A
      *   **cn-wulanchabu-b**: Ulanqab Zone B
      *   **cn-wulanchabu-c**: Ulanqab Zone C
@@ -136,9 +166,9 @@ class CreateShardingDBInstanceRequest extends Model
      *
      * >
      *
-     *   If the **EngineVersion** parameter is set to **4.4** or **5.0**, this parameter is available and required.
+     *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
      *
-     *   The value of this parameter cannot be the same as the value of the **ZoneId** or **SecondaryZoneId** parameter.
+     *   The value of this parameter cannot be the same as the value of **ZoneId** or **SecondaryZoneId**.
      *
      *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
      *
@@ -149,17 +179,16 @@ class CreateShardingDBInstanceRequest extends Model
     public $hiddenZoneId;
 
     /**
-     * @description Details of the mongos nodes.
+     * @description The mongos nodes of the instance.
      *
      * @var mongos[]
      */
     public $mongos;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The network type of the instance. Set the value to VPC.
      *
-     **VPC**
-     *
+     ****
      * @example VPC
      *
      * @var string
@@ -177,11 +206,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription period of the instance. Unit: months.
+     * @description The subscription period of the instance. Unit: month.
      *
-     * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
+     * Valid values: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, and 60************************
      *
-     * > If you set the **ChargeType** parameter to **PrePaid**, this parameter is available and required.
+     * > This parameter is available and required if you set the value of **ChargeType** to **PrePaid**.
      * @example 1
      *
      * @var int
@@ -189,10 +218,10 @@ class CreateShardingDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The access protocol of the instance. Valid values:
+     * @description The access protocol type of the instance. Valid values:
      *
-     *   **mongodb**
-     *   **dynamodb**
+     *   **mongodb**: the MongoDB protocol
+     *   **dynamodb**: the DynamoDB protocol
      *
      * @example mongodb
      *
@@ -210,14 +239,14 @@ class CreateShardingDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The description of the shard node.
+     * @description The shard nodes of the instance.
      *
      * @var replicaSet[]
      */
     public $replicaSet;
 
     /**
-     * @description The ID of the resource group. For more information, see [View the basic information of a resource group](~~151181~~).
+     * @description The resource group ID. For more information, see [View the basic information of a resource group](~~151181~~).
      *
      * @example rg-acfmyiu4ekp****
      *
@@ -236,9 +265,9 @@ class CreateShardingDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The point in time to clone the instance, which must be within seven days. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The point in time to restore the instance, which must be within seven days. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in Coordinated Universal Time (UTC).
      *
-     * > This parameter is required only when you call this operation to clone an instance. If you specify this parameter, you must also specify the **SrcDBInstanceId** parameter.
+     * > This parameter is required only if you call this operation to clone an instance. If you specify this parameter, you must also specify **SrcDBInstanceId**.
      * @example 2022-03-08T02:30:25Z
      *
      * @var string
@@ -246,14 +275,14 @@ class CreateShardingDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
-     * @description The secondary zone 1 for multi-zone deployment. Valid values:
+     * @description The ID of secondary zone 1 for multi-zone deployment. Valid values:
      *
      *   **cn-hangzhou-g**: Hangzhou Zone G
      *   **cn-hangzhou-h**: Hangzhou Zone H
      *   **cn-hangzhou-i**: Hangzhou Zone I
-     *   **cn-hongkong-b**: Hongkong Zone B.
-     *   **cn-hongkong-c**: Hongkong Zone C
-     *   **cn-hongkong-d**: Hongkong Zone D
+     *   **cn-hongkong-b**: Hong Kong Zone B
+     *   **cn-hongkong-c**: Hong Kong Zone C
+     *   **cn-hongkong-d**: Hong Kong Zone D
      *   **cn-wulanchabu-a**: Ulanqab Zone A
      *   **cn-wulanchabu-b**: Ulanqab Zone B
      *   **cn-wulanchabu-c**: Ulanqab Zone C
@@ -269,9 +298,9 @@ class CreateShardingDBInstanceRequest extends Model
      *
      * >
      *
-     *   If the **EngineVersion** parameter is set to **4.4** or **5.0**, this parameter is available and required.
+     *   This parameter is available and required if you set the value of **EngineVersion** to **4.4** or **5.0**.
      *
-     *   The value of this parameter cannot be the same as the value of the **ZoneId** or **HiddenZoneId** parameter.
+     *   The value of this parameter cannot be the same as the value of **ZoneId** or **HiddenZoneId**.
      *   For more information about the multi-zone deployment policy of a sharded cluster instance, see [Create a multi-zone sharded cluster instance](~~117865~~).
      *
      * @example cn-hangzhou-h
@@ -281,13 +310,17 @@ class CreateShardingDBInstanceRequest extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The IP addresses in an IP address whitelist. Separate multiple IP addresses with commas (,). Each IP address in the IP address whitelist must be unique. The following types of IP addresses are supported:
+     * @description The IP addresses in an IP address whitelist of the instance. Multiple IP addresses are separated by commas (,), and each IP address in the IP address whitelist must be unique. The following types of values are supported:
+     *
      *   0.0.0.0/0
      *   IP addresses, such as 10.23.12.24.
-     *   Classless Inter-Domain Routing (CIDR) blocks, such as 10.23.12.0/24. In this case, /24 indicates that the prefix of each IP address is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+     *   CIDR blocks, such as 10.23.12.0/24. In this case, 24 indicates that the prefix of each IP address is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+     *
      * >
+     *
      *   A maximum of 1,000 IP addresses and CIDR blocks can be configured for each instance.
-     *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance.
+     *
+     *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance. Proceed with caution.
      *
      * @example 192.168.xx.xx,192.168.xx.xx
      *
@@ -301,9 +334,9 @@ class CreateShardingDBInstanceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the source instance.
+     * @description The source instance ID.
      *
-     * > This parameter can only be specified when this operation is called to clone instances. If you specify this parameter, you must also specify the **RestoreTime** parameter.
+     * > This parameter is required only if you call this operation to clone an instance. If you specify this parameter, you must also specify **RestoreTime**.
      * @example dds-bp11483712c1****
      *
      * @var string
@@ -311,9 +344,12 @@ class CreateShardingDBInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
-     * @description The storage engine used by the instance. Set the value to **WiredTiger**.
+     * @description The storage engine of the instance. Set the value to **WiredTiger**.
      *
-     * > *   If you call this operation to clone an instance, set the value to the engine of the source instance.
+     * >
+     *
+     *   If you call this operation to clone an instance, set the value of this parameter to the storage engine of the source instance.
+     *
      *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
      *
      * @example WiredTiger
@@ -325,13 +361,16 @@ class CreateShardingDBInstanceRequest extends Model
     /**
      * @description The storage type of the instance. Valid values:
      *
-     *   **cloud_essd1** :ESSD PL1
+     *   **cloud_essd1**: ESSD PL1
      *   **cloud_essd2**: ESSD PL2
      *   **cloud_essd3**: ESSD PL3
      *   **local_ssd**: local SSD
      *
-     * > *   Instances of MongoDB 4.4 and later only support cloud disks. **cloud_essd1** is used if you leave this parameter empty.
-     *   Instances of MongoDB 4.2 and earlier support only local disks. **local_ssd** is used if you leave this parameter empty.
+     * >
+     *
+     *   Instances of MongoDB 4.4 and later support only cloud disks. **cloud_essd1** is selected if you leave this parameter empty.
+     *
+     *   Instances of MongoDB 4.2 and earlier support only local disks. **local_ssd** is selected if you leave this parameter empty.
      *
      * @example cloud_essd1
      *
@@ -340,7 +379,12 @@ class CreateShardingDBInstanceRequest extends Model
     public $storageType;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1vj604nj5a9zz74****
      *
@@ -349,7 +393,7 @@ class CreateShardingDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1n3i15v90el48nx****
      *
@@ -372,6 +416,8 @@ class CreateShardingDBInstanceRequest extends Model
         'clientToken'            => 'ClientToken',
         'configServer'           => 'ConfigServer',
         'DBInstanceDescription'  => 'DBInstanceDescription',
+        'encrypted'              => 'Encrypted',
+        'encryptionKey'          => 'EncryptionKey',
         'engine'                 => 'Engine',
         'engineVersion'          => 'EngineVersion',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
@@ -394,6 +440,7 @@ class CreateShardingDBInstanceRequest extends Model
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'storageEngine'          => 'StorageEngine',
         'storageType'            => 'StorageType',
+        'tag'                    => 'Tag',
         'vSwitchId'              => 'VSwitchId',
         'vpcId'                  => 'VpcId',
         'zoneId'                 => 'ZoneId',
@@ -429,6 +476,12 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->DBInstanceDescription) {
             $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -508,6 +561,15 @@ class CreateShardingDBInstanceRequest extends Model
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -552,6 +614,12 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['DBInstanceDescription'])) {
             $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -630,6 +698,15 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

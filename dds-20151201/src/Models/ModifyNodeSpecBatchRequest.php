@@ -11,8 +11,8 @@ class ModifyNodeSpecBatchRequest extends Model
     /**
      * @description Specifies whether to enable automatic payment for the instance. Valid values:
      *
-     *   **true**: enables automatic payment. Make sure that your account balance is sufficient.
-     *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, click **Expenses** to go to the **Billing Management** console. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. You can perform the following operations to pay for the instance: Log on to the ApsaraDB for MongoDB console. In the upper-right corner of the page, choose **Expenses** > User Center to go to the **Billing Management** console. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
      *
      * Default value: **true**.
      * @example true
@@ -31,7 +31,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCz****
      *
@@ -40,7 +40,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $clientToken;
 
     /**
-     * @description The coupon code. Default value: **youhuiquan_promotion_option_id_for_blank**.
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -49,7 +49,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $couponNo;
 
     /**
-     * @description The ID of the instance whose configurations you want to change.
+     * @description The ID of the instance whose configurations you want to modify.
      *
      * @example dds-bp1337621e8f****
      *
@@ -58,13 +58,15 @@ class ModifyNodeSpecBatchRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The time when the changed configurations take effect. Valid values:
+     * @description The time when the modified configurations take effect. Valid values:
      *
      *   **Immediately**: The configurations immediately take effect.
-     *
      *   **MaintainTime**: The configurations take effect during the maintenance window of the instance.
      *
-     * > *   You can call the [ModifyDBInstanceMaintainTime](~~62008~~) operation to modify the maintenance window of an instance.
+     * >
+     *
+     *   You can call the [ModifyDBInstanceMaintainTime](~~62008~~) operation to modify the maintenance window of an instance.
+     *
      *   You can call the [DescribeDBInstanceAttribute](~~62010~~) operation to view the maintenance window of an instance.
      *
      * Default value: **Immediately**.
@@ -75,7 +77,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The configuration information of the mongos nodes or shard nodes whose configurations you want to change. For more information, see [Instance types](~~57141~~).
+     * @description The configuration information of the mongos nodes or shard nodes whose configurations you want to modify. For more information, see [Instance types](~~57141~~).
      *
      * @example {"Shards":[{"DBInstanceClass":"dds.shard.mid","DBInstanceName":"d-bp14ae4572fd****","Storage":20},{"DBInstanceClass":"dds.shard.mid","DBInstanceName":"d-bp19f4f92dc5****","Storage":30}]}
      *
@@ -84,13 +86,12 @@ class ModifyNodeSpecBatchRequest extends Model
     public $nodesInfo;
 
     /**
-     * @description The type of configuration changes. Valid values:
+     * @description The type of configuration modifications. Valid values:
      *
      *   **UPGRADE**
-     *
      *   **DOWNGRADE**
      *
-     * > This parameter can be configured only when the billing method of the instance is subscription.
+     * > This parameter is available only if the billing method of the instance is subscription.
      * @example UPGRADE
      *
      * @var string
@@ -108,7 +109,7 @@ class ModifyNodeSpecBatchRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the region ID of the instance.
+     * @description The ID of the region. You can call the [DescribeRegions](~~61933~~) operation to query the latest available regions.
      *
      * @example cn-hangzhou
      *

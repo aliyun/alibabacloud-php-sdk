@@ -11,7 +11,7 @@ class MigrateAvailableZoneRequest extends Model
     /**
      * @description The ID of the instance.
      *
-     * >  If the instance is deployed in a VPC, you must specify the **Vswitch** parameter.
+     * > If the instance is deployed in a VPC, you must specify the **Vswitch** parameter.
      * @example dds-bp1ece71ff2f****
      *
      * @var string
@@ -54,7 +54,7 @@ class MigrateAvailableZoneRequest extends Model
     /**
      * @description The ID of the vSwitch in the destination zone.
      *
-     * >  If the instance is deployed in a VPC, you must specify this parameter.
+     * > If the instance is deployed in a VPC, you must specify this parameter.
      * @example vsw-bp1buy0h9myt5i9e7****
      *
      * @var string
@@ -64,8 +64,12 @@ class MigrateAvailableZoneRequest extends Model
     /**
      * @description The ID of the destination zone.
      *
-     * > * The source zone and the destination zone belong to the same region.
-     * > * You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * >
+     *
+     *   The source zone and the destination zone belong to the same region.
+     *
+     *   You can call the [DescribeRegions](~~61933~~) operation to query the zone ID.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

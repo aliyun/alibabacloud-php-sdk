@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceHARequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example dds-bpxxxxxxxx
      *
@@ -18,9 +18,9 @@ class SwitchDBInstanceHARequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the shard in the sharded cluster instance.
+     * @description The ID of the shard node in the sharded cluster instance.
      *
-     * >  You must specify this parameter if the value of **DBInstanceId** is the ID of a sharded cluster instance.
+     * > You must specify this parameter if you set the **DBInstanceId** parameter to the ID of a sharded cluster instance.
      * @example d-bpxxxxxxxx
      *
      * @var string
@@ -48,10 +48,14 @@ class SwitchDBInstanceHARequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IDs of the roles that you want to switch. You can call the [DescribeRoleZoneInfo](~~123802~~) operation to query IDs of roles and roles of nodes.
+     * @description The IDs of the roles who switch the primary and secondary nodes for the instance. You can call the [DescribeRoleZoneInfo](~~123802~~) operation to view the IDs and information of roles of nodes.
      *
-     * > * Separate role IDs with commas (,). If this parameter is not specified, roles of the primary and secondary nodes are switched.
-     * > * If the value of **DBInstanceId** is the ID of a sharded cluster instance, the roles to be switched must belong to one shard.
+     * >
+     *
+     *   Separate role IDs with commas (,). If this parameter is not specified, the primary and secondary nodes are switched.
+     *
+     *   If you set the **DBInstanceId** parameter to the ID of a sharded cluster instance, the roles who switch the primary and secondary nodes for the instance must belong to one shard node.
+     *
      * @example 972xxxx,972xxxx
      *
      * @var string
@@ -64,10 +68,10 @@ class SwitchDBInstanceHARequest extends Model
     public $securityToken;
 
     /**
-     * @description The time when roles of the primary and secondary nodes are switched. Valid values:
+     * @description The time when the primary and secondary nodes are switched. Valid values:
      *
-     *   0: The roles are switched immediately.
-     *   1: The roles are switched during the maintenance period.
+     *   0: The primary and secondary nodes are immediately switched.
+     *   1: The primary and secondary nodes are switched during the O\&M time period.
      *
      * @example 0
      *

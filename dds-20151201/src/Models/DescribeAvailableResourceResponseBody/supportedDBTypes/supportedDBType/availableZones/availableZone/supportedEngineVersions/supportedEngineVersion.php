@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class supportedEngineVersion extends Model
 {
     /**
-     * @description The available storage engines.
+     * @description The supported storage engines.
      *
      * @var supportedEngines
      */

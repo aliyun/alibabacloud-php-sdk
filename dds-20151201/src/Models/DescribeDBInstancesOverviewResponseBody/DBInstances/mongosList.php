@@ -20,6 +20,8 @@ class mongosList extends Model
     /**
      * @description The description of the mongos node.
      *
+     * @example mongos node describe.
+     *
      * @var string
      */
     public $nodeDescription;

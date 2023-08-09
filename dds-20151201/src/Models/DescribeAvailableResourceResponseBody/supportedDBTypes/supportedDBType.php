@@ -19,8 +19,9 @@ class supportedDBType extends Model
     /**
      * @description The architecture of the instance. Valid values:
      *
-     * - **normal**: replica set instance
-     * - **sharding**: sharded cluster instance
+     *   **normal**: replica set instance
+     *   **sharding**: sharded cluster instance
+     *
      * @example sharding
      *
      * @var string

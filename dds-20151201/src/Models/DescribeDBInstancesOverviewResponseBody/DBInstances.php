@@ -59,6 +59,8 @@ class DBInstances extends Model
     /**
      * @description The description of the instance.
      *
+     * @example test db
+     *
      * @var string
      */
     public $DBInstanceDescription;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description 实例的角色类型，取值说明：
+     *
+     * - **db**：shard角色。
+     * - **cs**：config server角色。
+     * - **mongos**：mongos角色。
+     * @example db
+     *
      * @var string
      */
     public $characterType;
@@ -26,7 +33,7 @@ class parameter extends Model
      * @description Indicates whether a restart is required for parameter modifications to take effect.
      *
      *   **false**: A restart is not required. Modifications take effect immediately.
-     *   **true**: A restart is required for modifications to take effect.
+     *   **true**: A restart is required for parameter modifications to take effect.
      *
      * @example false
      *
@@ -35,10 +42,10 @@ class parameter extends Model
     public $forceRestart;
 
     /**
-     * @description Indicates whether the parameter is modifiable.
+     * @description Indicates whether the parameter value can be changed.
      *
-     *   **false**: The parameter is not modifiable.
-     *   **true**: The parameter is modifiable.
+     *   **false**: The parameter value cannot be changed.
+     *   **true**: The parameter value can be changed.
      *
      * @example true
      *

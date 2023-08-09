@@ -2,33 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dds\V20151201\Models\DescribeDBInstanceAttributeResponseBody\DBInstances\DBInstance\tags;
+namespace AlibabaCloud\SDK\Dds\V20151201\Models\CreateShardingDBInstanceRequest;
 
 use AlibabaCloud\Tea\Model;
 
 class tag extends Model
 {
     /**
-     * @description Indicates whether password-free access within the VPC is enabled. Valid values:
-     *
-     *   **Open**: Password-free access is enabled.
-     *   **Close**: Password-free access is disabled, and you must use a password for access.
-     *   **NotSupport**: Password-free access is not supported.
-     *
-     * @example test
-     *
      * @var string
      */
     public $key;
 
     /**
-     * @description The network type of the instance. Valid values:
-     *
-     *   **Classic**
-     *   **VPC**
-     *
-     * @example api
-     *
      * @var string
      */
     public $value;

@@ -21,7 +21,7 @@ class EvaluateResourceResponseBody extends Model
     public $DBInstanceAvailable;
 
     /**
-     * @description The database engine of the instance. The returned value is MongoDB.
+     * @description The database engine of the instance. Only MongoDB is returned.
      *
      * @example MongoDB
      *
@@ -30,7 +30,7 @@ class EvaluateResourceResponseBody extends Model
     public $engine;
 
     /**
-     * @description The major engine version of the instance.
+     * @description The version of the database engine.
      *
      * @example 4.0
      *

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description Specifies whether the instance is deleted. Valid values:
+     *
+     *   **false**: queries details about running instances.
+     *   **true**: queries details about deleted instances.
      *
      * @example dds-bp11483712c1****
      *
@@ -18,8 +21,9 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The database engine of the instance. Set the value to **MongoDB**.
+     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
      *
+     * > This parameter is available only if you use the China site (aliyun.com).
      * @example MongoDB
      *
      * @var string
@@ -27,9 +31,8 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $engine;
 
     /**
-     * @description 实例是否已删除，取值说明：
-     * - **false**：实例正常运行，查询运行中实例信息。
-     * - **true**：实例已删除，查询被删除实例的信息。
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -47,9 +50,8 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description Details of the instance.
      *
-     * > This parameter is available only if you use the China site (aliyun.com).
      * @example rg-acfmyiu4ekp****
      *
      * @var string

@@ -38,6 +38,10 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $newConnectionString;
 
     /**
+     * @description this parameter can be used. The new port should be within the range of 1000 to 65535.
+     * >When the DBInstanceId parameter is passed in as a cloud disk instance ID
+     * @example 3310
+     *
      * @var int
      */
     public $newPort;

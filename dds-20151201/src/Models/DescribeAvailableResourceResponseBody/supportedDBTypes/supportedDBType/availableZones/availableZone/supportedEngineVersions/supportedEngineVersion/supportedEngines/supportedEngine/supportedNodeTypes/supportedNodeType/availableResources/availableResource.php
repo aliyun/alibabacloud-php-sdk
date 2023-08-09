@@ -17,7 +17,7 @@ class availableResource extends Model
     public $DBInstanceStorageRange;
 
     /**
-     * @description The instance class.
+     * @description The instance family.
      *
      * @example mdb.shard.2x.xlarge.d
      *
@@ -26,7 +26,9 @@ class availableResource extends Model
     public $instanceClass;
 
     /**
-     * @description The instance type.
+     * @description The type of the instance.
+     *
+     * @example 4 cores, 8 GB (Dedicated) (Current instance type: mdb.shard.2x.xlarge.d (4 cores, 8 GB (Dedicated cloud-disk), maximum connections: 3000, maximum IOPS: min{1800 + 50 × Storage capacity, 21000}))
      *
      * @var string
      */

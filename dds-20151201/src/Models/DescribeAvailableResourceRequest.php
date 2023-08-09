@@ -43,7 +43,7 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~61933~~) operation to query the latest available regions.
      *
      * @example cn-hangzhou
      *
@@ -76,7 +76,7 @@ class DescribeAvailableResourceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The ID of the zone. You can call the [DescribeRegions](~~61933~~) operation to query the available zones.
      *
      * @example cn-hangzhou-h
      *

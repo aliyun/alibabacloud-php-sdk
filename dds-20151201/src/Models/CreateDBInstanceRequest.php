@@ -4,16 +4,13 @@
 
 namespace AlibabaCloud\SDK\Dds\V20151201\Models;
 
+use AlibabaCloud\SDK\Dds\V20151201\Models\CreateDBInstanceRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateDBInstanceRequest extends Model
 {
     /**
-     * @description The password of the root account. The password must meet the following requirements:
-     *
-     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-     *   These special characters include ! # $ % ^ & \* ( ) \_ + - =
-     *   The password is 8 to 32 characters in length.
+     * @description The network type of the instance. Set the value to VPC.
      *
      * @example 123456Aa
      *
@@ -22,12 +19,14 @@ class CreateDBInstanceRequest extends Model
     public $accountPassword;
 
     /**
-     * @description Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
+     * @description The storage engine of the instance. Default value: WiredTiger. Valid values:
      *
-     *   **true**
-     *   **false**
+     *   **WiredTiger**
+     *   **RocksDB**
+     *   **TerarkDB**
      *
-     * > If you set the **ChargeType** parameter to **PrePaid**, this parameter is valid and optional.
+     * >  *   When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the storage engine of the source instance.
+     * >  *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
      * @example true
      *
      * @var string
@@ -35,9 +34,12 @@ class CreateDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~62172~~) operation to query the backup set ID.
+     * @description Specifies whether to enable auto-renewal for the instance. Default value: false. Valid values:
      *
-     * > This parameter is required only when you call this operation to clone an instance. If you specify this parameter, you must also specify the **SrcDBInstanceId** parameter.
+     *   **true**: The instance is automatically renewed.
+     *   **false**: The instance is manually renewed.
+     *
+     * > This parameter is valid and optional when the **ChargeType** parameter is set to **PrePaid**.
      * @example 32994****
      *
      * @var string
@@ -45,7 +47,7 @@ class CreateDBInstanceRequest extends Model
     public $backupId;
 
     /**
-     * @description The business information. This is an additional parameter.
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
      *
      * @example {“ActivityId":"000000000"}
      *
@@ -54,12 +56,8 @@ class CreateDBInstanceRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The ID of the VPC.
      *
-     *   **PostPaid**: pay-as-you-go
-     *   **PrePaid**: subscription
-     *
-     * > If you specify this parameter to **PrePaid**, you must also specify the **Period** parameter.
      * @example PrePaid
      *
      * @var string
@@ -67,8 +65,15 @@ class CreateDBInstanceRequest extends Model
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The version of the database engine. Valid values:
      *
+     *   **6.0**
+     *   **5.0**
+     *   **4.4**
+     *   **4.2**
+     *   **4.0**
+     *
+     * > When you call this operation to clone an instance or restore an instance from the recycle bin, set the value of this parameter to the engine version of the source instance.
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -76,7 +81,7 @@ class CreateDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the dedicated cluster to which the instance belongs.
+     * @description cn
      *
      * @example dhg-2x78****
      *
@@ -85,7 +90,7 @@ class CreateDBInstanceRequest extends Model
     public $clusterId;
 
     /**
-     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     * @description The number of **read-only nodes** in the replica set instance. Default value: **0**. Valid values: **0** to **5**.
      *
      * @example youhuiquan_promotion_option_id_for_blank
      *
@@ -94,8 +99,14 @@ class CreateDBInstanceRequest extends Model
     public $couponNo;
 
     /**
-     * @description The instance type. You can also call the [DescribeAvailableResource](~~149719~~) operation to view instance types.
+     * @description The IP addresses in an IP address whitelist. Multiple IP addresses are separated by commas (,), and each IP address in the IP address whitelist must be unique. The following types of values are supported:
      *
+     *   0.0.0.0/0
+     *   IP addresses, such as 10.23.12.24.
+     *   Classless Inter-Domain Routing (CIDR) blocks, such as 10.23.12.0/24. In this case, /24 indicates that the prefix of each IP address is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+     *
+     * > *   A maximum of 1,000 IP addresses or CIDR blocks can be configured for each instance.
+     * > *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance. Proceed with caution.
      * @example dds.mongo.standard
      *
      * @var string
@@ -103,12 +114,12 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The name of the instance. Valid values:
+     * @description The billing method of the instance. Valid values:
      *
-     *   The name must start with a letter.
-     *   The name can contain digits, letters, underscores (\_), and hyphens (-).
-     *   The name must be 2 to 256 characters in length.
+     *   **PostPaid**: pay-as-you-go. This is the default value.
+     *   **PrePaid**: subscription.
      *
+     * > If you set this parameter to **PrePaid**, you must also specify the **Period** parameter.
      * @example test
      *
      * @var string
@@ -116,9 +127,12 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The storage capacity of the instance. Unit: GB.
+     * @description The password of the root account. The password must meet the following requirements:
      *
-     * The values that can be specified for this parameter are subject to the instance types. For more information, see [Replica set instance types](~~311410~~).
+     *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   Special characters include ! # $ % ^ & \* ( ) \_ + - =
+     *   The password of the account must be 8 to 32 characters in length.
+     *
      * @example 10
      *
      * @var int
@@ -126,9 +140,12 @@ class CreateDBInstanceRequest extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The name of the database.
+     * @description The number of **nodes** in the replica set instance. Default value: 3. Valid values:
      *
-     * > When you call this operation to clone an instance, you can set the databases that are specified by this parameter for cloning. Otherwise, all databases of the instance are cloned.
+     *   **3**
+     *   **5**
+     *   **7**
+     *
      * @example mongodbtest
      *
      * @var string
@@ -136,8 +153,19 @@ class CreateDBInstanceRequest extends Model
     public $databaseNames;
 
     /**
-     * @description The database engine of the instance. Set the value to **MongoDB**.
+     * @var bool
+     */
+    public $encrypted;
+
+    /**
+     * @var string
+     */
+    public $encryptionKey;
+
+    /**
+     * @description The storage capacity of the instance. Unit: GB.
      *
+     * The values that can be specified for this parameter vary based on the instance types. For more information, see [Replica set instance types](~~311410~~).
      * @example MongoDB
      *
      * @var string
@@ -145,15 +173,12 @@ class CreateDBInstanceRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The name of the instance. The name of the instance must meet the following requirements:
      *
-     *   **6.0**
-     *   **5.0**
-     *   **4.4**
-     *   **4.2**
-     *   **4.0**
+     *   The name must start with a letter.
+     *   The name can contain digits, letters, underscores (\_), and hyphens (-).
+     *   The name must be 2 to 256 characters in length.
      *
-     * > If you call this operation to clone an instance or restore an instance from the recycle bin, set the value to the engine of the source instance.
      * @example 4.4
      *
      * @var string
@@ -161,37 +186,16 @@ class CreateDBInstanceRequest extends Model
     public $engineVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example g-qxieqf40xjst1ngpr3jz
+     *
      * @var string
      */
     public $globalSecurityGroupIds;
 
     /**
-     * @description The zone where the hidden node is deployed for multi-zone deployment. Valid values:
-     *
-     *   **cn-hangzhou-g**: Hangzhou Zone G
-     *   **cn-hangzhou-h**: Hangzhou Zone H
-     *   **cn-hangzhou-i**: Hangzhou Zone I
-     *   **cn-hongkong-b**: Hongkong Zone B.
-     *   **cn-hongkong-c**: Hongkong Zone C
-     *   **cn-hongkong-d**: Hongkong Zone D
-     *   **cn-wulanchabu-a**: Ulanqab Zone A
-     *   **cn-wulanchabu-b**: Ulanqab Zone B
-     *   **cn-wulanchabu-c**: Ulanqab Zone C
-     *   **ap-southeast-1a**: Singapore Zone A
-     *   **ap-southeast-1b**: Singapore Zone B
-     *   **ap-southeast-1c**: Singapore Zone C
-     *   **ap-southeast-5a**: Jakarta Zone A
-     *   **ap-southeast-5b**: Jakarta Zone B
-     *   **ap-southeast-5c**: Jakarta Zone C
-     *   **eu-central-1a**: Frankfurt Zone A
-     *   **eu-central-1b**: Frankfurt Zone B
-     *   **eu-central-1c**: Frankfurt Zone C
-     *
-     * >
-     *
-     *   This parameter is valid and required when the **EngineVersion** parameter is set to **4.4** or **5.0**.
-     *
-     *   The value of this parameter cannot be the same as the value of the **ZoneId** or **SecondaryZoneId** parameter.
+     * @description Template for global IP whitelist of the instance, multiple IP whitelist templates should be separated by a comma (,) in English and cannot be repeated. (In function gray scale).
      *
      * @example cn-hangzhou-i
      *
@@ -200,10 +204,9 @@ class CreateDBInstanceRequest extends Model
     public $hiddenZoneId;
 
     /**
-     * @description The network type of the instance. Valid values:
+     * @description The ID of the source instance.
      *
-     **VPC**
-     *
+     * > When you call this operation to clone an instance, this parameter is required. The **BackupId** or **RestoreTime** parameter is also required. When you call this operation to restore an instance from the recycle bin, this parameter is required. The **BackupId** or **RestoreTime** parameter is not required.
      * @example VPC
      *
      * @var string
@@ -221,11 +224,8 @@ class CreateDBInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The subscription period of the instance. Unit: months.
+     * @description The ID of the vSwitch to which the instance is connected.
      *
-     * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
-     *
-     * > If you specify the **ChargeType** parameter to **PrePaid**, this parameter is valid and required.
      * @example 1
      *
      * @var int
@@ -233,7 +233,12 @@ class CreateDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The number of **read-only nodes** in the replica set instance. Default value: **0**. Valid values: **0** to **5**.
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **cloud_essd1** :ESSD PL1.
+     *   **cloud_essd2**: ESSD PL2.
+     *   **cloud_essd3**: ESSD PL3.
+     *   **local_ssd**: local SSD.
      *
      * @example 0
      *
@@ -242,9 +247,8 @@ class CreateDBInstanceRequest extends Model
     public $readonlyReplicas;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
+     * @description The database engine of the instance. The value is fixed as **MongoDB**.
      *
-     * > If you call this operation to clone an instance or restore an instance from the recycle bin, set the value to the engine of the source instance.
      * @example cn-hangzhou
      *
      * @var string
@@ -252,11 +256,7 @@ class CreateDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The number of **nodes** in the replica set instance. Default value: 3. Valid values:
-     *
-     *   **3**
-     *   **5**
-     *   **7**
+     * @description The ID of the dedicated cluster to which the instance belongs.
      *
      * @example 3
      *
@@ -265,8 +265,29 @@ class CreateDBInstanceRequest extends Model
     public $replicationFactor;
 
     /**
-     * @description The ID of the resource group to which the instances you want to query belong.
+     * @description The zone where the secondary node resides for multi-zone deployment. Valid values:
      *
+     *   **cn-hangzhou-g**: Hangzhou Zone G.
+     *   **cn-hangzhou-h**: Hangzhou Zone H.
+     *   **cn-hangzhou-i**: Hangzhou Zone I.
+     *   **cn-hongkong-b**: Hongkong Zone B.
+     *   **cn-hongkong-c**: Hongkong Zone C.
+     *   **cn-hongkong-d**: Hongkong Zone D.
+     *   **cn-wulanchabu-a**: Ulanqab Zone A.
+     *   **cn-wulanchabu-b**: Ulanqab Zone B.
+     *   **cn-wulanchabu-c**: Ulanqab Zone C.
+     *   **ap-southeast-1a**: Singapore Zone A.
+     *   **ap-southeast-1b**: Singapore Zone B.
+     *   **ap-southeast-1c**: Singapore Zone C.
+     *   **ap-southeast-5a**: Jakarta Zone A.
+     *   **ap-southeast-5b**: Jakarta Zone B.
+     *   **ap-southeast-5c**: Jakarta Zone C.
+     *   **eu-central-1a**: Frankfurt Zone A.
+     *   **eu-central-1b**: Frankfurt Zone B.
+     *   **eu-central-1c**: Frankfurt Zone C.
+     *
+     * >  *   This parameter is valid and required when the **EngineVersion** parameter is set to **4.4** or **5.0**.
+     * >  *   The value of this parameter cannot be the same as the value of the **ZoneId** or **HiddenZoneId** parameter.
      * @example rg-acfmyiu4ekp****
      *
      * @var string
@@ -284,9 +305,9 @@ class CreateDBInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The point in time to clone the instance, which must be within seven days. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The name of the database.
      *
-     * > This parameter is required only when you call this operation to clone an instance. If you specify this parameter, you must also specify the **SrcDBInstanceId** parameter.
+     * > When you call this operation to clone an instance, you can set this parameter to specify the database to clone. Otherwise, all databases of the instance are cloned.
      * @example 2022-03-13T12:11:14Z
      *
      * @var string
@@ -294,32 +315,7 @@ class CreateDBInstanceRequest extends Model
     public $restoreTime;
 
     /**
-     * @description The zone where the secondary node is deployed for multi-zone deployment. Valid values:
-     *
-     *   **cn-hangzhou-g**: Hangzhou Zone G
-     *   **cn-hangzhou-h**: Hangzhou Zone H
-     *   **cn-hangzhou-i**: Hangzhou Zone I
-     *   **cn-hongkong-b**: Hongkong Zone B.
-     *   **cn-hongkong-c**: Hongkong Zone C
-     *   **cn-hongkong-d**: Hongkong Zone D
-     *   **cn-wulanchabu-a**: Ulanqab Zone A
-     *   **cn-wulanchabu-b**: Ulanqab Zone B
-     *   **cn-wulanchabu-c**: Ulanqab Zone C
-     *   **ap-southeast-1a**: Singapore Zone A
-     *   **ap-southeast-1b**: Singapore Zone B
-     *   **ap-southeast-1c**: Singapore Zone C
-     *   **ap-southeast-5a**: Jakarta Zone A
-     *   **ap-southeast-5b**: Jakarta Zone B
-     *   **ap-southeast-5c**: Jakarta Zone C
-     *   **eu-central-1a**: Frankfurt Zone A
-     *   **eu-central-1b**: Frankfurt Zone B
-     *   **eu-central-1c**: Frankfurt Zone C
-     *
-     * >
-     *
-     *   This parameter is valid and required when the **EngineVersion** parameter is set to **4.4** or **5.0**.
-     *
-     *   The value of this parameter cannot be the same as the value of the **ZoneId** or **HiddenZoneId** parameter.
+     * @description cn
      *
      * @example cn-hangzhou-h
      *
@@ -328,18 +324,11 @@ class CreateDBInstanceRequest extends Model
     public $secondaryZoneId;
 
     /**
-     * @description The IP addresses in an IP address whitelist. Separate multiple IP addresses with commas (,). Each IP address in the IP address whitelist must be unique. The following types of IP addresses are supported:
+     * @description The subscription period of the instance. Unit: months.
      *
-     *   0.0.0.0/0
-     *   IP addresses, such as 10.23.12.24.
-     *   Classless Inter-Domain Routing (CIDR) blocks, such as 10.23.12.0/24. In this case, /24 indicates that the prefix of each IP address is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+     * Valid values: **1** to **9**, **12**, **24**, **36**, and **60**.
      *
-     * >
-     *
-     *   A maximum of 1,000 IP addresses and CIDR blocks can be configured for each instance.
-     *
-     *   If you enter 0.0.0.0/0, all IP addresses can access the instance. This may introduce security risks to the instance.
-     *
+     * > When you set the **ChargeType** parameter to **PrePaid**, this parameter is valid and required.
      * @example 192.168.xx.xx,192.168.xx.xx
      *
      * @var string
@@ -352,9 +341,8 @@ class CreateDBInstanceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the source instance.
+     * @description The business information. This is an additional parameter.
      *
-     * > This parameter can only be specified when this operation is called to clone instances. You must also specify the **BackupId** parameter or **RestoreTime** parameter. If you call this operation to restore an instance from the recycle bin, only this parameter is required. The **BackupId** and **RestoreTime** parameters are not required.
      * @example dds-bp1ee12ad351****
      *
      * @var string
@@ -362,13 +350,7 @@ class CreateDBInstanceRequest extends Model
     public $srcDBInstanceId;
 
     /**
-     * @description The storage engine used by the instance. Set the value to **WiredTiger**.
-     *
-     * >
-     *
-     *   If you call this operation to clone an instance or restore an instance from the recycle bin, set the value to the engine of the source instance.
-     *
-     *   For more information about the limits on database versions and storage engines, see [MongoDB versions and storage engines](~~61906~~).
+     * @description The ID of the resource group to which the instance belongs.
      *
      * @example WiredTiger
      *
@@ -377,13 +359,29 @@ class CreateDBInstanceRequest extends Model
     public $storageEngine;
 
     /**
-     * @description The storage type of the instance. Valid values:
+     * @description The zone where the hidden node resides for multi-zone deployment. Valid values:
      *
-     *   **cloud_essd1** :ESSD PL1.
-     *   **cloud_essd2**: ESSD PL2.
-     *   **cloud_essd3**: ESSD PL3.
-     *   **local_ssd**: local SSD
+     *   **cn-hangzhou-g**: Hangzhou Zone G.
+     *   **cn-hangzhou-h**: Hangzhou Zone H.
+     *   **cn-hangzhou-i**: Hangzhou Zone I.
+     *   **cn-hongkong-b**: Hongkong Zone B.
+     *   **cn-hongkong-c**: Hongkong Zone C.
+     *   **cn-hongkong-d**: Hongkong Zone D.
+     *   **cn-wulanchabu-a**: Ulanqab Zone A.
+     *   **cn-wulanchabu-b**: Ulanqab Zone B.
+     *   **cn-wulanchabu-c**: Ulanqab Zone C.
+     *   **ap-southeast-1a**: Singapore Zone A.
+     *   **ap-southeast-1b**: Singapore Zone B.
+     *   **ap-southeast-1c**: Singapore Zone C.
+     *   **ap-southeast-5a**: Jakarta Zone A.
+     *   **ap-southeast-5b**: Jakarta Zone B.
+     *   **ap-southeast-5c**: Jakarta Zone C.
+     *   **eu-central-1a**: Frankfurt Zone A.
+     *   **eu-central-1b**: Frankfurt Zone B.
+     *   **eu-central-1c**: Frankfurt Zone C.
      *
+     * >  *   This parameter is valid and required when the **EngineVersion** parameter is set to **4.4** or **5.0**.
+     * >  *   The value of this parameter cannot be the same as the value of the **ZoneId** or **SecondaryZoneId** parameter.
      * @example cloud_essd1
      *
      * @var string
@@ -391,8 +389,14 @@ class CreateDBInstanceRequest extends Model
     public $storageType;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The point in time to which the instance is restored, which must be within seven days. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format (UTC time).
      *
+     * > When you call this operation to restore an instance to the specified time, this parameter is required. The **SrcDBInstanceId** parameter is also required.
      * @example vsw-bp1gzt31twhlo0sa5****
      *
      * @var string
@@ -400,8 +404,9 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The ID of the backup set. You can call the [DescribeBackups](~~62172~~) operation to query the backup set ID.
      *
+     * > When you call this operation to clone an instance based on the backup set, this parameter is required. The **SrcDBInstanceId** parameter is also required.
      * @example vpc-bp175iuvg8nxqraf2****
      *
      * @var string
@@ -409,7 +414,7 @@ class CreateDBInstanceRequest extends Model
     public $vpcId;
 
     /**
-     * @description The zone ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent zone list.
+     * @description The instance type. You can also call the [DescribeAvailableResource](~~149719~~) operation to query the instance type.
      *
      * @example cn-hangzhou-g
      *
@@ -429,6 +434,8 @@ class CreateDBInstanceRequest extends Model
         'DBInstanceDescription'  => 'DBInstanceDescription',
         'DBInstanceStorage'      => 'DBInstanceStorage',
         'databaseNames'          => 'DatabaseNames',
+        'encrypted'              => 'Encrypted',
+        'encryptionKey'          => 'EncryptionKey',
         'engine'                 => 'Engine',
         'engineVersion'          => 'EngineVersion',
         'globalSecurityGroupIds' => 'GlobalSecurityGroupIds',
@@ -450,6 +457,7 @@ class CreateDBInstanceRequest extends Model
         'srcDBInstanceId'        => 'SrcDBInstanceId',
         'storageEngine'          => 'StorageEngine',
         'storageType'            => 'StorageType',
+        'tag'                    => 'Tag',
         'vSwitchId'              => 'VSwitchId',
         'vpcId'                  => 'VpcId',
         'zoneId'                 => 'ZoneId',
@@ -497,6 +505,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->databaseNames) {
             $res['DatabaseNames'] = $this->databaseNames;
+        }
+        if (null !== $this->encrypted) {
+            $res['Encrypted'] = $this->encrypted;
+        }
+        if (null !== $this->encryptionKey) {
+            $res['EncryptionKey'] = $this->encryptionKey;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -561,6 +575,15 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->storageType) {
             $res['StorageType'] = $this->storageType;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
         }
@@ -617,6 +640,12 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['DatabaseNames'])) {
             $model->databaseNames = $map['DatabaseNames'];
+        }
+        if (isset($map['Encrypted'])) {
+            $model->encrypted = $map['Encrypted'];
+        }
+        if (isset($map['EncryptionKey'])) {
+            $model->encryptionKey = $map['EncryptionKey'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -680,6 +709,15 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['StorageType'])) {
             $model->storageType = $map['StorageType'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

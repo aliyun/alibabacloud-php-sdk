@@ -12,15 +12,16 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description The list of orders.
+     * @description The order.
      *
      * @var order
      */
     public $order;
 
     /**
-     * @description The order parameters. This parameter is returned if the `OrderParamOut` parameter is set to `true`.
+     * @description The order parameters.
      *
+     * > This parameter is returned only when the **OrderParamOut** parameter is set to **true**.
      * @example {\"autoPay\":false}"
      *
      * @var string
@@ -28,7 +29,7 @@ class DescribePriceResponseBody extends Model
     public $orderParams;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 27227A3D-6B86-56F3-9E03-9E60F001CE12
      *
@@ -37,14 +38,14 @@ class DescribePriceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details about the promotion rules.
+     * @description The promotion rules.
      *
      * @var rules
      */
     public $rules;
 
     /**
-     * @description Details about the rules that match the coupon.
+     * @description The coupon rules.
      *
      * @var subOrders
      */

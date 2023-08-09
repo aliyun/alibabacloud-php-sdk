@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceTDERequest extends Model
 {
     /**
-     * @description The ID of an instance.
+     * @description The ID of the instance.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -18,7 +18,7 @@ class ModifyDBInstanceTDERequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The custom key.
+     * @description The ID of the custom key.
      *
      * @example 749c1df7-xxxx-xxxx-xxxx-xxxxxxxxxxxx
      *
@@ -27,9 +27,9 @@ class ModifyDBInstanceTDERequest extends Model
     public $encryptionKey;
 
     /**
-     * @description The encryption method. Set the value to **AES-256-CBC**.
+     * @description The encryption method. Set the value to **aes-256-cbc**.
      *
-     * >  This parameter is valid only when you specify the **TEDStatus** parameter to **enabled**.
+     * > This parameter is valid only when the **TEDStatus** parameter is set to **enabled**.
      * @example aes-256-cbc
      *
      * @var string
@@ -57,10 +57,14 @@ class ModifyDBInstanceTDERequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ARN of the role. It is in the format of `acs:ram::$accountID:role/$roleName`.
+     * @description The Alibaba Cloud Resource Name (ARN) of the specified Resource Access Management (RAM) role. The ARN is displayed in the `acs:ram::$accountID:role/$roleName` format.
      *
-     * > * `$accountID`: indicates the ID of the Alibaba Cloud account that owns the RAM role. To view the account ID, log on to the Alibaba Cloud Management Console, move your pointer over your profile picture in the upper-right corner, and then click Security Settings.
-     * > * `$roleName`: indicates the name of the RAM role. To view the RAM role name, perform the following steps: Log on to the RAM console. In the left-side navigation pane, click RAM Roles. In the RAM Role Name column on the page that appears, you can view the name of the RAM role.
+     * >
+     *
+     *   `$accountID`: specifies the ID of the Alibaba Cloud account. To view the account ID, log on to the Alibaba Cloud Management Console, move your pointer over your profile picture in the upper-right corner, and then click Security Settings.
+     *
+     *   `$roleName`: specifies the name of the RAM role. To view the RAM role name, log on to the RAM console. In the left-side navigation pane, choose Identities > Roles. On the Roles page, view the name of the RAM role.
+     *
      * @example acs:ram::123456789012****:role/adminrole
      *
      * @var string
@@ -73,9 +77,9 @@ class ModifyDBInstanceTDERequest extends Model
     public $securityToken;
 
     /**
-     * @description The TDE status. Set the value to **Enabled**.
+     * @description The TDE status. When the value of this parameter is set to **Enabled**, TDE is enabled.
      *
-     * >  Exercise caution when enabling TDE. After TDE is enabled, it cannot be disabled.
+     * > You cannot disable TDE after it is enabled. Proceed with caution.
      * @example enabled
      *
      * @var string

@@ -97,6 +97,11 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
      * @var string
      */
     public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'classicExpiredDays'   => 'ClassicExpiredDays',
         'DBInstanceId'         => 'DBInstanceId',
@@ -109,6 +114,7 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         'securityToken'        => 'SecurityToken',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -150,6 +156,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -195,6 +204,9 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

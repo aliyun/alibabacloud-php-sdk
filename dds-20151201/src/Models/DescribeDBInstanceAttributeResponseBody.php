@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeResponseBody extends Model
 {
     /**
-     * @description Details about instances.
+     * @description The time when the instance was created. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @var DBInstances
      */
     public $DBInstances;
 
     /**
-     * @description The ID of the request.
+     * @description Details of the instance.
      *
      * @example A935A8EE-A6CC-53DE-98BA-20ABAA7E632B
      *

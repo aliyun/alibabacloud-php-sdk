@@ -37,7 +37,7 @@ class subOrder extends Model
     public $originalAmount;
 
     /**
-     * @description The list of one or more promotion rule IDs.
+     * @description The promotion rules.
      *
      * @var ruleIds
      */

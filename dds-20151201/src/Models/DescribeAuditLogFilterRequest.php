@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogFilterRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -38,13 +36,6 @@ class DescribeAuditLogFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The role of the node in the instance. Valid values:
-     *
-     *   **primary**
-     *   **secondary**
-     *
-     * @example primary
-     *
      * @var string
      */
     public $roleType;
