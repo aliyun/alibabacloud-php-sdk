@@ -670,6 +670,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->gatewayAPIEnabled)) {
             $body['GatewayAPIEnabled'] = $request->gatewayAPIEnabled;
         }
+        if (!Utils::isUnset($request->guestCluster)) {
+            $body['GuestCluster'] = $request->guestCluster;
+        }
         if (!Utils::isUnset($request->includeIPRanges)) {
             $body['IncludeIPRanges'] = $request->includeIPRanges;
         }

@@ -413,6 +413,11 @@ class CreateServiceMeshRequest extends Model
     public $gatewayAPIEnabled;
 
     /**
+     * @var string
+     */
+    public $guestCluster;
+
+    /**
      * @description The IP ranges in CIDR form for which traffic is to be redirected to the sidecar proxy in the ASM instance.
      *
      * @example *
@@ -800,6 +805,7 @@ class CreateServiceMeshRequest extends Model
         'existingRootCaKey'          => 'ExistingRootCaKey',
         'filterGatewayClusterConfig' => 'FilterGatewayClusterConfig',
         'gatewayAPIEnabled'          => 'GatewayAPIEnabled',
+        'guestCluster'               => 'GuestCluster',
         'includeIPRanges'            => 'IncludeIPRanges',
         'istioVersion'               => 'IstioVersion',
         'kialiEnabled'               => 'KialiEnabled',
@@ -953,6 +959,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->gatewayAPIEnabled) {
             $res['GatewayAPIEnabled'] = $this->gatewayAPIEnabled;
+        }
+        if (null !== $this->guestCluster) {
+            $res['GuestCluster'] = $this->guestCluster;
         }
         if (null !== $this->includeIPRanges) {
             $res['IncludeIPRanges'] = $this->includeIPRanges;
@@ -1178,6 +1187,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['GatewayAPIEnabled'])) {
             $model->gatewayAPIEnabled = $map['GatewayAPIEnabled'];
+        }
+        if (isset($map['GuestCluster'])) {
+            $model->guestCluster = $map['GuestCluster'];
         }
         if (isset($map['IncludeIPRanges'])) {
             $model->includeIPRanges = $map['IncludeIPRanges'];
