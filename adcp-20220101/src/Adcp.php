@@ -1142,21 +1142,27 @@ class Adcp extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new UpdateHubClusterFeatureShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->accessControlList)) {
+            $request->accessControlListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accessControlList, 'AccessControlList', 'json');
+        }
         if (!Utils::isUnset($tmpReq->vSwitches)) {
             $request->vSwitchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitches, 'VSwitches', 'json');
         }
         $query = [];
+        if (!Utils::isUnset($request->accessControlListShrink)) {
+            $query['AccessControlList'] = $request->accessControlListShrink;
+        }
         if (!Utils::isUnset($request->apiServerEipId)) {
             $query['ApiServerEipId'] = $request->apiServerEipId;
         }
         if (!Utils::isUnset($request->argoCDEnabled)) {
             $query['ArgoCDEnabled'] = $request->argoCDEnabled;
         }
+        if (!Utils::isUnset($request->argoCDHAEnabled)) {
+            $query['ArgoCDHAEnabled'] = $request->argoCDHAEnabled;
+        }
         if (!Utils::isUnset($request->argoServerEnabled)) {
             $query['ArgoServerEnabled'] = $request->argoServerEnabled;
-        }
-        if (!Utils::isUnset($request->armsEnabled)) {
-            $query['ArmsEnabled'] = $request->armsEnabled;
         }
         if (!Utils::isUnset($request->auditLogEnabled)) {
             $query['AuditLogEnabled'] = $request->auditLogEnabled;
@@ -1170,11 +1176,17 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->enableMesh)) {
             $query['EnableMesh'] = $request->enableMesh;
         }
+        if (!Utils::isUnset($request->monitorEnabled)) {
+            $query['MonitorEnabled'] = $request->monitorEnabled;
+        }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
         if (!Utils::isUnset($request->priceLimit)) {
             $query['PriceLimit'] = $request->priceLimit;
+        }
+        if (!Utils::isUnset($request->publicAccessEnabled)) {
+            $query['PublicAccessEnabled'] = $request->publicAccessEnabled;
         }
         if (!Utils::isUnset($request->publicApiServerEnabled)) {
             $query['PublicApiServerEnabled'] = $request->publicApiServerEnabled;
