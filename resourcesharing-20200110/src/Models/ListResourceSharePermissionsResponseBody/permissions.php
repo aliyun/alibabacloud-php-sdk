@@ -9,18 +9,13 @@ use AlibabaCloud\Tea\Model;
 class permissions extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 2020-12-07T07:39:01.818Z
      *
      * @var string
      */
     public $createTime;
-
-    /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $defaultPermission;
 
     /**
      * @description Indicates whether the permission is the default permission. Valid values:
@@ -32,10 +27,22 @@ class permissions extends Model
      *
      * @var bool
      */
+    public $defaultPermission;
+
+    /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   false: The version is not the default version.
+     *   true: The version is the default version.
+     *
+     * @example true
+     *
+     * @var bool
+     */
     public $defaultVersion;
 
     /**
-     * @description The update time.
+     * @description The name of the permission.
      *
      * @example AliyunRSDefaultPermissionVSwitch
      *
@@ -44,9 +51,8 @@ class permissions extends Model
     public $permissionName;
 
     /**
-     * @description The type of the shared resources.
+     * @description The version of the permission.
      *
-     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
      * @example v1
      *
      * @var string
@@ -54,6 +60,9 @@ class permissions extends Model
     public $permissionVersion;
 
     /**
+     * @description The type of the shared resources.
+     *
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
      * @example VSwitch
      *
      * @var string
@@ -61,6 +70,8 @@ class permissions extends Model
     public $resourceType;
 
     /**
+     * @description The update time.
+     *
      * @example 2020-12-07T07:39:01.818Z
      *
      * @var string

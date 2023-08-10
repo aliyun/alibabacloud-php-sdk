@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class resourceShareAssociations extends Model
 {
     /**
-     * @example Associating
-     *
-     * @var string
-     */
-    public $associationStatus;
-
-    /**
      * @description The association status. Valid values:
      *
      *   Associating: The entity is being associated.
@@ -25,6 +18,15 @@ class resourceShareAssociations extends Model
      *   Disassociated: The entity is disassociated.
      *
      * >  The system deletes the records of entities in the `Failed` or `Disassociated` state within 48 hours to 96 hours.
+     * @example Associating
+     *
+     * @var string
+     */
+    public $associationStatus;
+
+    /**
+     * @description The cause of the association failure.
+     *
      * @example The reason for the association failure.
      *
      * @var string
@@ -32,6 +34,11 @@ class resourceShareAssociations extends Model
     public $associationStatusMessage;
 
     /**
+     * @description The association type. Valid values:
+     *
+     *   Resource
+     *   Target
+     *
      * @example Resource
      *
      * @var string
@@ -39,7 +46,10 @@ class resourceShareAssociations extends Model
     public $associationType;
 
     /**
-     * @description The ID of the resource share.
+     * @description The time when the association of the entity was created. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the time when the shared resource was associated with the resource share.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the time when the principal was associated with the resource share.
      *
      * @example 2020-12-04T09:40:41.246Z
      *
@@ -48,10 +58,10 @@ class resourceShareAssociations extends Model
     public $createTime;
 
     /**
-     * @description The time when the association of the entity was created. The value of this parameter depends on the value of the AssociationType parameter:
+     * @description The ID of the entity. The value of this parameter depends on the value of the AssociationType parameter:
      *
-     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the time when the shared resource was associated with the resource share.
-     *   If the value of `AssociationType` is `Target`, the value of this parameter is the time when the principal was associated with the resource share.
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the ID of the shared resource.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the ID of the principal.
      *
      * @example vsw-bp183p93qs667muql****
      *
@@ -60,7 +70,10 @@ class resourceShareAssociations extends Model
     public $entityId;
 
     /**
-     * @description The cause of the association failure.
+     * @description The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of AssociationType is Resource, the value of this parameter is the type of the shared resource. For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
+     *   If the value of AssociationType is Target, the value of this parameter is `Account`.
      *
      * @example VSwitch
      *
@@ -69,10 +82,7 @@ class resourceShareAssociations extends Model
     public $entityType;
 
     /**
-     * @description The association type. Valid values:
-     *
-     *   Resource
-     *   Target
+     * @description The ID of the resource share.
      *
      * @example rs-6GRmdD3X****
      *
@@ -81,10 +91,7 @@ class resourceShareAssociations extends Model
     public $resourceShareId;
 
     /**
-     * @description The type of the entity. The value of this parameter depends on the value of the AssociationType parameter:
-     *
-     *   If the value of AssociationType is Resource, the value of this parameter is the type of the shared resource. For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
-     *   If the value of AssociationType is Target, the value of this parameter is `Account`.
+     * @description The name of the resource share.
      *
      * @example test
      *
@@ -93,7 +100,10 @@ class resourceShareAssociations extends Model
     public $resourceShareName;
 
     /**
-     * @description The name of the resource share.
+     * @description The time when the association of the entity was updated. The value of this parameter depends on the value of the AssociationType parameter:
+     *
+     *   If the value of `AssociationType` is `Resource`, the value of this parameter is the time when the association of the shared resource was updated.
+     *   If the value of `AssociationType` is `Target`, the value of this parameter is the time when the association of the principal was updated.
      *
      * @example 2020-12-04T09:40:41.246Z
      *

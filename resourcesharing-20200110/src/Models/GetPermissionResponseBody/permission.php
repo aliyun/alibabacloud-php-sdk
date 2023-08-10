@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class permission extends Model
 {
     /**
+     * @description The creation time.
+     *
      * @example 2020-12-07T07:39:01.818Z
      *
      * @var string
@@ -16,6 +18,11 @@ class permission extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether the permission is the default permission. Valid values:
+     *
+     *   false: The permission is not the default permission.
+     *   true: The permission is the default permission.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,11 @@ class permission extends Model
     public $defaultPermission;
 
     /**
+     * @description Indicates whether the version is the default version. Valid values:
+     *
+     *   false: The version is not the default version.
+     *   true: The version is the default version.
+     *
      * @example true
      *
      * @var bool
@@ -30,7 +42,7 @@ class permission extends Model
     public $defaultVersion;
 
     /**
-     * @description The update time.
+     * @description The document of the policy related to the permission.
      *
      * @example {"Effect":"Allow","Action":["vpc:DescribeVSwitches","vpc:DescribeVSwitchAttributes"]}
      *
@@ -39,10 +51,7 @@ class permission extends Model
     public $permission;
 
     /**
-     * @description Indicates whether the version is the default version. Valid values:
-     *
-     *   false: The version is not the default version.
-     *   true: The version is the default version.
+     * @description The name of the permission.
      *
      * @example AliyunRSDefaultPermissionVSwitch
      *
@@ -51,7 +60,7 @@ class permission extends Model
     public $permissionName;
 
     /**
-     * @description The creation time.
+     * @description The version of the permission.
      *
      * @example v1
      *
@@ -60,11 +69,9 @@ class permission extends Model
     public $permissionVersion;
 
     /**
-     * @description Indicates whether the permission is the default permission. Valid values:
+     * @description The type of the shared resources.
      *
-     *   false: The permission is not the default permission.
-     *   true: The permission is the default permission.
-     *
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
      * @example VSwitch
      *
      * @var string
@@ -72,6 +79,8 @@ class permission extends Model
     public $resourceType;
 
     /**
+     * @description The update time.
+     *
      * @example 2020-12-07T07:39:01.818Z
      *
      * @var string

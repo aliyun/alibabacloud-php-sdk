@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateResourceShareResponseBody extends Model
 {
     /**
-     * @description The time when the resource share was updated.
+     * @description The ID of the request.
      *
      * @example 2860A3A4-D8C1-4EF4-954E-84A3945E26E5
      *
@@ -19,7 +19,7 @@ class UpdateResourceShareResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the resource share.
+     * @description The information of the resource share.
      *
      * @var resourceShare
      */

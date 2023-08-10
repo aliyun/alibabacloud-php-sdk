@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AssociateResourceSharePermissionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 111FB84A-60A9-403E-9067-E55D7EE95BD1
      *
      * @var string

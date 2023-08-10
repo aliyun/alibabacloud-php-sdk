@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class CreateResourceShareRequest extends Model
 {
     /**
-     * @description The information of the resource share.
+     * @description Specifies whether resources in the resource share can be shared with accounts outside the resource directory. Valid values:
+     *
+     *   false: Resources in the resource share can be shared only with accounts in the resource directory. This is the default value.
+     *   true: Resources in the resource share can be shared with both accounts in the resource directory and accounts outside the resource directory.
      *
      * @example false
      *
@@ -24,9 +27,9 @@ class CreateResourceShareRequest extends Model
     public $permissionNames;
 
     /**
-     * @description The ID of a shared resource.
+     * @description The name of the resource share.
      *
-     * >  `Resources.N.ResourceId` and `Resources.N.ResourceType` must be used in pairs.
+     * The name can contain letters, digits, periods (.), underscores (\_), and hyphens (-).
      * @example test
      *
      * @var string

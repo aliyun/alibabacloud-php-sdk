@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListResourceSharesRequest extends Model
 {
     /**
-     * @description The ID of a resource share.
+     * @description The maximum number of entries to return for a single request.
      *
+     * Valid values: 1 to 100. Default value: 20.
      * @example 20
      *
      * @var int
@@ -18,7 +19,7 @@ class ListResourceSharesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The name of the permission. For more information, see [Permission library](~~465474~~).
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -27,7 +28,7 @@ class ListResourceSharesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the permission. For more information, see [Permission library](~~465474~~).
      *
      * @example AliyunRSDefaultPermissionVSwitch
      *
@@ -36,14 +37,11 @@ class ListResourceSharesRequest extends Model
     public $permissionName;
 
     /**
-     * @description The status of the resource share. Valid values:
+     * @description The owner of the resource shares. Valid values:
      *
-     *   Active: The resource share is enabled.
-     *   Pending: The resource share is associated with one or more resource sharing invitations that are waiting for confirmation.
-     *   Deleting: The resource share is being deleted.
-     *   Deleted: The resource share is deleted.
+     *   Self: the current account
+     *   OtherAccounts: an account other than the current account
      *
-     * >  The system deletes the records of resource shares in the Deleted state within 48 hours to 96 hours after you delete the resource shares.
      * @example Self
      *
      * @var string
@@ -58,9 +56,8 @@ class ListResourceSharesRequest extends Model
     public $resourceShareIds;
 
     /**
-     * @description The maximum number of entries to return for a single request.
+     * @description The name of the resource share.
      *
-     * Valid values: 1 to 100. Default value: 20.
      * @example test
      *
      * @var string
@@ -68,8 +65,14 @@ class ListResourceSharesRequest extends Model
     public $resourceShareName;
 
     /**
-     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
+     * @description The status of the resource share. Valid values:
      *
+     *   Active: The resource share is enabled.
+     *   Pending: The resource share is associated with one or more resource sharing invitations that are waiting for confirmation.
+     *   Deleting: The resource share is being deleted.
+     *   Deleted: The resource share is deleted.
+     *
+     * >  The system deletes the records of resource shares in the Deleted state within 48 hours to 96 hours after you delete the resource shares.
      * @example Active
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionsRequest extends Model
 {
     /**
-     * @description The information about the permission.
+     * @description The maximum number of entries to return for a single request.
      *
+     * Valid values: 1 to 100. Default value: 20.
      * @example 20
      *
      * @var int
@@ -18,7 +19,7 @@ class ListPermissionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The name of the permission.
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -27,8 +28,9 @@ class ListPermissionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the shared resources.
      *
+     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
      * @example VSwitch
      *
      * @var string

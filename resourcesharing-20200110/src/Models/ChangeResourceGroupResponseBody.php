@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisassociateResourceSharePermissionResponseBody extends Model
+class ChangeResourceGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example 111FB84A-60A9-403E-9067-E55D7EE95BD1
+     * @example 0A900114-22D3-5E9D-87A2-48E5EB5BF310
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class DisassociateResourceSharePermissionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DisassociateResourceSharePermissionResponseBody
+     * @return ChangeResourceGroupResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class RejectResourceShareInvitationRequest extends Model
 {
     /**
-     * @description The ID of the invitation.
+     * @description The ID of the resource sharing invitation.
      *
+     * You can call the [ListResourceShareInvitations](~~450564~~) operation to obtain the ID of a resource sharing invitation.
      * @example i-yyTWbkjHArYh****
      *
      * @var string

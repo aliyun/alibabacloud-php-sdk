@@ -15,9 +15,8 @@ class AssociateResourceShareRequest extends Model
     public $permissionNames;
 
     /**
-     * @description The ID of a shared resource.
+     * @description The ID of the resource share.
      *
-     * >  Resources.N.ResourceId and Resources.N.ResourceType must be used in pairs.
      * @example rs-6GRmdD3X****
      *
      * @var string

@@ -10,13 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListResourceShareInvitationsResponseBody extends Model
 {
     /**
-     * @description The status of the invitation. Valid values:
-     *
-     *   Pending: The invitation is waiting for confirmation.
-     *   Accepted: The invitation is accepted.
-     *   Cancelled: The invitation is canceled.
-     *   Rejected: The invitation is rejected.
-     *   Expired: The invitation has expired.
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -25,7 +19,7 @@ class ListResourceShareInvitationsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The time when the invitation was created. The time is displayed in UTC.
+     * @description The ID of the request.
      *
      * @example 30EC8328-1BDE-51D5-BFAB-039508BD91A1
      *
@@ -34,7 +28,7 @@ class ListResourceShareInvitationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the resource share.
+     * @description The information of the resource sharing invitations.
      *
      * @var resourceShareInvitations[]
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionVersionsResponseBody extends Model
 {
     /**
-     * @description The version of the permission.
+     * @description The token that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -19,17 +19,14 @@ class ListPermissionVersionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The creation time.
+     * @description The information about the permission.
      *
      * @var permissions[]
      */
     public $permissions;
 
     /**
-     * @description Indicates whether the version is the default version. Valid values:
-     *
-     *   false: The version is not the default version.
-     *   true: The version is the default version.
+     * @description The ID of the request.
      *
      * @example 04677DCA-7C33-464B-8811-1B1DA3C3D197
      *

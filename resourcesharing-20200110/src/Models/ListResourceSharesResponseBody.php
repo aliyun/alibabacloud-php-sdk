@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListResourceSharesResponseBody extends Model
 {
     /**
-     * @description The information of the resource shares.
+     * @description The `token` that is used to initiate the next request. If the response of the current request is truncated, you can use the token to initiate another request and obtain the remaining records.
      *
      * @example TGlzdFJlc291cm****
      *
@@ -19,7 +19,7 @@ class ListResourceSharesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The time when the resource share was updated.
+     * @description The ID of the request.
      *
      * @example 2F23CFB6-A721-4E90-AC1E-0E30FA8B45DA
      *
@@ -28,7 +28,7 @@ class ListResourceSharesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the resource share.
+     * @description The information of the resource shares.
      *
      * @var resourceShares[]
      */

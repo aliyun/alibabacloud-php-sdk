@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListResourceShareInvitationsRequest extends Model
 {
     /**
-     * @description The IDs of the resource sharing invitations.
+     * @description The maximum number of entries to return for a single request.
      *
+     * Valid values: 1 to 100. Default value: 20.
      * @example 20
      *
      * @var int

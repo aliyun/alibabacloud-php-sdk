@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resourceShareInvitations extends Model
 {
     /**
-     * @description The Alibaba Cloud account ID of the inviter.
+     * @description The time when the invitation was created. The time is displayed in UTC.
      *
      * @example 2022-08-18T05:36:45.024Z
      *
@@ -18,6 +18,8 @@ class resourceShareInvitations extends Model
     public $createTime;
 
     /**
+     * @description The Alibaba Cloud account ID of the invitee.
+     *
      * @example 134254031178****
      *
      * @var string
@@ -25,7 +27,7 @@ class resourceShareInvitations extends Model
     public $receiverAccountId;
 
     /**
-     * @description The Alibaba Cloud account ID of the invitee.
+     * @description The ID of the resource share.
      *
      * @example rs-ysGRci9z****
      *
@@ -34,6 +36,8 @@ class resourceShareInvitations extends Model
     public $resourceShareId;
 
     /**
+     * @description The ID of the invitation.
+     *
      * @example i-p6eRytrkjVvM****
      *
      * @var string
@@ -41,7 +45,7 @@ class resourceShareInvitations extends Model
     public $resourceShareInvitationId;
 
     /**
-     * @description The ID of the invitation.
+     * @description The name of the resource share.
      *
      * @example example
      *
@@ -50,6 +54,8 @@ class resourceShareInvitations extends Model
     public $resourceShareName;
 
     /**
+     * @description The Alibaba Cloud account ID of the inviter.
+     *
      * @example 151266687691****
      *
      * @var string
@@ -57,7 +63,13 @@ class resourceShareInvitations extends Model
     public $senderAccountId;
 
     /**
-     * @description The name of the resource share.
+     * @description The status of the invitation. Valid values:
+     *
+     *   Pending: The invitation is waiting for confirmation.
+     *   Accepted: The invitation is accepted.
+     *   Cancelled: The invitation is canceled.
+     *   Rejected: The invitation is rejected.
+     *   Expired: The invitation has expired.
      *
      * @example Pending
      *

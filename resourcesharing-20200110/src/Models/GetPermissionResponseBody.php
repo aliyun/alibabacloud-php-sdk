@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetPermissionResponseBody extends Model
 {
     /**
-     * @description The type of the shared resources.
+     * @description The information about the permission.
      *
-     * For more information about the types of resources that can be shared, see [Services that work with Resource Sharing](~~450526~~).
      * @var permission
      */
     public $permission;
 
     /**
-     * @description The document of the policy related to the permission.
+     * @description The ID of the request.
      *
      * @example 2F23CFB6-A721-4E90-AC1E-0E30FA8B45DA
      *

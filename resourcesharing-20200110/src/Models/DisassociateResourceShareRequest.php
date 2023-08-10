@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class DisassociateResourceShareRequest extends Model
 {
     /**
-     * @description The information of the entities that are associated with the resource share.
+     * @description The owner of the resource share. Valid values:
+     *
+     *   Self: The resource share belongs to the current account. This is the default value. If you are the management account or a member of a resource directory and you want to remove resources or principals from a resource share, set this parameter to Self.
+     *   OtherAccounts: The resource share belongs to another account. If you are not the management account or a member of a resource directory and you want to exit a resource share, set this parameter to OtherAccounts.
      *
      * @example Self
      *
@@ -19,9 +22,8 @@ class DisassociateResourceShareRequest extends Model
     public $resourceOwner;
 
     /**
-     * @description The ID of a shared resource.
+     * @description The ID of the resource share.
      *
-     * >  Resources.N.ResourceId and Resources.N.ResourceType must be used in pairs.
      * @example rs-6GRmdD3X****
      *
      * @var string

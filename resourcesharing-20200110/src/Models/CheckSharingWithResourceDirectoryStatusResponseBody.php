@@ -6,18 +6,24 @@ namespace AlibabaCloud\SDK\ResourceSharing\V20200110\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DisassociateResourceSharePermissionResponseBody extends Model
+class CheckSharingWithResourceDirectoryStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @example true
      *
-     * @example 111FB84A-60A9-403E-9067-E55D7EE95BD1
+     * @var bool
+     */
+    public $enableSharingWithRd;
+
+    /**
+     * @example 819545D0-C97A-5DB3-BD73-A1B17E9A4BC1
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'enableSharingWithRd' => 'EnableSharingWithRd',
+        'requestId'           => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class DisassociateResourceSharePermissionResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->enableSharingWithRd) {
+            $res['EnableSharingWithRd'] = $this->enableSharingWithRd;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class DisassociateResourceSharePermissionResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DisassociateResourceSharePermissionResponseBody
+     * @return CheckSharingWithResourceDirectoryStatusResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EnableSharingWithRd'])) {
+            $model->enableSharingWithRd = $map['EnableSharingWithRd'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
