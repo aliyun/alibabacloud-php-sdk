@@ -10,26 +10,58 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynchronizationJobsResponseBody extends Model
 {
     /**
+     * @description The total number of data synchronization instances that belong to your Alibaba Cloud account.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description Indicates whether full data synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The list of data synchronization instances and the details of each instance.
+     *
+     * @example 92E1E99D-5224-4AD3-8C94-23A3516B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the data synchronization task.
+     *
      * @var synchronizationInstances[]
      */
     public $synchronizationInstances;
 
     /**
+     * @description The status of the data synchronization task. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Prechecking**: The task is being prechecked.
+     *   **PrecheckFailed**: The task failed to pass the precheck.
+     *   **Initializing**: The task is performing initial synchronization.
+     *   **InitializeFailed**: Initial synchronization failed.
+     *   **Synchronizing**: The task is synchronizing data.
+     *   **Failed**: The task failed to synchronize data.
+     *   **Suspending**: The task is paused.
+     *   **Modifying**: The objects in the task are being modified.
+     *   **Finished**: The task is completed.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalRecordCount;

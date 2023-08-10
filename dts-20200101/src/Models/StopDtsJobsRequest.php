@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class StopDtsJobsRequest extends Model
 {
     /**
+     * @description The ID of the data migration or data synchronization task.
+     *
+     * >
+     *   Separate multiple task IDs by **,** (commas).
+     *   You can call the [DescribeDtsJobs](~~209702~~) operation to query task IDs.
+     *
+     * @example l5o11f9029c****
+     *
      * @var string
      */
     public $dtsJobIds;
 
     /**
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

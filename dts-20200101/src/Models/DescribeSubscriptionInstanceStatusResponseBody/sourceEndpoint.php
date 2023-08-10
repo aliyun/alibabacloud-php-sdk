@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
+     * @description The ID of the instance that hosts the source database.
+     *
+     * @example rm-bp1162kryivb8****
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @description The instance type of the source database.
+     *
+     * >  This parameter is returned only for change tracking instances of the new version.
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;

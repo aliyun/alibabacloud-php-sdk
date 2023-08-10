@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobResponseBody extends Model
 {
     /**
+     * @description The ID of the DTS task.
+     *
+     * @example bi6e22a****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * >  The data type of this parameter is String. Sample value: **The actual sample value is The request processing has failed due to some unknown error.
+     * @example true
+     *
      * @var bool
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1D6ECADF-C5E9-4C96-8811-77602B31****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

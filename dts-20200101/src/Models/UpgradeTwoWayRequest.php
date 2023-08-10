@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpgradeTwoWayRequest extends Model
 {
     /**
+     * @description The instance class of the two-way synchronization task. Valid values: **large**, **medium**, **micro**, and **small**.
+     *
+     * >  For more information, see [Specifications of data synchronization instances](~~26605~~).
+     * @example large
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The ID of the data synchronization instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     *
+     * @example dtsh77p49x4k28****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,41 +9,81 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
+     * @description The name of the database to which the migration object in the source instance belongs.
+     *
+     * @example dtstestdatabase
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The database type of the source instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The endpoint of the source instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * @example rm-bp1i99e8l7913****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the source instance.
+     *
+     *   **RDS**: ApsaraDB RDS instance
+     *   **ECS**: self-managed database that is hosted on Elastic Compute Service (ECS)
+     *   **LocalInstance**: self-managed database with a public IP address
+     *   **Express**: self-managed database that is connected over Express Connect, VPN Gateway, or Smart Access Gateway
+     *   **MongoDB**: ApsaraDB for MongoDB instance
+     *   **POLARDB**: PolarDB for MySQL cluster (available only for the China site)
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The database service port of the source instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The database account of the source instance.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The SID of the Oracle database.
+     *
+     * >  This parameter is returned only if the database type of the source instance is **Oracle**.
+     * @example dtstestdatabase
+     *
      * @var string
      */
     public $oracleSID;

@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubscriptionMetaRequest extends Model
 {
     /**
+     * @description The ID of the distributed change tracking instance.
+     *
+     * @example dtsbr4m9luv2******
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the region in which the change tracking instance resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the consumer group.
+     *
+     * @example z38m91gg2******
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description The IDs of all subtasks in the distributed change tracking task. Separate multiple subtask IDs with commas (,).
+     *
+     * >  You must specify at least one of the SubMigrationJobIds and **Topics** parameters. We recommend that you specify the SubMigrationJobIds parameter.
+     * @example z38m91gg2******
+     *
      * @var mixed[]
      */
     public $subMigrationJobIds;
 
     /**
+     * @description The topics of all subtasks in the distributed change tracking task. Separate multiple topics with commas (,).
+     *
+     * >  You must specify at least one of the **SubMigrationJobIds** and Topics parameters. We recommend that you specify the **SubMigrationJobIds** parameter.
+     * @example cn_hangzhou_rm_bp1n0x0x5tz******_dtstestdata_version2
+     *
      * @var mixed[]
      */
     public $topics;

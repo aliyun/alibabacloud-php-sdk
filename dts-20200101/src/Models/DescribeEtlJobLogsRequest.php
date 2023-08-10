@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeEtlJobLogsRequest extends Model
 {
     /**
+     * @description The ID of the ETL task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * @example l5512es7w15****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The ID of the region in which the Data Transmission Service (DTS) instance resides. You can call the [DescribeRegions](~~25609~~) operation to query the available Alibaba Cloud regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

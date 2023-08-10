@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class performance extends Model
 {
     /**
+     * @description The data traffic that is synchronized per second. Unit: MB/s.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $FLOW;
 
     /**
+     * @description The number of times SQL statements are synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $RPS;

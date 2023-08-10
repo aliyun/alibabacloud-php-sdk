@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubscriptionMetaResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C12E7A51-09A4-5796-94BE-08B6DA******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the subtasks.
+     *
      * @var subscriptionMetaList[]
      */
     public $subscriptionMetaList;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class performance extends Model
 {
     /**
+     * @description The precheck progress. Unit: %.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $FLOW;
 
     /**
+     * @description The precheck result. Valid values:
+     *
+     *   **Success**: The task passed the precheck.
+     *   **Failed**: The task failed to pass the precheck.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $RPS;

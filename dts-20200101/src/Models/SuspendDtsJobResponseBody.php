@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class SuspendDtsJobResponseBody extends Model
 {
     /**
+     * @description The dynamic error code. This parameter will be removed in the future.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     *
+     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * @example DtsJobId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 01B6F25-21E7-4484-99D5-3EF2625C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -16,91 +16,153 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrationJobStatusResponseBody extends Model
 {
     /**
+     * @description The status of full data migration.
+     *
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
 
     /**
+     * @description The status of incremental data migration.
+     *
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
 
     /**
+     * @description The connection settings of the destination instance.
+     *
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The specification of the data migration instance. Valid values: **small**, **medium**, **large**, **xlarge**, and **2xlarge**. For more information, see [Specifications of data migration instances](~~26606~~).
+     *
+     * @example 2xlarge
+     *
      * @var string
      */
     public $migrationJobClass;
 
     /**
+     * @description The ID of the data migration instance.
+     *
+     * @example dtsz2v12jfo309****
+     *
      * @var string
      */
     public $migrationJobId;
 
     /**
+     * @description The name of the data migration task.
+     *
      * @var string
      */
     public $migrationJobName;
 
     /**
+     * @description The status of the data migration task. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Prechecking**: The task is being prechecked.
+     *   **PrecheckFailed**: The task failed to pass the precheck.
+     *   **Migrating**: The task is migrating data.
+     *   **Suspending**: The task is paused.
+     *   **MigrationFailed**: The task failed to migrate data.
+     *   **Finished**: The task is completed.
+     *
+     * @example Migrating
+     *
      * @var string
      */
     public $migrationJobStatus;
 
     /**
+     * @description The migration types.
+     *
      * @var migrationMode
      */
     public $migrationMode;
 
     /**
+     * @description The objects that are migrated by the task.
+     *
+     * @example [{\"DBName\":\"dtstestdata\",\"TableIncludes\":[{\"TableName\":\"customer\"}]}]
+     *
      * @var string
      */
     public $migrationObject;
 
     /**
+     * @description The billing method of the data migration instance. The value is **PostPaid** (pay-as-you-go).
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The precheck details.
+     *
      * @var precheckStatus
      */
     public $precheckStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A032E3B4-929B-48E9-97B9-37587CBF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The connection settings of the source instance.
+     *
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
 
     /**
+     * @description The status of schema migration.
+     *
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @example z2v12jfo309****
+     *
      * @var string
      */
     public $taskId;

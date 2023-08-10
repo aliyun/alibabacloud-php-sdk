@@ -9,36 +9,60 @@ use AlibabaCloud\Tea\Model;
 class ConfigureDtsJobResponseBody extends Model
 {
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example dtsk2gm967v16f****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example k2gm967v16f****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The ID of the data migration or synchronization instance.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the data migration or synchronization task.
+     *
+     * @example 224DB9F7-3100-4899-AB9C-C938BCCB****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

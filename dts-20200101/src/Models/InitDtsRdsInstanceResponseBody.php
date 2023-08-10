@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class InitDtsRdsInstanceResponseBody extends Model
 {
     /**
+     * @description The built-in account that is used by DTS to connect to the node.
+     *
+     * @example rdsdt_dtsacct
+     *
      * @var string
      */
     public $adminAccount;
 
     /**
+     * @description The password of the built-in account.
+     *
+     * @example 1jecpqrtc****
+     *
      * @var string
      */
     public $adminPassword;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7796ECE0-9C17-5E4D-9CE6-B7EC825A****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

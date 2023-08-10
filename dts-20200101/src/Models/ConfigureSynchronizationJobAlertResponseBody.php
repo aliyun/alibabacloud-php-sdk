@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ConfigureSynchronizationJobAlertResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8EEE7858-7D41-4EDF-9435-AEED2A34****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

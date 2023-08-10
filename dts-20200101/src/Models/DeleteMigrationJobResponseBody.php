@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DeleteMigrationJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F28A96B1-F897-4246-833B-310A3345****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobPasswordRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description Specifies the database to which the password belongs. Valid values:
+     *
+     *   **src**: source database
+     *   **dest**: destination database
+     *
+     * >  This parameter must be specified.
+     * @example src
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @description The new password of the account.
+     *
+     * >  This parameter must be specified and cannot be the same as the current password.
+     * @example Test123456
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The account of the source or destination database.
+     *
+     * >  This parameter must be specified.
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class dtsEtlJobVersionInfos extends Model
 {
     /**
+     * @description The time when the ETL task was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1637229315000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the creator.
+     *
+     * @example 10000000
+     *
      * @var string
      */
     public $creator;
 
     /**
+     * @description The username of the creator.
+     *
+     * @example ***@****.com
+     *
      * @var string
      */
     public $creatorName;
 
     /**
+     * @description The ID of the DTS instance.
+     *
+     * @example dtsg******gd
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the ETL task.
+     *
+     * @example l5512es7w15****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The name of the ETL task.
+     *
+     * @example test_sql
+     *
      * @var string
      */
     public $dtsJobName;
 
     /**
+     * @description The time when the ETL task was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
+     * @example 1637230117000
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The safe checkpoint of the ETL task.
+     *
+     * @example 1637230117000
+     *
      * @var string
      */
     public $safeCheckpoint;
 
     /**
+     * @description The log level. Valid values: ERROR, WARN, INFO, and DEBUG.
+     *
+     * @example INFO
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The version number of the ETL task.
+     *
+     * @example 9
+     *
      * @var int
      */
     public $version;

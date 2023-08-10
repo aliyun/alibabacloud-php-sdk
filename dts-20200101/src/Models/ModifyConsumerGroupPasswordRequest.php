@@ -9,26 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyConsumerGroupPasswordRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The ID of the consumer group.
+     *
+     * You can call the [DescribeConsumerGroup](~~122886~~) operation to query the consumer group ID.
+     * @example dtswc411cg617p****
+     *
      * @var string
      */
     public $consumerGroupID;
 
     /**
+     * @description The name of the consumer group. You can call the [DescribeConsumerGroup](~~122886~~) operation to query the consumer group name.
+     *
      * @var string
      */
     public $consumerGroupName;
 
     /**
+     * @description The current password of the consumer group.
+     *
+     * @example Test123456
+     *
      * @var string
      */
     public $consumerGroupPassword;
 
     /**
+     * @description The username of the consumer group. You can call the [DescribeConsumerGroup](~~122886~~) operation to query the username.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $consumerGroupUserName;
@@ -44,11 +63,22 @@ class ModifyConsumerGroupPasswordRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
+     *
+     * @example dtsg2m10r1x15a****
+     *
      * @var string
      */
     public $subscriptionInstanceId;
 
     /**
+     * @description The new password of the consumer group.
+     *
+     *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+     *   A password must be 8 to 32 characters in length.
+     *
+     * @example Test654321
+     *
      * @var string
      */
     public $consumerGroupNewPassword;

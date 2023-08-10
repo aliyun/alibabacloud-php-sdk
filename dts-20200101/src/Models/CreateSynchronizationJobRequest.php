@@ -21,21 +21,38 @@ class CreateSynchronizationJobRequest extends Model
     public $sourceEndpoint;
 
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The **ClientToken** parameter can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description If you set the **SourceEndpoint.InstanceType** parameter to **DRDS**, you must specify the DBInstanceCount parameter. This parameter specifies the number of private RDS instances attached to the source PolarDB-X instance. Default value: **1**.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $DBInstanceCount;
 
     /**
+     * @description The ID of the region where the destination database resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * >  If the **SourceRegion** parameter is set to the China (Hong Kong) region or a region outside the Chinese mainland, you must set the DestRegion parameter to the same region ID.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destRegion;
@@ -46,11 +63,26 @@ class CreateSynchronizationJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the data synchronization instance.
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid** (default value): pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The billing cycle of the subscription instance. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * >  You must specify this parameter only if you set the PayType parameter to **PrePaid**.
+     * @example Year
+     *
      * @var string
      */
     public $period;
@@ -61,26 +93,58 @@ class CreateSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the region where the source database resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $sourceRegion;
 
     /**
+     * @description The specification of the data synchronization instance. Valid values: **micro**, **small**, **medium**, and **large**.
+     *
+     * >  For more information about the test performance of each specification, see [Specifications of data synchronization instances](~~26605~~).
+     * @example small
+     *
      * @var string
      */
     public $synchronizationJobClass;
 
     /**
+     * @description The synchronization topology. Valid values:
+     *
+     *   **oneway**: one-way synchronization
+     *   **bidirectional**: two-way synchronization
+     *
+     * >
+     *   The default value is **oneway**.
+     *   This parameter can be set to **bidirectional** only when the **SourceEndpoint.InstanceType** and **DestinationEndpoint.InstanceType** parameters are set to **MySQL**, **PolarDB**, or **Redis**.
+     *
+     * @example oneway
+     *
      * @var string
      */
     public $topology;
 
     /**
+     * @description The subscription length.
+     *
+     *   If the billing cycle is **Year**, the value range is **1 to 5**.
+     *   If the billing cycle is **Month**, the value range is **1 to 60**.
+     *
+     * >  You must specify this parameter only if you set the PayType parameter to **PrePaid**.
+     * @example 1
+     *
      * @var int
      */
     public $usedTime;
 
     /**
+     * @description The network type. Valid value: **Intranet**, which indicates virtual private cloud (VPC).
+     *
+     * @example Intranet
+     *
      * @var string
      */
     public $networkType;

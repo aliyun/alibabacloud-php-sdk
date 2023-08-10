@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The name of the consumer group. The name cannot exceed 128 characters in length. We recommend that you use an informative name for easy identification.
+     *
      * @var string
      */
     public $consumerGroupName;
 
     /**
+     * @description The password that corresponds to the username of the consumer group.
+     *
+     *   A password must contain two or more of the following characters: uppercase letters, lowercase letters, digits, and special characters.
+     *   A password must be 8 to 32 characters in length.
+     *
+     * @example Test123456
+     *
      * @var string
      */
     public $consumerGroupPassword;
 
     /**
+     * @description The username of the consumer group.
+     *
+     *   A username must contain one or more of the following characters: uppercase letters, lowercase letters, digits, and underscores (\_).
+     *   A username cannot exceed 16 characters in length.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $consumerGroupUserName;
@@ -39,6 +59,10 @@ class CreateConsumerGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
+     *
+     * @example dtsg2m10r1x15a****
+     *
      * @var string
      */
     public $subscriptionInstanceId;

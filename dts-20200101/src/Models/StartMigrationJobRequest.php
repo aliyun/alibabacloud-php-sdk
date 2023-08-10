@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StartMigrationJobRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query all data migration instances.
+     *
+     * @example dtss0611o8vv90****
+     *
      * @var string
      */
     public $migrationJobId;

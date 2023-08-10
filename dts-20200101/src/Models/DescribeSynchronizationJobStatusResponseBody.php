@@ -17,131 +17,240 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynchronizationJobStatusResponseBody extends Model
 {
     /**
+     * @description The UNIX timestamp generated when the latest data record was synchronized.
+     *
+     * >  You can use a search engine to obtain a UNIX timestamp converter.
+     * @example 1610616144
+     *
      * @var string
      */
     public $checkpoint;
 
     /**
+     * @description Indicates whether full data synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var string
      */
     public $dataInitialization;
 
     /**
+     * @description The status of full data synchronization.
+     *
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
 
     /**
+     * @description The status of incremental data synchronization.
+     *
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
 
     /**
+     * @description The synchronization latency, in seconds.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $delay;
 
     /**
+     * @description The synchronization delay, in milliseconds.
+     *
+     * @example 506
+     *
      * @var int
      */
     public $delayMillis;
 
     /**
+     * @description The connection settings of the destination instance.
+     *
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The error message returned if data synchronization failed.
+     *
+     * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The time when the data synchronization instance expires. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     *
+     * >  This parameter is returned only if the return value of the **PayType** parameter is **PrePaid**.
+     * @example 2021-03-07T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The billing method of the data synchronization instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The performance of the data synchronization instance.
+     *
      * @var performance
      */
     public $performance;
 
     /**
+     * @description The precheck status.
+     *
      * @var precheckStatus
      */
     public $precheckStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DACDF659-AFC6-4DC8-ADB8-4569419A4****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The connection settings of the source instance.
+     *
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
 
     /**
+     * @description The status of the data synchronization task. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Prechecking**: The task is being prechecked.
+     *   **PrecheckFailed**: The task failed to pass the precheck.
+     *   **Initializing**: The task is performing initial synchronization.
+     *   **InitializeFailed**: Initial synchronization failed.
+     *   **Synchronizing**: The task is synchronizing data.
+     *   **Failed**: The task failed to synchronize data.
+     *   **Suspending**: The task is paused.
+     *   **Modifying**: The objects in the task are being modified.
+     *   **Finished**: The task is completed.
+     *
+     * @example synchronizing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether schema synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var string
      */
     public $structureInitialization;
 
     /**
+     * @description The status of schema synchronization.
+     *
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
+     *
+     * @example Forward
+     *
      * @var string
      */
     public $synchronizationDirection;
 
     /**
+     * @description The specification of the data synchronization instance.
+     *
+     * @example large
+     *
      * @var string
      */
     public $synchronizationJobClass;
 
     /**
+     * @description The ID of the data synchronization instance.
+     *
+     * @example dtsexjk1alb116****
+     *
      * @var string
      */
     public $synchronizationJobId;
 
     /**
+     * @description The name of the data synchronization task.
+     *
      * @var string
      */
     public $synchronizationJobName;
 
     /**
+     * @description The objects that are synchronized by the task.
+     *
      * @var synchronizationObjects[]
      */
     public $synchronizationObjects;
 
     /**
+     * @example exjk1alb116****
+     *
      * @var string
      */
     public $taskId;

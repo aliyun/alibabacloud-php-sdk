@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the consumer group.
+     *
+     * @example dtswc411cg617p****
+     *
      * @var string
      */
     public $consumerGroupID;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 6063641E-BAD1-4BA7-B70B-26FFFD18****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

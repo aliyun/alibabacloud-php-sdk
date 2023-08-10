@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ModifyConsumerGroupPasswordResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A06B5CFF-9576-4BC1-BE62-A3D43E1F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

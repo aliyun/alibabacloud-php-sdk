@@ -10,21 +10,40 @@ use AlibabaCloud\Tea\Model;
 class precheckStatus extends Model
 {
     /**
+     * @description The result of each precheck item.
+     *
      * @var detail[]
      */
     public $detail;
 
     /**
+     * @description The error message returned if the precheck failed.
+     *
+     * @example CHECK__ERROR_SAME_OBJ.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The precheck progress. Unit: percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The precheck state. Valid values:
+     *
+     * - **NotStarted**: The precheck is not started.
+     * - **Suspending**: The precheck is paused.
+     * - **Checking**: The precheck is in progress.
+     * - **Failed**: The precheck failed.
+     * - **Finished**: The precheck is complete.
+     * @example Finished
+     *
      * @var string
      */
     public $status;

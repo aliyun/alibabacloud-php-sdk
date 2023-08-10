@@ -9,56 +9,108 @@ use AlibabaCloud\Tea\Model;
 class TransferInstanceClassResponseBody extends Model
 {
     /**
+     * @description The billing method of the DTS instance. Valid values:
+     *
+     *   **POSTPAY**: pay-as-you-go
+     *   **PREPAY**: subscription
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The error code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the data migration or data synchronization task.
+     *
+     * @example r4yr723m199****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     *
+     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * @example DtsJobId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The expiration time of the DTS instance.
+     *
+     * >  This parameter is returned only if the ChargeType parameter is set to **PREPAY**.
+     * @example 2021-08-04T16:00:00.000+00:00
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of DTS instance.
+     *
+     * @example dtsr4yr723m199****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 716DB03E-2D0B-4DC3-BC4C-F7A9EE21****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful.
+     *   **false**:The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerGroupRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The ID of the consumer group. You can call the [DescribeConsumerGroup](~~122886~~) operation to query the consumer group ID.
+     *
+     * @example dtssb911ydd192****
+     *
      * @var string
      */
     public $consumerGroupID;
@@ -29,6 +37,10 @@ class DeleteConsumerGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
+     *
+     * @example dtsg2m10r1x15a****
+     *
      * @var string
      */
     public $subscriptionInstanceId;

@@ -27,21 +27,42 @@ class ConfigureSynchronizationJobRequest extends Model
     public $sourceEndpoint;
 
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The synchronization checkpoint.
+     *
+     * @example 1610540493
+     *
      * @var string
      */
     public $checkpoint;
 
     /**
+     * @description Specifies whether to perform initial full data synchronization. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  Default value: **true**.
+     * @example true
+     *
      * @var bool
      */
     public $dataInitialization;
 
     /**
+     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](~~176470~~).
+     *
+     * >  This parameter can be used for data synchronization between ApsaraDB for Redis Enterprise Edition instances. For more information, see [Use OpenAPI Explorer to configure one-way or two-way data synchronization between ApsaraDB for Redis Enterprise Edition instances](~~155967~~).
+     * @example {     "autoStartModulesAfterConfig": "none",     "targetTableMode": 2 }
+     *
      * @var string
      */
     public $migrationReserved;
@@ -57,26 +78,56 @@ class ConfigureSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to perform initial schema synchronization. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  Default value: **true**.
+     * @example true
+     *
      * @var bool
      */
     public $structureInitialization;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
+     *
+     * >
+     *   Default value: **Forward**.
+     *   The value **Reverse** takes effect only if the topology of the data synchronization instance is two-way synchronization.
+     *
+     * @example Forward
+     *
      * @var string
      */
     public $synchronizationDirection;
 
     /**
+     * @description The ID of the data synchronization instance. You can call the [DescribeSynchronizationJobs](~~49454~~) operation to query the instance ID.
+     *
+     * @example dtsz4ao1dor13d****
+     *
      * @var string
      */
     public $synchronizationJobId;
 
     /**
+     * @description The name of the data synchronization task.
+     *
+     * >  We recommend that you specify an informative name for easy identification. You do not need to use a unique task name.
      * @var string
      */
     public $synchronizationJobName;
 
     /**
+     * @description The objects that you want to synchronize. The value is a JSON string and can contain regular expressions. For more information, see [SynchronizationObjects](~~141901~~).
+     *
+     * @example [{"DBName":"dtstestdata","TableIncludes":[{"TableName":"customer"}]}]
+     *
      * @var string
      */
     public $synchronizationObjects;

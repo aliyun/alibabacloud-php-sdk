@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class dataSynchronizationStatus extends Model
 {
     /**
+     * @description The UNIX timestamp generated when the latest data record was synchronized.
+     *
+     * @example 1610709865
+     *
      * @var string
      */
     public $checkpoint;
 
     /**
+     * @description The synchronization latency, in seconds.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $delay;
 
     /**
+     * @description The synchronization latency, in milliseconds.
+     *
+     * @example 856
+     *
      * @var int
      */
     public $delayMillis;
 
     /**
+     * @description The error message returned if incremental data synchronization failed.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The progress of incremental data synchronization. Unit: %.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The status of incremental data synchronization. Valid values:
+     *
+     *   **NotStarted**: Incremental data synchronization is not started.
+     *   **Migrating**: Incremental data synchronization is in progress.
+     *   **Failed**: Incremental data synchronization failed.
+     *   **Finished**: Incremental data synchronization is completed.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

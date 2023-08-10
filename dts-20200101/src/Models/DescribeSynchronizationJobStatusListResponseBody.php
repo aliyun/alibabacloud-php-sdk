@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynchronizationJobStatusListResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of data synchronization instances displayed on one page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1413460B-138A-48D1-836C-B24EDDC1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The status of the data synchronization tasks.
+     *
      * @var synchronizationJobListStatusList[]
      */
     public $synchronizationJobListStatusList;
 
     /**
+     * @description The total number of data synchronization instances.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalRecordCount;

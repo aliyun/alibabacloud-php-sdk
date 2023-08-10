@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeConsumerGroupRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -19,11 +23,19 @@ class DescribeConsumerGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -34,6 +46,10 @@ class DescribeConsumerGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
+     *
+     * @example dtso5xx5t9u19e****
+     *
      * @var string
      */
     public $subscriptionInstanceId;

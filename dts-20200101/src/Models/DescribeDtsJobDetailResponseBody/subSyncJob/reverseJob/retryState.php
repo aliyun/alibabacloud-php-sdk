@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class retryState extends Model
 {
     /**
-     * @description 错误信息
-     *
      * @var string
      */
     public $errMsg;
 
     /**
-     * @description 任务ID
-     *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 最大重试时间,单位秒
-     *
      * @var int
      */
     public $maxRetryTime;
 
     /**
-     * @description 模块名称 reader/store/writer/full/struct
-     *
      * @var string
      */
     public $module;
 
     /**
-     * @description 已重试次数
-     *
      * @var int
      */
     public $retryCount;
@@ -51,15 +41,11 @@ class retryState extends Model
     public $retryTarget;
 
     /**
-     * @description 已重试时间,单位秒
-     *
      * @var int
      */
     public $retryTime;
 
     /**
-     * @description 是否重试中
-     *
      * @var bool
      */
     public $retrying;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerChannelResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F9E00ABE-2AD9-40A9-8C3C-D817E648****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

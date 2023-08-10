@@ -103,8 +103,6 @@ class subSyncJob extends Model
     public $dtsJobClass;
 
     /**
-     * @description 请使用
-     *
      * @var string
      */
     public $dtsJobDirection;
@@ -155,8 +153,6 @@ class subSyncJob extends Model
     public $isDemoJob;
 
     /**
-     * @description 返回结果中新增jobType字段
-     *
      * @var string
      */
     public $jobType;
@@ -167,8 +163,6 @@ class subSyncJob extends Model
     public $migrationMode;
 
     /**
-     * @description 任务来源 pts任务、dms任务 (PTS, DMS, DTS)
-     *
      * @var string
      */
     public $originType;

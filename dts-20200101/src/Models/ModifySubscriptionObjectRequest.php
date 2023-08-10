@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySubscriptionObjectRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -24,11 +28,19 @@ class ModifySubscriptionObjectRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
+     *
+     * @example dtsl8zl9ek6292****
+     *
      * @var string
      */
     public $subscriptionInstanceId;
 
     /**
+     * @description The objects from which you want to track data changes. The value is a JSON string and can contain regular expressions. For more information, see [SubscriptionObjects](~~141902~~).
+     *
+     * @example [{"DBName":"dtstestdata"}]
+     *
      * @var string
      */
     public $subscriptionObject;

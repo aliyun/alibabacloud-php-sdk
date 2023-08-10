@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
+     * @description The database type of the source instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The endpoint of the source instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * @example rm-bp1i99e8l7913****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the source instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The database service port of the source instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The database account of the source instance.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

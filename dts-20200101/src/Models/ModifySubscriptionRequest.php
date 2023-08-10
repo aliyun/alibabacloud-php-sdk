@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class ModifySubscriptionRequest extends Model
 {
     /**
+     * @description The objects of the change tracking task. The value is a JSON string. For more information, see [Objects of DTS tasks](~~209545~~).
+     *
+     * >  You can call the [DescribeDtsJobDetail](~~208925~~) operation to query the original objects of the task.
+     * @example {"dtstest":{"name":"dtstest","all":true}}
+     *
      * @var string
      */
     public $dbList;
 
     /**
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     *
+     * @example dtsboss6pn1w******
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * @example boss6pn1w******
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to retrieve data definition language (DDL) statements. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $subscriptionDataTypeDDL;
 
     /**
+     * @description Specifies whether to retrieve data manipulation language (DML) statements. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $subscriptionDataTypeDML;

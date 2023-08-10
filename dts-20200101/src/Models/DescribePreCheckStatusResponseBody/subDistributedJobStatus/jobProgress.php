@@ -10,127 +10,249 @@ use AlibabaCloud\Tea\Model;
 class jobProgress extends Model
 {
     /**
+     * @description The time when the subtask was started. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     *
+     * @example 2022-03-30T03:36:11.000+00:00
+     *
      * @var string
      */
     public $bootTime;
 
     /**
+     * @description Indicates whether the subtask can be ignored if it fails. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $canSkip;
 
     /**
+     * @description The number of the subtasks that are running.
+     *
+     * @example 0
+     *
+     * @var string
+     */
+    public $current;
+
+    /**
+     * @description The DDL statements.
+     *
+     * @example None
+     *
      * @var string
      */
     public $ddlSql;
 
     /**
+     * @description The latency of incremental data migration or synchronization.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $delaySeconds;
 
     /**
+     * @description The name of the database to which the object in the destination instance belongs.
+     *
+     * @example databasetest
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description This parameter will be removed in the future.
+     *
+     * @example None
+     *
      * @var int
      */
     public $diffRow;
 
     /**
+     * @description The error details of the subtask failure.
+     *
+     * @example CHECK__ERROR_SAME_OBJ_DETAIL
+     *
      * @var string
      */
     public $errDetail;
 
     /**
+     * @description The error message of the subtask failure.
+     *
+     * @example ODPS project does not exist odps.`huijin
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description The time when the instance was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     *
+     * @example 2022-03-31T03:36:11.000+00:00
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The ID of the entry in the metadatabase.
+     *
+     * @example 3890
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Indicates whether DTS ignores the subtask and proceeds with the next subtask. Valid values:
+     *
+     *   **N**: no
+     *   **Y**: yes
+     *
+     * @example N
+     *
      * @var string
      */
     public $ignoreFlag;
 
     /**
+     * @description The name of the subtask.
+     *
+     * @example login_common_time
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @description The ID of the subtask.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The operations logs of errors.
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description The name of the subtask.
+     *
+     * @example metricRuleTargets-20180308houe
+     *
      * @var string
      */
     public $names;
 
     /**
+     * @description The serial number of the subtask.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $orderNum;
 
     /**
+     * @description This parameter will be removed in the future.
+     *
+     * @example None
+     *
      * @var string
      */
     public $parentObj;
 
     /**
+     * @description The method used to fix a precheck failure.
+     *
+     * @example CHECK__ERROR_SAME_OBJ_REPAIR
+     *
      * @var string
      */
     public $repairMethod;
 
     /**
+     * @description Indicates whether the subtask was skipped. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example True
+     *
      * @var bool
      */
     public $skip;
 
     /**
+     * @description The name of the database to which the object in the source instance belongs.
+     *
+     * @example databasetest
+     *
      * @var string
      */
     public $sourceSchema;
 
     /**
+     * @description The status of the subtask. Valid values:
+     *
+     *   **NotStarted**: The subtask is not started.
+     *   **Suspending**: The subtask is paused.
+     *   **Checking**: The subtask is being checked.
+     *   **Migrating**: The subtask is in progress. Data is being migrated.
+     *   **Failed**: The subtask failed.
+     *   **Catched**: The subtask is in progress. Incremental data is being migrated or synchronized.
+     *   **Finished**: The subtask is complete.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The sub-item progress of the subtask.
+     *
+     * >  If **\[]** is returned, the subtask has no sub-items.
+     * @example []
+     *
      * @var string
      */
     public $sub;
 
     /**
+     * @description The names of the objects that are migrated or synchronized.
+     *
+     * @example order
+     *
      * @var string
      */
     public $targetNames;
 
     /**
+     * @description The total number of subtasks.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'bootTime'     => 'BootTime',
         'canSkip'      => 'CanSkip',
+        'current'      => 'Current',
         'ddlSql'       => 'DdlSql',
         'delaySeconds' => 'DelaySeconds',
         'destSchema'   => 'DestSchema',
@@ -167,6 +289,9 @@ class jobProgress extends Model
         }
         if (null !== $this->canSkip) {
             $res['CanSkip'] = $this->canSkip;
+        }
+        if (null !== $this->current) {
+            $res['Current'] = $this->current;
         }
         if (null !== $this->ddlSql) {
             $res['DdlSql'] = $this->ddlSql;
@@ -257,6 +382,9 @@ class jobProgress extends Model
         }
         if (isset($map['CanSkip'])) {
             $model->canSkip = $map['CanSkip'];
+        }
+        if (isset($map['Current'])) {
+            $model->current = $map['Current'];
         }
         if (isset($map['DdlSql'])) {
             $model->ddlSql = $map['DdlSql'];

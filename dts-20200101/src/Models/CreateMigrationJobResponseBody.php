@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateMigrationJobResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the data migration instance.
+     *
+     * @example dtsi8911td9233****
+     *
      * @var string
      */
     public $migrationJobId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C166D79D-436B-45F0-B5A5-25E1959F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

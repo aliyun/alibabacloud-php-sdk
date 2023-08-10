@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class synchronizationObjects extends Model
 {
     /**
+     * @description The database name that is used in the destination instance.
+     *
+     * @example newdtstestdatabase
+     *
      * @var string
      */
     public $newSchemaName;
 
     /**
+     * @description The name of the synchronized database.
+     *
+     * @example dtstestdatabase
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The source tables that are excluded from the data synchronization task.
+     *
      * @var tableExcludes[]
      */
     public $tableExcludes;
 
     /**
+     * @description The tables that are synchronized by the task.
+     *
      * @var tableIncludes[]
      */
     public $tableIncludes;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class WhiteIpListRequest extends Model
 {
     /**
+     * @description The HTTP status code.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destinationRegion;
 
     /**
+     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * >
+     *   If the destination instance is a self-managed database with a public IP address or a third-party cloud database, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
+     *   If the DTS task is a data migration or data synchronization task, you must specify this parameter.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * >  If the source instance is a self-managed database with a public IP address or a third-party cloud database, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
+     * @example vpc
+     *
      * @var string
      */
     public $type;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class synchronizationJobListStatusList extends Model
 {
     /**
+     * @description The details of data synchronization tasks in each direction.
+     *
      * @var synchronizationDirectionInfoList[]
      */
     public $synchronizationDirectionInfoList;
 
     /**
+     * @description The ID of the data synchronization instance.
+     *
+     * @example dtsexjk1alb116****
+     *
      * @var string
      */
     public $synchronizationJobId;

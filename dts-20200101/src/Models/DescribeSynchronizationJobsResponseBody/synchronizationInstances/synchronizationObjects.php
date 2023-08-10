@@ -11,21 +11,38 @@ use AlibabaCloud\Tea\Model;
 class synchronizationObjects extends Model
 {
     /**
+     * @description The name of the excluded table.
+     *
+     * @example newdtstestdatabase
+     *
      * @var string
      */
     public $newSchemaName;
 
     /**
+     * @description The tables that are synchronized by the task.
+     *
+     * @example dtstestdatabase
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name of the synchronized table.
+     *
      * @var tableExcludes[]
      */
     public $tableExcludes;
 
     /**
+     * @description The status of full data synchronization. Valid values:
+     *
+     *   **NotStarted**: Full data synchronization is not started.
+     *   **Migrating**: Full data synchronization is in progress.
+     *   **Failed**: Full data synchronization failed.
+     *   **Finished**: Full data synchronization is completed.
+     *
      * @var tableIncludes[]
      */
     public $tableIncludes;

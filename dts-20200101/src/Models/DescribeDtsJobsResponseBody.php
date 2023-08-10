@@ -11,61 +11,106 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsJobsResponseBody extends Model
 {
     /**
+     * @description The list of DTS tasks and the details of each task.
+     *
      * @var dtsJobList[]
      */
     public $dtsJobList;
 
     /**
+     * @description The dynamic error code. This parameter will be removed in the future.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. The value of this parameter is used to replace the **%s** variable in the value of the **ErrMessage** parameter.
+     *
+     * >  For example, if the value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the value of the **DynamicMessage** parameter is **Type**, the specified **Type** parameter is invalid.
+     * @example Type
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The DTS tasks and the details of each task.
+     *
      * @var etlDemoList[]
      */
     public $etlDemoList;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 621BB4F8-3016-4FAA-8D5A-5D3163CC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of DTS tasks that meet the query condition.
+     *
+     * @example 15
+     *
      * @var int
      */
     public $totalRecordCount;

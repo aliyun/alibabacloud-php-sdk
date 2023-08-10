@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class dataInitializationDetails extends Model
 {
     /**
+     * @description The name of the database to which the object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationOwnerDBName;
 
     /**
+     * @description The error message returned if initial full data synchronization failed.
+     *
+     * @example java.lang.NumberFormatException: For input string: ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The total number of rows that are actually synchronized.
+     *
+     * >  This parameter indicates the total number of actually synchronized rows. In contrast, the value of the **TotalRowNum** parameter is calculated based on the system tables in the source database. The values of the two parameters may be different due to time difference.
+     * @example 9993
+     *
      * @var string
      */
     public $finishRowNum;
 
     /**
+     * @description The name of the database to which the object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceOwnerDBName;
 
     /**
+     * @description The status of initial full data synchronization. Valid values:
+     *
+     *   **NotStarted**
+     *   **Migrating**
+     *   **Failed**
+     *   **Finished**
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The table name.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The total number of rows that are supposed to be synchronized.
+     *
+     * >  The value of this parameter is calculated based on the system tables in the source database. In contrast, the **FinishRowNum** parameter indicates the total number of actually synchronized rows. The values of the two parameters may be different due to time difference.
+     * @example 9981
+     *
      * @var string
      */
     public $totalRowNum;
 
     /**
+     * @description The time spent on full data synchronization.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $usedTime;

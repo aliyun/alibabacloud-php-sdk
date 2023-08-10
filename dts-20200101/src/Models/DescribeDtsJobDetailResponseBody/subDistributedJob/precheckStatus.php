@@ -25,8 +25,6 @@ class precheckStatus extends Model
     public $percent;
 
     /**
-     * @description NotStarted: 未启动, Suspending: 暂停中, Checking: 检查中, Migrating: 迁移中, Failed: 失败, Catched: 同步中 ｜ 增量迁移中, Finished: 完成
-     *
      * @var string
      */
     public $status;

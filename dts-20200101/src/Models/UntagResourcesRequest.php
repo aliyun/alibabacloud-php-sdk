@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to unbind all tags from the specified instances. Valid values:
+     *
+     *   **true**: unbinds all tags from the specified instances.
+     *   **false**: To unbind only specific tags, you must specify the **TagKey.N** parameter.
+     *
+     * >
+     *   You must specify at least one of the All and **TagKey.N** parameters.
+     *   If you specify both the All parameter and the **TagKey.N** parameter, the All parameter does not take effect.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The ID of the region where the data migration, data synchronization, or change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example dtsntk10k6r12v****
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Valid value: **ALIYUN::DTS::INSTANCE**.
+     *
+     * @example ALIYUN::DTS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @example testkey1
+     *
      * @var string[]
      */
     public $tagKey;

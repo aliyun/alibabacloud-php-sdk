@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class tagList extends Model
 {
     /**
-     * @description 用户id
-     *
      * @var int
      */
     public $aliUid;
 
     /**
-     * @description 标签操作者
-     *
      * @var int
      */
     public $creator;
 
     /**
-     * @description 创建时间
-     *
      * @var string
      */
     public $gmtCreate;
 
     /**
-     * @description 修改时间
-     *
      * @var string
      */
     public $gmtModified;
 
     /**
-     * @description 主键
-     *
      * @var int
      */
     public $id;
@@ -58,43 +48,31 @@ class tagList extends Model
     public $resourceId;
 
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 0为public，1为private (Public, Private, All)
-     *
      * @var string
      */
     public $scope;
 
     /**
-     * @description 任务所在region，注意一般是dts的目标端region
-     *
      * @var string
      */
     public $srcRegion;
 
     /**
-     * @description 标签类型：系统标签－System，用户标签－Custom (Custom, System, All)
-     *
      * @var string
      */
     public $tagCategory;
 
     /**
-     * @description 标签键tagkey
-     *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description 标签值tagvalue
-     *
      * @var string
      */
     public $tagValue;

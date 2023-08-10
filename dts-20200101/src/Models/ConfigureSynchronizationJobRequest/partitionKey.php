@@ -9,26 +9,51 @@ use AlibabaCloud\Tea\Model;
 class partitionKey extends Model
 {
     /**
+     * @description Specifies whether the incremental data table contains partitions defined by the modifytime_day field. Valid values: **true** and **false**.
+     *
+     * >  This parameter is available only if the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
+     * @example true
+     *
      * @var bool
      */
     public $modifyTimeDay;
 
     /**
+     * @description Specifies whether the incremental data table contains partitions defined by the modifytime_hour field. Valid values: **true** and **false**.
+     *
+     * >  This parameter is available only if the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
+     * @example true
+     *
      * @var bool
      */
     public $modifyTimeHour;
 
     /**
+     * @description Specifies whether the incremental data table contains partitions defined by the modifytime_minute field. Valid values: **true** and **false**.
+     *
+     * >  This parameter is available only if the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
+     * @example true
+     *
      * @var bool
      */
     public $modifyTimeMinute;
 
     /**
+     * @description Specifies whether the incremental data table contains partitions defined by the modifytime_month field. Valid values: **true** and **false**.
+     *
+     * >  This parameter is available only if the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
+     * @example true
+     *
      * @var bool
      */
     public $modifyTimeMonth;
 
     /**
+     * @description Specifies whether the incremental data table contains partitions defined by the modifytime_year field. Valid values: **true** and **false**.
+     *
+     * >  This parameter is available only if the **DestinationEndpoint.InstanceType** parameter is set to **MaxCompute**.
+     * @example true
+     *
      * @var bool
      */
     public $modifyTimeYear;

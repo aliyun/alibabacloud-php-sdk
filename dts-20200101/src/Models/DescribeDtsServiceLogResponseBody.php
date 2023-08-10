@@ -10,56 +10,98 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsServiceLogResponseBody extends Model
 {
     /**
+     * @description The dynamic error code. This parameter will be removed soon.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     *
+     * @example DtsJobId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request fails.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request fails.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of log entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F87DF250-952C-47FE-8A02-69414FAA****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the logs.
+     *
      * @var serviceLogContexts[]
      */
     public $serviceLogContexts;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of logs that meet the query conditions.
+     *
+     * @example 35
+     *
      * @var int
      */
     public $totalRecordCount;

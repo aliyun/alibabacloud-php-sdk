@@ -12,51 +12,85 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrationJobDetailResponseBody extends Model
 {
     /**
+     * @description The details of full data migration.
+     *
      * @var dataInitializationDetailList
      */
     public $dataInitializationDetailList;
 
     /**
+     * @description The details of incremental data migration.
+     *
      * @var dataSynchronizationDetailList
      */
     public $dataSynchronizationDetailList;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of data migration instances that can be displayed on one page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0AE3CD0B-4148-426F-A90E-952467CC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of schema migration.
+     *
      * @var structureInitializationDetailList
      */
     public $structureInitializationDetailList;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The total number of entries that are returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

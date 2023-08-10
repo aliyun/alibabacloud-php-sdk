@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class SuspendDtsJobRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking instance.
+     *
+     * @example dtsl3m1213ye7l****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * >  You can call the [DescribeDtsJobs](~~209702~~) operation to obtain the task ID.
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**: Data is synchronized from the source database to the destination database.
+     *   **Reverse**: Data is synchronized from the destination database to the source database.
+     *
+     * >
+     *   Default value: **Forward**.
+     *   You can set this parameter to **Reverse** to pause the reverse synchronization task only if the topology is two-way synchronization.
+     *
+     * @example Forward
+     *
      * @var string
      */
     public $synchronizationDirection;

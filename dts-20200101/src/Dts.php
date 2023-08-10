@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Dts\V20200101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureDtsJobAdvanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureDtsJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureDtsJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ConfigureMigrationJobAlertRequest;
@@ -30,6 +31,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerChannelRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerChannelResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerGroupRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateConsumerGroupResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDedicatedClusterMonitorRuleRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDedicatedClusterMonitorRuleResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDtsInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateDtsInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\CreateJobMonitorRuleRequest;
@@ -54,12 +57,30 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DeleteSubscriptionInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DeleteSubscriptionInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DeleteSynchronizationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DeleteSynchronizationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeChannelAccountRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeChannelAccountResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeCheckJobsRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeCheckJobsResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeClusterOperateLogsRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeClusterOperateLogsResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeClusterUsedUtilizationRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeClusterUsedUtilizationResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConnectionStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConnectionStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConsumerChannelRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConsumerChannelResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConsumerGroupRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeConsumerGroupResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDataCheckReportUrlRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDataCheckReportUrlResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDataCheckTableDetailsRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDataCheckTableDetailsResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDataCheckTableDiffDetailsRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDataCheckTableDiffDetailsResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterMonitorRuleRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterMonitorRuleResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDedicatedClusterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsEtlJobVersionInfoRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDtsEtlJobVersionInfoResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeDTSIPRequest;
@@ -78,6 +99,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeInitializationStatusRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeInitializationStatusResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeJobMonitorRuleRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeJobMonitorRuleResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMetricListRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMetricListResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobAlertRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobAlertResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeMigrationJobDetailRequest;
@@ -115,6 +138,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagValuesRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\DescribeTagValuesResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\InitDtsRdsInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\InitDtsRdsInstanceResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ListDedicatedClusterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumerChannelRequest;
@@ -123,6 +148,13 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumerGroupPasswordRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumerGroupPasswordResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumptionTimestampRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumptionTimestampResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDedicatedClusterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDedicatedClusterResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobAdvanceRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDedicatedClusterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDedicatedClusterResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDuLimitRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDuLimitResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobNameRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobNameResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobPasswordRequest;
@@ -130,6 +162,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobPasswordResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobShrinkRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDynamicConfigRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDynamicConfigResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionObjectRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionObjectResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifySubscriptionRequest;
@@ -142,6 +176,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ResetDtsJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ResetDtsJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ResetSynchronizationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ResetSynchronizationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ReverseTwoWayDirectionRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ReverseTwoWayDirectionResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ShieldPrecheckRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ShieldPrecheckResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SkipPreCheckRequest;
@@ -156,6 +192,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\StartSubscriptionInstanceRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartSubscriptionInstanceResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartSynchronizationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StartSynchronizationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\StopDedicatedClusterRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\StopDedicatedClusterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StopDtsJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StopDtsJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\StopDtsJobsRequest;
@@ -172,6 +210,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\SuspendMigrationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SuspendMigrationJobResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SuspendSynchronizationJobRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SuspendSynchronizationJobResponse;
+use AlibabaCloud\SDK\Dts\V20200101\Models\SwitchPhysicalDtsJobToCloudRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\SwitchPhysicalDtsJobToCloudResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SwitchSynchronizationEndpointRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\SwitchSynchronizationEndpointResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\TagResourcesRequest;
@@ -186,8 +226,16 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\UpgradeTwoWayRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\UpgradeTwoWayResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\WhiteIpListRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\WhiteIpListResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -283,10 +331,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureDtsJobRequest $request
-     * @param RuntimeOptions         $runtime
+     * The name of the DTS instance.
+     *   *
+     * @param ConfigureDtsJobRequest $request ConfigureDtsJobRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigureDtsJobResponse
+     * @return ConfigureDtsJobResponse ConfigureDtsJobResponse
      */
     public function configureDtsJobWithOptions($request, $runtime)
     {
@@ -295,11 +345,17 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->checkpoint)) {
             $query['Checkpoint'] = $request->checkpoint;
         }
+        if (!Utils::isUnset($request->dataCheckConfigure)) {
+            $query['DataCheckConfigure'] = $request->dataCheckConfigure;
+        }
         if (!Utils::isUnset($request->dataInitialization)) {
             $query['DataInitialization'] = $request->dataInitialization;
         }
         if (!Utils::isUnset($request->dataSynchronization)) {
             $query['DataSynchronization'] = $request->dataSynchronization;
+        }
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
         }
         if (!Utils::isUnset($request->delayNotice)) {
             $query['DelayNotice'] = $request->delayNotice;
@@ -328,6 +384,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->destinationEndpointOracleSID)) {
             $query['DestinationEndpointOracleSID'] = $request->destinationEndpointOracleSID;
         }
+        if (!Utils::isUnset($request->destinationEndpointOwnerID)) {
+            $query['DestinationEndpointOwnerID'] = $request->destinationEndpointOwnerID;
+        }
         if (!Utils::isUnset($request->destinationEndpointPassword)) {
             $query['DestinationEndpointPassword'] = $request->destinationEndpointPassword;
         }
@@ -337,8 +396,17 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->destinationEndpointRegion)) {
             $query['DestinationEndpointRegion'] = $request->destinationEndpointRegion;
         }
+        if (!Utils::isUnset($request->destinationEndpointRole)) {
+            $query['DestinationEndpointRole'] = $request->destinationEndpointRole;
+        }
         if (!Utils::isUnset($request->destinationEndpointUserName)) {
             $query['DestinationEndpointUserName'] = $request->destinationEndpointUserName;
+        }
+        if (!Utils::isUnset($request->disasterRecoveryJob)) {
+            $query['DisasterRecoveryJob'] = $request->disasterRecoveryJob;
+        }
+        if (!Utils::isUnset($request->dtsBisLabel)) {
+            $query['DtsBisLabel'] = $request->dtsBisLabel;
         }
         if (!Utils::isUnset($request->dtsInstanceId)) {
             $query['DtsInstanceId'] = $request->dtsInstanceId;
@@ -354,6 +422,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->errorPhone)) {
             $query['ErrorPhone'] = $request->errorPhone;
+        }
+        if (!Utils::isUnset($request->fileOssUrl)) {
+            $query['FileOssUrl'] = $request->fileOssUrl;
         }
         if (!Utils::isUnset($request->jobType)) {
             $query['JobType'] = $request->jobType;
@@ -400,6 +471,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->sourceEndpointUserName)) {
             $query['SourceEndpointUserName'] = $request->sourceEndpointUserName;
         }
+        if (!Utils::isUnset($request->sourceEndpointVSwitchID)) {
+            $query['SourceEndpointVSwitchID'] = $request->sourceEndpointVSwitchID;
+        }
         if (!Utils::isUnset($request->structureInitialization)) {
             $query['StructureInitialization'] = $request->structureInitialization;
         }
@@ -433,9 +507,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureDtsJobRequest $request
+     * The name of the DTS instance.
+     *   *
+     * @param ConfigureDtsJobRequest $request ConfigureDtsJobRequest
      *
-     * @return ConfigureDtsJobResponse
+     * @return ConfigureDtsJobResponse ConfigureDtsJobResponse
      */
     public function configureDtsJob($request)
     {
@@ -445,10 +521,91 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureMigrationJobRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param ConfigureDtsJobAdvanceRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ConfigureMigrationJobResponse
+     * @return ConfigureDtsJobResponse
+     */
+    public function configureDtsJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'Dts',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $configureDtsJobReq = new ConfigureDtsJobRequest([]);
+        OpenApiUtilClient::convert($request, $configureDtsJobReq);
+        if (!Utils::isUnset($request->fileOssUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileOssUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $configureDtsJobReq->fileOssUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->configureDtsJobWithOptions($configureDtsJobReq, $runtime);
+    }
+
+    /**
+     * After you call this operation to configure a data migration task, the task will be automatically started. You do not need to call the [StartMigrationJob](~~49429~~) operation to start the task.
+     *   * A data migration task may fail to be started due to precheck failures. You can call the [DescribeMigrationJobStatus](~~49433~~) operation to query the error messages about precheck failures. Then, you can fix the issue based on the error messages. After you fix the issue, you must call the [StartMigrationJob](~~49429~~) operation to restart the data migration task.
+     *   *
+     * @param ConfigureMigrationJobRequest $request ConfigureMigrationJobRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ConfigureMigrationJobResponse ConfigureMigrationJobResponse
      */
     public function configureMigrationJobWithOptions($request, $runtime)
     {
@@ -508,9 +665,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureMigrationJobRequest $request
+     * After you call this operation to configure a data migration task, the task will be automatically started. You do not need to call the [StartMigrationJob](~~49429~~) operation to start the task.
+     *   * A data migration task may fail to be started due to precheck failures. You can call the [DescribeMigrationJobStatus](~~49433~~) operation to query the error messages about precheck failures. Then, you can fix the issue based on the error messages. After you fix the issue, you must call the [StartMigrationJob](~~49429~~) operation to restart the data migration task.
+     *   *
+     * @param ConfigureMigrationJobRequest $request ConfigureMigrationJobRequest
      *
-     * @return ConfigureMigrationJobResponse
+     * @return ConfigureMigrationJobResponse ConfigureMigrationJobResponse
      */
     public function configureMigrationJob($request)
     {
@@ -602,6 +762,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dbList)) {
             $query['DbList'] = $request->dbList;
         }
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
         if (!Utils::isUnset($request->delayNotice)) {
             $query['DelayNotice'] = $request->delayNotice;
         }
@@ -610,6 +773,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->delayRuleTime)) {
             $query['DelayRuleTime'] = $request->delayRuleTime;
+        }
+        if (!Utils::isUnset($request->dtsBisLabel)) {
+            $query['DtsBisLabel'] = $request->dtsBisLabel;
         }
         if (!Utils::isUnset($request->dtsInstanceId)) {
             $query['DtsInstanceId'] = $request->dtsInstanceId;
@@ -714,10 +880,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                       $runtime
+     * The operation that you want to perform. Set the value to **ConfigureSubscriptionInstance**.
+     *   *
+     * @param ConfigureSubscriptionInstanceRequest $request ConfigureSubscriptionInstanceRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigureSubscriptionInstanceResponse
+     * @return ConfigureSubscriptionInstanceResponse ConfigureSubscriptionInstanceResponse
      */
     public function configureSubscriptionInstanceWithOptions($request, $runtime)
     {
@@ -774,9 +942,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSubscriptionInstanceRequest $request
+     * The operation that you want to perform. Set the value to **ConfigureSubscriptionInstance**.
+     *   *
+     * @param ConfigureSubscriptionInstanceRequest $request ConfigureSubscriptionInstanceRequest
      *
-     * @return ConfigureSubscriptionInstanceResponse
+     * @return ConfigureSubscriptionInstanceResponse ConfigureSubscriptionInstanceResponse
      */
     public function configureSubscriptionInstance($request)
     {
@@ -853,10 +1023,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSynchronizationJobRequest $request
-     * @param RuntimeOptions                     $runtime
+     * Before you call this operation, you must call the [CreateSynchronizationJob](~~49446~~) operation to create a data synchronization instance.
+     *   * >
+     *   * *   After you call this operation to configure a data synchronization task, the task will be automatically started and prechecked. You do not need to call the [StartSynchronizationJob](~~49448~~) operation to start the task.
+     *   * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](~~49453~~) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](~~49448~~) operation to restart the data synchronization task.
+     *   *
+     * @param ConfigureSynchronizationJobRequest $request ConfigureSynchronizationJobRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigureSynchronizationJobResponse
+     * @return ConfigureSynchronizationJobResponse ConfigureSynchronizationJobResponse
      */
     public function configureSynchronizationJobWithOptions($request, $runtime)
     {
@@ -925,9 +1100,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSynchronizationJobRequest $request
+     * Before you call this operation, you must call the [CreateSynchronizationJob](~~49446~~) operation to create a data synchronization instance.
+     *   * >
+     *   * *   After you call this operation to configure a data synchronization task, the task will be automatically started and prechecked. You do not need to call the [StartSynchronizationJob](~~49448~~) operation to start the task.
+     *   * *   A data synchronization task may fail to be started due to precheck failures. You can call the [DescribeSynchronizationJobStatus](~~49453~~) operation to query the status of the task. Then, you can change parameter settings based on the error messages about the precheck failures. After you fix the issue, you must call the [StartSynchronizationJob](~~49448~~) operation to restart the data synchronization task.
+     *   *
+     * @param ConfigureSynchronizationJobRequest $request ConfigureSynchronizationJobRequest
      *
-     * @return ConfigureSynchronizationJobResponse
+     * @return ConfigureSynchronizationJobResponse ConfigureSynchronizationJobResponse
      */
     public function configureSynchronizationJob($request)
     {
@@ -1007,10 +1187,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * When you use Data Transmission Service (DTS) to synchronize data, other data sources may write data to the destination instance. In this case, data may become inconsistent between the source and destination instances. To ensure data consistency, you can enable image matching.
+     *   * After you call this operation, you can call the [DescribeSynchronizationJobReplicatorCompare](~~199183~~) operation to verify whether image matching is enabled for the data synchronization instance.
+     *   *
+     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request ConfigureSynchronizationJobReplicatorCompareRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ConfigureSynchronizationJobReplicatorCompareResponse
+     * @return ConfigureSynchronizationJobReplicatorCompareResponse ConfigureSynchronizationJobReplicatorCompareResponse
      */
     public function configureSynchronizationJobReplicatorCompareWithOptions($request, $runtime)
     {
@@ -1056,9 +1239,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request
+     * When you use Data Transmission Service (DTS) to synchronize data, other data sources may write data to the destination instance. In this case, data may become inconsistent between the source and destination instances. To ensure data consistency, you can enable image matching.
+     *   * After you call this operation, you can call the [DescribeSynchronizationJobReplicatorCompare](~~199183~~) operation to verify whether image matching is enabled for the data synchronization instance.
+     *   *
+     * @param ConfigureSynchronizationJobReplicatorCompareRequest $request ConfigureSynchronizationJobReplicatorCompareRequest
      *
-     * @return ConfigureSynchronizationJobReplicatorCompareResponse
+     * @return ConfigureSynchronizationJobReplicatorCompareResponse ConfigureSynchronizationJobReplicatorCompareResponse
      */
     public function configureSynchronizationJobReplicatorCompare($request)
     {
@@ -1254,10 +1440,83 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateDtsInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param CreateDedicatedClusterMonitorRuleRequest $request
+     * @param RuntimeOptions                           $runtime
      *
-     * @return CreateDtsInstanceResponse
+     * @return CreateDedicatedClusterMonitorRuleResponse
+     */
+    public function createDedicatedClusterMonitorRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->cpuAlarmThreshold)) {
+            $query['CpuAlarmThreshold'] = $request->cpuAlarmThreshold;
+        }
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->diskAlarmThreshold)) {
+            $query['DiskAlarmThreshold'] = $request->diskAlarmThreshold;
+        }
+        if (!Utils::isUnset($request->duAlarmThreshold)) {
+            $query['DuAlarmThreshold'] = $request->duAlarmThreshold;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->memAlarmThreshold)) {
+            $query['MemAlarmThreshold'] = $request->memAlarmThreshold;
+        }
+        if (!Utils::isUnset($request->noticeSwitch)) {
+            $query['NoticeSwitch'] = $request->noticeSwitch;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phones)) {
+            $query['Phones'] = $request->phones;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDedicatedClusterMonitorRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDedicatedClusterMonitorRuleRequest $request
+     *
+     * @return CreateDedicatedClusterMonitorRuleResponse
+     */
+    public function createDedicatedClusterMonitorRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDedicatedClusterMonitorRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
+     *   * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](~~208399~~) operation to configure a DTS task.
+     *   *
+     * @param CreateDtsInstanceRequest $request CreateDtsInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateDtsInstanceResponse CreateDtsInstanceResponse
      */
     public function createDtsInstanceWithOptions($request, $runtime)
     {
@@ -1281,6 +1540,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->destinationRegion)) {
             $query['DestinationRegion'] = $request->destinationRegion;
         }
+        if (!Utils::isUnset($request->du)) {
+            $query['Du'] = $request->du;
+        }
         if (!Utils::isUnset($request->feeType)) {
             $query['FeeType'] = $request->feeType;
         }
@@ -1301,6 +1563,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourceEndpointEngineName)) {
             $query['SourceEndpointEngineName'] = $request->sourceEndpointEngineName;
@@ -1336,9 +1601,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateDtsInstanceRequest $request
+     * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/apsaradb-for-mongodb/pricing) of DTS.
+     *   * *   If you want to run a DTS task on a DTS dedicated cluster, you must configure the task before you purchase a DTS instance. You can call the [ConfigureDtsJob](~~208399~~) operation to configure a DTS task.
+     *   *
+     * @param CreateDtsInstanceRequest $request CreateDtsInstanceRequest
      *
-     * @return CreateDtsInstanceResponse
+     * @return CreateDtsInstanceResponse CreateDtsInstanceResponse
      */
     public function createDtsInstance($request)
     {
@@ -1348,10 +1616,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateJobMonitorRuleRequest $request
-     * @param RuntimeOptions              $runtime
+     * DTS provides the following metrics for DTS tasks:************
+     *   * *   **Latency**: DTS monitors the latency of a DTS task. If the latency of the task exceeds the specified threshold, an alert is triggered. Unit: seconds.
+     *   * *   **Status**: DTS monitors the status of a DTS task. If the state of the task changes to **Error** or **Restore**, an alert is triggered.
+     *   * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. Unit: hours.
+     *   *
+     * @param CreateJobMonitorRuleRequest $request CreateJobMonitorRuleRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateJobMonitorRuleResponse
+     * @return CreateJobMonitorRuleResponse CreateJobMonitorRuleResponse
      */
     public function createJobMonitorRuleWithOptions($request, $runtime)
     {
@@ -1363,6 +1636,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
         }
+        if (!Utils::isUnset($request->noticeValue)) {
+            $query['NoticeValue'] = $request->noticeValue;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $query['Period'] = $request->period;
+        }
         if (!Utils::isUnset($request->phone)) {
             $query['Phone'] = $request->phone;
         }
@@ -1371,6 +1650,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->state)) {
             $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->times)) {
+            $query['Times'] = $request->times;
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
@@ -1394,9 +1676,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateJobMonitorRuleRequest $request
+     * DTS provides the following metrics for DTS tasks:************
+     *   * *   **Latency**: DTS monitors the latency of a DTS task. If the latency of the task exceeds the specified threshold, an alert is triggered. Unit: seconds.
+     *   * *   **Status**: DTS monitors the status of a DTS task. If the state of the task changes to **Error** or **Restore**, an alert is triggered.
+     *   * *   **Full Timeout**: DTS monitors the duration of a DTS task. If the duration of the task exceeds the specified threshold, an alert is triggered. Unit: hours.
+     *   *
+     * @param CreateJobMonitorRuleRequest $request CreateJobMonitorRuleRequest
      *
-     * @return CreateJobMonitorRuleResponse
+     * @return CreateJobMonitorRuleResponse CreateJobMonitorRuleResponse
      */
     public function createJobMonitorRule($request)
     {
@@ -1406,10 +1693,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateMigrationJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * >  This API operation is outdated. We recommend that you use the new version. For more information, see [CreateDtsInstance](~~208270~~).
+     *   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+     *   * After you purchase a data migration instance, you must call the [ConfigureMigrationJob](~~324260~~) operation to configure a data migration task.
+     *   *
+     * @param CreateMigrationJobRequest $request CreateMigrationJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateMigrationJobResponse
+     * @return CreateMigrationJobResponse CreateMigrationJobResponse
      */
     public function createMigrationJobWithOptions($request, $runtime)
     {
@@ -1452,9 +1743,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateMigrationJobRequest $request
+     * >  This API operation is outdated. We recommend that you use the new version. For more information, see [CreateDtsInstance](~~208270~~).
+     *   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+     *   * After you purchase a data migration instance, you must call the [ConfigureMigrationJob](~~324260~~) operation to configure a data migration task.
+     *   *
+     * @param CreateMigrationJobRequest $request CreateMigrationJobRequest
      *
-     * @return CreateMigrationJobResponse
+     * @return CreateMigrationJobResponse CreateMigrationJobResponse
      */
     public function createMigrationJob($request)
     {
@@ -1464,10 +1759,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+     *   *
+     * @param CreateSubscriptionInstanceRequest $request CreateSubscriptionInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSubscriptionInstanceResponse
+     * @return CreateSubscriptionInstanceResponse CreateSubscriptionInstanceResponse
      */
     public function createSubscriptionInstanceWithOptions($request, $runtime)
     {
@@ -1519,9 +1816,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateSubscriptionInstanceRequest $request
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+     *   *
+     * @param CreateSubscriptionInstanceRequest $request CreateSubscriptionInstanceRequest
      *
-     * @return CreateSubscriptionInstanceResponse
+     * @return CreateSubscriptionInstanceResponse CreateSubscriptionInstanceResponse
      */
     public function createSubscriptionInstance($request)
     {
@@ -1531,10 +1830,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateSynchronizationJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+     *   * After you purchase a data synchronization instance, you must call the [ConfigureSynchronizationJob](~~49447~~) operation to configure a data synchronization task. Then, the task is automatically started.
+     *   *
+     * @param CreateSynchronizationJobRequest $request CreateSynchronizationJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSynchronizationJobResponse
+     * @return CreateSynchronizationJobResponse CreateSynchronizationJobResponse
      */
     public function createSynchronizationJobWithOptions($request, $runtime)
     {
@@ -1604,9 +1906,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param CreateSynchronizationJobRequest $request
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS).
+     *   * After you purchase a data synchronization instance, you must call the [ConfigureSynchronizationJob](~~49447~~) operation to configure a data synchronization task. Then, the task is automatically started.
+     *   *
+     * @param CreateSynchronizationJobRequest $request CreateSynchronizationJobRequest
      *
-     * @return CreateSynchronizationJobResponse
+     * @return CreateSynchronizationJobResponse CreateSynchronizationJobResponse
      */
     public function createSynchronizationJob($request)
     {
@@ -1738,6 +2043,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
         }
+        if (!Utils::isUnset($request->jobType)) {
+            $query['JobType'] = $request->jobType;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1821,10 +2129,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMigrationJobRequest $request
-     * @param RuntimeOptions            $runtime
+     * >  After a data migration instance is released, it cannot be recovered.
+     *   *
+     * @param DeleteMigrationJobRequest $request DeleteMigrationJobRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMigrationJobResponse
+     * @return DeleteMigrationJobResponse DeleteMigrationJobResponse
      */
     public function deleteMigrationJobWithOptions($request, $runtime)
     {
@@ -1861,9 +2171,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DeleteMigrationJobRequest $request
+     * >  After a data migration instance is released, it cannot be recovered.
+     *   *
+     * @param DeleteMigrationJobRequest $request DeleteMigrationJobRequest
      *
-     * @return DeleteMigrationJobResponse
+     * @return DeleteMigrationJobResponse DeleteMigrationJobResponse
      */
     public function deleteMigrationJob($request)
     {
@@ -1873,10 +2185,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * >  After a change tracking instance is released, it cannot be recovered.
+     *   *
+     * @param DeleteSubscriptionInstanceRequest $request DeleteSubscriptionInstanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSubscriptionInstanceResponse
+     * @return DeleteSubscriptionInstanceResponse DeleteSubscriptionInstanceResponse
      */
     public function deleteSubscriptionInstanceWithOptions($request, $runtime)
     {
@@ -1913,9 +2227,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubscriptionInstanceRequest $request
+     * >  After a change tracking instance is released, it cannot be recovered.
+     *   *
+     * @param DeleteSubscriptionInstanceRequest $request DeleteSubscriptionInstanceRequest
      *
-     * @return DeleteSubscriptionInstanceResponse
+     * @return DeleteSubscriptionInstanceResponse DeleteSubscriptionInstanceResponse
      */
     public function deleteSubscriptionInstance($request)
     {
@@ -1925,10 +2241,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DeleteSynchronizationJobRequest $request
-     * @param RuntimeOptions                  $runtime
+     * >  After a data synchronization instance is released, it cannot be recovered.
+     *   *
+     * @param DeleteSynchronizationJobRequest $request DeleteSynchronizationJobRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSynchronizationJobResponse
+     * @return DeleteSynchronizationJobResponse DeleteSynchronizationJobResponse
      */
     public function deleteSynchronizationJobWithOptions($request, $runtime)
     {
@@ -1965,15 +2283,267 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DeleteSynchronizationJobRequest $request
+     * >  After a data synchronization instance is released, it cannot be recovered.
+     *   *
+     * @param DeleteSynchronizationJobRequest $request DeleteSynchronizationJobRequest
      *
-     * @return DeleteSynchronizationJobResponse
+     * @return DeleteSynchronizationJobResponse DeleteSynchronizationJobResponse
      */
     public function deleteSynchronizationJob($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSynchronizationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeChannelAccountRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DescribeChannelAccountResponse
+     */
+    public function describeChannelAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeChannelAccount',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeChannelAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeChannelAccountRequest $request
+     *
+     * @return DescribeChannelAccountResponse
+     */
+    public function describeChannelAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeChannelAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCheckJobsRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeCheckJobsResponse
+     */
+    public function describeCheckJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobName)) {
+            $query['JobName'] = $request->jobName;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCheckJobs',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCheckJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCheckJobsRequest $request
+     *
+     * @return DescribeCheckJobsResponse
+     */
+    public function describeCheckJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCheckJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterOperateLogsRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeClusterOperateLogsResponse
+     */
+    public function describeClusterOperateLogsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $body['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $body['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->ownerID)) {
+            $body['OwnerID'] = $request->ownerID;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $body['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $body['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterOperateLogs',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterOperateLogsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterOperateLogsRequest $request
+     *
+     * @return DescribeClusterOperateLogsResponse
+     */
+    public function describeClusterOperateLogs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterOperateLogsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeClusterUsedUtilizationRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeClusterUsedUtilizationResponse
+     */
+    public function describeClusterUsedUtilizationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $body['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $body['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $body['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->ownerID)) {
+            $body['OwnerID'] = $request->ownerID;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $body['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $body['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeClusterUsedUtilization',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeClusterUsedUtilizationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeClusterUsedUtilizationRequest $request
+     *
+     * @return DescribeClusterUsedUtilizationResponse
+     */
+    public function describeClusterUsedUtilization($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeClusterUsedUtilizationWithOptions($request, $runtime);
     }
 
     /**
@@ -2202,10 +2772,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeDTSIPRequest $request
-     * @param RuntimeOptions       $runtime
+     * If the **source or destination instance** is an **on-premises database**, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see [Add the CIDR blocks of DTS servers to the security settings of on-premises databases](~~176627~~).
+     *   * >  If the **source or destination database** is an **ApsaraDB database instance** (such as RDS instance and ApsaraDB for MongoDB instance) or a **self-managed database hosted on ECS**, you do not need to add the CIDR blocks. When you click **Set Whitelist and Next** in the DTS console, DTS automatically add the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     *   *
+     * @param DescribeDTSIPRequest $request DescribeDTSIPRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDTSIPResponse
+     * @return DescribeDTSIPResponse DescribeDTSIPResponse
      */
     public function describeDTSIPWithOptions($request, $runtime)
     {
@@ -2239,15 +2812,287 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeDTSIPRequest $request
+     * If the **source or destination instance** is an **on-premises database**, you need to call this operation to query the CIDR blocks of DTS servers. Then, you need to add the CIDR blocks of DTS servers to the security settings of the source or destination instance, for example, the firewall of your database. For more information, see [Add the CIDR blocks of DTS servers to the security settings of on-premises databases](~~176627~~).
+     *   * >  If the **source or destination database** is an **ApsaraDB database instance** (such as RDS instance and ApsaraDB for MongoDB instance) or a **self-managed database hosted on ECS**, you do not need to add the CIDR blocks. When you click **Set Whitelist and Next** in the DTS console, DTS automatically add the CIDR blocks of DTS servers to the security settings of the source or destination instance.
+     *   *
+     * @param DescribeDTSIPRequest $request DescribeDTSIPRequest
      *
-     * @return DescribeDTSIPResponse
+     * @return DescribeDTSIPResponse DescribeDTSIPResponse
      */
     public function describeDTSIP($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDTSIPWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataCheckReportUrlRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DescribeDataCheckReportUrlResponse
+     */
+    public function describeDataCheckReportUrlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->tbName)) {
+            $query['TbName'] = $request->tbName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataCheckReportUrl',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataCheckReportUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataCheckReportUrlRequest $request
+     *
+     * @return DescribeDataCheckReportUrlResponse
+     */
+    public function describeDataCheckReportUrl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataCheckReportUrlWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataCheckTableDetailsRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDataCheckTableDetailsResponse
+     */
+    public function describeDataCheckTableDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataCheckTableDetails',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataCheckTableDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataCheckTableDetailsRequest $request
+     *
+     * @return DescribeDataCheckTableDetailsResponse
+     */
+    public function describeDataCheckTableDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataCheckTableDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDataCheckTableDiffDetailsRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return DescribeDataCheckTableDiffDetailsResponse
+     */
+    public function describeDataCheckTableDiffDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->checkType)) {
+            $query['CheckType'] = $request->checkType;
+        }
+        if (!Utils::isUnset($request->dbName)) {
+            $query['DbName'] = $request->dbName;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->tbName)) {
+            $query['TbName'] = $request->tbName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDataCheckTableDiffDetails',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDataCheckTableDiffDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDataCheckTableDiffDetailsRequest $request
+     *
+     * @return DescribeDataCheckTableDiffDetailsResponse
+     */
+    public function describeDataCheckTableDiffDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDataCheckTableDiffDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDedicatedClusterRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeDedicatedClusterResponse
+     */
+    public function describeDedicatedClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedCluster',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDedicatedClusterRequest $request
+     *
+     * @return DescribeDedicatedClusterResponse
+     */
+    public function describeDedicatedCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDedicatedClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDedicatedClusterMonitorRuleRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return DescribeDedicatedClusterMonitorRuleResponse
+     */
+    public function describeDedicatedClusterMonitorRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDedicatedClusterMonitorRule',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDedicatedClusterMonitorRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDedicatedClusterMonitorRuleRequest $request
+     *
+     * @return DescribeDedicatedClusterMonitorRuleResponse
+     */
+    public function describeDedicatedClusterMonitorRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDedicatedClusterMonitorRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -2361,15 +3206,27 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeDtsJobsRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01).
+     *   *
+     * @param DescribeDtsJobsRequest $request DescribeDtsJobsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDtsJobsResponse
+     * @return DescribeDtsJobsResponse DescribeDtsJobsResponse
      */
     public function describeDtsJobsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->dtsBisLabel)) {
+            $query['DtsBisLabel'] = $request->dtsBisLabel;
+        }
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
+        }
         if (!Utils::isUnset($request->dtsJobId)) {
             $query['DtsJobId'] = $request->dtsJobId;
         }
@@ -2384,6 +3241,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->orderDirection)) {
             $query['OrderDirection'] = $request->orderDirection;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;
@@ -2400,6 +3260,9 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -2408,6 +3271,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->withoutDbList)) {
+            $query['WithoutDbList'] = $request->withoutDbList;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2428,9 +3294,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeDtsJobsRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=Dts\\&api=DescribeDtsJobs\\&type=RPC\\&version=2020-01-01).
+     *   *
+     * @param DescribeDtsJobsRequest $request DescribeDtsJobsRequest
      *
-     * @return DescribeDtsJobsResponse
+     * @return DescribeDtsJobsResponse DescribeDtsJobsResponse
      */
     public function describeDtsJobs($request)
     {
@@ -2507,10 +3376,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndpointSwitchStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Before you call this operation, you must call the [SwitchSynchronizationEndpoint](~~201858~~) operation to change the database connection settings.
+     *   *
+     * @param DescribeEndpointSwitchStatusRequest $request DescribeEndpointSwitchStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEndpointSwitchStatusResponse
+     * @return DescribeEndpointSwitchStatusResponse DescribeEndpointSwitchStatusResponse
      */
     public function describeEndpointSwitchStatusWithOptions($request, $runtime)
     {
@@ -2550,9 +3421,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeEndpointSwitchStatusRequest $request
+     * Before you call this operation, you must call the [SwitchSynchronizationEndpoint](~~201858~~) operation to change the database connection settings.
+     *   *
+     * @param DescribeEndpointSwitchStatusRequest $request DescribeEndpointSwitchStatusRequest
      *
-     * @return DescribeEndpointSwitchStatusResponse
+     * @return DescribeEndpointSwitchStatusResponse DescribeEndpointSwitchStatusResponse
      */
     public function describeEndpointSwitchStatus($request)
     {
@@ -2712,6 +3585,79 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @param DescribeMetricListRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DescribeMetricListResponse
+     */
+    public function describeMetricListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->accountId)) {
+            $body['AccountId'] = $request->accountId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $body['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $body['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $body['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $body['Env'] = $request->env;
+        }
+        if (!Utils::isUnset($request->metricName)) {
+            $body['MetricName'] = $request->metricName;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $body['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->ownerID)) {
+            $body['OwnerID'] = $request->ownerID;
+        }
+        if (!Utils::isUnset($request->param)) {
+            $body['Param'] = $request->param;
+        }
+        if (!Utils::isUnset($request->period)) {
+            $body['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $body['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeMetricList',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeMetricListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeMetricListRequest $request
+     *
+     * @return DescribeMetricListResponse
+     */
+    public function describeMetricList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeMetricListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeMigrationJobAlertRequest $request
      * @param RuntimeOptions                   $runtime
      *
@@ -2767,10 +3713,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeMigrationJobDetailRequest $request
-     * @param RuntimeOptions                    $runtime
+     * When you call this operation, the data migration task must be in the Migrating, Failed, Paused, or Finished state.
+     *   *
+     * @param DescribeMigrationJobDetailRequest $request DescribeMigrationJobDetailRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMigrationJobDetailResponse
+     * @return DescribeMigrationJobDetailResponse DescribeMigrationJobDetailResponse
      */
     public function describeMigrationJobDetailWithOptions($request, $runtime)
     {
@@ -2819,9 +3767,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeMigrationJobDetailRequest $request
+     * When you call this operation, the data migration task must be in the Migrating, Failed, Paused, or Finished state.
+     *   *
+     * @param DescribeMigrationJobDetailRequest $request DescribeMigrationJobDetailRequest
      *
-     * @return DescribeMigrationJobDetailResponse
+     * @return DescribeMigrationJobDetailResponse DescribeMigrationJobDetailResponse
      */
     public function describeMigrationJobDetail($request)
     {
@@ -3182,10 +4132,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubscriptionMetaRequest $tmpReq
-     * @param RuntimeOptions                  $runtime
+     * *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
+     *   * *   You can call the [DescribeDtsJobs](~~209702~~) operation to query the ID of the change tracking instance and the ID of the consumer group.
+     *   *
+     * @param DescribeSubscriptionMetaRequest $tmpReq  DescribeSubscriptionMetaRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSubscriptionMetaResponse
+     * @return DescribeSubscriptionMetaResponse DescribeSubscriptionMetaResponse
      */
     public function describeSubscriptionMetaWithOptions($tmpReq, $runtime)
     {
@@ -3233,9 +4186,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeSubscriptionMetaRequest $request
+     * *   When Data Transmission Service (DTS) tracks data changes from a PolarDB-X 1.0 instance, data is distributed across the attached ApsaraDB RDS for MySQL instances. DTS runs a subtask for each ApsaraDB RDS for MySQL instance. You can call this operation to query the details of the subtasks in a distributed change tracking task.
+     *   * *   You can call the [DescribeDtsJobs](~~209702~~) operation to query the ID of the change tracking instance and the ID of the consumer group.
+     *   *
+     * @param DescribeSubscriptionMetaRequest $request DescribeSubscriptionMetaRequest
      *
-     * @return DescribeSubscriptionMetaResponse
+     * @return DescribeSubscriptionMetaResponse DescribeSubscriptionMetaResponse
      */
     public function describeSubscriptionMeta($request)
     {
@@ -3538,10 +4494,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeSynchronizationObjectModifyStatusRequest $request
-     * @param RuntimeOptions                                   $runtime
+     * Before you call this operation, you must call the [ModifySynchronizationObject](~~49451~~) operation to obtain the task ID.
+     *   *
+     * @param DescribeSynchronizationObjectModifyStatusRequest $request DescribeSynchronizationObjectModifyStatusRequest
+     * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSynchronizationObjectModifyStatusResponse
+     * @return DescribeSynchronizationObjectModifyStatusResponse DescribeSynchronizationObjectModifyStatusResponse
      */
     public function describeSynchronizationObjectModifyStatusWithOptions($request, $runtime)
     {
@@ -3581,9 +4539,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param DescribeSynchronizationObjectModifyStatusRequest $request
+     * Before you call this operation, you must call the [ModifySynchronizationObject](~~49451~~) operation to obtain the task ID.
+     *   *
+     * @param DescribeSynchronizationObjectModifyStatusRequest $request DescribeSynchronizationObjectModifyStatusRequest
      *
-     * @return DescribeSynchronizationObjectModifyStatusResponse
+     * @return DescribeSynchronizationObjectModifyStatusResponse DescribeSynchronizationObjectModifyStatusResponse
      */
     public function describeSynchronizationObjectModifyStatus($request)
     {
@@ -3712,10 +4672,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param InitDtsRdsInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
+     *   * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
+     *   *
+     * @param InitDtsRdsInstanceRequest $request InitDtsRdsInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitDtsRdsInstanceResponse
+     * @return InitDtsRdsInstanceResponse InitDtsRdsInstanceResponse
      */
     public function initDtsRdsInstanceWithOptions($request, $runtime)
     {
@@ -3758,9 +4721,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param InitDtsRdsInstanceRequest $request
+     * *   The node must be an ApsaraDB RDS for MySQL instance or a self-managed MySQL database that is connected over Cloud Enterprise Network (CEN).
+     *   * *   This operation is used to initialize the built-in account named rdsdt_dtsacct on a node of an active geo-redundancy database cluster. DTS uses this account to connect to the node and perform data synchronization tasks.
+     *   *
+     * @param InitDtsRdsInstanceRequest $request InitDtsRdsInstanceRequest
      *
-     * @return InitDtsRdsInstanceResponse
+     * @return InitDtsRdsInstanceResponse InitDtsRdsInstanceResponse
      */
     public function initDtsRdsInstance($request)
     {
@@ -3770,10 +4736,79 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * @param ListDedicatedClusterRequest $request
+     * @param RuntimeOptions              $runtime
      *
-     * @return ListTagResourcesResponse
+     * @return ListDedicatedClusterResponse
+     */
+    public function listDedicatedClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->orderColumn)) {
+            $query['OrderColumn'] = $request->orderColumn;
+        }
+        if (!Utils::isUnset($request->orderDirection)) {
+            $query['OrderDirection'] = $request->orderDirection;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->params)) {
+            $query['Params'] = $request->params;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->state)) {
+            $query['State'] = $request->state;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDedicatedCluster',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDedicatedClusterRequest $request
+     *
+     * @return ListDedicatedClusterResponse
+     */
+    public function listDedicatedCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDedicatedClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * ****
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -3813,9 +4848,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * ****
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -3886,10 +4923,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifyConsumerGroupPasswordRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >
+     *   * *   This operation is applicable to only the new version of the change tracking feature. To use the new version, you must specify the SubscriptionInstanceNetworkType parameter when you call the ConfigureSubscriptionInstance operation. If you use the previous version, you do not need to specify the **SubscriptionInstanceNetworkType** parameter.
+     *   * *   When you call this operation, the change tracking task must be in the NotStarted, Failed, Normal, or Abnormal state.
+     *   *
+     * @param ModifyConsumerGroupPasswordRequest $request ModifyConsumerGroupPasswordRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyConsumerGroupPasswordResponse
+     * @return ModifyConsumerGroupPasswordResponse ModifyConsumerGroupPasswordResponse
      */
     public function modifyConsumerGroupPasswordWithOptions($request, $runtime)
     {
@@ -3941,9 +4982,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifyConsumerGroupPasswordRequest $request
+     * >
+     *   * *   This operation is applicable to only the new version of the change tracking feature. To use the new version, you must specify the SubscriptionInstanceNetworkType parameter when you call the ConfigureSubscriptionInstance operation. If you use the previous version, you do not need to specify the **SubscriptionInstanceNetworkType** parameter.
+     *   * *   When you call this operation, the change tracking task must be in the NotStarted, Failed, Normal, or Abnormal state.
+     *   *
+     * @param ModifyConsumerGroupPasswordRequest $request ModifyConsumerGroupPasswordRequest
      *
-     * @return ModifyConsumerGroupPasswordResponse
+     * @return ModifyConsumerGroupPasswordResponse ModifyConsumerGroupPasswordResponse
      */
     public function modifyConsumerGroupPassword($request)
     {
@@ -3953,10 +4998,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifyConsumptionTimestampRequest $request
-     * @param RuntimeOptions                    $runtime
+     * >
+     *   * *   This operation is applicable to only the previous version of the change tracking feature. To use the new version, you must specify the SubscriptionInstanceNetworkType parameter when you call the [ConfigureSubscriptionInstance](~~49437~~) operation. If you use the previous version, you do not need to specify the **SubscriptionInstanceNetworkType** parameter.
+     *   * *   If you use the new version, you need to set the consumption checkpoint on the change tracking client.
+     *   * *   When you call this operation, you must stop the change tracking client, and the change tracking task must be in the Normal state.
+     *   *
+     * @param ModifyConsumptionTimestampRequest $request ModifyConsumptionTimestampRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyConsumptionTimestampResponse
+     * @return ModifyConsumptionTimestampResponse ModifyConsumptionTimestampResponse
      */
     public function modifyConsumptionTimestampWithOptions($request, $runtime)
     {
@@ -3996,15 +5046,82 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifyConsumptionTimestampRequest $request
+     * >
+     *   * *   This operation is applicable to only the previous version of the change tracking feature. To use the new version, you must specify the SubscriptionInstanceNetworkType parameter when you call the [ConfigureSubscriptionInstance](~~49437~~) operation. If you use the previous version, you do not need to specify the **SubscriptionInstanceNetworkType** parameter.
+     *   * *   If you use the new version, you need to set the consumption checkpoint on the change tracking client.
+     *   * *   When you call this operation, you must stop the change tracking client, and the change tracking task must be in the Normal state.
+     *   *
+     * @param ModifyConsumptionTimestampRequest $request ModifyConsumptionTimestampRequest
      *
-     * @return ModifyConsumptionTimestampResponse
+     * @return ModifyConsumptionTimestampResponse ModifyConsumptionTimestampResponse
      */
     public function modifyConsumptionTimestamp($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyConsumptionTimestampWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can modify only the overcommit ratio.
+     *   *
+     * @param ModifyDedicatedClusterRequest $request ModifyDedicatedClusterRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDedicatedClusterResponse ModifyDedicatedClusterResponse
+     */
+    public function modifyDedicatedClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->dedicatedClusterName)) {
+            $query['DedicatedClusterName'] = $request->dedicatedClusterName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->oversoldRatio)) {
+            $query['OversoldRatio'] = $request->oversoldRatio;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDedicatedCluster',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can modify only the overcommit ratio.
+     *   *
+     * @param ModifyDedicatedClusterRequest $request ModifyDedicatedClusterRequest
+     *
+     * @return ModifyDedicatedClusterResponse ModifyDedicatedClusterResponse
+     */
+    public function modifyDedicatedCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDedicatedClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -4025,11 +5142,23 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->dataInitialization)) {
+            $query['DataInitialization'] = $request->dataInitialization;
+        }
+        if (!Utils::isUnset($request->dataSynchronization)) {
+            $query['DataSynchronization'] = $request->dataSynchronization;
+        }
         if (!Utils::isUnset($request->dtsInstanceId)) {
             $query['DtsInstanceId'] = $request->dtsInstanceId;
         }
+        if (!Utils::isUnset($request->fileOssUrl)) {
+            $query['FileOssUrl'] = $request->fileOssUrl;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->structureInitialization)) {
+            $query['StructureInitialization'] = $request->structureInitialization;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -4040,6 +5169,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->etlOperatorColumnReference)) {
             $body['EtlOperatorColumnReference'] = $request->etlOperatorColumnReference;
+        }
+        if (!Utils::isUnset($request->filterTableName)) {
+            $body['FilterTableName'] = $request->filterTableName;
         }
         if (!Utils::isUnset($request->modifyTypeEnum)) {
             $body['ModifyTypeEnum'] = $request->modifyTypeEnum;
@@ -4076,6 +5208,194 @@ class Dts extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDtsJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDtsJobAdvanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDtsJobResponse
+     */
+    public function modifyDtsJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'Dts',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $modifyDtsJobReq = new ModifyDtsJobRequest([]);
+        OpenApiUtilClient::convert($request, $modifyDtsJobReq);
+        if (!Utils::isUnset($request->fileOssUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileOssUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $modifyDtsJobReq->fileOssUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->modifyDtsJobWithOptions($modifyDtsJobReq, $runtime);
+    }
+
+    /**
+     * @param ModifyDtsJobDedicatedClusterRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ModifyDtsJobDedicatedClusterResponse
+     */
+    public function modifyDtsJobDedicatedClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->dtsJobIds)) {
+            $query['DtsJobIds'] = $request->dtsJobIds;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDtsJobDedicatedCluster',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDtsJobDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDtsJobDedicatedClusterRequest $request
+     *
+     * @return ModifyDtsJobDedicatedClusterResponse
+     */
+    public function modifyDtsJobDedicatedCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDtsJobDedicatedClusterWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
+     *   * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
+     *   *
+     * @param ModifyDtsJobDuLimitRequest $request ModifyDtsJobDuLimitRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDtsJobDuLimitResponse ModifyDtsJobDuLimitResponse
+     */
+    public function modifyDtsJobDuLimitWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->duLimit)) {
+            $query['DuLimit'] = $request->duLimit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDtsJobDuLimit',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDtsJobDuLimitResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * *   DTS allows you to upgrade or downgrade the configurations of DTS instances in a dedicated cluster. You can adjust the resources that are occupied for task execution to dynamically adjust the number of tasks that can be scheduled in the cluster. This way, you can reduce the total number of DUs required for the cluster or release DUs.
+     *   * *   Before you modify the upper limit of DUs for a DTS task, make sure that sufficient DUs are available.
+     *   *
+     * @param ModifyDtsJobDuLimitRequest $request ModifyDtsJobDuLimitRequest
+     *
+     * @return ModifyDtsJobDuLimitResponse ModifyDtsJobDuLimitResponse
+     */
+    public function modifyDtsJobDuLimit($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDtsJobDuLimitWithOptions($request, $runtime);
     }
 
     /**
@@ -4183,6 +5503,61 @@ class Dts extends OpenApiClient
     }
 
     /**
+     * @param ModifyDynamicConfigRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ModifyDynamicConfigResponse
+     */
+    public function modifyDynamicConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->configList)) {
+            $query['ConfigList'] = $request->configList;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->enableLimit)) {
+            $query['EnableLimit'] = $request->enableLimit;
+        }
+        if (!Utils::isUnset($request->jobCode)) {
+            $query['JobCode'] = $request->jobCode;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDynamicConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDynamicConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDynamicConfigRequest $request
+     *
+     * @return ModifyDynamicConfigResponse
+     */
+    public function modifyDynamicConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDynamicConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifySubscriptionRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -4241,10 +5616,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifySubscriptionObjectRequest $request
-     * @param RuntimeOptions                  $runtime
+     * When you call this operation, the change tracking task must be in the Normal, NotStarted, or Failed state.
+     *   * >
+     *   * *   If you call this operation to modify the objects of a change tracking task that is in the Normal state, DTS automatically calls the [StartSubscriptionInstance](~~49438~~) to restart the task.
+     *   * *   If you call this operation to modify the objects of a change tracking task that is in the NotStarted or Failed state, DTS does not automatically start the task. You must call the [StartSubscriptionInstance](~~49438~~) to restart the task.
+     *   *
+     * @param ModifySubscriptionObjectRequest $request ModifySubscriptionObjectRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySubscriptionObjectResponse
+     * @return ModifySubscriptionObjectResponse ModifySubscriptionObjectResponse
      */
     public function modifySubscriptionObjectWithOptions($request, $runtime)
     {
@@ -4284,9 +5664,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifySubscriptionObjectRequest $request
+     * When you call this operation, the change tracking task must be in the Normal, NotStarted, or Failed state.
+     *   * >
+     *   * *   If you call this operation to modify the objects of a change tracking task that is in the Normal state, DTS automatically calls the [StartSubscriptionInstance](~~49438~~) to restart the task.
+     *   * *   If you call this operation to modify the objects of a change tracking task that is in the NotStarted or Failed state, DTS does not automatically start the task. You must call the [StartSubscriptionInstance](~~49438~~) to restart the task.
+     *   *
+     * @param ModifySubscriptionObjectRequest $request ModifySubscriptionObjectRequest
      *
-     * @return ModifySubscriptionObjectResponse
+     * @return ModifySubscriptionObjectResponse ModifySubscriptionObjectResponse
      */
     public function modifySubscriptionObject($request)
     {
@@ -4296,10 +5681,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifySynchronizationObjectRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >  When you call this operation, the data synchronization task must be in the Not Started or Synchronizing state.
+     *   *
+     * @param ModifySynchronizationObjectRequest $request ModifySynchronizationObjectRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySynchronizationObjectResponse
+     * @return ModifySynchronizationObjectResponse ModifySynchronizationObjectResponse
      */
     public function modifySynchronizationObjectWithOptions($request, $runtime)
     {
@@ -4344,9 +5731,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ModifySynchronizationObjectRequest $request
+     * >  When you call this operation, the data synchronization task must be in the Not Started or Synchronizing state.
+     *   *
+     * @param ModifySynchronizationObjectRequest $request ModifySynchronizationObjectRequest
      *
-     * @return ModifySynchronizationObjectResponse
+     * @return ModifySynchronizationObjectResponse ModifySynchronizationObjectResponse
      */
     public function modifySynchronizationObject($request)
     {
@@ -4411,10 +5800,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ResetDtsJobRequest $request
-     * @param RuntimeOptions     $runtime
+     * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](~~208399~~) operation reconfigure the task.
+     *   *
+     * @param ResetDtsJobRequest $request ResetDtsJobRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetDtsJobResponse
+     * @return ResetDtsJobResponse ResetDtsJobResponse
      */
     public function resetDtsJobWithOptions($request, $runtime)
     {
@@ -4451,9 +5842,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ResetDtsJobRequest $request
+     * >  If you clear the configurations of a data synchronization or change tracking task, DTS deletes the task. Then, DTS creates another task. The task is in the Not Configured state. You must call the [ConfigureDtsJob](~~208399~~) operation reconfigure the task.
+     *   *
+     * @param ResetDtsJobRequest $request ResetDtsJobRequest
      *
-     * @return ResetDtsJobResponse
+     * @return ResetDtsJobResponse ResetDtsJobResponse
      */
     public function resetDtsJob($request)
     {
@@ -4463,10 +5856,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ResetSynchronizationJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
+     *   *
+     * @param ResetSynchronizationJobRequest $request ResetSynchronizationJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetSynchronizationJobResponse
+     * @return ResetSynchronizationJobResponse ResetSynchronizationJobResponse
      */
     public function resetSynchronizationJobWithOptions($request, $runtime)
     {
@@ -4506,9 +5901,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ResetSynchronizationJobRequest $request
+     * >  If you clear the configurations of a data synchronization task, the task will be released. To start the task again, you must call the **ConfigureSynchronizationJob** operation to reconfigure the task.
+     *   *
+     * @param ResetSynchronizationJobRequest $request ResetSynchronizationJobRequest
      *
-     * @return ResetSynchronizationJobResponse
+     * @return ResetSynchronizationJobResponse ResetSynchronizationJobResponse
      */
     public function resetSynchronizationJob($request)
     {
@@ -4518,10 +5915,61 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ShieldPrecheckRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param ReverseTwoWayDirectionRequest $request
+     * @param RuntimeOptions                $runtime
      *
-     * @return ShieldPrecheckResponse
+     * @return ReverseTwoWayDirectionResponse
+     */
+    public function reverseTwoWayDirectionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
+        }
+        if (!Utils::isUnset($request->ignoreErrorSubJob)) {
+            $query['IgnoreErrorSubJob'] = $request->ignoreErrorSubJob;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReverseTwoWayDirection',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReverseTwoWayDirectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReverseTwoWayDirectionRequest $request
+     *
+     * @return ReverseTwoWayDirectionResponse
+     */
+    public function reverseTwoWayDirection($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reverseTwoWayDirectionWithOptions($request, $runtime);
+    }
+
+    /**
+     * If you call this operation to ignore all precheck items, you must call the [StartMigrationJob](https://www.alibabacloud.com/help/zh/doc-detail/49429.htm) or [StartSynchronizationJob](https://www.alibabacloud.com/help/zh/doc-detail/49448.htm) operation. DTS performs a precheck again. After the data migration or synchronization task passes the precheck, the task will be automatically started.
+     *   *
+     * @param ShieldPrecheckRequest $request ShieldPrecheckRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ShieldPrecheckResponse ShieldPrecheckResponse
      */
     public function shieldPrecheckWithOptions($request, $runtime)
     {
@@ -4555,9 +6003,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param ShieldPrecheckRequest $request
+     * If you call this operation to ignore all precheck items, you must call the [StartMigrationJob](https://www.alibabacloud.com/help/zh/doc-detail/49429.htm) or [StartSynchronizationJob](https://www.alibabacloud.com/help/zh/doc-detail/49448.htm) operation. DTS performs a precheck again. After the data migration or synchronization task passes the precheck, the task will be automatically started.
+     *   *
+     * @param ShieldPrecheckRequest $request ShieldPrecheckRequest
      *
-     * @return ShieldPrecheckResponse
+     * @return ShieldPrecheckResponse ShieldPrecheckResponse
      */
     public function shieldPrecheck($request)
     {
@@ -4723,10 +6173,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartMigrationJobRequest $request
-     * @param RuntimeOptions           $runtime
+     * >  When you call this operation, the data migration task must be in the Not Started, Paused, or Migration Failed state.
+     *   *
+     * @param StartMigrationJobRequest $request StartMigrationJobRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartMigrationJobResponse
+     * @return StartMigrationJobResponse StartMigrationJobResponse
      */
     public function startMigrationJobWithOptions($request, $runtime)
     {
@@ -4763,9 +6215,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartMigrationJobRequest $request
+     * >  When you call this operation, the data migration task must be in the Not Started, Paused, or Migration Failed state.
+     *   *
+     * @param StartMigrationJobRequest $request StartMigrationJobRequest
      *
-     * @return StartMigrationJobResponse
+     * @return StartMigrationJobResponse StartMigrationJobResponse
      */
     public function startMigrationJob($request)
     {
@@ -4775,10 +6229,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartSubscriptionInstanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * When you call this operation, the change tracking task must be in the NotStarted or Failed state.
+     *   *
+     * @param StartSubscriptionInstanceRequest $request StartSubscriptionInstanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartSubscriptionInstanceResponse
+     * @return StartSubscriptionInstanceResponse StartSubscriptionInstanceResponse
      */
     public function startSubscriptionInstanceWithOptions($request, $runtime)
     {
@@ -4815,9 +6271,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartSubscriptionInstanceRequest $request
+     * When you call this operation, the change tracking task must be in the NotStarted or Failed state.
+     *   *
+     * @param StartSubscriptionInstanceRequest $request StartSubscriptionInstanceRequest
      *
-     * @return StartSubscriptionInstanceResponse
+     * @return StartSubscriptionInstanceResponse StartSubscriptionInstanceResponse
      */
     public function startSubscriptionInstance($request)
     {
@@ -4827,10 +6285,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartSynchronizationJobRequest $request
-     * @param RuntimeOptions                 $runtime
+     * >
+     *   * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service) of Data Transmission Service (DTS).
+     *   * *   When you call this operation, the data synchronization task must be in the NotStarted, Failed, or Suspending state. If you call this operation to start a task that is in the NotStarted state, the task will be prechecked.
+     *   *
+     * @param StartSynchronizationJobRequest $request StartSynchronizationJobRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartSynchronizationJobResponse
+     * @return StartSynchronizationJobResponse StartSynchronizationJobResponse
      */
     public function startSynchronizationJobWithOptions($request, $runtime)
     {
@@ -4870,15 +6332,74 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StartSynchronizationJobRequest $request
+     * >
+     *   * *   Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service) of Data Transmission Service (DTS).
+     *   * *   When you call this operation, the data synchronization task must be in the NotStarted, Failed, or Suspending state. If you call this operation to start a task that is in the NotStarted state, the task will be prechecked.
+     *   *
+     * @param StartSynchronizationJobRequest $request StartSynchronizationJobRequest
      *
-     * @return StartSynchronizationJobResponse
+     * @return StartSynchronizationJobResponse StartSynchronizationJobResponse
      */
     public function startSynchronizationJob($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->startSynchronizationJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopDedicatedClusterRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return StopDedicatedClusterResponse
+     */
+    public function stopDedicatedClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedClusterId)) {
+            $query['DedicatedClusterId'] = $request->dedicatedClusterId;
+        }
+        if (!Utils::isUnset($request->dedicatedClusterName)) {
+            $query['DedicatedClusterName'] = $request->dedicatedClusterName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopDedicatedCluster',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopDedicatedClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopDedicatedClusterRequest $request
+     *
+     * @return StopDedicatedClusterResponse
+     */
+    public function stopDedicatedCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopDedicatedClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -4980,10 +6501,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StopMigrationJobRequest $request
-     * @param RuntimeOptions          $runtime
+     * >  After you call this operation to stop a data migration task, the status of the task changes to Finished and you cannot restart the task by calling the [StartMigrationJob](~~49429~~) operation.
+     *   *
+     * @param StopMigrationJobRequest $request StopMigrationJobRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopMigrationJobResponse
+     * @return StopMigrationJobResponse StopMigrationJobResponse
      */
     public function stopMigrationJobWithOptions($request, $runtime)
     {
@@ -5023,9 +6546,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param StopMigrationJobRequest $request
+     * >  After you call this operation to stop a data migration task, the status of the task changes to Finished and you cannot restart the task by calling the [StartMigrationJob](~~49429~~) operation.
+     *   *
+     * @param StopMigrationJobRequest $request StopMigrationJobRequest
      *
-     * @return StopMigrationJobResponse
+     * @return StopMigrationJobResponse StopMigrationJobResponse
      */
     public function stopMigrationJob($request)
     {
@@ -5055,6 +6580,9 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->structType)) {
+            $query['StructType'] = $request->structType;
         }
         if (!Utils::isUnset($request->synchronizationDirection)) {
             $query['SynchronizationDirection'] = $request->synchronizationDirection;
@@ -5090,10 +6618,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SuspendDtsJobRequest $request
-     * @param RuntimeOptions       $runtime
+     * ****
+     *   *
+     * @param SuspendDtsJobRequest $request SuspendDtsJobRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendDtsJobResponse
+     * @return SuspendDtsJobResponse SuspendDtsJobResponse
      */
     public function suspendDtsJobWithOptions($request, $runtime)
     {
@@ -5130,9 +6660,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SuspendDtsJobRequest $request
+     * ****
+     *   *
+     * @param SuspendDtsJobRequest $request SuspendDtsJobRequest
      *
-     * @return SuspendDtsJobResponse
+     * @return SuspendDtsJobResponse SuspendDtsJobResponse
      */
     public function suspendDtsJob($request)
     {
@@ -5188,10 +6720,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SuspendMigrationJobRequest $request
-     * @param RuntimeOptions             $runtime
+     * >
+     *   * *   If a data migration task is performing incremental data migration, we recommend that you do not pause the task for more than 6 hours. Otherwise, you will not be able to call the [StartMigrationJob](~~49429~~) operation to restart the task.
+     *   * *   If you select incremental data migration as the migration type for a pay-as-you-go instance, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, incremental data migration consumes resources such as the bandwidth of the source database.
+     *   *
+     * @param SuspendMigrationJobRequest $request SuspendMigrationJobRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendMigrationJobResponse
+     * @return SuspendMigrationJobResponse SuspendMigrationJobResponse
      */
     public function suspendMigrationJobWithOptions($request, $runtime)
     {
@@ -5231,9 +6767,13 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SuspendMigrationJobRequest $request
+     * >
+     *   * *   If a data migration task is performing incremental data migration, we recommend that you do not pause the task for more than 6 hours. Otherwise, you will not be able to call the [StartMigrationJob](~~49429~~) operation to restart the task.
+     *   * *   If you select incremental data migration as the migration type for a pay-as-you-go instance, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, incremental data migration consumes resources such as the bandwidth of the source database.
+     *   *
+     * @param SuspendMigrationJobRequest $request SuspendMigrationJobRequest
      *
-     * @return SuspendMigrationJobResponse
+     * @return SuspendMigrationJobResponse SuspendMigrationJobResponse
      */
     public function suspendMigrationJob($request)
     {
@@ -5243,10 +6783,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SuspendSynchronizationJobRequest $request
-     * @param RuntimeOptions                   $runtime
+     * >
+     *   * *   When you call this operation, the data synchronization task must be in the Synchronizing state.
+     *   * *   We recommend that you do not pause a data synchronization task for more than 6 hours. Otherwise, the task cannot be started again.
+     *   * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
+     *   *
+     * @param SuspendSynchronizationJobRequest $request SuspendSynchronizationJobRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return SuspendSynchronizationJobResponse
+     * @return SuspendSynchronizationJobResponse SuspendSynchronizationJobResponse
      */
     public function suspendSynchronizationJobWithOptions($request, $runtime)
     {
@@ -5286,9 +6831,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SuspendSynchronizationJobRequest $request
+     * >
+     *   * *   When you call this operation, the data synchronization task must be in the Synchronizing state.
+     *   * *   We recommend that you do not pause a data synchronization task for more than 6 hours. Otherwise, the task cannot be started again.
+     *   * *   If the billing method is pay-as-you-go, DTS charges a fee even when the task is paused. This is because DTS only stops writing data to the destination database. DTS continues to pull the logs of the source database so that the task can resume quickly after it is restarted. Therefore, data synchronization consumes resources such as the bandwidth of the source database.
+     *   *
+     * @param SuspendSynchronizationJobRequest $request SuspendSynchronizationJobRequest
      *
-     * @return SuspendSynchronizationJobResponse
+     * @return SuspendSynchronizationJobResponse SuspendSynchronizationJobResponse
      */
     public function suspendSynchronizationJob($request)
     {
@@ -5298,10 +6848,67 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SwitchSynchronizationEndpointRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @param SwitchPhysicalDtsJobToCloudRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return SwitchSynchronizationEndpointResponse
+     * @return SwitchPhysicalDtsJobToCloudResponse
+     */
+    public function switchPhysicalDtsJobToCloudWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsInstanceId)) {
+            $query['DtsInstanceId'] = $request->dtsInstanceId;
+        }
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->synchronizationDirection)) {
+            $query['SynchronizationDirection'] = $request->synchronizationDirection;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchPhysicalDtsJobToCloud',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchPhysicalDtsJobToCloudResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchPhysicalDtsJobToCloudRequest $request
+     *
+     * @return SwitchPhysicalDtsJobToCloudResponse
+     */
+    public function switchPhysicalDtsJobToCloud($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchPhysicalDtsJobToCloudWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   If the source or destination database is a self-managed MySQL database connected over the Internet, Elastic Compute Service (ECS) or Express Connect, you must call this operation to update the connection settings.
+     *   * *   If the source or destination database is hosted on an ApsaraDB instance (such as ApsaraDB RDS instance and ApsaraDB for MongoDB instance), DTS automatically updates the connection settings. You do not need to call this operation.
+     *   * > *   For two-way synchronization tasks, if you perform a primary/secondary switchover on the source or destination database, you must call this operation twice to update the connection settings.
+     *   *         For example, if you perform a primary/secondary switchover on the destination database of the forward direction, you must call this operation twice. In the first call, set the **SynchronizationDirection** parameter to **Forward**, set the **Endpoint.Type **parameter to **Destination**, and configure the connection settings. In the second call, set the **SynchronizationDirection** parameter to **Reverse**, set the **Endpoint.Type **parameter to **Source**, and configure the connection settings.
+     *   *
+     * @param SwitchSynchronizationEndpointRequest $request SwitchSynchronizationEndpointRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return SwitchSynchronizationEndpointResponse SwitchSynchronizationEndpointResponse
      */
     public function switchSynchronizationEndpointWithOptions($request, $runtime)
     {
@@ -5347,9 +6954,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param SwitchSynchronizationEndpointRequest $request
+     * *   If the source or destination database is a self-managed MySQL database connected over the Internet, Elastic Compute Service (ECS) or Express Connect, you must call this operation to update the connection settings.
+     *   * *   If the source or destination database is hosted on an ApsaraDB instance (such as ApsaraDB RDS instance and ApsaraDB for MongoDB instance), DTS automatically updates the connection settings. You do not need to call this operation.
+     *   * > *   For two-way synchronization tasks, if you perform a primary/secondary switchover on the source or destination database, you must call this operation twice to update the connection settings.
+     *   *         For example, if you perform a primary/secondary switchover on the destination database of the forward direction, you must call this operation twice. In the first call, set the **SynchronizationDirection** parameter to **Forward**, set the **Endpoint.Type **parameter to **Destination**, and configure the connection settings. In the second call, set the **SynchronizationDirection** parameter to **Reverse**, set the **Endpoint.Type **parameter to **Source**, and configure the connection settings.
+     *   *
+     * @param SwitchSynchronizationEndpointRequest $request SwitchSynchronizationEndpointRequest
      *
-     * @return SwitchSynchronizationEndpointResponse
+     * @return SwitchSynchronizationEndpointResponse SwitchSynchronizationEndpointResponse
      */
     public function switchSynchronizationEndpoint($request)
     {
@@ -5359,10 +6971,17 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * If you have a large number of instances, you can create multiple tags and bind these tags to the instances. Then, you can filter the instances by tag.
+     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     *   * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
+     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+     *   * *   You can bind up to 20 tags to each instance.
+     *   * *   You can bind tags to up to 50 instances in each call.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -5399,9 +7018,16 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * If you have a large number of instances, you can create multiple tags and bind these tags to the instances. Then, you can filter the instances by tag.
+     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     *   * *   If the tag that you specify does not exist, this tag is automatically created and bound to the specified instance.
+     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+     *   * *   You can bind up to 20 tags to each instance.
+     *   * *   You can bind tags to up to 50 instances in each call.
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -5463,10 +7089,15 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param TransferPayTypeRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
+     *   * *   The billing method of subscription instances cannot be changed to pay-as-you-go. To prevent resource waste, determine whether you need to change the billing method of your resources.
+     *   * *   Data migration instances are all pay-as-you-go instances. You do not need to change the billing method of data migration instances.
+     *   * *   After you change the billing method from pay-as-you-go to subscription, the DTS instance is not affected.
+     *   *
+     * @param TransferPayTypeRequest $request TransferPayTypeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransferPayTypeResponse
+     * @return TransferPayTypeResponse TransferPayTypeResponse
      */
     public function transferPayTypeWithOptions($request, $runtime)
     {
@@ -5506,9 +7137,14 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param TransferPayTypeRequest $request
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of DTS.
+     *   * *   The billing method of subscription instances cannot be changed to pay-as-you-go. To prevent resource waste, determine whether you need to change the billing method of your resources.
+     *   * *   Data migration instances are all pay-as-you-go instances. You do not need to change the billing method of data migration instances.
+     *   * *   After you change the billing method from pay-as-you-go to subscription, the DTS instance is not affected.
+     *   *
+     * @param TransferPayTypeRequest $request TransferPayTypeRequest
      *
-     * @return TransferPayTypeResponse
+     * @return TransferPayTypeResponse TransferPayTypeResponse
      */
     public function transferPayType($request)
     {
@@ -5518,10 +7154,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -5561,9 +7199,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * >  If a tag is unbound from an instance and is not bound to other instances, the tag is deleted.
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {
@@ -5573,10 +7213,17 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param UpgradeTwoWayRequest $request
-     * @param RuntimeOptions       $runtime
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
+     *   * When you call this operation, take note of the following information:
+     *   * *   The source and destination databases of the data synchronization task are both **MySQL** databases.
+     *   * *   The synchronization topology of the data synchronization task is **one-way synchronization**.
+     *   * *   The data synchronization task is in the **Synchronizing** state.
+     *   * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
+     *   *
+     * @param UpgradeTwoWayRequest $request UpgradeTwoWayRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeTwoWayResponse
+     * @return UpgradeTwoWayResponse UpgradeTwoWayResponse
      */
     public function upgradeTwoWayWithOptions($request, $runtime)
     {
@@ -5610,9 +7257,16 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param UpgradeTwoWayRequest $request
+     * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/zh/product/data-transmission-service/pricing) of Data Transmission Service (DTS)
+     *   * When you call this operation, take note of the following information:
+     *   * *   The source and destination databases of the data synchronization task are both **MySQL** databases.
+     *   * *   The synchronization topology of the data synchronization task is **one-way synchronization**.
+     *   * *   The data synchronization task is in the **Synchronizing** state.
+     *   * *   The upgrade operation causes data synchronization latency of about 5 seconds. We recommend that you perform this operation during off-peak hours.
+     *   *
+     * @param UpgradeTwoWayRequest $request UpgradeTwoWayRequest
      *
-     * @return UpgradeTwoWayResponse
+     * @return UpgradeTwoWayResponse UpgradeTwoWayResponse
      */
     public function upgradeTwoWay($request)
     {
@@ -5622,10 +7276,12 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param WhiteIpListRequest $request
-     * @param RuntimeOptions     $runtime
+     * The operation that you want to perform. Set the value to **WhiteIpList**.
+     *   *
+     * @param WhiteIpListRequest $request WhiteIpListRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return WhiteIpListResponse
+     * @return WhiteIpListResponse WhiteIpListResponse
      */
     public function whiteIpListWithOptions($request, $runtime)
     {
@@ -5662,9 +7318,11 @@ class Dts extends OpenApiClient
     }
 
     /**
-     * @param WhiteIpListRequest $request
+     * The operation that you want to perform. Set the value to **WhiteIpList**.
+     *   *
+     * @param WhiteIpListRequest $request WhiteIpListRequest
      *
-     * @return WhiteIpListResponse
+     * @return WhiteIpListResponse WhiteIpListResponse
      */
     public function whiteIpList($request)
     {

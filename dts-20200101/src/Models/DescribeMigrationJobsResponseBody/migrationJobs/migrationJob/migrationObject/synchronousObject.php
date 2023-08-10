@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class synchronousObject extends Model
 {
     /**
+     * @description The name of the database to which the migration object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The names of the migrated tables.
+     *
      * @var tableList
      */
     public $tableList;
 
     /**
+     * @description Indicates whether an entire database is migrated. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var string
      */
     public $wholeDatabase;

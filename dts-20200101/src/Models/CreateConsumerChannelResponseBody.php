@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateConsumerChannelResponseBody extends Model
 {
     /**
+     * @description The ID of the consumer group. You can specify this parameter on a downstream client when you consume tracked data.
+     *
+     * @example dtsor2y66j4219****
+     *
      * @var string
      */
     public $consumerGroupID;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5F566C5B-E5B0-4020-A531-FC6F5005****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

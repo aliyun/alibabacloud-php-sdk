@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SuspendSynchronizationJobRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -24,11 +28,26 @@ class SuspendSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
+     *
+     * >
+     *   Default value: **Forward**.
+     *   You can set this parameter to **Reverse** to pause reverse synchronization only when the topology is two-way synchronization.
+     *
+     * @example Forward
+     *
      * @var string
      */
     public $synchronizationDirection;
 
     /**
+     * @description The ID of the data synchronization instance. You can call the **DescribeSynchronizationJobs** operation to query the instance ID.
+     *
+     * @example dtsmr1q4mc2152****
+     *
      * @var string
      */
     public $synchronizationJobId;

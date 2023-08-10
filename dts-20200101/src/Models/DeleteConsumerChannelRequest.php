@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class DeleteConsumerChannelRequest extends Model
 {
     /**
+     * @description The ID of the consumer group. You can call the [DescribeConsumerChannel](~~264169~~) operation to query the consumer group ID.
+     *
+     * @example dtsktbb6jdn2******
+     *
      * @var string
      */
     public $consumerGroupId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     *
+     * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
+     * @example dtsboss6pn1w73****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
+     * @example boss6pn1w73****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The ID of the region where the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

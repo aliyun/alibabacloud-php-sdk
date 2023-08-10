@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeMigrationJobsResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The list of data migration instances and the details of each instance.
+     *
      * @var migrationJobs
      */
     public $migrationJobs;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries that can be displayed on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0ED4846D-ED60-435D-88C0-7EC0CE4D****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The total number of data migration instances that belong to your Alibaba Cloud account.
+     *
+     * @example 300
+     *
      * @var int
      */
     public $totalRecordCount;

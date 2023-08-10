@@ -9,15 +9,11 @@ use AlibabaCloud\Tea\Model;
 class performance extends Model
 {
     /**
-     * @description 每秒同步的流量，单位为：MB/s
-     *
      * @var string
      */
     public $flow;
 
     /**
-     * @description 每秒同步的记录数
-     *
      * @var string
      */
     public $rps;

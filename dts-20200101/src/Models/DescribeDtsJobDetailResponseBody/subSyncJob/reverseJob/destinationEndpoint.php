@@ -59,8 +59,6 @@ class destinationEndpoint extends Model
     public $roleName;
 
     /**
-     * @description DISABLE: 不使用 SSL, ENABLE_WITH_CERTIFICATE: 使用 SSL, 需要用户上传 CA 证书, ENABLE_ONLY_4_MONGODB_ATLAS: 使用 SSL, 但只适用于 AWS MongoDB Altas, 不需要证书, ENABLE_ONLY_4_KAFKA_SCRAM_SHA_256: Kafka SCRAM-SHA-256 支持, 不需要证书
-     *
      * @var string
      */
     public $sslSolutionEnum;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsEtlJobVersionInfoRequest extends Model
 {
     /**
+     * @description The ID of the Data Transmission Service (DTS) instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     *
+     * @example dtsggk12iwya1a****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the ETL task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * @example l5512es7w15****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region in which the DTS instance resides. You can call the [DescribeRegions](~~25609~~) operation to query the available Alibaba Cloud regions.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

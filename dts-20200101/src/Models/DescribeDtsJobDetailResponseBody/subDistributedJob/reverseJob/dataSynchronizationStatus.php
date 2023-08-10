@@ -14,29 +14,21 @@ class dataSynchronizationStatus extends Model
     public $errorMessage;
 
     /**
-     * @description 是否显示提升升级规格
-     *
      * @var bool
      */
     public $needUpgrade;
 
     /**
-     * @description 迁移进度
-     *
      * @var string
      */
     public $percent;
 
     /**
-     * @description 已经完成迁移的表数量
-     *
      * @var string
      */
     public $progress;
 
     /**
-     * @description NotStarted: 未启动, Suspending: 暂停中, Checking: 检查中, Migrating: 迁移中, Failed: 失败, Catched: 同步中 ｜ 增量迁移中, Finished: 完成
-     *
      * @var string
      */
     public $status;

@@ -9,51 +9,97 @@ use AlibabaCloud\Tea\Model;
 class destinationEndpoint extends Model
 {
     /**
+     * @description The name of the database to which the migration object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The database type of the destination instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example rm-bp1imrtn6fq7h****
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @description The type of the destination instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The endpoint of the destination instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The SID of the Oracle database.
+     *
+     * >  This parameter is returned only if the **EngineName** parameter of the destination instance is set to **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+     * @example testsid
+     *
      * @var string
      */
     public $oracleSID;
 
     /**
+     * @description The database service port of the destination instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the region in which the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **DISABLE**: SSL encryption is disabled.
+     *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and the CA certificate is uploaded.
+     *   **ENABLE_ONLY\_4\_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
+     *   **ENABLE_ONLY\_4\_KAFKA_SCRAM_SHA\_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+     *
+     * @example DISABLE
+     *
      * @var string
      */
     public $sslSolutionEnum;
 
     /**
+     * @description The database account of the destination instance.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

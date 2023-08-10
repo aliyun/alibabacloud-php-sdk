@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The ID of the DTS instance.
+     *
+     * @example dtsntk10k6r12v****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Valid value: **ALIYUN::DTS::INSTANCE**.
+     *
+     * @example ALIYUN::DTS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag key.
+     *
+     * @example testkey1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value that corresponds to the tag key.
+     *
+     * @example testvalue1
+     *
      * @var string
      */
     public $tagValue;

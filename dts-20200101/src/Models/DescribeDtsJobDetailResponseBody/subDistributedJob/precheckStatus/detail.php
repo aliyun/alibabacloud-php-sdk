@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
-     * @description 预检查项
-     *
      * @var string
      */
     public $checkItem;
 
     /**
-     * @description 检查项的描述
-     *
      * @var string
      */
     public $checkItemDescription;
 
     /**
-     * @description 检查结果 (NotStarted: 未启动, Checking: 检查中, Migrating: 迁移中, Failed: 失败, Warning: 警告, Success: 完成)
-     *
      * @var string
      */
     public $checkResult;
 
     /**
-     * @description 错误原因
-     *
      * @var string
      */
     public $failedReason;
 
     /**
-     * @description 修复方法
-     *
      * @var string
      */
     public $repairMethod;

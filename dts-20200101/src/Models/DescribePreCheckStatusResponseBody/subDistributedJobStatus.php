@@ -10,36 +10,75 @@ use AlibabaCloud\Tea\Model;
 class subDistributedJobStatus extends Model
 {
     /**
+     * @description The task code that indicates the subtask type. Valid values:
+     *
+     *   **01**: precheck
+     *   **02**: schema migration or initial schema synchronization
+     *   **03**: full data migration or initial full data synchronization
+     *   **04**: incremental data migration or synchronization
+     *
+     * @example 02
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of subtasks that failed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $errorItem;
 
     /**
+     * @description The ID of the subtask.
+     *
+     * @example n0gm1682j6563np
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The name of distributed subtasks associated with the subtask.
+     *
+     * @example dts.step.struct.load
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The list of subtasks and the progress of each subtask.
+     *
      * @var jobProgress[]
      */
     public $jobProgress;
 
     /**
+     * @description The status of the subtask. Valid values:
+     *
+     *   **NotStarted**: The subtask is not started.
+     *   **Suspending**: The subtask is paused.
+     *   **Checking**: The subtask is being checked.
+     *   **Migrating**: The subtask is in progress. Data is being migrated.
+     *   **Failed**: The subtask failed.
+     *   **Catched**: The subtask is in progress. Incremental data is being migrated or synchronized.
+     *   **Finished**: The subtask is complete.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 11
+     *
      * @var int
      */
     public $total;

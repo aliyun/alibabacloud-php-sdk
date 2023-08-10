@@ -9,56 +9,101 @@ use AlibabaCloud\Tea\Model;
 class SkipPreCheckResponseBody extends Model
 {
     /**
+     * @description The error code. This parameter will be removed in the future.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     *
+     * >  If the specified **JobId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **ErrMessage** and **JobId** is returned for **DynamicMessage**.
+     * @example JobId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the DTS task on which the precheck is performed.
+     *
+     * @example kyri3z9w29a****
+     *
      * @var string
      */
     public $migrationJobId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8C498360-7892-433C-847A-BA71A850****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the precheck task.
+     *
+     * @example b4my3zg929a****
+     *
      * @var string
      */
     public $scheduleJobId;
 
     /**
+     * @description The shortened name of the precheck item.
+     *
+     * @example CHECK_SAME_OBJ
+     *
      * @var string
      */
     public $skipItems;
 
     /**
+     * @description The name of the precheck item.
+     *
+     * @example CHECK_SAME_OBJ_DETAIL
+     *
      * @var string
      */
     public $skipNames;
 
     /**
+     * @description Indicates whether the call is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

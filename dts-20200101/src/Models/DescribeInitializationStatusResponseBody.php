@@ -12,36 +12,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeInitializationStatusResponseBody extends Model
 {
     /**
+     * @description The details of initial full data synchronization.
+     *
      * @var dataInitializationDetails[]
      */
     public $dataInitializationDetails;
 
     /**
+     * @description The details of incremental data synchronization.
+     *
+     * >  This parameter and the parameters it contains will be removed in the future.
      * @var dataSynchronizationDetails[]
      */
     public $dataSynchronizationDetails;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 150DECD9-13FF-4929-A5DE-855BE9CC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of initial schema synchronization.
+     *
      * @var structureInitializationDetails[]
      */
     public $structureInitializationDetails;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

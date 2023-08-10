@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSynchronizationJobRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -24,6 +28,10 @@ class DeleteSynchronizationJobRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the data synchronization instance. You can call the DescribeSynchronizationJobs operation to query the instance ID.
+     *
+     * @example dtshn6107ve264****
+     *
      * @var string
      */
     public $synchronizationJobId;

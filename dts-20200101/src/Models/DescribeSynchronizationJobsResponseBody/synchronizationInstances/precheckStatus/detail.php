@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @description The method to fix the precheck failure.
+     *
+     * >  This parameter is returned only if the return value of the **CheckStatus** parameter is **Failed**.
+     * @example Success
+     *
      * @var string
      */
     public $checkStatus;
 
     /**
+     * @description The connection settings of the source instance.
+     *
+     * @example Original error: Access denied for user \"dtstest\"@\"100.104.***.**\" (using password: YES)
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * @example CHECK_CONN_SRC
+     *
      * @var string
      */
     public $itemName;
 
     /**
+     * @description The endpoint of the source instance.
+     *
+     * @example CHECK_ERROR_DEST_CONN_REPAIR2
+     *
      * @var string
      */
     public $repairMethod;

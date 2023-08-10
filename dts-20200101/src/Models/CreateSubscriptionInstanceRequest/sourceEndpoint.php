@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
+     * @description The type of the source instance. Valid values: **MySQL**, **PolarDB**, **DRDS**, and **Oracle**.
+     *
+     * >  Default value: **MySQL**.
+     * @example MySQL
+     *
      * @var string
      */
     public $instanceType;

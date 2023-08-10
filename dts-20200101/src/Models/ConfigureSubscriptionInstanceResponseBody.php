@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ConfigureSubscriptionInstanceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0CC15092-8957-4532-B559-B4FB80AC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

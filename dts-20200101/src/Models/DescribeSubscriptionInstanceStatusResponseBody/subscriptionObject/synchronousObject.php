@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class synchronousObject extends Model
 {
     /**
+     * @description The name of the database to which the object belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The table name.
+     *
      * @var tableList
      */
     public $tableList;
 
     /**
+     * @description Indicates whether the data of an entire database is tracked. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var string
      */
     public $wholeDatabase;

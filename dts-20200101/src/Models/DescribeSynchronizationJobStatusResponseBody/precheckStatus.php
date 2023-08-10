@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class precheckStatus extends Model
 {
     /**
+     * @description The result of each precheck item.
+     *
      * @var detail[]
      */
     public $detail;
 
     /**
+     * @description The precheck progress. Unit: %.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The precheck result. Valid values:
+     *
+     *   **Success**: The task passed the precheck.
+     *   **Failed**: The task failed to pass the precheck.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;

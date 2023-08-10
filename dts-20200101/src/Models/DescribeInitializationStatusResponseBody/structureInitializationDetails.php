@@ -10,41 +10,79 @@ use AlibabaCloud\Tea\Model;
 class structureInitializationDetails extends Model
 {
     /**
+     * @description The constraints of the synchronization object, such as indexes and foreign keys.
+     *
+     * >  This parameter is returned only if the **ObjectType** parameter is set to **Table** and the synchronization object has constraints.
      * @var constraints[]
      */
     public $constraints;
 
     /**
+     * @description The name of the database to which the object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationOwnerDBName;
 
     /**
+     * @description The error message returned if initial schema synchronization failed.
+     *
+     * @example DTS-1020042 Execute sql error sql: Table \"customer\" already exists
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The schema of the object.
+     *
+     * @example CREATE TABLE `dtstestdata`.`customer` (\n`customer_id`  int(10) unsigned   auto_increment  COMMENT \"\"   NOT NULL   , \n`customer_title`  varchar(100)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NOT NULL   , \n`customer_company1216`  varchar(40)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NOT NULL   , \n`submission_date1216`  date     COMMENT \"\"   NULL   \n, PRIMARY KEY (`customer_id`)) engine=InnoDB AUTO_INCREMENT=200001 DEFAULT CHARSET=`utf8` DEFAULT COLLATE `utf8_general_ci` ROW_FORMAT= Dynamic comment = \"\" ;\n
+     *
      * @var string
      */
     public $objectDefinition;
 
     /**
+     * @description The name of the object.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $objectName;
 
     /**
+     * @description The type of the object. Valid values:
+     *
+     **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
+     *
+     * @example Table
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @description The name of the database to which the object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceOwnerDBName;
 
     /**
+     * @description The status of initial schema synchronization. Valid values:
+     *
+     *   **NotStarted**
+     *   **Migrating**
+     *   **Failed**
+     *   **Finished**
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

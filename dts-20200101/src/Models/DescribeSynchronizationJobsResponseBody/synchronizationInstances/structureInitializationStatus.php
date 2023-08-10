@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class structureInitializationStatus extends Model
 {
     /**
+     * @example DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist;
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The number of tables whose schemas have been synchronized.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

@@ -9,16 +9,40 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
+     * @description Specifies whether to perform full data migration. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  For more information about databases that support full data migration, see [Supported databases and migration types](~~26618~~).
+     * @example true
+     *
      * @var bool
      */
     public $dataIntialization;
 
     /**
+     * @description Specifies whether to perform incremental data migration. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  For more information about databases that support incremental data migration, see [Supported databases and migration types](~~26618~~).
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
+     * @description Specifies whether to perform schema migration. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * >  For more information about databases that support schema migration, see [Supported databases and migration types](~~26618~~).
+     * @example true
+     *
      * @var bool
      */
     public $structureIntialization;

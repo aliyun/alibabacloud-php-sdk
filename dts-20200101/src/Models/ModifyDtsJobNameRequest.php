@@ -9,16 +9,27 @@ use AlibabaCloud\Tea\Model;
 class ModifyDtsJobNameRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The new name of the DTS task.
+     *
+     * >  We recommend that you specify a descriptive name for easy identification. You do not need to use a unique name.
      * @var string
      */
     public $dtsJobName;
 
     /**
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;

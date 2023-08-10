@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class dataEtlStatus extends Model
 {
     /**
+     * @description The error message returned if the task failed.
+     *
+     * @example The task has failed for a long time and cannot be recovered.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The progress of the ETL task.
+     *
+     * @example 95
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The number of records that have been processed by the ETL task.
+     *
+     * @example 0/0
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The state of the ETL task. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Migrating**: The task is in progress.
+     *   **Failed**: The task failed.
+     *   **Finished**: The task is complete.
+     *   **Catched**: The task is not delayed.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

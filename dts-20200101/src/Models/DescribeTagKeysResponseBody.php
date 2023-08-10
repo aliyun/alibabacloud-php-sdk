@@ -9,31 +9,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagKeysResponseBody extends Model
 {
     /**
+     * @description The type of the tag.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The start page of the returned pages.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of tags returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AD110813-9AD6-5F07-BFC8-4C841309****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The key of the tag.
+     *
      * @var string[]
      */
     public $tagKeys;
 
     /**
+     * @description The total number of returned tag keys.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $totalCount;

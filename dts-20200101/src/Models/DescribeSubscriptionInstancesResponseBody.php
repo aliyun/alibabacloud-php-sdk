@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubscriptionInstancesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries that can be displayed on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FC3BAAF2-74E3-4471-8EB5-96202D6A****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of change tracking instances and the details of each instance.
+     *
      * @var subscriptionInstances
      */
     public $subscriptionInstances;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The total number of change tracking instances that belong to your Alibaba Cloud account.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

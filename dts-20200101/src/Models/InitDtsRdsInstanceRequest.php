@@ -9,31 +9,63 @@ use AlibabaCloud\Tea\Model;
 class InitDtsRdsInstanceRequest extends Model
 {
     /**
+     * @description The ID of the data synchronization task.
+     *
+     * @example dtszvxa4qmot6p****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description If the node is a self-managed MySQL database that is connected over CEN, you must specify the ID of the CEN instance.
+     *
+     * > You must specify the **EndpointRegion** and **EndpointInstanceId** parameters or the EndpointCenId parameter based on the type of the node.
+     * @example cen-9kqshqum*******
+     *
      * @var string
      */
     public $endpointCenId;
 
     /**
+     * @description If the node is an ApsaraDB RDS for MySQL instance, you must specify the ID of the ApsaraDB RDS for MySQL instance.
+     *
+     * > *   You must also specify the **EndpointRegion** parameter.
+     * >*   You must specify the EndpointInstanceId parameter or the **EndpointCenId** parameter based on the type of the node.
+     * @example rm-bp1162kryivb8****
+     *
      * @var string
      */
     public $endpointInstanceId;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **RDS**: an ApsaraDB RDS for MySQL instance
+     *   **CEN**: a self-managed MySQL database that is connected over CEN
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $endpointInstanceType;
 
     /**
+     * @description If the node is an ApsaraDB RDS for MySQL instance, you must specify the region in which the ApsaraDB RDS for MySQL instance resides.
+     *
+     * > *   You must also specify the **EndpointInstanceId** parameter.
+     * >*   You must specify the EndpointRegion parameter or the **EndpointCenId** parameter based on the type of the node.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $endpointRegion;
 
     /**
+     * @description The ID of the region in which the active geo-redundancy database cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

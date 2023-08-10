@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tableExcludes extends Model
 {
     /**
+     * @description The status of full data synchronization.
+     *
+     * @example order
+     *
      * @var string
      */
     public $tableName;

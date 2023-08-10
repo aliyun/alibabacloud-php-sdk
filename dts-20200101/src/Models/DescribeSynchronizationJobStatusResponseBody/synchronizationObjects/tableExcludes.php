@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tableExcludes extends Model
 {
     /**
+     * @description The name of the excluded table.
+     *
+     * @example order
+     *
      * @var string
      */
     public $tableName;

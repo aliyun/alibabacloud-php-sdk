@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubscriptionInstanceStatusRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -24,6 +28,10 @@ class DescribeSubscriptionInstanceStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
+     *
+     * @example dtsy0zz3t13h7d****
+     *
      * @var string
      */
     public $subscriptionInstanceId;

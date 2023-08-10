@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
+     * @description The database account of the destination instance.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dataExtractTransformLoad;
 
     /**
+     * @description The database engine of the destination instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataInitialization;
 
     /**
+     * @description The migration types or synchronization types.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
+     * @description Indicates whether data transformation is performed. Valid values:
+     *
+     *   **true**: Data transformation is performed.
+     *   **false**: Data transformation is not performed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $structureInitialization;

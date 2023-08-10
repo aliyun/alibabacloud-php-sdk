@@ -27,31 +27,56 @@ class ConfigureMigrationJobRequest extends Model
     public $sourceEndpoint;
 
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The start offset of incremental data migration. The value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 111
+     *
      * @var string
      */
     public $checkpoint;
 
     /**
+     * @description The ID of the data migration instance. You can call the **DescribeMigrationJobs** operation to query the instance ID.
+     *
+     * @example dtsl3m1213ye7l****
+     *
      * @var string
      */
     public $migrationJobId;
 
     /**
+     * @description The name of the data migration task. The name can be up to 32 characters in length. We recommend that you specify an informative name to identify the task. You do not need to use a unique task name.
+     *
+     * @example MySQL_TO_RDS
+     *
      * @var string
      */
     public $migrationJobName;
 
     /**
+     * @description The objects that you want to migrate. The value is a JSON string and can contain regular expressions.
+     *
+     * For more information, see [MigrationObject](~~141227~~).
+     * @example [{"DBName":"dtstestdata","TableIncludes":[{"TableName":"customer"}]}]
+     *
      * @var string
      */
     public $migrationObject;
 
     /**
+     * @description The reserved parameter of DTS. The value is a JSON string. You can specify this parameter to meet special requirements, for example, whether to automatically start a precheck. For more information, see [MigrationReserved](~~176470~~).
+     *
+     * @example {     "autoStartModulesAfterConfig": "none",     "targetTableMode": 2 }
+     *
      * @var string
      */
     public $migrationReserved;
@@ -62,6 +87,11 @@ class ConfigureMigrationJobRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region where the data migration instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * >  The region ID of the data migration instance is the same as that of the destination database.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

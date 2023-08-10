@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataType extends Model
 {
     /**
+     * @description The private endpoint of the change tracking instance in the `<Address>:<Port number>` format.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $ddl;
 
     /**
+     * @description The public endpoint of the change tracking instance in the `<Address>:<Port number>` format.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dml;

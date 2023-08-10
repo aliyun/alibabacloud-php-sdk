@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class structureInitializationStatus extends Model
 {
     /**
+     * @description The error message returned if schema synchronization failed.
+     *
+     * @example DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist;
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The progress of schema synchronization. Unit: %.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The number of tables whose schemas have been synchronized.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The status of schema synchronization. Valid values:
+     *
+     *   **NotStarted**: Schema synchronization is not started.
+     *   **Migrating**: Schema synchronization is in progress.
+     *   **Failed**: Schema synchronization failed.
+     *   **Finished**: Schema synchronization is completed.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

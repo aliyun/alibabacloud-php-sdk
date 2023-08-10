@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The query token.
+     *
+     * >  If a query does not return all results, you can specify the returned **NextToken** parameter in the next query to obtain more results.
+     * @example 212db86sca4384811e0b5e8707ec2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the region where the data migration, data synchronization, or change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example dtsntk10k6r12v****
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type. Valid value: **ALIYUN::DTS::INSTANCE**.
+     *
+     * @example ALIYUN::DTS::INSTANCE
+     *
      * @var string
      */
     public $resourceType;

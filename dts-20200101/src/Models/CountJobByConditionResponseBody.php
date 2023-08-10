@@ -9,43 +9,74 @@ use AlibabaCloud\Tea\Model;
 class CountJobByConditionResponseBody extends Model
 {
     /**
+     * @description The internal error code. This parameter will be removed soon.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the  **%s** variable in the **ErrMessage** parameter.
+     *
+     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+     * @example present environment is not support,so skip.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
+     *
+     * @example FC3BAAF2-74E3-4471-8EB5-96202D6A****
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of data synchronization instances that meet the requirements and belong to your Alibaba Cloud account.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalRecordCount;

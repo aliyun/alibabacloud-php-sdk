@@ -9,116 +9,261 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectionStatusRequest extends Model
 {
     /**
+     * @description You must specify this parameter only if the **SourceEndpointEngineName** parameter is set to **Oracle**. Valid values:
+     *
+     *   **SID**: non-RAC architecture
+     *   **RAC**: Real Application Cluster (RAC) architecture
+     *
+     * >  This parameter is optional. The data type of this parameter is String.
+     * @example SID
+     *
      * @var string
      */
     public $destinationEndpointArchitecture;
 
     /**
+     * @description The name of the destination database or the authentication database.
+     *
+     * >
+     *   You must specify this parameter if the **DestinationEndpointEngineName** parameter is set to **PostgreSQL**, **DRDS**, or **MongoDB**. You must also specify this parameter if the **DestinationEndpointInstanceType** parameter is set to **PolarDB_o**.
+     *   If the **DestinationEndpointEngineName** parameter is set to **PostgreSQL** or **DRDS**, specify the name of the destination database. If the DestinationEndpointEngineName parameter is set to **MongoDB**, specify the name of the authentication database.
+     *   If the **DestinationEndpointInstanceType** parameter is set to **PolarDB_o**, specify the name of the destination database.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationEndpointDatabaseName;
 
     /**
+     * @description The engine type of the destination database. Valid values: **MySQL**, **DRDS**, **SQLServer**, **PostgreSQL**, **PPAS**, **MongoDB**, and **Redis**.
+     *
+     * >  You must specify this parameter only if the **DestinationEndpointInstanceType** parameter is set to **RDS**, **DRDS**, **ECS**, **LocalInstance**, or **Express**.
+     * @example MySQL
+     *
      * @var string
      */
     public $destinationEndpointEngineName;
 
     /**
+     * @description The endpoint of the destination database.
+     *
+     * >  You must specify this parameter only if the **DestinationEndpointInstanceType** parameter is set to **LocalInstance** or **Express**.
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $destinationEndpointIP;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example testsid
+     *
      * @var string
      */
     public $destinationEndpointInstanceID;
 
     /**
+     * @description The instance type of the destination database. Valid values:
+     *
+     * >
+     *   **ECS**: self-managed database that is hosted on Elastic Compute Service (ECS)
+     *   **LocalInstance**: self-managed database with a public IP address
+     *   **RDS**: ApsaraDB RDS instance
+     *   **DRDS**: PolarDB-X instance
+     *   **MongoDB**: ApsaraDB for MongoDB instance
+     *   **Redis**: ApsaraDB for Redis instance
+     *   **PetaData**: HybridDB for MySQL instance
+     *   **POLARDB**: PolarDB for MySQL cluster
+     *   **PolarDB_o**: PolarDB for Oracle cluster
+     *   **AnalyticDB**: AnalyticDB for MySQL cluster V3.0 or V2.0
+     *   **Greenplum**: AnalyticDB for PostgreSQL instance
+     *
+     * @example PolarDB_o
+     *
      * @var string
      */
     public $destinationEndpointInstanceType;
 
     /**
+     * @description You must specify this parameter only if the **DestinationEndpointEngineName** parameter is set to **Oracle**. Valid values:
+     *
+     *   **SID**: non-RAC architecture
+     *   **RAC**: RAC architecture
+     *
+     * >  This parameter is optional. The data type of this parameter is String.
+     * @example SID
+     *
      * @var string
      */
     public $destinationEndpointOracleSID;
 
     /**
+     * @description The password of the destination database account.
+     *
+     * @example Test123456
+     *
      * @var string
      */
     public $destinationEndpointPassword;
 
     /**
+     * @description The service port number of the source database.
+     *
+     * >  You must specify this parameter only if the **SourceEndpointInstanceType** parameter is set to **ECS**, **LocalInstance**, or **Express**.
+     * @example 3306
+     *
      * @var string
      */
     public $destinationEndpointPort;
 
     /**
+     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destinationEndpointRegion;
 
     /**
+     * @description The database account of the destination database.
+     *
+     * >  The permissions that are required for database accounts vary with the migration or synchronization scenario. For more information, see [Overview of data migration scenarios](~~26618~~) and [Overview of data synchronization scenarios](~~130744~~).
+     * @example dtstest
+     *
      * @var string
      */
     public $destinationEndpointUserName;
 
     /**
+     * @description The ID of the region where the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description You must specify this parameter only if the **SourceEndpointEngineName** parameter is set to **Oracle**. Valid values:
+     *
+     *   **SID**: non-RAC architecture
+     *   **RAC**: RAC architecture
+     *
+     * >  This parameter is optional.
+     * @example SID
+     *
      * @var string
      */
     public $sourceEndpointArchitecture;
 
     /**
+     * @description The name of the source database or the authentication database.
+     *
+     * >
+     *   You must specify this parameter if the **SourceEndpointEngineName** parameter is set to **PostgreSQL** or **MongoDB**. You must also specify this parameter if the **SourceEndpointInstanceType** parameter is set to **PolarDB_o**.
+     *   If the **SourceEndpointEngineName** parameter is set to **PostgreSQL** or **DRDS**, specify the name of the source database. If the SourceEndpointEngineName parameter is set to **MongoDB**, specify the name of the authentication database.
+     *   If the **SourceEndpointInstanceType** parameter is set to **PolarDB_o**, specify the name of the source database.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceEndpointDatabaseName;
 
     /**
+     * @description The engine type of the source database. Valid values: **MySQL**, **TiDB**, **SQLServer**, **PostgreSQL**, **Oracle**, **MongoDB**, and **Redis**.
+     *
+     * >  Default value: **MySQL**.
+     * @example MySQL
+     *
      * @var string
      */
     public $sourceEndpointEngineName;
 
     /**
+     * @description The endpoint of the source database.
+     *
+     * >  You must specify this parameter only if the **SourceEndpointInstanceType** parameter is set to **LocalInstance** or **Express**.
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $sourceEndpointIP;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * @example rm-bp1imrtn6fq7h****
+     *
      * @var string
      */
     public $sourceEndpointInstanceID;
 
     /**
+     * @description The type of the source instance. Valid values:
+     *
+     *   **RDS**: ApsaraDB RDS instance
+     *   **LocalInstance**: self-managed database with a public IP address
+     *   **ECS**: self-managed database that is hosted on ECS
+     *   **Express**: self-managed database that is connected over Express Connect
+     *   **dg**: self-managed database that is connected over Database Gateway
+     *   **MongoDB**: ApsaraDB for MongoDB instance
+     *   **POLARDB**: PolarDB for MySQL cluster
+     *   **PolarDB_o**: PolarDB for Oracle cluster
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $sourceEndpointInstanceType;
 
     /**
+     * @description The SID of the Oracle database.
+     *
+     * >  You must specify this parameter only if the **SourceEndpointEngineName** parameter is set to **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+     * @example testsid
+     *
      * @var string
      */
     public $sourceEndpointOracleSID;
 
     /**
+     * @description The password of the source database account.
+     *
+     * @example Test123456
+     *
      * @var string
      */
     public $sourceEndpointPassword;
 
     /**
+     * @description The service port number of the source database.
+     *
+     * >  You must specify this parameter only if the **SourceEndpointInstanceType** parameter is set to **ECS**, **LocalInstance**, or **Express**.
+     * @example 3306
+     *
      * @var string
      */
     public $sourceEndpointPort;
 
     /**
+     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $sourceEndpointRegion;
 
     /**
+     * @description The database account of the source database.
+     *
+     * >  The permissions that are required for database accounts vary with the migration or synchronization scenario. For more information, see [Overview of data migration scenarios](~~26618~~) and [Overview of data synchronization scenarios](~~130744~~).
+     * @example dtstest
+     *
      * @var string
      */
     public $sourceEndpointUserName;

@@ -9,22 +9,65 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
+     * @description Indicates whether full data migration or synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataInitialization;
 
     /**
+     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
+     * @description Indicates whether full data verification is performed. Valid values:
+     * -  **true**: yes
+     * -   **false**: no
+     * @example true
+     *
+     * @var bool
+     */
+    public $fullDataCheck;
+
+    /**
+     * @description Indicates whether incremental data verification is performed. Valid values:
+     * -  **true**: yes
+     * -   **false**: no
+     * @example true
+     *
+     * @var bool
+     */
+    public $incDataCheck;
+
+    /**
+     * @description Indicates whether schema migration or schema synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $structureInitialization;
     protected $_name = [
         'dataInitialization'      => 'DataInitialization',
         'dataSynchronization'     => 'DataSynchronization',
+        'fullDataCheck'           => 'FullDataCheck',
+        'incDataCheck'            => 'IncDataCheck',
         'structureInitialization' => 'StructureInitialization',
     ];
 
@@ -40,6 +83,12 @@ class migrationMode extends Model
         }
         if (null !== $this->dataSynchronization) {
             $res['DataSynchronization'] = $this->dataSynchronization;
+        }
+        if (null !== $this->fullDataCheck) {
+            $res['FullDataCheck'] = $this->fullDataCheck;
+        }
+        if (null !== $this->incDataCheck) {
+            $res['IncDataCheck'] = $this->incDataCheck;
         }
         if (null !== $this->structureInitialization) {
             $res['StructureInitialization'] = $this->structureInitialization;
@@ -61,6 +110,12 @@ class migrationMode extends Model
         }
         if (isset($map['DataSynchronization'])) {
             $model->dataSynchronization = $map['DataSynchronization'];
+        }
+        if (isset($map['FullDataCheck'])) {
+            $model->fullDataCheck = $map['FullDataCheck'];
+        }
+        if (isset($map['IncDataCheck'])) {
+            $model->incDataCheck = $map['IncDataCheck'];
         }
         if (isset($map['StructureInitialization'])) {
             $model->structureInitialization = $map['StructureInitialization'];

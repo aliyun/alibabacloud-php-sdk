@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeConsumerChannelRequest extends Model
 {
     /**
+     * @description The ID of the change tracking instance. You can call the [DescribeDtsJobs](~~209702~~) operation to query the instance ID.
+     *
+     * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
+     * @example dtsboss6pn1w******
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * >  You must specify at least one of the **DtsInstanceId** and **DtsJobId** parameters.
+     * @example boss6pn1w******
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The parent task ID of the distributed task.
+     *
+     * @example dtsan5114c52******
+     *
      * @var string
      */
     public $parentChannelId;
 
     /**
+     * @description The ID of the region in which the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

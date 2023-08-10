@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class dataInitializationStatus extends Model
 {
     /**
+     * @description The error message returned if initial full data synchronization failed.
+     *
+     * @example java.lang.NumberFormatException: For input string: ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The progress of initial full data synchronization. Unit: percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The number of entries that have been synchronized during initial full data synchronization.
+     *
+     * @example 43071
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The state of initial full data synchronization. Valid values:
+     *
+     * - **NotStarted**: The task is not started.
+     * - **Migrating**: The task is in progress.
+     * - **Failed**: The task failed.
+     * - **Finished**: The task is complete.
+     * @example Finished
+     *
      * @var string
      */
     public $status;

@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceRequest extends Model
 {
     /**
+     * @description The subscription duration of the DTS instance after renewal. Default value: 1.
+     *
+     *   If the **Period** parameter is set to **Year**, the valid values are **1 to 5**.
+     *   If the **Period** parameter is set to **Month**, the valid values are **1 to 60**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $buyCount;
 
     /**
+     * @description The billing method of the DTS instance. Set the value to **PREPAY**, which indicates the subscription billing method.
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The ID of the data synchronization or change tracking task. You can call the [DescribeDtsJobs](~~209702~~) operation to query the task ID.
+     *
+     * @example qi0r643lc31****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The billing cycle of the DTS instance after renewal. Valid values:
+     *
+     *   **Year**: annual subscription.
+     *   **Month**: monthly subscription. This is the default value.
+     *
+     * @example Month
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

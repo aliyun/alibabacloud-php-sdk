@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataType extends Model
 {
     /**
+     * @description Indicates whether data definition language (DDL) operations are tracked. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $DDL;
 
     /**
+     * @description Indicates whether data manipulation language (DML) operations are tracked. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example true
+     *
      * @var bool
      */
     public $DML;

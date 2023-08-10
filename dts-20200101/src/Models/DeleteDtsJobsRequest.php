@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteDtsJobsRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * > *   Separate multiple task IDs with commas (,).
+     * > *   You can call the [DescribeDtsJobs](~~209702~~) operation to query task IDs.
+     * @example l5o11f9029c****
+     *
      * @var string
      */
     public $dtsJobIds;
 
     /**
+     * @description The ID of the region in which the DTS instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

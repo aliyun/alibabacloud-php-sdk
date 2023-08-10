@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class StopDtsJobRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking instance.
+     *
+     * @example dtsl3m1213ye7l****
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $dtsJobId;
@@ -24,6 +32,17 @@ class StopDtsJobRequest extends Model
     public $regionId;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
+     *
+     * >
+     *   Default value: **Forward**.
+     *   You can set this parameter to **Reverse** to stop the reverse synchronization task only when the topology is two-way synchronization.
+     *
+     * @example Forward
+     *
      * @var string
      */
     public $synchronizationDirection;

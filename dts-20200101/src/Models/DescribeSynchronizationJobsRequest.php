@@ -10,11 +10,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynchronizationJobsRequest extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The tag value. You can call the [ListTagResources](~~191187~~) operation to query the tag value.
+     *
+     * >
+     *   N specifies the serial number of the tag. For example, Tag.1.Value specifies the value of the first tag and Tag.2.Value specifies the value of the second tag. You can specify 1 to 20 tag values at a time.
+     *   This parameter can be an empty string.
+     *
+     * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
+     *
      * @var string
      */
     public $clientToken;
@@ -25,21 +37,40 @@ class DescribeSynchronizationJobsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the data synchronization task.
+     *
+     * >  Fuzzy matching is supported.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The tag key. You can call the [ListTagResources](~~191187~~) operation to query the tag key.
+     *
+     * >
+     *   N specifies the serial number of the tag. For example, Tag.1.Key specifies the key of the first tag and Tag.2.Key specifies the key of the second tag. You can specify 1 to 20 tag keys at a time.
+     *   This parameter cannot be an empty string.
+     *
      * @var string
      */
     public $synchronizationJobName;

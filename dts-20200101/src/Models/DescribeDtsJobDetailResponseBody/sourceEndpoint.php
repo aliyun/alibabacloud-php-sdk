@@ -9,77 +9,144 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
+     * @description The database engine of the source instance.
+     *
+     * @example 140692647406****
+     *
      * @var string
      */
     public $aliyunUid;
 
     /**
+     * @var bool
+     */
+    public $canModifyPassword;
+
+    /**
+     * @description The database service port of the source instance.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The name of the RAM role configured for the Alibaba Cloud account that owns the source instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The system ID (SID) of the Oracle database.
+     *
+     * >  This parameter is returned only if the **EngineName** parameter of the source instance is set to **Oracle** and the Oracle database is deployed in a non-RAC architecture.
+     * @example rm-bp1162kryivb8****
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @description The IP address of the source instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The connection settings of the source instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**: Data is synchronized from the source database to the destination database.
+     *   **Reverse**: Data is synchronized from the destination database to the source database.
+     *
+     * @example testsid
+     *
      * @var string
      */
     public $oracleSID;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The type of the source instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **DISABLE**: SSL encryption is disabled.
+     *   **ENABLE_WITH_CERTIFICATE**: SSL encryption is enabled, and the CA certificate is uploaded.
+     *   **ENABLE_ONLY\_4\_MONGODB_ALTAS**: SSL encryption is enabled for the connection to an AWS MongoDB Altas database.
+     *   **ENABLE_ONLY\_4\_KAFKA_SCRAM_SHA\_256**: SCRAM-SHA-256 is used to encrypt the connection to a Kafka cluster.
+     *
+     * @example ram-for-dts
+     *
      * @var string
      */
     public $roleName;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**: Data is synchronized from the source database to the destination database.
+     *   **Reverse**: Data is synchronized from the destination database to the source database.
+     *
+     * >  This parameter is returned only if the topology of the data synchronization instance is two-way synchronization.
+     * @example DISABLE
+     *
      * @var string
      */
     public $sslSolutionEnum;
 
     /**
+     * @description The ID of the region in which the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;
     protected $_name = [
-        'aliyunUid'       => 'AliyunUid',
-        'databaseName'    => 'DatabaseName',
-        'engineName'      => 'EngineName',
-        'instanceID'      => 'InstanceID',
-        'instanceType'    => 'InstanceType',
-        'ip'              => 'Ip',
-        'oracleSID'       => 'OracleSID',
-        'port'            => 'Port',
-        'region'          => 'Region',
-        'roleName'        => 'RoleName',
-        'sslSolutionEnum' => 'SslSolutionEnum',
-        'userName'        => 'UserName',
+        'aliyunUid'         => 'AliyunUid',
+        'canModifyPassword' => 'CanModifyPassword',
+        'databaseName'      => 'DatabaseName',
+        'engineName'        => 'EngineName',
+        'instanceID'        => 'InstanceID',
+        'instanceType'      => 'InstanceType',
+        'ip'                => 'Ip',
+        'oracleSID'         => 'OracleSID',
+        'port'              => 'Port',
+        'region'            => 'Region',
+        'roleName'          => 'RoleName',
+        'sslSolutionEnum'   => 'SslSolutionEnum',
+        'userName'          => 'UserName',
     ];
 
     public function validate()
@@ -91,6 +158,9 @@ class sourceEndpoint extends Model
         $res = [];
         if (null !== $this->aliyunUid) {
             $res['AliyunUid'] = $this->aliyunUid;
+        }
+        if (null !== $this->canModifyPassword) {
+            $res['CanModifyPassword'] = $this->canModifyPassword;
         }
         if (null !== $this->databaseName) {
             $res['DatabaseName'] = $this->databaseName;
@@ -139,6 +209,9 @@ class sourceEndpoint extends Model
         $model = new self();
         if (isset($map['AliyunUid'])) {
             $model->aliyunUid = $map['AliyunUid'];
+        }
+        if (isset($map['CanModifyPassword'])) {
+            $model->canModifyPassword = $map['CanModifyPassword'];
         }
         if (isset($map['DatabaseName'])) {
             $model->databaseName = $map['DatabaseName'];

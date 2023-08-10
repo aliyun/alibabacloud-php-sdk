@@ -9,36 +9,68 @@ use AlibabaCloud\Tea\Model;
 class structureInitializationDetail extends Model
 {
     /**
+     * @description The name of the database to which the migration object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationOwnerDBName;
 
     /**
+     * @description The error message returned if constraints failed to be created.
+     *
+     * @example DTS-1020042 Execute sql error sql: ERROR: type "geometry" does not exist；
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The syntax to create constraints.
+     *
+     * @example CREATE SEQUENCE "public"."collections_id_seq"   MINVALUE 1   MAXVALUE 9223372036854775807   START 249   INCREMENT BY 1 ;
+     *
      * @var string
      */
     public $objectDefinition;
 
     /**
+     * @description The name of migration object.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $objectName;
 
     /**
+     * @description The type of the migration object. The value is **Table**.
+     *
+     * @example Table
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @description The name of the database to which the migration object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceOwnerDBName;
 
     /**
+     * @description The status of constraint creation. Valid values:
+     *
+     * - **NotStarted**
+     * - **Migrating**
+     * - **Failed**
+     * - **Finished**
+     * @example Finished
+     *
      * @var string
      */
     public $status;

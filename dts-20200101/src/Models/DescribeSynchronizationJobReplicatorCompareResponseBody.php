@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class DescribeSynchronizationJobReplicatorCompareResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E6EB407F-C59F-4682-A682-A00FA6A2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description Indicates whether image matching is enabled. Valid values:
+     *
+     *   **true**: Image matching is enabled.
+     *   **false**: Image matching is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $synchronizationReplicatorCompareEnable;

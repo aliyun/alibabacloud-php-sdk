@@ -10,51 +10,91 @@ use AlibabaCloud\Tea\Model;
 class DescribeJobMonitorRuleResponseBody extends Model
 {
     /**
+     * @description The error code. This parameter will be removed in the future.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * @example ta7w132u12h****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+     *
+     * >  If the specified **DtsJobId** parameter is invalid, **The Value of Input Parameter %s is not valid** is returned for **ErrMessage** and **DtsJobId** is returned for **DynamicMessage**.
+     * @example DtsJobId
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The Value of Input Parameter %s is not valid.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The monitoring rules of the DTS task.
+     *
      * @var monitorRules[]
      */
     public $monitorRules;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0CA14388-DD89-4A7B-8CDD-884A10CE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   **true**: The call was successful.
+     *   **false**:The call failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The topics of all subtasks in the distributed change tracking task.
+     *
      * @var string[]
      */
     public $topics;

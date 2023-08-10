@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class dataInitialization extends Model
 {
     /**
+     * @description The error message returned if full data migration failed.
+     *
+     * @example java.lang.NumberFormatException: For input string: ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The migration progress. Unit: %.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The number of records that have been migrated during full data migration.
+     *
+     * @example 200001
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The status of full data migration. Valid values:
+     *
+     *   **NotStarted**: Full data migration is not started.
+     *   **Migrating**: Full data migration is in progress.
+     *   **Failed**: Full data migration failed.
+     *   **Finished**: Full data migration is completed.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

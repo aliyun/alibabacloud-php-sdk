@@ -18,116 +18,199 @@ use AlibabaCloud\Tea\Model;
 class synchronizationInstances extends Model
 {
     /**
+     * @description The specification of the data synchronization instance.
+     *
+     * @example 2021-06-28 17:34:53.0
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The synchronization latency, in seconds.
+     *
+     * @example true
+     *
      * @var string
      */
     public $dataInitialization;
 
     /**
+     * @description The error message returned if full data synchronization failed.
+     *
      * @var dataInitializationStatus
      */
     public $dataInitializationStatus;
 
     /**
+     * @description The progress of incremental data synchronization. Unit: %.
+     *
+     * >  This parameter is no longer available.
      * @var dataSynchronizationStatus
      */
     public $dataSynchronizationStatus;
 
     /**
+     * @description The time when the data synchronization task was created. The time is displayed in the *yyyy-MM-dd* *HH:mm:ss*.0 format (UTC+8).
+     *
+     * @example 0
+     *
      * @var string
      */
     public $delay;
 
     /**
+     * @description The type of the destination instance.
+     *
      * @var destinationEndpoint
      */
     public $destinationEndpoint;
 
     /**
+     * @description The billing method of the data synchronization instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example DTS-070211: Connect Source DB failed. cause by [com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException:Could not create connection to database server. Attempted reconnect 3 times. Giving up.][com.mysql.jdbc.exceptions.jdbc4.CommunicationsException:Communications link failure\n\nThe last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.][java.net.ConnectException:Connection timed out (Connection timed out)] About more information in [https://yq.aliyun.com/articles/499178].
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether schema synchronization is performed. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example 2021-07-07T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The time when the data synchronization task was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     *
+     * @example 2021-06-28T09:36:32Z
+     *
      * @var string
      */
     public $instanceCreateTime;
 
     /**
+     * @description The tag value that corresponds to the tag key.
+     *
+     * @example 2021-06-28T09:34:53Z
+     *
      * @var string
      */
     public $jobCreateTime;
 
     /**
+     * @description The time when the instance was created. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The precheck status.
+     *
      * @var performance
      */
     public $performance;
 
     /**
+     * @description The result of each precheck item.
+     *
      * @var precheckStatus
      */
     public $precheckStatus;
 
     /**
+     * @description The type of the source instance.
+     *
      * @var sourceEndpoint
      */
     public $sourceEndpoint;
 
     /**
+     * @description The error message returned if data synchronization failed.
+     *
+     * @example synchronizing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the data synchronization instance.
+     *
+     * @example true
+     *
      * @var string
      */
     public $structureInitialization;
 
     /**
+     * @description The error message returned if schema synchronization failed.
+     *
      * @var structureInitializationStatus
      */
     public $structureInitializationStatus;
 
     /**
+     * @description The tag key.
+     *
+     * @example Forward
+     *
      * @var string
      */
     public $synchronizationDirection;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **Forward**
+     *   **Reverse**
+     *
+     * @example large
+     *
      * @var string
      */
     public $synchronizationJobClass;
 
     /**
+     * @description The collection of tags.
+     *
+     * @example dtsexjk1alb116****
+     *
      * @var string
      */
     public $synchronizationJobId;
 
     /**
+     * @description The time when the data synchronization instance expires. The time is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format in UTC.
+     *
+     * >  This parameter is returned only if the return value of the **PayType** parameter is **PrePaid**.
      * @var string
      */
     public $synchronizationJobName;
 
     /**
+     * @description The source tables that are excluded from the data synchronization task.
+     *
      * @var synchronizationObjects[]
      */
     public $synchronizationObjects;
 
     /**
+     * @description The objects that are synchronized by the task.
+     *
      * @var tags[]
      */
     public $tags;

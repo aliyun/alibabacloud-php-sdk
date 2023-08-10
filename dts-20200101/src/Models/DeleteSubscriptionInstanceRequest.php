@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubscriptionInstanceRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -24,6 +28,10 @@ class DeleteSubscriptionInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
+     *
+     * @example dtsmxg11pfp231****
+     *
      * @var string
      */
     public $subscriptionInstanceId;

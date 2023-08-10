@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataType extends Model
 {
     /**
+     * @description Specifies whether to track DDL statements. Default value: true. Valid values:
+     *
+     *   **true**: tracks DDL statements.
+     *   **false**: does not track DDL statements.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $DDL;
 
     /**
+     * @description Specifies whether to track DML statements. Default value: true. Valid values:
+     *
+     *   **true**: tracks DML statements.
+     *   **false**: does not tack DML statements.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $DML;

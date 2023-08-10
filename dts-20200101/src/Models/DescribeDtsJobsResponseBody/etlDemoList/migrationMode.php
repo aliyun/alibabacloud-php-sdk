@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class migrationMode extends Model
 {
     /**
+     * @description Indicates whether full data migration or initial full data synchronization is performed. Valid values:
+     *
+     * - **true**
+     * - **false**
+     * @example true
+     *
      * @var bool
      */
     public $dataInitialization;
 
     /**
+     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
+     *
+     * - **true**
+     * - **false**
+     * @example true
+     *
      * @var bool
      */
     public $dataSynchronization;
 
     /**
+     * @description Indicates whether schema migration or initial schema synchronization is performed. Valid values:
+     *
+     * - **true**
+     * - **false**
+     * @example true
+     *
      * @var bool
      */
     public $structureInitialization;

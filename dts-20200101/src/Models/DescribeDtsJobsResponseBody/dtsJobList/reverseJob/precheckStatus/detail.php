@@ -9,26 +9,48 @@ use AlibabaCloud\Tea\Model;
 class detail extends Model
 {
     /**
+     * @description The name of the precheck item.
+     *
+     * @example CHECK_CONN_SRC
+     *
      * @var string
      */
     public $checkItem;
 
     /**
+     * @description The description of the precheck item.
+     *
+     * @example CHECK_CONN_SRC_DETAIL
+     *
      * @var string
      */
     public $checkItemDescription;
 
     /**
+     * @description The precheck result. Valid values:
+     *
+     * - **Success**
+     * - **Failed**
+     * @example Success
+     *
      * @var string
      */
     public $checkResult;
 
     /**
+     * @description The error message returned if the task failed to pass the precheck.
+     *
+     * @example Original error: Access denied for user \"dtstest\"@\"100.104.***.**\" (using password: YES)
+     *
      * @var string
      */
     public $failedReason;
 
     /**
+     * @description The method to fix a precheck failure.
+     *
+     * @example CHECK_ERROR_DEST_CONN_REPAIR2
+     *
      * @var string
      */
     public $repairMethod;

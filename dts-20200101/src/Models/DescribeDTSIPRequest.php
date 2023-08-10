@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDTSIPRequest extends Model
 {
     /**
+     * @description The ID of the region where the destination instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * >  If the destination instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $destinationEndpointRegion;
@@ -19,6 +24,11 @@ class DescribeDTSIPRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the region where the source instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * >  If the source instance is a self-managed database with a public IP address, you can set the parameter to **cn-hangzhou** or the ID of the closest region.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $sourceEndpointRegion;

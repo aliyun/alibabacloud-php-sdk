@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class SummaryJobDetailResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the data migration or data synchronization task.
+     *
+     * @example l3m1213ye7l****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The returned information about the migrated or synchronized objects in arrays.
+     *
+     * >  The arrays are in the following format: \[{"key":"Function","state":5,"totalCount":22},{"key":"Procedure","state":5,"totalCount":26},{"key":"Table","state":0,"totalCount":68},{"key":"View","state":5,"totalCount":100}].
      * @var progressSummaryDetails[]
      */
     public $progressSummaryDetails;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9033138C-5AB3-5EB7-BA78-43131F19297C
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

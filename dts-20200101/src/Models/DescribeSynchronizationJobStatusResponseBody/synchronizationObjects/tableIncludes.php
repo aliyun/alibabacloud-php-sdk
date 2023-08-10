@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tableIncludes extends Model
 {
     /**
+     * @description The name of the synchronized table.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $tableName;

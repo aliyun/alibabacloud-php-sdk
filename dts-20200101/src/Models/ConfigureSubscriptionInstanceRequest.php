@@ -27,6 +27,10 @@ class ConfigureSubscriptionInstanceRequest extends Model
     public $subscriptionInstance;
 
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter is discontinued.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
@@ -42,21 +46,42 @@ class ConfigureSubscriptionInstanceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the region in which the change tracking instance resides. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example dtshp8n2ze4r5x****
+     *
      * @var string
      */
     public $subscriptionInstanceId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the [DescribeSubscriptionInstances](~~49442~~) operation to query the instance ID.
+     *
+     * @example The name of the change tracking instance.
+     *
+     * >  We recommend that you specify an informative name for easy identification. You do not need to use a unique name.
      * @var string
      */
     public $subscriptionInstanceName;
 
     /**
+     * @description The network type of the change tracking instance. Set the value to **vpc**. A value of vpc indicates the Virtual Private Cloud (VPC) network type.
+     *
+     * >
+     *   To use the new version of the change tracking feature, you must specify the SubscriptionInstanceNetworkType parameter. You must also specify the **SubscriptionInstance.VPCId** and **SubscriptionInstance.VSwitchID** parameters. If you do not specify the SubscriptionInstanceNetworkType parameter, the previous version of the change tracking feature is used.
+     *   The previous version of the change tracking feature supports self-managed MySQL databases, ApsaraDB RDS for MySQL instances, and PolarDB-X 1.0 instances. The new version of the change tracking feature supports self-managed MySQL databases, ApsaraDB RDS for MySQL instances, PolarDB for MySQL clusters, and Oracle databases.
+     *
+     * @example vpc
+     *
      * @var string
      */
     public $subscriptionInstanceNetworkType;
 
     /**
+     * @description The objects for which you want to track data changes. The value is a JSON string and can contain regular expressions. For more information, see [SubscriptionObjects](~~141902~~).
+     *
+     * @example [{     "DBName": "dtstestdata" }]
+     *
      * @var string
      */
     public $subscriptionObject;

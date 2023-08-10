@@ -9,26 +9,58 @@ use AlibabaCloud\Tea\Model;
 class endpoint extends Model
 {
     /**
+     * @description The IP address of the database.
+     *
+     * >  You must specify the IP address only if the **Endpoint.InstanceType** parameter is set to **Express**.
+     * @example 172.15.185.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The ID of the ECS instance or the virtual private cloud (VPC).
+     *
+     * >
+     *   If the **Endpoint.InstanceType** parameter is set to **ECS**, you must specify the ID of the ECS instance.
+     *   If the **Endpoint.InstanceType** parameter is set to **Express**, you must specify the ID of the VPC.
+     *
+     * @example i-bp11haem1kpkhoup****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The instance type of the database. Valid values:
+     *
+     *   **LocalInstance**: self-managed database with a public IP address
+     *   **ECS**: self-managed database that is hosted on ECS
+     *   **Express**: self-managed database that is connected over Express Connect
+     *
+     * @example ECS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The service port number of the database.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description Specifies whether to update the connection settings of the source instance or the destination instance. Valid values:
+     *
+     *   **Source**
+     *   **Destination**
+     *
+     * @example Destination
+     *
      * @var string
      */
     public $type;

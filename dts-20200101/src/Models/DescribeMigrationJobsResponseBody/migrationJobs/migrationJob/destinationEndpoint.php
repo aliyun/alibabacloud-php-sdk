@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class destinationEndpoint extends Model
 {
     /**
+     * @description The name of the database to which the migration object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The database type of the destination instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The endpoint of the destination instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example rm-bp1zc3iyqe3qw****
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @description The type of the destination instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description This parameter is returned only if the database type of the destination instance is **Oracle**.
+     *
+     * @example testsid
+     *
      * @var string
      */
     public $oracleSID;
 
     /**
+     * @description The database service port of the destination instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The database account of the destination instance.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

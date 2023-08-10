@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class dataSynchronizationDetails extends Model
 {
     /**
+     * @description The name of the database to which the object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationOwnerDBName;
 
     /**
+     * @description The error message returned if incremental data synchronization failed.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The name of the database to which the object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceOwnerDBName;
 
     /**
+     * @description The status of incremental data synchronization. Valid values:
+     *
+     *   **NotStarted**
+     *   **Migrating**
+     *   **Failed**
+     *   **Finished**
+     *
+     * @example Migrating
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The table name.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $tableName;

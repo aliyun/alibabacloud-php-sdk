@@ -10,41 +10,76 @@ use AlibabaCloud\Tea\Model;
 class structureInitializationDetail extends Model
 {
     /**
+     * @description The constraints of the migration object, such as indexes and foreign keys.
+     *
+     * >  This parameter is returned only if the **ObjectType** parameter is set to **Table** and the migration object has constraints.
      * @var constraintList
      */
     public $constraintList;
 
     /**
+     * @description The name of the database to which the migration object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationOwnerDBName;
 
     /**
+     * @description The error message returned if schema migration failed.
+     *
+     * @example DTS-1020042 Execute sql error sql: DTS-1020042 Execute sql error sql: ERROR: column \"id\" named in key does not exist
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The schema of the migration object.
+     *
+     * @example CREATE TABLE `dtstestdata`.`customer` (\n`runoob_id`  int(10) unsigned   auto_increment  COMMENT \"\"   NOT NULL   , \n`runoob_title`  varchar(100)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NOT NULL   , \n`runoob_author1216`  varchar(40)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NOT NULL   , \n`submission_date1216`  date     COMMENT \"\"   NULL   \n, PRIMARY KEY (`runoob_id`)) engine=InnoDB AUTO_INCREMENT=200001 DEFAULT CHARSET=`utf8` DEFAULT COLLATE `utf8_general_ci` ROW_FORMAT= Dynamic comment = \"\" ;\n
+     *
      * @var string
      */
     public $objectDefinition;
 
     /**
+     * @description The name of migration object.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $objectName;
 
     /**
+     * @description The type of the migration object. Valid values: **Table**, **Constraint**, **Index**, **View**, **Materialize View**, **Type**, **Synonym**, **Trigger**, **Function**, **Procedure**, **Package**, **Default**, **Rule**, **PlanGuide**, and **Sequence**.
+     *
+     * @example Table
+     *
      * @var string
      */
     public $objectType;
 
     /**
+     * @description The name of the database to which the migration object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceOwnerDBName;
 
     /**
+     * @description The status of schema migration. Valid values:
+     *
+     * - **NotStarted**: Schema migration is not started.
+     * - **Migrating**: Schema migration is in progress.
+     * - **Failed**: Schema migration failed.
+     * - **Finished**: Schema migration is completed.
+     * @example Finished
+     *
      * @var string
      */
     public $status;

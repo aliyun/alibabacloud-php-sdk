@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyConsumptionTimestampRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The consumption checkpoint. The format is *yyyy-MM-dd*T*HH:mm:ss*Z. The time is displayed in UTC.
+     *
+     * @example 2019-10-15T17:20:03Z
+     *
      * @var string
      */
     public $consumptionTimestamp;
@@ -29,6 +37,10 @@ class ModifyConsumptionTimestampRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the **DescribeSubscriptionInstances** operation to query the instance ID.
+     *
+     * @example dtsg2m10r1x15a****
+     *
      * @var string
      */
     public $subscriptionInstanceId;

@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class dataSynchronizationStatus extends Model
 {
     /**
+     * @description The error message returned if incremental data synchronization failed.
+     *
+     * @example The task has failed for a long time and cannot be recovered.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description Indicates whether the instance needs to be upgraded. Valid values:
+     *
+     * - **true**
+     * - **false**
+     *
+     * > To upgrade a DTS instance, call the [TransferInstanceClass](~~281093~~) operation.
+     * @example true
+     *
      * @var bool
      */
     public $needUpgrade;
 
     /**
+     * @description The progress of incremental data synchronization. Unit: percentage.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The number of entries that have been migrated or synchronized during incremental data migration or synchronization.
+     *
+     * @example 20001
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The state of incremental data synchronization.
+     *
+     * @example Migrating
+     *
      * @var string
      */
     public $status;

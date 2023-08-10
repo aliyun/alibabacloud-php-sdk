@@ -10,31 +10,54 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The query token.
+     *
+     * >  If a query does not return all results, you can specify the returned **NextToken** parameter in the next query to obtain more results.
+     * @example 212db86sca4384811e0b5e8707ec2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 609AD332-F2B1-48B7-BF43-41FEE641****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The collection of tags.
+     *
      * @var tagResources
      */
     public $tagResources;

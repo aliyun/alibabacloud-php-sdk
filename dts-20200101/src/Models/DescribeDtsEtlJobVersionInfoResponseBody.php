@@ -10,56 +10,98 @@ use AlibabaCloud\Tea\Model;
 class DescribeDtsEtlJobVersionInfoResponseBody extends Model
 {
     /**
+     * @description The details of ETL tasks.
+     *
      * @var dtsEtlJobVersionInfos[]
      */
     public $dtsEtlJobVersionInfos;
 
     /**
+     * @description The dynamic error code.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message.
+     *
+     * @example present environment is not support,so skip
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code. This example indicates that the specified ETL task ID is invalid.
+     *
+     * @example InvalidJobId
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message. This example indicates that the specified ETL task ID does not exist. In this case, the ETL task may have been deleted.
+     *
+     * @example The specified dts job id %s is not exists.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $httpStatusCode;
 
     /**
+     * @description The page number of the returned page. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of records returned on the current page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 224DB9F7-3100-4899-AB9C-C938BCCB43E7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. If the call failed, false is returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @description The total number of records.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalRecordCount;

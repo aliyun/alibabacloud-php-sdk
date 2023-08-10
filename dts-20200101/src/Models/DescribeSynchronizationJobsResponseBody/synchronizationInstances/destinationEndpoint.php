@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class destinationEndpoint extends Model
 {
     /**
+     * @description The data traffic that is synchronized per second. Unit: MB/s.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The database account of the destination instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The database service port of the destination instance.
+     *
+     * @example rm-bp162d4tp0500****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The database type of the destination instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The performance of the data synchronization instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The number of times SQL statements are synchronized per second, including BEGIN, COMMIT, DML, and DDL statements. DML statements include INSERT, DELETE, and UPDATE.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

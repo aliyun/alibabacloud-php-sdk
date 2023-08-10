@@ -9,41 +9,81 @@ use AlibabaCloud\Tea\Model;
 class DescribePreCheckStatusRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * @example i03e3zty16i****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The task code that specifies the type of the DTS subtask. Valid values:
+     *
+     *   **01**: precheck
+     *   **02**: schema migration or initial schema synchronization
+     *   **03**: full data migration or initial full data synchronization
+     *   **04**: incremental data migration or synchronization
+     *
+     * @example 01
+     *
      * @var string
      */
     public $jobCode;
 
     /**
+     * @description The filter item used to filter tables in fuzzy match.
+     *
+     * @example dewuprop
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0** and does not exceed the maximum value of the Integer data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page. Default value: **20**.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The filter item used to filter tables, views, and functions during schema migration.
+     *
+     * @example View
+     *
      * @var string
      */
     public $structPhase;
 
     /**
+     * @description The type of schema definition. Valid values:
+     *
+     *   **before**: schema migration or initial schema synchronization
+     *   **after**: DDL operations performed during incremental data migration or synchronization
+     *
+     * @example before
+     *
      * @var string
      */
     public $structType;

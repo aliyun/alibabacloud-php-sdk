@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateDtsInstanceResponseBody extends Model
 {
     /**
+     * @description The error code returned if the request failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the request failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the DTS instance.
+     *
+     * @example dtsbi6e22ay243****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example bi6e22ay243****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C166D79D-436B-45F0-B5A5-25E1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

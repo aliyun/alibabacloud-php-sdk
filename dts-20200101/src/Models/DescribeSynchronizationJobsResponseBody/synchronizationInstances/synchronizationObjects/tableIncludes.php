@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tableIncludes extends Model
 {
     /**
+     * @description The progress of full data synchronization. Unit: %.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $tableName;

@@ -9,31 +9,85 @@ use AlibabaCloud\Tea\Model;
 class SkipPreCheckRequest extends Model
 {
     /**
+     * @description The ID of the data migration, data synchronization, or change tracking task.
+     *
+     * @example c7412z57g8k****
+     *
      * @var string
      */
     public $dtsJobId;
 
     /**
+     * @description The ID of the precheck task. You can call the **DescribePreCheckStatus** operation to query the task ID.
+     *
+     * @example b4my3zg929a****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The region ID of the DTS instance. For more information, see [List of supported regions](~~141033~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Specifies whether to skip the precheck item. Valid values:
+     *
+     *   **true**: skips the precheck item.
+     *   **false**: does not skip the precheck item.
+     *
+     * >  This parameter is required.
+     * @example true
+     *
      * @var bool
      */
     public $skip;
 
     /**
+     * @description The shortened name of the precheck item. Valid values:
+     *
+     *   **CHECK_SAME_OBJ**: object name conflict
+     *
+     *   **CHECK_SAME_USER**: multiple usernames for one instance
+     *
+     *   **CHECK_SRC**: source database version
+     *
+     *   **CHECK_TOPOLOGY**: topology type
+     *
+     * > For more information about the topologies supported by DTS, see [Synchronization topologies](~~124115~~).
+     *
+     *   **CHECK_SERVER_ID**: the server ID of the source database
+     *
+     * >  Separate multiple shortened names with commas (,).
+     * @example CHECK_SAME_OBJ
+     *
      * @var string
      */
     public $skipPreCheckItems;
 
     /**
+     * @description The name of the precheck item. This parameter corresponds to the **SkipPreCheckItems** parameter. Valid values:
+     *
+     *   **CHECK_SAME_OBJ_DETAIL**: object name conflict
+     *
+     *   **CHECK_SAME_USER_DETAIL**: multiple usernames for one instance
+     *
+     *   **CHECK_SRC_DETAIL**: source database version
+     *
+     *   **CHECK_TOPOLOGY_DETAIL**: topology type
+     *
+     * > For more information about the topologies supported by DTS, see [Synchronization topologies](~~124115~~).
+     *
+     *   **CHECK_SERVER_ID_DETAIL**: the server ID of the source database
+     *
+     * >  Separate multiple item names with commas (,).
+     * @example CHECK_SAME_OBJ_DETAIL
+     *
      * @var string
      */
     public $skipPreCheckNames;

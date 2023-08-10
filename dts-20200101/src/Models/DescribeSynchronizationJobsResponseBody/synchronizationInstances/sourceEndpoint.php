@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class sourceEndpoint extends Model
 {
     /**
+     * @description The progress of schema synchronization. Unit: %.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The database account of the source instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The database service port of the source instance.
+     *
+     * @example rm-bp1i99e8l7913****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The database type of the source instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The status of schema synchronization.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The status of schema synchronization. Valid values:
+     *
+     *   **NotStarted**: Schema synchronization is not started.
+     *   **Migrating**: Schema synchronization is in progress.
+     *   **Failed**: Schema synchronization failed.
+     *   **Finished**: Schema synchronization is completed.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

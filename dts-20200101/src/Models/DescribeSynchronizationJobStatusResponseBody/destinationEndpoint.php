@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class destinationEndpoint extends Model
 {
     /**
+     * @description The database type of the destination instance.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $engineName;
 
     /**
+     * @description The endpoint of the destination instance.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IP;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example rm-bp162d4tp0500****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The type of the destination instance.
+     *
+     * @example RDS
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The database service port of the destination instance.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The database account of the destination instance.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $userName;

@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeConsumerGroupResponseBody extends Model
 {
     /**
+     * @description The list of consumer groups.
+     *
      * @var consumerChannels
      */
     public $consumerChannels;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of consumer groups that can be displayed on one page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4204E899-8193-4D7D-A4FB-3A7F9063****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;
 
     /**
+     * @description The total number of consumer groups.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

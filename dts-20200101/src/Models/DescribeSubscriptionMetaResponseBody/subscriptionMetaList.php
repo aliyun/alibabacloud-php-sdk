@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class subscriptionMetaList extends Model
 {
     /**
+     * @description The consumer offset of the subtask. It is a UNIX timestamp that is generated when the client consumes the first data record. Unit: seconds.
+     *
+     * >  You can use a search engine to obtain a UNIX timestamp converter.
+     * @example 1610524452
+     *
      * @var int
      */
     public $checkpoint;
 
     /**
+     * @description The objects of the subtask. For more information, see [Objects of DTS tasks](~~209545~~).
+     *
+     * @example {\"dtstestdata\":{\"name\":\"dtstestdata\",\"all\":false,\"Table\":{\"order\":{\"name\":\"order\",\"all\":true}}}}
+     *
      * @var string
      */
     public $DBList;
 
     /**
+     * @description The endpoint and port number of the change tracking instance.
+     *
+     * @example dts-cn-hangzhou.aliyuncs.com:18001
+     *
      * @var string
      */
     public $DProxyUrl;
 
     /**
+     * @description The consumer group ID of the subtask.
+     *
+     * @example z38m91gg2******
+     *
      * @var string
      */
     public $sid;
 
     /**
+     * @description The topic of the subtask.
+     *
+     * @example cn_hangzhou_rm_bp1n0x0x5tz******_dtstestdata_version2
+     *
      * @var string
      */
     public $topic;

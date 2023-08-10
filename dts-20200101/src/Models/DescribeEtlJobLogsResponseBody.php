@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeEtlJobLogsResponseBody extends Model
 {
     /**
+     * @description The dynamic error code.
+     *
+     * @example 403
+     *
      * @var string
      */
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message.
+     *
+     * @example present environment is not support,so skip.
+     *
      * @var string
      */
     public $dynamicMessage;
 
     /**
+     * @description The error code. This example indicates that the specified ETL task ID is invalid.
+     *
+     * @example InvalidJobId
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message. This example indicates that the specified ETL task ID does not exist. In this case, the ETL task may be deleted.
+     *
+     * @example The specified dts job id %s is not exists.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The logs of ETL tasks.
+     *
      * @var etlRunningLogs[]
      */
     public $etlRunningLogs;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 224DB9F7-3100-4899-AB9C-C938BCCB43E7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. If the call failed, false is returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

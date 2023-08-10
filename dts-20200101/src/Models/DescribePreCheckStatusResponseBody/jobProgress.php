@@ -10,127 +10,246 @@ use AlibabaCloud\Tea\Model;
 class jobProgress extends Model
 {
     /**
+     * @description The time when the subtask was started. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+     *
+     * @example 2021-03-16T08:01:31.000+00:00
+     *
      * @var string
      */
     public $bootTime;
 
     /**
+     * @description Indicates whether the subtask can be ignored if it fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $canSkip;
 
     /**
+     * @description The number of the subtasks that are running.
+     *
+     * @example 0
+     *
+     * @var string
+     */
+    public $current;
+
+    /**
+     * @description The DDL statements.
+     *
+     * @example CREATE TABLE `dtstestdata`.`order` (\n`orderid`  int(11)     COMMENT \"\"   NOT NULL   , \n`username`  char(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NULL   , \n`ordertime`  datetime     COMMENT \"\"   NULL   , \n`commodity`  varchar(32)  CHARSET `utf8` COLLATE `utf8_general_ci`    COMMENT \"\"   NULL   , \n`phonenumber`  int(11)     COMMENT \"\"   NULL   , \n`address`  text  CHARSET `utf8mb4` COLLATE `utf8mb4_general_ci`    COMMENT \"\"   NULL   \n, PRIMARY KEY (`orderid`)) engine=InnoDB DEFAULT CHARSET=`gbk` DEFAULT COLLATE `gbk_chinese_ci` ROW_FORMAT= Dynamic comment = \"\" ;\n
+     *
      * @var string
      */
     public $ddlSql;
 
     /**
+     * @description The latency of incremental data migration or synchronization.
+     *
+     * >  For data migration tasks, the unit of this parameter is milliseconds. For data synchronization tasks, the unit of this parameter is seconds.
+     * @example 0
+     *
      * @var int
      */
     public $delaySeconds;
 
     /**
+     * @description The name of the database to which the object in the destination instance belongs.
+     *
+     * @example dtstestdata_new
+     *
      * @var string
      */
     public $destSchema;
 
     /**
+     * @description This parameter will be removed in the future.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $diffRow;
 
     /**
+     * @description The error details of the subtask failure.
+     *
+     * @example CHECK__ERROR_SAME_OBJ_DETAIL
+     *
      * @var string
      */
     public $errDetail;
 
     /**
+     * @description The error message of the subtask failure.
+     *
+     * @example CHECK__ERROR_SAME_OBJ
+     *
      * @var string
      */
     public $errMsg;
 
     /**
+     * @description The time when the subtask was complete. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format in UTC.
+     *
+     * @example 2021-03-16T08:01:34.000+00:00
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The ID recorded in the metadatabase.
+     *
+     * @example 5632
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Indicates whether DTS ignores the subtask and proceeds with the next subtask. Valid values:
+     *
+     *   **N**: no
+     *   **Y**: yes
+     *
+     * @example N
+     *
      * @var string
      */
     public $ignoreFlag;
 
     /**
+     * @description The shortened name of the subtask.
+     *
+     * @example CHECK_CONN_DEST
+     *
      * @var string
      */
     public $item;
 
     /**
+     * @description The ID of the subtask.
+     *
+     * @example fj1c33ro168****
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The logs of subtask failures.
+     *
      * @var logs[]
      */
     public $logs;
 
     /**
+     * @description The name of the subtask.
+     *
+     * @example CHECK_CONN_DEST_DETAIL
+     *
      * @var string
      */
     public $names;
 
     /**
+     * @description The serial number of the subtask.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $orderNum;
 
     /**
+     * @description This parameter will be removed in the future.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $parentObj;
 
     /**
+     * @description The method to fix the subtask failure.
+     *
+     * @example CHECK__ERROR_SAME_OBJ_REPAIR
+     *
      * @var string
      */
     public $repairMethod;
 
     /**
+     * @description Indicates whether the subtask is ignored if it fails. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
+     * @example false
+     *
      * @var bool
      */
     public $skip;
 
     /**
+     * @description The name of the database to which the object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceSchema;
 
     /**
+     * @description The status of the subtask. Valid values:
+     *
+     *   **NotStarted**: The subtask is not started.
+     *   **Checking**: The subtask is being checked.
+     *   **Migrating**: The subtask is in progress. Data is being migrated.
+     *   **Failed**: The subtask failed.
+     *   **Warning**: The subtask encounters an exception.
+     *   **Success**: The subtask is complete.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The sub-item progress of the subtask.
+     *
+     * >  If **\[]** is returned, the subtask has no sub-items.
+     * @example []
+     *
      * @var string
      */
     public $sub;
 
     /**
+     * @description The names of the objects that are migrated or synchronized.
+     *
+     * @example order
+     *
      * @var string
      */
     public $targetNames;
 
     /**
+     * @description The total number of subtasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $total;
     protected $_name = [
         'bootTime'     => 'BootTime',
         'canSkip'      => 'CanSkip',
+        'current'      => 'Current',
         'ddlSql'       => 'DdlSql',
         'delaySeconds' => 'DelaySeconds',
         'destSchema'   => 'DestSchema',
@@ -167,6 +286,9 @@ class jobProgress extends Model
         }
         if (null !== $this->canSkip) {
             $res['CanSkip'] = $this->canSkip;
+        }
+        if (null !== $this->current) {
+            $res['Current'] = $this->current;
         }
         if (null !== $this->ddlSql) {
             $res['DdlSql'] = $this->ddlSql;
@@ -257,6 +379,9 @@ class jobProgress extends Model
         }
         if (isset($map['CanSkip'])) {
             $model->canSkip = $map['CanSkip'];
+        }
+        if (isset($map['Current'])) {
+            $model->current = $map['Current'];
         }
         if (isset($map['DdlSql'])) {
             $model->ddlSql = $map['DdlSql'];

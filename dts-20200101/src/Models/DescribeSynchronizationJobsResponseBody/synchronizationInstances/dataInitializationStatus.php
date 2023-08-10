@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class dataInitializationStatus extends Model
 {
     /**
+     * @description The status of incremental data synchronization.
+     *
+     * >  This parameter is no longer available.
+     * @example java.lang.NumberFormatException: For input string: ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The status of incremental data synchronization.
+     *
+     * >  This parameter and its sub-parameters are no longer available.
+     * @example 100
+     *
      * @var string
      */
     public $percent;
 
     /**
+     * @description The synchronization latency.
+     *
+     * >  This parameter is no longer available.
+     * @example 200001
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The number of records that have been synchronized during full data synchronization.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;

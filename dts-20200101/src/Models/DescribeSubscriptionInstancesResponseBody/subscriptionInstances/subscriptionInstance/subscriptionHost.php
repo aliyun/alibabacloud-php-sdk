@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class subscriptionHost extends Model
 {
     /**
+     * @description The private endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+     *
+     * @example dts-cn-****-internal.aliyuncs.com:18002
+     *
      * @var string
      */
     public $privateHost;
 
     /**
+     * @description The public endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+     *
+     * @example dts-cn-****.aliyuncs.com:18001
+     *
      * @var string
      */
     public $publicHost;
 
     /**
+     * @description The virtual private cloud (VPC) endpoint of the change tracking instance. The format is `<Address>:<Port number>`.
+     *
+     * @example dts-cn-****-vpc.aliyuncs.com:18003
+     *
      * @var string
      */
     public $VPCHost;

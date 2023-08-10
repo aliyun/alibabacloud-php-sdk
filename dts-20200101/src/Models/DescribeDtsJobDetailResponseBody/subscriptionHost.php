@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class subscriptionHost extends Model
 {
     /**
+     * @description The endpoint of the change tracking instance.
+     *
+     * @example dts-cn-****-internal.aliyuncs.com:18002
+     *
      * @var string
      */
     public $privateHost;
 
     /**
+     * @description Indicates whether schema migration or schema synchronization is performed. Valid values:
+     *
+     *   **true**: Schema migration or schema synchronization is performed.
+     *   **false**: Schema migration or schema synchronization is not performed.
+     *
+     * @example dts-cn-****.aliyuncs.com:18001
+     *
      * @var string
      */
     public $publicHost;
 
     /**
+     * @description Indicates whether incremental data migration or synchronization is performed. Valid values:
+     *
+     *   **true**: Incremental data migration or synchronization is performed.
+     *   **false**: Incremental data migration or synchronization is not performed.
+     *
+     * @example dts-cn-****-vpc.aliyuncs.com:18003
+     *
      * @var string
      */
     public $vpcHost;

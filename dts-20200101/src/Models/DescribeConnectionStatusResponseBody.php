@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectionStatusResponseBody extends Model
 {
     /**
+     * @description The connectivity of DTS servers to the destination database.
+     *
+     * @example {     "connectDetail": [       {         "testName": "PolarDB_o JDBC Connect",         "testSuccess": true       },       {         "testName": "Ping ",         "testSuccess": true       },       {         "testName": "Telnet ",         "testSuccess": true       }     ],     "connectRes": true,     "connectAdvice": ""   }
+     *
      * @var mixed[]
      */
     public $destinationConnectionStatus;
 
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0A47C784-70EF-4111-8677-369CAA00****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The connectivity of DTS servers to the source database.
+     *
+     * @example {     "connectDetail": [       {         "testName": "Oracle JDBC Connect",         "testSuccess": true       },       {         "testName": "Ping ",         "testSuccess": false       },       {         "testName": "Telnet ",         "testSuccess": true       }     ],     "connectRes": true,     "connectAdvice": ""   }
+     *
      * @var mixed[]
      */
     public $sourceConnectionStatus;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

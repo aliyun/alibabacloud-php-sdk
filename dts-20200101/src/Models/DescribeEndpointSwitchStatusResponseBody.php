@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeEndpointSwitchStatusResponseBody extends Model
 {
     /**
+     * @description The error code returned if the call failed.
+     *
+     * @example InternalError
+     *
      * @var string
      */
     public $errCode;
 
     /**
+     * @description The error message returned if the call failed.
+     *
+     * @example The request processing has failed due to some unknown error.
+     *
      * @var string
      */
     public $errMessage;
 
     /**
+     * @description This parameter is no longer available.
+     *
+     * @example 400
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 0DD6B201-604B-4CAB-B6A8-4B2953B5****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   **NotStarted**: The task is not started.
+     *   **Initializing**: The task is being initialized.
+     *   **Switching**: The task is running.
+     *   **Failed**: The task failed.
+     *   **Finished**: The task is completed.
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the call was successful.
+     *
+     * @example true
+     *
      * @var string
      */
     public $success;

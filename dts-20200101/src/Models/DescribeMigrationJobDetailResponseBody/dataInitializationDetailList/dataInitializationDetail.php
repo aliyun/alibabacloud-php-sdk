@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class dataInitializationDetail extends Model
 {
     /**
+     * @description The name of the database to which the migration object in the destination instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $destinationOwnerDBName;
 
     /**
+     * @description The error message returned if full data migration failed.
+     *
+     * @example java.lang.NumberFormatException: For input string: ""
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
+     * @description The number of records that have been migrated.
+     *
+     * @example 200001
+     *
      * @var string
      */
     public $finishRowNum;
 
     /**
+     * @description The time taken by full data migration.
+     *
+     * @example 0.0
+     *
      * @var string
      */
     public $migrationTime;
 
     /**
+     * @description The name of the database to which the migration object in the source instance belongs.
+     *
+     * @example dtstestdata
+     *
      * @var string
      */
     public $sourceOwnerDBName;
 
     /**
+     * @description The status of full data migration. Valid values:
+     *
+     * - **NotStarted**: Full data migration is not started.
+     * - **Migrating**: Full data migration is in progress.
+     * - **Failed**: Full data migration failed.
+     * - **Finished**: Full data migration is completed.
+     * @example Finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The table name.
+     *
+     * @example customer
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The total number of records that are supposed to be migrated by the task.
+     *
+     * @example 201477
+     *
      * @var string
      */
     public $totalRowNum;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example testkey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The maximum number of entries that can be displayed on the current page.
+     *
+     * @example testvalue1
+     *
      * @var string
      */
     public $value;

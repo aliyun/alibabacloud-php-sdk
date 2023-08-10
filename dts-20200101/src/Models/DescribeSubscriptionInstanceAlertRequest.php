@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubscriptionInstanceAlertRequest extends Model
 {
     /**
+     * @description The ID of the Alibaba Cloud account. You do not need to specify this parameter because this parameter will be removed in the future.
+     *
+     * @example 12323344****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
@@ -29,6 +37,10 @@ class DescribeSubscriptionInstanceAlertRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the change tracking instance. You can call the DescribeSubscriptionInstances operation to query the instance ID.
+     *
+     * @example dtsl8zl9ek6292****
+     *
      * @var string
      */
     public $subscriptionInstanceId;
