@@ -11,6 +11,11 @@ use GuzzleHttp\Psr7\Stream;
 class MergeVideoModelFaceAdvanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $addWatermark;
+
+    /**
      * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/ref/ref.jpg
      *
      * @var Stream
@@ -29,6 +34,7 @@ class MergeVideoModelFaceAdvanceRequest extends Model
      */
     public $templateId;
     protected $_name = [
+        'addWatermark'       => 'AddWatermark',
         'faceImageURLObject' => 'FaceImageURL',
         'mergeInfos'         => 'MergeInfos',
         'templateId'         => 'TemplateId',
@@ -41,6 +47,9 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addWatermark) {
+            $res['AddWatermark'] = $this->addWatermark;
+        }
         if (null !== $this->faceImageURLObject) {
             $res['FaceImageURL'] = $this->faceImageURLObject;
         }
@@ -68,6 +77,9 @@ class MergeVideoModelFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddWatermark'])) {
+            $model->addWatermark = $map['AddWatermark'];
+        }
         if (isset($map['FaceImageURL'])) {
             $model->faceImageURLObject = $map['FaceImageURL'];
         }

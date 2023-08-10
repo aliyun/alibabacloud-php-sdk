@@ -10,6 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class MergeVideoFaceAdvanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $addWatermark;
+
+    /**
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace-pic1.png
      *
      * @var Stream
@@ -23,6 +28,7 @@ class MergeVideoFaceAdvanceRequest extends Model
      */
     public $videoURLObject;
     protected $_name = [
+        'addWatermark'       => 'AddWatermark',
         'referenceURLObject' => 'ReferenceURL',
         'videoURLObject'     => 'VideoURL',
     ];
@@ -34,6 +40,9 @@ class MergeVideoFaceAdvanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addWatermark) {
+            $res['AddWatermark'] = $this->addWatermark;
+        }
         if (null !== $this->referenceURLObject) {
             $res['ReferenceURL'] = $this->referenceURLObject;
         }
@@ -52,6 +61,9 @@ class MergeVideoFaceAdvanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddWatermark'])) {
+            $model->addWatermark = $map['AddWatermark'];
+        }
         if (isset($map['ReferenceURL'])) {
             $model->referenceURLObject = $map['ReferenceURL'];
         }

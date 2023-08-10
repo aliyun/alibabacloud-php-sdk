@@ -1921,6 +1921,9 @@ class Videoenhan extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->addWatermark)) {
+            $body['AddWatermark'] = $request->addWatermark;
+        }
         if (!Utils::isUnset($request->referenceURL)) {
             $body['ReferenceURL'] = $request->referenceURL;
         }
@@ -2070,6 +2073,9 @@ class Videoenhan extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->addWatermark)) {
+            $body['AddWatermark'] = $request->addWatermark;
+        }
         if (!Utils::isUnset($request->faceImageURL)) {
             $body['FaceImageURL'] = $request->faceImageURL;
         }

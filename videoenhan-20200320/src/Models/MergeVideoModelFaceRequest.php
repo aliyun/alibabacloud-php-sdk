@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class MergeVideoModelFaceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $addWatermark;
+
+    /**
      * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/ref/ref.jpg
      *
      * @var string
@@ -28,6 +33,7 @@ class MergeVideoModelFaceRequest extends Model
      */
     public $templateId;
     protected $_name = [
+        'addWatermark' => 'AddWatermark',
         'faceImageURL' => 'FaceImageURL',
         'mergeInfos'   => 'MergeInfos',
         'templateId'   => 'TemplateId',
@@ -40,6 +46,9 @@ class MergeVideoModelFaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addWatermark) {
+            $res['AddWatermark'] = $this->addWatermark;
+        }
         if (null !== $this->faceImageURL) {
             $res['FaceImageURL'] = $this->faceImageURL;
         }
@@ -67,6 +76,9 @@ class MergeVideoModelFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddWatermark'])) {
+            $model->addWatermark = $map['AddWatermark'];
+        }
         if (isset($map['FaceImageURL'])) {
             $model->faceImageURL = $map['FaceImageURL'];
         }

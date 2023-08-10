@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class MergeVideoFaceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $addWatermark;
+
+    /**
      * @example http://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/videoenhan/MergeVideoFace/MergeVideoFace-pic1.png
      *
      * @var string
@@ -22,6 +27,7 @@ class MergeVideoFaceRequest extends Model
      */
     public $videoURL;
     protected $_name = [
+        'addWatermark' => 'AddWatermark',
         'referenceURL' => 'ReferenceURL',
         'videoURL'     => 'VideoURL',
     ];
@@ -33,6 +39,9 @@ class MergeVideoFaceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->addWatermark) {
+            $res['AddWatermark'] = $this->addWatermark;
+        }
         if (null !== $this->referenceURL) {
             $res['ReferenceURL'] = $this->referenceURL;
         }
@@ -51,6 +60,9 @@ class MergeVideoFaceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AddWatermark'])) {
+            $model->addWatermark = $map['AddWatermark'];
+        }
         if (isset($map['ReferenceURL'])) {
             $model->referenceURL = $map['ReferenceURL'];
         }
