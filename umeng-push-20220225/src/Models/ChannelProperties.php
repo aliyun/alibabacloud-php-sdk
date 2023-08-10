@@ -16,6 +16,21 @@ class ChannelProperties extends Model
     /**
      * @var string
      */
+    public $channelFcm;
+
+    /**
+     * @var string
+     */
+    public $huaweiChannelCategory;
+
+    /**
+     * @var string
+     */
+    public $huaweiChannelImportance;
+
+    /**
+     * @var string
+     */
     public $mainActivity;
 
     /**
@@ -26,18 +41,21 @@ class ChannelProperties extends Model
     /**
      * @var string
      */
-    public $vivoClassification;
+    public $vivoCategory;
 
     /**
      * @var string
      */
     public $xiaomiChannelId;
     protected $_name = [
-        'channelActivity'    => 'channelActivity',
-        'mainActivity'       => 'mainActivity',
-        'oppoChannelId'      => 'oppoChannelId',
-        'vivoClassification' => 'vivoClassification',
-        'xiaomiChannelId'    => 'xiaomiChannelId',
+        'channelActivity'         => 'channelActivity',
+        'channelFcm'              => 'channelFcm',
+        'huaweiChannelCategory'   => 'huaweiChannelCategory',
+        'huaweiChannelImportance' => 'huaweiChannelImportance',
+        'mainActivity'            => 'mainActivity',
+        'oppoChannelId'           => 'oppoChannelId',
+        'vivoCategory'            => 'vivoCategory',
+        'xiaomiChannelId'         => 'xiaomiChannelId',
     ];
 
     public function validate()
@@ -50,14 +68,23 @@ class ChannelProperties extends Model
         if (null !== $this->channelActivity) {
             $res['channelActivity'] = $this->channelActivity;
         }
+        if (null !== $this->channelFcm) {
+            $res['channelFcm'] = $this->channelFcm;
+        }
+        if (null !== $this->huaweiChannelCategory) {
+            $res['huaweiChannelCategory'] = $this->huaweiChannelCategory;
+        }
+        if (null !== $this->huaweiChannelImportance) {
+            $res['huaweiChannelImportance'] = $this->huaweiChannelImportance;
+        }
         if (null !== $this->mainActivity) {
             $res['mainActivity'] = $this->mainActivity;
         }
         if (null !== $this->oppoChannelId) {
             $res['oppoChannelId'] = $this->oppoChannelId;
         }
-        if (null !== $this->vivoClassification) {
-            $res['vivoClassification'] = $this->vivoClassification;
+        if (null !== $this->vivoCategory) {
+            $res['vivoCategory'] = $this->vivoCategory;
         }
         if (null !== $this->xiaomiChannelId) {
             $res['xiaomiChannelId'] = $this->xiaomiChannelId;
@@ -77,14 +104,23 @@ class ChannelProperties extends Model
         if (isset($map['channelActivity'])) {
             $model->channelActivity = $map['channelActivity'];
         }
+        if (isset($map['channelFcm'])) {
+            $model->channelFcm = $map['channelFcm'];
+        }
+        if (isset($map['huaweiChannelCategory'])) {
+            $model->huaweiChannelCategory = $map['huaweiChannelCategory'];
+        }
+        if (isset($map['huaweiChannelImportance'])) {
+            $model->huaweiChannelImportance = $map['huaweiChannelImportance'];
+        }
         if (isset($map['mainActivity'])) {
             $model->mainActivity = $map['mainActivity'];
         }
         if (isset($map['oppoChannelId'])) {
             $model->oppoChannelId = $map['oppoChannelId'];
         }
-        if (isset($map['vivoClassification'])) {
-            $model->vivoClassification = $map['vivoClassification'];
+        if (isset($map['vivoCategory'])) {
+            $model->vivoCategory = $map['vivoCategory'];
         }
         if (isset($map['xiaomiChannelId'])) {
             $model->xiaomiChannelId = $map['xiaomiChannelId'];

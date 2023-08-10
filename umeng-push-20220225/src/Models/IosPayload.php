@@ -14,7 +14,7 @@ class IosPayload extends Model
     public $aps;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $extra;
     protected $_name = [

@@ -14,14 +14,14 @@ class Body extends Model
     public $activity;
 
     /**
+     * @var int
+     */
+    public $addBadge;
+
+    /**
      * @var string
      */
     public $afterOpen;
-
-    /**
-     * @var int
-     */
-    public $badge;
 
     /**
      * @var int
@@ -69,6 +69,16 @@ class Body extends Model
     public $playVibrate;
 
     /**
+     * @var int
+     */
+    public $rePop;
+
+    /**
+     * @var int
+     */
+    public $setBadge;
+
+    /**
      * @var string
      */
     public $sound;
@@ -89,8 +99,8 @@ class Body extends Model
     public $url;
     protected $_name = [
         'activity'    => 'activity',
+        'addBadge'    => 'addBadge',
         'afterOpen'   => 'afterOpen',
-        'badge'       => 'badge',
         'builderId'   => 'builderId',
         'custom'      => 'custom',
         'expandImage' => 'expandImage',
@@ -100,6 +110,8 @@ class Body extends Model
         'playLights'  => 'playLights',
         'playSound'   => 'playSound',
         'playVibrate' => 'playVibrate',
+        'rePop'       => 'rePop',
+        'setBadge'    => 'setBadge',
         'sound'       => 'sound',
         'text'        => 'text',
         'title'       => 'title',
@@ -116,11 +128,11 @@ class Body extends Model
         if (null !== $this->activity) {
             $res['activity'] = $this->activity;
         }
+        if (null !== $this->addBadge) {
+            $res['addBadge'] = $this->addBadge;
+        }
         if (null !== $this->afterOpen) {
             $res['afterOpen'] = $this->afterOpen;
-        }
-        if (null !== $this->badge) {
-            $res['badge'] = $this->badge;
         }
         if (null !== $this->builderId) {
             $res['builderId'] = $this->builderId;
@@ -149,6 +161,12 @@ class Body extends Model
         if (null !== $this->playVibrate) {
             $res['playVibrate'] = $this->playVibrate;
         }
+        if (null !== $this->rePop) {
+            $res['rePop'] = $this->rePop;
+        }
+        if (null !== $this->setBadge) {
+            $res['setBadge'] = $this->setBadge;
+        }
         if (null !== $this->sound) {
             $res['sound'] = $this->sound;
         }
@@ -176,11 +194,11 @@ class Body extends Model
         if (isset($map['activity'])) {
             $model->activity = $map['activity'];
         }
+        if (isset($map['addBadge'])) {
+            $model->addBadge = $map['addBadge'];
+        }
         if (isset($map['afterOpen'])) {
             $model->afterOpen = $map['afterOpen'];
-        }
-        if (isset($map['badge'])) {
-            $model->badge = $map['badge'];
         }
         if (isset($map['builderId'])) {
             $model->builderId = $map['builderId'];
@@ -208,6 +226,12 @@ class Body extends Model
         }
         if (isset($map['playVibrate'])) {
             $model->playVibrate = $map['playVibrate'];
+        }
+        if (isset($map['rePop'])) {
+            $model->rePop = $map['rePop'];
+        }
+        if (isset($map['setBadge'])) {
+            $model->setBadge = $map['setBadge'];
         }
         if (isset($map['sound'])) {
             $model->sound = $map['sound'];

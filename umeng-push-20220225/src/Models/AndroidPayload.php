@@ -19,7 +19,7 @@ class AndroidPayload extends Model
     public $displayType;
 
     /**
-     * @var mixed[]
+     * @var string[]
      */
     public $extra;
     protected $_name = [
