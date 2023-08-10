@@ -327,6 +327,11 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListDIProjectConfigResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEnabledExtensionsForProjectRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEnabledExtensionsForProjectResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEntitiesByTagsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEntitiesByTagsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEntitiesByTagsShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEntityTagsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListEntityTagsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListExtensionsResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ListFilesRequest;
@@ -418,6 +423,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\QueryPublicModelEngineResp
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RegisterLineageRelationShrinkRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveEntityTagsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveEntityTagsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveEntityTagsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveProjectMemberFromRoleRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RemoveProjectMemberFromRoleResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\RestartInstanceRequest;
@@ -446,6 +454,9 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputRequest
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SearchNodesByOutputResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetDataSourceShareRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetDataSourceShareResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetEntityTagsRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetEntityTagsResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetEntityTagsShrinkRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\SetSuccessInstanceResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\StartDISyncInstanceRequest;
@@ -664,6 +675,9 @@ class Dataworkspublic extends OpenApiClient
         }
         if (!Utils::isUnset($request->entityQualifiedName)) {
             $query['EntityQualifiedName'] = $request->entityQualifiedName;
+        }
+        if (!Utils::isUnset($request->remark)) {
+            $query['Remark'] = $request->remark;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -9355,6 +9369,91 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param ListEntitiesByTagsRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListEntitiesByTagsResponse
+     */
+    public function listEntitiesByTagsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListEntitiesByTagsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEntitiesByTags',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEntitiesByTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEntitiesByTagsRequest $request
+     *
+     * @return ListEntitiesByTagsResponse
+     */
+    public function listEntitiesByTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEntitiesByTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListEntityTagsRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListEntityTagsResponse
+     */
+    public function listEntityTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListEntityTags',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListEntityTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListEntityTagsRequest $request
+     *
+     * @return ListEntityTagsResponse
+     */
+    public function listEntityTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listEntityTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListExtensionsRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -11744,6 +11843,59 @@ class Dataworkspublic extends OpenApiClient
     }
 
     /**
+     * @param RemoveEntityTagsRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveEntityTagsResponse
+     */
+    public function removeEntityTagsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RemoveEntityTagsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tagKeys)) {
+            $request->tagKeysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagKeys, 'TagKeys', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->qualifiedName)) {
+            $query['QualifiedName'] = $request->qualifiedName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tagKeysShrink)) {
+            $body['TagKeys'] = $request->tagKeysShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveEntityTags',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveEntityTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveEntityTagsRequest $request
+     *
+     * @return RemoveEntityTagsResponse
+     */
+    public function removeEntityTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeEntityTagsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveProjectMemberFromRoleRequest $request
      * @param RuntimeOptions                     $runtime
      *
@@ -12538,6 +12690,59 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setDataSourceShareWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetEntityTagsRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SetEntityTagsResponse
+     */
+    public function setEntityTagsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SetEntityTagsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->qualifiedName)) {
+            $query['QualifiedName'] = $request->qualifiedName;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $body['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SetEntityTags',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetEntityTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetEntityTagsRequest $request
+     *
+     * @return SetEntityTagsResponse
+     */
+    public function setEntityTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setEntityTagsWithOptions($request, $runtime);
     }
 
     /**

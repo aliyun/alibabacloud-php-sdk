@@ -26,9 +26,15 @@ class AddMetaCollectionEntityRequest extends Model
      * @var string
      */
     public $entityQualifiedName;
+
+    /**
+     * @var string
+     */
+    public $remark;
     protected $_name = [
         'collectionQualifiedName' => 'CollectionQualifiedName',
         'entityQualifiedName'     => 'EntityQualifiedName',
+        'remark'                  => 'Remark',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class AddMetaCollectionEntityRequest extends Model
         }
         if (null !== $this->entityQualifiedName) {
             $res['EntityQualifiedName'] = $this->entityQualifiedName;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
         }
 
         return $res;
@@ -61,6 +70,9 @@ class AddMetaCollectionEntityRequest extends Model
         }
         if (isset($map['EntityQualifiedName'])) {
             $model->entityQualifiedName = $map['EntityQualifiedName'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
         }
 
         return $model;
