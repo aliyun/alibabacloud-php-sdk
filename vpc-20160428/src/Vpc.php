@@ -592,6 +592,8 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnClientCertRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnClientCertResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnServerRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifySslVpnServerResponse;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyTunnelAttributeRequest;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyTunnelAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVcoRouteEntryWeightRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVcoRouteEntryWeightResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\ModifyVirtualBorderRouterAttributeRequest;
@@ -12750,6 +12752,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
         }
@@ -23058,6 +23063,73 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifySslVpnServerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyTunnelAttributeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ModifyTunnelAttributeResponse
+     */
+    public function modifyTunnelAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->tunnelId)) {
+            $query['TunnelId'] = $request->tunnelId;
+        }
+        if (!Utils::isUnset($request->tunnelOptionsSpecification)) {
+            $query['TunnelOptionsSpecification'] = $request->tunnelOptionsSpecification;
+        }
+        if (!Utils::isUnset($request->vpnConnectionId)) {
+            $query['VpnConnectionId'] = $request->vpnConnectionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyTunnelAttribute',
+            'version'     => '2016-04-28',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyTunnelAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyTunnelAttributeRequest $request
+     *
+     * @return ModifyTunnelAttributeResponse
+     */
+    public function modifyTunnelAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyTunnelAttributeWithOptions($request, $runtime);
     }
 
     /**

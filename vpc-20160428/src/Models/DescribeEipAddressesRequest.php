@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesRequest\filter;
+use AlibabaCloud\SDK\Vpc\V20160428\Models\DescribeEipAddressesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeEipAddressesRequest extends Model
@@ -245,6 +246,11 @@ class DescribeEipAddressesRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'filter'                    => 'Filter',
         'allocationId'              => 'AllocationId',
@@ -269,6 +275,7 @@ class DescribeEipAddressesRequest extends Model
         'securityProtectionEnabled' => 'SecurityProtectionEnabled',
         'segmentInstanceId'         => 'SegmentInstanceId',
         'status'                    => 'Status',
+        'tag'                       => 'Tag',
     ];
 
     public function validate()
@@ -352,6 +359,15 @@ class DescribeEipAddressesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -439,6 +455,15 @@ class DescribeEipAddressesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

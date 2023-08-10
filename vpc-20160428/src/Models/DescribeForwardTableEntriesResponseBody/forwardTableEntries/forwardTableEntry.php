@@ -91,6 +91,11 @@ class forwardTableEntry extends Model
     public $ipProtocol;
 
     /**
+     * @var string
+     */
+    public $natGatewayId;
+
+    /**
      * @description The status of the DNAT entry. Valid values:
      *
      *   **Pending**: being created or modified
@@ -111,6 +116,7 @@ class forwardTableEntry extends Model
         'internalIp'       => 'InternalIp',
         'internalPort'     => 'InternalPort',
         'ipProtocol'       => 'IpProtocol',
+        'natGatewayId'     => 'NatGatewayId',
         'status'           => 'Status',
     ];
 
@@ -144,6 +150,9 @@ class forwardTableEntry extends Model
         }
         if (null !== $this->ipProtocol) {
             $res['IpProtocol'] = $this->ipProtocol;
+        }
+        if (null !== $this->natGatewayId) {
+            $res['NatGatewayId'] = $this->natGatewayId;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -183,6 +192,9 @@ class forwardTableEntry extends Model
         }
         if (isset($map['IpProtocol'])) {
             $model->ipProtocol = $map['IpProtocol'];
+        }
+        if (isset($map['NatGatewayId'])) {
+            $model->natGatewayId = $map['NatGatewayId'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
