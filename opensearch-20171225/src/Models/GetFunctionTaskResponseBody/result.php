@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The timestamp that indicates the end time of the task. Unit: milliseconds.
+     *
+     * @example 1647213406267
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The extended information, which is a JSON string.
+     *
+     * @example {\"recall\":91,\"errors\":[]}
+     *
      * @var string
      */
     public $extendInfo;
 
     /**
+     * @description The name of the feature.
+     *
+     * @example ctr
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The number of iterations.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $generation;
 
     /**
+     * @description The progress. 90 indicates 90%.
+     *
+     * @example 90
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example trigger__2021-03-05T12:18:41
+     *
      * @var string
      */
     public $runId;
 
     /**
+     * @description The timestamp that indicates the start time of the task. Unit: milliseconds.
+     *
+     * @example 1647212220000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   success
+     *   failed
+     *   running
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;

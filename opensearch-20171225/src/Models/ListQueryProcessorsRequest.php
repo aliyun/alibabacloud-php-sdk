@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorsRequest extends Model
 {
     /**
+     * @description 0
+     *
+     * @example 0
+     *
      * @var int
      */
     public $isActive;

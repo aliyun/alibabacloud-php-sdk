@@ -11,66 +11,126 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the created rough sort expression.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $algoDeploymentId;
 
     /**
+     * @description Indicates whether the version is automatically published to the online environment.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoSwitch;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The timestamp when the version was created.
+     *
+     * @example 1590977140
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The description of the version.
+     *
+     * @example -
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example GENERAL
+     *
      * @var domain
      */
     public $domain;
 
     /**
+     * @description The default display fields.
+     *
+     * @example []
+     *
      * @var string[]
      */
     public $fetchFields;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example 100303063
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The progress of data import, in percentage. For example, a value of 83 indicates 83%.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $progressPercent;
 
     /**
+     * @description The quota information about the version.
+     *
+     * @example {}
+     *
      * @var quota
      */
     public $quota;
 
     /**
+     * @description The application schema.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $schema;
 
     /**
+     * @description The status of the version. Valid values:
+     *
+     *   ok
+     *   stopped
+     *   frozen
+     *   initializing
+     *   unavailable
+     *   data_waiting
+     *   data_preparing
+     *
+     * @example ok
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the application. Valid values:
+     *
+     *   standard: a standard application.
+     *   advance: an advanced application which is of an old application type. New applications cannot be of this type.
+     *   enhanced: an advanced application which is of a new application type.
+     *
+     * @example enhanced
+     *
      * @var string
      */
     public $type;

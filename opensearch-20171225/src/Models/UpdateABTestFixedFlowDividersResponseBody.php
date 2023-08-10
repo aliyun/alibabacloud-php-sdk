@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateABTestFixedFlowDividersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The whitelists after the update.
+     *
      * @var string[]
      */
     public $result;

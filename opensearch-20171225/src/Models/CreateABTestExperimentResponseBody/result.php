@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the test was created.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The ID of the test.
+     *
+     * @example 12889
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the test.
+     *
+     * @example test3
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the test. Valid values:
+     *
+     *   true: in effect
+     *   false: not in effect
+     *
+     * @example true
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @description The parameters of the test.
+     *
+     * @example {"firstFormulaName": "default"}
+     *
      * @var mixed[]
      */
     public $params;
 
     /**
+     * @description The percentage of traffic that is routed to the test.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $traffic;
 
     /**
+     * @description The time when the test was last modified.
+     *
+     * @example 1589017861
+     *
      * @var int
      */
     public $updated;

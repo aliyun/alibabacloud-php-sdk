@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateSearchStrategyResponseBody extends Model
 {
     /**
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;

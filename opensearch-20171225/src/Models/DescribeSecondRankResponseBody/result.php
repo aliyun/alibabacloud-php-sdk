@@ -9,46 +9,89 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the expression is the default one.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @description The time when the expression was created.
+     *
+     * @example 1587052801
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The description of the expression.
+     *
+     * @example -
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the expression. This parameter appears only in the response.
+     *
+     * @example 89047
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description Indicates whether the expression is the default one. This parameter appears only in the response. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var string
      */
     public $isDefault;
 
     /**
+     * @description Indicates whether the expression is a system expression. This parameter appears only in the response. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * @example false
+     *
      * @var string
      */
     public $isSys;
 
     /**
+     * @description The content of the fine sort expression.
+     *
+     * You can define an expression that consists of fields, feature functions, and mathematical functions to implement complex sort logic.
+     * @example random()+now()
+     *
      * @var string
      */
     public $meta;
 
     /**
+     * @description The name of the expression.
+     *
+     * @example tests
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The time when the expression was last updated.
+     *
+     * @example 1587052801
+     *
      * @var int
      */
     public $updated;

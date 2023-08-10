@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class functions extends Model
 {
     /**
+     * @example []
+     *
      * @var string[]
      */
     public $algo;
 
     /**
+     * @example []
+     *
      * @var string[]
      */
     public $qp;
 
     /**
+     * @example []
+     *
      * @var string[]
      */
     public $service;

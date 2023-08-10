@@ -10,41 +10,73 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionInstancesResponseBody extends Model
 {
     /**
+     * @description The error code. If no error occurs, the parameter is left empty.
+     *
+     * @example Instance.NotExist
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The time consumed for the request, in milliseconds.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message. If no error occurs, the parameter is left empty.
+     *
+     * @example instance not exist.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A4D487A9-A456-5AA5-A9C6-B7BF2889CF74
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the instances.
+     *
+     * @example []
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The status of the request.
+     *
+     * @example "OK"
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

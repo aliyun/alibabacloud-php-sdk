@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class dataSource extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $parameters;
 
     /**
+     * @example user_activity_decision
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @example rds
+     *
      * @var string
      */
     public $type;

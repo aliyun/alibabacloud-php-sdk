@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateSortScriptResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F165784-5507-5342-ABF3-545293F9808A
+     *
      * @var string
      */
     public $requestId;

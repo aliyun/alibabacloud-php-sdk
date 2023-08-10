@@ -9,10 +9,20 @@ use AlibabaCloud\Tea\Model;
 class GenerateMergedTableRequest extends Model
 {
     /**
+     * @var Schema
+     */
+    public $body;
+
+    /**
+     * @description \-
+     *
+     * @example "opensearch.share.common"
+     *
      * @var string
      */
     public $spec;
     protected $_name = [
+        'body' => 'body',
         'spec' => 'spec',
     ];
 
@@ -23,6 +33,9 @@ class GenerateMergedTableRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
         if (null !== $this->spec) {
             $res['spec'] = $this->spec;
         }
@@ -38,6 +51,9 @@ class GenerateMergedTableRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = Schema::fromMap($map['body']);
+        }
         if (isset($map['spec'])) {
             $model->spec = $map['spec'];
         }

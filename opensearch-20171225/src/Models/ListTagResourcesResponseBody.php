@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The token that is used to retrieve the next page.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The resources.
+     *
      * @var result[]
      */
     public $result;

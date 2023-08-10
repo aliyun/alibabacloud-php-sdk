@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The content of the optimization suggestion for the query.
+     *
+     * @example no data
+     *
      * @var string
      */
     public $appQuery;
 
     /**
+     * @description The end of the time range that was queried.
+     *
+     * @example 1589990340
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @description The ID of the optimization suggestion.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @description The beginning of the time range that was queried.
+     *
+     * @example 1589986800
+     *
      * @var int
      */
     public $start;

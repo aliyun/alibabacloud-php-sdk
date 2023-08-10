@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionTasksRequest extends Model
 {
     /**
+     * @description The end time is less than the specified time. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+     *
+     * @example 1582646399
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 1.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The start time is greater than the specified time. Specify the time in the UNIX timestamp format. Unit: milliseconds.
+     *
+     * @example 1582214400
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   success
+     *   failed
+     *   running
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;

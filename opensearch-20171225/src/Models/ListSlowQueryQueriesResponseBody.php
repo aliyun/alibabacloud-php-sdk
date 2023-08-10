@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSlowQueryQueriesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example EB250CA0-ACFD-C5DE-17CD-01445BFE8AE5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return result.
+     *
      * @var result
      */
     public $result;

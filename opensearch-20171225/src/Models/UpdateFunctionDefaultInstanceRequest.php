@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionDefaultInstanceRequest extends Model
 {
     /**
+     * @description The name of the instance.
+     *
+     * @example "pop_test"
+     *
      * @var string
      */
     public $instanceName;

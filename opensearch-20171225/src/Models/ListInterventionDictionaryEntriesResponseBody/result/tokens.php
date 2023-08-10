@@ -9,21 +9,70 @@ use AlibabaCloud\Tea\Model;
 class tokens extends Model
 {
     /**
+     * @description The sequence number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $order;
 
     /**
+     * @description The internal name of the identified entity type. Valid values:
+     *
+     *   brand
+     *   category
+     *   material
+     *   element
+     *   style
+     *   color
+     *   function
+     *   scenario
+     *   people
+     *   season
+     *   model
+     *   region
+     *   name
+     *   adjective
+     *   category-modifier
+     *   size
+     *   quality
+     *   suit
+     *   new-release
+     *   series
+     *   marketing
+     *   entertainment
+     *   organization
+     *   movie
+     *   game
+     *   number
+     *   unit
+     *   common
+     *   new-word
+     *   proper-noun
+     *   symbol
+     *   prefix
+     *   suffix
+     *   gift
+     *   negative
+     *   agent
+     *
+     * @example category
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The description of the internal name of the identified entity type.
+     *
      * @var string
      */
     public $tagLabel;
 
     /**
+     * @description The entity.
+     *
      * @var string
      */
     public $token;

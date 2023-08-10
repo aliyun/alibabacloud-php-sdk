@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DisableSlowQueryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 728E89C6-8673-D39B-39A1-5BA2B56D448F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return result.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

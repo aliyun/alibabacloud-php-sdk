@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the test scenario was created.
+     *
+     * @example 1596527691
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The ID of the test scenario.
+     *
+     * @example 20614
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the test scenario.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the test scenario. Valid values:
+     *
+     *   0: not in effect
+     *   1: in effect
+     *
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The time when the test scenario was last modified.
+     *
+     * @example 1596527691
+     *
      * @var int
      */
     public $updated;
 
     /**
+     * @description The tag of the test scenario.
+     *
      * @var string[]
      */
     public $values;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppStatisticsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 76FC45F1-4167-D3CD-6737-4F97BA503FA0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The statistics.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

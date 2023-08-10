@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyAppGroupQuotaResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the application.
+     *
      * @var result
      */
     public $result;

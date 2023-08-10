@@ -11,21 +11,35 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionInstanceRequest extends Model
 {
     /**
+     * @description The parameters that are used to create the instance.
+     *
+     * @example {             "name": "title_field",             "value": "title"         }
+     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
+     * @description The cron expression used to schedule periodic training, in the format of (Minutes Hours DayofMonth Month DayofWeek). The default value is empty, which indicates that no periodic training is performed. DayofWeek 0 indicates Sunday.
+     *
+     * @example "0 3 ? * 0,1,3,5"
+     *
      * @var string
      */
     public $cron;
 
     /**
+     * @description The description of the instance.
+     *
+     * @example test instance
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The parameters that are used.
+     *
      * @var usageParameters[]
      */
     public $usageParameters;

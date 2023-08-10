@@ -9,81 +9,145 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 120123456
+     *
      * @var int
      */
     public $appGroupId;
 
     /**
+     * @description The name of the application.
+     *
+     * @example "td_test_os"
+     *
      * @var string
      */
     public $appGroupName;
 
     /**
+     * @description The type of the application.
+     *
+     * @example "standard"
+     *
      * @var string
      */
     public $appGroupType;
 
     /**
+     * @description Indicates whether the ticket is approved.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $approved;
 
     /**
+     * @description Indicates whether the model is available.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $available;
 
     /**
+     * @description The time when the ticket was created.
+     *
+     * @example "2020-04-08T08:29:45+0000"
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @description The time when the ticket was last updated.
+     *
+     * @example "2020-04-08T08:36:36+0000"
+     *
      * @var string
      */
     public $gmtModified;
 
     /**
+     * @description The ID of the ticket.
+     *
+     * @example 142
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The remarks of the ticket.
+     *
+     * @example null
+     *
      * @var string
      */
     public $memo;
 
     /**
+     * @description The computing resource quota that is applied for.
+     *
+     * @example 6000
+     *
      * @var int
      */
     public $newComputeResource;
 
     /**
+     * @description The storage capacity quota that is applied for.
+     *
+     * @example 1100
+     *
      * @var int
      */
     public $newSocSize;
 
     /**
+     * @description The application specifications that are applied for.
+     *
+     * @example "opensearch.private.common"
+     *
      * @var string
      */
     public $newSpec;
 
     /**
+     * @description The original quota of computing resources.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $oldComputeResource;
 
     /**
+     * @description The original quota of storage capacity.
+     *
+     * @example 900
+     *
      * @var int
      */
     public $oldDocSize;
 
     /**
+     * @description The original application specifications.
+     *
+     * @example "opensearch.private.common"
+     *
      * @var string
      */
     public $oldSpec;
 
     /**
+     * @description Indicates whether the ticket is pending.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $pending;

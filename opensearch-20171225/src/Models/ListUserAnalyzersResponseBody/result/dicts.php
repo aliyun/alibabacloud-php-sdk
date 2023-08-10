@@ -9,36 +9,66 @@ use AlibabaCloud\Tea\Model;
 class dicts extends Model
 {
     /**
+     * @description Indicates whether the application is available.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $available;
 
     /**
+     * @description The timestamp when the application was created.
+     *
+     * @example 1588054131
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The number of intervention entries.
+     *
+     * @example -1
+     *
      * @var int
      */
     public $entriesCount;
 
     /**
+     * @description The maximum number of intervention entries that can be created in the dictionary.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $entriesLimit;
 
     /**
+     * @description The ID of the dictionary.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The type. Valid value:
+     *
+     *   segment
+     *
+     * @example segment
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The timestamp when the application was last updated.
+     *
+     * @example 1588054131
+     *
      * @var int
      */
     public $updated;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the expression is the default one.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @description The content of the expression.
+     *
      * @var meta[]
      */
     public $meta;
 
     /**
+     * @description The name of the expression.
+     *
+     * @example default
+     *
      * @var string
      */
     public $name;

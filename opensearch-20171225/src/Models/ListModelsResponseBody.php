@@ -9,11 +9,18 @@ use AlibabaCloud\Tea\Model;
 class ListModelsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 429848D7-C3E1-8FFB-9FF6-01932E6067ED
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the models.
+     *
+     * For more information, see [Model](~~180898~~).
      * @var mixed[][]
      */
     public $result;

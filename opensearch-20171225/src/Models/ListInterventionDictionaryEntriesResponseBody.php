@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryEntriesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 516A02B7-2167-8D92-12D0-B639A2A0F3C5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about each intervention entry.
+     *
+     * For more information, see [InterventionDictionaryEntry](~~173606~~).
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;

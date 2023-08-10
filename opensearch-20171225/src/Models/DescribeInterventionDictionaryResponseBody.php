@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInterventionDictionaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D7CCF454-472A-030E-F254-604520B028AA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information the intervention dictionary.
+     *
      * @var result
      */
     public $result;

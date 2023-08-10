@@ -9,46 +9,101 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the data collection task was created.
+     *
+     * @example 1581065837
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The type of the data that is collected by the task. Valid values:
+     *
+     *   behavior: behavioral data
+     *   item_info: project data
+     *   industry_specific: industry-specific data
+     *
+     * @example BEHAVIOR
+     *
      * @var string
      */
     public $dataCollectionType;
 
     /**
+     * @description The ID of the data collection task.
+     *
+     * @example 286
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The industry to which the data collection task applies. Valid values:
+     *
+     *   general
+     *   ecommerce
+     *
+     * @example GENERAL
+     *
      * @var string
      */
     public $industryName;
 
     /**
+     * @description The name of the data collection task.
+     *
+     * @example os_function_test_v1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the data collection task. Valid values:
+     *
+     *   0: disabled
+     *   1: being enabled
+     *   2: enabled
+     *   3: failed to be enabled
+     *
+     * @example 2
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The ID of the sundial.
+     *
+     * @example 1755
+     *
      * @var string
      */
     public $sundialId;
 
     /**
+     * @description The type of the data source. Valid values:
+     *
+     *   server
+     *
+     *   web
+     *
+     *   app
+     *
+     * Note: Only server is supported.
+     * @example server
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The time when the data collection task was updated.
+     *
+     * @example 1581065904
+     *
      * @var int
      */
     public $updated;

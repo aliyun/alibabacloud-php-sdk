@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryNerResultsRequest extends Model
 {
     /**
+     * @description Soymilk
+     *
      * @var string
      */
     public $query;

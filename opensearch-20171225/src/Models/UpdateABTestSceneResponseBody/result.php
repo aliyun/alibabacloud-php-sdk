@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the test scenario was created.
+     *
+     * @example 1596527691
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The ID of the test scenario.
+     *
+     * @example 20614
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The name of the test scenario.
+     *
+     * @example kevintest22
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The status of the test. Valid values:
+     * - false: stopped
+     * @example true
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @description The parameters of the A/B test.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $params;
 
     /**
+     * @description The percentage of traffic that is allocated to the A/B test. Valid values: [0,100].
+     *
+     * @example 111
+     *
      * @var int
      */
     public $traffic;
 
     /**
+     * @description The time when the test scenario was last modified.
+     *
+     * @example 1596527691
+     *
      * @var int
      */
     public $updated;

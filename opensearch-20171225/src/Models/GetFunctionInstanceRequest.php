@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionInstanceRequest extends Model
 {
     /**
+     * @description Specifies the richness of returned information. Valid values:
+     *
+     *   simple: displays only the basic information.
+     *   normal: displays information such as createParameters and cron. This is the default value.
+     *   detail: returns the details of the training task.
+     *
+     * @example detail
+     *
      * @var string
      */
     public $output;

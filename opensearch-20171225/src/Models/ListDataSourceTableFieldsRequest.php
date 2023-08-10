@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceTableFieldsRequest extends Model
 {
     /**
+     * @description {}
+     *
+     * @example {}
+     *
      * @var string
      */
     public $params;
+
+    /**
+     * @description Whether to return the original field type of the data source
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $rawType;
     protected $_name = [
-        'params' => 'params',
+        'params'  => 'params',
+        'rawType' => 'rawType',
     ];
 
     public function validate()
@@ -25,6 +39,9 @@ class ListDataSourceTableFieldsRequest extends Model
         $res = [];
         if (null !== $this->params) {
             $res['params'] = $this->params;
+        }
+        if (null !== $this->rawType) {
+            $res['rawType'] = $this->rawType;
         }
 
         return $res;
@@ -40,6 +57,9 @@ class ListDataSourceTableFieldsRequest extends Model
         $model = new self();
         if (isset($map['params'])) {
             $model->params = $map['params'];
+        }
+        if (isset($map['rawType'])) {
+            $model->rawType = $map['rawType'];
         }
 
         return $model;

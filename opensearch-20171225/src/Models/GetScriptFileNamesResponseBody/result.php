@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the script file was created.
+     *
+     * @example 2020-04-02 20:21:14
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the script file.
+     *
+     * @example my_cava_script.cava
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The time when the script file was last modified.
+     *
+     * @example 2020-04-02 21:21:14
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @example src
+     *
      * @var string
      */
     public $pathName;

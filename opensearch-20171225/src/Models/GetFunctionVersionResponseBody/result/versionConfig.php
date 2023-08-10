@@ -12,16 +12,26 @@ use AlibabaCloud\Tea\Model;
 class versionConfig extends Model
 {
     /**
+     * @description The parameters that are used to create the instance.
+     *
+     * @example [                 {                     "name": "params1",                     "required": "true",                     "formItemProps": "{\"required\": true, \"pattern?\": \"/^[a-zA-Z][a-zA-Z0-9_]{0,29}$/\"}",                     "componentProps": "{\"component\": \"Input\", \"attributes\": {\"defaultValue\": \"value1\"}}"                 }             ]
+     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
+     * @description The dependencies of the instance.
+     *
      * @var depends[]
      */
     public $depends;
 
     /**
+     * @description The parameters that are used during online use of the instance.
+     *
+     * @example []
+     *
      * @var usageParameters[]
      */
     public $usageParameters;

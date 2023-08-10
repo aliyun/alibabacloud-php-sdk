@@ -9,10 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RenewAppGroupRequest extends Model
 {
     /**
+     * @var PrepayOrderInfo
+     */
+    public $body;
+
+    /**
+     * @description Guaranteed request idempotence
+     *
+     * @example 74db41d8cd3c784209093aa76afbe89e
+     *
      * @var string
      */
     public $clientToken;
     protected $_name = [
+        'body'        => 'body',
         'clientToken' => 'clientToken',
     ];
 
@@ -23,6 +33,9 @@ class RenewAppGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
@@ -38,6 +51,9 @@ class RenewAppGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = PrepayOrderInfo::fromMap($map['body']);
+        }
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }

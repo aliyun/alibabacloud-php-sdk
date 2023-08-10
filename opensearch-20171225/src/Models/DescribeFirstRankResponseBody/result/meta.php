@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The parameters that are used by a function in the expression.
+     *
+     * @example ar_edit_time
+     *
      * @var string
      */
     public $arg;
 
     /**
+     * @description The attribute, feature function, or field to be searched for.
+     *
+     * @example timeliness_ms()
+     *
      * @var string
      */
     public $attribute;
 
     /**
+     * @description The weight.
+     *
+     * Valid values: \[-100000,100000] (excluding 0).
+     * @example 1
+     *
      * @var float
      */
     public $weight;

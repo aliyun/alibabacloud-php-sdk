@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAnalyzerResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example FFAEF396-10EF-53C7-1F51-518853880729
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the custom analyzer.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

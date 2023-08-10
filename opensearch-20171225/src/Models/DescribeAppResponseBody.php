@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 33477D76-C380-1D84-A4AD-043F52876CB1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the version.
+     *
+     * @example {}
+     *
      * @var result
      */
     public $result;

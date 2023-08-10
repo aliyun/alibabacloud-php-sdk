@@ -10,126 +10,248 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The billing method of the application. Valid values:
+     *
+     *   POSTPAY: pay-as-you-go
+     *   PREPAY: subscription
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The billing model. Valid values:
+     *
+     *   1: computing resources
+     *   2: queries per second (QPS)
+     *
+     * @example 1
+     *
      * @var int
      */
     public $chargingWay;
 
     /**
+     * @description The code of the commodity.
+     *
+     * @example opensearch
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The timestamp when the application was created.
+     *
+     * @example 1590139542
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The ID of the current online version.
+     *
+     * @example 100302903
+     *
      * @var string
      */
     public $currentVersion;
 
     /**
+     * @description The description of the application.
+     *
+     * @example -
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example GENERAL
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The expiration time.
+     *
+     * @example -
+     *
      * @var string
      */
     public $expireOn;
 
     /**
+     * @description The ID of the created rough sort expression.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $firstRankAlgoDeploymentId;
 
     /**
+     * @description The approval status of the quotas. Valid values:
+     *
+     *   0: The quotas are approved.
+     *   1: The quotas are being approved.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $hasPendingQuotaReviewTask;
 
     /**
+     * @description The ID of the application.
+     *
+     * @example 100302881
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example -
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The lock mode of the instance. Valid values:
+     *
+     *   Unlock: The instance is not locked.
+     *   LockByExpiration: The instance is automatically locked after it expires.
+     *   ManualLock: The instance is manually locked.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description Indicates whether the instance is automatically locked after it expires.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $lockedByExpiration;
 
     /**
+     * @description The name of the application.
+     *
+     * @example lsh_test_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the fine sort expression that is being created.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $pendingSecondRankAlgoDeploymentId;
 
     /**
+     * @description The ID of the order that is not complete for the instance. For example, an order is one that is initiated to create the instance or change the quotas or billing method.
+     *
+     * @example -
+     *
      * @var string
      */
     public $processingOrderId;
 
     /**
+     * @description Indicates whether the order is complete. Valid values:
+     *
+     *   0: The order is in progress.
+     *   1: The order is complete.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $produced;
 
     /**
+     * @description The name of the A/B test group.
+     *
+     * @example -
+     *
      * @var string
      */
     public $projectId;
 
     /**
+     * @description The information about the quotas of the application.
+     *
      * @var quota
      */
     public $quota;
 
     /**
+     * @description The ID of the created fine sort expression.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $secondRankAlgoDeploymentId;
 
     /**
+     * @description The status of the application. Valid values:
+     *
+     *   producing
+     *   review_pending
+     *   config_pending
+     *   normal
+     *   frozen
+     *
+     * @example normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The timestamp when the current online version was published.
+     *
+     * @example 1590486386
+     *
      * @var int
      */
     public $switchedTime;
 
     /**
+     * @description The type of the application. Valid values:
+     *
+     *   standard: a standard application.
+     *   advance: an advanced application which is of an old application type. New applications cannot be of this type.
+     *   enhanced: an advanced application which is of a new application type.
+     *
+     * @example enhanced
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The timestamp when the application was last updated.
+     *
+     * @example 1590978265
+     *
      * @var int
      */
     public $updated;

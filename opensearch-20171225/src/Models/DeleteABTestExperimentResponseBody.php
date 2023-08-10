@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteABTestExperimentResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

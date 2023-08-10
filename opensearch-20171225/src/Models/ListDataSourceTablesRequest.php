@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListDataSourceTablesRequest extends Model
 {
     /**
+     * @description N/A
+     *
+     * @example -
+     *
      * @var string
      */
     public $params;

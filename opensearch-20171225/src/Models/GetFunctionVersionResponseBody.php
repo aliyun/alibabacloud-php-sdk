@@ -10,36 +10,64 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionVersionResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example Version.NotExist
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The maximum duration for which a task can be executed.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message.
+     *
+     * @example version not exist.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1638157479281
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result body.
+     *
+     * @example []
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The status of the request.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

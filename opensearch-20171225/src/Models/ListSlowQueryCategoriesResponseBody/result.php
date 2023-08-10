@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The status of the analysis. Valid values:
+     *
+     *   PENDING: preparing
+     *   SUCCESS: succeeded
+     *   RUNNING: running
+     *   FAILED: failed
+     *   N/A: unknown
+     *
+     * @example "PENDING"
+     *
      * @var string
      */
     public $analyzeStatus;
 
     /**
+     * @description The timestamp that indicates the end of the time range to query.
+     *
+     * @example 1589990340
+     *
      * @var int
      */
     public $end;
 
     /**
+     * @description The timestamp that indicates the beginning of the time range to query.
+     *
+     * @example 1589986800
+     *
      * @var int
      */
     public $start;

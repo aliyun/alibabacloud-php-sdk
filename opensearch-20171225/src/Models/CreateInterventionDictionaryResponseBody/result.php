@@ -9,26 +9,42 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Creates an intervention dictionary.
+     *
+     * @example dianshang
+     *
      * @var string
      */
     public $analyzer;
 
     /**
+     * @description The name of the intervention dictionary.
+     *
+     * @example 1591086323
+     *
      * @var string
      */
     public $created;
 
     /**
+     * @example testb
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example ner
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description CreateInterventionDictionary
+     *
+     * @example 1591086323
+     *
      * @var string
      */
     public $updated;

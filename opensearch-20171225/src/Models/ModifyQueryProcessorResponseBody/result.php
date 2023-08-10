@@ -9,36 +9,68 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description Indicates whether the query analysis rule is the default one.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $active;
 
     /**
+     * @description The time when the rule was created.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The type of the industry. Valid values:
+     *
+     *   GENERAL
+     *   ECOMMERCE
+     *   IT_CONTENT
+     *
+     * @example GENERAL
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The indexes to which the query analysis rule applies.
+     *
+     * @example ["default"]
+     *
      * @var string[]
      */
     public $indexes;
 
     /**
+     * @description The name of the query analysis rule.
+     *
+     * @example synonym
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The analysis rule.
+     *
+     * @example []
+     *
      * @var mixed[][]
      */
     public $processors;
 
     /**
+     * @description The most recent update time.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $updated;

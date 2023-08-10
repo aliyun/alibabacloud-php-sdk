@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListDataCollectionsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 959D8782-B130-95EB-86CC-1F6ED447981F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the data collection tasks.
+     *
+     * For more information, see [DataCollection](~~173605~~).
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The total number of the returned data collection tasks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

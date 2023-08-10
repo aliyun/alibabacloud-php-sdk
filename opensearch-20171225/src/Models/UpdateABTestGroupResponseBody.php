@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateABTestGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example \"\"1111\"\"
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the test group.
+     *
      * @var result
      */
     public $result;

@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionInstanceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example Version.NotExist
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The time consumed for the request, in milliseconds.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message. If no error occurs, this parameter is left empty.
+     *
+     * @example version not exist.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 98724351-D6B2-5D8A-B089-7FFD1821A7E9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the request.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

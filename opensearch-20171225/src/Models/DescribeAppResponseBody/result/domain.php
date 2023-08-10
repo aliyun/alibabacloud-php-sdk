@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class domain extends Model
 {
     /**
+     * @example -
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example {}
+     *
      * @var functions
      */
     public $functions;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;

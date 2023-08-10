@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class createParameters extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example title_field
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example title
+     *
      * @var string
      */
     public $value;

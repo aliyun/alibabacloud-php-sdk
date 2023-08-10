@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class PushUserAnalyzerEntriesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description N/A
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

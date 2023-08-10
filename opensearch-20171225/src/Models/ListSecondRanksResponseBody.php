@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListSecondRanksResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about each fine sort expression.
+     *
+     * For more information, see [SecondRank](~~170008~~).
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

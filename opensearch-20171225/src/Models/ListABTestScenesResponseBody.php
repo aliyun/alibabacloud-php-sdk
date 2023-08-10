@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListABTestScenesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the test scenarios.
+     *
+     * For more information, see [ABTestScene](~~173618~~).
      * @var result[]
      */
     public $result;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserAnalyzerRequest extends Model
 {
     /**
+     * @description all
+     *
+     * @example all
+     *
      * @var string
      */
     public $with;

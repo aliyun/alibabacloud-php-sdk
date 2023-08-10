@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetDomainRequest extends Model
 {
     /**
+     * @description my_app_group_name
+     *
+     * @example my_app_group_name
+     *
      * @var string
      */
     public $appGroupIdentity;

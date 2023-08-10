@@ -9,10 +9,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateFetchFieldsRequest extends Model
 {
     /**
+     * @var string[]
+     */
+    public $body;
+
+    /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
+        'body'   => 'body',
         'dryRun' => 'dryRun',
     ];
 
@@ -23,6 +33,9 @@ class UpdateFetchFieldsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = $this->body;
+        }
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -38,6 +51,11 @@ class UpdateFetchFieldsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            if (!empty($map['body'])) {
+                $model->body = $map['body'];
+            }
+        }
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The script content that is encoded in the Base64 format.
+     *
+     * @example YWJjZGVmZw==
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The time when the script was created.
+     *
+     * @example 2020-04-02 20:21:14
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The last time when the script was last modified.
+     *
+     * @example 2020-04-02 21:21:14
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The version of the script.
+     *
+     * @example 123456
+     *
      * @var int
      */
     public $version;

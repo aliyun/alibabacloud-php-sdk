@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListProceedingsRequest extends Model
 {
     /**
+     * @description Specifies whether the filtering is complete.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $filterFinished;

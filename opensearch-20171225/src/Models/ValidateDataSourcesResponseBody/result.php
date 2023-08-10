@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example SUCCEED
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {}
+     *
      * @var dataSource
      */
     public $dataSource;

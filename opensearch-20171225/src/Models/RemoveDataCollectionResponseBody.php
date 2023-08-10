@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RemoveDataCollectionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description N/A
+     *
+     * @example {}
+     *
      * @var string
      */
     public $result;

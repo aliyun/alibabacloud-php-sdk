@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaReviewTasksRequest extends Model
 {
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

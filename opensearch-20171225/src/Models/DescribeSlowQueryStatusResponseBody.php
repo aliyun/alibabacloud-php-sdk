@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowQueryStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5C1C1C45-C64A-AD30-565F-140871D57E5E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return result.
+     *
      * @var result
      */
     public $result;

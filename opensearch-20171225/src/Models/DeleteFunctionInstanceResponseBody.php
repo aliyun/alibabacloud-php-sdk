@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class DeleteFunctionInstanceResponseBody extends Model
 {
     /**
+     * @description The error code. If no error occurs, this parameter is left empty.
+     *
+     * @example "Instance.NotExist"
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The time consumed for the request, in milliseconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message. If no error occurs, this parameter is left empty.
+     *
+     * @example "instance not exist."
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example "1081EB05-473C-5BF4-95BE-6D7CAD5E2213"
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the request. Valid values:
+     *
+     *   OK: The request is successful.
+     *   FAIL: The request fails.
+     *
+     * @example "OK"
+     *
      * @var string
      */
     public $status;

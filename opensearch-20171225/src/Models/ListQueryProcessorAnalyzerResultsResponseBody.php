@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorAnalyzerResultsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 98724351-D6B2-5D8A-B089-7FFD1821A7E9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The data returned.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryRelatedEntitiesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about each application and each query analysis rule. If no query analysis rule references the intervention dictionary, the value of the result parameter is an empty list.
+     *
      * @var mixed[][]
      */
     public $result;

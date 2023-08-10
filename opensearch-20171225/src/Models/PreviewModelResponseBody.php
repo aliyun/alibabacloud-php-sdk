@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class PreviewModelResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result that was returned.
+     *
      * @var mixed[][]
      */
     public $result;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

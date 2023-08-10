@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticLogsRequest extends Model
 {
     /**
+     * @description The fields to query. Example: columns=wordsTopPv.
+     *
+     * For more information, see [Metrics in statistical reports](https://www.alibabacloud.com/help/en/opensearch/latest/statistical-report).
+     * @example wordsTopPv
+     *
      * @var string
      */
     public $columns;
 
     /**
+     * @description The content of the query clause.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $distinct;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 10.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The content of the query clause.
+     *
+     * @example "default:\"OpenSearch\""
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @description The content of the sort clause.
+     *
+     * @example "-id"
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @description The beginning of the time range to query. The default value is the timestamp of 00:00:00 on the current day.
+     *
+     * @example 1582214400
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The end of the time range to query. The default value is the timestamp of 24:00:00 on the current day.
+     *
+     * @example 1682222400
+     *
      * @var int
      */
     public $stopTime;

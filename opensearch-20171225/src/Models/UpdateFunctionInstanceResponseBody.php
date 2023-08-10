@@ -9,31 +9,58 @@ use AlibabaCloud\Tea\Model;
 class UpdateFunctionInstanceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example "Instance.NotExist"
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The time consumed for the request, in milliseconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message.
+     *
+     * @example "instance not exist."
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example "3A809095-C554-5CF5-8FCE-BE19D4673790"
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the request. Valid values:
+     *
+     *       OK: The request was successful.
+     *       FAIL: The request failed.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

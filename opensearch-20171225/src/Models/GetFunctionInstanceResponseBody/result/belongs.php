@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class belongs extends Model
 {
     /**
+     * @description The category.
+     *
+     * @example general
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The industry.
+     *
+     * @example ecommerce
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The abbreviation of the language that applies.
+     *
+     * @example zh
+     *
      * @var string
      */
     public $language;

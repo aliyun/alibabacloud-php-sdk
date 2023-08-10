@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataCollctionResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 72FAD77B-83F9-F393-BA8E-5834E2427BF8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the data collection task.
+     *
      * @var result
      */
     public $result;

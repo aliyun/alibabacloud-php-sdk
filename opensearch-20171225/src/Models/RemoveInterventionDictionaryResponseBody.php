@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class RemoveInterventionDictionaryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 06BBD41A-5F72-34E4-2DAF-E43B0526051D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the intervention dictionary.
+     *
      * @var result
      */
     public $result;

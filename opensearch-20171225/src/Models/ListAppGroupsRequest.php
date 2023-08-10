@@ -10,31 +10,55 @@ use AlibabaCloud\Tea\Model;
 class ListAppGroupsRequest extends Model
 {
     /**
+     * @description ops-cn-xxxx
+     *
+     * @example ops-cn-xxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description my_name
+     *
+     * @example my_name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description ""
+     *
+     * @example "110123123"
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description 0
+     *
+     * @example 0
+     *
      * @var int
      */
     public $sortBy;
@@ -45,6 +69,10 @@ class ListAppGroupsRequest extends Model
     public $tags;
 
     /**
+     * @description standard
+     *
+     * @example standard
+     *
      * @var string
      */
     public $type;

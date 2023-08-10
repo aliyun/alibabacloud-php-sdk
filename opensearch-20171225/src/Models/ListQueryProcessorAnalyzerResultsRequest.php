@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorAnalyzerResultsRequest extends Model
 {
     /**
+     * @description The text to be tested.
+     *
+     * @example "abcde"
+     *
      * @var string
      */
     public $text;

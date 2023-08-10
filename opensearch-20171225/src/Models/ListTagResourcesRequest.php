@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token that is used to retrieve the next page.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The resource IDs. You can specify a maximum number of 50 resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
+     * @example BIGDATA
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags. You can specify a maximum number of 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

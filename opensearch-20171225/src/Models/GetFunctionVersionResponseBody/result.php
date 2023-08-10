@@ -10,31 +10,56 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the feature.
+     *
+     * @example ctr
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   PAAS
+     *   SAAS
+     *
+     * @example PAAS
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description The type of the model.
+     *
+     * @example tf_checkpoint
+     *
      * @var string
      */
     public $modelType;
 
     /**
+     * @description The configuration information.
+     *
      * @var versionConfig
      */
     public $versionConfig;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example 101
+     *
      * @var int
      */
     public $versionId;
 
     /**
+     * @description The name of the version.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $versionName;

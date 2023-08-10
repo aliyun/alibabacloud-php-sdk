@@ -9,10 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CreateFirstRankRequest extends Model
 {
     /**
+     * @var FirstRank
+     */
+    public $body;
+
+    /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $dryRun;
     protected $_name = [
+        'body'   => 'body',
         'dryRun' => 'dryRun',
     ];
 
@@ -23,6 +33,9 @@ class CreateFirstRankRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
         if (null !== $this->dryRun) {
             $res['dryRun'] = $this->dryRun;
         }
@@ -38,6 +51,9 @@ class CreateFirstRankRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['body'])) {
+            $model->body = FirstRank::fromMap($map['body']);
+        }
         if (isset($map['dryRun'])) {
             $model->dryRun = $map['dryRun'];
         }

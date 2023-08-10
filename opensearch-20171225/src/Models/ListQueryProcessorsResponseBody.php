@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about each query analysis rule.
+     *
+     * For more information, see [QueryProcessor](~~170014~~).
      * @var result[]
      */
     public $result;

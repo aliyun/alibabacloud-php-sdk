@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListUserAnalyzersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0A6EB64B-B4C8-CF02-810F-E660812972FF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The custom analyzer.
+     *
+     * For more information, see [UserAnalyzer](~~178934~~).
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The total number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

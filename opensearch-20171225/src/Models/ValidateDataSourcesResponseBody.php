@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ValidateDataSourcesResponseBody extends Model
 {
     /**
+     * @example 8FA2B338-AFDC-46B4-A132-B5487820C2BF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example []
+     *
      * @var result[]
      */
     public $result;

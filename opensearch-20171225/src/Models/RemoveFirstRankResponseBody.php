@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class RemoveFirstRankResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E676FAB6-A0AC-64D9-F9D7-D0D33C930CFF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the rough sort expression.
+     *
      * @var result
      */
     public $result;

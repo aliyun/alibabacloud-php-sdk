@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduledTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the scheduled task.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The default instance name.
+     *
+     * @example model1
+     *
      * @var string
      */
     public $instanceName;

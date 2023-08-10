@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateMergedTableResponseBody extends Model
 {
     /**
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;

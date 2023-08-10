@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class depends extends Model
 {
     /**
+     * @description The condition.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $condition;
 
     /**
+     * @description The dependency.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $dependency;
 
     /**
+     * @description The description.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $description;

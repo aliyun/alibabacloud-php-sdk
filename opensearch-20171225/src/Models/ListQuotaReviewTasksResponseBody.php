@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaReviewTasksResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example "3351A21F-705B-508C-9450-DA65A681547F"
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the ticket for application quota approval.
+     *
+     * For more information, see [QuotaReviewTask](~~173609~~).
+     * @example []
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The total number of the returned tickets.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $totalCount;

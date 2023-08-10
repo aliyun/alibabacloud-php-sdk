@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class params extends Model
 {
     /**
+     * @description The name of the rough sort policy.
+     *
+     * @example default
+     *
      * @var string
      */
     public $firstFormulaName;

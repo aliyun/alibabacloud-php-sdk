@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The name of the entity type.
+     *
      * @var string
      */
     public $label;
 
     /**
+     * @description The priority of an entity type among entity types that have the same priority level.
+     *
+     * A smaller value indicates a higher priority. Default value: 0.
+     * @example 1
+     *
      * @var int
      */
     public $order;
 
     /**
+     * @description The priority level of the entity type.
+     *
+     *   HIGH
+     *   MIDDLE
+     *   LOW
+     *
+     * @example HIGH
+     *
      * @var string
      */
     public $priority;
 
     /**
+     * @description The internal name of the entity type.
+     *
+     * @example brand
+     *
      * @var string
      */
     public $tag;

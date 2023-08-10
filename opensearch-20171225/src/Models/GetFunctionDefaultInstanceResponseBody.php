@@ -10,46 +10,82 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionDefaultInstanceResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example DefaultInstance.NotExist
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The name of the feature.
+     *
+     * @example cdn_waf
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example sh-bp1oi31w1jn4ctdyv
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The default running time.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message.
+     *
+     * @example default instance not set.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 062BA91F-A568-5779-8A5B-9E62C9BB3DC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
+     * @example {\"Pagination\": {\"TotalCount\": 0, \"PageNumber\": 1, \"PageSize\": 10}, \"AntConsortiums\": []}
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description The status of the request.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

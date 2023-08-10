@@ -12,71 +12,129 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The information about the instance.
+     *
+     * @example {}
+     *
      * @var belongs
      */
     public $belongs;
 
     /**
+     * @description The parameters of the instance.
+     *
+     * @example []
+     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The cron expression used to schedule training, in the format of (Minutes Hours DayofMonth Month DayofWeek). If the value is empty, it indicates that no periodic training is performed.
+     *
+     * @example 0 3 ? \* 0,1,3,5 (at 3 a.m. on Sunday, Monday, Wednesday, and Friday)
+     *
      * @var string
      */
     public $cron;
 
     /**
+     * @description The description.
+     *
+     * @example " "
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The extended information, which is a JSON string. It includes model evaluation information and error information.
+     *
+     * @example "{\"dataReport\":{},\"errors\":{}}"
+     *
      * @var string
      */
     public $extendInfo;
 
     /**
+     * @description The name of the feature.
+     *
+     * @example "ctr"
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @description The type of the feature.
+     *
+     * @example "PAAS"
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example "ctr_test"
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The type of the model.
+     *
+     * @example "tf_checkpoint"
+     *
      * @var string
      */
     public $modelType;
 
     /**
+     * @description How the instance is created. Valid values:
+     *
+     *   user: The instance is created by user.
+     *   builtin: The instance is created by system.
+     *
+     * @example "user"
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     * 2.  available: Models can be used.
+     * @example available
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The parameters that are used.
+     *
      * @var usageParameters[]
      */
     public $usageParameters;
 
     /**
+     * @description The ID of the version.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $versionId;

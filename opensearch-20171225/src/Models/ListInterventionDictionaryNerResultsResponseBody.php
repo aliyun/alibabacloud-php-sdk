@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class ListInterventionDictionaryNerResultsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8F780CA8-D4D4-2FFE-B8AC-42040822C554
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The NER result.
+     *
+     * For more information, see [InterventionDictionaryEntry](~~173606~~).
      * @var result[]
      */
     public $result;

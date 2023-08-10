@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListQueryProcessorNersRequest extends Model
 {
     /**
+     * @description ECOMMERCE
+     *
+     * @example ECOMMERCE
+     *
      * @var string
      */
     public $domain;

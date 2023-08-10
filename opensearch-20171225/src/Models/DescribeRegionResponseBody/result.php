@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The configurations.
+     *
+     * @example {}
+     *
      * @var mixed[]
      */
     public $config;
 
     /**
+     * @description The ID of the region. Valid values:
+     *
+     * pre-hangzhou: China (Hangzhou)-Staging
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

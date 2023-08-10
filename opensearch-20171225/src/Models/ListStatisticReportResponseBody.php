@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticReportResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F65C8BB2-C14F-5983-888B-41C4E082D3BC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The queried reports. Valid values:
+     *
+     * For more information about the metrics in query analysis reports, see the Query analysis metrics section of [Metrics of statistical reports](~~187654~~).
+     * @example []
+     *
      * @var mixed[][]
      */
     public $result;
 
     /**
+     * @description The total number of the queried reports.
+     *
+     * @example 43
+     *
      * @var int
      */
     public $totalCount;

@@ -10,41 +10,73 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionTasksResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The time consumed for the request, in milliseconds.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message.
+     *
+     * @example fail
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1638157479281
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The returned result.
+     *
+     * @example [         {             "functionName": "ctr",             "progress": 100,             "status": "success",             "startTime": 100010,             "endTime": 200020,             "extendInfo": "{\"recall\":91,\"errors\":[]}",             "runId": "trigger__2021-03-05T12:18:41"         }     ]
+     *
      * @var result[]
      */
     public $result;
 
     /**
+     * @description The status of the request.
+     *
+     * @example 200
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The total number of records that meet the requirements.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCount;

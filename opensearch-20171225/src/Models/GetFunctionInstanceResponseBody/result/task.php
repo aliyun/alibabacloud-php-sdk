@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   success: succeeded
+     *   failed: failed
+     *   untrained: to be trained
+     *   pending: being scheduled
+     *   running: being trained
+     *
+     * @example success
+     *
      * @var string
      */
     public $dagStatus;
 
     /**
+     * @description The time consumed for the most recent run, in milliseconds.
+     *
+     * @example 1234
+     *
      * @var int
      */
     public $lastRunTime;

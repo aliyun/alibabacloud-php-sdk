@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetDomainResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return results.
+     *
+     * @example -
+     *
      * @var mixed[]
      */
     public $result;

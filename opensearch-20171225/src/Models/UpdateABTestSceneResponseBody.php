@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateABTestSceneResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example D77D0DAF-790D-F5F5-A9C0-133738165014
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of the test scenario. For more information, see [ABTestScene](https://www.alibabacloud.com/help/en/opensearch/latest/abtestscene).
+     *
+     * @example {}
+     *
      * @var result
      */
     public $result;

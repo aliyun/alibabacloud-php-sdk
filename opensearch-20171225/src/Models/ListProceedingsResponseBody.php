@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListProceedingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F5099063-6B86-F398-D843-905F9EFB683A
+     *
      * @var string
      */
     public $requestId;

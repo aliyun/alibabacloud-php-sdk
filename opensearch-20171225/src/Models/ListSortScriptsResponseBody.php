@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListSortScriptsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The scripts of the application version.
+     *
      * @var result[]
      */
     public $result;

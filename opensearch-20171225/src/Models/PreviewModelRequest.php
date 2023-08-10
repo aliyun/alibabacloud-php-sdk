@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class PreviewModelRequest extends Model
 {
     /**
+     * @description query
+     *
+     * @example query
+     *
      * @var string
      */
     public $query;

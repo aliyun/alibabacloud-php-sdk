@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The custom analyzer.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $analyzer;
 
     /**
+     * @description The time when the intervention dictionary was created.
+     *
+     * @example 1539158325
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The ID of the intervention dictionary.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the intervention dictionary.
+     *
+     * @example tongyici
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The type of the intervention dictionary. Valid values:
+     *
+     *   stopword: an intervention dictionary for stop word filtering
+     *   synonym: an intervention dictionary for synonym configuration
+     *   correction: an intervention dictionary for spelling correction
+     *   category_prediction: an intervention dictionary for category prediction
+     *   ner: an intervention dictionary for named entity recognition (NER)
+     *   term_weighting: an intervention dictionary for term weight analysis
+     *
+     * @example synonym
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description The time when the intervention dictionary was last updated.
+     *
+     * @example 1539158313
+     *
      * @var int
      */
     public $updated;

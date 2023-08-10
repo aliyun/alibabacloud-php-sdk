@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionTaskResponseBody extends Model
 {
     /**
+     * @description The error code.
+     *
+     * @example Task.IsRunning
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The HTTP status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $httpCode;
 
     /**
+     * @description The time consumed for the request, in milliseconds.
+     *
+     * @example 123
+     *
      * @var int
      */
     public $latency;
 
     /**
+     * @description The error message.
+     *
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1638157990724
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the request.
+     *
+     * @example OK
+     *
      * @var string
      */
     public $status;

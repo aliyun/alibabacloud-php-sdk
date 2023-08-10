@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticLogsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F76ACE3D-E510-EE2C-B7B1-39B3136A61EE
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return result. For more information, see:
+     *
+     *   [Parameters of hotwords rankings](~~421248~~)
+     *
+     * @example []
+     *
      * @var mixed[][]
      */
     public $result;
 
     /**
+     * @description The total number of the queried logs.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

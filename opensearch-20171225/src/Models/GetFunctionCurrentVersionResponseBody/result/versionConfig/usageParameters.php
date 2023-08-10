@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class usageParameters extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Indicates whether the parameter is required.
+     *
+     * @example ""
+     *
      * @var string
      */
     public $required;

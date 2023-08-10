@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListStatisticReportRequest extends Model
 {
     /**
+     * @description pv,uv
+     *
+     * @example pv,uv
+     *
      * @var string
      */
     public $columns;
 
     /**
+     * @description 1582646399
+     *
+     * @example 1582646399
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description 1
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description 10
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description bizType:test,sceneTag:myTag
+     *
+     * @example bizType:test,sceneTag:myTag
+     *
      * @var string
      */
     public $query;
 
     /**
+     * @description 1582214400
+     *
+     * @example 1582214400
+     *
      * @var int
      */
     public $startTime;

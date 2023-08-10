@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RemoveAppGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3AA29D02-54F3-8569-F71A-90E1B7BE4E7E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description N/A
+     *
      * @var int[]
      */
     public $result;

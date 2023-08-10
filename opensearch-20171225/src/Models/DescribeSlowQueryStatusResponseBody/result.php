@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the application.
+     *
+     * @example 100298370
+     *
      * @var string
      */
     public $appGroupId;
 
     /**
+     * @description The network type of the slow query optimization service. Valid values:
+     *
+     *   outer: the Internet
+     *   internal: the internal network
+     *
+     * @example internal
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The status of the slow query optimization service. Valid values:
+     *
+     *   enabled
+     *   disabled
+     *   n/a
+     *
+     * @example disabled
+     *
      * @var string
      */
     public $status;

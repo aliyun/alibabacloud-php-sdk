@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ModifySecondRankResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C5E2F73C-8241-81F8-3A62-65478C5A3111
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the fine sort expression.
+     *
+     * @example {}
+     *
      * @var result
      */
     public $result;

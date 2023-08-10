@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example -
+     *
      * @var mixed[]
      */
     public $fromTable;
 
     /**
+     * @example -
+     *
      * @var mixed[]
      */
     public $mergeTable;
 
     /**
+     * @example -
+     *
      * @var string
      */
     public $primaryKey;

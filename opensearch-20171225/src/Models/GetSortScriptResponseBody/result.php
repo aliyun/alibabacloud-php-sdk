@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The time when the script was created.
+     *
+     * @example 2020-04-02 20:21:14
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the script was last modified.
+     *
+     * @example 2020-04-02 21:21:14
+     *
      * @var string
      */
     public $modifyTime;
 
     /**
+     * @description The sort phase to which the script applies.
+     *
+     * @example second_rank
+     *
      * @var string
      */
     public $scope;
 
     /**
+     * @description The status of the script. For more information, see the Script status table.
+     *
+     * @example released
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The type of the script.
+     *
+     * @example cava_script
+     *
      * @var string
      */
     public $type;

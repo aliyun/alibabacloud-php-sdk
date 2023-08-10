@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the specified one or more resources. This parameter takes effect only if the tagKey parameter is not specified. Valid values: true and false. Default value: false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The resource IDs. You can specify a maximum number of 50 IDs.
+     *
      * @var string
      */
     public $resourceIdShrink;
 
     /**
+     * @description The resource type.
+     *
+     * @example ProductVersion
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The keys of tags. You can specify a maximum number of 20 keys.
+     *
      * @var string
      */
     public $tagKeyShrink;

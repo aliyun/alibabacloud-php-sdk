@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class BindESUserAnalyzerResponseBody extends Model
 {
     /**
+     * @example 3AD34CAD-9603-5251-AFF5-3916C848A1D3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example []
+     *
      * @var mixed[]
      */
     public $result;

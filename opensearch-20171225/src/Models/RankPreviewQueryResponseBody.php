@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RankPreviewQueryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;

@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ReplaceAppGroupCommodityCodeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example AC5F78BA-66B9-545B-9CF1-8F542E682E1F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The result that was returned.
+     *
+     * @example {}
+     *
      * @var result
      */
     public $result;

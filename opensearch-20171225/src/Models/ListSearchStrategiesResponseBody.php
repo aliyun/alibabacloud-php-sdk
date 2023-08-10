@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListSearchStrategiesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9C6351F5-2E2E-5249-888B-88A74E1B8A65
+     *
      * @var string
      */
     public $requestId;

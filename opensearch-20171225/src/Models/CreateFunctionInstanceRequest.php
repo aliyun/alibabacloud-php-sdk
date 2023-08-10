@@ -11,36 +11,73 @@ use AlibabaCloud\Tea\Model;
 class CreateFunctionInstanceRequest extends Model
 {
     /**
+     * @description The parameters that are used to create the instance.
+     *
+     * @example [   { "name": "param1", "value": "val1"   } ]
+     *
      * @var createParameters[]
      */
     public $createParameters;
 
     /**
+     * @description The cron expression used to schedule periodic training, in the format of (Minutes Hours DayofMonth Month DayofWeek). The default value is empty, which indicates that no periodic training is performed. DayofWeek 0 indicates Sunday.
+     *
+     * @example 0 0 ? * 0,1,2,3,4,5,6
+     *
      * @var string
      */
     public $cron;
 
     /**
+     * @description The description.
+     *
+     * @example test instance
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The type of the feature. Valid values:
+     *
+     *   PAAS: This is the default value. Training is required before you can use the feature.
+     *
+     * @example PAAS
+     *
      * @var string
      */
     public $functionType;
 
     /**
+     * @description The name of the instance. The name must be 1 to 30 characters in length and can contain letters, digits, and underscores (\_). The name is case-sensitive and must start with a letter.
+     *
+     * @example ctr_test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The type of the model. The following features correspond to different model types:
+     *
+     *   click-through rate (CTR) model: tf_checkpoint
+     *   Popularity model: pop
+     *   Category model: offline_inference
+     *   Hotword model: offline_inference
+     *   Shading model: offline_inference
+     *   Drop-down suggestion model: offline_inference
+     *   Word segmentation model: text
+     *   Term weight model: tf_checkpoint
+     *
+     * @example tf_checkpoint
+     *
      * @var string
      */
     public $modelType;
 
     /**
+     * @description The parameters that are used to use the instance.
+     *
      * @var usageParameters[]
      */
     public $usageParameters;

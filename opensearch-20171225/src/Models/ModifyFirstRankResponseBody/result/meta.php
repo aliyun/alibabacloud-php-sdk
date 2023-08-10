@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class meta extends Model
 {
     /**
+     * @description The parameters that are used by a function in the expression.
+     *
+     * @example “1 ”
+     *
      * @var string
      */
     public $arg;
 
     /**
+     * @description The attribute, feature function, or field to be searched for.
+     *
+     * For more information about supported feature functions, see Rough sort functions.
+     * @example static_bm25()
+     *
      * @var string
      */
     public $attribute;
 
     /**
+     * @description The weight.
+     *
+     * Valid values: \[-100000,100000] (excluding 0).
+     * @example 10
+     *
      * @var float
      */
     public $weight;

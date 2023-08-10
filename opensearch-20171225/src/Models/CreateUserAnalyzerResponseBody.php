@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateUserAnalyzerResponseBody extends Model
 {
     /**
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $result;

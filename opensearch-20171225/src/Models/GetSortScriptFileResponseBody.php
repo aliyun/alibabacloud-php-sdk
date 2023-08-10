@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetSortScriptFileResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ABCDEFGH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The content of the sort script.
+     *
      * @var result
      */
     public $result;

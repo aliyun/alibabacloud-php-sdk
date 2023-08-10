@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class usageParameters extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example allow_dict_id
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example 123
+     *
      * @var string
      */
     public $value;

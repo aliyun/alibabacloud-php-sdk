@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ListAppsRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $group;
 
     /**
+     * @description 0
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description 0
+     *
+     * @example 5
+     *
      * @var int
      */
     public $size;

@@ -10,36 +10,68 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The action. Valid values:
+     *
+     *   add
+     *   delete
+     *
+     * @example add
+     *
      * @var string
      */
     public $cmd;
 
     /**
+     * @description The timestamp when the intervention entry was created.
+     *
+     * @example 1536690285
+     *
      * @var int
      */
     public $created;
 
     /**
+     * @description The content of an intervention entry for category prediction.
+     *
+     * Example: {"2":1, "100":0}
+     * @example {                 "100": "0",                 "200": "2"             }
+     *
      * @var mixed[]
      */
     public $relevance;
 
     /**
+     * @description The status of the intervention entry. Valid value:
+     *
+     *   ACTIVE: The intervention entry takes effect.
+     *
+     * @example ACTIVE
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The content of an intervention entry for term weight analysis.
+     *
      * @var tokens[]
      */
     public $tokens;
 
     /**
+     * @description The timestamp when the intervention entry was last updated.
+     *
+     * @example 1537348987
+     *
      * @var int
      */
     public $updated;
 
     /**
+     * @description The intervention query in the intervention entry.
+     *
+     * @example \u8fc7\u513f
+     *
      * @var string
      */
     public $word;
