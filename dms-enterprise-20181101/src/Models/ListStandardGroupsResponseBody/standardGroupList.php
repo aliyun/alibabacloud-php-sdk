@@ -25,6 +25,8 @@ class standardGroupList extends Model
     public $description;
 
     /**
+     * @description The ID of the security rule set.
+     *
      * @example 41****
      *
      * @var int

@@ -5586,7 +5586,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * For more information about the SQL review feature, see [SQL review](https://icms.alibaba-inc.com/content/dms/doc?l=1\\&m=61777\\&n=2433364).
+     * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param GetSQLReviewOptimizeDetailRequest $request GetSQLReviewOptimizeDetailRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -5622,7 +5622,7 @@ class Dmsenterprise extends OpenApiClient
     }
 
     /**
-     * For more information about the SQL review feature, see [SQL review](https://icms.alibaba-inc.com/content/dms/doc?l=1\\&m=61777\\&n=2433364).
+     * For more information about the SQL review feature, see [SQL review](~~60374~~).
      *   *
      * @param GetSQLReviewOptimizeDetailRequest $request GetSQLReviewOptimizeDetailRequest
      *
@@ -9591,6 +9591,9 @@ class Dmsenterprise extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->orderId)) {
             $query['OrderId'] = $request->orderId;
         }

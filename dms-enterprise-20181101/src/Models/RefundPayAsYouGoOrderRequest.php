@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RefundPayAsYouGoOrderRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @description The order ID of the order for the pay-as-you-go resource. You can call the ListEffectiveOrders operation to query the order ID.
      *
      * @example 2190037****
@@ -27,8 +32,9 @@ class RefundPayAsYouGoOrderRequest extends Model
      */
     public $tid;
     protected $_name = [
-        'orderId' => 'OrderId',
-        'tid'     => 'Tid',
+        'instanceId' => 'InstanceId',
+        'orderId'    => 'OrderId',
+        'tid'        => 'Tid',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class RefundPayAsYouGoOrderRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->orderId) {
             $res['OrderId'] = $this->orderId;
         }
@@ -56,6 +65,9 @@ class RefundPayAsYouGoOrderRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['OrderId'])) {
             $model->orderId = $map['OrderId'];
         }

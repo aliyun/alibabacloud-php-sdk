@@ -25,7 +25,7 @@ class ListSQLReviewOriginSQLShrinkRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the tenant. You can call the [GetUserActiveTenant](https://www.alibabacloud.com/help/en/data-management-service/latest/getuseractivetenant) or [ListUserTenants](https://www.alibabacloud.com/help/en/data-management-service/latest/listusertenants) operation to query the ID of the tenant.
+     * @description The ID of the tenant. You can call the [GetUserActiveTenant](~~198073~~) or [ListUserTenants](~~465818~~) operation to query the ID of the tenant.
      *
      * @example 1
      *
