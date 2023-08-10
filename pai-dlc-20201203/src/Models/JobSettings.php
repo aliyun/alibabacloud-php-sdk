@@ -28,6 +28,13 @@ class JobSettings extends Model
     public $caller;
 
     /**
+     * @example 535.54.03
+     *
+     * @var string
+     */
+    public $driver;
+
+    /**
      * @example false
      *
      * @var bool
@@ -84,6 +91,7 @@ class JobSettings extends Model
         'advancedSettings'                => 'AdvancedSettings',
         'businessUserId'                  => 'BusinessUserId',
         'caller'                          => 'Caller',
+        'driver'                          => 'Driver',
         'enableErrorMonitoringInAIMaster' => 'EnableErrorMonitoringInAIMaster',
         'enableOssAppend'                 => 'EnableOssAppend',
         'enableRDMA'                      => 'EnableRDMA',
@@ -109,6 +117,9 @@ class JobSettings extends Model
         }
         if (null !== $this->caller) {
             $res['Caller'] = $this->caller;
+        }
+        if (null !== $this->driver) {
+            $res['Driver'] = $this->driver;
         }
         if (null !== $this->enableErrorMonitoringInAIMaster) {
             $res['EnableErrorMonitoringInAIMaster'] = $this->enableErrorMonitoringInAIMaster;
@@ -154,6 +165,9 @@ class JobSettings extends Model
         }
         if (isset($map['Caller'])) {
             $model->caller = $map['Caller'];
+        }
+        if (isset($map['Driver'])) {
+            $model->driver = $map['Driver'];
         }
         if (isset($map['EnableErrorMonitoringInAIMaster'])) {
             $model->enableErrorMonitoringInAIMaster = $map['EnableErrorMonitoringInAIMaster'];

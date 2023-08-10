@@ -51,6 +51,11 @@ class ListTensorboardsRequest extends Model
     public $pageSize;
 
     /**
+     * @var bool
+     */
+    public $showOwn;
+
+    /**
      * @example GmtCreateTime
      *
      * @var string
@@ -112,6 +117,7 @@ class ListTensorboardsRequest extends Model
         'order'         => 'Order',
         'pageNumber'    => 'PageNumber',
         'pageSize'      => 'PageSize',
+        'showOwn'       => 'ShowOwn',
         'sortBy'        => 'SortBy',
         'sourceId'      => 'SourceId',
         'sourceType'    => 'SourceType',
@@ -146,6 +152,9 @@ class ListTensorboardsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->showOwn) {
+            $res['ShowOwn'] = $this->showOwn;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -200,6 +209,9 @@ class ListTensorboardsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ShowOwn'])) {
+            $model->showOwn = $map['ShowOwn'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

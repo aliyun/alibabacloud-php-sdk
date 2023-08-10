@@ -1037,6 +1037,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->showOwn)) {
+            $query['ShowOwn'] = $request->showOwn;
+        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
