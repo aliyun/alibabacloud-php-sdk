@@ -42,6 +42,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateResourceMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateResourceMemberResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateServiceAuthRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateServiceAuthResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateServiceConnectionRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateServiceConnectionResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateServiceCredentialRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\CreateServiceCredentialResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSprintResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\CreateSshKeyResponse;
@@ -224,8 +230,12 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchRepositoryRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchRepositoryResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchSourceCodeRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSearchSourceCodeResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceAuthsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceAuthsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceConnectionsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceCredentialsRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListServiceCredentialsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListSprintsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListTestCaseFieldsRequest;
@@ -238,6 +248,7 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListVariableGroupsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkItemAllFieldsResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemEstimateResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemsResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\ListWorkitemTimeResponse;
@@ -284,6 +295,8 @@ use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineGroupResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdatePipelineResponse;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldRequest;
+use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectFieldResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberRequest;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProjectMemberResponse;
 use AlibabaCloud\SDK\Devops\V20210625\Models\UpdateProtectedBranchesRequest;
@@ -1484,6 +1497,174 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->createResourceMemberWithOptions($organizationId, $resourceType, $resourceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                   $organizationId
+     * @param CreateServiceAuthRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateServiceAuthResponse
+     */
+    public function createServiceAuthWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceAuthType)) {
+            $query['serviceAuthType'] = $request->serviceAuthType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceAuth',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceAuths',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $organizationId
+     * @param CreateServiceAuthRequest $request
+     *
+     * @return CreateServiceAuthResponse
+     */
+    public function createServiceAuth($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceAuthWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param CreateServiceConnectionRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceConnectionResponse
+     */
+    public function createServiceConnectionWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->authType)) {
+            $body['authType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->connectionName)) {
+            $body['connectionName'] = $request->connectionName;
+        }
+        if (!Utils::isUnset($request->connectionType)) {
+            $body['connectionType'] = $request->connectionType;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->serviceAuthId)) {
+            $body['serviceAuthId'] = $request->serviceAuthId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceConnection',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/createServiceConnection',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceConnectionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param CreateServiceConnectionRequest $request
+     *
+     * @return CreateServiceConnectionResponse
+     */
+    public function createServiceConnection($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceConnectionWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param CreateServiceCredentialRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceCredentialResponse
+     */
+    public function createServiceCredentialWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->name)) {
+            $body['name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $body['password'] = $request->password;
+        }
+        if (!Utils::isUnset($request->scope)) {
+            $body['scope'] = $request->scope;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $body['username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceCredential',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceCredentials',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceCredentialResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $organizationId
+     * @param CreateServiceCredentialRequest $request
+     *
+     * @return CreateServiceCredentialResponse
+     */
+    public function createServiceCredential($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createServiceCredentialWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -7127,6 +7308,54 @@ class Devops extends OpenApiClient
     }
 
     /**
+     * @param string                  $organizationId
+     * @param ListServiceAuthsRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListServiceAuthsResponse
+     */
+    public function listServiceAuthsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceAuthType)) {
+            $query['serviceAuthType'] = $request->serviceAuthType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceAuths',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceAuths',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceAuthsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                  $organizationId
+     * @param ListServiceAuthsRequest $request
+     *
+     * @return ListServiceAuthsResponse
+     */
+    public function listServiceAuths($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceAuthsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                        $organizationId
      * @param ListServiceConnectionsRequest $request
      * @param string[]                      $headers
@@ -7172,6 +7401,54 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listServiceConnectionsWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $organizationId
+     * @param ListServiceCredentialsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListServiceCredentialsResponse
+     */
+    public function listServiceCredentialsWithOptions($organizationId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->serviceCredentialType)) {
+            $query['serviceCredentialType'] = $request->serviceCredentialType;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListServiceCredentials',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/serviceCredentials',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListServiceCredentialsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                        $organizationId
+     * @param ListServiceCredentialsRequest $request
+     *
+     * @return ListServiceCredentialsResponse
+     */
+    public function listServiceCredentials($organizationId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listServiceCredentialsWithOptions($organizationId, $request, $headers, $runtime);
     }
 
     /**
@@ -7564,6 +7841,48 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->listWorkItemWorkFlowStatusWithOptions($organizationId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $organizationId
+     * @param string         $workitemId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListWorkitemEstimateResponse
+     */
+    public function listWorkitemEstimateWithOptions($organizationId, $workitemId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'ListWorkitemEstimate',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/workitems/' . OpenApiUtilClient::getEncodeParam($workitemId) . '/estimate/list',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListWorkitemEstimateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $organizationId
+     * @param string $workitemId
+     *
+     * @return ListWorkitemEstimateResponse
+     */
+    public function listWorkitemEstimate($organizationId, $workitemId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listWorkitemEstimateWithOptions($organizationId, $workitemId, $headers, $runtime);
     }
 
     /**
@@ -9077,6 +9396,62 @@ class Devops extends OpenApiClient
         $headers = [];
 
         return $this->updatePipelineGroupWithOptions($organizationId, $groupId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                    $organizationId
+     * @param string                    $identifier
+     * @param UpdateProjectFieldRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateProjectFieldResponse
+     */
+    public function updateProjectFieldWithOptions($organizationId, $identifier, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->statusIdentifier)) {
+            $body['statusIdentifier'] = $request->statusIdentifier;
+        }
+        if (!Utils::isUnset($request->updateBasicFieldRequestList)) {
+            $body['updateBasicFieldRequestList'] = $request->updateBasicFieldRequestList;
+        }
+        if (!Utils::isUnset($request->updateForOpenApiList)) {
+            $body['updateForOpenApiList'] = $request->updateForOpenApiList;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateProjectField',
+            'version'     => '2021-06-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/organization/' . OpenApiUtilClient::getEncodeParam($organizationId) . '/project/' . OpenApiUtilClient::getEncodeParam($identifier) . '',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateProjectFieldResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $organizationId
+     * @param string                    $identifier
+     * @param UpdateProjectFieldRequest $request
+     *
+     * @return UpdateProjectFieldResponse
+     */
+    public function updateProjectField($organizationId, $identifier, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateProjectFieldWithOptions($organizationId, $identifier, $request, $headers, $runtime);
     }
 
     /**
