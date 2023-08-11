@@ -11,8 +11,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @description Specifies whether RAM users can change their passwords. Valid values:
      *
-     *   true: yes. This is the default value.
-     *   false: no.
+     *   true (default)
+     *   false
      *
      * @example true
      *
@@ -23,8 +23,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @description Specifies whether RAM users can manage their AccessKey pairs. Valid values:
      *
-     *   true: yes.
-     *   false: no. This is the default value.
+     *   true
+     *   false (default)
      *
      * @example false
      *
@@ -35,8 +35,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @description Specifies whether RAM users can manage their MFA devices. Valid values:
      *
-     *   true: yes. This is the default value.
-     *   false: no.
+     *   true (default)
+     *   false
      *
      * @example true
      *
@@ -47,8 +47,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @description Specifies whether RAM users can manage their personal DingTalk accounts, such as binding and unbinding of the accounts. Valid values:
      *
-     *   true: yes. This is the default value.
-     *   false: no.
+     *   true (default)
+     *   false
      *
      * @example true
      *
@@ -57,10 +57,10 @@ class SetSecurityPreferenceShrinkRequest extends Model
     public $allowUserToManagePersonalDingTalk;
 
     /**
-     * @description Specifies whether to remember the MFA devices for seven days. Valid values:
+     * @description Specifies whether RAM users can remember the MFA devices for seven days. Valid values:
      *
-     *   true: yes.
-     *   false: no. This is the default value.
+     *   true
+     *   false (default)
      *
      * @example false
      *
@@ -92,10 +92,10 @@ class SetSecurityPreferenceShrinkRequest extends Model
     public $loginSessionDuration;
 
     /**
-     * @description Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace the EnforceMFAForLogin parameter. The EnforceMFAForLogin parameter is still valid. However, we recommend that you use the MFAOperationForLogin parameter. Valid values:
+     * @description Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace EnforceMFAForLogin. EnforceMFAForLogin is still valid. However, we recommend that you use MFAOperationForLogin. Valid values:
      *
-     *   mandatory: MFA is required for all RAM users. If you use the EnforceMFAForLogin parameter, set the value to true.
-     *   independent: User-specific settings are applied. This is the default value. If you use the EnforceMFAForLogin parameter, set the value to false.
+     *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
+     *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
      *   adaptive: MFA is required only for RAM users who initiated unusual logons.
      *
      * @example adaptive
@@ -107,8 +107,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
     /**
      * @description Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
      *
-     *   autonomous: yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA. This is the default value.
-     *   enforceVerify: no.
+     *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
+     *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
      *
      * @example autonomous
      *
@@ -117,6 +117,8 @@ class SetSecurityPreferenceShrinkRequest extends Model
     public $operationForRiskLogin;
 
     /**
+     * @description The MFA methods.
+     *
      * @var string
      */
     public $verificationTypesShrink;

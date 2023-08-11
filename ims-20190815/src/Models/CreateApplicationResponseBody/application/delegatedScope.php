@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class delegatedScope extends Model
 {
     /**
+     * @description The information of application permissions.
+     *
      * @var predefinedScopes
      */
     public $predefinedScopes;

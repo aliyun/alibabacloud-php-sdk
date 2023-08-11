@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAppSecretResponseBody extends Model
 {
     /**
+     * @description The details of the application secret.
+     *
      * @var appSecret
      */
     public $appSecret;
 
     /**
+     * @description The ID of the request.
+     *
      * @example EE46FC3C-3BDE-4771-B531-27B7B6EB533D
      *
      * @var string

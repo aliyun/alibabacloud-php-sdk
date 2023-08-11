@@ -20,7 +20,7 @@ class GetAccessKeyLastUsedRequest extends Model
     /**
      * @description The logon name of the RAM user.
      *
-     * If this parameter is empty, the AccessKey pair of the current user is queried.
+     * If you do not specify this parameter, the AccessKey pair of the current user is queried.
      * @example test@example.onaliyun.com
      *
      * @var string

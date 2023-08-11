@@ -32,7 +32,7 @@ class CreateUserRequest extends Model
     /**
      * @description The email address of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -40,9 +40,9 @@ class CreateUserRequest extends Model
     public $email;
 
     /**
-     * @description The mobile phone number of the RAM user.
+     * @description The mobile number of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -50,6 +50,9 @@ class CreateUserRequest extends Model
     public $mobilePhone;
 
     /**
+     * @description The tag value.
+     *
+     * Valid values of N: 1 to 20. The tag value can be an empty string. The tag value can be a up to128 characters in length and cannot contain `http://` or `https://`. The tag value cannot start with `acs:`.
      * @var tag[]
      */
     public $tag;
@@ -57,7 +60,7 @@ class CreateUserRequest extends Model
     /**
      * @description The logon name of the RAM user.
      *
-     * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (\_). The value of `<AccountAlias>.onaliyun.com` must be 1 to 64 characters in length.
+     * The value of `UserPrincipalName` must be 1 to 128 characters in length and can contain letters, digits, periods (.), hyphens (-), and underscores (\_). The value of `<username>` must be 1 to 64 characters in length.
      * @example test@example.onaliyun.com
      *
      * @var string

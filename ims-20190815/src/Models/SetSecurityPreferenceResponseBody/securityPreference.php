@@ -42,6 +42,8 @@ class securityPreference extends Model
     public $personalInfoPreference;
 
     /**
+     * @description The MFA method preference.
+     *
      * @var verificationPreference
      */
     public $verificationPreference;

@@ -12,7 +12,9 @@ class ListOIDCProvidersResponseBody extends Model
     /**
      * @description Indicates whether the response is truncated. Valid values:
      *
-     * - false
+     *   true
+     *   false
+     *
      * @example false
      *
      * @var bool
@@ -20,7 +22,7 @@ class ListOIDCProvidersResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+     * @description The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.``
      *
      * @example EXAMPLE
      *
@@ -29,14 +31,14 @@ class ListOIDCProvidersResponseBody extends Model
     public $marker;
 
     /**
-     * @description The information about the OIDC IdP.
+     * @description The timestamp when the OIDC IdP was modified.
      *
      * @var OIDCProviders
      */
     public $OIDCProviders;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D2148337-B86A-57F0-8B31-EB7BE0125226
      *

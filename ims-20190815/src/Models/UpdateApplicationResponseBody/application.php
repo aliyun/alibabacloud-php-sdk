@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class application extends Model
 {
     /**
+     * @description The validity period of the access token. Unit: seconds.
+     *
      * @example 3600
      *
      * @var int
@@ -18,6 +20,8 @@ class application extends Model
     public $accessTokenValidity;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the application belongs.
+     *
      * @example 177242285274****
      *
      * @var string
@@ -25,6 +29,8 @@ class application extends Model
     public $accountId;
 
     /**
+     * @description The ID of the application.
+     *
      * @example 472457090344041****
      *
      * @var string
@@ -32,6 +38,8 @@ class application extends Model
     public $appId;
 
     /**
+     * @description The name of the application.
+     *
      * @example myapp
      *
      * @var string
@@ -39,6 +47,8 @@ class application extends Model
     public $appName;
 
     /**
+     * @description The type of the application.
+     *
      * @example WebApp
      *
      * @var string
@@ -46,6 +56,8 @@ class application extends Model
     public $appType;
 
     /**
+     * @description The creation time.
+     *
      * @example 2020-10-23T08:06:57Z
      *
      * @var string
@@ -53,11 +65,15 @@ class application extends Model
     public $createDate;
 
     /**
+     * @description The information of application permissions.
+     *
      * @var delegatedScope
      */
     public $delegatedScope;
 
     /**
+     * @description The display name of the application.
+     *
      * @example NewApp
      *
      * @var string
@@ -65,6 +81,8 @@ class application extends Model
     public $displayName;
 
     /**
+     * @description Indicates whether the application can be installed by using other Alibaba Cloud accounts.
+     *
      * @example true
      *
      * @var bool
@@ -72,11 +90,15 @@ class application extends Model
     public $isMultiTenant;
 
     /**
+     * @description The callback URL.
+     *
      * @var redirectUris
      */
     public $redirectUris;
 
     /**
+     * @description The validity period of the refreshed token. Unit: seconds.
+     *
      * @example 7776000
      *
      * @var int
@@ -84,6 +106,8 @@ class application extends Model
     public $refreshTokenValidity;
 
     /**
+     * @description Indicates whether a secret is required.
+     *
      * @example true
      *
      * @var bool
@@ -91,6 +115,8 @@ class application extends Model
     public $secretRequired;
 
     /**
+     * @description The update time.
+     *
      * @example 2020-10-23T08:06:57Z
      *
      * @var string

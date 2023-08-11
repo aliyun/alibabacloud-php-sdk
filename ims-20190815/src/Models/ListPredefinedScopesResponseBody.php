@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListPredefinedScopesResponseBody extends Model
 {
     /**
+     * @description The information of application permissions.
+     *
      * @var predefinedScopes
      */
     public $predefinedScopes;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 955C096D-EC99-480B-AF37-3921109107D0
      *
      * @var string

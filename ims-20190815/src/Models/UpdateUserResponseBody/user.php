@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
-     * @description The description of the RAM user.
+     * @description The description.
      *
      * @example This is a cloud computing engineer.
      *
@@ -38,7 +38,7 @@ class user extends Model
     /**
      * @description The email address of the RAM user.
      *
-     * >  This parameter applies only to the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -46,7 +46,7 @@ class user extends Model
     public $email;
 
     /**
-     * @description The last time when the RAM user logged on to the console.
+     * @description The last time when the RAM user logged on to the Alibaba Cloud Management Console.
      *
      * @example 2020-10-12T09:12:00Z
      *
@@ -57,7 +57,7 @@ class user extends Model
     /**
      * @description The mobile phone number of the RAM user.
      *
-     * >  This parameter applies only to the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -65,12 +65,17 @@ class user extends Model
     public $mobilePhone;
 
     /**
+     * @description The source of the RAM user. Valid values:
+     *
+     * - CloudSSO: The RAM user is mapped from a CloudSSO user.
+     * @example Manual
+     *
      * @var string
      */
     public $provisionType;
 
     /**
-     * @description The time when the information of the RAM user was updated.
+     * @description The time when the information about the RAM user was updated.
      *
      * @example 2020-10-13T09:19:49Z
      *

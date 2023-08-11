@@ -39,7 +39,7 @@ class user extends Model
     /**
      * @description The email address of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -58,7 +58,7 @@ class user extends Model
     /**
      * @description The mobile phone number of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -79,7 +79,7 @@ class user extends Model
     public $provisionType;
 
     /**
-     * @description An array that consists of the details of the returned tags.
+     * @description The tag value.
      *
      * @var tags
      */

@@ -17,7 +17,7 @@ class AddClientIdToOIDCProviderResponseBody extends Model
     public $OIDCProvider;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B49B8FA7-87FC-5308-AE75-5EC9E36C360A
      *

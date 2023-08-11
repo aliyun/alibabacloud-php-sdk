@@ -31,7 +31,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The new email address of the RAM user.
      *
-     * >  This parameter applies only to the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -41,7 +41,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The new mobile phone number of the RAM user.
      *
-     * >  This parameter applies only to the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -61,7 +61,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The ID of the RAM user.
      *
-     * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+     * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
      * @example 20732900249392****
      *
      * @var string
@@ -71,7 +71,7 @@ class UpdateUserRequest extends Model
     /**
      * @description The logon name of the RAM user.
      *
-     * >  You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
+     * > You must specify only one of the following parameters: `UserPrincipalName` and `UserId`.
      * @example test@example.onaliyun.com
      *
      * @var string

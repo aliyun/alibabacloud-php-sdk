@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteOIDCProviderResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 85836703-8D4F-485F-9726-4D1C730F957E
      *

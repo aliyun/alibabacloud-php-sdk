@@ -21,6 +21,8 @@ class UpdateGroupRequest extends Model
      * @description The new description.
      *
      * The value can be up to 128 characters in length.
+     * @example Test-Team
+     *
      * @var string
      */
     public $newComments;

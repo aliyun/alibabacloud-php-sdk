@@ -11,6 +11,8 @@ class group extends Model
     /**
      * @description The description.
      *
+     * @example Dev-Team
+     *
      * @var string
      */
     public $comments;

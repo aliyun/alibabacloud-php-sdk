@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateOIDCProviderRequest extends Model
 {
     /**
-     * @description The ID of the client. If you want to specify multiple fingerprints, separate the fingerprints with commas (,).
+     * @description The ID of the client. If you want to specify multiple client IDs, separate the client IDs with commas (,).
      *
-     * >  If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](~~332057~~) or [RemoveClientIdFromOIDCProvider](~~332058~~).
+     * > If you specify this parameter, all the client IDs of the OIDC IdP are replaced. If you need to only add or remove a client ID, call the AddClientIdToOIDCProvider or RemoveClientIdFromOIDCProvider operation. For more information, see [AddClientIdToOIDCProvider](~~332057~~) or [RemoveClientIdFromOIDCProvider](~~332058~~).
      * @example 498469743454717****
      *
      * @var string
      */
     public $clientIds;
+
+    /**
+     * @var int
+     */
+    public $issuanceLimitTime;
 
     /**
      * @description The description of the OIDC IdP.
@@ -37,9 +42,10 @@ class UpdateOIDCProviderRequest extends Model
      */
     public $OIDCProviderName;
     protected $_name = [
-        'clientIds'        => 'ClientIds',
-        'newDescription'   => 'NewDescription',
-        'OIDCProviderName' => 'OIDCProviderName',
+        'clientIds'         => 'ClientIds',
+        'issuanceLimitTime' => 'IssuanceLimitTime',
+        'newDescription'    => 'NewDescription',
+        'OIDCProviderName'  => 'OIDCProviderName',
     ];
 
     public function validate()
@@ -51,6 +57,9 @@ class UpdateOIDCProviderRequest extends Model
         $res = [];
         if (null !== $this->clientIds) {
             $res['ClientIds'] = $this->clientIds;
+        }
+        if (null !== $this->issuanceLimitTime) {
+            $res['IssuanceLimitTime'] = $this->issuanceLimitTime;
         }
         if (null !== $this->newDescription) {
             $res['NewDescription'] = $this->newDescription;
@@ -72,6 +81,9 @@ class UpdateOIDCProviderRequest extends Model
         $model = new self();
         if (isset($map['ClientIds'])) {
             $model->clientIds = $map['ClientIds'];
+        }
+        if (isset($map['IssuanceLimitTime'])) {
+            $model->issuanceLimitTime = $map['IssuanceLimitTime'];
         }
         if (isset($map['NewDescription'])) {
             $model->newDescription = $map['NewDescription'];

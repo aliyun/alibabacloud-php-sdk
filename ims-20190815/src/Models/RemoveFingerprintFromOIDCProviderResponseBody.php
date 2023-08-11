@@ -17,7 +17,7 @@ class RemoveFingerprintFromOIDCProviderResponseBody extends Model
     public $OIDCProvider;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C90CE971-4C7F-5D93-BD3E-2D0E79D03C01
      *

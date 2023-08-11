@@ -18,7 +18,7 @@ class ListOIDCProvidersRequest extends Model
     public $marker;
 
     /**
-     * @description The number of entries to return. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
+     * @description The number of entries per page. If a response is truncated because it reaches the value of `MaxItems`, the value of `IsTruncated` will be `true`.
      *
      * Valid values: 1 to 100. Default value: 100.
      * @example 100

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class predefinedScope extends Model
 {
     /**
+     * @description The description of the permission scope.
+     *
+     * @example Obtain the OpenID of the user. This is the default permission that you cannot remove.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The name of the scope.
+     *
      * @example openid
      *
      * @var string

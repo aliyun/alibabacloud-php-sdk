@@ -31,7 +31,7 @@ class ListTagResourcesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4BE83135-0B08-467C-B3A2-27B312FD0F57
      *
@@ -40,7 +40,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array consisting of tags that are added to resources.
+     * @description The tag key.
      *
      * @var tagResources
      */

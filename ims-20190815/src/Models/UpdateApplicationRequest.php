@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 472457090344041****
      *
      * @var string
@@ -16,6 +18,9 @@ class UpdateApplicationRequest extends Model
     public $appId;
 
     /**
+     * @description The validity period of the new access token.
+     *
+     * Valid values: 900 to 10800. Unit: seconds.
      * @example 3600
      *
      * @var int
@@ -23,6 +28,8 @@ class UpdateApplicationRequest extends Model
     public $newAccessTokenValidity;
 
     /**
+     * @description The new display name of the application.
+     *
      * @example NewApp
      *
      * @var string
@@ -30,6 +37,11 @@ class UpdateApplicationRequest extends Model
     public $newDisplayName;
 
     /**
+     * @description Specifies whether the application can be installed by using other Alibaba Cloud accounts. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +49,9 @@ class UpdateApplicationRequest extends Model
     public $newIsMultiTenant;
 
     /**
+     * @description The new scope of application permissions.
+     *
+     * If you specify a new permission scope, the new permission scope takes effect. For example, if the original permission scope is `/acs/ccc`, and the new permission scope is `/acs/alidns`, `/acs/alidns` takes effect. If you want to retain the original permission scope, set the new permission scope to `/acs/ccc;/acs/alidns`.
      * @example openid
      *
      * @var string
@@ -44,6 +59,9 @@ class UpdateApplicationRequest extends Model
     public $newPredefinedScopes;
 
     /**
+     * @description The new callback URL.
+     *
+     * Separate multiple callback URLs with semicolons (;).
      * @example https://www.example.com
      *
      * @var string
@@ -51,6 +69,9 @@ class UpdateApplicationRequest extends Model
     public $newRedirectUris;
 
     /**
+     * @description The validity period of the refreshed token.
+     *
+     * Valid values: 7200 to 31536000. Unit: seconds.
      * @example 7776000
      *
      * @var int
@@ -58,6 +79,16 @@ class UpdateApplicationRequest extends Model
     public $newRefreshTokenValidity;
 
     /**
+     * @description Specifies whether a secret is required. Valid values:
+     *
+     *   true
+     *   false
+     *
+     * >
+     *
+     *   For applications of the WebApp and ServerApp types, this parameter is automatically set to true and cannot be changed.
+     *   For applications of the NativeApp type, this parameter can be set to true or false. If you do not set this parameter, false is used. Applications of the NativeApp type run in untrusted environments and the secrets of these applications are not protected. Therefore, we recommend that you do not set this parameter to true unless otherwise specified. For more information, see [Use an application of the NativeApp type to log on to Alibaba Cloud](~~93697~~).
+     *
      * @example true
      *
      * @var bool

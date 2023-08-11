@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class SetSecurityPreferenceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 17494710-B4BA-4185-BBBB-C1A6ABDE1639
      *

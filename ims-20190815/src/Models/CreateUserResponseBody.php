@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateUserResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2BB8C44A-2862-4922-AD43-03924749173B
      *

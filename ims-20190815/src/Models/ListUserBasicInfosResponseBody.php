@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListUserBasicInfosResponseBody extends Model
 {
     /**
-     * @description Indicates whether the response is truncated. Valid values:
+     * @description Indicates whether the response is truncated. Valid value:
      *
      *   true
      *   false
@@ -22,7 +22,7 @@ class ListUserBasicInfosResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The `marker`. This parameter is returned only if the value of `IsTruncated` is `true`. If the parameter is returned, you can call this operation again and set this parameter to obtain the truncated part.
+     * @description The `marker`. If part of a previous response is truncated, you can use this parameter to obtain the truncated part.
      *
      * @example EXAMPLE
      *

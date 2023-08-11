@@ -72,6 +72,11 @@ class OIDCProvider extends Model
     public $gmtModified;
 
     /**
+     * @var int
+     */
+    public $issuanceLimitTime;
+
+    /**
      * @description The URL of the issuer.
      *
      * @example https://dev-xxxxxx.okta.com
@@ -98,16 +103,17 @@ class OIDCProvider extends Model
      */
     public $updateDate;
     protected $_name = [
-        'arn'              => 'Arn',
-        'clientIds'        => 'ClientIds',
-        'createDate'       => 'CreateDate',
-        'description'      => 'Description',
-        'fingerprints'     => 'Fingerprints',
-        'gmtCreate'        => 'GmtCreate',
-        'gmtModified'      => 'GmtModified',
-        'issuerUrl'        => 'IssuerUrl',
-        'OIDCProviderName' => 'OIDCProviderName',
-        'updateDate'       => 'UpdateDate',
+        'arn'               => 'Arn',
+        'clientIds'         => 'ClientIds',
+        'createDate'        => 'CreateDate',
+        'description'       => 'Description',
+        'fingerprints'      => 'Fingerprints',
+        'gmtCreate'         => 'GmtCreate',
+        'gmtModified'       => 'GmtModified',
+        'issuanceLimitTime' => 'IssuanceLimitTime',
+        'issuerUrl'         => 'IssuerUrl',
+        'OIDCProviderName'  => 'OIDCProviderName',
+        'updateDate'        => 'UpdateDate',
     ];
 
     public function validate()
@@ -137,6 +143,9 @@ class OIDCProvider extends Model
         }
         if (null !== $this->gmtModified) {
             $res['GmtModified'] = $this->gmtModified;
+        }
+        if (null !== $this->issuanceLimitTime) {
+            $res['IssuanceLimitTime'] = $this->issuanceLimitTime;
         }
         if (null !== $this->issuerUrl) {
             $res['IssuerUrl'] = $this->issuerUrl;
@@ -179,6 +188,9 @@ class OIDCProvider extends Model
         }
         if (isset($map['GmtModified'])) {
             $model->gmtModified = $map['GmtModified'];
+        }
+        if (isset($map['IssuanceLimitTime'])) {
+            $model->issuanceLimitTime = $map['IssuanceLimitTime'];
         }
         if (isset($map['IssuerUrl'])) {
             $model->issuerUrl = $map['IssuerUrl'];

@@ -29,6 +29,8 @@ class ListUsersRequest extends Model
     public $maxItems;
 
     /**
+     * @description The tag value.
+     *
      * @var tag[]
      */
     public $tag;

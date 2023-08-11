@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appSecret extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 472457090344041****
      *
      * @var string
@@ -16,6 +18,8 @@ class appSecret extends Model
     public $appId;
 
     /**
+     * @description The ID of the application secret.
+     *
      * @example 2efd5004-005c-4f05-83c6-5b1dd176****
      *
      * @var string
@@ -23,6 +27,8 @@ class appSecret extends Model
     public $appSecretId;
 
     /**
+     * @description The creation time.
+     *
      * @example 2020-10-26T03:18:39Z
      *
      * @var string

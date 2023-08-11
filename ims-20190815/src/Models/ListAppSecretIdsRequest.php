@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAppSecretIdsRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example 472457090344041****
      *
      * @var string

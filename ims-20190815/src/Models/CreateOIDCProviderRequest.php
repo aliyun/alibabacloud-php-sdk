@@ -39,6 +39,11 @@ class CreateOIDCProviderRequest extends Model
     public $fingerprints;
 
     /**
+     * @var int
+     */
+    public $issuanceLimitTime;
+
+    /**
      * @description The URL of the issuer, which is provided by the external IdP Okta. The URL of the issuer must be unique within an Alibaba Cloud account.
      *
      * The URL can be up to 255 characters in length.
@@ -58,11 +63,12 @@ class CreateOIDCProviderRequest extends Model
      */
     public $OIDCProviderName;
     protected $_name = [
-        'clientIds'        => 'ClientIds',
-        'description'      => 'Description',
-        'fingerprints'     => 'Fingerprints',
-        'issuerUrl'        => 'IssuerUrl',
-        'OIDCProviderName' => 'OIDCProviderName',
+        'clientIds'         => 'ClientIds',
+        'description'       => 'Description',
+        'fingerprints'      => 'Fingerprints',
+        'issuanceLimitTime' => 'IssuanceLimitTime',
+        'issuerUrl'         => 'IssuerUrl',
+        'OIDCProviderName'  => 'OIDCProviderName',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class CreateOIDCProviderRequest extends Model
         }
         if (null !== $this->fingerprints) {
             $res['Fingerprints'] = $this->fingerprints;
+        }
+        if (null !== $this->issuanceLimitTime) {
+            $res['IssuanceLimitTime'] = $this->issuanceLimitTime;
         }
         if (null !== $this->issuerUrl) {
             $res['IssuerUrl'] = $this->issuerUrl;
@@ -107,6 +116,9 @@ class CreateOIDCProviderRequest extends Model
         }
         if (isset($map['Fingerprints'])) {
             $model->fingerprints = $map['Fingerprints'];
+        }
+        if (isset($map['IssuanceLimitTime'])) {
+            $model->issuanceLimitTime = $map['IssuanceLimitTime'];
         }
         if (isset($map['IssuerUrl'])) {
             $model->issuerUrl = $map['IssuerUrl'];

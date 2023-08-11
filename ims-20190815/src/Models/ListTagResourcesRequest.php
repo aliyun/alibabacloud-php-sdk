@@ -19,9 +19,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries to return. If a response is truncated because it reaches the value of PageSize, the value of IsTruncated will be true.
+     * @description The number of entries per page. If a response is truncated because it reaches the value of PageSize, the value of IsTruncated will be true. Valid values: 1 to 100. Default value: 100.
      *
-     * Valid values: 1 to 100. Default value: 100.
      * @example 2
      *
      * @var int
@@ -29,17 +28,23 @@ class ListTagResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of resource N.
+     *
+     * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The name of resource N.
+     *
+     * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
      * @var string[]
      */
     public $resourcePrincipalName;
 
     /**
-     * @description The type of the resource. Valid values:
+     * @description The type of the resource. Valid value:
      *
      *   user: a RAM user
      *
@@ -50,6 +55,9 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag value.
+     *
+     * Valid values of N: 1 to 20. N must be consecutive.
      * @var tag[]
      */
     public $tag;

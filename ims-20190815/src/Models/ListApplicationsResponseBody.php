@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsResponseBody extends Model
 {
     /**
+     * @description The information about the application.
+     *
      * @var applications
      */
     public $applications;
 
     /**
+     * @description The ID of the request.
+     *
      * @example CE458B58-8C40-46F7-A9D4-CB85136B0C06
      *
      * @var string

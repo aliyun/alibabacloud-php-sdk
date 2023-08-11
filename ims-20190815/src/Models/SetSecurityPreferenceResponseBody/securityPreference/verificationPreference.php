@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class verificationPreference extends Model
 {
     /**
+     * @description The MFA methods.
+     *
      * @var string[]
      */
     public $verificationTypes;

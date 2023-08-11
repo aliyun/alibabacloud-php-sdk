@@ -181,7 +181,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -217,7 +218,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to add the client ID `598469743454717****` to the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param AddClientIdToOIDCProviderRequest $request AddClientIdToOIDCProviderRequest
      *
@@ -231,7 +233,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param AddFingerprintToOIDCProviderRequest $request AddFingerprintToOIDCProviderRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -267,7 +270,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to add the fingerprint `902ef2deeb3c5b13ea4c3d5193629309e231****` to the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param AddFingerprintToOIDCProviderRequest $request AddFingerprintToOIDCProviderRequest
      *
@@ -686,13 +690,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-     *   * ## Prerequisites
+     * ### Prerequisites
      *   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-     *   * ## Limits
-     *   * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     *   * - You can add a maximum of 20 client IDs to an OIDC IdP.
-     *   * - You can add a maximum of five fingerprints to an OIDC IdP.
+     *   * ### Limits
+     *   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+     *   * *   You can add a maximum of 20 client IDs to an OIDC IdP.
+     *   * *   You can add a maximum of five fingerprints to an OIDC IdP.
+     *   * ###
+     *   * ``.
      *   *
      * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -711,6 +716,9 @@ class Ims extends OpenApiClient
         }
         if (!Utils::isUnset($request->fingerprints)) {
             $query['Fingerprints'] = $request->fingerprints;
+        }
+        if (!Utils::isUnset($request->issuanceLimitTime)) {
+            $query['IssuanceLimitTime'] = $request->issuanceLimitTime;
         }
         if (!Utils::isUnset($request->issuerUrl)) {
             $query['IssuerUrl'] = $request->issuerUrl;
@@ -737,13 +745,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP Okta and Alibaba Cloud.
-     *   * ## Prerequisites
+     * ### Prerequisites
      *   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-     *   * ## Limits
-     *   * - You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
-     *   * - You can add a maximum of 20 client IDs to an OIDC IdP.
-     *   * - You can add a maximum of five fingerprints to an OIDC IdP.
+     *   * ### Limits
+     *   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
+     *   * *   You can add a maximum of 20 client IDs to an OIDC IdP.
+     *   * *   You can add a maximum of five fingerprints to an OIDC IdP.
+     *   * ###
+     *   * ``.
      *   *
      * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      *
@@ -1136,7 +1145,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param DeleteOIDCProviderRequest $request DeleteOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -1169,7 +1179,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to remove the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param DeleteOIDCProviderRequest $request DeleteOIDCProviderRequest
      *
@@ -1582,10 +1593,12 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
-     * @param RuntimeOptions        $runtime
+     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     *   *
+     * @param GetApplicationRequest $request GetApplicationRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplicationWithOptions($request, $runtime)
     {
@@ -1613,9 +1626,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationRequest $request
+     * This topic provides an example on how to query the configurations of an application named `472457090344041****`.
+     *   *
+     * @param GetApplicationRequest $request GetApplicationRequest
      *
-     * @return GetApplicationResponse
+     * @return GetApplicationResponse GetApplicationResponse
      */
     public function getApplication($request)
     {
@@ -1777,7 +1792,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about an OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
      *   *
      * @param GetOIDCProviderRequest $request GetOIDCProviderRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -1810,7 +1826,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query the information about an OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to query the information about an OpenID Connect (OIDC) identity provider (IdP) named `TestOIDCProvider`.
      *   *
      * @param GetOIDCProviderRequest $request GetOIDCProviderRequest
      *
@@ -2148,9 +2165,11 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListApplicationsResponse
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplicationsWithOptions($runtime)
     {
@@ -2171,7 +2190,9 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @return ListApplicationsResponse
+     * This topic provides an example on how to query the applications within the current account. The returned result shows that only one application named `myapp` belongs to the current account.
+     *   *
+     * @return ListApplicationsResponse ListApplicationsResponse
      */
     public function listApplications()
     {
@@ -2270,7 +2291,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all OIDC IdPs within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param ListOIDCProvidersRequest $request ListOIDCProvidersRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2306,7 +2328,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to query all OIDC IdPs within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to query all OpenID Connect (OIDC) identity providers (IdPs) within your Alibaba Cloud account. The response shows that your Alibaba Cloud account has only one OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param ListOIDCProvidersRequest $request ListOIDCProvidersRequest
      *
@@ -2409,7 +2432,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * ###
+     *   * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      *   * *   `ResourceId.N`
      *   * *   `Tag.N.Key`
      *   * *   `Tag.N.Key` and `Tag.N.Value`.
@@ -2460,7 +2484,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
+     * ###
+     *   * You must specify at least one of the following parameters or parameter pairs in a request to determine a query object:
      *   * *   `ResourceId.N`
      *   * *   `Tag.N.Key`
      *   * *   `Tag.N.Key` and `Tag.N.Value`.
@@ -2534,7 +2559,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * You can call the following API operations to query the information about all RAM users:
+     * ## Description
+     *   * You can call the following API operations to query the information about all RAM users:
      *   * *   ListUsers: queries the details of all RAM users.
      *   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *   *
@@ -2575,7 +2601,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * You can call the following API operations to query the information about all RAM users:
+     * ## Description
+     *   * You can call the following API operations to query the information about all RAM users:
      *   * *   ListUsers: queries the details of all RAM users.
      *   * *   ListUserBasicInfos: queries the basic information about all RAM users. The basic information includes only the logon names (`UserPrincipalName`), display names (`DisplayName`), and user IDs (`UserId`).
      *   *
@@ -2686,7 +2713,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param RemoveClientIdFromOIDCProviderRequest $request RemoveClientIdFromOIDCProviderRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -2722,7 +2750,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to remove the client ID `498469743454717****` from the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param RemoveClientIdFromOIDCProviderRequest $request RemoveClientIdFromOIDCProviderRequest
      *
@@ -2736,7 +2765,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param RemoveFingerprintFromOIDCProviderRequest $request RemoveFingerprintFromOIDCProviderRequest
      * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
@@ -2772,7 +2802,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
+     * ###
+     *   * This topic provides an example on how to remove the fingerprint `6938fd4d98bab03faadb97b34396831e3780****` from the OIDC IdP named `TestOIDCProvider`.
      *   *
      * @param RemoveFingerprintFromOIDCProviderRequest $request RemoveFingerprintFromOIDCProviderRequest
      *
@@ -2948,7 +2979,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     * ###
+     *   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
      *   *
      * @param SetSecurityPreferenceRequest $tmpReq  SetSecurityPreferenceRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -3013,7 +3045,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
+     * ###
+     *   * This topic provides an example on how to enable multi-factor authentication (MFA) only for RAM users who initiated unusual logons.
      *   *
      * @param SetSecurityPreferenceRequest $request SetSecurityPreferenceRequest
      *
@@ -3446,7 +3479,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`.
+     * ###
+     *   * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`.
      *   *
      * @param UpdateOIDCProviderRequest $request UpdateOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -3459,6 +3493,9 @@ class Ims extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientIds)) {
             $query['ClientIds'] = $request->clientIds;
+        }
+        if (!Utils::isUnset($request->issuanceLimitTime)) {
+            $query['IssuanceLimitTime'] = $request->issuanceLimitTime;
         }
         if (!Utils::isUnset($request->newDescription)) {
             $query['NewDescription'] = $request->newDescription;
@@ -3485,7 +3522,8 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`.
+     * ###
+     *   * This topic provides an example on how to change the description of the OIDC IdP named `TestOIDCProvider` to `This is a new OIDC Provider.`.
      *   *
      * @param UpdateOIDCProviderRequest $request UpdateOIDCProviderRequest
      *

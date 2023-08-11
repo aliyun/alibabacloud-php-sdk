@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The ID of resource N.
+     *
+     * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The name of resource N.
+     *
+     * > You must specify only one of the following parameters: ResourceId and ResourcePrincipalName.
+     * @example TagResources
+     *
      * @var string[]
      */
     public $resourcePrincipalName;
@@ -31,6 +39,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag value.
+     *
      * @var tag[]
      */
     public $tag;
