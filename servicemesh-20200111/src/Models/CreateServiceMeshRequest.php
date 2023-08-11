@@ -273,6 +273,11 @@ class CreateServiceMeshRequest extends Model
     public $edition;
 
     /**
+     * @var bool
+     */
+    public $enableAmbient;
+
+    /**
      * @description Specifies whether to enable the mesh audit feature. To enable this feature, make sure that you have activated [Log Service](https://sls.console.aliyun.com/). Valid values:
      *
      *   `true`
@@ -413,6 +418,10 @@ class CreateServiceMeshRequest extends Model
     public $gatewayAPIEnabled;
 
     /**
+     * @description After this ASM instance is successfully created, automatically add an ACK cluster to it.
+     * Make sure this ASM instance and ACK cluster have same VPC, VSwitch, cluster domain.
+     * @example ACK cluster id
+     *
      * @var string
      */
     public $guestCluster;
@@ -792,6 +801,7 @@ class CreateServiceMeshRequest extends Model
         'DNSProxyingEnabled'         => 'DNSProxyingEnabled',
         'dubboFilterEnabled'         => 'DubboFilterEnabled',
         'edition'                    => 'Edition',
+        'enableAmbient'              => 'EnableAmbient',
         'enableAudit'                => 'EnableAudit',
         'enableCRHistory'            => 'EnableCRHistory',
         'enableSDSServer'            => 'EnableSDSServer',
@@ -920,6 +930,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->edition) {
             $res['Edition'] = $this->edition;
+        }
+        if (null !== $this->enableAmbient) {
+            $res['EnableAmbient'] = $this->enableAmbient;
         }
         if (null !== $this->enableAudit) {
             $res['EnableAudit'] = $this->enableAudit;
@@ -1148,6 +1161,9 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['Edition'])) {
             $model->edition = $map['Edition'];
+        }
+        if (isset($map['EnableAmbient'])) {
+            $model->enableAmbient = $map['EnableAmbient'];
         }
         if (isset($map['EnableAudit'])) {
             $model->enableAudit = $map['EnableAudit'];

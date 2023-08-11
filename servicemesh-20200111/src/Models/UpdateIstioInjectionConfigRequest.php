@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateIstioInjectionConfigRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $dataPlaneMode;
+
+    /**
      * @description Specifies whether to enable Istio automatic sidecar injection.
      *
      * @example true
@@ -49,6 +54,7 @@ class UpdateIstioInjectionConfigRequest extends Model
      */
     public $serviceMeshId;
     protected $_name = [
+        'dataPlaneMode'             => 'DataPlaneMode',
         'enableIstioInjection'      => 'EnableIstioInjection',
         'enableSidecarSetInjection' => 'EnableSidecarSetInjection',
         'istioRev'                  => 'IstioRev',
@@ -63,6 +69,9 @@ class UpdateIstioInjectionConfigRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataPlaneMode) {
+            $res['DataPlaneMode'] = $this->dataPlaneMode;
+        }
         if (null !== $this->enableIstioInjection) {
             $res['EnableIstioInjection'] = $this->enableIstioInjection;
         }
@@ -90,6 +99,9 @@ class UpdateIstioInjectionConfigRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DataPlaneMode'])) {
+            $model->dataPlaneMode = $map['DataPlaneMode'];
+        }
         if (isset($map['EnableIstioInjection'])) {
             $model->enableIstioInjection = $map['EnableIstioInjection'];
         }

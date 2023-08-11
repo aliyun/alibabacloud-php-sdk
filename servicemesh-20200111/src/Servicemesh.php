@@ -631,6 +631,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->edition)) {
             $body['Edition'] = $request->edition;
         }
+        if (!Utils::isUnset($request->enableAmbient)) {
+            $body['EnableAmbient'] = $request->enableAmbient;
+        }
         if (!Utils::isUnset($request->enableAudit)) {
             $body['EnableAudit'] = $request->enableAudit;
         }
@@ -3901,6 +3904,9 @@ class Servicemesh extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->dataPlaneMode)) {
+            $body['DataPlaneMode'] = $request->dataPlaneMode;
+        }
         if (!Utils::isUnset($request->enableIstioInjection)) {
             $body['EnableIstioInjection'] = $request->enableIstioInjection;
         }
