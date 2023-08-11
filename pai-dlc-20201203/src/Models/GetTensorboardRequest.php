@@ -16,6 +16,11 @@ class GetTensorboardRequest extends Model
     public $jodId;
 
     /**
+     * @var string
+     */
+    public $token;
+
+    /**
      * @example 46099
      *
      * @var string
@@ -23,6 +28,7 @@ class GetTensorboardRequest extends Model
     public $workspaceId;
     protected $_name = [
         'jodId'       => 'JodId',
+        'token'       => 'Token',
         'workspaceId' => 'WorkspaceId',
     ];
 
@@ -35,6 +41,9 @@ class GetTensorboardRequest extends Model
         $res = [];
         if (null !== $this->jodId) {
             $res['JodId'] = $this->jodId;
+        }
+        if (null !== $this->token) {
+            $res['Token'] = $this->token;
         }
         if (null !== $this->workspaceId) {
             $res['WorkspaceId'] = $this->workspaceId;
@@ -53,6 +62,9 @@ class GetTensorboardRequest extends Model
         $model = new self();
         if (isset($map['JodId'])) {
             $model->jodId = $map['JodId'];
+        }
+        if (isset($map['Token'])) {
+            $model->token = $map['Token'];
         }
         if (isset($map['WorkspaceId'])) {
             $model->workspaceId = $map['WorkspaceId'];

@@ -25,6 +25,8 @@ use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetPodLogsResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardResponse;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardSharedUrlRequest;
+use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTensorboardSharedUrlResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Paidlc\V20201203\Models\GetWebTerminalRequest;
@@ -710,6 +712,9 @@ class Paidlc extends OpenApiClient
         if (!Utils::isUnset($request->jodId)) {
             $query['JodId'] = $request->jodId;
         }
+        if (!Utils::isUnset($request->token)) {
+            $query['Token'] = $request->token;
+        }
         if (!Utils::isUnset($request->workspaceId)) {
             $query['WorkspaceId'] = $request->workspaceId;
         }
@@ -744,6 +749,54 @@ class Paidlc extends OpenApiClient
         $headers = [];
 
         return $this->getTensorboardWithOptions($TensorboardId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $TensorboardId
+     * @param GetTensorboardSharedUrlRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return GetTensorboardSharedUrlResponse
+     */
+    public function getTensorboardSharedUrlWithOptions($TensorboardId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->expireTimeSeconds)) {
+            $query['ExpireTimeSeconds'] = $request->expireTimeSeconds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTensorboardSharedUrl',
+            'version'     => '2020-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v1/tensorboards/' . OpenApiUtilClient::getEncodeParam($TensorboardId) . '/sharedurl',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTensorboardSharedUrlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $TensorboardId
+     * @param GetTensorboardSharedUrlRequest $request
+     *
+     * @return GetTensorboardSharedUrlResponse
+     */
+    public function getTensorboardSharedUrl($TensorboardId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getTensorboardSharedUrlWithOptions($TensorboardId, $request, $headers, $runtime);
     }
 
     /**
