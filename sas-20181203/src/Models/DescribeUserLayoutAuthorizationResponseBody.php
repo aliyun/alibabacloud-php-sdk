@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserLayoutAuthorizationResponseBody extends Model
 {
     /**
+     * @description The result of the query. Valid values:
+     * - **true**: The brute-force attacks protection feature has been authorized.
+     * - **false**: The brute-force attacks protection feature is not authorized.
      * @example false
      *
      * @var bool
@@ -16,6 +19,8 @@ class DescribeUserLayoutAuthorizationResponseBody extends Model
     public $authorized;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 4A80EE8F-2175-49DA-B8BF-FAE1B3D52E4C
      *
      * @var string

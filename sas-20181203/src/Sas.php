@@ -626,6 +626,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckRiskStatisticsResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetCheckSummaryResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientInstallationStatisticRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientInstallationStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientRatioStatisticResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\GetClientUserDefineRuleRequest;
@@ -713,6 +715,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListAvailableHoneypotResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckInstanceResultResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningMachineRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningMachineResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\ListCheckItemWarningSummaryRequest;
@@ -17959,6 +17963,60 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
+     *   *
+     * Deprecated
+     *
+     * @param GetClientInstallationStatisticRequest $request GetClientInstallationStatisticRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetClientInstallationStatisticResponse GetClientInstallationStatisticResponse
+     */
+    public function getClientInstallationStatisticWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->timeEnd)) {
+            $query['TimeEnd'] = $request->timeEnd;
+        }
+        if (!Utils::isUnset($request->timeStart)) {
+            $query['TimeStart'] = $request->timeStart;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientInstallationStatistic',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientInstallationStatisticResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @deprecated : GetClientInstallationStatistic is deprecated, please use Sas::2018-12-03::GetClientRatioStatistic instead.
+     *   *
+     * Deprecated
+     *
+     * @param GetClientInstallationStatisticRequest $request GetClientInstallationStatisticRequest
+     *
+     * @return GetClientInstallationStatisticResponse GetClientInstallationStatisticResponse
+     */
+    public function getClientInstallationStatistic($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientInstallationStatisticWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetClientRatioStatisticRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -20159,6 +20217,55 @@ class Sas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCheckInstanceResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCheckItemRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListCheckItemResponse
+     */
+    public function listCheckItemWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCheckItem',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCheckItemResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCheckItemRequest $request
+     *
+     * @return ListCheckItemResponse
+     */
+    public function listCheckItem($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCheckItemWithOptions($request, $runtime);
     }
 
     /**

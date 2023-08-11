@@ -330,6 +330,11 @@ class suspEvents extends Model
     public $k8sPodName;
 
     /**
+     * @var bool
+     */
+    public $largeModel;
+
+    /**
      * @description The time when the alert event was last generated.
      *
      * @example 2018-09-26 01:51:01
@@ -533,6 +538,7 @@ class suspEvents extends Model
         'k8sNodeId'             => 'K8sNodeId',
         'k8sNodeName'           => 'K8sNodeName',
         'k8sPodName'            => 'K8sPodName',
+        'largeModel'            => 'LargeModel',
         'lastTime'              => 'LastTime',
         'lastTimeStamp'         => 'LastTimeStamp',
         'level'                 => 'Level',
@@ -673,6 +679,9 @@ class suspEvents extends Model
         }
         if (null !== $this->k8sPodName) {
             $res['K8sPodName'] = $this->k8sPodName;
+        }
+        if (null !== $this->largeModel) {
+            $res['LargeModel'] = $this->largeModel;
         }
         if (null !== $this->lastTime) {
             $res['LastTime'] = $this->lastTime;
@@ -859,6 +868,9 @@ class suspEvents extends Model
         }
         if (isset($map['K8sPodName'])) {
             $model->k8sPodName = $map['K8sPodName'];
+        }
+        if (isset($map['LargeModel'])) {
+            $model->largeModel = $map['LargeModel'];
         }
         if (isset($map['LastTime'])) {
             $model->lastTime = $map['LastTime'];
