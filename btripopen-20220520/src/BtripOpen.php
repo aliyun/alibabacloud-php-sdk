@@ -137,6 +137,10 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightItineraryScanQueryResponse
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchV2Headers;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchV2Request;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchV2Response;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightListingSearchV2ShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailInfoResponse;
@@ -146,9 +150,16 @@ use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderListQueryResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderQueryResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaItemDetailHeaders;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaItemDetailRequest;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaItemDetailResponse;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchResponse;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchV2Headers;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchV2Request;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchV2Response;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOtaSearchV2ShrinkRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderHeaders;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderRequest;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightPayOrderResponse;
@@ -3283,6 +3294,97 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param FlightListingSearchV2Request $tmpReq
+     * @param FlightListingSearchV2Headers $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return FlightListingSearchV2Response
+     */
+    public function flightListingSearchV2WithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightListingSearchV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cabinTypeList)) {
+            $request->cabinTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cabinTypeList, 'cabin_type_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->searchJourneys)) {
+            $request->searchJourneysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->airlineCode)) {
+            $query['airline_code'] = $request->airlineCode;
+        }
+        if (!Utils::isUnset($request->cabinTypeListShrink)) {
+            $query['cabin_type_list'] = $request->cabinTypeListShrink;
+        }
+        if (!Utils::isUnset($request->directOnly)) {
+            $query['direct_only'] = $request->directOnly;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->needMultiClassPrice)) {
+            $query['need_multi_class_price'] = $request->needMultiClassPrice;
+        }
+        if (!Utils::isUnset($request->needQueryServiceFee)) {
+            $query['need_query_service_fee'] = $request->needQueryServiceFee;
+        }
+        if (!Utils::isUnset($request->needShareFlight)) {
+            $query['need_share_flight'] = $request->needShareFlight;
+        }
+        if (!Utils::isUnset($request->needYCBestPrice)) {
+            $query['need_y_c_best_price'] = $request->needYCBestPrice;
+        }
+        if (!Utils::isUnset($request->searchJourneysShrink)) {
+            $query['search_journeys'] = $request->searchJourneysShrink;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['search_mode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->tripType)) {
+            $query['trip_type'] = $request->tripType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightListingSearchV2',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v2/flight/action/listing-search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightListingSearchV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightListingSearchV2Request $request
+     *
+     * @return FlightListingSearchV2Response
+     */
+    public function flightListingSearchV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightListingSearchV2Headers([]);
+
+        return $this->flightListingSearchV2WithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param FlightOrderDetailInfoRequest $request
      * @param FlightOrderDetailInfoHeaders $headers
      * @param RuntimeOptions               $runtime
@@ -3475,6 +3577,62 @@ class BtripOpen extends OpenApiClient
     }
 
     /**
+     * @param FlightOtaItemDetailRequest $request
+     * @param FlightOtaItemDetailHeaders $headers
+     * @param RuntimeOptions             $runtime
+     *
+     * @return FlightOtaItemDetailResponse
+     */
+    public function flightOtaItemDetailWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->otaItemId)) {
+            $query['ota_item_id'] = $request->otaItemId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightOtaItemDetail',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v1/flight/action/ota-item-detail',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightOtaItemDetailResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightOtaItemDetailRequest $request
+     *
+     * @return FlightOtaItemDetailResponse
+     */
+    public function flightOtaItemDetail($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightOtaItemDetailHeaders([]);
+
+        return $this->flightOtaItemDetailWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param FlightOtaSearchRequest $request
      * @param FlightOtaSearchHeaders $headers
      * @param RuntimeOptions         $runtime
@@ -3543,6 +3701,85 @@ class BtripOpen extends OpenApiClient
         $headers = new FlightOtaSearchHeaders([]);
 
         return $this->flightOtaSearchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param FlightOtaSearchV2Request $tmpReq
+     * @param FlightOtaSearchV2Headers $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return FlightOtaSearchV2Response
+     */
+    public function flightOtaSearchV2WithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new FlightOtaSearchV2ShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->cabinTypeList)) {
+            $request->cabinTypeListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->cabinTypeList, 'cabin_type_list', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->searchJourneys)) {
+            $request->searchJourneysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->searchJourneys, 'search_journeys', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->cabinTypeListShrink)) {
+            $query['cabin_type_list'] = $request->cabinTypeListShrink;
+        }
+        if (!Utils::isUnset($request->directOnly)) {
+            $query['direct_only'] = $request->directOnly;
+        }
+        if (!Utils::isUnset($request->isvName)) {
+            $query['isv_name'] = $request->isvName;
+        }
+        if (!Utils::isUnset($request->needShareFlight)) {
+            $query['need_share_flight'] = $request->needShareFlight;
+        }
+        if (!Utils::isUnset($request->searchJourneysShrink)) {
+            $query['search_journeys'] = $request->searchJourneysShrink;
+        }
+        if (!Utils::isUnset($request->searchMode)) {
+            $query['search_mode'] = $request->searchMode;
+        }
+        if (!Utils::isUnset($request->tripType)) {
+            $query['trip_type'] = $request->tripType;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsBtripCorpToken)) {
+            $realHeaders['x-acs-btrip-corp-token'] = Utils::toJSONString($headers->xAcsBtripCorpToken);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlightOtaSearchV2',
+            'version'     => '2022-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dtb-flight/v2/flight/action/ota-search',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlightOtaSearchV2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlightOtaSearchV2Request $request
+     *
+     * @return FlightOtaSearchV2Response
+     */
+    public function flightOtaSearchV2($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new FlightOtaSearchV2Headers([]);
+
+        return $this->flightOtaSearchV2WithOptions($request, $headers, $runtime);
     }
 
     /**
