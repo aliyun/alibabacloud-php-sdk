@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\Imarketing\V20220704;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\CancelOrderRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\CancelOrderResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ConfirmSampleReceivedRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ConfirmSampleReceivedResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ConfirmSampleShippedRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ConfirmSampleShippedResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceShrinkRequest;
@@ -30,10 +36,17 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetUserFinishedAdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListAdvertisingShrinkRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdShrinkRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryOrderRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryOrderResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportTranslateRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportTranslateResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SendSmsResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\SyncInfoRequest;
@@ -82,6 +95,153 @@ class Imarketing extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CancelOrderRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CancelOrderResponse
+     */
+    public function cancelOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $body['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->tradeId)) {
+            $body['TradeId'] = $request->tradeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelOrder',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelOrderRequest $request
+     *
+     * @return CancelOrderResponse
+     */
+    public function cancelOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->cancelOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmSampleReceivedRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ConfirmSampleReceivedResponse
+     */
+    public function confirmSampleReceivedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $body['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->tradeId)) {
+            $body['TradeId'] = $request->tradeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmSampleReceived',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfirmSampleReceivedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmSampleReceivedRequest $request
+     *
+     * @return ConfirmSampleReceivedResponse
+     */
+    public function confirmSampleReceived($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmSampleReceivedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ConfirmSampleShippedRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ConfirmSampleShippedResponse
+     */
+    public function confirmSampleShippedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->buyerAddress)) {
+            $body['BuyerAddress'] = $request->buyerAddress;
+        }
+        if (!Utils::isUnset($request->buyerName)) {
+            $body['BuyerName'] = $request->buyerName;
+        }
+        if (!Utils::isUnset($request->buyerPhoneNumber)) {
+            $body['BuyerPhoneNumber'] = $request->buyerPhoneNumber;
+        }
+        if (!Utils::isUnset($request->channelId)) {
+            $body['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->tradeId)) {
+            $body['TradeId'] = $request->tradeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ConfirmSampleShipped',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConfirmSampleShippedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConfirmSampleShippedRequest $request
+     *
+     * @return ConfirmSampleShippedResponse
+     */
+    public function confirmSampleShipped($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->confirmSampleShippedWithOptions($request, $runtime);
     }
 
     /**
@@ -676,6 +836,81 @@ class Imarketing extends OpenApiClient
     }
 
     /**
+     * @param ListSpecificAdRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListSpecificAdResponse
+     */
+    public function listSpecificAdWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListSpecificAdShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->app)) {
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->ext)) {
+            $request->extShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ext, 'Ext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->imp)) {
+            $request->impShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->imp, 'Imp', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->user)) {
+            $request->userShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->user, 'User', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->verifyad)) {
+            $request->verifyadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->verifyad, 'Verifyad', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appShrink)) {
+            $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->extShrink)) {
+            $query['Ext'] = $request->extShrink;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->impShrink)) {
+            $query['Imp'] = $request->impShrink;
+        }
+        if (!Utils::isUnset($request->userShrink)) {
+            $query['User'] = $request->userShrink;
+        }
+        if (!Utils::isUnset($request->verifyadShrink)) {
+            $query['Verifyad'] = $request->verifyadShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSpecificAd',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSpecificAdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSpecificAdRequest $request
+     *
+     * @return ListSpecificAdResponse
+     */
+    public function listSpecificAd($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSpecificAdWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryAuditResultRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -722,6 +957,55 @@ class Imarketing extends OpenApiClient
     }
 
     /**
+     * @param QueryOrderRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return QueryOrderResponse
+     */
+    public function queryOrderWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->channelId)) {
+            $body['ChannelId'] = $request->channelId;
+        }
+        if (!Utils::isUnset($request->channelTradeId)) {
+            $body['ChannelTradeId'] = $request->channelTradeId;
+        }
+        if (!Utils::isUnset($request->tradeId)) {
+            $body['TradeId'] = $request->tradeId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrder',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrderRequest $request
+     *
+     * @return QueryOrderResponse
+     */
+    public function queryOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryOrderWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ReportImpressionRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -762,6 +1046,46 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->reportImpressionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ReportTranslateRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ReportTranslateResponse
+     */
+    public function reportTranslateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportTranslate',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReportTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReportTranslateRequest $request
+     *
+     * @return ReportTranslateResponse
+     */
+    public function reportTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reportTranslateWithOptions($request, $runtime);
     }
 
     /**

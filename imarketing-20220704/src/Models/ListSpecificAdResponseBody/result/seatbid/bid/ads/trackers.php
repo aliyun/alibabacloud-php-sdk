@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\GetMainPartListByUserIdResponseBody;
+namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdResponseBody\result\seatbid\bid\ads;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class trackers extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $token;
+    public $imps;
     protected $_name = [
-        'token' => 'Token',
+        'imps' => 'Imps',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->token) {
-            $res['Token'] = $this->token;
+        if (null !== $this->imps) {
+            $res['Imps'] = $this->imps;
         }
 
         return $res;
@@ -33,13 +33,15 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return trackers
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Token'])) {
-            $model->token = $map['Token'];
+        if (isset($map['Imps'])) {
+            if (!empty($map['Imps'])) {
+                $model->imps = $map['Imps'];
+            }
         }
 
         return $model;

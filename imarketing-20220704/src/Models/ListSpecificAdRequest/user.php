@@ -2,28 +2,32 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingRequest;
+namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class verifyad extends Model
+class user extends Model
 {
     /**
-     * @example 44
+     * @description uid
+     *
+     * @example 76403197902848
      *
      * @var string
      */
     public $id;
 
     /**
-     * @example 4534523
+     * @description uidtype
+     *
+     * @example ALIPAY_OPEN_ID
      *
      * @var string
      */
-    public $seat;
+    public $usertype;
     protected $_name = [
-        'id'   => 'Id',
-        'seat' => 'Seat',
+        'id'       => 'Id',
+        'usertype' => 'Usertype',
     ];
 
     public function validate()
@@ -36,8 +40,8 @@ class verifyad extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->seat) {
-            $res['Seat'] = $this->seat;
+        if (null !== $this->usertype) {
+            $res['Usertype'] = $this->usertype;
         }
 
         return $res;
@@ -46,7 +50,7 @@ class verifyad extends Model
     /**
      * @param array $map
      *
-     * @return verifyad
+     * @return user
      */
     public static function fromMap($map = [])
     {
@@ -54,8 +58,8 @@ class verifyad extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Seat'])) {
-            $model->seat = $map['Seat'];
+        if (isset($map['Usertype'])) {
+            $model->usertype = $map['Usertype'];
         }
 
         return $model;

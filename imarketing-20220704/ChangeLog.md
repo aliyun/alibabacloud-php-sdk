@@ -1,3 +1,6 @@
+2023-08-11 Version: 5.2.0
+- Generated php 2022-07-04 for imarketing.
+
 2023-02-08 Version: 5.1.0
 - Add ad verify api.
 

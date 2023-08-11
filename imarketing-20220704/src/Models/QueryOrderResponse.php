@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Imarketing\V20220704\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetMainPartListByUserIdResponse extends Model
+class QueryOrderResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetMainPartListByUserIdResponse extends Model
     public $statusCode;
 
     /**
-     * @var GetMainPartListByUserIdResponseBody
+     * @var QueryOrderResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class GetMainPartListByUserIdResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetMainPartListByUserIdResponse
+     * @return QueryOrderResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class GetMainPartListByUserIdResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = GetMainPartListByUserIdResponseBody::fromMap($map['body']);
+            $model->body = QueryOrderResponseBody::fromMap($map['body']);
         }
 
         return $model;

@@ -2,28 +2,32 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\VerifyAdvertisingRequest;
+namespace AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdRequest;
 
 use AlibabaCloud\Tea\Model;
 
-class verifyad extends Model
+class imp extends Model
 {
     /**
-     * @example 44
+     * @description id
+     *
+     * @example 74
      *
      * @var string
      */
     public $id;
 
     /**
-     * @example 4534523
+     * @description tagid
+     *
+     * @example 7857789563
      *
      * @var string
      */
-    public $seat;
+    public $tagid;
     protected $_name = [
-        'id'   => 'Id',
-        'seat' => 'Seat',
+        'id'    => 'Id',
+        'tagid' => 'Tagid',
     ];
 
     public function validate()
@@ -36,8 +40,8 @@ class verifyad extends Model
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->seat) {
-            $res['Seat'] = $this->seat;
+        if (null !== $this->tagid) {
+            $res['Tagid'] = $this->tagid;
         }
 
         return $res;
@@ -46,7 +50,7 @@ class verifyad extends Model
     /**
      * @param array $map
      *
-     * @return verifyad
+     * @return imp
      */
     public static function fromMap($map = [])
     {
@@ -54,8 +58,8 @@ class verifyad extends Model
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['Seat'])) {
-            $model->seat = $map['Seat'];
+        if (isset($map['Tagid'])) {
+            $model->tagid = $map['Tagid'];
         }
 
         return $model;
