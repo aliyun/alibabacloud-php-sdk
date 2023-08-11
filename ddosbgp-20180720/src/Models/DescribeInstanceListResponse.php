@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeInstanceListResponse\instanceList;
 use AlibabaCloud\Tea\Model;
 
 class DescribeInstanceListResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $total;
+    public $statusCode;
 
     /**
-     * @var instanceList[]
+     * @var DescribeInstanceListResponseBody
      */
-    public $instanceList;
+    public $body;
     protected $_name = [
-        'requestId'    => 'RequestId',
-        'total'        => 'Total',
-        'instanceList' => 'InstanceList',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('instanceList', $this->instanceList, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->instanceList) {
-            $res['InstanceList'] = [];
-            if (null !== $this->instanceList && \is_array($this->instanceList)) {
-                $n = 0;
-                foreach ($this->instanceList as $item) {
-                    $res['InstanceList'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class DescribeInstanceListResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['InstanceList'])) {
-            if (!empty($map['InstanceList'])) {
-                $model->instanceList = [];
-                $n                   = 0;
-                foreach ($map['InstanceList'] as $item) {
-                    $model->instanceList[$n++] = null !== $item ? instanceList::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeInstanceListResponseBody::fromMap($map['body']);
         }
 
         return $model;

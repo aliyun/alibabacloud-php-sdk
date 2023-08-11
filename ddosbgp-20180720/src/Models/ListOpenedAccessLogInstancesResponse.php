@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\ListOpenedAccessLogInstancesResponse\slsConfigStatus;
 use AlibabaCloud\Tea\Model;
 
 class ListOpenedAccessLogInstancesResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $totalCount;
+    public $statusCode;
 
     /**
-     * @var slsConfigStatus[]
+     * @var ListOpenedAccessLogInstancesResponseBody
      */
-    public $slsConfigStatus;
+    public $body;
     protected $_name = [
-        'requestId'       => 'RequestId',
-        'totalCount'      => 'TotalCount',
-        'slsConfigStatus' => 'SlsConfigStatus',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('totalCount', $this->totalCount, true);
-        Model::validateRequired('slsConfigStatus', $this->slsConfigStatus, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->slsConfigStatus) {
-            $res['SlsConfigStatus'] = [];
-            if (null !== $this->slsConfigStatus && \is_array($this->slsConfigStatus)) {
-                $n = 0;
-                foreach ($this->slsConfigStatus as $item) {
-                    $res['SlsConfigStatus'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class ListOpenedAccessLogInstancesResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['SlsConfigStatus'])) {
-            if (!empty($map['SlsConfigStatus'])) {
-                $model->slsConfigStatus = [];
-                $n                      = 0;
-                foreach ($map['SlsConfigStatus'] as $item) {
-                    $model->slsConfigStatus[$n++] = null !== $item ? slsConfigStatus::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = ListOpenedAccessLogInstancesResponseBody::fromMap($map['body']);
         }
 
         return $model;

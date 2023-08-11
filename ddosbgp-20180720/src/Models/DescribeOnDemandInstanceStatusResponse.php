@@ -4,45 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeOnDemandInstanceStatusResponse\instances;
 use AlibabaCloud\Tea\Model;
 
 class DescribeOnDemandInstanceStatusResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var instances[]
+     * @var int
      */
-    public $instances;
+    public $statusCode;
+
+    /**
+     * @var DescribeOnDemandInstanceStatusResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'instances' => 'Instances',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('instances', $this->instances, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->instances) {
-            $res['Instances'] = [];
-            if (null !== $this->instances && \is_array($this->instances)) {
-                $n = 0;
-                foreach ($this->instances as $item) {
-                    $res['Instances'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -56,17 +59,14 @@ class DescribeOnDemandInstanceStatusResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Instances'])) {
-            if (!empty($map['Instances'])) {
-                $model->instances = [];
-                $n                = 0;
-                foreach ($map['Instances'] as $item) {
-                    $model->instances[$n++] = null !== $item ? instances::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = DescribeOnDemandInstanceStatusResponseBody::fromMap($map['body']);
         }
 
         return $model;

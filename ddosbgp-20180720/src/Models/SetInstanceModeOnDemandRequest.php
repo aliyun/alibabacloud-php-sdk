@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class SetInstanceModeOnDemandRequest extends Model
 {
     /**
+     * @description SetInstanceModeOnDemand
+     *
+     * @example ddosbgp-cn-z2q1qzxb****
+     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
+     * @description SetInstanceModeOnDemand
+     *
+     * @example netflow-auto
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description WB269094
+     *
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $regionId;
@@ -30,8 +42,6 @@ class SetInstanceModeOnDemandRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceIdList', $this->instanceIdList, true);
-        Model::validateRequired('mode', $this->mode, true);
     }
 
     public function toMap()

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class QuerySchedruleOnDemandRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ddosbgp-cn-z2q1qzxb****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the on-demand instance.
+     *
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $regionId;
@@ -24,7 +32,6 @@ class QuerySchedruleOnDemandRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()

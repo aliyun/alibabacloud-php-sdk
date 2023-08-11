@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example test-key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The field that is used to sort the Anti-DDoS Origin instances. Set the value to **expireTime**, which indicates that the instances are sorted based on the expiration time.
+     *
+     * You can set the **Orderdire** parameter to specify the sorting method.
+     * @example test-value
+     *
      * @var string
      */
     public $value;

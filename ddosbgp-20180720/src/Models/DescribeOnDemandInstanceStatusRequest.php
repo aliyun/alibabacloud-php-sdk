@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeOnDemandInstanceStatusRequest extends Model
 {
     /**
+     * @description The mode used to start the on-demand instance. Valid values:
+     *
+     *   **manual**: The instance is manually started.
+     *   **netflow-auto**: The instance is automatically started by using NetFlow that monitors network traffic.
+     *
+     * @example ddosbgp-cn-z2q1qzxb****
+     *
      * @var string[]
      */
     public $instanceIdList;
 
     /**
+     * @description The details of the on-demand instance.
+     *
+     * @example cn-zhangjiakou
+     *
      * @var string
      */
     public $regionId;
@@ -24,7 +35,6 @@ class DescribeOnDemandInstanceStatusRequest extends Model
 
     public function validate()
     {
-        Model::validateRequired('instanceIdList', $this->instanceIdList, true);
     }
 
     public function toMap()

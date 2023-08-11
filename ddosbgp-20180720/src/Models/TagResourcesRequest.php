@@ -10,58 +10,70 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description All Alibaba Cloud API operations must include common request parameters. For more information about common request parameters, see [Common parameters](~~118841~~).
+     *
+     * For more information about sample requests, see the **"Examples"** section of this topic.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **TagResources**.
+     *
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
-    public $resourceType;
+    public $resourceGroupId;
 
     /**
+     * @example ddosbgp-cn-v0h1fmwb****
+     *
      * @var string[]
      */
     public $resourceId;
+
+    /**
+     * @description Adds tags to Anti-DDoS Origin instances.
+     *
+     * @example INSTANCE
+     *
+     * @var string
+     */
+    public $resourceType;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
         'regionId'        => 'RegionId',
-        'resourceType'    => 'ResourceType',
+        'resourceGroupId' => 'ResourceGroupId',
         'resourceId'      => 'ResourceId',
+        'resourceType'    => 'ResourceType',
         'tag'             => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('regionId', $this->regionId, true);
-        Model::validateRequired('resourceType', $this->resourceType, true);
-        Model::validateRequired('resourceId', $this->resourceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceType) {
-            $res['ResourceType'] = $this->resourceType;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -84,19 +96,19 @@ class TagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceType'])) {
-            $model->resourceType = $map['ResourceType'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];
             }
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

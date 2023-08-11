@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example testKey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The type of the resource. The value is fixed as **INSTANCE**, which indicates instances.
+     *
+     * @example testValue1
+     *
      * @var string
      */
     public $value;

@@ -9,51 +9,69 @@ use AlibabaCloud\Tea\Model;
 class DeleteBlackholeRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $ip;
-
-    /**
+     * @description The ID of the Anti-DDoS Origin instance.
+     *
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * @example ddosbgp-cn-n6w1r7nz****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The IP address for which you want to deactivate blackhole filtering.
+     *
+     * >  You can call the [DescribePackIpList](~~118701~~) operation to query all the IP addresses that are protected by the Anti-DDoS Origin instance and the protection status of the IP addresses. For example, you can query whether blackhole filtering is triggered for an IP address.
+     * @example 47.89.XX.XX
+     *
      * @var string
      */
-    public $resourceGroupId;
+    public $ip;
 
     /**
+     * @description The ID of the region where the Anti-DDoS Origin instance resides.
+     *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+     *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'ip'              => 'Ip',
         'instanceId'      => 'InstanceId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'ip'              => 'Ip',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
     {
-        Model::validateRequired('ip', $this->ip, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->ip) {
+            $res['Ip'] = $this->ip;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -67,17 +85,17 @@ class DeleteBlackholeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['Ip'])) {
+            $model->ip = $map['Ip'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

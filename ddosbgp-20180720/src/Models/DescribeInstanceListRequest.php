@@ -10,111 +10,158 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceListRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $resourceGroupId;
-
-    /**
+     * @description The details about the Anti-DDoS Origin instance.
+     *
+     * @example ["ddosbgp-cn-oew1pjrk****"]
+     *
      * @var string
      */
     public $instanceIdList;
 
     /**
-     * @var string
-     */
-    public $remark;
-
-    /**
-     * @var int
-     */
-    public $pageNo;
-
-    /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var string
-     */
-    public $ipVersion;
-
-    /**
+     * @description The IDs of the Anti-DDoS Origin instances to query. Specify the value is in the `["<Instance ID 1>","<Instance ID 2>",……]` format.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @var string[]
+     */
+    public $instanceTypeList;
+
+    /**
+     * @description The remarks of the Anti-DDoS Origin instance to query. Fuzzy match is supported.
+     *
+     * @example 47.89.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The time when the instance was purchased. This value is a UNIX timestamp. Unit: milliseconds.
+     *
+     * @example IPv4
+     *
+     * @var string
+     */
+    public $ipVersion;
+
+    /**
+     * @description The mitigation plan of the Anti-DDoS Origin instance to query. Valid values:
+     *
+     *   **0**: the Professional mitigation plan
+     *   **1**: the Enterprise mitigation plan
+     *
+     * @example expireTime
+     *
      * @var string
      */
     public $orderby;
 
     /**
+     * @description The key of the tag that is added to the Anti-DDoS Origin instance to query.
+     *
+     * @example desc
+     *
      * @var string
      */
     public $orderdire;
 
     /**
+     * @description The total number of Anti-DDoS Origin instances.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @description The IP address of the object that is protected by the Anti-DDoS Origin instance to query.
+     *
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The ID of the region where the Anti-DDoS Origin instance to query resides.
+     *
+     * >  You can call the [DescribeRegions](~~118703~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description Indicates whether auto-renewal is enabled for the instance. Valid values:
+     *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
+     * @example test
+     *
+     * @var string
+     */
+    public $remark;
+
+    /**
+     * @description The ID of the resource group to which the Anti-DDoS Origin instance belongs in Resource Management.
+     *
+     * If you do not specify this parameter, the instance belongs to the default resource group.
+     * @example rg-acfm2pz25js****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
-        'instanceIdList'  => 'InstanceIdList',
-        'remark'          => 'Remark',
-        'pageNo'          => 'PageNo',
-        'pageSize'        => 'PageSize',
-        'ipVersion'       => 'IpVersion',
-        'instanceType'    => 'InstanceType',
-        'ip'              => 'Ip',
-        'orderby'         => 'Orderby',
-        'orderdire'       => 'Orderdire',
-        'regionId'        => 'RegionId',
-        'tag'             => 'Tag',
+        'instanceIdList'   => 'InstanceIdList',
+        'instanceType'     => 'InstanceType',
+        'instanceTypeList' => 'InstanceTypeList',
+        'ip'               => 'Ip',
+        'ipVersion'        => 'IpVersion',
+        'orderby'          => 'Orderby',
+        'orderdire'        => 'Orderdire',
+        'pageNo'           => 'PageNo',
+        'pageSize'         => 'PageSize',
+        'regionId'         => 'RegionId',
+        'remark'           => 'Remark',
+        'resourceGroupId'  => 'ResourceGroupId',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
     {
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
-        }
         if (null !== $this->instanceIdList) {
             $res['InstanceIdList'] = $this->instanceIdList;
-        }
-        if (null !== $this->remark) {
-            $res['Remark'] = $this->remark;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->ipVersion) {
-            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
         }
+        if (null !== $this->instanceTypeList) {
+            $res['InstanceTypeList'] = $this->instanceTypeList;
+        }
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
+        }
+        if (null !== $this->ipVersion) {
+            $res['IpVersion'] = $this->ipVersion;
         }
         if (null !== $this->orderby) {
             $res['Orderby'] = $this->orderby;
@@ -122,8 +169,20 @@ class DescribeInstanceListRequest extends Model
         if (null !== $this->orderdire) {
             $res['Orderdire'] = $this->orderdire;
         }
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->remark) {
+            $res['Remark'] = $this->remark;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -146,29 +205,22 @@ class DescribeInstanceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
-        }
         if (isset($map['InstanceIdList'])) {
             $model->instanceIdList = $map['InstanceIdList'];
-        }
-        if (isset($map['Remark'])) {
-            $model->remark = $map['Remark'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['IpVersion'])) {
-            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
         }
+        if (isset($map['InstanceTypeList'])) {
+            if (!empty($map['InstanceTypeList'])) {
+                $model->instanceTypeList = $map['InstanceTypeList'];
+            }
+        }
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
+        }
+        if (isset($map['IpVersion'])) {
+            $model->ipVersion = $map['IpVersion'];
         }
         if (isset($map['Orderby'])) {
             $model->orderby = $map['Orderby'];
@@ -176,8 +228,20 @@ class DescribeInstanceListRequest extends Model
         if (isset($map['Orderdire'])) {
             $model->orderdire = $map['Orderdire'];
         }
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Remark'])) {
+            $model->remark = $map['Remark'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

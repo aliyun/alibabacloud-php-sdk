@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetSlsOpenStatusRequest extends Model
 {
     /**
+     * @description Indicates whether Log Service was activated. Valid values:
+     *
+     *   **true**: Log Service was activated.
+     *   **false**: Log Service was not activated.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;

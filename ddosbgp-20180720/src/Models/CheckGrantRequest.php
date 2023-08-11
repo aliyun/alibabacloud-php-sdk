@@ -9,17 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CheckGrantRequest extends Model
 {
     /**
-     * @var string
+     * @var bool
      */
-    public $resourceGroupId;
+    public $isSlr;
 
     /**
+     * @description WB269094
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @description CheckGrant
+     *
+     * @example rg-acfm2pz25js****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
     protected $_name = [
-        'resourceGroupId' => 'ResourceGroupId',
+        'isSlr'           => 'IsSlr',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -29,11 +43,14 @@ class CheckGrantRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->isSlr) {
+            $res['IsSlr'] = $this->isSlr;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
 
         return $res;
@@ -47,11 +64,14 @@ class CheckGrantRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['IsSlr'])) {
+            $model->isSlr = $map['IsSlr'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
 
         return $model;

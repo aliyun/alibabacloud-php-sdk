@@ -4,55 +4,48 @@
 
 namespace AlibabaCloud\SDK\Ddosbgp\V20180720\Models;
 
-use AlibabaCloud\SDK\Ddosbgp\V20180720\Models\DescribeDdosEventResponse\events;
 use AlibabaCloud\Tea\Model;
 
 class DescribeDdosEventResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
      * @var int
      */
-    public $total;
+    public $statusCode;
 
     /**
-     * @var events[]
+     * @var DescribeDdosEventResponseBody
      */
-    public $events;
+    public $body;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'total'     => 'Total',
-        'events'    => 'Events',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('total', $this->total, true);
-        Model::validateRequired('events', $this->events, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->total) {
-            $res['Total'] = $this->total;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
         }
-        if (null !== $this->events) {
-            $res['Events'] = [];
-            if (null !== $this->events && \is_array($this->events)) {
-                $n = 0;
-                foreach ($this->events as $item) {
-                    $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -66,20 +59,14 @@ class DescribeDdosEventResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['Total'])) {
-            $model->total = $map['Total'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
         }
-        if (isset($map['Events'])) {
-            if (!empty($map['Events'])) {
-                $model->events = [];
-                $n             = 0;
-                foreach ($map['Events'] as $item) {
-                    $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
-                }
-            }
+        if (isset($map['body'])) {
+            $model->body = DescribeDdosEventResponseBody::fromMap($map['body']);
         }
 
         return $model;

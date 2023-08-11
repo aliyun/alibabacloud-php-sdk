@@ -9,78 +9,102 @@ use AlibabaCloud\Tea\Model;
 class DescribeDdosEventRequest extends Model
 {
     /**
-     * @var int
-     */
-    public $startTime;
-
-    /**
+     * @description The time when the DDoS attack stopped. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example 1638288000
+     *
      * @var int
      */
     public $endTime;
 
     /**
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @var int
-     */
-    public $pageNo;
-
-    /**
+     * @description The start time of the DDoS attack event to query. This value is a UNIX timestamp. Unit: seconds.
+     *
+     * @example ddosbgp-cn-n6w1r7nz****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The status of the DDoS attack event. Valid values:
+     *
+     *   **hole_begin**: indicates that blackhole filtering is triggered for the attacked IP address.
+     *   **hole_end**: indicates that blackhole filtering is deactivated for the attacked IP address.
+     *   **defense_begin**: indicates that attack traffic is being scrubbed.
+     *   **defense_end**: indicates that attack traffic is scrubbed.
+     *
+     * @example 47.89.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The attacked IP address to query.
+     *
+     * @example 1
+     *
+     * @var int
+     */
+    public $pageNo;
+
+    /**
+     * @description The ID of the Anti-DDoS Origin instance to query.
+     *
+     * >  You can call the [DescribeInstanceList](~~118698~~) operation to query the IDs of all Anti-DDoS Origin instances.
+     * @example 10
+     *
+     * @var int
+     */
+    public $pageSize;
+
+    /**
+     * @description The details about the DDoS attack event.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The number of the page to return.
+     *
+     * @example rg-acfm2pz25js****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @var string
+     * @description The operation that you want to perform. Set the value to **DescribeDdosEvent**
+     *
+     * @example 1633017600
+     *
+     * @var int
      */
-    public $regionId;
+    public $startTime;
     protected $_name = [
-        'startTime'       => 'StartTime',
         'endTime'         => 'EndTime',
-        'pageSize'        => 'PageSize',
-        'pageNo'          => 'PageNo',
         'instanceId'      => 'InstanceId',
         'ip'              => 'Ip',
-        'resourceGroupId' => 'ResourceGroupId',
+        'pageNo'          => 'PageNo',
+        'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
     {
-        Model::validateRequired('startTime', $this->startTime, true);
-        Model::validateRequired('endTime', $this->endTime, true);
-        Model::validateRequired('pageSize', $this->pageSize, true);
-        Model::validateRequired('pageNo', $this->pageNo, true);
-        Model::validateRequired('instanceId', $this->instanceId, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->pageNo) {
-            $res['PageNo'] = $this->pageNo;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -88,11 +112,20 @@ class DescribeDdosEventRequest extends Model
         if (null !== $this->ip) {
             $res['Ip'] = $this->ip;
         }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
+        if (null !== $this->pageNo) {
+            $res['PageNo'] = $this->pageNo;
+        }
+        if (null !== $this->pageSize) {
+            $res['PageSize'] = $this->pageSize;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -106,17 +139,8 @@ class DescribeDdosEventRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
-        }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['PageNo'])) {
-            $model->pageNo = $map['PageNo'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
@@ -124,11 +148,20 @@ class DescribeDdosEventRequest extends Model
         if (isset($map['Ip'])) {
             $model->ip = $map['Ip'];
         }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
+        if (isset($map['PageNo'])) {
+            $model->pageNo = $map['PageNo'];
+        }
+        if (isset($map['PageSize'])) {
+            $model->pageSize = $map['PageSize'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -9,33 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CheckAccessLogAuthResponse extends Model
 {
     /**
-     * @var string
+     * @var string[]
      */
-    public $requestId;
+    public $headers;
 
     /**
-     * @var bool
+     * @var int
      */
-    public $accessLogAuth;
+    public $statusCode;
+
+    /**
+     * @var CheckAccessLogAuthResponseBody
+     */
+    public $body;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'accessLogAuth' => 'AccessLogAuth',
+        'headers'    => 'headers',
+        'statusCode' => 'statusCode',
+        'body'       => 'body',
     ];
 
     public function validate()
     {
-        Model::validateRequired('requestId', $this->requestId, true);
-        Model::validateRequired('accessLogAuth', $this->accessLogAuth, true);
+        Model::validateRequired('headers', $this->headers, true);
+        Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->headers) {
+            $res['headers'] = $this->headers;
         }
-        if (null !== $this->accessLogAuth) {
-            $res['AccessLogAuth'] = $this->accessLogAuth;
+        if (null !== $this->statusCode) {
+            $res['statusCode'] = $this->statusCode;
+        }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -49,11 +59,14 @@ class CheckAccessLogAuthResponse extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['headers'])) {
+            $model->headers = $map['headers'];
         }
-        if (isset($map['AccessLogAuth'])) {
-            $model->accessLogAuth = $map['AccessLogAuth'];
+        if (isset($map['statusCode'])) {
+            $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = CheckAccessLogAuthResponseBody::fromMap($map['body']);
         }
 
         return $model;
