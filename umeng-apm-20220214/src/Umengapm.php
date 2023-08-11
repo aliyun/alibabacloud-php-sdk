@@ -6,6 +6,12 @@ namespace AlibabaCloud\SDK\Umengapm\V20220214;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
+use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
+use AlibabaCloud\SDK\OSS\OSS;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest;
+use AlibabaCloud\SDK\OSS\OSS\PostObjectRequest\header;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetH5PageTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetLaunchTrendRequest;
@@ -22,8 +28,13 @@ use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetTodayStatTrendRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\GetTodayStatTrendResponse;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\UpdateAlertPlanRequest;
 use AlibabaCloud\SDK\Umengapm\V20220214\Models\UpdateAlertPlanResponse;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\UploadSymbolFileAdvanceRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\UploadSymbolFileRequest;
+use AlibabaCloud\SDK\Umengapm\V20220214\Models\UploadSymbolFileResponse;
+use AlibabaCloud\Tea\FileForm\FileForm\FileField;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
+use Darabonba\OpenApi\Models\Config;
 use Darabonba\OpenApi\Models\OpenApiRequest;
 use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
@@ -374,6 +385,9 @@ class Umengapm extends OpenApiClient
         if (!Utils::isUnset($request->fileType)) {
             $query['fileType'] = $request->fileType;
         }
+        if (!Utils::isUnset($request->flutterName)) {
+            $query['flutterName'] = $request->flutterName;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -508,5 +522,145 @@ class Umengapm extends OpenApiClient
         $headers = [];
 
         return $this->updateAlertPlanWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UploadSymbolFileRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UploadSymbolFileResponse
+     */
+    public function uploadSymbolFileWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appVersion)) {
+            $query['appVersion'] = $request->appVersion;
+        }
+        if (!Utils::isUnset($request->dataSourceId)) {
+            $query['dataSourceId'] = $request->dataSourceId;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['fileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileType)) {
+            $query['fileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->flutterName)) {
+            $query['flutterName'] = $request->flutterName;
+        }
+        if (!Utils::isUnset($request->ossUrl)) {
+            $query['ossUrl'] = $request->ossUrl;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UploadSymbolFile',
+            'version'     => '2022-02-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/uploadSymbolFile',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UploadSymbolFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UploadSymbolFileRequest $request
+     *
+     * @return UploadSymbolFileResponse
+     */
+    public function uploadSymbolFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->uploadSymbolFileWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UploadSymbolFileAdvanceRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UploadSymbolFileResponse
+     */
+    public function uploadSymbolFileAdvance($request, $headers, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'umeng-apm',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $uploadSymbolFileReq = new UploadSymbolFileRequest([]);
+        OpenApiUtilClient::convert($request, $uploadSymbolFileReq);
+        if (!Utils::isUnset($request->ossUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->ossUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $uploadSymbolFileReq->ossUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->uploadSymbolFileWithOptions($uploadSymbolFileReq, $headers, $runtime);
     }
 }

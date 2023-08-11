@@ -5,8 +5,9 @@
 namespace AlibabaCloud\SDK\Umengapm\V20220214\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class GetSymUploadParamRequest extends Model
+class UploadSymbolFileAdvanceRequest extends Model
 {
     /**
      * @example 1.0.3
@@ -42,12 +43,20 @@ class GetSymUploadParamRequest extends Model
      * @var string
      */
     public $flutterName;
+
+    /**
+     * @example -
+     *
+     * @var Stream
+     */
+    public $ossUrlObject;
     protected $_name = [
         'appVersion'   => 'appVersion',
         'dataSourceId' => 'dataSourceId',
         'fileName'     => 'fileName',
         'fileType'     => 'fileType',
         'flutterName'  => 'flutterName',
+        'ossUrlObject' => 'ossUrl',
     ];
 
     public function validate()
@@ -72,6 +81,9 @@ class GetSymUploadParamRequest extends Model
         if (null !== $this->flutterName) {
             $res['flutterName'] = $this->flutterName;
         }
+        if (null !== $this->ossUrlObject) {
+            $res['ossUrl'] = $this->ossUrlObject;
+        }
 
         return $res;
     }
@@ -79,7 +91,7 @@ class GetSymUploadParamRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSymUploadParamRequest
+     * @return UploadSymbolFileAdvanceRequest
      */
     public static function fromMap($map = [])
     {
@@ -98,6 +110,9 @@ class GetSymUploadParamRequest extends Model
         }
         if (isset($map['flutterName'])) {
             $model->flutterName = $map['flutterName'];
+        }
+        if (isset($map['ossUrl'])) {
+            $model->ossUrlObject = $map['ossUrl'];
         }
 
         return $model;
