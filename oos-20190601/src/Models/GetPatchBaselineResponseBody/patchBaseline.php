@@ -102,6 +102,11 @@ class patchBaseline extends Model
     public $rejectedPatchesAction;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The share type of the patch baseline.
      *
      * @example Private
@@ -150,6 +155,7 @@ class patchBaseline extends Model
         'operationSystem'                  => 'OperationSystem',
         'rejectedPatches'                  => 'RejectedPatches',
         'rejectedPatchesAction'            => 'RejectedPatchesAction',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'shareType'                        => 'ShareType',
         'sources'                          => 'Sources',
         'tags'                             => 'Tags',
@@ -199,6 +205,9 @@ class patchBaseline extends Model
         }
         if (null !== $this->rejectedPatchesAction) {
             $res['RejectedPatchesAction'] = $this->rejectedPatchesAction;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -272,6 +281,9 @@ class patchBaseline extends Model
         }
         if (isset($map['RejectedPatchesAction'])) {
             $model->rejectedPatchesAction = $map['RejectedPatchesAction'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

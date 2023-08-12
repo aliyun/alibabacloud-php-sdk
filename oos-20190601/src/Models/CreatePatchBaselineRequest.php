@@ -93,6 +93,11 @@ class CreatePatchBaselineRequest extends Model
     public $rejectedPatchesAction;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string[]
      */
     public $sources;
@@ -112,6 +117,7 @@ class CreatePatchBaselineRequest extends Model
         'regionId'                         => 'RegionId',
         'rejectedPatches'                  => 'RejectedPatches',
         'rejectedPatchesAction'            => 'RejectedPatchesAction',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'sources'                          => 'Sources',
         'tags'                             => 'Tags',
     ];
@@ -152,6 +158,9 @@ class CreatePatchBaselineRequest extends Model
         }
         if (null !== $this->rejectedPatchesAction) {
             $res['RejectedPatchesAction'] = $this->rejectedPatchesAction;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sources) {
             $res['Sources'] = $this->sources;
@@ -210,6 +219,9 @@ class CreatePatchBaselineRequest extends Model
         }
         if (isset($map['RejectedPatchesAction'])) {
             $model->rejectedPatchesAction = $map['RejectedPatchesAction'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Sources'])) {
             if (!empty($map['Sources'])) {

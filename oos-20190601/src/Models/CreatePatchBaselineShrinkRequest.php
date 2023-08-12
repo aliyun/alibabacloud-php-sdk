@@ -94,6 +94,11 @@ class CreatePatchBaselineShrinkRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $sourcesShrink;
 
     /**
@@ -111,6 +116,7 @@ class CreatePatchBaselineShrinkRequest extends Model
         'regionId'                         => 'RegionId',
         'rejectedPatchesShrink'            => 'RejectedPatches',
         'rejectedPatchesAction'            => 'RejectedPatchesAction',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'sourcesShrink'                    => 'Sources',
         'tagsShrink'                       => 'Tags',
     ];
@@ -151,6 +157,9 @@ class CreatePatchBaselineShrinkRequest extends Model
         }
         if (null !== $this->rejectedPatchesAction) {
             $res['RejectedPatchesAction'] = $this->rejectedPatchesAction;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->sourcesShrink) {
             $res['Sources'] = $this->sourcesShrink;
@@ -199,6 +208,9 @@ class CreatePatchBaselineShrinkRequest extends Model
         }
         if (isset($map['RejectedPatchesAction'])) {
             $model->rejectedPatchesAction = $map['RejectedPatchesAction'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Sources'])) {
             $model->sourcesShrink = $map['Sources'];

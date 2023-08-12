@@ -72,6 +72,11 @@ class patchBaseline extends Model
     public $operationSystem;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @description The share type of the patch baseline.
      *
      * @example Private
@@ -105,6 +110,7 @@ class patchBaseline extends Model
         'id'              => 'Id',
         'name'            => 'Name',
         'operationSystem' => 'OperationSystem',
+        'resourceGroupId' => 'ResourceGroupId',
         'shareType'       => 'ShareType',
         'updatedBy'       => 'UpdatedBy',
         'updatedDate'     => 'UpdatedDate',
@@ -137,6 +143,9 @@ class patchBaseline extends Model
         }
         if (null !== $this->operationSystem) {
             $res['OperationSystem'] = $this->operationSystem;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -179,6 +188,9 @@ class patchBaseline extends Model
         }
         if (isset($map['OperationSystem'])) {
             $model->operationSystem = $map['OperationSystem'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

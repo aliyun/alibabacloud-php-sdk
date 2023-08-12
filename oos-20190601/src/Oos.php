@@ -722,6 +722,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->rejectedPatchesAction)) {
             $query['RejectedPatchesAction'] = $request->rejectedPatchesAction;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->sourcesShrink)) {
             $query['Sources'] = $request->sourcesShrink;
         }
@@ -4648,6 +4651,9 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->rejectedPatchesAction)) {
             $query['RejectedPatchesAction'] = $request->rejectedPatchesAction;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->sourcesShrink)) {
             $query['Sources'] = $request->sourcesShrink;
