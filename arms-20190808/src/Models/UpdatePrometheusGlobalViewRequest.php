@@ -37,6 +37,11 @@ class UpdatePrometheusGlobalViewRequest extends Model
     public $mostRegionId;
 
     /**
+     * @var string
+     */
+    public $paramJson;
+
+    /**
      * @description The region ID.
      *
      * @example cn-shenzhen
@@ -67,6 +72,7 @@ class UpdatePrometheusGlobalViewRequest extends Model
         'clusterId'             => 'ClusterId',
         'groupName'             => 'GroupName',
         'mostRegionId'          => 'MostRegionId',
+        'paramJson'             => 'ParamJson',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'subClustersJson'       => 'SubClustersJson',
@@ -90,6 +96,9 @@ class UpdatePrometheusGlobalViewRequest extends Model
         }
         if (null !== $this->mostRegionId) {
             $res['MostRegionId'] = $this->mostRegionId;
+        }
+        if (null !== $this->paramJson) {
+            $res['ParamJson'] = $this->paramJson;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -123,6 +132,9 @@ class UpdatePrometheusGlobalViewRequest extends Model
         }
         if (isset($map['MostRegionId'])) {
             $model->mostRegionId = $map['MostRegionId'];
+        }
+        if (isset($map['ParamJson'])) {
+            $model->paramJson = $map['ParamJson'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

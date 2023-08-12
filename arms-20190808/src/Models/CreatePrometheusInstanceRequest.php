@@ -51,6 +51,11 @@ class CreatePrometheusInstanceRequest extends Model
     public $grafanaInstanceId;
 
     /**
+     * @var string
+     */
+    public $paramJson;
+
+    /**
      * @description The region ID. If you create a Prometheus instance for cloud services in China, set the value to cn-shanghai.
      *
      * @example cn-shanghai
@@ -118,6 +123,7 @@ class CreatePrometheusInstanceRequest extends Model
         'clusterName'           => 'ClusterName',
         'clusterType'           => 'ClusterType',
         'grafanaInstanceId'     => 'GrafanaInstanceId',
+        'paramJson'             => 'ParamJson',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'securityGroupId'       => 'SecurityGroupId',
@@ -148,6 +154,9 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
+        }
+        if (null !== $this->paramJson) {
+            $res['ParamJson'] = $this->paramJson;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -202,6 +211,9 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];
+        }
+        if (isset($map['ParamJson'])) {
+            $model->paramJson = $map['ParamJson'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

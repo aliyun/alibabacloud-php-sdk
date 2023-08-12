@@ -72,6 +72,9 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateRetcodeAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateSyntheticTaskShrinkRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateTimingSyntheticTaskShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateWebhookRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateWebhookResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DelAuthTokenRequest;
@@ -125,6 +128,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSourceMapResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSourceMapShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSyntheticTaskRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteSyntheticTaskResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTimingSyntheticTaskRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTimingSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\DeleteTraceAppShrinkRequest;
@@ -194,12 +199,17 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSourceMapInfoRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSourceMapInfoResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetStackRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetStackResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticMonitorsRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticMonitorsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticMonitorsShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskDetailResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskListRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskListResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskMonitorsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetSyntheticTaskMonitorsResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceAppResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTraceRequest;
@@ -260,6 +270,9 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\ListScenarioRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListScenarioResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSilencePoliciesRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListSilencePoliciesResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTimingSyntheticTasksShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTraceAppsRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ListTraceAppsResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\ManageGetRecordingRuleRequest;
@@ -312,8 +325,14 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\SetRetcodeShareStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SetRetcodeShareStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\StartAlertRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\StartAlertResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\StartTimingSyntheticTaskRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\StartTimingSyntheticTaskResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\StartTimingSyntheticTaskShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\StopAlertRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\StopAlertResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\StopTimingSyntheticTaskRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\StopTimingSyntheticTaskResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\StopTimingSyntheticTaskShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SwitchSyntheticTaskStatusRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SwitchSyntheticTaskStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\SyncRecordingRulesRequest;
@@ -348,6 +367,9 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusReque
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusMonitoringStatusResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdatePrometheusRemoteWriteResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateTimingSyntheticTaskShrinkRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateWebhookRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UpdateWebhookResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\UploadRequest;
@@ -2087,6 +2109,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->grafanaInstanceId)) {
             $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
         }
+        if (!Utils::isUnset($request->paramJson)) {
+            $query['ParamJson'] = $request->paramJson;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -2356,6 +2381,102 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createSyntheticTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return CreateTimingSyntheticTaskResponse
+     */
+    public function createTimingSyntheticTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTimingSyntheticTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->availableAssertions)) {
+            $request->availableAssertionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableAssertions, 'AvailableAssertions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->commonSetting)) {
+            $request->commonSettingShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonSetting, 'CommonSetting', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->customPeriod)) {
+            $request->customPeriodShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customPeriod, 'CustomPeriod', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->monitorConf)) {
+            $request->monitorConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorConf, 'MonitorConf', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->monitors)) {
+            $request->monitorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitors, 'Monitors', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->availableAssertionsShrink)) {
+            $query['AvailableAssertions'] = $request->availableAssertionsShrink;
+        }
+        if (!Utils::isUnset($request->commonSettingShrink)) {
+            $query['CommonSetting'] = $request->commonSettingShrink;
+        }
+        if (!Utils::isUnset($request->customPeriodShrink)) {
+            $query['CustomPeriod'] = $request->customPeriodShrink;
+        }
+        if (!Utils::isUnset($request->frequency)) {
+            $query['Frequency'] = $request->frequency;
+        }
+        if (!Utils::isUnset($request->monitorCategory)) {
+            $query['MonitorCategory'] = $request->monitorCategory;
+        }
+        if (!Utils::isUnset($request->monitorConfShrink)) {
+            $query['MonitorConf'] = $request->monitorConfShrink;
+        }
+        if (!Utils::isUnset($request->monitorsShrink)) {
+            $query['Monitors'] = $request->monitorsShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTimingSyntheticTask',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTimingSyntheticTaskRequest $request
+     *
+     * @return CreateTimingSyntheticTaskResponse
+     */
+    public function createTimingSyntheticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createTimingSyntheticTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -3580,6 +3701,52 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteSyntheticTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteTimingSyntheticTaskRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteTimingSyntheticTaskResponse
+     */
+    public function deleteTimingSyntheticTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTimingSyntheticTask',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTimingSyntheticTaskRequest $request
+     *
+     * @return DeleteTimingSyntheticTaskResponse
+     */
+    public function deleteTimingSyntheticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteTimingSyntheticTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -5279,6 +5446,51 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param GetSyntheticMonitorsRequest $tmpReq
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetSyntheticMonitorsResponse
+     */
+    public function getSyntheticMonitorsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetSyntheticMonitorsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->filter)) {
+            $request->filterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->filter, 'Filter', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSyntheticMonitors',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSyntheticMonitorsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetSyntheticMonitorsRequest $request
+     *
+     * @return GetSyntheticMonitorsResponse
+     */
+    public function getSyntheticMonitors($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getSyntheticMonitorsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetSyntheticTaskDetailRequest $request
      * @param RuntimeOptions                $runtime
      *
@@ -5432,6 +5644,46 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getSyntheticTaskMonitorsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTimingSyntheticTaskRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return GetTimingSyntheticTaskResponse
+     */
+    public function getTimingSyntheticTaskWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTimingSyntheticTask',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTimingSyntheticTaskRequest $request
+     *
+     * @return GetTimingSyntheticTaskResponse
+     */
+    public function getTimingSyntheticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTimingSyntheticTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -7024,6 +7276,54 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param ListTimingSyntheticTasksRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListTimingSyntheticTasksResponse
+     */
+    public function listTimingSyntheticTasksWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListTimingSyntheticTasksShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->search)) {
+            $request->searchShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->search, 'Search', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTimingSyntheticTasks',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTimingSyntheticTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTimingSyntheticTasksRequest $request
+     *
+     * @return ListTimingSyntheticTasksResponse
+     */
+    public function listTimingSyntheticTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTimingSyntheticTasksWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTraceAppsRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -7033,6 +7333,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -8516,6 +8819,57 @@ class ARMS extends OpenApiClient
     }
 
     /**
+     * @param StartTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return StartTimingSyntheticTaskResponse
+     */
+    public function startTimingSyntheticTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StartTimingSyntheticTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskIds)) {
+            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskIdsShrink)) {
+            $query['TaskIds'] = $request->taskIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StartTimingSyntheticTask',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StartTimingSyntheticTaskRequest $request
+     *
+     * @return StartTimingSyntheticTaskResponse
+     */
+    public function startTimingSyntheticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->startTimingSyntheticTaskWithOptions($request, $runtime);
+    }
+
+    /**
      * @param StopAlertRequest $request
      * @param RuntimeOptions   $runtime
      *
@@ -8559,6 +8913,57 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->stopAlertWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param StopTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return StopTimingSyntheticTaskResponse
+     */
+    public function stopTimingSyntheticTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new StopTimingSyntheticTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->taskIds)) {
+            $request->taskIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->taskIds, 'TaskIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->taskIdsShrink)) {
+            $query['TaskIds'] = $request->taskIdsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'StopTimingSyntheticTask',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return StopTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param StopTimingSyntheticTaskRequest $request
+     *
+     * @return StopTimingSyntheticTaskResponse
+     */
+    public function stopTimingSyntheticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->stopTimingSyntheticTaskWithOptions($request, $runtime);
     }
 
     /**
@@ -9266,6 +9671,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->mostRegionId)) {
             $query['MostRegionId'] = $request->mostRegionId;
         }
+        if (!Utils::isUnset($request->paramJson)) {
+            $query['ParamJson'] = $request->paramJson;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -9524,6 +9932,105 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrometheusRemoteWriteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateTimingSyntheticTaskRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateTimingSyntheticTaskResponse
+     */
+    public function updateTimingSyntheticTaskWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTimingSyntheticTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->availableAssertions)) {
+            $request->availableAssertionsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->availableAssertions, 'AvailableAssertions', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->commonSetting)) {
+            $request->commonSettingShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->commonSetting, 'CommonSetting', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->customPeriod)) {
+            $request->customPeriodShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customPeriod, 'CustomPeriod', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->monitorConf)) {
+            $request->monitorConfShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitorConf, 'MonitorConf', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->monitors)) {
+            $request->monitorsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->monitors, 'Monitors', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->availableAssertionsShrink)) {
+            $query['AvailableAssertions'] = $request->availableAssertionsShrink;
+        }
+        if (!Utils::isUnset($request->commonSettingShrink)) {
+            $query['CommonSetting'] = $request->commonSettingShrink;
+        }
+        if (!Utils::isUnset($request->customPeriodShrink)) {
+            $query['CustomPeriod'] = $request->customPeriodShrink;
+        }
+        if (!Utils::isUnset($request->frequency)) {
+            $query['Frequency'] = $request->frequency;
+        }
+        if (!Utils::isUnset($request->monitorCategory)) {
+            $query['MonitorCategory'] = $request->monitorCategory;
+        }
+        if (!Utils::isUnset($request->monitorConfShrink)) {
+            $query['MonitorConf'] = $request->monitorConfShrink;
+        }
+        if (!Utils::isUnset($request->monitorsShrink)) {
+            $query['Monitors'] = $request->monitorsShrink;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTimingSyntheticTask',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTimingSyntheticTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTimingSyntheticTaskRequest $request
+     *
+     * @return UpdateTimingSyntheticTaskResponse
+     */
+    public function updateTimingSyntheticTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateTimingSyntheticTaskWithOptions($request, $runtime);
     }
 
     /**
