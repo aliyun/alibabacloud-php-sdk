@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example rm-bp121zcqr5h8m****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example /dev/xvdb
+     *
      * @var string
      */
     public $device;
 
     /**
+     * @example d-bp1dffpog8r2eowd****
+     *
      * @var string
      */
     public $diskId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $hasDBInstance;
 
     /**
+     * @example 18250
+     *
      * @var int
      */
     public $maxIOPS;
 
     /**
+     * @example 284
+     *
      * @var int
      */
     public $maxThroughput;
 
     /**
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @example 329
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @example In_use
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example data
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

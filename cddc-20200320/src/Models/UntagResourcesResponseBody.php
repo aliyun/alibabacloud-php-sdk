@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesResponseBody extends Model
 {
     /**
+     * @example B74AD197-214C-50F2-BF7D-B13632EE4D75
+     *
      * @var string
      */
     public $requestId;

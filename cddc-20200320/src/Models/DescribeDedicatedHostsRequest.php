@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsRequest extends Model
 {
     /**
+     * @example Allocatable
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @example dhg-h5i4p331f509****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostStatus;
 
     /**
+     * @example dhg_cloud_ssd
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @example 123456789
+     *
      * @var int
      */
     public $orderId;
@@ -44,16 +56,22 @@ class DescribeDedicatedHostsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $pageNumbers;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -69,11 +87,15 @@ class DescribeDedicatedHostsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example {"key1":"value1"}
+     *
      * @var string
      */
     public $tags;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $zoneId;

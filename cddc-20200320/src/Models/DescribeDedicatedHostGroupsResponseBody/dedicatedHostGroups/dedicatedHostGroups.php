@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHostGroups extends Model
 {
     /**
+     * @example Evenly
+     *
      * @var string
      */
     public $allocationPolicy;
 
     /**
+     * @example rm-bp15rszyxs4t3****
+     *
      * @var string
      */
     public $bastionInstanceId;
@@ -25,126 +29,176 @@ class dedicatedHostGroups extends Model
     public $category;
 
     /**
+     * @example 9.38
+     *
      * @var float
      */
     public $cpuAllocateRation;
 
     /**
+     * @example 3
+     *
      * @var float
      */
     public $cpuAllocatedAmount;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $cpuAllocationRatio;
 
     /**
+     * @example 2021-05-07T02:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2
+     *
      * @var mixed[]
      */
     public $dedicatedHostCountGroupByHostType;
 
     /**
+     * @example dhg-34639v1jt4y4****
+     *
      * @var string
      */
     public $dedicatedHostGroupDesc;
 
     /**
+     * @example dhg-34639v1jt4y4****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example origin
+     *
      * @var string
      */
     public $deployType;
 
     /**
+     * @example 100
+     *
      * @var float
      */
     public $diskAllocateRation;
 
     /**
+     * @example 1024
+     *
      * @var float
      */
     public $diskAllocatedAmount;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $diskAllocationRatio;
 
     /**
+     * @example 1024
+     *
      * @var float
      */
     public $diskUsedAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $diskUtility;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $hostNumber;
 
     /**
+     * @example Auto
+     *
      * @var string
      */
     public $hostReplacePolicy;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $instanceNumber;
 
     /**
+     * @example 9.38
+     *
      * @var float
      */
     public $memAllocateRation;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $memAllocatedAmount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $memAllocationRatio;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $memUsedAmount;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $memUtility;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $openPermission;
 
     /**
+     * @example mysql-host
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @example vpc-bp1ov7as4yvz4kxei****
+     *
      * @var string
      */
     public $VPCId;

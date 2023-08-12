@@ -9,186 +9,260 @@ use AlibabaCloud\Tea\Model;
 class dedicatedHosts extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example Suspended
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @example bastionhost-cn-i7m2fgw****
+     *
      * @var string
      */
     public $bastionInstanceId;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $CPUAllocationRatio;
 
     /**
+     * @example Standard
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $cpuUsed;
 
     /**
+     * @example 2020-10-16 16:30:19
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example dhg-6w7q18iwt5jo****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $diskAllocationRatio;
 
     /**
+     * @example {\"SystemDiskSize\":20,\"DataDiskCount\":0,\"DataDiskSize\":0,\"DataDiskCategory\":[\"\"],\"SystemDiskCategory\":\"cloud_essd\"}
+     *
      * @var string
      */
     public $diskInfo;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $distributionSymbol;
 
     /**
+     * @example t4n9uz07h3r1tmcejtxf:1
+     *
      * @var string
      */
     public $distributionTag;
 
     /**
+     * @example ecs.r5.16xlarge
+     *
      * @var string
      */
     public $ecsClassCode;
 
     /**
+     * @example i-2zec7l031p0jtru3pn7a
+     *
      * @var string
      */
     public $ecsId;
 
     /**
+     * @example 2021-10-16 16:30:19
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 16
+     *
      * @var string
      */
     public $hostCPU;
 
     /**
+     * @example rds.g6.4xlarge
+     *
      * @var string
      */
     public $hostClass;
 
     /**
+     * @example 65536
+     *
      * @var string
      */
     public $hostMem;
 
     /**
+     * @example ch-bp15xfnp706tl****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostStatus;
 
     /**
+     * @example 1234
+     *
      * @var string
      */
     public $hostStorage;
 
     /**
+     * @example dhg_cloud_ssd
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @example ALinux
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $instanceNumber;
 
     /**
+     * @example 90
+     *
      * @var string
      */
     public $memAllocationRatio;
 
     /**
+     * @example 24576
+     *
      * @var string
      */
     public $memoryUsed;
 
     /**
+     * @example 2012_std_ha,2012_std,2016_std_ha,2016_std,2017_std_ha,2017_std,2019_std_ha,2019_std
+     *
      * @var string
      */
     public $mssqlSupportVersion;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $openPermission;
 
     /**
+     * @example 588800
+     *
      * @var string
      */
     public $storageUsed;
 
     /**
+     * @example vpc-bp1roz55mrbj3ka1s****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example vsw-bp133c8ifzxd3iv6q****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $zoneId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostDisksRequest extends Model
 {
     /**
+     * @example ch-bp183v72jr033****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -19,6 +21,8 @@ class DescribeDedicatedHostDisksRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

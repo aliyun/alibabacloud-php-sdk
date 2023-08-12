@@ -10,61 +10,85 @@ use AlibabaCloud\Tea\Model;
 class hostInstanceConsoleInfos extends Model
 {
     /**
+     * @example 8
+     *
      * @var int
      */
     public $cpuCores;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $cpuIncreaseRatioValue;
 
     /**
+     * @example rm-bp1m5z8002gyj****
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example rm-bp1m5z8002gyj****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 5.8
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 172.22.XX.XX
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example mysql.z2.medium.2
+     *
      * @var string
      */
     public $levelName;
 
     /**
+     * @example 1300
+     *
      * @var int
      */
     public $maxConnIncreaseRatioValue;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memSize;
 
     /**
+     * @example 64
+     *
      * @var int
      */
     public $memoryIncreaseRatioValue;
@@ -75,16 +99,22 @@ class hostInstanceConsoleInfos extends Model
     public $perfInfo;
 
     /**
+     * @example 3443
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

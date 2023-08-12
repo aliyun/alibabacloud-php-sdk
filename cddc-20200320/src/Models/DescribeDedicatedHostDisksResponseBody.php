@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostDisksResponseBody extends Model
 {
     /**
+     * @example ch-bp183v72jr033****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -20,6 +22,8 @@ class DescribeDedicatedHostDisksResponseBody extends Model
     public $disks;
 
     /**
+     * @example C6C6CF41-F284-4F63-AB4D-44FACE3BASQW
+     *
      * @var string
      */
     public $requestId;

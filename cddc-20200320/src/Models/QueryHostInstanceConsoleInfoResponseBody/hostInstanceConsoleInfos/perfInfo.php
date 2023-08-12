@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class perfInfo extends Model
 {
     /**
+     * @example 16
+     *
      * @var float
      */
     public $cpuRatio;
 
     /**
+     * @example 1000
+     *
      * @var float
      */
     public $diskCurr;
 
     /**
+     * @example 64
+     *
      * @var float
      */
     public $memRatio;
 
     /**
+     * @example 30
+     *
      * @var float
      */
     public $perfIdbPio;

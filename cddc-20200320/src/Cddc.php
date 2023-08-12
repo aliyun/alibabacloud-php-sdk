@@ -369,6 +369,18 @@ class Cddc extends OpenApiClient
         if (!Utils::isUnset($request->ECSClassListShrink)) {
             $query['ECSClassList'] = $request->ECSClassListShrink;
         }
+        if (!Utils::isUnset($request->ecsDeploymentSetId)) {
+            $query['EcsDeploymentSetId'] = $request->ecsDeploymentSetId;
+        }
+        if (!Utils::isUnset($request->ecsHostName)) {
+            $query['EcsHostName'] = $request->ecsHostName;
+        }
+        if (!Utils::isUnset($request->ecsInstanceName)) {
+            $query['EcsInstanceName'] = $request->ecsInstanceName;
+        }
+        if (!Utils::isUnset($request->ecsUniqueSuffix)) {
+            $query['EcsUniqueSuffix'] = $request->ecsUniqueSuffix;
+        }
         if (!Utils::isUnset($request->engine)) {
             $query['Engine'] = $request->engine;
         }

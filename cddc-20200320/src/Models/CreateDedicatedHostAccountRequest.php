@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostAccountRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example testxxxxxx
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example bastionhost-cn-xxxxxxxxxxx
+     *
      * @var string
      */
     public $bastionInstanceId;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz*******
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -44,6 +56,8 @@ class CreateDedicatedHostAccountRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

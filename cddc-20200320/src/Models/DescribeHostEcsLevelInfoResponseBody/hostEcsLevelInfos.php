@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class hostEcsLevelInfos extends Model
 {
     /**
+     * @example ram
+     *
      * @var string
      */
     public $cddcHostType;

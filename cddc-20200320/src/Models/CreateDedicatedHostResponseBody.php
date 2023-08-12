@@ -15,11 +15,15 @@ class CreateDedicatedHostResponseBody extends Model
     public $dedicateHostList;
 
     /**
+     * @example 102565235
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example C860658E-68A6-46C1-AF6E-3AE7C4D32375
+     *
      * @var string
      */
     public $requestId;

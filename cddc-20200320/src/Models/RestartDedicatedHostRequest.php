@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RestartDedicatedHostRequest extends Model
 {
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example MaintainTime
+     *
      * @var string
      */
     public $failoverMode;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $forceStop;
@@ -29,6 +35,8 @@ class RestartDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

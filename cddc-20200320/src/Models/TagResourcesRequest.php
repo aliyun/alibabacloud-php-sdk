@@ -15,11 +15,15 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example ch-t4n4dcdvu6840****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -35,6 +39,8 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example DEDICATEDHOST
+     *
      * @var string
      */
     public $resourceType;

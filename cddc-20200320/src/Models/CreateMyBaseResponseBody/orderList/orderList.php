@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class orderList extends Model
 {
     /**
+     * @example 1661498032347
+     *
      * @var int
      */
     public $createTimestamp;
@@ -16,16 +18,26 @@ class orderList extends Model
     /**
      * @var string
      */
+    public $dedicatedHostGroupName;
+
+    /**
+     * @example ["i-t4n1tandot8j3axvwhe5"]
+     *
+     * @var string
+     */
     public $ECSInstanceIds;
 
     /**
+     * @example 21767077790****
+     *
      * @var string
      */
     public $orderId;
     protected $_name = [
-        'createTimestamp' => 'CreateTimestamp',
-        'ECSInstanceIds'  => 'ECSInstanceIds',
-        'orderId'         => 'OrderId',
+        'createTimestamp'        => 'CreateTimestamp',
+        'dedicatedHostGroupName' => 'DedicatedHostGroupName',
+        'ECSInstanceIds'         => 'ECSInstanceIds',
+        'orderId'                => 'OrderId',
     ];
 
     public function validate()
@@ -37,6 +49,9 @@ class orderList extends Model
         $res = [];
         if (null !== $this->createTimestamp) {
             $res['CreateTimestamp'] = $this->createTimestamp;
+        }
+        if (null !== $this->dedicatedHostGroupName) {
+            $res['DedicatedHostGroupName'] = $this->dedicatedHostGroupName;
         }
         if (null !== $this->ECSInstanceIds) {
             $res['ECSInstanceIds'] = $this->ECSInstanceIds;
@@ -58,6 +73,9 @@ class orderList extends Model
         $model = new self();
         if (isset($map['CreateTimestamp'])) {
             $model->createTimestamp = $map['CreateTimestamp'];
+        }
+        if (isset($map['DedicatedHostGroupName'])) {
+            $model->dedicatedHostGroupName = $map['DedicatedHostGroupName'];
         }
         if (isset($map['ECSInstanceIds'])) {
             $model->ECSInstanceIds = $map['ECSInstanceIds'];

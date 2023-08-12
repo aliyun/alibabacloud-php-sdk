@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteDedicatedHostGroupRequest extends Model
 {
     /**
+     * @example dhg-h5i4p331f509****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
@@ -19,6 +21,8 @@ class DeleteDedicatedHostGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

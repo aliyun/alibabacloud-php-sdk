@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RestartDedicatedHostResponseBody extends Model
 {
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example D6E068C3-25BC-455A-85FE-45F0B22EDSH
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 10254125
+     *
      * @var int
      */
     public $taskId;

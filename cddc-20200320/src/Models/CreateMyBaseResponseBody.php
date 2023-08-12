@@ -15,6 +15,8 @@ class CreateMyBaseResponseBody extends Model
     public $orderList;
 
     /**
+     * @example 937F6B32-A796-53A0-99C8-F7A9660E****
+     *
      * @var string
      */
     public $requestId;

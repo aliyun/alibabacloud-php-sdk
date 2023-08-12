@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryHostInstanceConsoleInfoRequest extends Model
 {
     /**
+     * @example ch-bp1fgj3kt7fsb****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -19,6 +21,8 @@ class QueryHostInstanceConsoleInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;

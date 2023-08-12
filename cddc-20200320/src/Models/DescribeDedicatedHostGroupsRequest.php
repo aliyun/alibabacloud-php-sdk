@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostGroupsRequest extends Model
 {
     /**
+     * @example dhg-872yt76ann7e****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example AliLinux
+     *
      * @var string
      */
     public $imageCategory;
@@ -29,6 +35,8 @@ class DescribeDedicatedHostGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

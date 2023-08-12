@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ReplaceDedicatedHostRequest extends Model
 {
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example MaintainTime
+     *
      * @var string
      */
     public $failoverMode;
@@ -24,6 +28,8 @@ class ReplaceDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

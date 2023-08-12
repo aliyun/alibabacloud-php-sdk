@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example ETnLKlblzczshOTUbOCzSBZH8****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example dhg-6w7q18iwt5jo****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example rds.g6.4xlarge
+     *
      * @var string
      */
     public $hostClass;
 
     /**
+     * @example 512
+     *
      * @var string
      */
     public $hostStorage;
 
     /**
+     * @example cloud_essd0
+     *
      * @var string
      */
     public $hostStorageType;
 
     /**
+     * @example AliLinux
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @example Test123456
+     *
      * @var string
      */
     public $osPassword;
@@ -54,16 +70,22 @@ class CreateDedicatedHostRequest extends Model
     public $ownerId;
 
     /**
+     * @example prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -79,16 +101,22 @@ class CreateDedicatedHostRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $usedTime;
 
     /**
+     * @example vsw-bp133c8ifzxd3iv6q****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

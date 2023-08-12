@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostPasswordRequest extends Model
 {
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example test*****
+     *
      * @var string
      */
     public $newPassword;
@@ -24,6 +28,8 @@ class ModifyDedicatedHostPasswordRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

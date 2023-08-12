@@ -15,6 +15,8 @@ class DescribeHostEcsLevelInfoResponseBody extends Model
     public $hostEcsLevelInfos;
 
     /**
+     * @example 395858E2-2A82-4ED7-BB93-2DB60119EF4C
+     *
      * @var string
      */
     public $requestId;

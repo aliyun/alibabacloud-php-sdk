@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostPasswordResponseBody extends Model
 {
     /**
+     * @example test123****
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @example D6E068C3-25BC-455A-85FE-45F0B22E12AS
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostAccountRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example test*****
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -29,6 +35,8 @@ class ModifyDedicatedHostAccountRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

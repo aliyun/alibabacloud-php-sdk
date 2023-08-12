@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostEcsLevelInfoRequest extends Model
 {
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example AliLinux
+     *
      * @var string
      */
     public $imageCategory;
@@ -24,6 +28,8 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -39,11 +45,15 @@ class DescribeHostEcsLevelInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example local_ssd
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $zoneId;

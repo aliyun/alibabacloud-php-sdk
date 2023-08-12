@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dedicateHostList extends Model
 {
     /**
+     * @example ch-bp108dki3wdl6****
+     *
      * @var string
      */
     public $dedicatedHostId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostAttributeRequest extends Model
 {
     /**
+     * @example dhg-34639v1jt4y4****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -24,6 +28,8 @@ class DescribeDedicatedHostAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

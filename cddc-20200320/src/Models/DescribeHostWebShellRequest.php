@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHostWebShellRequest extends Model
 {
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -19,6 +21,8 @@ class DescribeHostWebShellRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,6 +38,8 @@ class DescribeHostWebShellRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

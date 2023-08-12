@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostClassRequest extends Model
 {
     /**
+     * @example ch-bp1fgj3kt7fsb****
+     *
      * @var string
      */
     public $dedicatedHostId;
@@ -19,6 +21,8 @@ class ModifyDedicatedHostClassRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -34,16 +38,22 @@ class ModifyDedicatedHostClassRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2021-07-13T07:14:22Z
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $switchTimeMode;
 
     /**
+     * @example rds.c6.x4large
+     *
      * @var string
      */
     public $targetClassCode;

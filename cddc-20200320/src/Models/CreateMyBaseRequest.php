@@ -10,31 +10,63 @@ use AlibabaCloud\Tea\Model;
 class CreateMyBaseRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 4ed77dd1-ff52-407e-ac58-dc251822****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example testDedicatedGroupName
+     *
      * @var string
      */
     public $dedicatedHostGroupDescription;
 
     /**
+     * @example dhg-6dx5n9gjs96u****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example [{"sysDiskCapacity":40,"instanceType":"ecs.d2s.10xlarge","nodeCount":1,"sysDiskType":"cloud_essd"}]
+     *
      * @var ECSClassList[]
      */
     public $ECSClassList;
 
     /**
+     * @var string
+     */
+    public $ecsDeploymentSetId;
+
+    /**
+     * @var string
+     */
+    public $ecsHostName;
+
+    /**
+     * @var string
+     */
+    public $ecsInstanceName;
+
+    /**
+     * @var string
+     */
+    public $ecsUniqueSuffix;
+
+    /**
+     * @example alisql
+     *
      * @var string
      */
     public $engine;
@@ -50,6 +82,8 @@ class CreateMyBaseRequest extends Model
     public $keyPairName;
 
     /**
+     * @example Test123456
+     *
      * @var string
      */
     public $osPassword;
@@ -65,21 +99,29 @@ class CreateMyBaseRequest extends Model
     public $passwordInherit;
 
     /**
+     * @example PrePaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @example Monthly
+     *
      * @var string
      */
     public $periodType;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
@@ -95,21 +137,29 @@ class CreateMyBaseRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example sg-t4neld965n89ocvt****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vsw-t4ni3mzqqw98vt317****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-t4nbtmekgxotv0d3y****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $zoneId;
@@ -119,6 +169,10 @@ class CreateMyBaseRequest extends Model
         'dedicatedHostGroupDescription' => 'DedicatedHostGroupDescription',
         'dedicatedHostGroupId'          => 'DedicatedHostGroupId',
         'ECSClassList'                  => 'ECSClassList',
+        'ecsDeploymentSetId'            => 'EcsDeploymentSetId',
+        'ecsHostName'                   => 'EcsHostName',
+        'ecsInstanceName'               => 'EcsInstanceName',
+        'ecsUniqueSuffix'               => 'EcsUniqueSuffix',
         'engine'                        => 'Engine',
         'imageId'                       => 'ImageId',
         'keyPairName'                   => 'KeyPairName',
@@ -164,6 +218,18 @@ class CreateMyBaseRequest extends Model
                     $res['ECSClassList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->ecsDeploymentSetId) {
+            $res['EcsDeploymentSetId'] = $this->ecsDeploymentSetId;
+        }
+        if (null !== $this->ecsHostName) {
+            $res['EcsHostName'] = $this->ecsHostName;
+        }
+        if (null !== $this->ecsInstanceName) {
+            $res['EcsInstanceName'] = $this->ecsInstanceName;
+        }
+        if (null !== $this->ecsUniqueSuffix) {
+            $res['EcsUniqueSuffix'] = $this->ecsUniqueSuffix;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -245,6 +311,18 @@ class CreateMyBaseRequest extends Model
                     $model->ECSClassList[$n++] = null !== $item ? ECSClassList::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['EcsDeploymentSetId'])) {
+            $model->ecsDeploymentSetId = $map['EcsDeploymentSetId'];
+        }
+        if (isset($map['EcsHostName'])) {
+            $model->ecsHostName = $map['EcsHostName'];
+        }
+        if (isset($map['EcsInstanceName'])) {
+            $model->ecsInstanceName = $map['EcsInstanceName'];
+        }
+        if (isset($map['EcsUniqueSuffix'])) {
+            $model->ecsUniqueSuffix = $map['EcsUniqueSuffix'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];

@@ -15,6 +15,8 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
@@ -35,6 +37,8 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example DEDICATEDHOST
+     *
      * @var string
      */
     public $resourceType;

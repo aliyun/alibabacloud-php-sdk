@@ -9,181 +9,255 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostAttributeResponseBody extends Model
 {
     /**
+     * @example cdp_system
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example Admin
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example Suspended
+     *
      * @var string
      */
     public $allocationStatus;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $CPUAllocationRatio;
 
     /**
+     * @example 36
+     *
      * @var string
      */
     public $cpuUsed;
 
     /**
+     * @example 2021-11-13T07:14:22Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example dhg-34639v1jt4y4****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example ch-bp10a5id3boqi****
+     *
      * @var string
      */
     public $dedicatedHostId;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $diskAllocationRatio;
 
     /**
+     * @example tag
+     *
      * @var string
      */
     public $distributionTag;
 
     /**
+     * @example ecs.r5.16xlarge
+     *
      * @var string
      */
     public $ecsClassCode;
 
     /**
+     * @example 2022-03-16T16:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $hostCPU;
 
     /**
+     * @example mssql.host.c2xlarge
+     *
      * @var string
      */
     public $hostClass;
 
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $hostMem;
 
     /**
+     * @example ch-8vbj9x74z874o****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $hostStatus;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $hostStorage;
 
     /**
+     * @example dhg_cloud_ssd
+     *
      * @var string
      */
     public $hostType;
 
     /**
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @example WindowsWithMssqlStdLicense
+     *
      * @var string
      */
     public $imageCategory;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $instanceNumber;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $instanceNumberMaster;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceNumberROMaster;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceNumberROSlave;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceNumberSlave;
 
     /**
+     * @example 90
+     *
      * @var string
      */
     public $memAllocationRatio;
 
     /**
+     * @example 24576
+     *
      * @var string
      */
     public $memoryUsed;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $openPermission;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 00A001D6-2630-5CBD-A23C-80BC1BAFDC31
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 588800
+     *
      * @var string
      */
     public $storageUsed;
 
     /**
+     * @example vpc-wz9vu1jb32wn3sdd6****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description VSwitch ID。
+     *
+     * @example vsw-bp1kaugqyrzb58oc1****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

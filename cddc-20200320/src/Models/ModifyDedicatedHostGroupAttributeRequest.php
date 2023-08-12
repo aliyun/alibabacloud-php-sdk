@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ModifyDedicatedHostGroupAttributeRequest extends Model
 {
     /**
+     * @example Intensively
+     *
      * @var string
      */
     public $allocationPolicy;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $cpuAllocationRatio;
 
     /**
+     * @example mysql-cluster
+     *
      * @var string
      */
     public $dedicatedHostGroupDesc;
 
     /**
+     * @example dhg-h5i4p331f509****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $diskAllocationRatio;
 
     /**
+     * @example Auto
+     *
      * @var string
      */
     public $hostReplacePolicy;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $memAllocationRatio;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $openPermission;
@@ -54,6 +70,8 @@ class ModifyDedicatedHostGroupAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

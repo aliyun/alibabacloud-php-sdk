@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 4
+     *
      * @var float
      */
     public $cloudStorageBandwidth;
 
     /**
+     * @example 24
+     *
      * @var int
      */
     public $cpu;
 
     /**
+     * @example 2.5 GHz/3.2 GHz
+     *
      * @var string
      */
     public $cpuFrequency;
 
     /**
+     * @example Intel Xeon(Cascade Lake) Platinum 8269CY
+     *
      * @var string
      */
     public $cpuVersion;
 
     /**
+     * @example testxxx
+     *
      * @var string
      */
     public $description;
@@ -39,41 +49,57 @@ class items extends Model
     public $ecsClass;
 
     /**
+     * @example ecs.g6.2xlarge
+     *
      * @var string
      */
     public $ecsClassCode;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $isCloudDisk;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $localStorage;
 
     /**
+     * @example 192
+     *
      * @var int
      */
     public $memory;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $netBandWidth;
 
     /**
+     * @example 150
+     *
      * @var int
      */
     public $netPackage;
 
     /**
+     * @example mssql.cluster.host.g2xlarge
+     *
      * @var string
      */
     public $rdsClassCode;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $storageIops;

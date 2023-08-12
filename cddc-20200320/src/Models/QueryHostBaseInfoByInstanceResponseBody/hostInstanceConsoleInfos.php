@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class hostInstanceConsoleInfos extends Model
 {
     /**
+     * @example rds.ebmr6.26xlarge
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 2021.07.20
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example ch-bp1fgj3kt7fsb****
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @example 172.22.0.***
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @example 3443
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example vpc-bp1ov7as4yvz4kxei****
+     *
      * @var string
      */
     public $vpcId;

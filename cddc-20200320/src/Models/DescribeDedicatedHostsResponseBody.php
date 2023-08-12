@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostsResponseBody extends Model
 {
     /**
+     * @example dhg-6w7q18iwt5jo****
+     *
      * @var string
      */
     public $dedicatedHostGroupId;
@@ -20,26 +22,36 @@ class DescribeDedicatedHostsResponseBody extends Model
     public $dedicatedHosts;
 
     /**
+     * @example 3661824
+     *
      * @var int
      */
     public $maxAutoScaleHostStorage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $pageNumbers;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example D6E068C3-25BC-455A-85FE-45F0B22EASER
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $totalRecords;

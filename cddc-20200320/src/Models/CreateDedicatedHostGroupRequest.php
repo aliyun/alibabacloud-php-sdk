@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class CreateDedicatedHostGroupRequest extends Model
 {
     /**
+     * @example Evenly
+     *
      * @var string
      */
     public $allocationPolicy;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz*******
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $cpuAllocationRatio;
 
     /**
+     * @example mysqlcluster
+     *
      * @var string
      */
     public $dedicatedHostGroupDesc;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $diskAllocationRatio;
 
     /**
+     * @example MySQL
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example Auto
+     *
      * @var string
      */
     public $hostReplacePolicy;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $memAllocationRatio;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $openPermission;
@@ -59,6 +77,8 @@ class CreateDedicatedHostGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -74,6 +94,8 @@ class CreateDedicatedHostGroupRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example vpc-t4n7v5m6icc0a4314****
+     *
      * @var string
      */
     public $VPCId;
