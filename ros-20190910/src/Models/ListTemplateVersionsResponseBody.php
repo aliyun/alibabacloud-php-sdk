@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
-     * @description The query token that is returned in this call.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0****
      *
@@ -19,7 +19,7 @@ class ListTemplateVersionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
@@ -28,7 +28,7 @@ class ListTemplateVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of versions.
+     * @description The versions.
      *
      * @var versions[]
      */

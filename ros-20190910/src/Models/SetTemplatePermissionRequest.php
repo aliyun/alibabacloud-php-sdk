@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SetTemplatePermissionRequest extends Model
 {
     /**
-     * @description The list of one or more Alibaba Cloud accounts with which you want to share or unshare the template.
-     *
+     * @description The Alibaba Cloud accounts with or from which you want to share or unshare the template.\
+     * > - This parameter cannot be set to the ID of the Alibaba Cloud account that owns the template, or the RAM users of this Alibaba Cloud account.
+     * > - When ShareOption is set to CancelSharing, you can unshare the template from all the specified Alibaba Cloud accounts by using an asterisk (\*).
      * @example 123456789
      *
      * @var string[]
@@ -41,7 +42,7 @@ class SetTemplatePermissionRequest extends Model
     public $templateId;
 
     /**
-     * @description The version of the template that you want to share. This parameter takes effect when the ShareOption parameter is set to ShareToAccounts and the VersionOption parameter is set to Specified.
+     * @description The version of the shared template. This parameter takes effect only if you set ShareOption to ShareToAccounts and set VersionOption to Specified.
      *
      * Valid values: v1 to v100.
      * @example v1
@@ -51,14 +52,14 @@ class SetTemplatePermissionRequest extends Model
     public $templateVersion;
 
     /**
-     * @description The version option for template sharing. This parameter takes effect when the ShareOption parameter is set to ShareToAccounts.
+     * @description The version option for the shared template. This parameter takes effect only if you set ShareOption to ShareToAccounts.
      *
-     * Default value: AllVersions. Valid values:
+     * Valid values:
      *
-     *   AllVersions: shares all versions of the template.
-     *   Latest: shares only the latest version of the template. If the shared template is updated, the latest version of the template is shared with the destination account.
-     *   Current: shares only the current version of the template. The current version of the template is shared with the destination account even if the template is updated.
-     *   Specified: shares only one specific version of the template.
+     *   AllVersions (default): shares all versions of the template.
+     *   Latest: shares only the latest version of template. When the version of the template is updated, ROS updates the shared version to the latest version.
+     *   Current: shares only the current version of the template. When the version of the template is updated, ROS does not update the shared version.
+     *   Specified: shares only the specified version of the template.
      *
      * @example Specified
      *

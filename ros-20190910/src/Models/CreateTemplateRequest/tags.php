@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The key of tag N that you want to add to the template.
+     * @description The tag key of the template.
      *
-     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
+     * > Tags is optional. If you need to specify Tags, you must also specify Key.
      * @example usage
      *
      * @var string
@@ -19,7 +19,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description The value of tag N that you want to add to the template.
+     * @description The tag value of the template.
      *
      * @example test
      *

@@ -19,9 +19,8 @@ class CreateTemplateRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the resource group.
-     *
-     * For more information about resource groups, see the "Resource Group" section of [What is Resource Management?](~~94475~~)
+     * @description The ID of the resource group.\
+     * For more information about resource groups, see [Resource groups](~~94475~~).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -29,14 +28,14 @@ class CreateTemplateRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The tags.
+     * @description The tags of the template.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     * @description The structure of the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
      * For more information about Terraform templates, see [Structure of Terraform templates](~~184397~~).
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
@@ -46,9 +45,8 @@ class CreateTemplateRequest extends Model
     public $templateBody;
 
     /**
-     * @description The name of the template.
-     *
-     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). The name must start with a digit or letter.
+     * @description The name of the template.\
+     * The name can be up to 255 characters in length and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or a letter.
      * @example MyTemplate
      *
      * @var string
@@ -56,9 +54,9 @@ class CreateTemplateRequest extends Model
     public $templateName;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body must be 1 to 1,024 bytes in length. If you do not specify the region of the OSS bucket, the value of RegionId is used.
      *
-     * >  You must specify the TemplateBody or TemplateURL parameter.
+     * > You must specify TemplateBody or TemplateURL.
      * @example oss://ros/template/demo
      *
      * @var string

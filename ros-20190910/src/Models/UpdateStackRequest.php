@@ -48,6 +48,9 @@ class UpdateStackRequest extends Model
     public $dryRun;
 
     /**
+     * @description The dry run option in the list format. You can specify only one dry run option.
+     *
+     * > This parameter takes effect only when DryRun is set to true.
      * @var string[]
      */
     public $dryRunOptions;
@@ -55,12 +58,7 @@ class UpdateStackRequest extends Model
     /**
      * @description The maximum number of concurrent operations that can be performed on resources.
      *
-     * >
-     *   If you set this parameter to an integer that is greater than 0, the integer is used.
-     *   If you set this parameter to 0, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-     *   If you leave this parameter empty, the value that you specified for this parameter in the previous request is used. If you left this parameter empty in the previous request, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-     *   If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack.
-     *
+     * > - If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack.
      * @example 1
      *
      * @var int

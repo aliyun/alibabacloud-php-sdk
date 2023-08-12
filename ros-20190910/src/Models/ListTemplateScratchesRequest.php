@@ -12,7 +12,7 @@ class ListTemplateScratchesRequest extends Model
     /**
      * @description The number of the page to return.
      *
-     * Default value: 1.
+     * Default value: 1
      * @example 1
      *
      * @var int
@@ -30,7 +30,7 @@ class ListTemplateScratchesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the scenario is created.
+     * @description The region ID of the scenario.
      *
      * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -40,7 +40,7 @@ class ListTemplateScratchesRequest extends Model
     public $regionId;
 
     /**
-     * @description The state of the scenario. Valid values:
+     * @description The status of the scenario. Valid values:
      *
      *   GENERATE_IN_PROGRESS: The scenario is being created.
      *   GENERATE_COMPLETE: The scenario is created.
@@ -53,7 +53,7 @@ class ListTemplateScratchesRequest extends Model
     public $status;
 
     /**
-     * @description The tags.
+     * @description The tags of the scenario.
      *
      * @var tags[]
      */

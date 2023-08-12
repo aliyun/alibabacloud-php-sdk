@@ -10,8 +10,7 @@ use AlibabaCloud\Tea\Model;
 class PreviewStackRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
-     *
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
      * For more information, see [Ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
@@ -20,10 +19,10 @@ class PreviewStackRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to disable rollback for the resources when the stack fails to be created. Default value: false. Valid values:
+     * @description Specifies whether to disable rollback for the resources when the stack fails to be created. Valid values:
      *
      *   true
-     *   false
+     *   false (default)
      *
      * @example false
      *
@@ -32,12 +31,12 @@ class PreviewStackRequest extends Model
     public $disableRollback;
 
     /**
-     * @description Specifies whether to query the parameters that want to use in compliance precheck.
+     * @description Specifies whether to query the parameters that you want to use in compliance precheck.
      *
-     * Default value: false. Valid values:
+     * Valid values:
      *
      *   true
-     *   false
+     *   false (default)
      *
      * @example false
      *
@@ -48,7 +47,7 @@ class PreviewStackRequest extends Model
     /**
      * @description The maximum number of concurrent operations that can be performed on resources. This parameter takes effect only for Terraform stacks.
      *
-     * >  If you set this parameter to an integer that is greater than 0, the integer is used. If you set this parameter to 0 or leave it empty, the default value of Terraform is used. In most cases, the default value of Terraform is 10.
+     * > If you set this parameter to an integer greater than 0, the integer is used. If you set this parameter to 0 or leave this parameter empty, the default value of Terraform is used. In most cases, the default value of Terraform is 10.
      * @example 1
      *
      * @var int
@@ -56,7 +55,7 @@ class PreviewStackRequest extends Model
     public $parallelism;
 
     /**
-     * @description The parameters.
+     * @description The parameters of the stack.
      *
      * @var parameters[]
      */
@@ -72,10 +71,12 @@ class PreviewStackRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the stack. You can use this parameter to preview a stack that you want to update.
+     * @description The stack ID. You can use this parameter to preview a stack that you want to update.
      *
      * >
-     *   You must specify only one of the StackName and StackId parameters.
+     *
+     *   You must and can specify only one of StackName and StackId.
+     *
      *   In the scenario in which you preview a stack that you want to create or update, you cannot preview the resources in its nested stacks.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
@@ -85,9 +86,9 @@ class PreviewStackRequest extends Model
     public $stackId;
 
     /**
-     * @description The name of the stack. You can use this parameter to preview the stack that you want to create.
+     * @description The stack name. You can use this parameter to preview the stack that you want to create. The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or letter.
      *
-     * >  You must specify only one of the StackName and StackId parameters.
+     * > You must and can specify only one of StackName and StackId.
      * @example MyStack
      *
      * @var string
@@ -97,7 +98,7 @@ class PreviewStackRequest extends Model
     /**
      * @description The structure that contains the stack policy body. The stack policy body must be 1 to 16,384 bytes in length.
      *
-     * >  You can specify only one of the StackPolicyBody and StackPolicyURL parameters.
+     * > You can specify only one of StackPolicyBody and StackPolicyURL.
      * @example {"Statement": [{"Action": "Update:*", "Resource": "*", "Effect": "Allow", "Principal": "*"}]}
      *
      * @var string
@@ -105,7 +106,7 @@ class PreviewStackRequest extends Model
     public $stackPolicyBody;
 
     /**
-     * @description The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     * @description The URL of the file that contains the stack policy. The URL must point to a policy that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The policy file can be up to 16,384 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
      *
      * The URL can be up to 1,350 bytes in length.
      * @example oss://ros-stack-policy/demo
@@ -115,9 +116,9 @@ class PreviewStackRequest extends Model
     public $stackPolicyURL;
 
     /**
-     * @description The structure of the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -125,9 +126,9 @@ class PreviewStackRequest extends Model
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared templates and private templates.
+     * @description The template ID. This parameter applies to shared and private templates.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -135,9 +136,9 @@ class PreviewStackRequest extends Model
     public $templateId;
 
     /**
-     * @description The ID of the scenario.
+     * @description The scenario ID.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example ts-aa9c62feab844a6b****
      *
      * @var string
@@ -145,7 +146,7 @@ class PreviewStackRequest extends Model
     public $templateScratchId;
 
     /**
-     * @description The region ID of the scenario. The default value is the same as the value of the RegionId parameter.
+     * @description The region ID of the scenario. The default value is the same as the value of RegionId.
      *
      * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -155,9 +156,9 @@ class PreviewStackRequest extends Model
     public $templateScratchRegionId;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/stack-policy/demo or oss://ros/stack-policy/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an OSS bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and TemplateScratchId.
      * @example oss://ros-template/demo
      *
      * @var string
@@ -165,7 +166,7 @@ class PreviewStackRequest extends Model
     public $templateURL;
 
     /**
-     * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
+     * @description The version of the template. This parameter takes effect only when TemplateId is specified.
      *
      * @example v1
      *
@@ -174,7 +175,7 @@ class PreviewStackRequest extends Model
     public $templateVersion;
 
     /**
-     * @description The timeout period that is allowed to create the stack.
+     * @description The timeout period for creating the stack.
      *
      * Default value: 60.
      * @example 60

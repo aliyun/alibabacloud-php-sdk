@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListStackEventsRequest extends Model
 {
     /**
-     * @description The logical ID of the resource that is defined in the template.
+     * @description The logical IDs of the resources.
      *
      * @example WebServer
      *
@@ -18,8 +18,7 @@ class ListStackEventsRequest extends Model
     public $logicalResourceId;
 
     /**
-     * @description The page number of the page to return.
-     *
+     * @description The number of the page to return.\
      * Default value: 1.
      * @example 1
      *
@@ -28,8 +27,7 @@ class ListStackEventsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page.
-     *
+     * @description The number of entries to return on each page.\
      * Default value: 10.
      * @example 10
      *
@@ -38,7 +36,7 @@ class ListStackEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region in which the stack resides. You can call the [DescribeRegions](~~131035~~) operation to query the most recent list of Alibaba Cloud regions.
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -47,7 +45,7 @@ class ListStackEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The list of resource types.
+     * @description The resource types.
      *
      * @example ALIYUN::ECS::Instance
      *
@@ -56,7 +54,7 @@ class ListStackEventsRequest extends Model
     public $resourceType;
 
     /**
-     * @description The ID of the stack.
+     * @description The stack ID.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
@@ -65,7 +63,7 @@ class ListStackEventsRequest extends Model
     public $stackId;
 
     /**
-     * @description The state of the resource.
+     * @description The status of the resource.
      *
      * @example CREATE_IN_PROGRESS
      *

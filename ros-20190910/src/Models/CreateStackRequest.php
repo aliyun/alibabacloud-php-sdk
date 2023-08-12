@@ -89,12 +89,7 @@ class CreateStackRequest extends Model
     /**
      * @description The maximum number of concurrent operations that can be performed on resources.
      *
-     * >
-     *
-     *   If you set this parameter to an integer that is greater than 0, the integer is used. If you set this parameter to 0 or leave this parameter empty, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-     *
-     *   If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack, such as an update operation.
-     *
+     * > -  If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack, such as an update operation.
      * @example 1
      *
      * @var int

@@ -22,7 +22,7 @@ class serviceProvisions extends Model
     public $autoEnableService;
 
     /**
-     * @description The names of Alibaba Cloud services on which the service depends.
+     * @description The names of the services on which the service that is queried depends.
      *
      * @var string[]
      */
@@ -31,7 +31,7 @@ class serviceProvisions extends Model
     /**
      * @description The URL that points to the activation page of the service.
      *
-     * >  This parameter is returned if the Status parameter is set to Disabled.
+     * > This parameter is returned if Status is set to Disabled.
      * @example https://common-buy.aliyun.com/?commodityCode=nas
      *
      * @var string
@@ -39,14 +39,14 @@ class serviceProvisions extends Model
     public $enableURL;
 
     /**
-     * @description The information about the RAM role of the service. If this parameter is empty, no RAM role is associated with the service.
+     * @description The information about the RAM roles of the service. If this parameter is empty, no RAM role is associated with the service.
      *
      * @var roleProvision
      */
     public $roleProvision;
 
     /**
-     * @description The name of the service.
+     * @description The service name.
      *
      * @example EHPC
      *
@@ -70,7 +70,7 @@ class serviceProvisions extends Model
     /**
      * @description The reason why the service is in the Disabled or Unknown state.
      *
-     * >  This parameter is returned if the Status parameter is set to Disabled or Unknown.
+     * > This parameter is returned if Status is set to Disabled or Unknown.
      * @example No permission.
      *
      * @var string

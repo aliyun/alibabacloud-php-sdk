@@ -9,15 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deploymentTargets extends Model
 {
     /**
-     * @description The IDs of the member accounts in the resource directory.
+     * @description The IDs of the members in the resource directory.
      *
-     * >  This parameter is returned only if the AccountIds request parameter is specified in the [UpdateStackInstances](~~151716~~) operation to update stack instances.
+     * > This parameter is returned only if AccountIds is specified when the [UpdateStackInstances](~~151716~~) operation is called to update stack instances.
      * @var string[]
      */
     public $accountIds;
 
     /**
-     * @description The folder IDs of the resource directory.
+     * @description The IDs of the folders in the resource directory.
      *
      * @var string[]
      */

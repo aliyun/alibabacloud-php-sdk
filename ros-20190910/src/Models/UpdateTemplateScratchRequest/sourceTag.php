@@ -11,7 +11,7 @@ class sourceTag extends Model
     /**
      * @description The source tags that consist of key-value pairs.
      *
-     * You can configure up to 10 source tags.
+     * You can add up to 10 source tags.
      * @example {"a": "b"}
      *
      * @var mixed[]
@@ -19,9 +19,8 @@ class sourceTag extends Model
     public $resourceTags;
 
     /**
-     * @description The filter for resource types. If you specify this parameter, only the resources of the specified types and have the specified tags are scanned. If you do not specify this parameter, all resources that have the specified tags are scanned.
+     * @description The resource types.
      *
-     * You can specify up to 20 resource types.
      * @var string[]
      */
     public $resourceTypeFilter;

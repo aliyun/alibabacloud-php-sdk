@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class operationPreferences extends Model
 {
     /**
-     * @description The maximum number of stack operation failures that can occur within the accounts in each region. When the value is exceeded, the operation fails to be performed in the region. If the operation fails to be performed in one region, the operation fails to be performed in other regions.
+     * @description The number of accounts within which stack operation failures are allowed to occur in each region. If the value of this parameter is exceeded in a region, Resource Orchestration Service (ROS) stops the operation in the region. If the operation is stopped in one region, the operation is no longer performed in other regions.
      *
-     * >  Only one of the FailureToleranceCount and FailureTolerancePercentage parameters is returned.
+     * > Only one of FailureToleranceCount and FailureTolerancePercentage can be returned.
      * @example 1
      *
      * @var int
@@ -19,9 +19,9 @@ class operationPreferences extends Model
     public $failureToleranceCount;
 
     /**
-     * @description The percentage of the total number of accounts within which stack operation failures can occur to the total number of accounts in each region. When the value is exceeded, the operation fails to be performed in the region.
+     * @description The percentage of the number of accounts within which stack operation failures are allowed to occur to the total number of accounts in each region. If the value of this parameter is exceeded in a region, ROS stops the operation in the region.
      *
-     * >  Only one of the FailureToleranceCount and FailureTolerancePercentage parameters is returned.
+     * > Only one of FailureToleranceCount and FailureTolerancePercentage can be returned.
      * @example 10
      *
      * @var int
@@ -29,9 +29,9 @@ class operationPreferences extends Model
     public $failureTolerancePercentage;
 
     /**
-     * @description The maximum number of accounts within which operations are performed on stacks concurrently in each region.
+     * @description The maximum number of accounts within which stacks are deployed at the same time in each region.
      *
-     * >  Only one of the MaxConcurrentCount and MaxConcurrentPercentage parameters is returned.
+     * > Only one of MaxConcurrentCount and MaxConcurrentPercentage can be returned.
      * @example 1
      *
      * @var int
@@ -39,9 +39,9 @@ class operationPreferences extends Model
     public $maxConcurrentCount;
 
     /**
-     * @description The percentage of the total number of accounts within which operations are performed on stacks concurrently to the total number of accounts in each region.
+     * @description The percentage of the maximum number of accounts within which stacks are deployed at the same time to the total number of accounts in each region.
      *
-     * >  Only one of the MaxConcurrentCount and MaxConcurrentPercentage parameters is returned.
+     * > Only one of MaxConcurrentCount and MaxConcurrentPercentage can be returned.
      * @example 10
      *
      * @var int
@@ -49,7 +49,7 @@ class operationPreferences extends Model
     public $maxConcurrentPercentage;
 
     /**
-     * @description The regions in the order of which the operation is performed.
+     * @description The regions in the order of operation execution.
      *
      * @var string[]
      */

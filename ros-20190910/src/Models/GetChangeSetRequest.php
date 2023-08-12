@@ -27,10 +27,10 @@ class GetChangeSetRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to show the template. Default value: false. Valid values:
+     * @description Specifies whether to obtain the template. Valid values:
      *
-     *   true: shows the template.
-     *   false: does not show the template.
+     *   true
+     *   false (default)
      *
      * @example false
      *

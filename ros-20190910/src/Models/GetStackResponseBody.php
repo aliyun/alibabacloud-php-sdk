@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class GetStackResponseBody extends Model
 {
     /**
+     * @var int
+     */
+    public $checkedStackResourceCount;
+
+    /**
      * @description The time when the stack was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2020-09-16T08:21:40
@@ -80,6 +85,11 @@ class GetStackResponseBody extends Model
      * @var log
      */
     public $log;
+
+    /**
+     * @var int
+     */
+    public $notCheckedStackResourceCount;
 
     /**
      * @description The callback URLs that are used to receive stack events.
@@ -362,41 +372,43 @@ class GetStackResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
-        'createTime'          => 'CreateTime',
-        'deletionProtection'  => 'DeletionProtection',
-        'description'         => 'Description',
-        'disableRollback'     => 'DisableRollback',
-        'driftDetectionTime'  => 'DriftDetectionTime',
-        'interface'           => 'Interface',
-        'log'                 => 'Log',
-        'notificationURLs'    => 'NotificationURLs',
-        'operationInfo'       => 'OperationInfo',
-        'orderIds'            => 'OrderIds',
-        'outputs'             => 'Outputs',
-        'parameters'          => 'Parameters',
-        'parentStackId'       => 'ParentStackId',
-        'ramRoleName'         => 'RamRoleName',
-        'regionId'            => 'RegionId',
-        'requestId'           => 'RequestId',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'resourceProgress'    => 'ResourceProgress',
-        'rootStackId'         => 'RootStackId',
-        'serviceManaged'      => 'ServiceManaged',
-        'serviceName'         => 'ServiceName',
-        'stackDriftStatus'    => 'StackDriftStatus',
-        'stackId'             => 'StackId',
-        'stackName'           => 'StackName',
-        'stackType'           => 'StackType',
-        'status'              => 'Status',
-        'statusReason'        => 'StatusReason',
-        'tags'                => 'Tags',
-        'templateDescription' => 'TemplateDescription',
-        'templateId'          => 'TemplateId',
-        'templateScratchId'   => 'TemplateScratchId',
-        'templateURL'         => 'TemplateURL',
-        'templateVersion'     => 'TemplateVersion',
-        'timeoutInMinutes'    => 'TimeoutInMinutes',
-        'updateTime'          => 'UpdateTime',
+        'checkedStackResourceCount'    => 'CheckedStackResourceCount',
+        'createTime'                   => 'CreateTime',
+        'deletionProtection'           => 'DeletionProtection',
+        'description'                  => 'Description',
+        'disableRollback'              => 'DisableRollback',
+        'driftDetectionTime'           => 'DriftDetectionTime',
+        'interface'                    => 'Interface',
+        'log'                          => 'Log',
+        'notCheckedStackResourceCount' => 'NotCheckedStackResourceCount',
+        'notificationURLs'             => 'NotificationURLs',
+        'operationInfo'                => 'OperationInfo',
+        'orderIds'                     => 'OrderIds',
+        'outputs'                      => 'Outputs',
+        'parameters'                   => 'Parameters',
+        'parentStackId'                => 'ParentStackId',
+        'ramRoleName'                  => 'RamRoleName',
+        'regionId'                     => 'RegionId',
+        'requestId'                    => 'RequestId',
+        'resourceGroupId'              => 'ResourceGroupId',
+        'resourceProgress'             => 'ResourceProgress',
+        'rootStackId'                  => 'RootStackId',
+        'serviceManaged'               => 'ServiceManaged',
+        'serviceName'                  => 'ServiceName',
+        'stackDriftStatus'             => 'StackDriftStatus',
+        'stackId'                      => 'StackId',
+        'stackName'                    => 'StackName',
+        'stackType'                    => 'StackType',
+        'status'                       => 'Status',
+        'statusReason'                 => 'StatusReason',
+        'tags'                         => 'Tags',
+        'templateDescription'          => 'TemplateDescription',
+        'templateId'                   => 'TemplateId',
+        'templateScratchId'            => 'TemplateScratchId',
+        'templateURL'                  => 'TemplateURL',
+        'templateVersion'              => 'TemplateVersion',
+        'timeoutInMinutes'             => 'TimeoutInMinutes',
+        'updateTime'                   => 'UpdateTime',
     ];
 
     public function validate()
@@ -406,6 +418,9 @@ class GetStackResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->checkedStackResourceCount) {
+            $res['CheckedStackResourceCount'] = $this->checkedStackResourceCount;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -426,6 +441,9 @@ class GetStackResponseBody extends Model
         }
         if (null !== $this->log) {
             $res['Log'] = null !== $this->log ? $this->log->toMap() : null;
+        }
+        if (null !== $this->notCheckedStackResourceCount) {
+            $res['NotCheckedStackResourceCount'] = $this->notCheckedStackResourceCount;
         }
         if (null !== $this->notificationURLs) {
             $res['NotificationURLs'] = $this->notificationURLs;
@@ -535,6 +553,9 @@ class GetStackResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CheckedStackResourceCount'])) {
+            $model->checkedStackResourceCount = $map['CheckedStackResourceCount'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -555,6 +576,9 @@ class GetStackResponseBody extends Model
         }
         if (isset($map['Log'])) {
             $model->log = log::fromMap($map['Log']);
+        }
+        if (isset($map['NotCheckedStackResourceCount'])) {
+            $model->notCheckedStackResourceCount = $map['NotCheckedStackResourceCount'];
         }
         if (isset($map['NotificationURLs'])) {
             if (!empty($map['NotificationURLs'])) {

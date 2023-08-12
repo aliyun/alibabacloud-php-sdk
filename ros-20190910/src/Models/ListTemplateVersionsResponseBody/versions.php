@@ -27,7 +27,7 @@ class versions extends Model
     public $description;
 
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates. For a shared template, the template ID is the same as the Alibaba Cloud Resource Name (ARN) of the template.
+     * @description The template ID. This parameter applies to shared and private templates. For a shared template, the template ID is the same as the Alibaba Cloud Resource Name (ARN) of the template.
      *
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *

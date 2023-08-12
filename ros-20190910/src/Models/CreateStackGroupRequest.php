@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class CreateStackGroupRequest extends Model
 {
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates.
+     * @description The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, AliyunROSStackGroupAdministrationRole is used as the default value. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
      *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+     * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
      * @example AliyunROSStackGroupAdministrationRole
      *
      * @var string
@@ -22,14 +22,9 @@ class CreateStackGroupRequest extends Model
     public $administrationRoleName;
 
     /**
-     * @description Specifies whether to retain stacks within a member when you remove the member from the folder.
+     * @description The information about automatic deployment settings.
      *
-     * Valid values:
-     *
-     *   true: retains the stacks.
-     *   false: deletes the stacks.
-     *
-     * >  This parameter is required if the Enabled parameter is set to true.
+     * > You must specify this parameter if PermissionModel is set to SERVICE_MANAGED.
      * @example {"Enabled": true, "RetainStacksOnAccountRemoval": true}
      *
      * @var autoDeployment
@@ -37,14 +32,15 @@ class CreateStackGroupRequest extends Model
     public $autoDeployment;
 
     /**
+     * @description 资源栈组选项列表，最大长度为1。
+     *
      * @var string[]
      */
     public $capabilities;
 
     /**
-     * @description The name of the RAM role that you specify for the execution account when you create a self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If you do not specify this parameter, the default value AliyunROSStackGroupExecutionRole is used. ROS assumes the execution role to perform operations on the stacks in the stack group.
-     *
-     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.\
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -52,9 +48,8 @@ class CreateStackGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body must be 1 to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
-     *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+     * @description The description of the stack group.\
+     * The description must be 1 to 256 characters in length.
      * @example StackGroup Description
      *
      * @var string
@@ -62,9 +57,9 @@ class CreateStackGroupRequest extends Model
     public $description;
 
     /**
-     * @description The version of the template. If you do not specify this parameter, the latest version is used.
+     * @description The name of the RAM role that you specify for the execution account when you create a self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If you do not specify this parameter, AliyunROSStackGroupExecutionRole is used as the default value. ROS assumes the execution role to perform operations on the stacks in the stack group.
      *
-     * >  This parameter takes effect only when the TemplateId parameter is specified.
+     * The name must be 1 to 64 characters in length and can contain letters, digits, and hyphens (-).
      * @example AliyunROSStackGroupExecutionRole
      *
      * @var string
@@ -72,17 +67,21 @@ class CreateStackGroupRequest extends Model
     public $executionRoleName;
 
     /**
-     * @description The value of parameter N.
+     * @description The parameters of the stack group.
      *
-     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterValue parameter.
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The key of tag N that you want to add to the stack group.
+     * @description The permission model of the stack group.
      *
-     * >  The Tags parameter is optional. If you specify the Tags parameter, you must specify the Tags.N.Key parameter.
+     * Valid values:
+     *
+     *   SELF_MANAGED (default): the self-managed permission model. If you create a self-managed stack group, you must create RAM roles within the administrator and execution accounts and establish a trust relationship between the accounts. Then, you can deploy stacks within the execution account.
+     *   SERVICE_MANAGED: the service-managed permission model. If you create a service-managed stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
+     *
+     * > If you want to use the service-managed permission model to deploy stacks, your account must be the management account or a delegated administrator account of your resource directory and the trusted access feature is enabled for the account. For more information, see [Manage a delegated administrator account](~~308253~~) and [Enable trusted access](~~298229~~).
      * @example SELF_MANAGED
      *
      * @var string
@@ -90,9 +89,8 @@ class CreateStackGroupRequest extends Model
     public $permissionModel;
 
     /**
-     * @description The description of the stack group.
+     * @description The region ID of the stack group. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
-     * The description must be 1 to 256 characters in length.
      * @example cn-hangzhou
      *
      * @var string
@@ -100,8 +98,8 @@ class CreateStackGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The tags.
-     *
+     * @description The ID of the resource group. If you do not specify this parameter, the stack group is added to the default resource group.\
+     * For more information about resource groups, see [Resource groups](~~94475~~).
      * @example rg-acfmxazb4ph6aiy****
      *
      * @var string
@@ -109,9 +107,8 @@ class CreateStackGroupRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
-     *
-     * >  You must specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
+     * @description The name of the stack group. The name must be unique within a region.\
+     * The name can be up to 255 characters in length, and can contain digits, letters, hyphens (-), and underscores (\_). It must start with a digit or a letter.
      * @example MyStackGroup
      *
      * @var string
@@ -119,16 +116,16 @@ class CreateStackGroupRequest extends Model
     public $stackGroupName;
 
     /**
-     * @description The value of tag N that you want to add to the stack group.
+     * @description The tags of the stack group.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests.
+     * @description The template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example {"ROSTemplateFormatVersion":"2015-09-01"}
      *
      * @var string
@@ -136,8 +133,9 @@ class CreateStackGroupRequest extends Model
     public $templateBody;
 
     /**
-     * @description The parameters.
+     * @description The ID of the template. This parameter applies to shared and private templates.
      *
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -145,9 +143,9 @@ class CreateStackGroupRequest extends Model
     public $templateId;
 
     /**
-     * @description The name of the RAM role that you specify for the administrator account when you create a self-managed stack group. ROS assumes the administrator role to perform operations. If you do not specify this parameter, the default value AliyunROSStackGroupAdministrationRole is used. ROS uses the administrator role to assume the execution role AliyunROSStackGroupExecutionRole to perform operations on the stacks in the stack group.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket. The template body must be 1 to 524,288 bytes in length. Examples: oss://ros/template/demo and oss://ros/template/demo?RegionId=cn-hangzhou. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
      *
-     * The name must be 1 to 64 characters in length, and can contain letters, digits, and hyphens (-).
+     * > You must and can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId.
      * @example oss://ros-template/demo
      *
      * @var string
@@ -155,9 +153,9 @@ class CreateStackGroupRequest extends Model
     public $templateURL;
 
     /**
-     * @description The name of parameter N. If you do not specify the name and value of a parameter, ROS uses the default name and value that are defined in the template.
+     * @description The version of the template. If you do not specify this parameter, the latest version is used.
      *
-     * >  The Parameters parameter is optional. If you specify the Parameters parameter, you must specify the Parameters.N.ParameterKey parameter.
+     * > TemplateVersion takes effect only if you specify TemplateId.
      * @example v1
      *
      * @var string

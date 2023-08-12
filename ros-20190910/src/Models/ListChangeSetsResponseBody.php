@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListChangeSetsResponseBody extends Model
 {
     /**
-     * @description The list of change sets.
+     * @description The change sets.
      *
      * @var changeSets[]
      */
     public $changeSets;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListChangeSetsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -44,7 +44,7 @@ class ListChangeSetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of queried entries.
+     * @description The total number of change sets returned.
      *
      * @example 1
      *

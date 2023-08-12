@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DetectStackResourceDriftResponseBody extends Model
 {
     /**
-     * @description The actual resource properties in JSON format.
+     * @description The actual JSON-formatted resource properties.
      *
      * @example {"ScalingRuleName": "test1"}
      *
@@ -19,7 +19,7 @@ class DetectStackResourceDriftResponseBody extends Model
     public $actualProperties;
 
     /**
-     * @description The time at which the resource drift detection operation was initiated.
+     * @description The time when the resource drift detection was initiated.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -28,7 +28,7 @@ class DetectStackResourceDriftResponseBody extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The resource properties as defined in the template, in JSON format.
+     * @description The JSON-formatted resource properties that are defined in the template.
      *
      * @example {"ScalingRuleName": "test2"}
      *
@@ -37,7 +37,7 @@ class DetectStackResourceDriftResponseBody extends Model
     public $expectedProperties;
 
     /**
-     * @description The logical ID of the resource as defined in the template.
+     * @description The logical ID of the resource that is defined in the template.
      *
      * @example ScalingRule
      *
@@ -55,7 +55,7 @@ class DetectStackResourceDriftResponseBody extends Model
     public $physicalResourceId;
 
     /**
-     * @description The property differences of the resource.
+     * @description The property drifts of the resource.
      *
      * @var propertyDifferences[]
      */
@@ -71,9 +71,9 @@ class DetectStackResourceDriftResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The resource drift status. Valid values:
+     * @description The drift status of the resource. Valid values:
      *
-     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource has been deleted.
+     *   DELETED: The actual configuration of the resource differs from its expected template configuration because the resource is deleted.
      *   MODIFIED: The actual configuration of the resource differs from its expected template configuration.
      *   NOT_CHECKED: Resource Orchestration Service (ROS) has not checked whether the actual configuration of the resource differs from its expected template configuration.
      *   IN_SYNC: The actual configuration of the resource matches its expected template configuration.
@@ -85,7 +85,7 @@ class DetectStackResourceDriftResponseBody extends Model
     public $resourceDriftStatus;
 
     /**
-     * @description The resource type.
+     * @description The type of the resource.
      *
      * @example ALIYUN::ESS::ScalingRule
      *

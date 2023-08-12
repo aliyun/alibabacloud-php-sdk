@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The name of the parameter.
+     * @description The key of the parameter.
      *
      * @example ALIYUN::Region
      *

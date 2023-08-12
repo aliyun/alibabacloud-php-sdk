@@ -11,16 +11,15 @@ use AlibabaCloud\Tea\Model;
 class GetServiceProvisionsRequest extends Model
 {
     /**
-     * @description The list of parameters.
+     * @description The parameters.
      *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -37,7 +36,7 @@ class GetServiceProvisionsRequest extends Model
     /**
      * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length. If the length of the template body exceeds the upper limit, we recommend that you add parameters to the HTTP POST request body to prevent request failures caused by excessively long URLs.
      *
-     * You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.N.ServiceName.
+     * You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.
      * @example {"ROSTemplateFormatVersion": "2015-09-01","Resources": {"ApiGateway": {"Type": "ALIYUN::ApiGateway::Group","Properties": { "GroupName": "ros_example" }},"FC": {"Type": "ALIYUN::FC::Service","Properties": {"ServiceName": "ros_example"}}}}
      *
      * @var string
@@ -45,9 +44,9 @@ class GetServiceProvisionsRequest extends Model
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared and private templates.
+     * @description The template ID. This parameter applies to shared and private templates.
      *
-     * You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.N.ServiceName.
+     * You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -55,9 +54,9 @@ class GetServiceProvisionsRequest extends Model
     public $templateId;
 
     /**
-     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Alibaba Cloud Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body must be 1 to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of the RegionId parameter is used.
+     * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body must be 1 to 524,288 bytes in length. If you do not specify the region ID of the OSS bucket, the value of RegionId is used.
      *
-     * You must specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.N.ServiceName.
+     * You must and can specify only one of the following parameters: TemplateBody, TemplateURL, TemplateId, and Services.
      * @example oss://ros-template/demo
      *
      * @var string
@@ -67,7 +66,7 @@ class GetServiceProvisionsRequest extends Model
     /**
      * @description The version of the template. If you do not specify this parameter, the latest version is used.
      *
-     * This parameter takes effect only when the TemplateId parameter is specified.
+     * This parameter takes effect only when TemplateId is specified.
      * @example v1
      *
      * @var string

@@ -9,59 +9,77 @@ use AlibabaCloud\Tea\Model;
 class updateInfo extends Model
 {
     /**
-     * @description The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
+     * @description The parameters that can be modified.
      *
      * @var string[]
      */
     public $parametersAllowedToBeModified;
 
     /**
-     * @description The parameters whose changes cause service interruptions under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether service interruptions are caused.
+     * @description The parameters whose changes cause service interruptions.
      *
-     * >
-     *   This parameter is supported only for a small number of resource types.
-     *   This parameter is valid only for changes that are made on ROS stacks.
-     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersCauseInterruptionIfModified;
 
     /**
+     * @description The parameters whose changes trigger replacement updates for resources.
+     *
+     * > -  This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersCauseReplacementIfModified;
 
     /**
+     * @description The parameters that can be modified under specific conditions.
+     *
      * @var string[]
      */
     public $parametersConditionallyAllowedToBeModified;
 
     /**
+     * @description The parameters whose changes cause service interruptions under specific conditions.
+     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersConditionallyCauseInterruptionIfModified;
 
     /**
+     * @description The parameters whose changes trigger replacement updates for resources under specific conditions.
+     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersConditionallyCauseReplacementIfModified;
 
     /**
+     * @description The parameters that cannot be modified.
+     *
      * @var string[]
      */
     public $parametersNotAllowedToBeModified;
 
     /**
+     * @description The parameters that can be modified under uncertain conditions.
+     *
      * @var string[]
      */
     public $parametersUncertainlyAllowedToBeModified;
 
     /**
+     * @description The parameters whose changes cause service interruptions under uncertain conditions.
+     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersUncertainlyCauseInterruptionIfModified;
 
     /**
+     * @description The parameters whose changes trigger replacement updates for resources under uncertain conditions.
+     *
+     * > -  This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersUncertainlyCauseReplacementIfModified;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysResponseBody extends Model
 {
     /**
-     * @description The list of tag keys. Separate multiple tag keys with commas (,).
+     * @description The tag keys.
      *
      * @var string[]
      */
     public $keys;
 
     /**
-     * @description The token that is used to start the next query.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0*****
      *

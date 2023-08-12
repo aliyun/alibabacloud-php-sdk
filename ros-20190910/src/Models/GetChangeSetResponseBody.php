@@ -40,13 +40,12 @@ class GetChangeSetResponseBody extends Model
     /**
      * @description The changes of the change set.
      *
-     * For more information, see [Data structure](~~155988~~).
      * @var mixed[][]
      */
     public $changes;
 
     /**
-     * @description The time when the resource was created. The time is displayed in UTC.
+     * @description The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2021-12-01T02:20:56
      *
@@ -64,7 +63,7 @@ class GetChangeSetResponseBody extends Model
     public $description;
 
     /**
-     * @description Indicates whether rollback was performed.
+     * @description Indicates whether rollback was performed when the stack failed to be created or updated.
      *
      * @example false
      *
@@ -82,7 +81,7 @@ class GetChangeSetResponseBody extends Model
     public $executionStatus;
 
     /**
-     * @description The logs of the change set.
+     * @description The output logs of the change set.
      *
      * @var log
      */
@@ -96,7 +95,7 @@ class GetChangeSetResponseBody extends Model
     public $parameters;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the change set.
      *
      * @example cn-hangzhou
      *
@@ -152,7 +151,7 @@ class GetChangeSetResponseBody extends Model
     /**
      * @description The template body of the change set.
      *
-     * >  This parameter takes effect only when the ShowTemplate parameter is set to true.
+     * > This parameter takes effect only if you set ShowTemplate to true.
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
@@ -160,7 +159,7 @@ class GetChangeSetResponseBody extends Model
     public $templateBody;
 
     /**
-     * @description The timeout period that is specified for the stack creation or update request.
+     * @description The timeout period that is specified for the stack creation or update operation.
      *
      * @example 60
      *

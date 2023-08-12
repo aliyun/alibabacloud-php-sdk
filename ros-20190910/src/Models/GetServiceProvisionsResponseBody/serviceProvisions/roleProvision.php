@@ -12,7 +12,7 @@ class roleProvision extends Model
     /**
      * @description The authorization URL of the RAM role.
      *
-     * >  This parameter is returned if the Created parameter is set to false.
+     * > This parameter is returned if Created is set to false.
      * @example https://ehpc.console.aliyun.com/
      *
      * @var string

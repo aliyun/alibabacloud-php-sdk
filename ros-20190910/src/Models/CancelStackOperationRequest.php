@@ -9,17 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CancelStackOperationRequest extends Model
 {
     /**
-     * @description The operation N that you want to cancel on the stack.
+     * @description The operations that you want to cancel on the stack.
      *
      * @var string[]
      */
     public $allowedStackOperations;
 
     /**
-     * @description The method that you want to use to cancel the operation. Default value: Safe. Valid values:
+     * @description The method that you want to use to cancel the operations. Valid values:
      *
-     *   Quick: cancels the operation on the stack at the earliest opportunity. In this case, ROS stops scheduling new resources and stops running resources at the earliest opportunity. If you use this method, the resource status may become invalid and subsequent stack operations may be affected.
-     *   Safe: cancels the operation on the stack in a secure manner. In this case, ROS stops scheduling new resources and waits for running resources to be stopped.
+     *   Quick: cancels the operations on the stack at the earliest opportunity. In this case, Resource Orchestration Service (ROS) stops scheduling new resources and stops running resources at the earliest opportunity. If you use this method, the resource status may become invalid and subsequent stack operations may be affected.
+     *   Safe (default): cancels the operations on the stack in a secure manner. In this case, ROS stops scheduling new resources and waits for running resources to be stopped.
      *
      * @example Safe
      *
@@ -28,9 +28,8 @@ class CancelStackOperationRequest extends Model
     public $cancelType;
 
     /**
-     * @description The region ID of the stack.
+     * @description The region ID of the stack. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
-     * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -38,7 +37,7 @@ class CancelStackOperationRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the stack.
+     * @description The stack ID.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

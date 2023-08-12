@@ -35,7 +35,7 @@ class GetTemplateSummaryResponseBody extends Model
     public $parameters;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
@@ -44,9 +44,8 @@ class GetTemplateSummaryResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The resource identifier summaries that describe the resources that you want to import and the properties that are used to identify the resources during the import.
-     *
-     * For example, VpcId is an identifier property for ALIYUN::ECS::VPC resources.
+     * @description The resource identifier summaries.\
+     * A summary describes the resource that you want to import and the properties that are used to identify the resource during the import. For example, VpcId is an identifier property of ALIYUN::ECS::VPC.
      * @var resourceIdentifierSummaries[]
      */
     public $resourceIdentifierSummaries;

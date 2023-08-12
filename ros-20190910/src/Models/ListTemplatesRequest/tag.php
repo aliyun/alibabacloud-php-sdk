@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The key of tag N. This parameter takes effect only when the ShareType parameter is set to Private.
+     * @description The key of the tag. This parameter takes effect only when ShareType is set to Private.
      *
      * You can specify up to 20 tag keys.
      * @example usage
@@ -19,7 +19,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag N. This parameter takes effect only when the ShareType parameter is set to Private.
+     * @description The value of the tag. This parameter takes effect only when ShareType is set to Private.
      *
      * You can specify up to 20 tag values.
      * @example deploy

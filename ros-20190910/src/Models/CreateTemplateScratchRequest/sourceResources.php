@@ -18,7 +18,7 @@ class sourceResources extends Model
     public $resourceId;
 
     /**
-     * @description The resource type.
+     * @description The type of the resource.
      *
      * @example ALIYUN::ECS::VPC
      *

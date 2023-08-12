@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceTag extends Model
 {
     /**
-     * @description The source tags that consist of key-value pairs.
+     * @description The source tags that consist of key-value pairs. If you want to specify only the tag key, you must leave the tag value empty. Example: `{"TagKey": ""}`.
      *
      * You can add up to 10 source tags.
      * @example {"a": "b"}
@@ -19,9 +19,8 @@ class sourceTag extends Model
     public $resourceTags;
 
     /**
-     * @description The filter for resource types. If you specify this parameter, only the resources of the specified types and have the specified tags are scanned. If you do not specify this parameter, all resources that have the specified tags are scanned.
+     * @description The resource types.
      *
-     * You can specify up to 20 resource types.
      * @var string[]
      */
     public $resourceTypeFilter;

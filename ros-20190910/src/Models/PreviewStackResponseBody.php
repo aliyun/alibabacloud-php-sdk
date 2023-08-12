@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class PreviewStackResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *

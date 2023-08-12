@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateStackResponseBody extends Model
 {
     /**
-     * @description The validation result. This parameter is returned only if the DryRun parameter is set to true.
+     * @description The dry run result. This parameter is returned only if DryRun is set to true.
      *
      * @var dryRunResult
      */

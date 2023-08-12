@@ -48,7 +48,7 @@ class templates extends Model
     /**
      * @description The sharing type of the template.
      *
-     * Default value: Private. Valid values:
+     * Valid values:
      *
      *   Private: The template belongs to the template owner.
      *   Shared: The template is shared with other users.
@@ -76,7 +76,7 @@ class templates extends Model
     public $templateARN;
 
     /**
-     * @description The ID of the template.
+     * @description The template ID.
      *
      * @example 4d4f5aa2-3260-4e47-863b-763fbb12****
      *
@@ -85,7 +85,7 @@ class templates extends Model
     public $templateId;
 
     /**
-     * @description The name of the template.
+     * @description The template name.
      *
      * @example demo
      *

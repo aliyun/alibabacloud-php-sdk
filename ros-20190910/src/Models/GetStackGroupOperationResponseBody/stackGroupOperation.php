@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class stackGroupOperation extends Model
 {
     /**
-     * @description The operation that was performed.
+     * @description The operation type.
      *
      * Valid values:
      *
@@ -28,7 +28,7 @@ class stackGroupOperation extends Model
     public $action;
 
     /**
-     * @description The name of the RAM role that is specified for the administrator account in Resource Orchestration Service (ROS) when you create the stack group that is granted self-managed permissions. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
+     * @description The name of the RAM role that you specify for the administrator account when you create the self-managed stack group. ROS assumes the administrator role to perform operations. If this parameter is not specified, the default value AliyunROSStackGroupAdministrationRole is returned.
      *
      * @example AliyunROSStackGroupAdministrationRole
      *
@@ -46,7 +46,7 @@ class stackGroupOperation extends Model
     public $createTime;
 
     /**
-     * @description The folders in which you want to deploy the stack instances that are granted service-managed permissions.
+     * @description The destinations to deploy stack instances when the stack is granted service-managed permissions.
      *
      * @var deploymentTargets
      */
@@ -62,7 +62,7 @@ class stackGroupOperation extends Model
     public $endTime;
 
     /**
-     * @description The name of the RAM role that is specified for the execution account when you create the stack group that is granted self-managed permissions. The administrator account whose RAM role is AliyunROSStackGroupAdministrationRole assumes this RAM role. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
+     * @description The name of the RAM role that you specify for the execution account when you create the self-managed stack group. The administrator role AliyunROSStackGroupAdministrationRole assumes the execution role to perform operations. If this parameter is not specified, the default value AliyunROSStackGroupExecutionRole is returned.
      *
      * @example AliyunROSStackGroupExecutionRole
      *
@@ -73,7 +73,7 @@ class stackGroupOperation extends Model
     /**
      * @description The description of the operation.
      *
-     * >  This parameter is returned only if the OperationDescription request parameter is specified in the [CreateStackInstances](~~151338~~) operation to create stack instances.
+     * > This parameter is returned only if OperationDescription is specified when the [CreateStackInstances](~~151338~~) operation is called to create stack instances.
      * @example Create stack instance in hangzhou
      *
      * @var string
@@ -81,7 +81,7 @@ class stackGroupOperation extends Model
     public $operationDescription;
 
     /**
-     * @description The ID of the operation that was performed on the stack group.
+     * @description The operation ID.
      *
      * @example 6da106ca-1784-4a6f-a7e1-e723863d****
      *
@@ -90,21 +90,21 @@ class stackGroupOperation extends Model
     public $operationId;
 
     /**
-     * @description The operation preferences.
+     * @description The operation settings.
      *
      * @var operationPreferences
      */
     public $operationPreferences;
 
     /**
-     * @description Indicates whether the relevant stacks are retained when stack instances are deleted in the stack group.
+     * @description Indicates whether stacks are retained when the associated stack instances are deleted. When you delete a stack instance, you can choose to delete or retain the stack with which the stack instance is associated.
      *
      * Valid values:
      *
-     *   true: The stacks are retained.
-     *   false: The stacks are deleted. Proceed with caution.
+     *   true: Stacks are retained when the associated stack instances are deleted.
+     *   false: Stacks are deleted when the associated stack instances are deleted. Proceed with caution.
      *
-     * >  This parameter is returned only when the stack instances are deleted.
+     * > This parameter is returned only if you delete stack instances.
      * @example true
      *
      * @var bool
@@ -112,9 +112,9 @@ class stackGroupOperation extends Model
     public $retainStacks;
 
     /**
-     * @description The details of the drift detection.
+     * @description The information about drift detection.
      *
-     * >  This parameter is returned only when the drift detection is performed on the stack group.
+     * > This parameter is returned only if drift detection is performed.
      * @var stackGroupDriftDetectionDetail
      */
     public $stackGroupDriftDetectionDetail;
@@ -138,15 +138,15 @@ class stackGroupOperation extends Model
     public $stackGroupName;
 
     /**
-     * @description The status of the operation.
+     * @description The state of the operation.
      *
      * Valid values:
      *
-     *   RUNNING: The operation is being performed.
-     *   SUCCEEDED: The operation succeeded.
-     *   FAILED: The operation failed.
-     *   STOPPING: The operation is being stopped.
-     *   STOPPED: The operation is stopped.
+     *   RUNNING
+     *   SUCCEEDED
+     *   FAILED
+     *   STOPPING
+     *   STOPPED
      *
      * @example SUCCEEDED
      *

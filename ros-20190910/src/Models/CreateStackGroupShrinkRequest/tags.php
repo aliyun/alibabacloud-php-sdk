@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description The information about automatic deployment settings.
+     * @description The tag key of the stack group.
      *
-     * >  This parameter is required only if the PermissionModel parameter is set to SERVICE_MANAGED.
+     * > Tags is optional. If you want to specify Tags, you must also specify Tags.N.Key.
      * @example usage
      *
      * @var string
@@ -19,12 +19,7 @@ class tags extends Model
     public $key;
 
     /**
-     * @description Specifies whether to enable automatic deployment.
-     *
-     * Valid values:
-     *
-     *   true: enables automatic deployment. If you add a member to the folder to which the stack group belongs after you enable automatic deployment, ROS automatically adds the stacks in the stack group to the member. If you remove a member from the folder, ROS automatically deletes the stacks from the member.
-     *   false: disables automatic deployment. After you disable automatic deployment, the stacks remain unchanged when you change the members in the folder.
+     * @description The tag value of the stack group.
      *
      * @example test
      *

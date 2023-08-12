@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetStackInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B8A6B693-82C8-419D-8796-DE99EC33CFF9
      *
@@ -19,7 +19,7 @@ class GetStackInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the stack.
+     * @description The information about the stack.
      *
      * @var stackInstance
      */

@@ -20,6 +20,11 @@ class stacks extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $deletionProtection;
+
+    /**
      * @description The state of the stack on which the last successful drift detection was performed. Valid values:
      *
      *   DRIFTED: Drift detection is being performed on the stack.
@@ -171,6 +176,7 @@ class stacks extends Model
     public $updateTime;
     protected $_name = [
         'createTime'         => 'CreateTime',
+        'deletionProtection' => 'DeletionProtection',
         'disableRollback'    => 'DisableRollback',
         'driftDetectionTime' => 'DriftDetectionTime',
         'operationInfo'      => 'OperationInfo',
@@ -199,6 +205,9 @@ class stacks extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->deletionProtection) {
+            $res['DeletionProtection'] = $this->deletionProtection;
         }
         if (null !== $this->disableRollback) {
             $res['DisableRollback'] = $this->disableRollback;
@@ -271,6 +280,9 @@ class stacks extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['DeletionProtection'])) {
+            $model->deletionProtection = $map['DeletionProtection'];
         }
         if (isset($map['DisableRollback'])) {
             $model->disableRollback = $map['DisableRollback'];

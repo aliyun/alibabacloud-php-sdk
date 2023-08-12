@@ -18,7 +18,7 @@ class ListChangeSetsRequest extends Model
     public $changeSetId;
 
     /**
-     * @description The name of change set.
+     * @description The name of change set N. Maximum value of N: 5. You can use an asterisk (\*) as a wildcard for fuzzy search.
      *
      * @example MyChangeSet
      *
@@ -27,7 +27,14 @@ class ListChangeSetsRequest extends Model
     public $changeSetName;
 
     /**
-     * @description The execution status of change set.
+     * @description The execution status of change set N. Maximum value of N: 5. Valid values:
+     *
+     *   UNAVAILABLE
+     *   AVAILABLE
+     *   EXECUTE_IN_PROGRESS
+     *   EXECUTE_COMPLETE
+     *   EXECUTE_FAILED
+     *   OBSOLETE
      *
      * @example AVAILABLE
      *
@@ -36,8 +43,7 @@ class ListChangeSetsRequest extends Model
     public $executionStatus;
 
     /**
-     * @description The number of the page to return.
-     *
+     * @description The page number.\
      * Default value: 1.
      * @example 1
      *
@@ -46,8 +52,7 @@ class ListChangeSetsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
-     *
+     * @description The number of entries per page.\
      * Default value: 10.
      * @example 10
      *
@@ -74,7 +79,14 @@ class ListChangeSetsRequest extends Model
     public $stackId;
 
     /**
-     * @description The status of change set.
+     * @description The status of change set N. Maximum value of N: 5. Valid values:
+     *
+     *   CREATE_PENDING
+     *   CREATE_IN_PROGRESS
+     *   CREATE_COMPLETE
+     *   CREATE_FAILED
+     *   DELETE_FAILED
+     *   DELETE_COMPLETE
      *
      * @example CREATE_COMPLETE
      *

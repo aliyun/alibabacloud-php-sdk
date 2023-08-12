@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
-     * @description The type of the resource that belongs to an Alibaba Cloud service.
+     * @description The resource type of an Alibaba Cloud service.
      *
      * @example ACS::ECS::Instance
      *
@@ -18,7 +18,7 @@ class resources extends Model
     public $acsResourceType;
 
     /**
-     * @description The action that is performed on resources. Valid values:
+     * @description The action that is performed on the resource. Valid values:
      *
      *   Add
      *   Modify
@@ -52,7 +52,7 @@ class resources extends Model
     /**
      * @description The physical ID of the resource.
      *
-     * This parameter is returned only if the Action parameter is set to Modify or Remove.
+     * This parameter is returned only if Action is set to Modify or Remove.
      * @example i-a1b2c3***
      *
      * @var string
@@ -60,7 +60,7 @@ class resources extends Model
     public $physicalResourceId;
 
     /**
-     * @description The properties of the resource.
+     * @description The resource properties.
      *
      * @example {   "DiskMappings": [     {       "Category": "cloud_ssd",       "Size": "20"     }   ],   "SystemDisk_Category": "cloud_ssd",   "InstanceChargeType": "PostPaid",   "AutoRenew": "False",   "WillReplace": true,   "ImageId": "centos_7",   "InstanceType": "ecs.g6.large",   "AllocatePublicIP": true,   "AutoRenewPeriod": 1,   "IoOptimized": "optimized",   "ZoneId": "cn-beijing-g",   "VSwitchId": "",   "SecurityGroupId": "",   "Period": 1,   "InternetChargeType": "PayByTraffic",   "SystemDiskCategory": "cloud_efficiency",   "InternetMaxBandwidthOut": 1,   "VpcId": "",   "InternetMaxBandwidthIn": 200,   "PeriodUnit": "Month" }
      *
@@ -75,7 +75,7 @@ class resources extends Model
      *   False: A change is made on the template.
      *   Conditional: A replacement update may be performed on the template. You can check whether a replacement update is performed when the template is in use.
      *
-     * >  This parameter is returned only if the Action parameter is set to Modify.
+     * > This parameter is returned only if Action is set to Modify.
      * @example False
      *
      * @var string
@@ -90,7 +90,7 @@ class resources extends Model
     public $requiredBy;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
      * @example ALIYUN::ECS::Instance
      *

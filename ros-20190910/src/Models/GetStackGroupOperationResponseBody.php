@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetStackGroupOperationResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *
@@ -19,7 +19,7 @@ class GetStackGroupOperationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The details of the operation on the stack group.
+     * @description The information about the stack group operation.
      *
      * @var stackGroupOperation
      */

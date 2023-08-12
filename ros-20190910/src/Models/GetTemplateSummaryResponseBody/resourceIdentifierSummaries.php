@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class resourceIdentifierSummaries extends Model
 {
     /**
-     * @description The logical IDs of all resources of the type that is specified by the ResouceType parameter in the template.
+     * @description The logical IDs of all resources of the type that is specified by ResouceType in the template.
      *
      * @var string[]
      */
     public $logicalResourceIds;
 
     /**
-     * @description The resource properties. You can use a resource property to identify the resources that you want to manage. For example, VpcId is an identifier property for ALIYUN::ECS::VPC resources.
+     * @description The resource properties. You can use a resource property to identify the resource that you want to manage. For example, VpcId is an identifier property of ALIYUN::ECS::VPC.
      *
      * @var string[]
      */
@@ -25,7 +25,7 @@ class resourceIdentifierSummaries extends Model
     /**
      * @description The resource type.
      *
-     * >  You can import resources of the type that is specified by the ResouceType parameter.
+     * > The resource import feature is supported for the resource type.
      * @example ALIYUN::ECS::VPC
      *
      * @var string

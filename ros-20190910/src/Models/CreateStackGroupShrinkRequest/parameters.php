@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The ID of the resource group. If you do not specify this parameter, the stack group is added to the default resource group.
+     * @description The key of parameter N. If you do not specify the key and value of a parameter, ROS uses the default name and value that are defined in the template.
      *
-     * For more information about resource groups, see the "Resource Group" section of the [What is Resource Management?](~~94475~~) topic.
+     * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterKey.
      * @example Amount
      *
      * @var string
@@ -19,14 +19,9 @@ class parameters extends Model
     public $parameterKey;
 
     /**
-     * @description The permission model.
+     * @description The value of parameter N.
      *
-     * Default value: SELF_MANAGED. Valid values:
-     *
-     *   SELF_MANAGED: the self-managed permission model. If you create a self-managed stack group, you must create RAM roles within the administrator and execution accounts and establish a trust relationship between the accounts. Then, you can deploy stacks within the execution account.
-     *   SERVICE_MANAGED: the service-managed permission model. If you create a service-managed stack group, ROS creates service-linked roles for the administrator and execution accounts, and the administrator account uses its role to deploy stacks within the execution account.
-     *
-     * >  When you use the service-managed permission model to deploy stacks, make sure that your account is the management account or a delegated administrator account in the resource directory and the trusted access feature is enabled for your account. For more information, see [Step 1: (Optional) Create a delegated administrator account](~~308253~~) and [Step 2: Enable trusted access](~~298229~~).
+     * > Parameters is optional. If you specify Parameters, you must also specify Parameters.N.ParameterValue.
      * @example 12
      *
      * @var string

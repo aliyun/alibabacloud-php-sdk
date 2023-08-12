@@ -29,9 +29,8 @@ class roles extends Model
     public $created;
 
     /**
-     * @description The purpose for which the RAM role is used.
+     * @description The purpose for which the RAM role is used. Default value: Default. A value of Default indicates that the RAM role is the default role of the service.
      *
-     * Default value: Default. This value indicates that the RAM role is the default role of the service.
      * @example Default
      *
      * @var string
@@ -39,7 +38,7 @@ class roles extends Model
     public $function;
 
     /**
-     * @description The name of the RAM role.
+     * @description The name of the role.
      *
      * @example AliyunServiceRoleForEHPC
      *

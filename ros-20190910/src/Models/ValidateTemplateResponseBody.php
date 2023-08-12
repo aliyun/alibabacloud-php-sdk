@@ -13,7 +13,7 @@ use AlibabaCloud\Tea\Model;
 class ValidateTemplateResponseBody extends Model
 {
     /**
-     * @description The DataSource resource types.
+     * @description The description of the template.
      *
      * @example No description
      *
@@ -22,25 +22,21 @@ class ValidateTemplateResponseBody extends Model
     public $description;
 
     /**
-     * @description The path of the regular resource. In most cases, the path of a regular resource is the same as the resource name.
+     * @description The outputs of the template.
      *
      * @var outputs[]
      */
     public $outputs;
 
     /**
-     * @description The regular resources that are defined in the template.
-     *
-     * >
-     *   For a Resource Orchestration Service (ROS) template, the resource whose definition contains the `Count` parameter is not displayed as a list.
-     *   For a Terraform template, the resource whose definition contains the `count` or `for_each` parameter is not displayed as a list.
+     * @description The parameters that are defined in the Parameters section of the template.
      *
      * @var mixed[][]
      */
     public $parameters;
 
     /**
-     * @description The regular resource type.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6F
      *
@@ -49,25 +45,22 @@ class ValidateTemplateResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The parameters that can be modified. If you change only values of the parameters in a stack template and use the template to update the stack, no validation errors are caused.
+     * @description The resource types that are used in the template.
      *
      * @var resourceTypes
      */
     public $resourceTypes;
 
     /**
-     * @description The parameters whose changes cause service interruptions under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values and the update type determine whether service interruptions are caused.
+     * @description The regular resources that are defined in the template.
      *
-     * >
-     *   This parameter is supported only for a small number of resource types.
-     *   This parameter is valid only for changes that are made on ROS stacks.
-     *
+     * > -  For a Terraform template, the resource whose definition contains `count` or `for_each` is not displayed as a list.
      * @var resources[]
      */
     public $resources;
 
     /**
-     * @description The parameters that can be modified under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether validation errors are caused.
+     * @description The information about the stack update. This parameter cannot be returned if the value of UpdateInfoOptions contains Disabled.
      *
      * @var updateInfo
      */

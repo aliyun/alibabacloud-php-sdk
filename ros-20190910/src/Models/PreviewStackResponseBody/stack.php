@@ -44,7 +44,7 @@ class stack extends Model
     public $parameters;
 
     /**
-     * @description The region ID of the stack.
+     * @description The region where the stack resides.
      *
      * @example cn-hangzhou
      *
@@ -60,7 +60,7 @@ class stack extends Model
     public $resources;
 
     /**
-     * @description The name of the stack.
+     * @description The stack name.
      *
      * @example MyStack
      *
@@ -87,7 +87,7 @@ class stack extends Model
     public $templateDescription;
 
     /**
-     * @description The timeout period that is allowed to create the stack.
+     * @description The timeout period for creating the stack.
      *
      * Unit: minutes.
      * @example 60

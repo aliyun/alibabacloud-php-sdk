@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class services extends Model
 {
     /**
-     * @description The name of service N or feature N. Valid values:
+     * @description The service or feature name. Valid values:
      *
      *   AHAS: Application High Availability Service
      *   ARMS: Application Real-Time Monitoring Service (ARMS)
@@ -20,11 +20,11 @@ class services extends Model
      *   CMS: CloudMonitor
      *   CR: Container Registry
      *   CS: Container Service for Kubernetes (ACK)
-     *   DCDN: Dynamic Route for CDN (DCDN)
+     *   DCDN: Dynamic Content Delivery Network (DCDN)
      *   DataHub: DataHub
      *   DataWorks: DataWorks
      *   EDAS: Enterprise Distributed Application Service (EDAS)
-     *   E-HPC: Elastic High Performance Computing (E-HPC)
+     *   EHPC: Elastic High Performance Computing (E-HPC)
      *   EMAS: Enterprise Mobile Application Studio (EMAS)
      *   FC: Function Compute
      *   FNF: Serverless Workflow (SWF)
@@ -40,12 +40,12 @@ class services extends Model
      *   OTS: Tablestore
      *   PrivateLink: PrivateLink
      *   PrivateZone: Alibaba Cloud DNS PrivateZone
-     *   RocketMQ: Message Queue for Apache RocketMQ
+     *   RocketMQ: ApsaraMQ for RocketMQ
      *   SAE: Serverless App Engine (SAE)
      *   SLS: Log Service
      *   TrafficMirror: the traffic mirroring feature
      *   VS: Video Surveillance System
-     *   Xtrace: Tracing Analysis
+     *   Xtrace: Managed Service for OpenTelemetry
      *
      * @example EHPC
      *

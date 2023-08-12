@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @description The token that determines the start point of the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0*****
      *

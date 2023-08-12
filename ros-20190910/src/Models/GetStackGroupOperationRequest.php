@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetStackGroupOperationRequest extends Model
 {
     /**
-     * @description The ID of the operation that you want to query. You can call the [ListStackGroupOperations](~~151342~~) operation to query the operation.
+     * @description The operation ID. You can call the [ListStackGroupOperations](~~151342~~) operation to query the operation ID.
      *
      * @example 6da106ca-1784-4a6f-a7e1-e723863d****
      *

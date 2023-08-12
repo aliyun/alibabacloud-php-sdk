@@ -16,17 +16,16 @@ class dryRunResult extends Model
     public $parametersAllowedToBeModified;
 
     /**
-     * @description The parameters whose changes cause service interruptions. If you change only values of the parameters in a stack template and use the template to update the stack, service interruptions are caused.
-     *
-     * >
-     *   This parameter is supported only for a small number of resource types.
-     *   This parameter is valid only for changes that are made on ROS stacks.
-     *
+     * @description The parameters whose changes cause service interruptions.
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersCauseInterruptionIfModified;
 
     /**
+     * @description The parameters whose changes trigger replacement updates for resources.
+     *
+     * > -  This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersCauseReplacementIfModified;
@@ -39,17 +38,17 @@ class dryRunResult extends Model
     public $parametersConditionallyAllowedToBeModified;
 
     /**
-     * @description The parameters whose changes cause service interruptions under specific conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the new values and the update type determine whether service interruptions are caused.
+     * @description The parameters whose changes cause service interruptions under specific conditions.
      *
-     * >
-     *   This parameter is supported only for a small number of resource types.
-     *   This parameter is valid only for changes that are made on ROS stacks.
-     *
+     * > -  This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersConditionallyCauseInterruptionIfModified;
 
     /**
+     * @description The parameters whose changes trigger replacement updates for resources under specific conditions.
+     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersConditionallyCauseReplacementIfModified;
@@ -69,17 +68,17 @@ class dryRunResult extends Model
     public $parametersUncertainlyAllowedToBeModified;
 
     /**
-     * @description The parameters whose changes cause service interruptions under uncertain conditions. If you change only values of the parameters in a stack template and use the template to update the stack, the actual running environment determines whether service interruptions are caused.
+     * @description The parameters whose changes cause service interruptions under uncertain conditions.
      *
-     * >
-     *   This parameter is supported only for a small number of resource types.
-     *   This parameter is valid only for changes that are made on ROS stacks.
-     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersUncertainlyCauseInterruptionIfModified;
 
     /**
+     * @description The parameters whose changes trigger replacement updates for resources under uncertain conditions.
+     *
+     * > - This parameter is valid only for updates on ROS stacks.
      * @var string[]
      */
     public $parametersUncertainlyCauseReplacementIfModified;

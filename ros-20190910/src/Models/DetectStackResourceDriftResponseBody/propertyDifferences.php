@@ -20,7 +20,7 @@ class propertyDifferences extends Model
     /**
      * @description The drift type of the resource property. Valid values:
      *
-     *   ADD: The value has been added to a resource property whose data type is Array or List.
+     *   ADD: The property value has been added to a resource property whose data type was Array or List.
      *   REMOVE: The property has been deleted from the current resource configuration.
      *   NOT_EQUAL: The current property value differs from the expected value defined in the stack template.
      *
@@ -31,7 +31,7 @@ class propertyDifferences extends Model
     public $differenceType;
 
     /**
-     * @description The expected value of the resource property as defined in the template.
+     * @description The expected value of the resource property that is defined in the template.
      *
      * @example test2
      *

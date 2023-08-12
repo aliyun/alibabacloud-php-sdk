@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GenerateTemplateByScratchRequest extends Model
 {
     /**
-     * @description The ID of the region to which the new node belongs.
+     * @description The region ID of the new node.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,7 @@ class GenerateTemplateByScratchRequest extends Model
     public $provisionRegionId;
 
     /**
-     * @description The ID of the region in which the scenario is created.
+     * @description The region ID of the scenario.
      *
      * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -38,6 +38,8 @@ class GenerateTemplateByScratchRequest extends Model
     public $templateScratchId;
 
     /**
+     * @example ROS
+     *
      * @var string
      */
     public $templateType;

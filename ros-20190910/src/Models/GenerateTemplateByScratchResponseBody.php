@@ -19,15 +19,15 @@ class GenerateTemplateByScratchResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The resources that you want to import to a stack in the scenario of the Resource Management type.
+     * @description The resources that you want to import into a stack in the scenario.
      *
-     * >  This parameter is returned only for scenarios of the Resource Management type.
+     * > This parameter is returned only if the scenario is of the Resource Management type.
      * @var resourcesToImport[]
      */
     public $resourcesToImport;
 
     /**
-     * @description The content of the template that is created for the scenario.
+     * @description The template content of the scenario.
      *
      * @example {\"ROSTemplateFormatVersion\": \"2015-09-01\", \"Resources\": {\"ECSVPC_001\": {\"DeletionPolicy\": \"Retain\", \"Type\": \"ALIYUN::ECS::VPC\", \"Properties\": {\"CidrBlock\": \"172.16.0.0/12\", \"VpcName\": \"MyTestVpc\", \"EnableIpv6\": false}}}}
      *

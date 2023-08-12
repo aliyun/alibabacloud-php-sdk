@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stackGroupDriftDetectionDetail extends Model
 {
     /**
-     * @description The number of stack instances for which the drift detection was canceled.
+     * @description The number of stack instances for which drift detection was canceled.
      *
      * @example 0
      *
@@ -18,15 +18,15 @@ class stackGroupDriftDetectionDetail extends Model
     public $cancelledStackInstancesCount;
 
     /**
-     * @description The status of the drift detection.
+     * @description The drift detection state.
      *
      * Valid values:
      *
-     *   COMPLETED: The drift detection is performed and completed on all stack instances.
-     *   FAILED: The drift detection is performed. The number of stack instances that failed the drift detection exceeds the specified threshold.
-     *   PARTIAL_SUCCESS: The drift detection is performed. The number of stack instances that failed the drift detection does not exceed the specified threshold.
-     *   IN_PROGRESS: The drift detection is being performed on the stack group.
-     *   STOPPED: The drift detection is canceled for the stack group.
+     *   COMPLETED: Drift detection is performed on the stack group and all stack instances passed the drift detection.
+     *   FAILED: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection exceeds the specified threshold.
+     *   PARTIAL_SUCCESS: Drift detection is performed on the stack group. The number of stack instances that failed the drift detection does not exceed the specified threshold.
+     *   IN_PROGRESS: Drift detection is being performed on the stack group.
+     *   STOPPED: Drift detection is canceled for the stack group.
      *
      * @example COMPLETED
      *
@@ -35,7 +35,7 @@ class stackGroupDriftDetectionDetail extends Model
     public $driftDetectionStatus;
 
     /**
-     * @description The time when the drift detection was initiated.
+     * @description The time when drift detection was performed.
      *
      * @example 2020-02-27T07:47:47
      *
@@ -44,7 +44,7 @@ class stackGroupDriftDetectionDetail extends Model
     public $driftDetectionTime;
 
     /**
-     * @description The number of stack instances that were drifted.
+     * @description The number of stack instances that have drifted.
      *
      * @example 1
      *
@@ -53,7 +53,7 @@ class stackGroupDriftDetectionDetail extends Model
     public $driftedStackInstancesCount;
 
     /**
-     * @description The number of stack instances that failed the drift detection.
+     * @description The number of stack instances that failed drift detection.
      *
      * @example 0
      *
@@ -62,7 +62,7 @@ class stackGroupDriftDetectionDetail extends Model
     public $failedStackInstancesCount;
 
     /**
-     * @description The number of stack instances on which the drift detection was being performed.
+     * @description The number of stack instances on which drift detection was being performed.
      *
      * @example 0
      *
@@ -80,12 +80,12 @@ class stackGroupDriftDetectionDetail extends Model
     public $inSyncStackInstancesCount;
 
     /**
-     * @description The drift status of the stack group.
+     * @description The drift state of the stack group.
      *
      * Valid values:
      *
-     *   DRIFTED: At least one stack instance in the stack group is drifted.
-     *   NOT_CHECKED: No drift detection is completed in the stack group.
+     *   DRIFTED: At least one stack instance in the stack group has drifted.
+     *   NOT_CHECKED: No successful drift detection is performed in the stack group.
      *   IN_SYNC: All the stack instances in the stack group are being synchronized.
      *
      * @example DRIFTED

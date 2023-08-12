@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class log extends Model
 {
     /**
-     * @description The logs of the Terraform stack. This parameter is returned only for the change set of a Terraform stack.
+     * @description The Terraform logs. This parameter is returned only for change sets of Terraform stacks.
      *
-     * >  This parameter is not returned for change sets that are in the creating state. This parameter indicates the change set creation logs of the Terraform stack.
+     * > This parameter is not returned for change sets that are in the Creating state. This parameter indicates the logs of the change set creation operation for Terraform stacks.
      * @var terraformLogs[]
      */
     public $terraformLogs;

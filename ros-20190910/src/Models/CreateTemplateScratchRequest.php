@@ -14,9 +14,9 @@ use AlibabaCloud\Tea\Model;
 class CreateTemplateScratchRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can be up to 64 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
-     * For more information, see [Ensure idempotence](~~134212~~).
+     * For more information, see [How to ensure idempotence](~~134212~~).
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -33,12 +33,12 @@ class CreateTemplateScratchRequest extends Model
     public $description;
 
     /**
-     * @description The execution mode. Default value: Async. Valid values:
+     * @description The execution mode. Valid values:
      *
-     *   Async: asynchronous mode
-     *   Sync: synchronous mode
+     *   Async (default)
+     *   Sync
      *
-     * >  If a wide scope of resources exist, the synchronous mode takes a longer period of time than the asynchronous mode. If you set the ExecutionMode parameter to Sync, we recommend that you configure the ClientToken parameter to prevent a timeout error.
+     * > If you have a wide scope of resources, Sync takes longer. If you set ExecutionMode to Sync, we recommend that you specify ClientToken to prevent the execution timeout.
      * @example Sync
      *
      * @var string
@@ -46,9 +46,9 @@ class CreateTemplateScratchRequest extends Model
     public $executionMode;
 
     /**
-     * @description The policy based on which the logical ID is generated. Default value: LongTypePrefixAndIndexSuffix. Valid values:
+     * @description The policy based on which the logical ID is generated. Valid values:
      *
-     *   LongTypePrefixAndIndexSuffix: long-type prefix + index-type suffix
+     *   LongTypePrefixAndIndexSuffix (default): long-type prefix + index-type suffix
      *   LongTypePrefixAndHashSuffix: long-type prefix + hash-type suffix
      *   ShortTypePrefixAndHashSuffix: short-type prefix + hash-type suffix
      *
@@ -59,14 +59,14 @@ class CreateTemplateScratchRequest extends Model
     public $logicalIdStrategy;
 
     /**
-     * @description The parameters that you want to configure for the scenario.
+     * @description The preference parameters of the scenario.
      *
      * @var preferenceParameters[]
      */
     public $preferenceParameters;
 
     /**
-     * @description The ID of the region in which you want to create the scenario.
+     * @description The region ID of the scenario.
      *
      * You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -97,7 +97,7 @@ class CreateTemplateScratchRequest extends Model
     public $sourceTag;
 
     /**
-     * @description The tags.
+     * @description The tags of the scenario.
      *
      * @var tags[]
      */

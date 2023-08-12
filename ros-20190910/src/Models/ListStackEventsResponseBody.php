@@ -10,15 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListStackEventsResponseBody extends Model
 {
     /**
-     * @description The list of events.
+     * @description The events.
      *
      * @var events[]
      */
     public $events;
 
     /**
-     * @description The page number of the returned page.
-     *
+     * @description The page number of the returned page.\
      * Default value: 1.
      * @example 1
      *
@@ -27,8 +26,7 @@ class ListStackEventsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
-     *
+     * @description The number of entries returned per page.\
      * Default value: 10.
      * @example 10
      *
@@ -37,7 +35,7 @@ class ListStackEventsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *

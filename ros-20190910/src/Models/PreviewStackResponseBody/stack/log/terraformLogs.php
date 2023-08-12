@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class terraformLogs extends Model
 {
     /**
-     * @description The name of the Terraform command. Valid values:
+     * @description The name of the Terraform command that is run. Valid values:
      *
      *   apply
      *   plan

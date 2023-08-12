@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
-     * @description The tag key.
+     * @description The key of the tag.
      *
      * @example TagKey1
      *
@@ -18,7 +18,7 @@ class ListTagValuesRequest extends Model
     public $key;
 
     /**
-     * @description The token that determines the start point of the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
      *
      * @example caeba0bbb2be03f84eb48b699f0*****
      *

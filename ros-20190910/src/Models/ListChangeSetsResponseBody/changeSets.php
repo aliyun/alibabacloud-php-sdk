@@ -36,7 +36,7 @@ class changeSets extends Model
     public $changeSetType;
 
     /**
-     * @description The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the change set was created. The time follows the ISO 8601 standard in the YYYY-MM-DDThh:mm:ss format. The time is displayed in UTC.
      *
      * @example 2019-08-01T05:16:31
      *
@@ -63,7 +63,7 @@ class changeSets extends Model
     public $executionStatus;
 
     /**
-     * @description The region ID.
+     * @description The region ID of the change set.
      *
      * @example cn-hangzhou
      *
@@ -99,7 +99,7 @@ class changeSets extends Model
     public $status;
 
     /**
-     * @description The reason why the change set is in its current status.
+     * @description The reason why the change set is in its current state.
      *
      * @example too many changes
      *

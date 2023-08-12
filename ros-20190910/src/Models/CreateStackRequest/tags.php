@@ -11,12 +11,7 @@ class tags extends Model
     /**
      * @description The key of tag N that you want to add to the stack.
      *
-     * >
-     *
-     *   The Tags parameter is optional. If you specify Tags, you must specify Tags.N.Key.
-     *
-     *   The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](~~201421~~).
-     *
+     * > -  The tag of a stack is propagated to each resource that supports the tag feature in the stack. For more information, see [Propagate tags](~~201421~~).
      * @example usage
      *
      * @var string

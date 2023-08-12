@@ -27,12 +27,10 @@ class apiForCreation extends Model
     public $apiProductId;
 
     /**
-     * @description The type of the API operation.
+     * @description The type of the API operation. Valid values:
      *
-     * Valid values:
-     *
-     *   Open: public API operation
-     *   Inner: private API operation
+     *   Open: public
+     *   Inner: private
      *
      * @example Open
      *

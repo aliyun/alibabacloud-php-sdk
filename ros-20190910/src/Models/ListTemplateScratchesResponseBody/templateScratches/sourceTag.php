@@ -18,7 +18,7 @@ class sourceTag extends Model
     public $resourceTags;
 
     /**
-     * @description The filter for resource types.
+     * @description The resource types.
      *
      * @var string[]
      */

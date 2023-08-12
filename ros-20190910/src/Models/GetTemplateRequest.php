@@ -11,7 +11,7 @@ class GetTemplateRequest extends Model
     /**
      * @description The ID of the change set.
      *
-     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
+     * > You must specify one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example 1f6521a4-05af-4975-afe9-bc4b45ad****
      *
      * @var string
@@ -19,12 +19,12 @@ class GetTemplateRequest extends Model
     public $changeSetId;
 
     /**
-     * @description Specifies whether to query the template sharing information. Default value: Disabled. Valid values:
+     * @description Specifies whether to query the shared information about the template. Valid values:
      *
      *   Enabled
-     *   Disabled
+     *   Disabled (default)
      *
-     * >  Only the template owner can query the template sharing information.
+     * > Only the template owner can query the shared information of a template.
      * @example Enabled
      *
      * @var string
@@ -32,12 +32,12 @@ class GetTemplateRequest extends Model
     public $includePermission;
 
     /**
-     * @description Specifies whether to query the information about tags. Default value: Disabled. Valid values:
+     * @description Specifies whether to query the information about tags. Valid values:
      *
      *   Enabled
-     *   Disabled
+     *   Disabled (default)
      *
-     * >  This parameter only takes effect when you specify the TemplateId parameter.
+     * > This parameter takes effect only if you specify TemplateId.
      * @example Enabled
      *
      * @var string
@@ -45,7 +45,7 @@ class GetTemplateRequest extends Model
     public $includeTags;
 
     /**
-     * @description The ID of the region to which the stack or stack group defined in the template belongs. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
+     * @description The region ID of the stack or stack group that uses the template. You can call the [DescribeRegions](~~131035~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -56,7 +56,7 @@ class GetTemplateRequest extends Model
     /**
      * @description The name of the stack group.
      *
-     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
+     * > You must specify one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example MyStackGroup
      *
      * @var string
@@ -66,7 +66,7 @@ class GetTemplateRequest extends Model
     /**
      * @description The ID of the stack.
      *
-     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
+     * > You must specify one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string
@@ -76,7 +76,7 @@ class GetTemplateRequest extends Model
     /**
      * @description The ID of the template.
      *
-     * >  You must specify only one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
+     * > You must specify one of the following parameters: StackId, ChangeSetId, StackGroupName, and TemplateId.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -84,12 +84,12 @@ class GetTemplateRequest extends Model
     public $templateId;
 
     /**
-     * @description The stage of the template. This parameter only takes effect when you specify the StackId, ChangeSetId, or StackGroupName parameter.
+     * @description The stage of the template. This parameter takes effect only if you specify StackId, ChangeSetId, or StackGroupName.
      *
-     * Default value: Processed. Valid values:
+     * Valid values:
      *
-     *   Processed: returns the processed template that contains transforms.
-     *   Original: returns the original template that you specify.
+     *   Processed (default): returns the processed template.
+     *   Original: returns the original template.
      *
      * @example Processed
      *
@@ -98,8 +98,7 @@ class GetTemplateRequest extends Model
     public $templateStage;
 
     /**
-     * @description The version of the template. This parameter only takes effect when you specify the TemplateId parameter.
-     *
+     * @description The version of the template. This parameter takes effect only if you specify TemplateId.\
      * Valid values: v1 to v100.
      * @example v1
      *
