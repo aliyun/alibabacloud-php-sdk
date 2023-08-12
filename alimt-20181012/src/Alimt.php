@@ -6,11 +6,15 @@ namespace AlibabaCloud\SDK\Alimt\V20181012;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateAsyncTranslateRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateAsyncTranslateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateDocTranslateTaskAdvanceRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateDocTranslateTaskRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateDocTranslateTaskResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\CreateImageTranslateTaskResponse;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetAsyncTranslateRequest;
+use AlibabaCloud\SDK\Alimt\V20181012\Models\GetAsyncTranslateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateRequest;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetBatchTranslateResponse;
 use AlibabaCloud\SDK\Alimt\V20181012\Models\GetDetectLanguageRequest;
@@ -150,6 +154,64 @@ class Alimt extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CreateAsyncTranslateRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return CreateAsyncTranslateResponse
+     */
+    public function createAsyncTranslateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->apiType)) {
+            $body['ApiType'] = $request->apiType;
+        }
+        if (!Utils::isUnset($request->formatType)) {
+            $body['FormatType'] = $request->formatType;
+        }
+        if (!Utils::isUnset($request->scene)) {
+            $body['Scene'] = $request->scene;
+        }
+        if (!Utils::isUnset($request->sourceLanguage)) {
+            $body['SourceLanguage'] = $request->sourceLanguage;
+        }
+        if (!Utils::isUnset($request->sourceText)) {
+            $body['SourceText'] = $request->sourceText;
+        }
+        if (!Utils::isUnset($request->targetLanguage)) {
+            $body['TargetLanguage'] = $request->targetLanguage;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAsyncTranslate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAsyncTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAsyncTranslateRequest $request
+     *
+     * @return CreateAsyncTranslateResponse
+     */
+    public function createAsyncTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAsyncTranslateWithOptions($request, $runtime);
     }
 
     /**
@@ -341,6 +403,49 @@ class Alimt extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createImageTranslateTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAsyncTranslateRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return GetAsyncTranslateResponse
+     */
+    public function getAsyncTranslateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $body['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAsyncTranslate',
+            'version'     => '2018-10-12',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAsyncTranslateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAsyncTranslateRequest $request
+     *
+     * @return GetAsyncTranslateResponse
+     */
+    public function getAsyncTranslate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAsyncTranslateWithOptions($request, $runtime);
     }
 
     /**
