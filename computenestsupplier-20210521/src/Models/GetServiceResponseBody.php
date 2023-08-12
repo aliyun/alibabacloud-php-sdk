@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commodityEntities;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\commoditySpecifications;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\serviceInfos;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\statistic;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -85,6 +86,11 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $licenseMetadata;
+
+    /**
+     * @var string
+     */
+    public $logMetadata;
 
     /**
      * @example {\"PrometheusConfigMap\":{\"New_Vpc_Ack_And_Jumpserver\":{}}}
@@ -197,6 +203,26 @@ class GetServiceResponseBody extends Model
     public $shareType;
 
     /**
+     * @var string
+     */
+    public $sourceServiceId;
+
+    /**
+     * @var string
+     */
+    public $sourceServiceVersion;
+
+    /**
+     * @var string
+     */
+    public $sourceSupplierName;
+
+    /**
+     * @var statistic
+     */
+    public $statistic;
+
+    /**
      * @example Online
      *
      * @var string
@@ -295,6 +321,7 @@ class GetServiceResponseBody extends Model
         'duration'                => 'Duration',
         'isSupportOperated'       => 'IsSupportOperated',
         'licenseMetadata'         => 'LicenseMetadata',
+        'logMetadata'             => 'LogMetadata',
         'operationMetadata'       => 'OperationMetadata',
         'payFromType'             => 'PayFromType',
         'payType'                 => 'PayType',
@@ -311,6 +338,10 @@ class GetServiceResponseBody extends Model
         'serviceProductUrl'       => 'ServiceProductUrl',
         'serviceType'             => 'ServiceType',
         'shareType'               => 'ShareType',
+        'sourceServiceId'         => 'SourceServiceId',
+        'sourceServiceVersion'    => 'SourceServiceVersion',
+        'sourceSupplierName'      => 'SourceSupplierName',
+        'statistic'               => 'Statistic',
         'status'                  => 'Status',
         'statusDetail'            => 'StatusDetail',
         'supplierName'            => 'SupplierName',
@@ -381,6 +412,9 @@ class GetServiceResponseBody extends Model
         if (null !== $this->licenseMetadata) {
             $res['LicenseMetadata'] = $this->licenseMetadata;
         }
+        if (null !== $this->logMetadata) {
+            $res['LogMetadata'] = $this->logMetadata;
+        }
         if (null !== $this->operationMetadata) {
             $res['OperationMetadata'] = $this->operationMetadata;
         }
@@ -434,6 +468,18 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->sourceServiceId) {
+            $res['SourceServiceId'] = $this->sourceServiceId;
+        }
+        if (null !== $this->sourceServiceVersion) {
+            $res['SourceServiceVersion'] = $this->sourceServiceVersion;
+        }
+        if (null !== $this->sourceSupplierName) {
+            $res['SourceSupplierName'] = $this->sourceSupplierName;
+        }
+        if (null !== $this->statistic) {
+            $res['Statistic'] = null !== $this->statistic ? $this->statistic->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -540,6 +586,9 @@ class GetServiceResponseBody extends Model
         if (isset($map['LicenseMetadata'])) {
             $model->licenseMetadata = $map['LicenseMetadata'];
         }
+        if (isset($map['LogMetadata'])) {
+            $model->logMetadata = $map['LogMetadata'];
+        }
         if (isset($map['OperationMetadata'])) {
             $model->operationMetadata = $map['OperationMetadata'];
         }
@@ -593,6 +642,18 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['SourceServiceId'])) {
+            $model->sourceServiceId = $map['SourceServiceId'];
+        }
+        if (isset($map['SourceServiceVersion'])) {
+            $model->sourceServiceVersion = $map['SourceServiceVersion'];
+        }
+        if (isset($map['SourceSupplierName'])) {
+            $model->sourceSupplierName = $map['SourceSupplierName'];
+        }
+        if (isset($map['Statistic'])) {
+            $model->statistic = statistic::fromMap($map['Statistic']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

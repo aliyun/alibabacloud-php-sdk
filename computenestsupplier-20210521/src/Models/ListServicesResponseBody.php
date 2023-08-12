@@ -38,7 +38,7 @@ class ListServicesResponseBody extends Model
     /**
      * @example 100
      *
-     * @var string
+     * @var int
      */
     public $totalCount;
     protected $_name = [

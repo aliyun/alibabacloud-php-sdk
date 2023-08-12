@@ -18,7 +18,7 @@ class ListServiceInstancesRequest extends Model
     /**
      * @example 10
      *
-     * @var string
+     * @var int
      */
     public $maxResults;
 
@@ -37,6 +37,11 @@ class ListServiceInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example false
      *
      * @var bool
@@ -48,12 +53,13 @@ class ListServiceInstancesRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'filter'      => 'Filter',
-        'maxResults'  => 'MaxResults',
-        'nextToken'   => 'NextToken',
-        'regionId'    => 'RegionId',
-        'showDeleted' => 'ShowDeleted',
-        'tag'         => 'Tag',
+        'filter'          => 'Filter',
+        'maxResults'      => 'MaxResults',
+        'nextToken'       => 'NextToken',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'showDeleted'     => 'ShowDeleted',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class ListServiceInstancesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->showDeleted) {
             $res['ShowDeleted'] = $this->showDeleted;
@@ -122,6 +131,9 @@ class ListServiceInstancesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShowDeleted'])) {
             $model->showDeleted = $map['ShowDeleted'];

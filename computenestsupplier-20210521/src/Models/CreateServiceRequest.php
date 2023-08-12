@@ -61,6 +61,11 @@ class CreateServiceRequest extends Model
     public $licenseMetadata;
 
     /**
+     * @var string
+     */
+    public $logMetadata;
+
+    /**
      * @example {\"PrometheusConfigMap\":{\"New_Vpc_Ack_And_Jumpserver\":{}}}
      *
      * @var string
@@ -113,6 +118,16 @@ class CreateServiceRequest extends Model
     public $shareType;
 
     /**
+     * @var string
+     */
+    public $sourceServiceId;
+
+    /**
+     * @var string
+     */
+    public $sourceServiceVersion;
+
+    /**
      * @var tag[]
      */
     public $tag;
@@ -145,27 +160,30 @@ class CreateServiceRequest extends Model
      */
     public $versionName;
     protected $_name = [
-        'alarmMetadata'     => 'AlarmMetadata',
-        'approvalType'      => 'ApprovalType',
-        'clientToken'       => 'ClientToken',
-        'deployMetadata'    => 'DeployMetadata',
-        'deployType'        => 'DeployType',
-        'duration'          => 'Duration',
-        'isSupportOperated' => 'IsSupportOperated',
-        'licenseMetadata'   => 'LicenseMetadata',
-        'operationMetadata' => 'OperationMetadata',
-        'policyNames'       => 'PolicyNames',
-        'regionId'          => 'RegionId',
-        'resourceGroupId'   => 'ResourceGroupId',
-        'serviceId'         => 'ServiceId',
-        'serviceInfo'       => 'ServiceInfo',
-        'serviceType'       => 'ServiceType',
-        'shareType'         => 'ShareType',
-        'tag'               => 'Tag',
-        'tenantType'        => 'TenantType',
-        'trialDuration'     => 'TrialDuration',
-        'upgradeMetadata'   => 'UpgradeMetadata',
-        'versionName'       => 'VersionName',
+        'alarmMetadata'        => 'AlarmMetadata',
+        'approvalType'         => 'ApprovalType',
+        'clientToken'          => 'ClientToken',
+        'deployMetadata'       => 'DeployMetadata',
+        'deployType'           => 'DeployType',
+        'duration'             => 'Duration',
+        'isSupportOperated'    => 'IsSupportOperated',
+        'licenseMetadata'      => 'LicenseMetadata',
+        'logMetadata'          => 'LogMetadata',
+        'operationMetadata'    => 'OperationMetadata',
+        'policyNames'          => 'PolicyNames',
+        'regionId'             => 'RegionId',
+        'resourceGroupId'      => 'ResourceGroupId',
+        'serviceId'            => 'ServiceId',
+        'serviceInfo'          => 'ServiceInfo',
+        'serviceType'          => 'ServiceType',
+        'shareType'            => 'ShareType',
+        'sourceServiceId'      => 'SourceServiceId',
+        'sourceServiceVersion' => 'SourceServiceVersion',
+        'tag'                  => 'Tag',
+        'tenantType'           => 'TenantType',
+        'trialDuration'        => 'TrialDuration',
+        'upgradeMetadata'      => 'UpgradeMetadata',
+        'versionName'          => 'VersionName',
     ];
 
     public function validate()
@@ -199,6 +217,9 @@ class CreateServiceRequest extends Model
         if (null !== $this->licenseMetadata) {
             $res['LicenseMetadata'] = $this->licenseMetadata;
         }
+        if (null !== $this->logMetadata) {
+            $res['LogMetadata'] = $this->logMetadata;
+        }
         if (null !== $this->operationMetadata) {
             $res['OperationMetadata'] = $this->operationMetadata;
         }
@@ -228,6 +249,12 @@ class CreateServiceRequest extends Model
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
+        }
+        if (null !== $this->sourceServiceId) {
+            $res['SourceServiceId'] = $this->sourceServiceId;
+        }
+        if (null !== $this->sourceServiceVersion) {
+            $res['SourceServiceVersion'] = $this->sourceServiceVersion;
         }
         if (null !== $this->tag) {
             $res['Tag'] = [];
@@ -286,6 +313,9 @@ class CreateServiceRequest extends Model
         if (isset($map['LicenseMetadata'])) {
             $model->licenseMetadata = $map['LicenseMetadata'];
         }
+        if (isset($map['LogMetadata'])) {
+            $model->logMetadata = $map['LogMetadata'];
+        }
         if (isset($map['OperationMetadata'])) {
             $model->operationMetadata = $map['OperationMetadata'];
         }
@@ -315,6 +345,12 @@ class CreateServiceRequest extends Model
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
+        }
+        if (isset($map['SourceServiceId'])) {
+            $model->sourceServiceId = $map['SourceServiceId'];
+        }
+        if (isset($map['SourceServiceVersion'])) {
+            $model->sourceServiceVersion = $map['SourceServiceVersion'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

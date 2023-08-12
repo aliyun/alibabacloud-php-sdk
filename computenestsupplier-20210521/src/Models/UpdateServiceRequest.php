@@ -57,6 +57,11 @@ class UpdateServiceRequest extends Model
     public $licenseMetadata;
 
     /**
+     * @var string
+     */
+    public $logMetadata;
+
+    /**
      * @example {\"PrometheusConfigMap\":{\"Custom_Image_Ecs\":{\"EnablePrometheus\":false}}}
      *
      * @var string
@@ -138,6 +143,7 @@ class UpdateServiceRequest extends Model
         'duration'          => 'Duration',
         'isSupportOperated' => 'IsSupportOperated',
         'licenseMetadata'   => 'LicenseMetadata',
+        'logMetadata'       => 'LogMetadata',
         'operationMetadata' => 'OperationMetadata',
         'policyNames'       => 'PolicyNames',
         'regionId'          => 'RegionId',
@@ -178,6 +184,9 @@ class UpdateServiceRequest extends Model
         }
         if (null !== $this->licenseMetadata) {
             $res['LicenseMetadata'] = $this->licenseMetadata;
+        }
+        if (null !== $this->logMetadata) {
+            $res['LogMetadata'] = $this->logMetadata;
         }
         if (null !== $this->operationMetadata) {
             $res['OperationMetadata'] = $this->operationMetadata;
@@ -250,6 +259,9 @@ class UpdateServiceRequest extends Model
         }
         if (isset($map['LicenseMetadata'])) {
             $model->licenseMetadata = $map['LicenseMetadata'];
+        }
+        if (isset($map['LogMetadata'])) {
+            $model->logMetadata = $map['LogMetadata'];
         }
         if (isset($map['OperationMetadata'])) {
             $model->operationMetadata = $map['OperationMetadata'];

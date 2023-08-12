@@ -12,6 +12,11 @@ use AlibabaCloud\Tea\Model;
 class GetServiceInstanceResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $bizStatus;
+
+    /**
      * @example 2021-05-20T00:00:00Z
      *
      * @var string
@@ -110,6 +115,11 @@ class GetServiceInstanceResponseBody extends Model
     public $payType;
 
     /**
+     * @var string
+     */
+    public $predefinedParameterName;
+
+    /**
      * @example 90
      *
      * @var int
@@ -127,6 +137,11 @@ class GetServiceInstanceResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @example [
@@ -206,6 +221,7 @@ class GetServiceInstanceResponseBody extends Model
      */
     public $userId;
     protected $_name = [
+        'bizStatus'                 => 'BizStatus',
         'createTime'                => 'CreateTime',
         'enableInstanceOps'         => 'EnableInstanceOps',
         'enableUserPrometheus'      => 'EnableUserPrometheus',
@@ -220,9 +236,11 @@ class GetServiceInstanceResponseBody extends Model
         'outputs'                   => 'Outputs',
         'parameters'                => 'Parameters',
         'payType'                   => 'PayType',
+        'predefinedParameterName'   => 'PredefinedParameterName',
         'progress'                  => 'Progress',
         'rdAccountLoginUrl'         => 'RdAccountLoginUrl',
         'requestId'                 => 'RequestId',
+        'resourceGroupId'           => 'ResourceGroupId',
         'resources'                 => 'Resources',
         'service'                   => 'Service',
         'serviceInstanceId'         => 'ServiceInstanceId',
@@ -244,6 +262,9 @@ class GetServiceInstanceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bizStatus) {
+            $res['BizStatus'] = $this->bizStatus;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
@@ -286,6 +307,9 @@ class GetServiceInstanceResponseBody extends Model
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
+        if (null !== $this->predefinedParameterName) {
+            $res['PredefinedParameterName'] = $this->predefinedParameterName;
+        }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
         }
@@ -294,6 +318,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resources) {
             $res['Resources'] = $this->resources;
@@ -349,6 +376,9 @@ class GetServiceInstanceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BizStatus'])) {
+            $model->bizStatus = $map['BizStatus'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -391,6 +421,9 @@ class GetServiceInstanceResponseBody extends Model
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }
+        if (isset($map['PredefinedParameterName'])) {
+            $model->predefinedParameterName = $map['PredefinedParameterName'];
+        }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
         }
@@ -399,6 +432,9 @@ class GetServiceInstanceResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Resources'])) {
             $model->resources = $map['Resources'];

@@ -44,11 +44,26 @@ class artifactProperty extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $repoId;
+
+    /**
+     * @var string
+     */
+    public $repoName;
+
+    /**
      * @example {"ScriptMetadata":"{\"CommandType\":\"RunShellScript\",\"Platform\":\"Linux\",\"Script\":\"ls\"}"}
      *
      * @var string
      */
     public $scriptMetadata;
+
+    /**
+     * @var string
+     */
+    public $tag;
 
     /**
      * @example https://service-info-private.oss-cn-hangzhou.aliyuncs.com/1309208528xxxxxx/template/2e1ce8fc-xxxx-481c-9e8e-789ba9db487d.json
@@ -62,7 +77,10 @@ class artifactProperty extends Model
         'fileScriptMetadata' => 'FileScriptMetadata',
         'imageId'            => 'ImageId',
         'regionId'           => 'RegionId',
+        'repoId'             => 'RepoId',
+        'repoName'           => 'RepoName',
         'scriptMetadata'     => 'ScriptMetadata',
+        'tag'                => 'Tag',
         'url'                => 'Url',
     ];
 
@@ -88,8 +106,17 @@ class artifactProperty extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->repoId) {
+            $res['RepoId'] = $this->repoId;
+        }
+        if (null !== $this->repoName) {
+            $res['RepoName'] = $this->repoName;
+        }
         if (null !== $this->scriptMetadata) {
             $res['ScriptMetadata'] = $this->scriptMetadata;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
         if (null !== $this->url) {
             $res['Url'] = $this->url;
@@ -121,8 +148,17 @@ class artifactProperty extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['RepoId'])) {
+            $model->repoId = $map['RepoId'];
+        }
+        if (isset($map['RepoName'])) {
+            $model->repoName = $map['RepoName'];
+        }
         if (isset($map['ScriptMetadata'])) {
             $model->scriptMetadata = $map['ScriptMetadata'];
+        }
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
         if (isset($map['Url'])) {
             $model->url = $map['Url'];

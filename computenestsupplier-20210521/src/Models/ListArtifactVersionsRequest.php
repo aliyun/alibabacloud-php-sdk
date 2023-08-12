@@ -18,7 +18,7 @@ class ListArtifactVersionsRequest extends Model
     /**
      * @example 20
      *
-     * @var string
+     * @var int
      */
     public $maxResult;
 

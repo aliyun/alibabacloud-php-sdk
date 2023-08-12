@@ -88,6 +88,11 @@ class serviceInstances extends Model
     public $progress;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var service
      */
     public $service;
@@ -162,6 +167,7 @@ class serviceInstances extends Model
         'parameters'                => 'Parameters',
         'payType'                   => 'PayType',
         'progress'                  => 'Progress',
+        'resourceGroupId'           => 'ResourceGroupId',
         'service'                   => 'Service',
         'serviceInstanceId'         => 'ServiceInstanceId',
         'serviceType'               => 'ServiceType',
@@ -213,6 +219,9 @@ class serviceInstances extends Model
         }
         if (null !== $this->progress) {
             $res['Progress'] = $this->progress;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->service) {
             $res['Service'] = null !== $this->service ? $this->service->toMap() : null;
@@ -294,6 +303,9 @@ class serviceInstances extends Model
         }
         if (isset($map['Progress'])) {
             $model->progress = $map['Progress'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['Service'])) {
             $model->service = service::fromMap($map['Service']);

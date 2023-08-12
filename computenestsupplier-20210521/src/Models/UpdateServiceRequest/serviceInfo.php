@@ -25,6 +25,11 @@ class serviceInfo extends Model
     /**
      * @var string
      */
+    public $longDescriptionUrl;
+
+    /**
+     * @var string
+     */
     public $name;
 
     /**
@@ -32,10 +37,11 @@ class serviceInfo extends Model
      */
     public $shortDescription;
     protected $_name = [
-        'image'            => 'Image',
-        'locale'           => 'Locale',
-        'name'             => 'Name',
-        'shortDescription' => 'ShortDescription',
+        'image'              => 'Image',
+        'locale'             => 'Locale',
+        'longDescriptionUrl' => 'LongDescriptionUrl',
+        'name'               => 'Name',
+        'shortDescription'   => 'ShortDescription',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class serviceInfo extends Model
         }
         if (null !== $this->locale) {
             $res['Locale'] = $this->locale;
+        }
+        if (null !== $this->longDescriptionUrl) {
+            $res['LongDescriptionUrl'] = $this->longDescriptionUrl;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -74,6 +83,9 @@ class serviceInfo extends Model
         }
         if (isset($map['Locale'])) {
             $model->locale = $map['Locale'];
+        }
+        if (isset($map['LongDescriptionUrl'])) {
+            $model->longDescriptionUrl = $map['LongDescriptionUrl'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

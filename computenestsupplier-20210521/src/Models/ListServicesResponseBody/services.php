@@ -60,6 +60,11 @@ class services extends Model
     public $deployType;
 
     /**
+     * @var string
+     */
+    public $latestResellSourceServiceVersion;
+
+    /**
      * @example 2021-05-21T00:00:00Z
      *
      * @var string
@@ -72,6 +77,11 @@ class services extends Model
      * @var string
      */
     public $relationType;
+
+    /**
+     * @var string
+     */
+    public $resellServiceId;
 
     /**
      * @var string
@@ -110,6 +120,21 @@ class services extends Model
      * @var string
      */
     public $sourceImage;
+
+    /**
+     * @var string
+     */
+    public $sourceServiceId;
+
+    /**
+     * @var string
+     */
+    public $sourceServiceVersion;
+
+    /**
+     * @var string
+     */
+    public $sourceSupplierName;
 
     /**
      * @example Online
@@ -170,30 +195,35 @@ class services extends Model
      */
     public $versionName;
     protected $_name = [
-        'approvalType'    => 'ApprovalType',
-        'artifactId'      => 'ArtifactId',
-        'artifactVersion' => 'ArtifactVersion',
-        'commodityCode'   => 'CommodityCode',
-        'createTime'      => 'CreateTime',
-        'defaultVersion'  => 'DefaultVersion',
-        'deployType'      => 'DeployType',
-        'publishTime'     => 'PublishTime',
-        'relationType'    => 'RelationType',
-        'resourceGroupId' => 'ResourceGroupId',
-        'serviceId'       => 'ServiceId',
-        'serviceInfos'    => 'ServiceInfos',
-        'serviceType'     => 'ServiceType',
-        'shareType'       => 'ShareType',
-        'sourceImage'     => 'SourceImage',
-        'status'          => 'Status',
-        'supplierName'    => 'SupplierName',
-        'supplierUrl'     => 'SupplierUrl',
-        'tags'            => 'Tags',
-        'tenantType'      => 'TenantType',
-        'trialType'       => 'TrialType',
-        'updateTime'      => 'UpdateTime',
-        'version'         => 'Version',
-        'versionName'     => 'VersionName',
+        'approvalType'                     => 'ApprovalType',
+        'artifactId'                       => 'ArtifactId',
+        'artifactVersion'                  => 'ArtifactVersion',
+        'commodityCode'                    => 'CommodityCode',
+        'createTime'                       => 'CreateTime',
+        'defaultVersion'                   => 'DefaultVersion',
+        'deployType'                       => 'DeployType',
+        'latestResellSourceServiceVersion' => 'LatestResellSourceServiceVersion',
+        'publishTime'                      => 'PublishTime',
+        'relationType'                     => 'RelationType',
+        'resellServiceId'                  => 'ResellServiceId',
+        'resourceGroupId'                  => 'ResourceGroupId',
+        'serviceId'                        => 'ServiceId',
+        'serviceInfos'                     => 'ServiceInfos',
+        'serviceType'                      => 'ServiceType',
+        'shareType'                        => 'ShareType',
+        'sourceImage'                      => 'SourceImage',
+        'sourceServiceId'                  => 'SourceServiceId',
+        'sourceServiceVersion'             => 'SourceServiceVersion',
+        'sourceSupplierName'               => 'SourceSupplierName',
+        'status'                           => 'Status',
+        'supplierName'                     => 'SupplierName',
+        'supplierUrl'                      => 'SupplierUrl',
+        'tags'                             => 'Tags',
+        'tenantType'                       => 'TenantType',
+        'trialType'                        => 'TrialType',
+        'updateTime'                       => 'UpdateTime',
+        'version'                          => 'Version',
+        'versionName'                      => 'VersionName',
     ];
 
     public function validate()
@@ -224,11 +254,17 @@ class services extends Model
         if (null !== $this->deployType) {
             $res['DeployType'] = $this->deployType;
         }
+        if (null !== $this->latestResellSourceServiceVersion) {
+            $res['LatestResellSourceServiceVersion'] = $this->latestResellSourceServiceVersion;
+        }
         if (null !== $this->publishTime) {
             $res['PublishTime'] = $this->publishTime;
         }
         if (null !== $this->relationType) {
             $res['RelationType'] = $this->relationType;
+        }
+        if (null !== $this->resellServiceId) {
+            $res['ResellServiceId'] = $this->resellServiceId;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -253,6 +289,15 @@ class services extends Model
         }
         if (null !== $this->sourceImage) {
             $res['SourceImage'] = $this->sourceImage;
+        }
+        if (null !== $this->sourceServiceId) {
+            $res['SourceServiceId'] = $this->sourceServiceId;
+        }
+        if (null !== $this->sourceServiceVersion) {
+            $res['SourceServiceVersion'] = $this->sourceServiceVersion;
+        }
+        if (null !== $this->sourceSupplierName) {
+            $res['SourceSupplierName'] = $this->sourceSupplierName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -320,11 +365,17 @@ class services extends Model
         if (isset($map['DeployType'])) {
             $model->deployType = $map['DeployType'];
         }
+        if (isset($map['LatestResellSourceServiceVersion'])) {
+            $model->latestResellSourceServiceVersion = $map['LatestResellSourceServiceVersion'];
+        }
         if (isset($map['PublishTime'])) {
             $model->publishTime = $map['PublishTime'];
         }
         if (isset($map['RelationType'])) {
             $model->relationType = $map['RelationType'];
+        }
+        if (isset($map['ResellServiceId'])) {
+            $model->resellServiceId = $map['ResellServiceId'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
@@ -349,6 +400,15 @@ class services extends Model
         }
         if (isset($map['SourceImage'])) {
             $model->sourceImage = $map['SourceImage'];
+        }
+        if (isset($map['SourceServiceId'])) {
+            $model->sourceServiceId = $map['SourceServiceId'];
+        }
+        if (isset($map['SourceServiceVersion'])) {
+            $model->sourceServiceVersion = $map['SourceServiceVersion'];
+        }
+        if (isset($map['SourceSupplierName'])) {
+            $model->sourceSupplierName = $map['SourceSupplierName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

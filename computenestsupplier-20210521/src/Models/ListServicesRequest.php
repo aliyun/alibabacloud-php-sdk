@@ -25,7 +25,7 @@ class ListServicesRequest extends Model
     /**
      * @example 10
      *
-     * @var string
+     * @var int
      */
     public $maxResults;
 

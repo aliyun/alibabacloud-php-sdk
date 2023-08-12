@@ -17,7 +17,7 @@ class ListArtifactVersionsResponseBody extends Model
     /**
      * @example 20
      *
-     * @var string
+     * @var int
      */
     public $maxResults;
 
@@ -38,7 +38,7 @@ class ListArtifactVersionsResponseBody extends Model
     /**
      * @example 2
      *
-     * @var string
+     * @var int
      */
     public $totalCount;
     protected $_name = [

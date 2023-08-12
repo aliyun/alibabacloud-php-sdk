@@ -55,6 +55,11 @@ class service extends Model
     public $serviceType;
 
     /**
+     * @var string
+     */
+    public $sourceSupplierName;
+
+    /**
      * @example Online
      *
      * @var string
@@ -92,6 +97,7 @@ class service extends Model
         'serviceId'                  => 'ServiceId',
         'serviceInfos'               => 'ServiceInfos',
         'serviceType'                => 'ServiceType',
+        'sourceSupplierName'         => 'SourceSupplierName',
         'status'                     => 'Status',
         'supplierName'               => 'SupplierName',
         'supplierUrl'                => 'SupplierUrl',
@@ -132,6 +138,9 @@ class service extends Model
         }
         if (null !== $this->serviceType) {
             $res['ServiceType'] = $this->serviceType;
+        }
+        if (null !== $this->sourceSupplierName) {
+            $res['SourceSupplierName'] = $this->sourceSupplierName;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -186,6 +195,9 @@ class service extends Model
         }
         if (isset($map['ServiceType'])) {
             $model->serviceType = $map['ServiceType'];
+        }
+        if (isset($map['SourceSupplierName'])) {
+            $model->sourceSupplierName = $map['SourceSupplierName'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
