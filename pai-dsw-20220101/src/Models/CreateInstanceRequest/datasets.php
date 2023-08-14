@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class datasets extends Model
 {
     /**
+     * @example d-vsqjvsjp4orp5l206u
+     *
      * @var string
      */
     public $datasetId;
 
     /**
+     * @example /mnt/data
+     *
      * @var string
      */
     public $mountPath;

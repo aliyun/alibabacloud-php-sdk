@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetTokenResponseBody extends Model
 {
     /**
+     * @example ValidationError
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example "XXX"
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E7D55162-4489-1619-AAF5-3F97D5FCA948
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example *******
+     *
      * @var string
      */
     public $token;

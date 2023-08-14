@@ -4,26 +4,41 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotRequest\labels;
 use AlibabaCloud\Tea\Model;
 
 class CreateInstanceSnapshotRequest extends Model
 {
     /**
+     * @example registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example {\"foo\": \"bar\"}
+     *
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
+     * @example training_data_env
+     *
      * @var string
      */
     public $snapshotDescription;
 
     /**
+     * @example training_data_env
+     *
      * @var string
      */
     public $snapshotName;
     protected $_name = [
         'imageUrl'            => 'ImageUrl',
+        'labels'              => 'Labels',
         'snapshotDescription' => 'SnapshotDescription',
         'snapshotName'        => 'SnapshotName',
     ];
@@ -37,6 +52,15 @@ class CreateInstanceSnapshotRequest extends Model
         $res = [];
         if (null !== $this->imageUrl) {
             $res['ImageUrl'] = $this->imageUrl;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->snapshotDescription) {
             $res['SnapshotDescription'] = $this->snapshotDescription;
@@ -58,6 +82,15 @@ class CreateInstanceSnapshotRequest extends Model
         $model = new self();
         if (isset($map['ImageUrl'])) {
             $model->imageUrl = $map['ImageUrl'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SnapshotDescription'])) {
             $model->snapshotDescription = $map['SnapshotDescription'];

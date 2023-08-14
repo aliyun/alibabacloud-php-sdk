@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceSnapshotResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example null
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example "XXX"
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E7D55162-4489-1619-AAF5-3F97D5FCA948
+     *
      * @var string
      */
     public $requestId;
@@ -35,11 +43,15 @@ class ListInstanceSnapshotResponseBody extends Model
     public $snapshots;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;
 
     /**
+     * @example 35
+     *
      * @var int
      */
     public $totalCount;

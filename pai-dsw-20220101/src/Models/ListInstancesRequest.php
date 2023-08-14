@@ -9,62 +9,92 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @example AcceleratorType
+     *
      * @var string
      */
     public $acceleratorType;
 
     /**
+     * @example PRIVATE
+     *
      * @var string
      */
     public $accessibility;
 
     /**
+     * @example dsw-730xxxxxxxxxx
+     *
+     * @var string
+     */
+    public $instanceId;
+
+    /**
+     * @example training_data
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example rg-123456789
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @example gmtCreate
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 40823
+     *
      * @var string
      */
     public $workspaceId;
     protected $_name = [
         'acceleratorType' => 'AcceleratorType',
         'accessibility'   => 'Accessibility',
+        'instanceId'      => 'InstanceId',
         'instanceName'    => 'InstanceName',
         'order'           => 'Order',
         'pageNumber'      => 'PageNumber',
@@ -88,6 +118,9 @@ class ListInstancesRequest extends Model
         }
         if (null !== $this->accessibility) {
             $res['Accessibility'] = $this->accessibility;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -133,6 +166,9 @@ class ListInstancesRequest extends Model
         }
         if (isset($map['Accessibility'])) {
             $model->accessibility = $map['Accessibility'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

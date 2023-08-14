@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListEcsSpecsRequest extends Model
 {
     /**
+     * @example PRIVATE
+     *
      * @var string
      */
     public $acceleratorType;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example gmtCreate
+     *
      * @var string
      */
     public $sortBy;

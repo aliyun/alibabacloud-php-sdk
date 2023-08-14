@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class instanceShutdownTimer extends Model
 {
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $dueTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example dsw-730xxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 3600000
+     *
      * @var int
      */
     public $remainingTimeInMs;

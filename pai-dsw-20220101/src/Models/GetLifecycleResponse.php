@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDemosResponse extends Model
+class GetLifecycleResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListDemosResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListDemosResponseBody
+     * @var GetLifecycleResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListDemosResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListDemosResponse
+     * @return GetLifecycleResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListDemosResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListDemosResponseBody::fromMap($map['body']);
+            $model->body = GetLifecycleResponseBody::fromMap($map['body']);
         }
 
         return $model;

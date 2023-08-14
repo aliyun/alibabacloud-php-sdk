@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetTokenRequest extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @example dsw-730xxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;

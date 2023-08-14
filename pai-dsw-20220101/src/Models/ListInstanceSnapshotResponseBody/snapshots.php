@@ -4,56 +4,84 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceSnapshotResponseBody;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceSnapshotResponseBody\snapshots\labels;
 use AlibabaCloud\Tea\Model;
 
 class snapshots extends Model
 {
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example image-05cefd0be2exxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example dsw-730xxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example {\"foo\": \"bar\"}
+     *
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
+     * @example Internal Error
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example ImagePullBackOff
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example snp-05cexxxxxxxxx
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @example training_data_env
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @example Pushing
+     *
      * @var string
      */
     public $status;
@@ -63,6 +91,7 @@ class snapshots extends Model
         'imageId'         => 'ImageId',
         'imageUrl'        => 'ImageUrl',
         'instanceId'      => 'InstanceId',
+        'labels'          => 'Labels',
         'reasonCode'      => 'ReasonCode',
         'reasonMessage'   => 'ReasonMessage',
         'snapshotId'      => 'SnapshotId',
@@ -91,6 +120,15 @@ class snapshots extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->reasonCode) {
             $res['ReasonCode'] = $this->reasonCode;
@@ -133,6 +171,15 @@ class snapshots extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ReasonCode'])) {
             $model->reasonCode = $map['ReasonCode'];

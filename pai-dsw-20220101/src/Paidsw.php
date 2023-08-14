@@ -6,24 +6,31 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateIdleInstanceCullerRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceShutdownTimerRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\CreateInstanceSnapshotResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteIdleInstanceCullerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\DeleteInstanceSnapshotResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetIdleInstanceCullerResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceMetricsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceShutdownTimerResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetInstanceSnapshotResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetLifecycleRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetLifecycleResponse;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsRequest;
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetResourceGroupStatisticsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetTokenResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\GetUserConfigResponse;
-use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemoCategoriesResponse;
-use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemosRequest;
-use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListDemosResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListEcsSpecsRequest;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListEcsSpecsResponse;
 use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListInstanceSnapshotRequest;
@@ -77,16 +84,57 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * @param string                          $InstanceId
+     * @param CreateIdleInstanceCullerRequest $request
+     * @param string[]                        $headers
+     * @param RuntimeOptions                  $runtime
      *
-     * @return CreateInstanceResponse
+     * @return CreateIdleInstanceCullerResponse
      */
-    public function createInstance($request)
+    public function createIdleInstanceCullerWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cpuPercentThreshold)) {
+            $body['CpuPercentThreshold'] = $request->cpuPercentThreshold;
+        }
+        if (!Utils::isUnset($request->gpuPercentThreshold)) {
+            $body['GpuPercentThreshold'] = $request->gpuPercentThreshold;
+        }
+        if (!Utils::isUnset($request->maxIdleTimeInMinutes)) {
+            $body['MaxIdleTimeInMinutes'] = $request->maxIdleTimeInMinutes;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateIdleInstanceCuller',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/idleinstanceculler',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateIdleInstanceCullerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                          $InstanceId
+     * @param CreateIdleInstanceCullerRequest $request
+     *
+     * @return CreateIdleInstanceCullerResponse
+     */
+    public function createIdleInstanceCuller($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createInstanceWithOptions($request, $headers, $runtime);
+        return $this->createIdleInstanceCullerWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -102,6 +150,9 @@ class Paidsw extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->accessibility)) {
             $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->cloudDisks)) {
+            $body['CloudDisks'] = $request->cloudDisks;
         }
         if (!Utils::isUnset($request->datasets)) {
             $body['Datasets'] = $request->datasets;
@@ -121,6 +172,9 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->instanceName)) {
             $body['InstanceName'] = $request->instanceName;
         }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
         if (!Utils::isUnset($request->priority)) {
             $body['Priority'] = $request->priority;
         }
@@ -130,11 +184,17 @@ class Paidsw extends OpenApiClient
         if (!Utils::isUnset($request->resourceId)) {
             $body['ResourceId'] = $request->resourceId;
         }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
         if (!Utils::isUnset($request->userVpc)) {
             $body['UserVpc'] = $request->userVpc;
         }
         if (!Utils::isUnset($request->workspaceId)) {
             $body['WorkspaceId'] = $request->workspaceId;
+        }
+        if (!Utils::isUnset($request->workspaceSource)) {
+            $body['WorkspaceSource'] = $request->workspaceSource;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -156,17 +216,16 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string                             $InstanceId
-     * @param CreateInstanceShutdownTimerRequest $request
+     * @param CreateInstanceRequest $request
      *
-     * @return CreateInstanceShutdownTimerResponse
+     * @return CreateInstanceResponse
      */
-    public function createInstanceShutdownTimer($InstanceId, $request)
+    public function createInstance($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->createInstanceShutdownTimerWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->createInstanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -180,8 +239,7 @@ class Paidsw extends OpenApiClient
     public function createInstanceShutdownTimerWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $body       = [];
+        $body = [];
         if (!Utils::isUnset($request->dueTime)) {
             $body['DueTime'] = $request->dueTime;
         }
@@ -196,7 +254,7 @@ class Paidsw extends OpenApiClient
             'action'      => 'CreateInstanceShutdownTimer',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/shutdowntimer',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/shutdowntimer',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -205,6 +263,63 @@ class Paidsw extends OpenApiClient
         ]);
 
         return CreateInstanceShutdownTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                             $InstanceId
+     * @param CreateInstanceShutdownTimerRequest $request
+     *
+     * @return CreateInstanceShutdownTimerResponse
+     */
+    public function createInstanceShutdownTimer($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createInstanceShutdownTimerWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                        $InstanceId
+     * @param CreateInstanceSnapshotRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateInstanceSnapshotResponse
+     */
+    public function createInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->labels)) {
+            $body['Labels'] = $request->labels;
+        }
+        if (!Utils::isUnset($request->snapshotDescription)) {
+            $body['SnapshotDescription'] = $request->snapshotDescription;
+        }
+        if (!Utils::isUnset($request->snapshotName)) {
+            $body['SnapshotName'] = $request->snapshotName;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateInstanceSnapshot',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshots',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -222,44 +337,70 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string                        $InstanceId
-     * @param CreateInstanceSnapshotRequest $request
-     * @param string[]                      $headers
-     * @param RuntimeOptions                $runtime
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
      *
-     * @return CreateInstanceSnapshotResponse
+     * @return DeleteIdleInstanceCullerResponse
      */
-    public function createInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
+    public function deleteIdleInstanceCullerWithOptions($InstanceId, $headers, $runtime)
     {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $body       = [];
-        if (!Utils::isUnset($request->imageUrl)) {
-            $body['ImageUrl'] = $request->imageUrl;
-        }
-        if (!Utils::isUnset($request->snapshotDescription)) {
-            $body['SnapshotDescription'] = $request->snapshotDescription;
-        }
-        if (!Utils::isUnset($request->snapshotName)) {
-            $body['SnapshotName'] = $request->snapshotName;
-        }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'CreateInstanceSnapshot',
+            'action'      => 'DeleteIdleInstanceCuller',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/snapshots',
-            'method'      => 'POST',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/idleinstanceculler',
+            'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
-        return CreateInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteIdleInstanceCullerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     *
+     * @return DeleteIdleInstanceCullerResponse
+     */
+    public function deleteIdleInstanceCuller($InstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteIdleInstanceCullerWithOptions($InstanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteInstanceResponse
+     */
+    public function deleteInstanceWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInstance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -280,19 +421,18 @@ class Paidsw extends OpenApiClient
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceShutdownTimerResponse
      */
-    public function deleteInstanceWithOptions($InstanceId, $headers, $runtime)
+    public function deleteInstanceShutdownTimerWithOptions($InstanceId, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstance',
+            'action'      => 'DeleteInstanceShutdownTimer',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/shutdowntimer',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -300,7 +440,7 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceShutdownTimerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -318,22 +458,22 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string         $InstanceId
+     * @param string         $SnapshotId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return DeleteInstanceShutdownTimerResponse
+     * @return DeleteInstanceSnapshotResponse
      */
-    public function deleteInstanceShutdownTimerWithOptions($InstanceId, $headers, $runtime)
+    public function deleteInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceShutdownTimer',
+            'action'      => 'DeleteInstanceSnapshot',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/shutdowntimer',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshots/' . OpenApiUtilClient::getEncodeParam($SnapshotId) . '',
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -341,7 +481,7 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceShutdownTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DeleteInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -360,32 +500,69 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string         $InstanceId
-     * @param string         $SnapshotId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return DeleteInstanceSnapshotResponse
+     * @return GetIdleInstanceCullerResponse
      */
-    public function deleteInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime)
+    public function getIdleInstanceCullerWithOptions($InstanceId, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $SnapshotId = OpenApiUtilClient::getEncodeParam($SnapshotId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'DeleteInstanceSnapshot',
+            'action'      => 'GetIdleInstanceCuller',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/snapshots/' . $SnapshotId . '',
-            'method'      => 'DELETE',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/idleinstanceculler',
+            'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
-        return DeleteInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetIdleInstanceCullerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $InstanceId
+     *
+     * @return GetIdleInstanceCullerResponse
+     */
+    public function getIdleInstanceCuller($InstanceId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getIdleInstanceCullerWithOptions($InstanceId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInstanceResponse
+     */
+    public function getInstanceWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -402,23 +579,38 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                    $InstanceId
+     * @param GetInstanceMetricsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return GetInstanceResponse
+     * @return GetInstanceMetricsResponse
      */
-    public function getInstanceWithOptions($InstanceId, $headers, $runtime)
+    public function getInstanceMetricsWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->metricType)) {
+            $query['MetricType'] = $request->metricType;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->timeStep)) {
+            $query['TimeStep'] = $request->timeStep;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstance',
+            'action'      => 'GetInstanceMetrics',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '',
+            'pathname'    => '/api/v2/instance/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/metrics',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -426,7 +618,48 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceMetricsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $InstanceId
+     * @param GetInstanceMetricsRequest $request
+     *
+     * @return GetInstanceMetricsResponse
+     */
+    public function getInstanceMetrics($InstanceId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getInstanceMetricsWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetInstanceShutdownTimerResponse
+     */
+    public function getInstanceShutdownTimerWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetInstanceShutdownTimer',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/shutdowntimer',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetInstanceShutdownTimerResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -444,22 +677,22 @@ class Paidsw extends OpenApiClient
 
     /**
      * @param string         $InstanceId
+     * @param string         $SnapshotId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
      *
-     * @return GetInstanceShutdownTimerResponse
+     * @return GetInstanceSnapshotResponse
      */
-    public function getInstanceShutdownTimerWithOptions($InstanceId, $headers, $runtime)
+    public function getInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        $req = new OpenApiRequest([
             'headers' => $headers,
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceShutdownTimer',
+            'action'      => 'GetInstanceSnapshot',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/shutdowntimer',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshots/' . OpenApiUtilClient::getEncodeParam($SnapshotId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -467,7 +700,7 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetInstanceShutdownTimerResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -485,25 +718,41 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string         $SnapshotId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $InstanceId
+     * @param GetLifecycleRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return GetInstanceSnapshotResponse
+     * @return GetLifecycleResponse
      */
-    public function getInstanceSnapshotWithOptions($InstanceId, $SnapshotId, $headers, $runtime)
+    public function getLifecycleWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $SnapshotId = OpenApiUtilClient::getEncodeParam($SnapshotId);
-        $req        = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->order)) {
+            $query['Order'] = $request->order;
+        }
+        if (!Utils::isUnset($request->sessionNumber)) {
+            $query['SessionNumber'] = $request->sessionNumber;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetInstanceSnapshot',
+            'action'      => 'GetLifecycle',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/snapshots/' . $SnapshotId . '',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/lifecycle',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -511,20 +760,76 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetInstanceSnapshotResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetLifecycleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param GetTokenRequest $request
+     * @param string              $InstanceId
+     * @param GetLifecycleRequest $request
      *
-     * @return GetTokenResponse
+     * @return GetLifecycleResponse
      */
-    public function getToken($request)
+    public function getLifecycle($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getTokenWithOptions($request, $headers, $runtime);
+        return $this->getLifecycleWithOptions($InstanceId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param GetResourceGroupStatisticsRequest $request
+     * @param string[]                          $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetResourceGroupStatisticsResponse
+     */
+    public function getResourceGroupStatisticsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->workspaceIds)) {
+            $query['WorkspaceIds'] = $request->workspaceIds;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetResourceGroupStatistics',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/resourcegroupstatistics',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetResourceGroupStatisticsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetResourceGroupStatisticsRequest $request
+     *
+     * @return GetResourceGroupStatisticsResponse
+     */
+    public function getResourceGroupStatistics($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getResourceGroupStatisticsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -564,14 +869,16 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @return GetUserConfigResponse
+     * @param GetTokenRequest $request
+     *
+     * @return GetTokenResponse
      */
-    public function getUserConfig()
+    public function getToken($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getUserConfigWithOptions($headers, $runtime);
+        return $this->getTokenWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -601,108 +908,14 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @return ListDemoCategoriesResponse
+     * @return GetUserConfigResponse
      */
-    public function listDemoCategories()
+    public function getUserConfig()
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listDemoCategoriesWithOptions($headers, $runtime);
-    }
-
-    /**
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
-     *
-     * @return ListDemoCategoriesResponse
-     */
-    public function listDemoCategoriesWithOptions($headers, $runtime)
-    {
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-        ]);
-        $params = new Params([
-            'action'      => 'ListDemoCategories',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/democategories',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDemoCategoriesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListDemosRequest $request
-     *
-     * @return ListDemosResponse
-     */
-    public function listDemos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listDemosWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListDemosRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
-     *
-     * @return ListDemosResponse
-     */
-    public function listDemosWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->category)) {
-            $query['Category'] = $request->category;
-        }
-        if (!Utils::isUnset($request->demoName)) {
-            $query['DemoName'] = $request->demoName;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListDemos',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/demos',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListDemosResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListEcsSpecsRequest $request
-     *
-     * @return ListEcsSpecsResponse
-     */
-    public function listEcsSpecs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listEcsSpecsWithOptions($request, $headers, $runtime);
+        return $this->getUserConfigWithOptions($headers, $runtime);
     }
 
     /**
@@ -751,17 +964,16 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string                      $InstanceId
-     * @param ListInstanceSnapshotRequest $request
+     * @param ListEcsSpecsRequest $request
      *
-     * @return ListInstanceSnapshotResponse
+     * @return ListEcsSpecsResponse
      */
-    public function listInstanceSnapshot($InstanceId, $request)
+    public function listEcsSpecs($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime);
+        return $this->listEcsSpecsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -775,8 +987,7 @@ class Paidsw extends OpenApiClient
     public function listInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
+        $query = [];
         if (!Utils::isUnset($request->order)) {
             $query['Order'] = $request->order;
         }
@@ -797,7 +1008,7 @@ class Paidsw extends OpenApiClient
             'action'      => 'ListInstanceSnapshot',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/snapshots',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/snapshots',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -809,16 +1020,17 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListInstanceStatisticsRequest $request
+     * @param string                      $InstanceId
+     * @param ListInstanceSnapshotRequest $request
      *
-     * @return ListInstanceStatisticsResponse
+     * @return ListInstanceSnapshotResponse
      */
-    public function listInstanceStatistics($request)
+    public function listInstanceSnapshot($InstanceId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstanceStatisticsWithOptions($request, $headers, $runtime);
+        return $this->listInstanceSnapshotWithOptions($InstanceId, $request, $headers, $runtime);
     }
 
     /**
@@ -855,16 +1067,16 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param ListInstancesRequest $request
+     * @param ListInstanceStatisticsRequest $request
      *
-     * @return ListInstancesResponse
+     * @return ListInstanceStatisticsResponse
      */
-    public function listInstances($request)
+    public function listInstanceStatistics($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listInstancesWithOptions($request, $headers, $runtime);
+        return $this->listInstanceStatisticsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -883,6 +1095,9 @@ class Paidsw extends OpenApiClient
         }
         if (!Utils::isUnset($request->accessibility)) {
             $query['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
         }
         if (!Utils::isUnset($request->instanceName)) {
             $query['InstanceName'] = $request->instanceName;
@@ -931,6 +1146,46 @@ class Paidsw extends OpenApiClient
     }
 
     /**
+     * @param ListInstancesRequest $request
+     *
+     * @return ListInstancesResponse
+     */
+    public function listInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listInstancesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $InstanceId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return StartInstanceResponse
+     */
+    public function startInstanceWithOptions($InstanceId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'StartInstance',
+            'version'     => '2022-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/start',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
      * @param string $InstanceId
      *
      * @return StartInstanceResponse
@@ -944,23 +1199,29 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string         $InstanceId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string              $InstanceId
+     * @param StopInstanceRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
      *
-     * @return StartInstanceResponse
+     * @return StopInstanceResponse
      */
-    public function startInstanceWithOptions($InstanceId, $headers, $runtime)
+    public function stopInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $req        = new OpenApiRequest([
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->saveImage)) {
+            $query['SaveImage'] = $request->saveImage;
+        }
+        $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'StartInstance',
+            'action'      => 'StopInstance',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/start',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '/stop',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -968,7 +1229,7 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StartInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -986,30 +1247,62 @@ class Paidsw extends OpenApiClient
     }
 
     /**
-     * @param string              $InstanceId
-     * @param StopInstanceRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
+     * @param string                $InstanceId
+     * @param UpdateInstanceRequest $request
+     * @param string[]              $headers
+     * @param RuntimeOptions        $runtime
      *
-     * @return StopInstanceResponse
+     * @return UpdateInstanceResponse
      */
-    public function stopInstanceWithOptions($InstanceId, $request, $headers, $runtime)
+    public function updateInstanceWithOptions($InstanceId, $request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $query      = [];
-        if (!Utils::isUnset($request->saveImage)) {
-            $query['SaveImage'] = $request->saveImage;
+        $body = [];
+        if (!Utils::isUnset($request->accessibility)) {
+            $body['Accessibility'] = $request->accessibility;
+        }
+        if (!Utils::isUnset($request->datasets)) {
+            $body['Datasets'] = $request->datasets;
+        }
+        if (!Utils::isUnset($request->disassociateDatasets)) {
+            $body['DisassociateDatasets'] = $request->disassociateDatasets;
+        }
+        if (!Utils::isUnset($request->disassociateVpc)) {
+            $body['DisassociateVpc'] = $request->disassociateVpc;
+        }
+        if (!Utils::isUnset($request->ecsSpec)) {
+            $body['EcsSpec'] = $request->ecsSpec;
+        }
+        if (!Utils::isUnset($request->imageId)) {
+            $body['ImageId'] = $request->imageId;
+        }
+        if (!Utils::isUnset($request->imageUrl)) {
+            $body['ImageUrl'] = $request->imageUrl;
+        }
+        if (!Utils::isUnset($request->instanceName)) {
+            $body['InstanceName'] = $request->instanceName;
+        }
+        if (!Utils::isUnset($request->requestedResource)) {
+            $body['RequestedResource'] = $request->requestedResource;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['UserId'] = $request->userId;
+        }
+        if (!Utils::isUnset($request->userVpc)) {
+            $body['UserVpc'] = $request->userVpc;
+        }
+        if (!Utils::isUnset($request->workspaceSource)) {
+            $body['WorkspaceSource'] = $request->workspaceSource;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
-            'action'      => 'StopInstance',
+            'action'      => 'UpdateInstance',
             'version'     => '2022-01-01',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '/stop',
+            'pathname'    => '/api/v2/instances/' . OpenApiUtilClient::getEncodeParam($InstanceId) . '',
             'method'      => 'PUT',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1017,7 +1310,7 @@ class Paidsw extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return StopInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -1032,40 +1325,5 @@ class Paidsw extends OpenApiClient
         $headers = [];
 
         return $this->updateInstanceWithOptions($InstanceId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                $InstanceId
-     * @param UpdateInstanceRequest $request
-     * @param string[]              $headers
-     * @param RuntimeOptions        $runtime
-     *
-     * @return UpdateInstanceResponse
-     */
-    public function updateInstanceWithOptions($InstanceId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $InstanceId = OpenApiUtilClient::getEncodeParam($InstanceId);
-        $body       = [];
-        if (!Utils::isUnset($request->instanceName)) {
-            $body['InstanceName'] = $request->instanceName;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'UpdateInstance',
-            'version'     => '2022-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/api/v2/instances/' . $InstanceId . '',
-            'method'      => 'PUT',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return UpdateInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 }

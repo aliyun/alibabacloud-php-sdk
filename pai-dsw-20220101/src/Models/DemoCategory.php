@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DemoCategory extends Model
 {
     /**
+     * @example sdk
+     *
      * @var string
      */
     public $categoryCode;
 
     /**
+     * @example SDK Usage
+     *
      * @var string
      */
     public $categoryName;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $order;

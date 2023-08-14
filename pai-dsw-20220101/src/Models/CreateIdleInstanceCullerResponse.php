@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Paidsw\V20220101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListDemoCategoriesResponse extends Model
+class CreateIdleInstanceCullerResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ListDemoCategoriesResponse extends Model
     public $statusCode;
 
     /**
-     * @var ListDemoCategoriesResponseBody
+     * @var CreateIdleInstanceCullerResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ListDemoCategoriesResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListDemoCategoriesResponse
+     * @return CreateIdleInstanceCullerResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ListDemoCategoriesResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ListDemoCategoriesResponseBody::fromMap($map['body']);
+            $model->body = CreateIdleInstanceCullerResponseBody::fromMap($map['body']);
         }
 
         return $model;

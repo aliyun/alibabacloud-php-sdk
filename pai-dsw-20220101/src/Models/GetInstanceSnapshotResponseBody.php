@@ -9,76 +9,106 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceSnapshotResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtCreateTime;
 
     /**
+     * @example 2021-01-12T14:36:01Z
+     *
      * @var string
      */
     public $gmtModifiedTime;
 
     /**
+     * @example null
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example image-05cefd0be2exxxx
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @example registry.cn-shanghai.aliyuncs.com/pai_product/tensorflow:py36_cpu_tf1.12_ubuntu
+     *
      * @var string
      */
     public $imageUrl;
 
     /**
+     * @example dsw-730xxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example "XXX"
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example Internal Error
+     *
      * @var string
      */
     public $reasonCode;
 
     /**
+     * @example ImagePullBackOff
+     *
      * @var string
      */
     public $reasonMessage;
 
     /**
+     * @example E7D55162-4489-1619-AAF5-3F97D5FCA948
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example snp-05cexxxxxxxxx
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @example training_data_env
+     *
      * @var string
      */
     public $snapshotName;
 
     /**
+     * @example Pushing
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

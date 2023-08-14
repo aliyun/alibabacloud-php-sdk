@@ -4,56 +4,91 @@
 
 namespace AlibabaCloud\SDK\Paidsw\V20220101\Models\ListEcsSpecsResponseBody;
 
+use AlibabaCloud\SDK\Paidsw\V20220101\Models\ListEcsSpecsResponseBody\ecsSpecs\labels;
 use AlibabaCloud\Tea\Model;
 
 class ecsSpecs extends Model
 {
     /**
+     * @example CPU
+     *
      * @var string
      */
     public $acceleratorType;
 
     /**
+     * @example 32
+     *
      * @var int
      */
     public $CPU;
 
     /**
+     * @example CNY
+     *
      * @var string
      */
     public $currency;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $GPU;
 
     /**
+     * @example v100
+     *
      * @var string
      */
     public $GPUType;
 
     /**
+     * @example 5120000
+     *
      * @var int
      */
     public $instanceBandwidthRx;
 
     /**
+     * @example ecs.gn5-c28g1.7xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example True
+     *
+     * @var bool
+     */
+    public $isAvailable;
+
+    /**
+     * @example {\"foo\": \"bar\"}
+     *
+     * @var labels[]
+     */
+    public $labels;
+
+    /**
+     * @example 32
+     *
      * @var float
      */
     public $memory;
 
     /**
+     * @example 22.8
+     *
      * @var float
      */
     public $price;
 
     /**
+     * @example 500
+     *
      * @var int
      */
     public $systemDiskCapacity;
@@ -65,6 +100,8 @@ class ecsSpecs extends Model
         'GPUType'             => 'GPUType',
         'instanceBandwidthRx' => 'InstanceBandwidthRx',
         'instanceType'        => 'InstanceType',
+        'isAvailable'         => 'IsAvailable',
+        'labels'              => 'Labels',
         'memory'              => 'Memory',
         'price'               => 'Price',
         'systemDiskCapacity'  => 'SystemDiskCapacity',
@@ -97,6 +134,18 @@ class ecsSpecs extends Model
         }
         if (null !== $this->instanceType) {
             $res['InstanceType'] = $this->instanceType;
+        }
+        if (null !== $this->isAvailable) {
+            $res['IsAvailable'] = $this->isAvailable;
+        }
+        if (null !== $this->labels) {
+            $res['Labels'] = [];
+            if (null !== $this->labels && \is_array($this->labels)) {
+                $n = 0;
+                foreach ($this->labels as $item) {
+                    $res['Labels'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->memory) {
             $res['Memory'] = $this->memory;
@@ -139,6 +188,18 @@ class ecsSpecs extends Model
         }
         if (isset($map['InstanceType'])) {
             $model->instanceType = $map['InstanceType'];
+        }
+        if (isset($map['IsAvailable'])) {
+            $model->isAvailable = $map['IsAvailable'];
+        }
+        if (isset($map['Labels'])) {
+            if (!empty($map['Labels'])) {
+                $model->labels = [];
+                $n             = 0;
+                foreach ($map['Labels'] as $item) {
+                    $model->labels[$n++] = null !== $item ? labels::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Memory'])) {
             $model->memory = $map['Memory'];

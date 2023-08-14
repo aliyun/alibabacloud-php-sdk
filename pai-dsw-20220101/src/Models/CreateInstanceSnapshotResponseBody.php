@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceSnapshotResponseBody extends Model
 {
     /**
+     * @example null
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example null
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example dsw-730xxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example "XXX"
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example E7D55162-4489-1619-AAF5-3F97D5FCA948
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example snp-05cexxxxxxxxx
+     *
      * @var string
      */
     public $snapshotId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

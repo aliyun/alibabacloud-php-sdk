@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceSnapshotRequest extends Model
 {
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example gmtCreate
+     *
      * @var string
      */
     public $sortBy;
