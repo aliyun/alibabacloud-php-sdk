@@ -3094,6 +3094,9 @@ class CS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->agentMode)) {
+            $query['AgentMode'] = $request->agentMode;
+        }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
         }
