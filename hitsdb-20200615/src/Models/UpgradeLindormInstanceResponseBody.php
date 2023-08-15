@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpgradeLindormInstanceResponseBody extends Model
 {
     /**
+     * @example 111111111111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 2A7D4F9D-AA26-4E15-A2B1-3E4792C6****
+     *
      * @var string
      */
     public $requestId;

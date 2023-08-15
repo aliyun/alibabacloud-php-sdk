@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceIpWhiteListRequest extends Model
 {
     /**
+     * @description The name of the group to which the instance belongs. The group name can contain only letters, digits, and underscores (\_).
+     *
+     * @example test_group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The ID of the instance for which you want to configure a whitelist. You can call the [GetLindormInstanceList](~~426069~~) operation to obtain the ID.
+     *
+     * @example ld-bp1z3506imz2f****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +47,11 @@ class UpdateInstanceIpWhiteListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IP addresses that you want to add to the whitelist. For example, if you add 192.168.0.0/24 to the whitelist, you can use all IP addresses within this CIDR block to access the Lindorm instance.
+     *
+     * > If you add 127.0.0.1 to the whitelist, all IP addresses cannot be used to access the Lindorm instance. Separate multiple IP addresses or CIDR blocks with commas (,).
+     * @example 106.11.XX.XX/24
+     *
      * @var string
      */
     public $securityIpList;

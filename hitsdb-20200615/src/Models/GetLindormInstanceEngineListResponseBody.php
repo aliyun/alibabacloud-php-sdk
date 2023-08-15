@@ -15,11 +15,15 @@ class GetLindormInstanceEngineListResponseBody extends Model
     public $engineList;
 
     /**
+     * @example ld-bp1nq34mv3smk****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example B496BA0E-520C-59FC-BA04-196D8F3B07EF
+     *
      * @var string
      */
     public $requestId;

@@ -9,96 +9,134 @@ use AlibabaCloud\Tea\Model;
 class CreateLindormInstanceRequest extends Model
 {
     /**
+     * @example vsw-uf6664pqjawb87k36****
+     *
      * @var string
      */
     public $arbiterVSwitchId;
 
     /**
+     * @example cn-shanghai-g
+     *
      * @var string
      */
     public $arbiterZoneId;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $archVersion;
 
     /**
+     * @example 800
+     *
      * @var int
      */
     public $coldStorage;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $coreSingleStorage;
 
     /**
+     * @example lindorm.i2.xlarge
+     *
      * @var string
      */
     public $coreSpec;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $diskCategory;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $filestoreNum;
 
     /**
+     * @example lindorm.c.xlarge
+     *
      * @var string
      */
     public $filestoreSpec;
 
     /**
+     * @example lindorm_test
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @example 480
+     *
      * @var string
      */
     public $instanceStorage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $lindormNum;
 
     /**
+     * @example lindorm.c.xlarge
+     *
      * @var string
      */
     public $lindormSpec;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $logDiskCategory;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $logNum;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $logSingleStorage;
 
     /**
+     * @example lindorm.sn1.large
+     *
      * @var string
      */
     public $logSpec;
 
     /**
+     * @example cn-shanghai-efg-aliyun
+     *
      * @var string
      */
     public $multiZoneCombination;
@@ -114,31 +152,43 @@ class CreateLindormInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example vsw-uf6fdqa7c0pipnqzq****
+     *
      * @var string
      */
     public $primaryVSwitchId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $primaryZoneId;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aek2i6weeb4nfii
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -159,46 +209,89 @@ class CreateLindormInstanceRequest extends Model
     public $securityToken;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $solrNum;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $solrSpec;
 
     /**
+     * @example vsw-2zec0kcn08cgdtr6****
+     *
      * @var string
      */
     public $standbyVSwitchId;
 
     /**
+     * @example cn-shanghai-f
+     *
      * @var string
      */
     public $standbyZoneId;
 
     /**
+     * @description 实例的流引擎节点数量，取值：**0**~**60**。
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $streamNum;
+
+    /**
+     * @description 实例的流引擎节点规格，取值：
+     *
+     * - **lindorm.g.xlarge**：表示4核16GB（独享规格）。
+     * - **lindorm.c.2xlarge**：表示8核16GB（独享规格）。
+     * - **lindorm.g.2xlarge**：表示8核32GB（独享规格）。
+     * - **lindorm.c.4xlarge**：表示16核32GB（独享规格）。
+     * - **lindorm.g.4xlarge**：表示16核64GB（独享规格）。
+     * - **lindorm.c.8xlarge**：表示32核64GB（独享规格）。
+     * - **lindorm.g.8xlarge**：表示32核128GB（独享规格）。
+     * @example lindorm.g.xlarge
+     *
+     * @var string
+     */
+    public $streamSpec;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $tsdbNum;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $tsdbSpec;
 
     /**
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-shanghai-f
+     *
      * @var string
      */
     public $zoneId;
@@ -237,6 +330,8 @@ class CreateLindormInstanceRequest extends Model
         'solrSpec'             => 'SolrSpec',
         'standbyVSwitchId'     => 'StandbyVSwitchId',
         'standbyZoneId'        => 'StandbyZoneId',
+        'streamNum'            => 'StreamNum',
+        'streamSpec'           => 'StreamSpec',
         'tsdbNum'              => 'TsdbNum',
         'tsdbSpec'             => 'TsdbSpec',
         'VPCId'                => 'VPCId',
@@ -352,6 +447,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (null !== $this->standbyZoneId) {
             $res['StandbyZoneId'] = $this->standbyZoneId;
+        }
+        if (null !== $this->streamNum) {
+            $res['StreamNum'] = $this->streamNum;
+        }
+        if (null !== $this->streamSpec) {
+            $res['StreamSpec'] = $this->streamSpec;
         }
         if (null !== $this->tsdbNum) {
             $res['TsdbNum'] = $this->tsdbNum;
@@ -481,6 +582,12 @@ class CreateLindormInstanceRequest extends Model
         }
         if (isset($map['StandbyZoneId'])) {
             $model->standbyZoneId = $map['StandbyZoneId'];
+        }
+        if (isset($map['StreamNum'])) {
+            $model->streamNum = $map['StreamNum'];
+        }
+        if (isset($map['StreamSpec'])) {
+            $model->streamSpec = $map['StreamSpec'];
         }
         if (isset($map['TsdbNum'])) {
             $model->tsdbNum = $map['TsdbNum'];

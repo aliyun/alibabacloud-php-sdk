@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetInstanceIpWhiteListResponse;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostRequest;
+use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLdpsResourceCostResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListRequest;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceEngineListResponse;
 use AlibabaCloud\SDK\Hitsdb\V20200615\Models\GetLindormInstanceListRequest;
@@ -46,55 +48,6 @@ class Hitsdb extends OpenApiClient
     {
         parent::__construct($config);
         $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
-            'cn-qingdao'                  => 'hitsdb.aliyuncs.com',
-            'cn-beijing'                  => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou'                 => 'hitsdb.aliyuncs.com',
-            'cn-shanghai'                 => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen'                 => 'hitsdb.aliyuncs.com',
-            'cn-hongkong'                 => 'hitsdb.aliyuncs.com',
-            'ap-southeast-1'              => 'hitsdb.aliyuncs.com',
-            'us-west-1'                   => 'hitsdb.aliyuncs.com',
-            'us-east-1'                   => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'hitsdb.aliyuncs.com',
-            'ap-northeast-2-pop'          => 'hitsdb.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'hitsdb.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'hitsdb.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'hitsdb.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'hitsdb.aliyuncs.com',
-            'cn-chengdu'                  => 'hitsdb.aliyuncs.com',
-            'cn-edge-1'                   => 'hitsdb.aliyuncs.com',
-            'cn-fujian'                   => 'hitsdb.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'hitsdb.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'hitsdb.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'hitsdb.aliyuncs.com',
-            'cn-huhehaote-nebula-1'       => 'hitsdb.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-inner'           => 'hitsdb.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'hitsdb.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'hitsdb.aliyuncs.com',
-            'cn-wuhan'                    => 'hitsdb.aliyuncs.com',
-            'cn-wulanchabu'               => 'hitsdb.aliyuncs.com',
-            'cn-yushanfang'               => 'hitsdb.aliyuncs.com',
-            'cn-zhangbei'                 => 'hitsdb.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'hitsdb.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'hitsdb.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'hitsdb.aliyuncs.com',
-            'eu-west-1-oxs'               => 'hitsdb.aliyuncs.com',
-            'me-east-1'                   => 'hitsdb.aliyuncs.com',
-            'rus-west-1-pop'              => 'hitsdb.aliyuncs.com',
-        ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hitsdb', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
     }
@@ -233,6 +186,12 @@ class Hitsdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->standbyZoneId)) {
             $query['StandbyZoneId'] = $request->standbyZoneId;
+        }
+        if (!Utils::isUnset($request->streamNum)) {
+            $query['StreamNum'] = $request->streamNum;
+        }
+        if (!Utils::isUnset($request->streamSpec)) {
+            $query['StreamSpec'] = $request->streamSpec;
         }
         if (!Utils::isUnset($request->tsdbNum)) {
             $query['TsdbNum'] = $request->tsdbNum;
@@ -396,6 +355,76 @@ class Hitsdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getInstanceIpWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetLdpsResourceCostRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return GetLdpsResourceCostResponse
+     */
+    public function getLdpsResourceCostWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLdpsResourceCost',
+            'version'     => '2020-06-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLdpsResourceCostResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetLdpsResourceCostRequest $request
+     *
+     * @return GetLdpsResourceCostResponse
+     */
+    public function getLdpsResourceCost($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLdpsResourceCostWithOptions($request, $runtime);
     }
 
     /**
@@ -667,10 +696,13 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstancePayTypeRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+     *   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+     *   *
+     * @param ModifyInstancePayTypeRequest $request ModifyInstancePayTypeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstancePayTypeResponse
+     * @return ModifyInstancePayTypeResponse ModifyInstancePayTypeResponse
      */
     public function modifyInstancePayTypeWithOptions($request, $runtime)
     {
@@ -722,9 +754,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstancePayTypeRequest $request
+     * You can call this operation to change the billing method of an instance to subscription or pay-as-you-go.
+     *   * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.aliyun.com/price/product?spm=openapi-amp.newDocPublishment.0.0.6345281fu63xJ3#/hitsdb/detail/hitsdb_lindormpre_public_cn) of Lindorm.
+     *   *
+     * @param ModifyInstancePayTypeRequest $request ModifyInstancePayTypeRequest
      *
-     * @return ModifyInstancePayTypeResponse
+     * @return ModifyInstancePayTypeResponse ModifyInstancePayTypeResponse
      */
     public function modifyInstancePayType($request)
     {
@@ -743,6 +778,9 @@ class Hitsdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->immediately)) {
+            $query['Immediately'] = $request->immediately;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -792,10 +830,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RenewLindormInstanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+     *   *
+     * @param RenewLindormInstanceRequest $request RenewLindormInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewLindormInstanceResponse
+     * @return RenewLindormInstanceResponse RenewLindormInstanceResponse
      */
     public function renewLindormInstanceWithOptions($request, $runtime)
     {
@@ -847,9 +887,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param RenewLindormInstanceRequest $request
+     * The ID of the order. You can obtain an order ID on the Orders page in Alibaba Cloud User Center.
+     *   *
+     * @param RenewLindormInstanceRequest $request RenewLindormInstanceRequest
      *
-     * @return RenewLindormInstanceResponse
+     * @return RenewLindormInstanceResponse RenewLindormInstanceResponse
      */
     public function renewLindormInstance($request)
     {
@@ -993,10 +1035,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceIpWhiteListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ***
+     *   *
+     * @param UpdateInstanceIpWhiteListRequest $request UpdateInstanceIpWhiteListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInstanceIpWhiteListResponse
+     * @return UpdateInstanceIpWhiteListResponse UpdateInstanceIpWhiteListResponse
      */
     public function updateInstanceIpWhiteListWithOptions($request, $runtime)
     {
@@ -1045,9 +1089,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpdateInstanceIpWhiteListRequest $request
+     * ***
+     *   *
+     * @param UpdateInstanceIpWhiteListRequest $request UpdateInstanceIpWhiteListRequest
      *
-     * @return UpdateInstanceIpWhiteListResponse
+     * @return UpdateInstanceIpWhiteListResponse UpdateInstanceIpWhiteListResponse
      */
     public function updateInstanceIpWhiteList($request)
     {
@@ -1057,10 +1103,12 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeLindormInstanceRequest $request
-     * @param RuntimeOptions                $runtime
+     * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     *   *
+     * @param UpgradeLindormInstanceRequest $request UpgradeLindormInstanceRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeLindormInstanceResponse
+     * @return UpgradeLindormInstanceResponse UpgradeLindormInstanceResponse
      */
     public function upgradeLindormInstanceWithOptions($request, $runtime)
     {
@@ -1135,6 +1183,12 @@ class Hitsdb extends OpenApiClient
         if (!Utils::isUnset($request->solrSpec)) {
             $query['SolrSpec'] = $request->solrSpec;
         }
+        if (!Utils::isUnset($request->streamNum)) {
+            $query['StreamNum'] = $request->streamNum;
+        }
+        if (!Utils::isUnset($request->streamSpec)) {
+            $query['StreamSpec'] = $request->streamSpec;
+        }
         if (!Utils::isUnset($request->tsdbNum)) {
             $query['TsdbNum'] = $request->tsdbNum;
         }
@@ -1166,9 +1220,11 @@ class Hitsdb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeLindormInstanceRequest $request
+     * Upgrades, scales up, or enable cold storage for a Lindorm instance.
+     *   *
+     * @param UpgradeLindormInstanceRequest $request UpgradeLindormInstanceRequest
      *
-     * @return UpgradeLindormInstanceResponse
+     * @return UpgradeLindormInstanceResponse UpgradeLindormInstanceResponse
      */
     public function upgradeLindormInstance($request)
     {

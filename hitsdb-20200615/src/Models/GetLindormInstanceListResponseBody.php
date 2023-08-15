@@ -15,21 +15,29 @@ class GetLindormInstanceListResponseBody extends Model
     public $instanceList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 1CA1FAFD-E8DC-51C2-AA7E-CA6E2D049BA0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

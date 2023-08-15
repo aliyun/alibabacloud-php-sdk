@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstancePayTypeRequest extends Model
 {
     /**
+     * @description The subscription duration of the instance. The parameter is required if the instance is an subscription instance.
+     *
+     *   If PricingCycle is set to Month, set this parameter to an integer that ranges from 1 to 9.
+     *   If PricingCycle is set to Year, set this parameter to an integer that ranges from 1 to 3.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example ld-bp1z3506imz2f****
+     *
      * @var string
      */
     public $instanceId;
@@ -29,11 +40,25 @@ class ModifyInstancePayTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PREPAY**: subscription.
+     *   **POSTPAY**: pay-as-you-go.
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The unit of the subscription duration for the instance. Valid values:
+     *
+     *   Month
+     *   Year
+     *
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;

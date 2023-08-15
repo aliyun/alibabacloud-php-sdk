@@ -9,6 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the instance. Valid values:
+     *
+     *   **true**: Remove all tags from the instances.
+     *   **false**: Do not remove all tags from the instances.
+     *
+     * >
+     *
+     *   The default value of this parameter is false.
+     *
+     *   If you specify the TagKey parameter together with this parameter, this parameter does not take effect.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $all;
@@ -24,6 +37,8 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The IDs of instances.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -39,6 +54,10 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
@@ -49,6 +68,8 @@ class UntagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The list of keys of the tags that you want to remove.
+     *
      * @var string[]
      */
     public $tagKey;

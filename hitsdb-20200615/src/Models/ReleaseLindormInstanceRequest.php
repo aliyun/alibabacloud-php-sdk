@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class ReleaseLindormInstanceRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $immediately;
+
+    /**
+     * @example ld-bp1z3506imz2f****
+     *
      * @var string
      */
     public $instanceId;
@@ -38,6 +45,7 @@ class ReleaseLindormInstanceRequest extends Model
      */
     public $securityToken;
     protected $_name = [
+        'immediately'          => 'Immediately',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -53,6 +61,9 @@ class ReleaseLindormInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->immediately) {
+            $res['Immediately'] = $this->immediately;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -83,6 +94,9 @@ class ReleaseLindormInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Immediately'])) {
+            $model->immediately = $map['Immediately'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

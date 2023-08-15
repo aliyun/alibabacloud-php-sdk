@@ -15,16 +15,27 @@ class GetLindormInstanceResponseBody extends Model
     public $aliUid;
 
     /**
+     * @example vsw-uf6664pqjawb87k36****
+     *
      * @var string
      */
     public $arbiterVSwitchId;
 
     /**
+     * @example cn-shanghai-g
+     *
      * @var string
      */
     public $arbiterZoneId;
 
     /**
+     * @var string
+     */
+    public $archVersion;
+
+    /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
@@ -35,51 +46,73 @@ class GetLindormInstanceResponseBody extends Model
     public $coldStorage;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $coreDiskCategory;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $coreNum;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $coreSingleStorage;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $coreSpec;
 
     /**
+     * @example 1627290664000
+     *
      * @var int
      */
     public $createMilliseconds;
 
     /**
+     * @description The storage capacity of the disk of a single log node. This parameter is returned only for multi-zone instances.
+     *
+     * @example 2021-07-26 17:10:26
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $deletionProtection;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $diskCategory;
 
     /**
+     * @example 80%
+     *
      * @var string
      */
     public $diskThreshold;
 
     /**
+     * @example 0.0%
+     *
      * @var string
      */
     public $diskUsage;
@@ -87,14 +120,25 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var bool
      */
+    public $enableBlob;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
     public $enableCdc;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableCompute;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableKms;
@@ -102,14 +146,30 @@ class GetLindormInstanceResponseBody extends Model
     /**
      * @var bool
      */
+    public $enableLTS;
+
+    /**
+     * @var bool
+     */
+    public $enableMLCtrl;
+
+    /**
+     * @example false
+     *
+     * @var bool
+     */
     public $enableSSL;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableShs;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableStream;
@@ -120,46 +180,64 @@ class GetLindormInstanceResponseBody extends Model
     public $engineList;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $engineType;
 
     /**
+     * @example 2021-08-27 00:00:00
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 1629993600000
+     *
      * @var int
      */
     public $expiredMilliseconds;
 
     /**
+     * @example test0726
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @example ld-bp1o3y0yme2i2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ACTIVATION
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example 480
+     *
      * @var string
      */
     public $instanceStorage;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $logDiskCategory;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $logNum;
@@ -170,51 +248,73 @@ class GetLindormInstanceResponseBody extends Model
     public $logSingleStorage;
 
     /**
+     * @example lindorm.sn1.large
+     *
      * @var string
      */
     public $logSpec;
 
     /**
+     * @example 20:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 00:00Z
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @example cn-shanghai-efg-aliyun
+     *
      * @var string
      */
     public $multiZoneCombination;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description 400
+     *
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example vsw-uf6fdqa7c0pipnqzq****
+     *
      * @var string
      */
     public $primaryVSwitchId;
 
     /**
+     * @example cn-shanghai-e
+     *
      * @var string
      */
     public $primaryZoneId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 633F1BE4-C8DA-5744-8FDF-A3075C3FE37F
+     *
      * @var string
      */
     public $requestId;
@@ -225,31 +325,47 @@ class GetLindormInstanceResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @example lindorm
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @example vsw-2zec0kcn08cgdtr6****
+     *
      * @var string
      */
     public $standbyVSwitchId;
 
     /**
+     * @example cn-shanghai-f
+     *
      * @var string
      */
     public $standbyZoneId;
 
     /**
+     * @description The type of the log nodes. This parameter is returned only for multi-zone instances.
+     *
+     * @example vpc-bp1n3i15v90el48nx****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The number of the log nodes. This parameter is returned only for multi-zone instances.
+     *
+     * @example vsw-bp1vbjzmod9q3l9eo****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
@@ -257,6 +373,7 @@ class GetLindormInstanceResponseBody extends Model
         'aliUid'               => 'AliUid',
         'arbiterVSwitchId'     => 'ArbiterVSwitchId',
         'arbiterZoneId'        => 'ArbiterZoneId',
+        'archVersion'          => 'ArchVersion',
         'autoRenew'            => 'AutoRenew',
         'coldStorage'          => 'ColdStorage',
         'coreDiskCategory'     => 'CoreDiskCategory',
@@ -269,9 +386,12 @@ class GetLindormInstanceResponseBody extends Model
         'diskCategory'         => 'DiskCategory',
         'diskThreshold'        => 'DiskThreshold',
         'diskUsage'            => 'DiskUsage',
+        'enableBlob'           => 'EnableBlob',
         'enableCdc'            => 'EnableCdc',
         'enableCompute'        => 'EnableCompute',
         'enableKms'            => 'EnableKms',
+        'enableLTS'            => 'EnableLTS',
+        'enableMLCtrl'         => 'EnableMLCtrl',
         'enableSSL'            => 'EnableSSL',
         'enableShs'            => 'EnableShs',
         'enableStream'         => 'EnableStream',
@@ -321,6 +441,9 @@ class GetLindormInstanceResponseBody extends Model
         if (null !== $this->arbiterZoneId) {
             $res['ArbiterZoneId'] = $this->arbiterZoneId;
         }
+        if (null !== $this->archVersion) {
+            $res['ArchVersion'] = $this->archVersion;
+        }
         if (null !== $this->autoRenew) {
             $res['AutoRenew'] = $this->autoRenew;
         }
@@ -357,6 +480,9 @@ class GetLindormInstanceResponseBody extends Model
         if (null !== $this->diskUsage) {
             $res['DiskUsage'] = $this->diskUsage;
         }
+        if (null !== $this->enableBlob) {
+            $res['EnableBlob'] = $this->enableBlob;
+        }
         if (null !== $this->enableCdc) {
             $res['EnableCdc'] = $this->enableCdc;
         }
@@ -365,6 +491,12 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (null !== $this->enableKms) {
             $res['EnableKms'] = $this->enableKms;
+        }
+        if (null !== $this->enableLTS) {
+            $res['EnableLTS'] = $this->enableLTS;
+        }
+        if (null !== $this->enableMLCtrl) {
+            $res['EnableMLCtrl'] = $this->enableMLCtrl;
         }
         if (null !== $this->enableSSL) {
             $res['EnableSSL'] = $this->enableSSL;
@@ -486,6 +618,9 @@ class GetLindormInstanceResponseBody extends Model
         if (isset($map['ArbiterZoneId'])) {
             $model->arbiterZoneId = $map['ArbiterZoneId'];
         }
+        if (isset($map['ArchVersion'])) {
+            $model->archVersion = $map['ArchVersion'];
+        }
         if (isset($map['AutoRenew'])) {
             $model->autoRenew = $map['AutoRenew'];
         }
@@ -522,6 +657,9 @@ class GetLindormInstanceResponseBody extends Model
         if (isset($map['DiskUsage'])) {
             $model->diskUsage = $map['DiskUsage'];
         }
+        if (isset($map['EnableBlob'])) {
+            $model->enableBlob = $map['EnableBlob'];
+        }
         if (isset($map['EnableCdc'])) {
             $model->enableCdc = $map['EnableCdc'];
         }
@@ -530,6 +668,12 @@ class GetLindormInstanceResponseBody extends Model
         }
         if (isset($map['EnableKms'])) {
             $model->enableKms = $map['EnableKms'];
+        }
+        if (isset($map['EnableLTS'])) {
+            $model->enableLTS = $map['EnableLTS'];
+        }
+        if (isset($map['EnableMLCtrl'])) {
+            $model->enableMLCtrl = $map['EnableMLCtrl'];
         }
         if (isset($map['EnableSSL'])) {
             $model->enableSSL = $map['EnableSSL'];

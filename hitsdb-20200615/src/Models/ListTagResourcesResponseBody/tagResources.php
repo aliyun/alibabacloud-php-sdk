@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description The ID of the resource, which is the ID of the instance.
+     *
+     * @example ld-bp17j28j2y7pm****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resources. The returned value is fixed to **ALIYUN::HITSDB::INSTANCE**.
+     *
+     * @example ALIYUN::HITSDB::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the tag associated with the instance.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the tag associated with the instance.
+     *
+     * @example 2.2.8
+     *
      * @var string
      */
     public $tagValue;

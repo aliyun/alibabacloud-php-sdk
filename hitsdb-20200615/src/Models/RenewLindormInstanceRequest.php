@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RenewLindormInstanceRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example ld-bp1z3506imz2f****
+     *
      * @var string
      */
     public $instanceId;
@@ -29,11 +33,15 @@ class RenewLindormInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example Month
+     *
      * @var string
      */
     public $pricingCycle;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

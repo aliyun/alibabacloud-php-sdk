@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class netInfoList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $accessType;
 
     /**
+     * @example ld-bp1nq34mv3smk****-proxy-lindorm.lindorm.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example 30020
+     *
      * @var int
      */
     public $port;

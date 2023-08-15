@@ -20,26 +20,36 @@ class GetLindormInstanceListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $queryStr;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aek3b63arvg27vi
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -60,11 +70,15 @@ class GetLindormInstanceListRequest extends Model
     public $securityToken;
 
     /**
+     * @example lindorm
+     *
      * @var string
      */
     public $serviceType;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $supportEngine;

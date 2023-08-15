@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateLindormInstanceResponseBody extends Model
 {
     /**
+     * @example ld-bp1o3y0yme2i2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 111111111111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 93BE8227-3406-4D7A-883D-9A421D42****
+     *
      * @var string
      */
     public $requestId;

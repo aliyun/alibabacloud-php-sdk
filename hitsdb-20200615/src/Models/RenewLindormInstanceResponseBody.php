@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class RenewLindormInstanceResponseBody extends Model
 {
     /**
+     * @example ld-bp1z3506imz2f****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 213465921640411
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 1556DCB0-043A-4444-8BD9-CF4A68E7EE64
+     *
      * @var string
      */
     public $requestId;

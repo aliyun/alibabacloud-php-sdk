@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class engineList extends Model
 {
     /**
+     * @example lindorm
+     *
      * @var string
      */
     public $engineType;

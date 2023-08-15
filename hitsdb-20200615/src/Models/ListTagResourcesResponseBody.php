@@ -10,16 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The token used to start the next query.
+     *
+     * > If not all results are returned in the first query, this parameter is returned. You can pass in the returned value of this parameter for the next query.
+     * @example 212db86****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 05CB115C-91CB-529F-9098-50C1F6CB3BD3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of resources.
+     *
      * @var tagResources[]
      */
     public $tagResources;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceIpWhiteListResponseBody extends Model
 {
     /**
+     * @description The ID of the Lindorm instance.
+     *
+     * @example ld-bp1z3506imz2f****
+     *
      * @var string
      */
     public $instanceId;
@@ -19,6 +23,10 @@ class GetInstanceIpWhiteListResponseBody extends Model
     public $ipList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1D1F6F4D-9203-53E7-84E9-5376B4657E63
+     *
      * @var string
      */
     public $requestId;

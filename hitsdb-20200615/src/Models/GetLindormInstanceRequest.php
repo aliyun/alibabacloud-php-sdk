@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class GetLindormInstanceRequest extends Model
 {
     /**
+     * @description The disk type of the log nodes. This parameter is returned only for multi-zone instances. Valid values:
+     *
+     *   **cloud_efficiency**: The nodes use the Standard type of storage.
+     *   **cloud_ssd**: The nodes use the Performance type of storage.
+     *
+     * @example ld-bp1o3y0yme2i2****
+     *
      * @var string
      */
     public $instanceId;

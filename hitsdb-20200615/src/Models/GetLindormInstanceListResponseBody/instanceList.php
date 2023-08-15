@@ -10,86 +10,120 @@ use AlibabaCloud\Tea\Model;
 class instanceList extends Model
 {
     /**
+     * @example 164901546557****
+     *
      * @var int
      */
     public $aliUid;
 
     /**
+     * @example 1631772842000
+     *
      * @var int
      */
     public $createMilliseconds;
 
     /**
+     * @example 2021-09-16 14:13:13
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableCompute;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableStream;
 
     /**
+     * @example 15
+     *
      * @var string
      */
     public $engineType;
 
     /**
+     * @example 2022-04-26 00:00:00
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 1650902400000
+     *
      * @var int
      */
     public $expiredMilliseconds;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceAlias;
 
     /**
+     * @example ld-bp17pwu1541ia****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ACTIVATION
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example 960
+     *
      * @var string
      */
     public $instanceStorage;
 
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example PREPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-aekzledqeat****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example lindorm
+     *
      * @var string
      */
     public $serviceType;
@@ -100,11 +134,15 @@ class instanceList extends Model
     public $tags;
 
     /**
+     * @example vpc-bp1n3i15v90el48nx****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

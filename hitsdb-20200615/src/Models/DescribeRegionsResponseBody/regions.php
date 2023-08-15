@@ -14,11 +14,17 @@ class regions extends Model
     public $localName;
 
     /**
+     * @description Queries the regions where Lindorm is available.
+     *
+     * @example hitsdb.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

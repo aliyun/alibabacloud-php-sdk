@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceIpWhiteListResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4944539D-D27C-458D-95F1-2DCEB5E0EED5
+     *
      * @var string
      */
     public $requestId;

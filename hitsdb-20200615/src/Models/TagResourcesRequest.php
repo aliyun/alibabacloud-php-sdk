@@ -20,11 +20,17 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region in which the instances you want to associate tags with are located. You can call the [DescribeRegions](~~426062~~) operation to query the region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The list of resource IDs.
+     *
      * @var string[]
      */
     public $resourceId;
@@ -40,6 +46,10 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
@@ -50,6 +60,8 @@ class TagResourcesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tags that you want to associate with the resource.
+     *
      * @var tag[]
      */
     public $tag;

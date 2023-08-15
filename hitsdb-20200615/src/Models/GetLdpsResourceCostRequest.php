@@ -6,14 +6,22 @@ namespace AlibabaCloud\SDK\Hitsdb\V20200615\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetLindormInstanceEngineListRequest extends Model
+class GetLdpsResourceCostRequest extends Model
 {
     /**
-     * @example ld-bp1nq34mv3smk****
-     *
+     * @var int
+     */
+    public $endTime;
+
+    /**
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $jobId;
 
     /**
      * @var string
@@ -26,8 +34,6 @@ class GetLindormInstanceEngineListRequest extends Model
     public $ownerId;
 
     /**
-     * @example cn-hangzhou
-     *
      * @var string
      */
     public $regionId;
@@ -46,14 +52,22 @@ class GetLindormInstanceEngineListRequest extends Model
      * @var string
      */
     public $securityToken;
+
+    /**
+     * @var int
+     */
+    public $startTime;
     protected $_name = [
+        'endTime'              => 'EndTime',
         'instanceId'           => 'InstanceId',
+        'jobId'                => 'JobId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'startTime'            => 'StartTime',
     ];
 
     public function validate()
@@ -63,8 +77,14 @@ class GetLindormInstanceEngineListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->jobId) {
+            $res['JobId'] = $this->jobId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -84,6 +104,9 @@ class GetLindormInstanceEngineListRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
+        }
 
         return $res;
     }
@@ -91,13 +114,19 @@ class GetLindormInstanceEngineListRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetLindormInstanceEngineListRequest
+     * @return GetLdpsResourceCostRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['JobId'])) {
+            $model->jobId = $map['JobId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -116,6 +145,9 @@ class GetLindormInstanceEngineListRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

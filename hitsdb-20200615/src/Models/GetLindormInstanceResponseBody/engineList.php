@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class engineList extends Model
 {
     /**
+     * @example 2
+     *
      * @var string
      */
     public $coreCount;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $cpuCount;
 
     /**
+     * @example lindorm
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isLastVersion;
 
     /**
+     * @example 2.2.19.2
+     *
      * @var string
      */
     public $latestVersion;
@@ -39,6 +49,8 @@ class engineList extends Model
     public $memorySize;
 
     /**
+     * @example 2.2.3
+     *
      * @var string
      */
     public $version;

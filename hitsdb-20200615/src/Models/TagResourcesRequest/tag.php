@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag that you want to associate with the resource.
+     *
+     * > You can specify the keys of multiple tags. For example, you can specify the key of the first tag in the first key-value pair contained in the value of this parameter and specify the key of the second tag in the second key-value pair.
+     * @example test
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that you want to associate with the resource.
+     *
+     * > You can specify the values of multiple tags. For example, you can specify the value of the first tag in the first key-value pair contained in the value of this parameter and specify the value of the second tag in the second key-value pair.
+     * @example 2.2.8
+     *
      * @var string
      */
     public $value;

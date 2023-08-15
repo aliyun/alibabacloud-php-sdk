@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpgradeLindormInstanceRequest extends Model
 {
     /**
+     * @example 480
+     *
      * @var int
      */
     public $clusterStorage;
 
     /**
+     * @example 800
+     *
      * @var int
      */
     public $coldStorage;
@@ -24,31 +28,43 @@ class UpgradeLindormInstanceRequest extends Model
     public $coreSingleStorage;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $filestoreNum;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $filestoreSpec;
 
     /**
+     * @example ld-bp1o3y0yme2i2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $lindormNum;
 
     /**
+     * @example lindorm.c.xlarge
+     *
      * @var string
      */
     public $lindormSpec;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $logNum;
@@ -59,16 +75,22 @@ class UpgradeLindormInstanceRequest extends Model
     public $logSingleStorage;
 
     /**
+     * @example lindorm.sn1.large
+     *
      * @var string
      */
     public $logSpec;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $ltsCoreNum;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $ltsCoreSpec;
@@ -84,16 +106,22 @@ class UpgradeLindormInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $phoenixCoreNum;
 
     /**
+     * @example lindorm.c.xlarge
+     *
      * @var string
      */
     public $phoenixCoreSpec;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -114,31 +142,64 @@ class UpgradeLindormInstanceRequest extends Model
     public $securityToken;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $solrNum;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $solrSpec;
 
     /**
+     * @description 变配后实例的流引擎节点数量，取值：**0**~**90**。
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $streamNum;
+
+    /**
+     * @description 变配后实例的流引擎节点规格，取值：
+     *
+     * - **lindorm.c.2xlarge**：表示8核16GB（独享规格）。
+     * - **lindorm.c.4xlarge**：表示16核32GB（独享规格）。
+     * - **lindorm.c.8xlarge**：表示32核64GB（独享规格）。
+     * @example lindorm.g.xlarge
+     *
+     * @var string
+     */
+    public $streamSpec;
+
+    /**
+     * @example 2
+     *
      * @var int
      */
     public $tsdbNum;
 
     /**
+     * @example lindorm.g.xlarge
+     *
      * @var string
      */
     public $tsdbSpec;
 
     /**
+     * @example upgrade-cold-storage
+     *
      * @var string
      */
     public $upgradeType;
 
     /**
+     * @example cn-shanghai-f
+     *
      * @var string
      */
     public $zoneId;
@@ -166,6 +227,8 @@ class UpgradeLindormInstanceRequest extends Model
         'securityToken'        => 'SecurityToken',
         'solrNum'              => 'SolrNum',
         'solrSpec'             => 'SolrSpec',
+        'streamNum'            => 'StreamNum',
+        'streamSpec'           => 'StreamSpec',
         'tsdbNum'              => 'TsdbNum',
         'tsdbSpec'             => 'TsdbSpec',
         'upgradeType'          => 'UpgradeType',
@@ -247,6 +310,12 @@ class UpgradeLindormInstanceRequest extends Model
         }
         if (null !== $this->solrSpec) {
             $res['SolrSpec'] = $this->solrSpec;
+        }
+        if (null !== $this->streamNum) {
+            $res['StreamNum'] = $this->streamNum;
+        }
+        if (null !== $this->streamSpec) {
+            $res['StreamSpec'] = $this->streamSpec;
         }
         if (null !== $this->tsdbNum) {
             $res['TsdbNum'] = $this->tsdbNum;
@@ -340,6 +409,12 @@ class UpgradeLindormInstanceRequest extends Model
         }
         if (isset($map['SolrSpec'])) {
             $model->solrSpec = $map['SolrSpec'];
+        }
+        if (isset($map['StreamNum'])) {
+            $model->streamNum = $map['StreamNum'];
+        }
+        if (isset($map['StreamSpec'])) {
+            $model->streamSpec = $map['StreamSpec'];
         }
         if (isset($map['TsdbNum'])) {
             $model->tsdbNum = $map['TsdbNum'];
