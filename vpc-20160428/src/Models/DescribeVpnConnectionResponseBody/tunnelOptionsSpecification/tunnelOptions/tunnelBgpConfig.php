@@ -9,31 +9,57 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
+     * @description The negotiation status of BGP. Valid values:
+     *
+     * - **success**
+     * - **false**
+     * @example success
+     *
      * @var string
      */
     public $bgpStatus;
 
     /**
+     * @description The ASN on the Alibaba Cloud side.
+     *
+     * @example 65530
+     *
      * @var string
      */
     public $localAsn;
 
     /**
+     * @description The BGP IP address on the Alibaba Cloud side.
+     *
+     * @example 169.254.10.1
+     *
      * @var string
      */
     public $localBgpIp;
 
     /**
+     * @description The peer ASN.
+     *
+     * @example 65531
+     *
      * @var string
      */
     public $peerAsn;
 
     /**
+     * @description The peer BGP IP address.
+     *
+     * @example 169.254.10.2
+     *
      * @var string
      */
     public $peerBgpIp;
 
     /**
+     * @description The BGP CIDR block of the tunnel.
+     *
+     * @example 169.254.10.0/30
+     *
      * @var string
      */
     public $tunnelCidr;

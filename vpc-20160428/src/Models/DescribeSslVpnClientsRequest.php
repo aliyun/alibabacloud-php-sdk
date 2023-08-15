@@ -19,6 +19,8 @@ class DescribeSslVpnClientsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +28,8 @@ class DescribeSslVpnClientsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -33,6 +37,8 @@ class DescribeSslVpnClientsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the VPN gateway. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
+     *
      * @example eu-central-1
      *
      * @var string
@@ -50,6 +56,8 @@ class DescribeSslVpnClientsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPN gateway.
+     *
      * @example vpn-gw8gfb947ctddabja****
      *
      * @var string

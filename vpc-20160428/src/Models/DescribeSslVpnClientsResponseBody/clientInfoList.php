@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class clientInfoList extends Model
 {
     /**
+     * @description The SSL client certificate used by the client.
+     *
+     * > If the client uses two-factor authentication to establish an SSL-VPN connection to Alibaba Cloud, the value is the username of the client.
      * @example CN=vsc-gw8gkh6gtilf1whgc****
      *
      * @var string
@@ -16,6 +19,8 @@ class clientInfoList extends Model
     public $commonName;
 
     /**
+     * @description The timestamp that indicates when the client connected to Alibaba Cloud through an SSL-VPN connection. Unit: milliseconds. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1670985008000
      *
      * @var int
@@ -23,6 +28,8 @@ class clientInfoList extends Model
     public $connectedTime;
 
     /**
+     * @description The actual public IP address used by the client when the client established an SSL-VPN connection to Alibaba Cloud.
+     *
      * @example 8.XX.XX.15
      *
      * @var string
@@ -30,6 +37,8 @@ class clientInfoList extends Model
     public $ip;
 
     /**
+     * @description The port used by the client when the client established an SSL-VPN connection to Alibaba Cloud.
+     *
      * @example 4****
      *
      * @var string
@@ -37,6 +46,8 @@ class clientInfoList extends Model
     public $port;
 
     /**
+     * @description The private IP address allocated to the client by the VPN gateway when the client established an SSL-VPN connection to Alibaba Cloud.
+     *
      * @example 10.10.10.10
      *
      * @var string
@@ -44,6 +55,8 @@ class clientInfoList extends Model
     public $privateIp;
 
     /**
+     * @description The amount of data transferred from the client to the VPN gateway through the SSL-VPN connection. Unit: bytes.
+     *
      * @example 60782
      *
      * @var int
@@ -51,6 +64,8 @@ class clientInfoList extends Model
     public $receiveBytes;
 
     /**
+     * @description The amount of data transferred from the VPN gateway to the client through the SSL-VPN connection. Unit: bytes.
+     *
      * @example 57144
      *
      * @var int
@@ -58,6 +73,8 @@ class clientInfoList extends Model
     public $sendBytes;
 
     /**
+     * @description The status of the SSL-VPN connection. The value is set to **online**, which indicates that the client has connected to Alibaba Cloud through an SSL-VPN connection.
+     *
      * @example online
      *
      * @var string

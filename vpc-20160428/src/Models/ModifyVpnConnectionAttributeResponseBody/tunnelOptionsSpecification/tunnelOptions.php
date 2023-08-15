@@ -12,61 +12,113 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptions extends Model
 {
     /**
+     * @description The ID of the customer gateway that is associated with the tunnel.
+     *
+     * @example cgw-p0wy363lucf1uyae8****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @description Indicates whether DPD is enabled for the tunnel. Valid values:
+     *
+     * - **false**
+     * - **true**
+     * @example true
+     *
      * @var bool
      */
     public $enableDpd;
 
     /**
+     * @description Indicates whether NAT traversal is enabled for the tunnel. Valid values:
+     *
+     * - **false**
+     * - **true**
+     * @example true
+     *
      * @var bool
      */
     public $enableNatTraversal;
 
     /**
+     * @description The IP address on the Alibaba Cloud side.
+     *
+     * @example 47.21.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The CA certificate used by the IPsec peer.
+     *
+     * This parameter is returned only by VPN gateways that use SM certificates.
+     * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $remoteCaCertificate;
 
     /**
+     * @description The tunnel role. Valid values:
+     *
+     * - **master**
+     * - **slave**
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The tunnel status. Valid values:
+     *
+     * - **active**
+     * - **updating**
+     * - **deleting**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The BGP configurations.
+     *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
+     * @description The tunnel ID.
+     *
+     * @example tun-opsqc4d97wni27****
+     *
      * @var string
      */
     public $tunnelId;
 
     /**
+     * @description The configuration of Phase 1 negotiations.
+     *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
+     * @description The configuration of Phase 2 negotiations.
+     *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
 
     /**
+     * @description The zone of the tunnel.
+     *
+     * @example ap-southeast-5a
+     *
      * @var string
      */
     public $zoneNo;

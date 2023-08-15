@@ -62,6 +62,8 @@ class vpnConnectionConfig extends Model
     public $remoteSubnet;
 
     /**
+     * @description The tunnel configuration of the peer gateway device. Parameters in TunnelsConfig are returned only if the IPsec-VPN connection is in dual-tunnel mode.
+     *
      * @var tunnelsConfig
      */
     public $tunnelsConfig;

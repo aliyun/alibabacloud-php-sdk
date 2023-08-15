@@ -45,6 +45,12 @@ class vpnRouteEntry extends Model
     public $nextHop;
 
     /**
+     * @description The ID of the tunnel associated with the next hop.
+     *
+     *
+     * > This parameter is returned only if the VPN gateway supports the dual-tunnel mode.
+     * @example tun-36cfgpwjn58axj****
+     *
      * @var string
      */
     public $nextHopTunnelId;

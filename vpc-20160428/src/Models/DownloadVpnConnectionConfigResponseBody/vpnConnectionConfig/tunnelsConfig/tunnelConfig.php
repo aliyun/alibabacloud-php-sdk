@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class tunnelConfig extends Model
 {
     /**
+     * @description The configurations of Phase 1 negotiations.
+     *
      * @var ikeConfig
      */
     public $ikeConfig;
 
     /**
+     * @description The configurations of Phase 2 negotiations.
+     *
      * @var ipsecConfig
      */
     public $ipsecConfig;
 
     /**
+     * @description The identifier of the tunnel on the data center side.
+     *
+     * @example 47.21.XX.XX
+     *
      * @var string
      */
     public $local;
 
     /**
+     * @description The identifier of the tunnel on the Alibaba Cloud side.
+     *
+     * @example 47.24.XX.XX
+     *
      * @var string
      */
     public $remote;
 
     /**
+     * @description The tunnel ID.
+     *
+     * @example tun-opsqc4d97wni27****
+     *
      * @var string
      */
     public $tunnelId;

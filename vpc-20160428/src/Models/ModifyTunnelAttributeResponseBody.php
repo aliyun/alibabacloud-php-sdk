@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyTunnelAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the customer gateway associated with the customer gateway.
+     *
      * @example cgw-p0wx48ayhrygitm80****
      *
      * @var string
@@ -19,6 +21,10 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $customerGatewayId;
 
     /**
+     * @description Indicates whether DPD is enabled. Valid values:
+     *
+     * - **true**
+     * - **false**
      * @example true
      *
      * @var bool
@@ -26,6 +32,10 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $enableDpd;
 
     /**
+     * @description Indicates whether BAT traversal is enabled. Valid values:
+     *
+     * - **true**
+     * - **false**
      * @example true
      *
      * @var bool
@@ -33,6 +43,8 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $enableNatTraversal;
 
     /**
+     * @description The tunnel IP address.
+     *
      * @example 47.XX.XX.87
      *
      * @var string
@@ -40,6 +52,8 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $internetIp;
 
     /**
+     * @description The peer CA certificate when a ShangMi (SM) VPN gateway is associated with the IPsec connection.
+     *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -47,6 +61,8 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $remoteCaCertificate;
 
     /**
+     * @description The request ID.
+     *
      * @example E6F36FF0-9544-3AEE-8673-A4647D50064C
      *
      * @var string
@@ -54,6 +70,10 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The tunnel role. Valid values:
+     *
+     * - **master**
+     * - **slave**
      * @example master
      *
      * @var string
@@ -61,6 +81,11 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $role;
 
     /**
+     * @description The tunnel status. Valid values:
+     *
+     * - **active**
+     * - **updating**
+     * - d**eleting**
      * @example active
      *
      * @var string
@@ -68,11 +93,15 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $state;
 
     /**
+     * @description The BGP configurations.
+     *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
+     * @description The tunnel ID.
+     *
      * @example tun-gbyz2e070xzo93****
      *
      * @var string
@@ -80,16 +109,22 @@ class ModifyTunnelAttributeResponseBody extends Model
     public $tunnelId;
 
     /**
+     * @description The IKE settings for Phase 1 negotiations.
+     *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
+     * @description The IPsec settings for Phase 2 negotiations.
+     *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
 
     /**
+     * @description The tunnel zone.
+     *
      * @example ap-southeast-2b
      *
      * @var string

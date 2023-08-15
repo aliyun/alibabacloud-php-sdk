@@ -46,9 +46,9 @@ class CreateVpnGatewayRequest extends Model
     public $clientToken;
 
     /**
-     * @description 指定VPN网关实例关联的第二个交换机实例。
+     * @description The second vSwitch with which you want to associate the VPN gateway.
      *
-     * 关于支持双隧道模式IPsec-VPN连接的地域和可用区的信息，请参见[IPsec-VPN连接升级为双隧道模式](~~2358946~~)。
+     * > For more information about the regions and zones that support the dual-tunnel mode, see [Upgrade a VPN gateway to enable the dual-tunnel mode](~~2358946~~).
      * @example vsw-p0wiz7obm0tbimu4r****
      *
      * @var string
@@ -83,6 +83,8 @@ class CreateVpnGatewayRequest extends Model
      * @description The billing method of the VPN gateway. Set the value to **POSTPAY**, which specifies the pay-as-you-go billing method.
      *
      * >  This parameter is required when you create a VPN gateway.
+     * @example Example value for the Alibaba Cloud China site: PREPAY. Example value for the Alibaba Cloud International site: POSTPAY.
+     *
      * @var string
      */
     public $instanceChargeType;

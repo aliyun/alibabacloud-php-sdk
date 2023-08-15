@@ -89,6 +89,10 @@ class ModifyVpnConnectionAttributeRequest extends Model
     public $enableNatTraversal;
 
     /**
+     * @description This parameter is supported by dual-tunnel IPsec-VPN connections. Specifies whether to enable BGP for the tunnel. Valid values: **true** and **false**.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableTunnelsBgp;
@@ -232,6 +236,8 @@ class ModifyVpnConnectionAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description **TunnelOptionsSpecification** parameters are supported by dual-tunnel IPsec-VPN gateways. You can modify both the active and standby tunnels of the IPsec-VPN connection.
+     *
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;

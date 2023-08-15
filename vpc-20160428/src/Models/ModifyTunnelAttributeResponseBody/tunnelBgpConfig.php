@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
+     * @description Indicates whether BGP is enabled. Valid values:
+     *
+     * - **true**
+     * - **false**
      * @example true
      *
      * @var bool
@@ -16,6 +20,8 @@ class tunnelBgpConfig extends Model
     public $enableBgp;
 
     /**
+     * @description The local ASN.
+     *
      * @example 65530
      *
      * @var int
@@ -23,6 +29,8 @@ class tunnelBgpConfig extends Model
     public $localAsn;
 
     /**
+     * @description The BGP IP address of the tunnel.
+     *
      * @example 169.254.11.1
      *
      * @var string
@@ -30,6 +38,8 @@ class tunnelBgpConfig extends Model
     public $localBgpIp;
 
     /**
+     * @description The peer ASN.
+     *
      * @example 65531
      *
      * @var int
@@ -37,6 +47,8 @@ class tunnelBgpConfig extends Model
     public $peerAsn;
 
     /**
+     * @description The BGP IP address of the peer.
+     *
      * @example 169.254.11.2
      *
      * @var string
@@ -44,6 +56,8 @@ class tunnelBgpConfig extends Model
     public $peerBgpIp;
 
     /**
+     * @description The CIDR block to which the tunnel BGP IP address belongs.
+     *
      * @example 169.254.11.0/30
      *
      * @var string

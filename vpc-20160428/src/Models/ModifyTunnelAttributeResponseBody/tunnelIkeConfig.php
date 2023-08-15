@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tunnelIkeConfig extends Model
 {
     /**
+     * @description The IKE authentication algorithm.
+     *
      * @example sha1
      *
      * @var string
@@ -16,6 +18,8 @@ class tunnelIkeConfig extends Model
     public $ikeAuthAlg;
 
     /**
+     * @description The IKE encryption algorithm.
+     *
      * @example aes
      *
      * @var string
@@ -23,6 +27,8 @@ class tunnelIkeConfig extends Model
     public $ikeEncAlg;
 
     /**
+     * @description The IKE lifetime. Unit: seconds.
+     *
      * @example 86400
      *
      * @var int
@@ -30,6 +36,10 @@ class tunnelIkeConfig extends Model
     public $ikeLifetime;
 
     /**
+     * @description The IKE negotiation mode. Valid values:
+     *
+     * - **main**: This mode offers higher security during negotiations.
+     * - **aggressive**: This mode is faster and has a higher success rate.
      * @example main
      *
      * @var string
@@ -37,6 +47,8 @@ class tunnelIkeConfig extends Model
     public $ikeMode;
 
     /**
+     * @description The Diffie-Hellman group.
+     *
      * @example group2
      *
      * @var string
@@ -44,6 +56,12 @@ class tunnelIkeConfig extends Model
     public $ikePfs;
 
     /**
+     * @description The version of the IKE protocol.
+     *
+     * - **ikev1**
+     * - **ikev2**
+     *
+     * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and is more suitable for scenarios in which multiple CIDR blocks are used.
      * @example ikev2
      *
      * @var string
@@ -51,6 +69,8 @@ class tunnelIkeConfig extends Model
     public $ikeVersion;
 
     /**
+     * @description The tunnel identifier. The identifier supports FQDNs and IP addresses. The default identifier is the tunnel IP address.
+     *
      * @example 47.XX.XX.87
      *
      * @var string
@@ -58,6 +78,8 @@ class tunnelIkeConfig extends Model
     public $localId;
 
     /**
+     * @description The pre-shared key.
+     *
      * @example 123456****
      *
      * @var string
@@ -65,6 +87,8 @@ class tunnelIkeConfig extends Model
     public $psk;
 
     /**
+     * @description The peer identifier. The identifier supports FQDNs and IP addresses. The default identifier is the IP address of the customer gateway associated with the tunnel.
+     *
      * @example 47.XX.XX.207
      *
      * @var string

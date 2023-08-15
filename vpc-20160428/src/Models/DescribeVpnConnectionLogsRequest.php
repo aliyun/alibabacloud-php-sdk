@@ -60,7 +60,7 @@ class DescribeVpnConnectionLogsRequest extends Model
      * @description The ID of the region to which the IPsec-VPN connection belongs.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
-     * @example cn-hangzhou
+     * @example eu-central-1
      *
      * @var string
      */
@@ -87,6 +87,10 @@ class DescribeVpnConnectionLogsRequest extends Model
     public $to;
 
     /**
+     * @description The tunnel ID of the IPsec-VPN connection. You can specify this parameter only for IPsec-VPN connections in dual-tunnel mode.
+     *
+     * @example tun-opsqc4d97wni27****
+     *
      * @var string
      */
     public $tunnelId;

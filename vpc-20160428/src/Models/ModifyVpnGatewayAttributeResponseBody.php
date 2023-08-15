@@ -52,11 +52,19 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $description;
 
     /**
+     * @description The second IP address assigned by the system to create an IPsec-VPN connection. This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
+     *
+     * @example 116.11.XX.XX
+     *
      * @var string
      */
     public $disasterRecoveryInternetIp;
 
     /**
+     * @description The ID of the second vSwitch associated with the VPN gateway. This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
+     *
+     * @example vsw-p0w95ql6tmr2ludkt****
+     *
      * @var string
      */
     public $disasterRecoveryVSwitchId;
@@ -84,8 +92,8 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The public IP address of the VPN gateway.
-     *
+     * @description - If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     * - If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the address is the first IP address used to create an IPsec-VPN connection. The address cannot be used to create an SSL-VPN connection. If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
      * @example 116.62.XX.XX
      *
      * @var string
@@ -129,6 +137,10 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $spec;
 
     /**
+     * @description The IP address of the SSL-VPN connection. This parameter is returned only when the VPN gateway is a public VPN gateway and supports only the single-tunnel mode. In addition, the VPN gateway must have the SSL-VPN feature enabled.
+     *
+     * @example 116.33.XX.XX
+     *
      * @var string
      */
     public $sslVpnInternetIp;

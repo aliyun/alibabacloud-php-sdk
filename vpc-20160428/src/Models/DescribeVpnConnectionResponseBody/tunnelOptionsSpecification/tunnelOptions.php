@@ -12,66 +12,126 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptions extends Model
 {
     /**
+     * @description The ID of the customer gateway associated with the tunnel.
+     *
+     * @example cgw-p0wy363lucf1uyae8****
+     *
      * @var string
      */
     public $customerGatewayId;
 
     /**
+     * @description Indicates whether DPD is enabled for the tunnel. Valid values:
+     *
+     * - **false**
+     * - **true**
+     * @example true
+     *
      * @var string
      */
     public $enableDpd;
 
     /**
+     * @description Indicates whether NAT traversal is enabled for the tunnel.
+     *
+     * - **false**
+     * - **true**
+     * @example true
+     *
      * @var string
      */
     public $enableNatTraversal;
 
     /**
+     * @description The tunnel IP address.
+     *
+     * @example 47.21.XX.XX
+     *
      * @var string
      */
     public $internetIp;
 
     /**
+     * @description The CA certificate of the tunnel peer. This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
+     *
+     * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
+     *
      * @var string
      */
     public $remoteCaCertificate;
 
     /**
+     * @description The tunnel role. Valid values:
+     *
+     * - **false**
+     * - **true**
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The tunnel status. Valid values:
+     *
+     * - **active**
+     * - **updating**
+     * - **deleting**
+     * @example active
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The status of the IPsec-VPN connection. Valid values:
+     *
+     *   **ike_sa_not_established**: Phase 1 negotiations failed.
+     *   **ike_sa_established**: Phase 1 negotiations were successful.
+     *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
+     *   **ipsec_sa_established**: Phase 2 negotiations were successful.
+     *
+     * @example ipsec_sa_established
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The BGP configurations.
+     *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
+     * @description The tunnel ID.
+     *
+     * @example tun-opsqc4d97wni27****
+     *
      * @var string
      */
     public $tunnelId;
 
     /**
+     * @description The configurations of Phase 1 negotiations.
+     *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
+     * @description The configurations of Phase 2 negotiations.
+     *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
 
     /**
+     * @description The zone where the tunnel is deployed. You can call [DescribeZones](~~36064~~) to query zone IDs.
+     *
+     * @example ap-southeast-5a
+     *
      * @var string
      */
     public $zoneNo;

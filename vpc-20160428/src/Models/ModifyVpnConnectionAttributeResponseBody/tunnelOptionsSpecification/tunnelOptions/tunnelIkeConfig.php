@@ -9,46 +9,84 @@ use AlibabaCloud\Tea\Model;
 class tunnelIkeConfig extends Model
 {
     /**
+     * @description The algorithm in the IKE phase.
+     *
+     * @example sha1
+     *
      * @var string
      */
     public $ikeAuthAlg;
 
     /**
+     * @description The encryption algorithm in the IKE phase.
+     *
+     * @example aes
+     *
      * @var string
      */
     public $ikeEncAlg;
 
     /**
+     * @description The lifetime in the IKE phase. Unit: seconds.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $ikeLifetime;
 
     /**
+     * @description The IKE negotiation mode.
+     *
+     * - **main**: This mode offers higher security during negotiations.
+     * - **aggressive**: This mode is faster and has a higher success rate.
+     * @example main
+     *
      * @var string
      */
     public $ikeMode;
 
     /**
+     * @description The DH group in the IKE phase.
+     *
+     * @example group2
+     *
      * @var string
      */
     public $ikePfs;
 
     /**
+     * @description The version of the IKE protocol.
+     *
+     * @example ikev1
+     *
      * @var string
      */
     public $ikeVersion;
 
     /**
+     * @description The local identifier (Alibaba Cloud side).
+     *
+     * @example 47.21.XX.XX
+     *
      * @var string
      */
     public $localId;
 
     /**
+     * @description The pre-shared key.
+     *
+     * @example 123456****
+     *
      * @var string
      */
     public $psk;
 
     /**
+     * @description The peer identifier.
+     *
+     * @example 47.42.XX.XX
+     *
      * @var string
      */
     public $remoteId;

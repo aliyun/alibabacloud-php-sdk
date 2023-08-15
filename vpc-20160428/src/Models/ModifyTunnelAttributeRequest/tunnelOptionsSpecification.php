@@ -12,6 +12,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptionsSpecification extends Model
 {
     /**
+     * @description Specifies whether to enable the dead peer detection (DPD) feature. Valid values:
+     * - **true**: DPD is enabled. The IPsec initiator sends DPD packets to verify the existence and availability of the IPsec peer. If no response is received from the peer within a specified period of time, the IPsec peer is considered disconnected. Then, the ISAKMP SA, IPsec SA, and IPsec tunnel are deleted.
+     *
+     * - **false**: DPD is disabled. The IPsec initiator does not send DPD packets.
      * @example true
      *
      * @var bool
@@ -19,6 +23,12 @@ class tunnelOptionsSpecification extends Model
     public $enableDpd;
 
     /**
+     * @description Specifies whether to enable NAT traversal. Valid values:
+     *
+     * - **true**
+     *
+     * After NAT traversal is enabled, the initiator does not check the UDP ports during IKE negotiations and can automatically discover NAT gateway devices along the IPsec tunnel.
+     * - **false**
      * @example true
      *
      * @var bool
@@ -26,6 +36,8 @@ class tunnelOptionsSpecification extends Model
     public $enableNatTraversal;
 
     /**
+     * @description If you want to attach the IPsec connection to a VPN gateway that uses a ShangMi (SM) certificate, set the value to the peer CA certificate.
+     *
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -33,16 +45,22 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
+     * @description The BGP configurations.
+     *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
+     * @description The IKE settings for Phase 1 negotiations.
+     *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
+     * @description The IPsec settings for Phase 2 negotiations.
+     *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;

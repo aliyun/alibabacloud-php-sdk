@@ -106,6 +106,12 @@ class DescribeVpnConnectionResponseBody extends Model
     public $enableNatTraversal;
 
     /**
+     * @description The BGP status of the tunnel. Valid values:
+     *
+     * - **true**
+     * - **false**
+     * @example true
+     *
      * @var bool
      */
     public $enableTunnelsBgp;
@@ -261,6 +267,8 @@ class DescribeVpnConnectionResponseBody extends Model
     public $transitRouterName;
 
     /**
+     * @description The tunnel configuration of the IPsec-VPN connection. Parameters in** TunnelOptionsSpecification** are returned only if you query IPsec-VPN connections in dual-tunnel mode.
+     *
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;
