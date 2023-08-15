@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryHBaseHaDBRequest extends Model
 {
     /**
+     * @example bds-t4n3496whj23ia4k
+     *
      * @var string
      */
     public $bdsId;

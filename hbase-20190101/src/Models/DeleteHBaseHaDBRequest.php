@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteHBaseHaDBRequest extends Model
 {
     /**
+     * @example bds-bp14112fd7g52s1****
+     *
      * @var string
      */
     public $bdsId;
 
     /**
+     * @example ha-sw2o0l01s4r76****
+     *
      * @var string
      */
     public $haId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMultiZoneClusterResponseBody extends Model
 {
     /**
+     * @example C532A4D4-9451-4460-BB3E-300FEC852D3F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example LINDORM
+     *
      * @var string
      */
     public $upgradingComponents;

@@ -15,21 +15,29 @@ class ListInstanceServiceConfigHistoriesResponseBody extends Model
     public $configureHistoryList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 658C1549-2C02-4FD9-9490-EB3B285F9DCA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

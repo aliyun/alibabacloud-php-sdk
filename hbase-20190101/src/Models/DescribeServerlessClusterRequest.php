@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerlessClusterRequest extends Model
 {
     /**
+     * @example hb-bp16f1441y6p2****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sdh0b7f4k5f****
+     *
      * @var string
      */
     public $zoneId;

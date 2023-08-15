@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteUserHdfsInfoRequest extends Model
 {
     /**
+     * @example hb-bp16o0pd52e3y****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hdfs_test
+     *
      * @var string
      */
     public $nameService;

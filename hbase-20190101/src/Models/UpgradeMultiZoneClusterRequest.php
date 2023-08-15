@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMultiZoneClusterRequest extends Model
 {
     /**
+     * @example ld-***************
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example LINDORM
+     *
      * @var string
      */
     public $components;
 
     /**
+     * @example LPROXY
+     *
      * @var string
      */
     public $restartComponents;
 
     /**
+     * @example serial
+     *
      * @var string
      */
     public $runMode;
 
     /**
+     * @example ld-t4n40m3171t4******-az-b
+     *
      * @var string
      */
     public $upgradeInsName;
 
     /**
+     * @example t-apsara-lindorm-2.1.20-20200518175539.alios7.x86_64
+     *
      * @var string
      */
     public $versions;

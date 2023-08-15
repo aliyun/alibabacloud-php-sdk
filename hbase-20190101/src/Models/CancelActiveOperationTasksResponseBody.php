@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CancelActiveOperationTasksResponseBody extends Model
 {
     /**
+     * @example 11111,22222
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @example AE4F6C34-065F-45AA-F5BN-4B8D816F6305
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EnableHBaseueBackupResponseBody extends Model
 {
     /**
+     * @example bds-m5e54q06ceyhxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1449xxx
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 15272D5D-46E8-4400-9CC8-A7E7B589F575
+     *
      * @var string
      */
     public $requestId;

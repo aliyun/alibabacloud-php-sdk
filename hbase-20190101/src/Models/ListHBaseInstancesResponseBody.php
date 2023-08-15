@@ -15,6 +15,8 @@ class ListHBaseInstancesResponseBody extends Model
     public $instances;
 
     /**
+     * @example 89F81C30-320B-4550-91DB-C37C81D2358F
+     *
      * @var string
      */
     public $requestId;

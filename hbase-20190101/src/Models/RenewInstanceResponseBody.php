@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceResponseBody extends Model
 {
     /**
+     * @example 211235614240728
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @example 729CB2A7-3065-53A9-B27C-7033CA4881D9
+     *
      * @var string
      */
     public $requestId;

@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 2020-11-02T07:16:07Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 2020-11-02T07:27:24Z
+     *
      * @var string
      */
     public $deleteTime;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example hb-bp10q7n2zdw12xxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example e2e-test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $majorVersion;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $moduleStackVersion;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example DELETED
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

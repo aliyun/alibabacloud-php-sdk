@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class typeList extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskTypeInfoEn;

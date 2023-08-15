@@ -10,36 +10,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @example hb-bp1u0639js2h7****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-4f51d54g5****
+     *
      * @var string
      */
     public $resourceGroupId;

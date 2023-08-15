@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceServiceConfigRequest extends Model
 {
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
+     *
      * @var string
      */
     public $configureName;
 
     /**
+     * @example 10485770
+     *
      * @var string
      */
     public $configureValue;
 
     /**
+     * @example {"key1=value1", "key2=value2"}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $restart;

@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerlessClusterResponseBody extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @example single
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example 2019-10-12T14:40:46
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 150
+     *
      * @var string
      */
     public $cuSize;
 
     /**
+     * @example 200
+     *
      * @var string
      */
     public $diskSize;
 
     /**
+     * @example 2019-10-12T14:40:46
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $haType;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasUser;
 
     /**
+     * @example https://sh-wz91452kg946i****-lindorm-serverless-in.lindorm.rds.aliyuncs.com:443
+     *
      * @var string
      */
     public $innerEndpoint;
 
     /**
+     * @example hb-bp16f1441y6p2****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isDeletionProtection;
@@ -74,66 +98,92 @@ class DescribeServerlessClusterResponseBody extends Model
     public $lockMode;
 
     /**
+     * @example 2.0.8
+     *
      * @var string
      */
     public $mainVersion;
 
     /**
+     * @example https://sh-wz91452kg946i****-lindorm-serverless.lindorm.rds.aliyuncs.com:443
+     *
      * @var string
      */
     public $outerEndpoint;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 89F81C30-320B-4550-91DB-C37C81D2358F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $reserverMaxQpsNum;
 
     /**
+     * @example 50
+     *
      * @var string
      */
     public $reserverMinQpsNum;
 
     /**
+     * @example rg-fjm2d4v7sf****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example ACTIVATION
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example NO
+     *
      * @var string
      */
     public $updateStatus;
 
     /**
+     * @example vsw-bp191ipotqf****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp120k6ixs4eoghz****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeColdStorageRequest extends Model
 {
     /**
+     * @example ld-bp1uoihlf82e8****
+     *
      * @var string
      */
     public $clusterId;

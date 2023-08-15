@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class group extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $groupName;
@@ -20,6 +22,8 @@ class group extends Model
     public $ipList;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $ipVersion;

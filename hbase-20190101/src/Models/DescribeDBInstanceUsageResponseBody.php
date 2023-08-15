@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceUsageResponseBody extends Model
 {
     /**
+     * @example A2D841CE-D066-53E8-B9AC-3731DCC85397
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example {\"disk_usage_record\":{\"disk_used\":\"0.9GB\",\"disk_total\":\"1156.1GB\",\"usage_rate\":\"1%\"}}
+     *
      * @var string
      */
     public $result;

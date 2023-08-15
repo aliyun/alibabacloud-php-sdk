@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class restoreFullDetail extends Model
 {
     /**
+     * @example 1.2 kB
+     *
      * @var string
      */
     public $dataSize;
 
     /**
+     * @example 2020-11-05T06:45:51Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 14/14
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @example 0.00 MB/s
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @example 2020-11-05T06:45:45Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example default:test1
+     *
      * @var string
      */
     public $table;

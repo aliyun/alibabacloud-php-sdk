@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResizeMultiZoneClusterDiskSizeResponseBody extends Model
 {
     /**
+     * @example 123412341****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 568339C4-9F71-43D0-994E-E039CD826E56
+     *
      * @var string
      */
     public $requestId;

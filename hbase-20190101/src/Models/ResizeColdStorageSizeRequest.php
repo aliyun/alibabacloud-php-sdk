@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResizeColdStorageSizeRequest extends Model
 {
     /**
+     * @example ld-bp169l540vc6c****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 900
+     *
      * @var int
      */
     public $coldStorageSize;

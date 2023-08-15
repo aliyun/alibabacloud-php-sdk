@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class full extends Model
 {
     /**
+     * @example false
+     *
      * @var string
      */
     public $hasMore;
 
     /**
+     * @example 2020-11-09T18:00:00Z
+     *
      * @var string
      */
     public $nextFullBackupDate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -35,6 +43,8 @@ class full extends Model
     public $records;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $total;

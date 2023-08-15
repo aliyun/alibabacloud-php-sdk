@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $allowCancel;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $allowChange;
 
     /**
+     * @example S1
+     *
      * @var string
      */
     public $changeLevel;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $insName;
@@ -44,21 +54,29 @@ class DescribeActiveOperationTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
@@ -79,11 +97,15 @@ class DescribeActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskType;

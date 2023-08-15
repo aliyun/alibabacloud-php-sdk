@@ -9,106 +9,148 @@ use AlibabaCloud\Tea\Model;
 class RelateDbForHBaseHaRequest extends Model
 {
     /**
+     * @example bds-t4nj9v2x85******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hb-bp1w6krp539******
+     *
      * @var string
      */
     public $haActive;
 
     /**
+     * @example hb-t4naqsay5gn******-master1-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master3-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master2-001.hbase.singapore.rds.aliyuncs.com:2181:/hbase
+     *
      * @var string
      */
     public $haActiveClusterKey;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $haActiveDBType;
 
     /**
+     * @example /hbase
+     *
      * @var string
      */
     public $haActiveHbaseFsDir;
 
     /**
+     * @example hdfs://hb-t4naqsay5gn******-master1-001.hbase.rds.aliyuncs.com:8020,hb-t4naqsay5gn******-master2-001.hbase.rds.aliyuncs.com:8020
+     *
      * @var string
      */
     public $haActiveHdfsUri;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $haActivePassword;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $haActiveUser;
 
     /**
+     * @example HBase2x
+     *
      * @var string
      */
     public $haActiveVersion;
 
     /**
+     * @example CLUSTER
+     *
      * @var string
      */
     public $haMigrateType;
 
     /**
+     * @example hb-bp1bl7iqzka******
+     *
      * @var string
      */
     public $haStandby;
 
     /**
+     * @example hb-bp1w6krp539******-master1-001.hbase.singapore.rds.aliyuncs.com,hb-bp1w6krp539******-master3-001.hbase.singapore.rds.aliyuncs.com,hb-t4naqsay5gn******-master2-001.hbase.singapore.rds.aliyuncs.com:2181:/hbase
+     *
      * @var string
      */
     public $haStandbyClusterKey;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $haStandbyDBType;
 
     /**
+     * @example /hbase
+     *
      * @var string
      */
     public $haStandbyHbaseFsDir;
 
     /**
+     * @example hdfs://hb-bp1w6krp539******-master1-001.hbase.rds.aliyuncs.com:8020,hb-bp1w6krp539******-master2-001.hbase.rds.aliyuncs.com:8020
+     *
      * @var string
      */
     public $haStandbyHdfsUri;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $haStandbyPassword;
 
     /**
+     * @example root
+     *
      * @var string
      */
     public $haStandbyUser;
 
     /**
+     * @example HBase2x
+     *
      * @var string
      */
     public $haStandbyVersion;
 
     /**
+     * @example test,test1
+     *
      * @var string
      */
     public $haTables;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isActiveStandard;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isStandbyStandard;

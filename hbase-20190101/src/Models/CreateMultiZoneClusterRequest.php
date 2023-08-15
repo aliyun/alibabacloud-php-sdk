@@ -9,146 +9,204 @@ use AlibabaCloud\Tea\Model;
 class CreateMultiZoneClusterRequest extends Model
 {
     /**
+     * @example vsw-hangxzhouxb*****
+     *
      * @var string
      */
     public $arbiterVSwitchId;
 
     /**
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $arbiterZoneId;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $archVersion;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example dfh3sf5gslfksfk****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hbaseue_test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $coreDiskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $coreDiskType;
 
     /**
+     * @example hbase.sn1.medium
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $coreNodeCount;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $logDiskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $logDiskType;
 
     /**
+     * @example hbase.sn1.medium
+     *
      * @var string
      */
     public $logInstanceType;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $logNodeCount;
 
     /**
+     * @example hbase.sn1.medium
+     *
      * @var string
      */
     public $masterInstanceType;
 
     /**
+     * @example cn-hangzhou-bef-aliyun-com
+     *
      * @var string
      */
     public $multiZoneCombination;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example vsw-hangxzhouxe****
+     *
      * @var string
      */
     public $primaryVSwitchId;
 
     /**
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $primaryZoneId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-gg3f4f5d5g5w****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @example vsw-hangxzhouxf****
+     *
      * @var string
      */
     public $standbyVSwitchId;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $standbyZoneId;
 
     /**
+     * @example vpc-bp120k6ixs4eog****
+     *
      * @var string
      */
     public $vpcId;

@@ -10,171 +10,239 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
+     * @example open
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @example hb-bp1u0639js2h7****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @example open
+     *
      * @var string
      */
     public $coldStorageStatus;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $coreDiskCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $coreDiskSize;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $coreDiskType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $coreNodeCount;
 
     /**
+     * @example 2019-09-12T14:40:46
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 2019-09-12T14:40:46Z
+     *
      * @var string
      */
     public $createdTimeUTC;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2019-10-12T14:40:46
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 2019-10-12T14:40:46Z
+     *
      * @var string
      */
     public $expireTimeUTC;
 
     /**
+     * @example hb-bp1u0639js2h7****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isDeletionProtection;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isHa;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $majorVersion;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $masterDiskSize;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $masterDiskType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $masterInstanceType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $masterNodeCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $moduleId;
 
     /**
+     * @example 1.0
+     *
      * @var string
      */
     public $moduleStackVersion;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example 2980****2123
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-4f51d54g5****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example ACTIVATION
+     *
      * @var string
      */
     public $status;
@@ -185,16 +253,22 @@ class instance extends Model
     public $tags;
 
     /**
+     * @example vpc-bp120k6ixs4eoghz*****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-bp191ipotq****dbqf
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

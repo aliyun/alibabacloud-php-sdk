@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CreateRestorePlanRequest extends Model
 {
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $restoreAllTable;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $restoreByCopy;
 
     /**
+     * @example 2020-11-05T05:49:42Z
+     *
      * @var string
      */
     public $restoreToDate;
 
     /**
+     * @example test_ns:test_table/test_ns:test_table2
+     *
      * @var string
      */
     public $tables;
 
     /**
+     * @example ld-bp169l540vc6c****
+     *
      * @var string
      */
     public $targetClusterId;

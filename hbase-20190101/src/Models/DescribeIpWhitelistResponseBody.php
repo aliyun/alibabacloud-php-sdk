@@ -15,6 +15,8 @@ class DescribeIpWhitelistResponseBody extends Model
     public $groups;
 
     /**
+     * @example AFAA617B-3268-5883-982B-DB8EC8CC1F1B
+     *
      * @var string
      */
     public $requestId;

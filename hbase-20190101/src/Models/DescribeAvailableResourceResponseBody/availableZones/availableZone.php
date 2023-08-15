@@ -16,6 +16,8 @@ class availableZone extends Model
     public $masterResources;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
@@ -26,6 +28,8 @@ class availableZone extends Model
     public $supportedEngines;
 
     /**
+     * @example cn-shenzhen-e
+     *
      * @var string
      */
     public $zoneId;

@@ -15,26 +15,36 @@ class DescribeBackupsResponseBody extends Model
     public $backups;
 
     /**
+     * @example enable
+     *
      * @var string
      */
     public $enableStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A93CE373-0FDE-4CCB-9DBA-6700906825ED
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

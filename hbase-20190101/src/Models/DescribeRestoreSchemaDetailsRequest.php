@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreSchemaDetailsRequest extends Model
 {
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2020110514xxxx
+     *
      * @var string
      */
     public $restoreRecordId;

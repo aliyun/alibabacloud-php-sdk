@@ -15,6 +15,8 @@ class QueryXpackRelateDBResponseBody extends Model
     public $clusterList;
 
     /**
+     * @example 288E9010-36DD-499C-B4DA-61E4362DA4CC
+     *
      * @var string
      */
     public $requestId;

@@ -15,6 +15,8 @@ class DescribeMultiZoneAvailableRegionsResponseBody extends Model
     public $regions;
 
     /**
+     * @example F03BB273-45EE-4B6C-A329-A6E6A8D15856
+     *
      * @var string
      */
     public $requestId;

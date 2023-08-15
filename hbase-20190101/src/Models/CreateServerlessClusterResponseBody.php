@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateServerlessClusterResponseBody extends Model
 {
     /**
+     * @example sh-bp1a969y7681****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 23232453233*****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example *********
+     *
      * @var string
      */
     public $passWord;
 
     /**
+     * @example 3E19E345-101D-4014-946C-************
+     *
      * @var string
      */
     public $requestId;

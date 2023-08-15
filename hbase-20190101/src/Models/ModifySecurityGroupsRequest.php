@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupsRequest extends Model
 {
     /**
+     * @example hb-bp16f1441y6p2kv**
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example sg-t4ng4yyc916o81nu****,sg-x4gg4dyc9d6w********
+     *
      * @var string
      */
     public $securityGroupIds;

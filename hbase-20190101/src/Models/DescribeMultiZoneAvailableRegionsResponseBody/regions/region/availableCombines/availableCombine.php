@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class availableCombine extends Model
 {
     /**
+     * @example cn-shenzhen-****-aliyun
+     *
      * @var string
      */
     public $id;

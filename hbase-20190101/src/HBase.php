@@ -188,6 +188,8 @@ use AlibabaCloud\SDK\HBase\V20190101\Models\RestartInstanceRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\RestartInstanceResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchHbaseHaSlbRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchHbaseHaSlbResponse;
+use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchServiceRequest;
+use AlibabaCloud\SDK\HBase\V20190101\Models\SwitchServiceResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\HBase\V20190101\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\HBase\V20190101\Models\UnTagResourcesRequest;
@@ -211,49 +213,18 @@ class HBase extends OpenApiClient
         parent::__construct($config);
         $this->_endpointRule = 'regional';
         $this->_endpointMap  = [
-            'ap-northeast-2-pop'          => 'hbase.aliyuncs.com',
-            'ap-southeast-1'              => 'hbase.aliyuncs.com',
-            'cn-beijing'                  => 'hbase.aliyuncs.com',
-            'cn-beijing-finance-1'        => 'hbase.aliyuncs.com',
-            'cn-beijing-finance-pop'      => 'hbase.aliyuncs.com',
-            'cn-beijing-gov-1'            => 'hbase.aliyuncs.com',
-            'cn-beijing-nu16-b01'         => 'hbase.aliyuncs.com',
-            'cn-edge-1'                   => 'hbase.aliyuncs.com',
-            'cn-fujian'                   => 'hbase.aliyuncs.com',
-            'cn-haidian-cm12-c01'         => 'hbase.aliyuncs.com',
-            'cn-hangzhou'                 => 'hbase.aliyuncs.com',
-            'cn-hangzhou-bj-b01'          => 'hbase.aliyuncs.com',
-            'cn-hangzhou-finance'         => 'hbase.aliyuncs.com',
-            'cn-hangzhou-internal-prod-1' => 'hbase.aliyuncs.com',
-            'cn-hangzhou-internal-test-1' => 'hbase.aliyuncs.com',
-            'cn-hangzhou-internal-test-2' => 'hbase.aliyuncs.com',
-            'cn-hangzhou-internal-test-3' => 'hbase.aliyuncs.com',
-            'cn-hangzhou-test-306'        => 'hbase.aliyuncs.com',
-            'cn-hongkong'                 => 'hbase.aliyuncs.com',
-            'cn-hongkong-finance-pop'     => 'hbase.aliyuncs.com',
-            'cn-north-2-gov-1'            => 'hbase.aliyuncs.com',
-            'cn-qingdao'                  => 'hbase.aliyuncs.com',
-            'cn-qingdao-nebula'           => 'hbase.aliyuncs.com',
-            'cn-shanghai'                 => 'hbase.aliyuncs.com',
-            'cn-shanghai-et15-b01'        => 'hbase.aliyuncs.com',
-            'cn-shanghai-et2-b01'         => 'hbase.aliyuncs.com',
-            'cn-shanghai-finance-1'       => 'hbase.aliyuncs.com',
-            'cn-shanghai-inner'           => 'hbase.aliyuncs.com',
-            'cn-shanghai-internal-test-1' => 'hbase.aliyuncs.com',
-            'cn-shenzhen'                 => 'hbase.aliyuncs.com',
-            'cn-shenzhen-finance-1'       => 'hbase.aliyuncs.com',
-            'cn-shenzhen-inner'           => 'hbase.aliyuncs.com',
-            'cn-shenzhen-st4-d01'         => 'hbase.aliyuncs.com',
-            'cn-shenzhen-su18-b01'        => 'hbase.aliyuncs.com',
-            'cn-wuhan'                    => 'hbase.aliyuncs.com',
-            'cn-yushanfang'               => 'hbase.aliyuncs.com',
-            'cn-zhangbei-na61-b01'        => 'hbase.aliyuncs.com',
-            'cn-zhangjiakou-na62-a01'     => 'hbase.aliyuncs.com',
-            'cn-zhengzhou-nebula-1'       => 'hbase.aliyuncs.com',
-            'eu-west-1-oxs'               => 'hbase.ap-northeast-1.aliyuncs.com',
-            'rus-west-1-pop'              => 'hbase.ap-northeast-1.aliyuncs.com',
-            'us-east-1'                   => 'hbase.aliyuncs.com',
-            'us-west-1'                   => 'hbase.aliyuncs.com',
+            'ap-southeast-1'        => 'hbase.aliyuncs.com',
+            'cn-beijing'            => 'hbase.aliyuncs.com',
+            'cn-hangzhou'           => 'hbase.aliyuncs.com',
+            'cn-hangzhou-finance'   => 'hbase.aliyuncs.com',
+            'cn-hongkong'           => 'hbase.aliyuncs.com',
+            'cn-north-2-gov-1'      => 'hbase.aliyuncs.com',
+            'cn-qingdao'            => 'hbase.aliyuncs.com',
+            'cn-shanghai'           => 'hbase.aliyuncs.com',
+            'cn-shanghai-finance-1' => 'hbase.aliyuncs.com',
+            'cn-shenzhen'           => 'hbase.aliyuncs.com',
+            'cn-shenzhen-finance-1' => 'hbase.aliyuncs.com',
+            'cn-guangzhou'          => 'hbase.aliyuncs.com',
         ];
         $this->checkConfig($config);
         $this->_endpoint = $this->getEndpoint('hbase', $this->_regionId, $this->_endpointRule, $this->_network, $this->_suffix, $this->_endpointMap, $this->_endpoint);
@@ -738,6 +709,9 @@ class HBase extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
         if (!Utils::isUnset($request->resourceName)) {
             $query['ResourceName'] = $request->resourceName;
         }
@@ -1169,6 +1143,9 @@ class HBase extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->resourceName)) {
             $query['ResourceName'] = $request->resourceName;
@@ -5096,6 +5073,55 @@ class HBase extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->switchHbaseHaSlbWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SwitchServiceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return SwitchServiceResponse
+     */
+    public function switchServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->operate)) {
+            $query['Operate'] = $request->operate;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SwitchService',
+            'version'     => '2019-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SwitchServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SwitchServiceRequest $request
+     *
+     * @return SwitchServiceResponse
+     */
+    public function switchService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->switchServiceWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRecoverableTimeRangeRequest extends Model
 {
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $clusterId;

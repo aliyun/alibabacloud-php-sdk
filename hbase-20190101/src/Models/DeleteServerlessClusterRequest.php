@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DeleteServerlessClusterRequest extends Model
 {
     /**
+     * @example sh-bp1pj13wh9****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-shenzhen-e
+     *
      * @var string
      */
     public $zoneId;

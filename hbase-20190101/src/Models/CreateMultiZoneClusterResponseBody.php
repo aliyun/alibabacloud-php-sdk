@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateMultiZoneClusterResponseBody extends Model
 {
     /**
+     * @example ld-t4nn71xa0yn56****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 23232453****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 7F68E8F5-0377-4CF8-8B1D-FFFD6F5804D5
+     *
      * @var string
      */
     public $requestId;

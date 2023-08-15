@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityGroupsRequest extends Model
 {
     /**
+     * @example hb-bp161ax8i03c4uq**
+     *
      * @var string
      */
     public $clusterId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMultiZoneClusterRequest extends Model
 {
     /**
+     * @example ld-t4nn71xa0yn****
+     *
      * @var string
      */
     public $clusterId;

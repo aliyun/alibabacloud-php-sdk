@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class instance extends Model
 {
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example name_test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDefault;

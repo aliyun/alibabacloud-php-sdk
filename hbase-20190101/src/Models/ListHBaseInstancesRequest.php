@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListHBaseInstancesRequest extends Model
 {
     /**
+     * @example vpc-t4nx81tmlixcq5i****
+     *
      * @var string
      */
     public $vpcId;

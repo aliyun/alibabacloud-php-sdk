@@ -21,6 +21,8 @@ class DescribeBackupSummaryResponseBody extends Model
     public $incr;
 
     /**
+     * @example 168793CB-7B31-43E7-ADAB-FE3E8D584D6E
+     *
      * @var string
      */
     public $requestId;

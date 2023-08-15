@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

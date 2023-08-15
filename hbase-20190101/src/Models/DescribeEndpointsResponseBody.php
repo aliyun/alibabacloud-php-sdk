@@ -15,26 +15,36 @@ class DescribeEndpointsResponseBody extends Model
     public $connAddrs;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example F072593C-5234-5B56-9F63-3C7A3AD85D66
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example vsw-bp1foll427ze3d4ps****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp15s22y1a7sff5gj****
+     *
      * @var string
      */
     public $vpcId;

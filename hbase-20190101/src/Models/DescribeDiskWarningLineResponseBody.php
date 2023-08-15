@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskWarningLineResponseBody extends Model
 {
     /**
+     * @example 08DF8283-D290-4107-931E-7913D6D3480D
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $warningLine;

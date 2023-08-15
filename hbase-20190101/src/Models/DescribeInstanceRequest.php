@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceRequest extends Model
 {
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $clusterId;

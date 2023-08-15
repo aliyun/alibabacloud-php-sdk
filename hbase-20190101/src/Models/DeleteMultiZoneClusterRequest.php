@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteMultiZoneClusterRequest extends Model
 {
     /**
+     * @example d-t4nn71xa0yn56****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $immediateDeleteFlag;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @example hbase#hbase-site.xml#hbase.client.keyvalue.maxsize
+     *
      * @var string
      */
     public $configureName;
 
     /**
+     * @example INT
+     *
      * @var string
      */
     public $configureUnit;
 
     /**
+     * @example 10485760
+     *
      * @var string
      */
     public $defaultValue;
 
     /**
+     * @example hbase client keyvalue maxsize
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $needRestart;
 
     /**
+     * @example 10485760
+     *
      * @var string
      */
     public $runningValue;
 
     /**
+     * @example R[10485760,52428800]
+     *
      * @var string
      */
     public $valueRange;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @example hb-bp16o0pd52e3y582s
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hbase_test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isRelated;
 
     /**
+     * @example ..
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example ACTIVATION
+     *
      * @var string
      */
     public $status;

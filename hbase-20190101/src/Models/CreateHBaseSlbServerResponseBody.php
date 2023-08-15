@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateHBaseSlbServerResponseBody extends Model
 {
     /**
+     * @example 61FC5B21-87B0-41BC-9686-9DA395EB40B6
+     *
      * @var string
      */
     public $requestId;

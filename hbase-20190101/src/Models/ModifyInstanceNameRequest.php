@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNameRequest extends Model
 {
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example testhbaseone
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

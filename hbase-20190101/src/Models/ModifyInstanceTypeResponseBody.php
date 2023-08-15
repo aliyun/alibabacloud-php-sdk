@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTypeResponseBody extends Model
 {
     /**
+     * @example 123412341234123
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 3E19E345-101D-4014-946C-****
+     *
      * @var string
      */
     public $requestId;

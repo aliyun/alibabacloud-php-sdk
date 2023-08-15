@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskWarningLineRequest extends Model
 {
     /**
+     * @example hb-bp1bl7iqzkahmyxxxx
+     *
      * @var string
      */
     public $clusterId;

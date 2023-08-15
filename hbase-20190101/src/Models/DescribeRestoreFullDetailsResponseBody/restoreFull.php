@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class restoreFull extends Model
 {
     /**
+     * @example 1.2 kB
+     *
      * @var string
      */
     public $dataSize;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fail;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -35,16 +43,22 @@ class restoreFull extends Model
     public $restoreFullDetails;
 
     /**
+     * @example 0.00 MB/s
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $succeed;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTypeRequest extends Model
 {
     /**
+     * @example hb-bp1x940uh********
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hbase.sn1.8xlarge
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $masterInstanceType;

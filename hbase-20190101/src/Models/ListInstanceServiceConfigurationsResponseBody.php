@@ -15,21 +15,29 @@ class ListInstanceServiceConfigurationsResponseBody extends Model
     public $configureList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 5B381E36-BCA3-4377-8638-B65C236617D5
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 42
+     *
      * @var int
      */
     public $totalRecordCount;

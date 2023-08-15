@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceServiceConfigurationsRequest extends Model
 {
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;

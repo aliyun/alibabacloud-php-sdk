@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreIncrDetailRequest extends Model
 {
     /**
+     * @example ld-m5eyf188hw481xxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 2020110514xxxx
+     *
      * @var string
      */
     public $restoreRecordId;

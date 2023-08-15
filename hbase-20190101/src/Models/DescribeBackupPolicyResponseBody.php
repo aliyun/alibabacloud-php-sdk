@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyResponseBody extends Model
 {
     /**
+     * @example 10
+     *
      * @var string
      */
     public $backupRetentionPeriod;
 
     /**
+     * @example 18:00Z
+     *
      * @var string
      */
     public $preferredBackupEndTimeUTC;
 
     /**
+     * @example Friday
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @example 17:00Z
+     *
      * @var string
      */
     public $preferredBackupStartTimeUTC;
 
     /**
+     * @example 01:00-02:00
+     *
      * @var string
      */
     public $preferredBackupTime;
 
     /**
+     * @example 94AC38B6-7C6D-45B2-BC03-B8750071A482
+     *
      * @var string
      */
     public $requestId;

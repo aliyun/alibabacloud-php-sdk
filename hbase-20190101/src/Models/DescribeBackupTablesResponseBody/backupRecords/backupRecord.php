@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class backupRecord extends Model
 {
     /**
+     * @example 1.2 kB
+     *
      * @var string
      */
     public $dataSize;
 
     /**
+     * @example 2020-11-02T18:00:05Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 14/14
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @example 0.00 MB/s
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @example 2020-11-02T18:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example default:test1
+     *
      * @var string
      */
     public $table;

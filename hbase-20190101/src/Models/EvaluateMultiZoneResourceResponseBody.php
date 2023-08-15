@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EvaluateMultiZoneResourceResponseBody extends Model
 {
     /**
+     * @example FB703B69-D4D4-4879-B9FE-6A37F67C46FD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

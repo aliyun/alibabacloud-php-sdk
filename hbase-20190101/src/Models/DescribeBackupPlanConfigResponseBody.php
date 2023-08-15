@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPlanConfigResponseBody extends Model
 {
     /**
+     * @example 7
+     *
      * @var int
      */
     public $fullBackupCycle;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $minHFileBackupCount;
 
     /**
+     * @example 2020-11-09T18:00:00Z
+     *
      * @var string
      */
     public $nextFullBackupDate;
 
     /**
+     * @example 33A23201-6038-4A6A-B76A-61047EA04E6A
+     *
      * @var string
      */
     public $requestId;

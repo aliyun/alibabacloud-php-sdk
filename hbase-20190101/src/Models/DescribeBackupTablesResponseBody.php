@@ -16,16 +16,22 @@ class DescribeBackupTablesResponseBody extends Model
     public $backupRecords;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 01262E9C-B0CC-4663-82FA-D50173649F92
+     *
      * @var string
      */
     public $requestId;
@@ -36,6 +42,8 @@ class DescribeBackupTablesResponseBody extends Model
     public $tables;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetMultimodeCmsUrlResponseBody extends Model
 {
     /**
+     * @example hb-t4naqsay5gn******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example htpp://***********
+     *
      * @var string
      */
     public $multimodCmsUrl;
 
     /**
+     * @example 44183B05-852E-4716-B902-52977140190F
+     *
      * @var string
      */
     public $requestId;

@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class EnableHBaseueModuleRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example bds-bp174pm3tsk3****
+     *
      * @var string
      */
     public $bdsId;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $hbaseueClusterId;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $masterInstanceType;
 
     /**
+     * @example cluster-name
+     *
      * @var string
      */
     public $moduleClusterName;
 
     /**
+     * @example solr
+     *
      * @var string
      */
     public $moduleTypeName;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example vpc-bp120k6ixs4eog*****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-bp191ipotqj1ssyl*****
+     *
      * @var string
      */
     public $vswitchId;
 
     /**
+     * @example cn-shenzhen-e
+     *
      * @var string
      */
     public $zoneId;

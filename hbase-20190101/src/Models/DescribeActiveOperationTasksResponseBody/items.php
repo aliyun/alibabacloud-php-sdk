@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $allowCancel;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $allowChange;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $changeLevel;
 
     /**
+     * @example Risk repairment
+     *
      * @var string
      */
     public $changeLevelEn;
@@ -34,36 +42,50 @@ class items extends Model
     public $changeLevelZh;
 
     /**
+     * @example 2022-02-15 23:59:59
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example cn-shanghai-et-a
+     *
      * @var string
      */
     public $currentAVZ;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $dbVersion;
 
     /**
+     * @example 2022-02-19 23:59:59
+     *
      * @var string
      */
     public $deadline;
 
     /**
+     * @example 111111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example Transient instance disconnection
+     *
      * @var string
      */
     public $impactEn;
@@ -74,41 +96,57 @@ class items extends Model
     public $impactZh;
 
     /**
+     * @example --
+     *
      * @var string
      */
     public $insComment;
 
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $insName;
 
     /**
+     * @example 2022-02-19 14:00:00
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 14:00:00
+     *
      * @var string
      */
     public $prepareInterval;
 
     /**
+     * @example cn-hanghzou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example --
+     *
      * @var string
      */
     public $resultInfo;
 
     /**
+     * @example 2022-02-19 10:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $status;
@@ -119,16 +157,22 @@ class items extends Model
     public $subInsNames;
 
     /**
+     * @example 2022-02-19 14:00:00
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskType;
 
     /**
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskTypeEn;

@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class restoreSchemaDetail extends Model
 {
     /**
+     * @example 2020-11-05T06:45:18Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example null
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 2020-11-05T06:45:14Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example default:test1
+     *
      * @var string
      */
     public $table;

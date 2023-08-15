@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class uiProxyConnAddrInfo extends Model
 {
     /**
+     * @example ld-bp150tns0sjxs****-master1-001.hbaseue.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connAddr;
 
     /**
+     * @example 443
+     *
      * @var string
      */
     public $connAddrPort;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $netType;

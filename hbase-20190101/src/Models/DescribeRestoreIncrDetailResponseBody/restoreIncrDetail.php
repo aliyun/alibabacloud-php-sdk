@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class restoreIncrDetail extends Model
 {
     /**
+     * @example 2020-11-05T06:45:44Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 0/0
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @example 0 ms
+     *
      * @var string
      */
     public $restoreDelay;
 
     /**
+     * @example 2020-11-02T18:00:00Z
+     *
      * @var string
      */
     public $restoreStartTs;
 
     /**
+     * @example \"\"
+     *
      * @var string
      */
     public $restoredTs;
 
     /**
+     * @example 2020-11-05T06:45:44Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $state;

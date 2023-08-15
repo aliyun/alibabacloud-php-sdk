@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeMultiZoneAvailableResourceRequest extends Model
 {
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-bef-aliyun
+     *
      * @var string
      */
     public $zoneCombination;

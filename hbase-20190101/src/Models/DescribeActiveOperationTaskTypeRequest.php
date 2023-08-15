@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskTypeRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $isHistory;

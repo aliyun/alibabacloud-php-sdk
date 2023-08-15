@@ -9,106 +9,148 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hbase_test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example 1024
+     *
      * @var int
      */
     public $coldStorageSize;
 
     /**
+     * @example hbase.sn1.medium
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example 0d2470df-da7b-4786-b981-9a164dae****
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example hbase.sn1.medium
+     *
      * @var string
      */
     public $masterInstanceType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-j4d53glb3****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 116.62.XX.XX/24
+     *
      * @var string
      */
     public $securityIPList;
 
     /**
+     * @example vsw-bp191otqj1ssyl****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp120k6ixs4eog****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

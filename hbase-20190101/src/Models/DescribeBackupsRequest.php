@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @example job-xxxx
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 2020-12-23 23:59:59
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 2020-12-23T15:59:59Z
+     *
      * @var string
      */
     public $endTimeUTC;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @example 2020-12-13 00:00:00
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 2020-12-12T16:00:00Z
+     *
      * @var string
      */
     public $startTimeUTC;

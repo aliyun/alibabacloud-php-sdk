@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class haSlbConn extends Model
 {
     /**
+     * @example Standby
+     *
      * @var string
      */
     public $hbaseType;
 
     /**
+     * @example ha-v21tmnxjwh2yuy1il-phoenix.bds.9b78df04-b.rds.aliyuncs.com:8765
+     *
      * @var string
      */
     public $slbConnAddr;
 
     /**
+     * @example phoenix
+     *
      * @var string
      */
     public $slbType;

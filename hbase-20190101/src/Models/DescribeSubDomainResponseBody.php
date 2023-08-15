@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSubDomainResponseBody extends Model
 {
     /**
+     * @example F4208C83-B9BC-4A64-A739-8F88E98DA469
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example cn-hangzhou-h-aliyun
+     *
      * @var string
      */
     public $subDomain;

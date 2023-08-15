@@ -15,6 +15,8 @@ class supportedStorageType extends Model
     public $coreResources;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $storageType;

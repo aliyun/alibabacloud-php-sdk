@@ -15,6 +15,8 @@ class serviceConnAddr extends Model
     public $connAddrInfo;
 
     /**
+     * @example PhoenixConnAddr
+     *
      * @var string
      */
     public $connType;

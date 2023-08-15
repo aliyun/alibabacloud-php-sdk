@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AllocatePublicNetworkAddressRequest extends Model
 {
     /**
+     * @example 83b2b5e117a5b8bce0fae88d90576a84_6452320_82718582
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hb-t4naqsay5gn******
+     *
      * @var string
      */
     public $clusterId;

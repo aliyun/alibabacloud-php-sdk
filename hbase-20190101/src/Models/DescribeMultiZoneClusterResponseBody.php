@@ -11,181 +11,258 @@ use AlibabaCloud\Tea\Model;
 class DescribeMultiZoneClusterResponseBody extends Model
 {
     /**
+     * @example vsw-t4nax9mp3wk0czn****
+     *
      * @var string
      */
     public $arbiterVSwitchIds;
 
     /**
+     * @example ap-southeast-1c
+     *
      * @var string
      */
     public $arbiterZoneId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenewal;
 
     /**
+     * @example ld-t4nn71xa0yn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example mz_test
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @var int
+     */
+    public $coldStorageSize;
+
+    /**
+     * @example 4
+     *
      * @var string
      */
     public $coreDiskCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $coreDiskSize;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $coreDiskType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $coreNodeCount;
 
     /**
+     * @example 2020-10-15T18:04:52
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example 2020-10-15T10:04:52Z
+     *
      * @var string
      */
     public $createdTimeUTC;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example 2a****
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example CloudDisk
+     *
      * @var string
      */
     public $encryptionType;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2020-11-16T08:00:00
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 2020-11-16T00:00:00Z
+     *
      * @var string
      */
     public $expireTimeUTC;
 
     /**
+     * @example ld-t4nn71xa0yn****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example mz_test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isDeletionProtection;
 
     /**
+     * @example 4
+     *
      * @var string
      */
     public $logDiskCount;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $logDiskSize;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $logDiskType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $logInstanceType;
 
     /**
+     * @example 4
+     *
      * @var int
      */
     public $logNodeCount;
 
     /**
+     * @example 06:00:00
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 02:00:00
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $majorVersion;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $masterDiskSize;
 
     /**
+     * @example cloud_efficiency
+     *
      * @var string
      */
     public $masterDiskType;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $masterInstanceType;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $masterNodeCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $moduleId;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $moduleStackVersion;
 
     /**
+     * @example ap-southeast-1-abc-aliyun
+     *
      * @var string
      */
     public $multiZoneCombination;
@@ -196,56 +273,78 @@ class DescribeMultiZoneClusterResponseBody extends Model
     public $multiZoneInstanceModels;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @example ld-fls1gf31y5s35****
+     *
      * @var string
      */
     public $parentId;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example vsw-t4n3s1zd2gtidg****
+     *
      * @var string
      */
     public $primaryVSwitchIds;
 
     /**
+     * @example ap-southeast-1a
+     *
      * @var string
      */
     public $primaryZoneId;
 
     /**
+     * @example ap-southeast-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example A02C0E6D-3A47-4FA0-BA7E-60793CE256DA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-lk51f5fer315e****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example vsw-t4nvvk7xur3rdi****
+     *
      * @var string
      */
     public $standbyVSwitchIds;
 
     /**
+     * @example ap-southeast-1b
+     *
      * @var string
      */
     public $standbyZoneId;
 
     /**
+     * @example ACTIVATION
+     *
      * @var string
      */
     public $status;
@@ -256,6 +355,8 @@ class DescribeMultiZoneClusterResponseBody extends Model
     public $tags;
 
     /**
+     * @example vpc-t4nx81tmlixcq5****
+     *
      * @var string
      */
     public $vpcId;
@@ -265,6 +366,7 @@ class DescribeMultiZoneClusterResponseBody extends Model
         'autoRenewal'             => 'AutoRenewal',
         'clusterId'               => 'ClusterId',
         'clusterName'             => 'ClusterName',
+        'coldStorageSize'         => 'ColdStorageSize',
         'coreDiskCount'           => 'CoreDiskCount',
         'coreDiskSize'            => 'CoreDiskSize',
         'coreDiskType'            => 'CoreDiskType',
@@ -333,6 +435,9 @@ class DescribeMultiZoneClusterResponseBody extends Model
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->coldStorageSize) {
+            $res['ColdStorageSize'] = $this->coldStorageSize;
         }
         if (null !== $this->coreDiskCount) {
             $res['CoreDiskCount'] = $this->coreDiskCount;
@@ -495,6 +600,9 @@ class DescribeMultiZoneClusterResponseBody extends Model
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['ColdStorageSize'])) {
+            $model->coldStorageSize = $map['ColdStorageSize'];
         }
         if (isset($map['CoreDiskCount'])) {
             $model->coreDiskCount = $map['CoreDiskCount'];

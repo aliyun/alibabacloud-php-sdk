@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyMultiZoneClusterNodeTypeResponseBody extends Model
 {
     /**
+     * @example 12341234123****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 06CF7A6F-A81C-431D-BACD-793F24A67C54
+     *
      * @var string
      */
     public $requestId;

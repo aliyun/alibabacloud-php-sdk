@@ -15,21 +15,29 @@ class QueryHBaseHaDBResponseBody extends Model
     public $clusterList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 963355AD-A3B1-4654-AFFC-B5186EB8F889
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

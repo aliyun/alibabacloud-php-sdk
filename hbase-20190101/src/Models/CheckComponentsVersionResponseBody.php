@@ -15,6 +15,8 @@ class CheckComponentsVersionResponseBody extends Model
     public $components;
 
     /**
+     * @example E3537EB4-1100-41CA-A147-C74CCC8BB12C
+     *
      * @var string
      */
     public $requestId;

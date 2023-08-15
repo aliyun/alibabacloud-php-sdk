@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class connAddrInfo extends Model
 {
     /**
+     * @example ld-bp150tns0sjxs****-proxy-hbaseue-pub.hbaseue.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connAddr;
 
     /**
+     * @example 9190
+     *
      * @var string
      */
     public $connAddrPort;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $netType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EnableHBaseueModuleResponseBody extends Model
 {
     /**
+     * @example ld-bp150tns0sjxs****-m1-ps
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 21474915573****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 407075EA-47F5-5A2D-888F-C1F90B8F3FCA
+     *
      * @var string
      */
     public $requestId;

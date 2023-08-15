@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class component extends Model
 {
     /**
+     * @example HBASE
+     *
      * @var string
      */
     public $component;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isLatestVersion;

@@ -16,6 +16,8 @@ class coreResource extends Model
     public $DBInstanceStorageRange;
 
     /**
+     * @example hbase.sn2.2xlarge
+     *
      * @var string
      */
     public $instanceType;
@@ -26,6 +28,8 @@ class coreResource extends Model
     public $instanceTypeDetail;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $maxCoreCount;

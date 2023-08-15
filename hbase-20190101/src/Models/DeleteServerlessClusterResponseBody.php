@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteServerlessClusterResponseBody extends Model
 {
     /**
+     * @example 46950E74-59C4-4E3E-9B38-A33B*********
+     *
      * @var string
      */
     public $requestId;

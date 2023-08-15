@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpgradeMinorVersionRequest extends Model
 {
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example HADOOP
+     *
      * @var string
      */
     public $components;

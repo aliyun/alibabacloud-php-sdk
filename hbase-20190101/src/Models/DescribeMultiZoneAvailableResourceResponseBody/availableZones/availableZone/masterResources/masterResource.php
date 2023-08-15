@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class masterResource extends Model
 {
     /**
+     * @example hbase.sn2.large
+     *
      * @var string
      */
     public $instanceType;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class restoreSummary extends Model
 {
     /**
+     * @example 2020-11-05T06:45:51Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 20201105144514
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @example 2020-11-04T05:15:00Z
+     *
      * @var string
      */
     public $restoreToDate;
 
     /**
+     * @example 2020-11-05T06:45:14Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @example ld-m5e2t34kr54wgxxxx
+     *
      * @var string
      */
     public $targetCluster;

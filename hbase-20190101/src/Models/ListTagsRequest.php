@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagsRequest extends Model
 {
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

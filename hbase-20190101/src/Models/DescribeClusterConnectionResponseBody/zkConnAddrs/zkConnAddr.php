@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class zkConnAddr extends Model
 {
     /**
+     * @example ld-bp150tns0sjxs****-master1-001.hbaseue.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connAddr;
 
     /**
+     * @example 2181
+     *
      * @var string
      */
     public $connAddrPort;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $netType;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
+     * @example 2020-11-02T18:00:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1.2 kB
+     *
      * @var string
      */
     public $dataSize;
 
     /**
+     * @example 2020-11-02T18:02:04Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @example 1/1
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @example 20201103020000
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @example 0.00 MB/s
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;

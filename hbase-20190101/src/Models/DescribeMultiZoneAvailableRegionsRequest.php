@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMultiZoneAvailableRegionsRequest extends Model
 {
     /**
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;

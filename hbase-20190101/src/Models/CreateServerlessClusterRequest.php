@@ -9,91 +9,127 @@ use AlibabaCloud\Tea\Model;
 class CreateServerlessClusterRequest extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $autoRenewPeriod;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $clientType;
 
     /**
+     * @example serverless-name
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @example cloud_ssd
+     *
      * @var string
      */
     public $diskType;
 
     /**
+     * @example serverlesshbase
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-j4d53glb3****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example 1000
+     *
      * @var int
      */
     public $serverlessCapability;
 
     /**
+     * @example serverless.small
+     *
      * @var string
      */
     public $serverlessSpec;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $serverlessStorage;
 
     /**
+     * @example vsw-bp191ipotqj1ssyl*****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp120k6ixs4eog****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example cn-hangzhou-f
+     *
      * @var string
      */
     public $zoneId;

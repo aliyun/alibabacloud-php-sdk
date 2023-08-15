@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DBInstanceStorageRange extends Model
 {
     /**
+     * @example 64000
+     *
      * @var int
      */
     public $maxSize;
 
     /**
+     * @example 400
+     *
      * @var int
      */
     public $minSize;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $stepSize;

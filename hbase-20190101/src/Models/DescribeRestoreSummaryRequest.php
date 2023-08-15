@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreSummaryRequest extends Model
 {
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

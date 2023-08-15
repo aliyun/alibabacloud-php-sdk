@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyMultiZoneClusterNodeTypeRequest extends Model
 {
     /**
+     * @example ld-dj45g7d6rbrd****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hbase.sn1.large
+     *
      * @var string
      */
     public $coreInstanceType;
 
     /**
+     * @example hbase.sn1.2xlarge
+     *
      * @var string
      */
     public $logInstanceType;
 
     /**
+     * @example hbase.sn1.8xlarge
+     *
      * @var string
      */
     public $masterInstanceType;

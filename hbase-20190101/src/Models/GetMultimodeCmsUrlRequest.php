@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetMultimodeCmsUrlRequest extends Model
 {
     /**
+     * @example hb-t4naqsay5gn******
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

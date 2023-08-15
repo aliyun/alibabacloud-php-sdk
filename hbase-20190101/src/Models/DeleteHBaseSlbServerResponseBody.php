@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteHBaseSlbServerResponseBody extends Model
 {
     /**
+     * @example 7242130A-82CF-49BF-AB32-30DCB819EBA6
+     *
      * @var string
      */
     public $requestId;

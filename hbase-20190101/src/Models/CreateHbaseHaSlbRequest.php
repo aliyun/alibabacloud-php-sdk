@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateHbaseHaSlbRequest extends Model
 {
     /**
+     * @example bds-t4n3496whj23****
+     *
      * @var string
      */
     public $bdsId;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example ha-v21tmnxjwh2yu****
+     *
      * @var string
      */
     public $haId;
 
     /**
+     * @example thrift
+     *
      * @var string
      */
     public $haTypes;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $hbaseType;

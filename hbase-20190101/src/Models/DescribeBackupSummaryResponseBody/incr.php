@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class incr extends Model
 {
     /**
+     * @example 266 B
+     *
      * @var string
      */
     public $backupLogSize;
 
     /**
+     * @example 2020-11-05T01:20:31Z
+     *
      * @var string
      */
     public $pos;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $queueLogNum;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $runningLogNum;
 
     /**
+     * @example 0.00 MB/s
+     *
      * @var string
      */
     public $speed;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

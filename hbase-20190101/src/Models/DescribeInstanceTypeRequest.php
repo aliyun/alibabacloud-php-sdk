@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTypeRequest extends Model
 {
     /**
+     * @example hbase.n2.4xlarge
+     *
      * @var string
      */
     public $instanceType;

@@ -15,6 +15,8 @@ class slbConnAddr extends Model
     public $connAddrInfo;
 
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $slbType;

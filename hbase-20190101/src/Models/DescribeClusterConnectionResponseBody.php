@@ -14,21 +14,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterConnectionResponseBody extends Model
 {
     /**
+     * @example hbaseue
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $isMultimod;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @example 70220050-A465-5DCC-8C0C-C38C6E3DB24D
+     *
      * @var string
      */
     public $requestId;
@@ -54,11 +62,15 @@ class DescribeClusterConnectionResponseBody extends Model
     public $uiProxyConnAddrInfo;
 
     /**
+     * @example vsw-bp1foll427ze3d4ps****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example vpc-bp15s22y1a7sff5gj****
+     *
      * @var string
      */
     public $vpcId;

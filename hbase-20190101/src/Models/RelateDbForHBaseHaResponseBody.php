@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RelateDbForHBaseHaResponseBody extends Model
 {
     /**
+     * @example DC654531-0799-4502-AFA5-80EE1C16829A
+     *
      * @var string
      */
     public $requestId;

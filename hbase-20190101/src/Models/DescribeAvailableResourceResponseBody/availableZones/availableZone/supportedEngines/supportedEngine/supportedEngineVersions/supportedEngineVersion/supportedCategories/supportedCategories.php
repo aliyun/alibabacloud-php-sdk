@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class supportedCategories extends Model
 {
     /**
+     * @example cluster
+     *
      * @var string
      */
     public $category;

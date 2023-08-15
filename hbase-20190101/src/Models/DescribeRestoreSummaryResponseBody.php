@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreSummaryResponseBody extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $hasMoreRestoreRecord;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example AE639ED7-F0F3-4A71-911E-CF8EC088816E
+     *
      * @var string
      */
     public $requestId;
@@ -35,6 +43,8 @@ class DescribeRestoreSummaryResponseBody extends Model
     public $rescords;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

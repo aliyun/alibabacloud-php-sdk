@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class XpackRelateDBRequest extends Model
 {
     /**
+     * @example ap-bp1qtz9rcbbt3****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example hb-bp16o0pd52e3****
+     *
      * @var string
      */
     public $dbClusterIds;
 
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $relateDbType;

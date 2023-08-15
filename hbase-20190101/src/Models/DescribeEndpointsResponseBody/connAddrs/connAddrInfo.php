@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class connAddrInfo extends Model
 {
     /**
+     * @example ****
+     *
      * @var string
      */
     public $connAddr;
 
     /**
+     * @example ****
+     *
      * @var string
      */
     public $connAddrPort;
 
     /**
+     * @example zkConn
+     *
      * @var string
      */
     public $connType;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $netType;

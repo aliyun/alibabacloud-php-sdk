@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CheckComponentsVersionRequest extends Model
 {
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example HBASE,HADOOP
+     *
      * @var string
      */
     public $components;

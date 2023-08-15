@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @example 1
+     *
      * @var string
      */
     public $backupDBNames;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $backupDownloadURL;
 
     /**
+     * @example 2020-12-23 17:25:24
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @example 2020-12-23T09:25:24Z
+     *
      * @var string
      */
     public $backupEndTimeUTC;
 
     /**
+     * @example 511876087
+     *
      * @var int
      */
     public $backupId;
 
     /**
+     * @example P
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @example 0.00
+     *
      * @var string
      */
     public $backupSize;
 
     /**
+     * @example 2020-12-23 17:25:08
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @example 2020-12-23T09:25:08Z
+     *
      * @var string
      */
     public $backupStartTimeUTC;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @example F
+     *
      * @var string
      */
     public $backupType;

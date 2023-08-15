@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeSpec extends Model
 {
     /**
+     * @example 8
+     *
      * @var int
      */
     public $cpuSize;
 
     /**
+     * @example hbase.n2.4xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example 16
+     *
      * @var int
      */
     public $memSize;

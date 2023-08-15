@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeColdStorageResponseBody extends Model
 {
     /**
+     * @example ld-bp1uoihlf82e8****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 800
+     *
      * @var string
      */
     public $coldStorageSize;
 
     /**
+     * @example BdsColdStorage
+     *
      * @var string
      */
     public $coldStorageType;
 
     /**
+     * @example 20.00
+     *
      * @var string
      */
     public $coldStorageUseAmount;
 
     /**
+     * @example 20.00
+     *
      * @var string
      */
     public $coldStorageUsePercent;
 
     /**
+     * @example open
+     *
      * @var string
      */
     public $openStatus;
 
     /**
+     * @example POSTPAY
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example DCB9479E-F05F-4D1C-AFB7-C639B87764B7
+     *
      * @var string
      */
     public $requestId;

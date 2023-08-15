@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class rescord extends Model
 {
     /**
+     * @example 1/1
+     *
      * @var string
      */
     public $bulkLoadProcess;
 
     /**
+     * @example 2020-11-05T06:45:14Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 2020-11-05T06:45:51Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @example 1/1
+     *
      * @var string
      */
     public $hfileRestoreProcess;
 
     /**
+     * @example 0/0
+     *
      * @var string
      */
     public $logProcess;
 
     /**
+     * @example 20201105144514
+     *
      * @var string
      */
     public $recordId;
 
     /**
+     * @example 1/1
+     *
      * @var string
      */
     public $schemaProcess;
 
     /**
+     * @example SUCCEEDED
+     *
      * @var string
      */
     public $status;

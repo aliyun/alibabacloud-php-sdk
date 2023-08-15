@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateHBaseSlbServerRequest extends Model
 {
     /**
+     * @example xxxxx-xxxxx-xxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example thrift
+     *
      * @var string
      */
     public $slbServer;

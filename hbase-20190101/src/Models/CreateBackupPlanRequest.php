@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupPlanRequest extends Model
 {
     /**
+     * @example ld-wz94lbcqc****4x93
+     *
      * @var string
      */
     public $clusterId;

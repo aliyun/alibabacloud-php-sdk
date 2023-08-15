@@ -15,6 +15,8 @@ class supportedEngineVersion extends Model
     public $supportedCategories;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $version;

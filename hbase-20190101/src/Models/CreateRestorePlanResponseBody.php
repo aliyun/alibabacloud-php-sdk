@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRestorePlanResponseBody extends Model
 {
     /**
+     * @example A0598673-EB6E-4F6D-9961-E0F2012090C0
+     *
      * @var string
      */
     public $requestId;

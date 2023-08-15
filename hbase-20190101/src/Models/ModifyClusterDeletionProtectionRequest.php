@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterDeletionProtectionRequest extends Model
 {
     /**
+     * @example ld-****************
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $protection;

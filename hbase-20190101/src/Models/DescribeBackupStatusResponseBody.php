@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupStatusResponseBody extends Model
 {
     /**
+     * @example opened
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @example bds-m5e54q06ceyhxxxx
+     *
      * @var string
      */
     public $bdsClusterId;
 
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example F7E71430-A825-470A-B40B-DF3F3AAC9BEE
+     *
      * @var string
      */
     public $requestId;

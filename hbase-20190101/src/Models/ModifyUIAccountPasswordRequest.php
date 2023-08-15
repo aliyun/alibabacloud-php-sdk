@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyUIAccountPasswordRequest extends Model
 {
     /**
+     * @example test01
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example **********
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example ld-bp150tns0sjxs****
+     *
      * @var string
      */
     public $clusterId;

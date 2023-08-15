@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeRestoreIncrDetailResponseBody extends Model
 {
     /**
+     * @example D0FE2717-E194-465A-B27B-7373F96E580B
+     *
      * @var string
      */
     public $requestId;

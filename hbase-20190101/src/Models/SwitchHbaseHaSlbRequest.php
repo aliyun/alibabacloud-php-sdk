@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class SwitchHbaseHaSlbRequest extends Model
 {
     /**
+     * @example bds-t4n3496whj23ia4k
+     *
      * @var string
      */
     public $bdsId;
 
     /**
+     * @example ha-v21tmnxjwh2yuy1il
+     *
      * @var string
      */
     public $haId;
 
     /**
+     * @example thrift
+     *
      * @var string
      */
     public $haTypes;
 
     /**
+     * @example Active
+     *
      * @var string
      */
     public $hbaseType;

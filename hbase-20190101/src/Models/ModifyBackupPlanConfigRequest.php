@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPlanConfigRequest extends Model
 {
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 7
+     *
      * @var string
      */
     public $fullBackupCycle;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $minHFileBackupCount;
 
     /**
+     * @example 2020-11-09T18:00:00Z
+     *
      * @var string
      */
     public $nextFullBackupDate;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $tables;

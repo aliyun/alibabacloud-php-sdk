@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class thriftConn extends Model
 {
     /**
+     * @example hb-bp1u0639js2h7****-proxy-thrift.hbase.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connAddr;
 
     /**
+     * @example 9099
+     *
      * @var string
      */
     public $connAddrPort;
 
     /**
+     * @example 2
+     *
      * @var string
      */
     public $netType;

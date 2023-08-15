@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ResizeMultiZoneClusterNodeCountResponseBody extends Model
 {
     /**
+     * @example 1234123412****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example E2B7E9DA-1575-4B9D-A0E4-9468BAC
+     *
      * @var string
      */
     public $requestId;

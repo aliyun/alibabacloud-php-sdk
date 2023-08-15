@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @example hb-bp16o0pd52e3y****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $immediateDeleteFlag;

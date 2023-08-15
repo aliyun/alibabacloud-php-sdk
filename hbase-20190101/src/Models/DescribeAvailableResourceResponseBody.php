@@ -15,6 +15,8 @@ class DescribeAvailableResourceResponseBody extends Model
     public $availableZones;
 
     /**
+     * @example EA76F208-E334-592A-A0C6-41E15EC87ED0
+     *
      * @var string
      */
     public $requestId;

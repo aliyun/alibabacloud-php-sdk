@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskTypeResponseBody extends Model
 {
     /**
+     * @example EC7E27FC-58F8-4722-89CF-D1B6B0971956
+     *
      * @var string
      */
     public $requestId;

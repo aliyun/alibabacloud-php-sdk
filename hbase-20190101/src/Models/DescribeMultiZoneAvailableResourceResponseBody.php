@@ -15,6 +15,8 @@ class DescribeMultiZoneAvailableResourceResponseBody extends Model
     public $availableZones;
 
     /**
+     * @example B2EEBBA9-C627-4415-81A0-B77BC54F1D52
+     *
      * @var string
      */
     public $requestId;

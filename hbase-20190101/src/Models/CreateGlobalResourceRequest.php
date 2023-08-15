@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalResourceRequest extends Model
 {
     /**
+     * @example xxxxx-xxxxx-xxxxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example hb-t4naqsay5gn****
+     *
      * @var string
      */
     public $clusterId;
@@ -21,15 +25,25 @@ class CreateGlobalResourceRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @example PubPhoenixSLBQueryServerVip
+     *
+     * @var string
+     */
     public $resourceName;
 
     /**
+     * @example GLOBAL_VIP
+     *
      * @var string
      */
     public $resourceType;
     protected $_name = [
         'clientToken'  => 'ClientToken',
         'clusterId'    => 'ClusterId',
+        'regionId'     => 'RegionId',
         'resourceName' => 'ResourceName',
         'resourceType' => 'ResourceType',
     ];
@@ -46,6 +60,9 @@ class CreateGlobalResourceRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
@@ -70,6 +87,9 @@ class CreateGlobalResourceRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];

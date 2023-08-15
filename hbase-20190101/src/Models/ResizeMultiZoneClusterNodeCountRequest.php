@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class ResizeMultiZoneClusterNodeCountRequest extends Model
 {
     /**
+     * @example vsw-hangxzhouxb*****
+     *
      * @var string
      */
     public $arbiterVSwitchId;
 
     /**
+     * @example ld-f5d8d6s4s2a1****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $coreNodeCount;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $logNodeCount;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $primaryCoreNodeCount;
 
     /**
+     * @example vsw-hangxzhouxe*****
+     *
      * @var string
      */
     public $primaryVSwitchId;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $standbyCoreNodeCount;
 
     /**
+     * @example vsw-hangxzhouxf****
+     *
      * @var string
      */
     public $standbyVSwitchId;

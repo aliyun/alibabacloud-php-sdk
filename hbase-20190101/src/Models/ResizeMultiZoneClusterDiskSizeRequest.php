@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ResizeMultiZoneClusterDiskSizeRequest extends Model
 {
     /**
+     * @example ld-f5d6vc2r8d6****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 480
+     *
      * @var int
      */
     public $coreDiskSize;
 
     /**
+     * @example 440
+     *
      * @var int
      */
     public $logDiskSize;

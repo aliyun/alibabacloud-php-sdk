@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterResponseBody extends Model
 {
     /**
+     * @example hb-bp1hy2sjf8gd****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 23232069786****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 3E19E345-101D-4014-946C-A205
+     *
      * @var string
      */
     public $requestId;

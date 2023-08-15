@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMaintainTimeRequest extends Model
 {
     /**
+     * @example ld-bp1b**6jco89****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 06:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 02:00Z
+     *
      * @var string
      */
     public $maintainStartTime;

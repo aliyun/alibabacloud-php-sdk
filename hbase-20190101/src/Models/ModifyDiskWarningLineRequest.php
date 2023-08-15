@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskWarningLineRequest extends Model
 {
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 80
+     *
      * @var int
      */
     public $warningLine;

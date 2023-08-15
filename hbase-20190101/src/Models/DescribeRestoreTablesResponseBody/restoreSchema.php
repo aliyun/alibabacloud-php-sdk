@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class restoreSchema extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $fail;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -30,11 +36,15 @@ class restoreSchema extends Model
     public $restoreSchemaDetails;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $succeed;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $total;

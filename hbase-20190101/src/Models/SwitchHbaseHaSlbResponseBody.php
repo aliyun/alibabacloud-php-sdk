@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SwitchHbaseHaSlbResponseBody extends Model
 {
     /**
+     * @example C9D568D9-A59C-4AF2-8FBB-F086A841D58E
+     *
      * @var string
      */
     public $requestId;

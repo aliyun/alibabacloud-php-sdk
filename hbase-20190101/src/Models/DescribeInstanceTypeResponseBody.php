@@ -15,6 +15,8 @@ class DescribeInstanceTypeResponseBody extends Model
     public $instanceTypeSpecList;
 
     /**
+     * @example DD23BBB4-64C2-42A4-B2E2-7E56C7AA815A
+     *
      * @var string
      */
     public $requestId;

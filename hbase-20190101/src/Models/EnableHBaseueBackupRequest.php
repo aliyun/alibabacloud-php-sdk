@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class EnableHBaseueBackupRequest extends Model
 {
     /**
+     * @example xxx
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example 800
+     *
      * @var int
      */
     public $coldStorageSize;
 
     /**
+     * @example ld-m5eznlga4k5bcxxxx
+     *
      * @var string
      */
     public $hbaseueClusterId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalResourceResponseBody extends Model
 {
     /**
+     * @example 1AB9ABDF-7E1E-44AD-8610-70A005115DD1
+     *
      * @var string
      */
     public $requestId;

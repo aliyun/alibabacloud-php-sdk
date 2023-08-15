@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class supportedEngine extends Model
 {
     /**
+     * @example hbase
+     *
      * @var string
      */
     public $engine;

@@ -10,16 +10,24 @@ use AlibabaCloud\Tea\Model;
 class cluster extends Model
 {
     /**
+     * @example hb-t4nn7dy1u1etbzmzm
+     *
      * @var string
      */
     public $activeName;
 
     /**
+     * @description bdsId
+     *
+     * @example bds-t4n3496whj23ia4k
+     *
      * @var string
      */
     public $bdsName;
 
     /**
+     * @example ha-v21tmnxjwh2yuy1il
+     *
      * @var string
      */
     public $haName;
@@ -30,6 +38,8 @@ class cluster extends Model
     public $haSlbConnList;
 
     /**
+     * @example hb-t4n0ye37832tx22vz
+     *
      * @var string
      */
     public $standbyName;

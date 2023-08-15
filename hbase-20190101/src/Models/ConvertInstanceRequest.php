@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ConvertInstanceRequest extends Model
 {
     /**
+     * @example hb-bp16o0pd52e3y****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example month
+     *
      * @var string
      */
     public $pricingCycle;

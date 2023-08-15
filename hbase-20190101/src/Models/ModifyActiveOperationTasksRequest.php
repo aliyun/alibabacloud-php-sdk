@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTasksRequest extends Model
 {
     /**
+     * @example 1111,2222
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $immediateStart;
@@ -44,6 +48,8 @@ class ModifyActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @example 2022-02-17T18:50:00Z
+     *
      * @var string
      */
     public $switchTime;
