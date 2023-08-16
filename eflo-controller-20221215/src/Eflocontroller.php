@@ -822,6 +822,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->nodesShrink)) {
             $body['Nodes'] = $request->nodesShrink;
         }
+        if (!Utils::isUnset($request->userData)) {
+            $body['UserData'] = $request->userData;
+        }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);

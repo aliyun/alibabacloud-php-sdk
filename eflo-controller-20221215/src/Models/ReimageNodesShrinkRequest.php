@@ -26,10 +26,16 @@ class ReimageNodesShrinkRequest extends Model
      * @var string
      */
     public $nodesShrink;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'clusterId'             => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
         'nodesShrink'           => 'Nodes',
+        'userData'              => 'UserData',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class ReimageNodesShrinkRequest extends Model
         }
         if (null !== $this->nodesShrink) {
             $res['Nodes'] = $this->nodesShrink;
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -68,6 +77,9 @@ class ReimageNodesShrinkRequest extends Model
         }
         if (isset($map['Nodes'])) {
             $model->nodesShrink = $map['Nodes'];
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

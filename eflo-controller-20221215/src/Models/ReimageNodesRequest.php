@@ -27,10 +27,16 @@ class ReimageNodesRequest extends Model
      * @var nodes[]
      */
     public $nodes;
+
+    /**
+     * @var string
+     */
+    public $userData;
     protected $_name = [
         'clusterId'             => 'ClusterId',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
         'nodes'                 => 'Nodes',
+        'userData'              => 'UserData',
     ];
 
     public function validate()
@@ -54,6 +60,9 @@ class ReimageNodesRequest extends Model
                     $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
 
         return $res;
@@ -81,6 +90,9 @@ class ReimageNodesRequest extends Model
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
 
         return $model;

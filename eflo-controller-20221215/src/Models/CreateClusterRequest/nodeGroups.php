@@ -41,6 +41,11 @@ class nodeGroups extends Model
     public $nodes;
 
     /**
+     * @var string
+     */
+    public $userData;
+
+    /**
      * @example cn-hangzhou-i
      *
      * @var string
@@ -52,6 +57,7 @@ class nodeGroups extends Model
         'nodeGroupDescription' => 'NodeGroupDescription',
         'nodeGroupName'        => 'NodeGroupName',
         'nodes'                => 'Nodes',
+        'userData'             => 'UserData',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -82,6 +88,9 @@ class nodeGroups extends Model
                     $res['Nodes'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->userData) {
+            $res['UserData'] = $this->userData;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -118,6 +127,9 @@ class nodeGroups extends Model
                     $model->nodes[$n++] = null !== $item ? nodes::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UserData'])) {
+            $model->userData = $map['UserData'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
