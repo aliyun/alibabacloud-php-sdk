@@ -4,10 +4,21 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\IsvUserSaveRequest\userList\certList;
 use AlibabaCloud\Tea\Model;
 
 class userList extends Model
 {
+    /**
+     * @var string
+     */
+    public $birthday;
+
+    /**
+     * @var certList[]
+     */
+    public $certList;
+
     /**
      * @example 10
      *
@@ -21,6 +32,11 @@ class userList extends Model
      * @var string
      */
     public $email;
+
+    /**
+     * @var string
+     */
+    public $gender;
 
     /**
      * @example 8797
@@ -93,8 +109,11 @@ class userList extends Model
      */
     public $userName;
     protected $_name = [
+        'birthday'          => 'birthday',
+        'certList'          => 'cert_list',
         'departId'          => 'depart_id',
         'email'             => 'email',
+        'gender'            => 'gender',
         'jobNo'             => 'job_no',
         'leaveStatus'       => 'leave_status',
         'managerUserId'     => 'manager_user_id',
@@ -115,11 +134,26 @@ class userList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->birthday) {
+            $res['birthday'] = $this->birthday;
+        }
+        if (null !== $this->certList) {
+            $res['cert_list'] = [];
+            if (null !== $this->certList && \is_array($this->certList)) {
+                $n = 0;
+                foreach ($this->certList as $item) {
+                    $res['cert_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->departId) {
             $res['depart_id'] = $this->departId;
         }
         if (null !== $this->email) {
             $res['email'] = $this->email;
+        }
+        if (null !== $this->gender) {
+            $res['gender'] = $this->gender;
         }
         if (null !== $this->jobNo) {
             $res['job_no'] = $this->jobNo;
@@ -166,11 +200,26 @@ class userList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['birthday'])) {
+            $model->birthday = $map['birthday'];
+        }
+        if (isset($map['cert_list'])) {
+            if (!empty($map['cert_list'])) {
+                $model->certList = [];
+                $n               = 0;
+                foreach ($map['cert_list'] as $item) {
+                    $model->certList[$n++] = null !== $item ? certList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['depart_id'])) {
             $model->departId = $map['depart_id'];
         }
         if (isset($map['email'])) {
             $model->email = $map['email'];
+        }
+        if (isset($map['gender'])) {
+            $model->gender = $map['gender'];
         }
         if (isset($map['job_no'])) {
             $model->jobNo = $map['job_no'];
