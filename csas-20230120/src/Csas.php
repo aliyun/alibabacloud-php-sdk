@@ -9,6 +9,8 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\AttachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationShrinkRequest;
@@ -19,6 +21,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyRequest;
@@ -30,6 +34,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyRequest;
@@ -42,16 +48,23 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagRe
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRouteRegionsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsForDynamicRouteRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsForDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessApplicationsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessPolicesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessPolicesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRequest;
@@ -62,6 +75,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyR
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest;
@@ -159,6 +174,78 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->attachApplication2ConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDynamicRouteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateDynamicRouteResponse
+     */
+    public function createDynamicRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
+        }
+        if (!Utils::isUnset($request->applicationType)) {
+            $body['ApplicationType'] = $request->applicationType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dynamicRouteType)) {
+            $body['DynamicRouteType'] = $request->dynamicRouteType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextHop)) {
+            $body['NextHop'] = $request->nextHop;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->regionIds)) {
+            $bodyFlat['RegionIds'] = $request->regionIds;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDynamicRoute',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDynamicRouteRequest $request
+     *
+     * @return CreateDynamicRouteResponse
+     */
+    public function createDynamicRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDynamicRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -418,6 +505,49 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param DeleteDynamicRouteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return DeleteDynamicRouteResponse
+     */
+    public function deleteDynamicRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dynamicRouteId)) {
+            $query['DynamicRouteId'] = $request->dynamicRouteId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDynamicRoute',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDynamicRouteRequest $request
+     *
+     * @return DeleteDynamicRouteResponse
+     */
+    public function deleteDynamicRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeletePrivateAccessApplicationRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -638,6 +768,46 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->detachApplication2ConnectorWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDynamicRouteRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return GetDynamicRouteResponse
+     */
+    public function getDynamicRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDynamicRoute',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDynamicRouteRequest $request
+     *
+     * @return GetDynamicRouteResponse
+     */
+    public function getDynamicRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDynamicRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -881,6 +1051,79 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return ListDynamicRouteRegionsResponse
+     */
+    public function listDynamicRouteRegionsWithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'ListDynamicRouteRegions',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDynamicRouteRegionsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return ListDynamicRouteRegionsResponse
+     */
+    public function listDynamicRouteRegions()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDynamicRouteRegionsWithOptions($runtime);
+    }
+
+    /**
+     * @param ListDynamicRoutesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return ListDynamicRoutesResponse
+     */
+    public function listDynamicRoutesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDynamicRoutes',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDynamicRoutesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDynamicRoutesRequest $request
+     *
+     * @return ListDynamicRoutesResponse
+     */
+    public function listDynamicRoutes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDynamicRoutesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListPolicesForPrivateAccessApplicationRequest $request
      * @param RuntimeOptions                                $runtime
      *
@@ -1041,6 +1284,46 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
+     * @param RuntimeOptions                                      $runtime
+     *
+     * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+     */
+    public function listPrivateAccessApplicationsForDynamicRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrivateAccessApplicationsForDynamicRoute',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrivateAccessApplicationsForDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrivateAccessApplicationsForDynamicRouteRequest $request
+     *
+     * @return ListPrivateAccessApplicationsForDynamicRouteResponse
+     */
+    public function listPrivateAccessApplicationsForDynamicRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrivateAccessApplicationsForDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListPrivateAccessPolicesRequest $request
      * @param RuntimeOptions                  $runtime
      *
@@ -1118,6 +1401,46 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listPrivateAccessTagsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPrivateAccessTagsForDynamicRouteRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListPrivateAccessTagsForDynamicRouteResponse
+     */
+    public function listPrivateAccessTagsForDynamicRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPrivateAccessTagsForDynamicRoute',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPrivateAccessTagsForDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPrivateAccessTagsForDynamicRouteRequest $request
+     *
+     * @return ListPrivateAccessTagsForDynamicRouteResponse
+     */
+    public function listPrivateAccessTagsForDynamicRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPrivateAccessTagsForDynamicRouteWithOptions($request, $runtime);
     }
 
     /**
@@ -1278,6 +1601,84 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listUserGroupsForPrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateDynamicRouteRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return UpdateDynamicRouteResponse
+     */
+    public function updateDynamicRouteWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
+        }
+        if (!Utils::isUnset($request->applicationType)) {
+            $body['ApplicationType'] = $request->applicationType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->dynamicRouteId)) {
+            $body['DynamicRouteId'] = $request->dynamicRouteId;
+        }
+        if (!Utils::isUnset($request->dynamicRouteType)) {
+            $body['DynamicRouteType'] = $request->dynamicRouteType;
+        }
+        if (!Utils::isUnset($request->modifyType)) {
+            $body['ModifyType'] = $request->modifyType;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->nextHop)) {
+            $body['NextHop'] = $request->nextHop;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->regionIds)) {
+            $bodyFlat['RegionIds'] = $request->regionIds;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateDynamicRoute',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateDynamicRouteResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateDynamicRouteRequest $request
+     *
+     * @return UpdateDynamicRouteResponse
+     */
+    public function updateDynamicRoute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateDynamicRouteWithOptions($request, $runtime);
     }
 
     /**
