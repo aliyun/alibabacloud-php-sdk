@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesRes
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes\endpoints;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes\serviceMeshInfo;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes\spec;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponseBody\serviceMeshes\tag;
 use AlibabaCloud\Tea\Model;
 
 class serviceMeshes extends Model
@@ -67,6 +68,11 @@ class serviceMeshes extends Model
      * @var spec
      */
     public $spec;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clusterSpec'     => 'ClusterSpec',
         'clusters'        => 'Clusters',
@@ -75,6 +81,7 @@ class serviceMeshes extends Model
         'ownerType'       => 'OwnerType',
         'serviceMeshInfo' => 'ServiceMeshInfo',
         'spec'            => 'Spec',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -104,6 +111,15 @@ class serviceMeshes extends Model
         }
         if (null !== $this->spec) {
             $res['Spec'] = null !== $this->spec ? $this->spec->toMap() : null;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -139,6 +155,15 @@ class serviceMeshes extends Model
         }
         if (isset($map['Spec'])) {
             $model->spec = spec::fromMap($map['Spec']);
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\CreateServiceMeshRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateServiceMeshRequest extends Model
@@ -690,6 +691,11 @@ class CreateServiceMeshRequest extends Model
     public $regionId;
 
     /**
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
      * @description Specifies whether to enable Prometheus monitoring. We recommend that you use Prometheus Service of [Application Real-Time Monitoring Service (ARMS)](https://arms.console.aliyun.com/). Valid values:
      *
      *   `true`
@@ -842,6 +848,7 @@ class CreateServiceMeshRequest extends Model
         'proxyRequestMemory'         => 'ProxyRequestMemory',
         'redisFilterEnabled'         => 'RedisFilterEnabled',
         'regionId'                   => 'RegionId',
+        'tag'                        => 'Tag',
         'telemetry'                  => 'Telemetry',
         'thriftFilterEnabled'        => 'ThriftFilterEnabled',
         'traceSampling'              => 'TraceSampling',
@@ -1053,6 +1060,15 @@ class CreateServiceMeshRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->telemetry) {
             $res['Telemetry'] = $this->telemetry;
@@ -1284,6 +1300,15 @@ class CreateServiceMeshRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Telemetry'])) {
             $model->telemetry = $map['Telemetry'];

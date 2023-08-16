@@ -82,6 +82,7 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshClustersReq
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshClustersResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshKubeconfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshKubeconfigResponse;
@@ -130,6 +131,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GetVmMetaResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\GrantUserPermissionsShrinkRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyApiServerEipResourceResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\ModifyServiceMeshNameRequest;
@@ -142,6 +145,10 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshRequest
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RemoveVMFromServiceMeshResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RevokeKubeconfigRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\RevokeKubeconfigResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\TagResourcesResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayImportedServicesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayRequest;
@@ -558,6 +565,10 @@ class Servicemesh extends OpenApiClient
     public function createServiceMeshWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $body = [];
         if (!Utils::isUnset($request->accessLogEnabled)) {
             $body['AccessLogEnabled'] = $request->accessLogEnabled;
@@ -779,7 +790,8 @@ class Servicemesh extends OpenApiClient
             $body['WebAssemblyFilterEnabled'] = $request->webAssemblyFilterEnabled;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateServiceMesh',
@@ -2515,13 +2527,18 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeServiceMeshesRequest $request
+     * @param RuntimeOptions               $runtime
      *
      * @return DescribeServiceMeshesResponse
      */
-    public function describeServiceMeshesWithOptions($runtime)
+    public function describeServiceMeshesWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeServiceMeshes',
             'version'     => '2020-01-11',
@@ -2538,13 +2555,15 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param DescribeServiceMeshesRequest $request
+     *
      * @return DescribeServiceMeshesResponse
      */
-    public function describeServiceMeshes()
+    public function describeServiceMeshes($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeServiceMeshesWithOptions($runtime);
+        return $this->describeServiceMeshesWithOptions($request, $runtime);
     }
 
     /**
@@ -3391,6 +3410,61 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ModifyApiServerEipResourceRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3682,6 +3756,113 @@ class Servicemesh extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->revokeKubeconfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**
