@@ -9,26 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisDimensionsResponseBody extends Model
 {
     /**
+     * @description The source IP addresses.
+     *
      * @var string[]
      */
     public $clientIps;
 
     /**
+     * @description The databases.
+     *
      * @var string[]
      */
     public $databases;
 
     /**
+     * @description The request ID.
+     *
+     * @example E0B56BCD-1BED-30EC-8CAF-1D1E5F******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The resource groups.
+     *
      * @var string[]
      */
     public $resourceGroups;
 
     /**
+     * @description The usernames.
+     *
      * @var string[]
      */
     public $userNames;

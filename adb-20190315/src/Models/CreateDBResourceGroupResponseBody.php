@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateDBResourceGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3A8F6106-6AFD-5A34-9C80-8DE2C42D06E8
+     *
      * @var string
      */
     public $requestId;

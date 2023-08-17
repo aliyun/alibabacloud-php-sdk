@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogRecordsResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-t4nj8619bz2w3****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The queried SQL audit logs.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 8A564B7F-8C00-43C0-8EC5-919FBB70573
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
+     * @description The metric of the resource group.
+     *
+     * @example AnalyticDB_RP_CPU
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The queried monitoring information about the resource groups.
+     *
      * @var resourcePoolPerformances[]
      */
     public $resourcePoolPerformances;
 
     /**
+     * @description The unit of the metric value.
+     *
+     * @example %
+     *
      * @var string
      */
     public $unit;

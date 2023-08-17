@@ -10,17 +10,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourceGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1ub9grke1****
+     *
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @description Details of the resource group.
+     *
      * @var groupsInfo[]
      */
     public $groupsInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'groupsInfo' => 'GroupsInfo',
-        'requestId'  => 'RequestId',
+        'DBClusterId' => 'DBClusterId',
+        'groupsInfo'  => 'GroupsInfo',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,6 +46,9 @@ class DescribeDBResourceGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->groupsInfo) {
             $res['GroupsInfo'] = [];
             if (null !== $this->groupsInfo && \is_array($this->groupsInfo)) {
@@ -54,6 +73,9 @@ class DescribeDBResourceGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['GroupsInfo'])) {
             if (!empty($map['GroupsInfo'])) {
                 $model->groupsInfo = [];

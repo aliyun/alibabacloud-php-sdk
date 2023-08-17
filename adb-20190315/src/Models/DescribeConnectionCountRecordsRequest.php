@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectionCountRecordsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the details of all AnalyticDB for MySQL clusters within a specific region, including cluster IDs.
+     * @example am-bp1jj9xqft1po****
+     *
      * @var string
      */
     public $DBClusterId;

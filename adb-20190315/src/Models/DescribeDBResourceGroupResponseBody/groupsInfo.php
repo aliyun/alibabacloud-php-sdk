@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class groupsInfo extends Model
 {
     /**
+     * @description The time when the resource group was created.
+     *
+     * @example 2022-10-09 16:57:35.241
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the resource group.
+     *
+     * @example USER_DEFAULT
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The query execution mode. Valid values:
+     *
+     *   **interactive**
+     *   **batch**
+     *
+     * >  For more information, see [Query execution modes](~~189502~~).
+     * @example interactive
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @description The database accounts that are associated with the resource group.
+     *
+     * @example testb,testc
+     *
      * @var string
      */
     public $groupUsers;
 
     /**
+     * @description The number of nodes. Each node consumes 16 cores and 64 GB memory.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @description The time when the resource group was updated.
+     *
+     * @example 2022-11-09 16:57:35.241
+     *
      * @var string
      */
     public $updateTime;

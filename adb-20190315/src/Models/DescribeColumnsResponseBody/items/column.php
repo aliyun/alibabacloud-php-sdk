@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
+     * @description Indicates whether the columns are auto-incremented.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoIncrementColumn;
 
     /**
+     * @description The name of the column.
+     *
+     * @example id
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Indicates whether the column is a primary key.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $primaryKey;
 
     /**
+     * @description The name of the database.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The data type of the column.
+     *
+     * @example bigint
+     *
      * @var string
      */
     public $type;

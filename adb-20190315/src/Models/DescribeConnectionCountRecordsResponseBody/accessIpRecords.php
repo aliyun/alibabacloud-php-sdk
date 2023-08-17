@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class accessIpRecords extends Model
 {
     /**
+     * @description The IP address of the client used to connect to the cluster.
+     *
+     * @example 42.120.XX.XX
+     *
      * @var string
      */
     public $accessIp;
 
     /**
+     * @description The number of connections.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllAccountsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessListRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp11q28kvl688****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The keyword in an SQL statement, which is used to filter queries. Set the value to **SELECT**.
+     *
+     * @example SELECT
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @description The order in which queries are sorted based on the specified fields. Specify this parameter as an ordered JSON array in the `[{"Field":"Time","Type":"Desc" },{ "Field":"User", "Type":"Asc" }]` format.
+     *
+     *   **Field** specifies the field used to sort queries. Valid values: Time, User, Host, and DB.
+     *   **Type** specifies the sorting sequence. Valid values: **Desc** and **Asc**.
+     *
+     * @example [ { "Field":"Time","Type":"Desc" },  { "Field":"User", "Type":"Asc" }]
+     *
      * @var string
      */
     public $order;
@@ -34,11 +49,23 @@ class DescribeProcessListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Default value: 30. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,16 +81,32 @@ class DescribeProcessListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The execution duration used to filter queries. Queries that take a longer time than the specified execution duration are displayed. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $runningTime;
 
     /**
+     * @description Specifies whether to show a complete SQL statement. Valid values:
+     *
+     *   **True**: shows a complete SQL statement.
+     *   **False**: shows only the first 100 characters of an SQL statement.
+     *
+     * >  The default value is False.
+     * @example True
+     *
      * @var bool
      */
     public $showFull;
 
     /**
+     * @description The name of the user used to filter queries.
+     *
+     * @example test
+     *
      * @var string
      */
     public $user;

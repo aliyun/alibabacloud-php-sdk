@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeConnectionCountRecordsResponseBody extends Model
 {
     /**
+     * @description Details of the client IP addresses.
+     *
      * @var accessIpRecords[]
      */
     public $accessIpRecords;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1jj9xqft1po****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 562C7F89-FBE6-4A04-AAAA-7EBC25******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details of the users.
+     *
      * @var userRecords[]
      */
     public $userRecords;

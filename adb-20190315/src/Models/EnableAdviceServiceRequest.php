@@ -6,26 +6,30 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBClusterHealthReportRequest extends Model
+class EnableAdviceServiceRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of Data Warehouse Edition (V3.0) clusters.
+     * @example am-bp1q10xxzq2z4****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
         'regionId'    => 'RegionId',
-        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -41,9 +45,6 @@ class DescribeDBClusterHealthReportRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
-        }
 
         return $res;
     }
@@ -51,7 +52,7 @@ class DescribeDBClusterHealthReportRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBClusterHealthReportRequest
+     * @return EnableAdviceServiceRequest
      */
     public static function fromMap($map = [])
     {
@@ -61,9 +62,6 @@ class DescribeDBClusterHealthReportRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
 
         return $model;

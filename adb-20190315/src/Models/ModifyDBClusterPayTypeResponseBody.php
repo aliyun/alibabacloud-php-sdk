@@ -9,22 +9,39 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterPayTypeResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-bp11q28kvl688****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The order ID.
+     *
+     * @example 2023532****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string
      */

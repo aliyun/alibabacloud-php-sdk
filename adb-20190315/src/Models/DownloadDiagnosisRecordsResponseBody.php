@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DownloadDiagnosisRecordsResponseBody extends Model
 {
     /**
+     * @description The ID of the download task.
+     *
+     * @example 68
+     *
      * @var int
      */
     public $downloadId;
 
     /**
+     * @description The request ID.
+     *
+     * @example D4ACF4E0-2952-3A87-9A2C-474058******
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterPayTypeRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-bp11q28kvl688****
+     *
      * @var string
      */
     public $dbClusterId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The subscription type of the subscription cluster. Valid values:
+     *
+     *   **Year**: subscription on a yearly basis.
+     *   **Month**: subscription on a monthly basis.
+     *
+     * > This parameter must be specified when PayType is set to Prepaid.
+     * @example Year
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The subscription duration of the subscription cluster.
+     *
+     *   Valid values when Period is set to Year: 1, 2, 3, and 5 (integer).
+     *   Valid values when Period is set to Month: 1 to 11 (integer).
+     *
+     * >
+     *
+     *   This parameter must be specified when PayType is set to Prepaid.
+     *
+     *   Longer subscription durations offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $usedTime;

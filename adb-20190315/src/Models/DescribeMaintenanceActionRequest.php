@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeMaintenanceActionRequest extends Model
 {
     /**
+     * @description Specifies whether to return the details of pending or historical O\&M events. Valid values:
+     *
+     *   **0**: returns the details of pending O\&M event.
+     *   **1**: returns the details of historical O\&M event.
+     *
+     * If you do not specify this parameter, the details of pending O\&M event are returned.
+     * @example 1
+     *
      * @var int
      */
     public $isHistory;
@@ -24,21 +32,41 @@ class DescribeMaintenanceActionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the region where the O\&M event occurs. Valid values:
+     *
+     *   The ID of the region where the O\&M event occurs. Example: `cn-hangzhou`. You can call the [DescribeRegions](~~143074~~) operation to query the regions and zones supported by AnalyticDB for MySQL, including the region IDs.
+     *   You can also set Region to `all` to view all the O\&M events in all regions. If `Region` is set to `all`, `TaskType` must be set to `all`.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the region where the O\&M event occurs.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the regions and zones supported by AnalyticDB for MySQL, including the region IDs.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +82,13 @@ class DescribeMaintenanceActionRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the O\&M event. Valid values:
+     *
+     *   **rds_apsaradb_upgrade**: indicates database software upgrades.
+     *   **all**: indicates all the O\&M events in all regions within the current account. If `Region` is set to `all`, `TaskType` must be set to `all`.
+     *
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskType;

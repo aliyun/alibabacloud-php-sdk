@@ -9,31 +9,80 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogRecordsRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL clusters within a region.
+     * @example am-t4nj8619bz2w3****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database on which you want to execute the SQL statement.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
+     * >
+     *
+     *   The end time must be later than the start time.
+     *
+     *   The maximum time range that can be specified is 24 hours.
+     *
+     * @example 2022-01-23T22:18Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The IP address and port number of the client that is used to execute the SQL statement.
+     *
+     * @example 100.104.XX.XX:43908
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The order in which specified fields are sorted. Specify this parameter as an ordered JSON array that consists of the Field and Type fields.
+     *
+     *   Field specifies the field that is used to sort the retrieved entries. Valid values:
+     *
+     *   HostAddress: the IP address of the client that is used to connect to the database.
+     *   Succeed: specifies whether the SQL statement is successfully executed.
+     *   TotalTime: the total amount of time that is consumed to execute the SQL statement.
+     *   DBName: the name of the database on which the SQL statement is executed.
+     *   SQLType: the type of the SQL statement.
+     *   User: the username that is used to execute the SQL statement.
+     *   ExecuteTime: the time to start executing the SQL statement.
+     *
+     *   Type specifies the sorting order. Valid values:
+     *
+     *   Desc: descending order.
+     *   Asc: ascending order.
+     *
+     * @example [{"Field":"ExecuteTime","Type":"Desc"},{"Field":"HostAddress","Type":"Asc"}]
+     *
      * @var string
      */
     public $order;
 
     /**
+     * @description The sorting order of the retrieved entries. Valid values:
+     *
+     *   **asc**: sorts the retrieved entries by time in ascending order.
+     *   **desc**: sorts the retrieved entries by time in descending order.
+     *
+     * @example asc
+     *
      * @var string
      */
     public $orderType;
@@ -49,21 +98,44 @@ class DescribeAuditLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value is an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **10**
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * > If you do not specify this parameter, the value 10 is used.
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The keywords that are included in the SQL statement to query.
+     *
+     * @example adb
+     *
      * @var string
      */
     public $queryKeyword;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -79,21 +151,50 @@ class DescribeAuditLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the SQL statement. Valid values:
+     *
+     *   **DELETE**
+     *   **SELECT**
+     *   **UPDATE**
+     *   **INSERT_INTO_SELECT**
+     *   **ALTER**
+     *   **DROP**
+     *   **INSERT**
+     *
+     * > You can query only a single type of SQL statements at a time. If this parameter is left empty, the **SELECT** SQL statements are queried.
+     * @example SELECT
+     *
      * @var string
      */
     public $sqlType;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
+     * > SQL audit logs can be queried only when SQL audit is enabled. Only SQL audit logs within the last 30 days can be queried. If SQL audit was disabled and re-enabled, only SQL audit logs from the time when SQL audit was re-enabled can be queried.
+     * @example 2022-01-23T02:18Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description Specifies whether the execution of the SQL statement succeeds. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $succeed;
 
     /**
+     * @description The name of the user who executed the SQL statement.
+     *
+     * @example test_user
+     *
      * @var string
      */
     public $user;

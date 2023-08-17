@@ -9,61 +9,114 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
+     * @description The time elapsed from when the task was created to when the task was complete. Unit: milliseconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $elapsedTime;
 
     /**
+     * @description The number of input rows in the task.
+     *
+     * @example 105
+     *
      * @var int
      */
     public $inputRows;
 
     /**
+     * @description The amount of input data in the task. Unit: bytes.
+     *
+     * @example 3763
+     *
      * @var int
      */
     public $inputSize;
 
     /**
+     * @description The total amount of time consumed by operators in the task on a specific node. This parameter can be used to determine whether long tails occur in computing. Unit: milliseconds.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $operatorCost;
 
     /**
+     * @description The number of output rows in the task.
+     *
+     * @example 105
+     *
      * @var int
      */
     public $outputRows;
 
     /**
+     * @description The amount of output data in the task. Unit: bytes.
+     *
+     * @example 945
+     *
      * @var int
      */
     public $outputSize;
 
     /**
+     * @description The peak memory of the task on a specific node. Unit: bytes.
+     *
+     * @example 898576
+     *
      * @var int
      */
     public $peakMemory;
 
     /**
+     * @description The time consumed to scan data from a data source in the task. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanCost;
 
     /**
+     * @description The number of rows scanned from a data source in the task.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanRows;
 
     /**
+     * @description The amount of data scanned from a data source in the task. Unit: bytes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanSize;
 
     /**
+     * @description The final execution status of the task. Valid values:
+     *
+     *   FINISHED
+     *   CANCELED
+     *   ABORTED
+     *   FAILED
+     *
+     * @example FINISHED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 198877623
+     *
      * @var int
      */
     public $taskId;

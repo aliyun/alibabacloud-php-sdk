@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeProcessListResponseBody extends Model
 {
     /**
+     * @description Details of the queries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

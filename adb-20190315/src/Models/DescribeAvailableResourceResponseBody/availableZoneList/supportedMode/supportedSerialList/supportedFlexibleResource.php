@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class supportedFlexibleResource extends Model
 {
     /**
+     * @description The maximum number of EIUs.
+     *
+     * @example hdd
+     *
      * @var string
      */
     public $storageType;

@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticPlanRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * @example am-bp278jg9****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specifies whether the scaling plan takes effect. Default value: true. Valid values:
+     *
+     *   **true**: The scaling plan takes effect.
+     *   **false**: The scaling plan does not take effect.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $elasticPlanEnable;
 
     /**
+     * @description The name of the scaling plan.
+     *
+     *   The name must be 2 to 30 characters in length.
+     *
+     *   The name can contain letters, digits, and underscores (\_).
+     *
+     * >  If you do not specify this parameter, the details of all scaling plans for the specified cluster are returned.
+     * @example realtime
+     *
      * @var string
      */
     public $elasticPlanName;
@@ -44,6 +65,11 @@ class DescribeElasticPlanRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the resource group.
+     *
+     * > *   You can call the [DescribeDBResourceGroup](~~466685~~) operation to query the resource group name.
+     * @example USER_DEFAULT
+     *
      * @var string
      */
     public $resourcePoolName;

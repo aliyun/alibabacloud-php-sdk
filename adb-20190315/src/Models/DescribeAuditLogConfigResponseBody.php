@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogConfigResponseBody extends Model
 {
     /**
+     * @description The status of SQL audit. Valid values:
+     *
+     *   **on**: SQL audit is enabled.
+     *   **off**: SQL audit is disabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $auditLogStatus;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-t4nj8619bz2w3****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F0983B43-B2EC-536A-8791-142B5CF1E9B6
+     *
      * @var string
      */
     public $requestId;

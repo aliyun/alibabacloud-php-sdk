@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class BindDBResourcePoolWithUserResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UnbindDBResourcePoolWithUserRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bpxxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,11 +28,19 @@ class UnbindDBResourcePoolWithUserRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the resource pool. You cannot unbind users from the default resource pool named USER_DEFAULT.
+     *
+     * @example test
+     *
      * @var string
      */
     public $poolName;
 
     /**
+     * @description The user bound to the resource pool.
+     *
+     * @example testb
+     *
      * @var string
      */
     public $poolUser;

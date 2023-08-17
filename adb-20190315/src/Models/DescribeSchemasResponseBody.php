@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSchemasResponseBody extends Model
 {
     /**
+     * @description The databases.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;

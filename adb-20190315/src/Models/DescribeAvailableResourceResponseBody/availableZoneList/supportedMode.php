@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedMode extends Model
 {
     /**
+     * @description N/A
+     *
+     * @example flexible
+     *
      * @var string
      */
     public $mode;
 
     /**
+     * @description The available elastic I/O units (EIUs).
+     *
      * @var supportedSerialList[]
      */
     public $supportedSerialList;

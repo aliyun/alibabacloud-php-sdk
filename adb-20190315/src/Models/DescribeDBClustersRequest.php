@@ -10,19 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClustersRequest extends Model
 {
     /**
+     * @description The description of the cluster.
+     *
+     *   The description cannot start with `http://` or `https://`.
+     *   The description must be 2 to 256 characters in length
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @description The cluster IDs.
+     *
+     * > You can specify the ID of one cluster or IDs of more clusters within the preceding region.
+     * @example am-bp1r053byu48p****
+     *
      * @var string
      */
     public $DBClusterIds;
 
     /**
+     * @description The state of the cluster. Valid values:
+     *
+     *   **Preparing**: The cluster is being prepared.
+     *   **Creating**: The cluster is being created.
+     *   **Restoring**: The cluster is being restored from a backup.
+     *   **Running**: The cluster is running.
+     *   **Deleting**: The cluster is being deleted.
+     *   **ClassChanging**: The cluster specifications are being changed.
+     *   **NetAddressCreating**: A network connection is being created.
+     *   **NetAddressDeleting**: A network connection is being deleted.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBClusterStatus;
+
+    /**
+     * @description The version of the cluster. Set the value to **3.0**.
+     *
+     * @example 3.0
+     *
+     * @var string
+     */
+    public $DBVersion;
 
     /**
      * @var string
@@ -35,21 +69,42 @@ class DescribeDBClustersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the clusters.
+     *
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-4690g37929XXXX
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -65,6 +120,8 @@ class DescribeDBClustersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags that are added to the cluster.
+     *
      * @var tag[]
      */
     public $tag;
@@ -72,6 +129,7 @@ class DescribeDBClustersRequest extends Model
         'DBClusterDescription' => 'DBClusterDescription',
         'DBClusterIds'         => 'DBClusterIds',
         'DBClusterStatus'      => 'DBClusterStatus',
+        'DBVersion'            => 'DBVersion',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
@@ -98,6 +156,9 @@ class DescribeDBClustersRequest extends Model
         }
         if (null !== $this->DBClusterStatus) {
             $res['DBClusterStatus'] = $this->DBClusterStatus;
+        }
+        if (null !== $this->DBVersion) {
+            $res['DBVersion'] = $this->DBVersion;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -152,6 +213,9 @@ class DescribeDBClustersRequest extends Model
         }
         if (isset($map['DBClusterStatus'])) {
             $model->DBClusterStatus = $map['DBClusterStatus'];
+        }
+        if (isset($map['DBVersion'])) {
+            $model->DBVersion = $map['DBVersion'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

@@ -9,36 +9,70 @@ use AlibabaCloud\Tea\Model;
 class column extends Model
 {
     /**
+     * @description Indicates whether the column is an auto-increment column. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoIncrementColumn;
 
     /**
+     * @description The name of the column.
+     *
+     * @example id
+     *
      * @var string
      */
     public $columnName;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Indicates whether the column is the primary key of the table. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $primaryKey;
 
     /**
+     * @description The name of the database.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The data type of the column.
+     *
+     * @example bigint
+     *
      * @var string
      */
     public $type;

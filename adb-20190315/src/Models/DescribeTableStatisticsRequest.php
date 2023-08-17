@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableStatisticsRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query details about all AnalyticDB for MySQL clusters in a specific region, including cluster IDs.
+     * @example am-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The order in which to sort the retrieved records by field. Specify this value in the JSON format. The value is an ordered array that uses the order of the input array and contains `Field` and `Type`. Example: `[{ "Field":"TableName", "Type":"Asc" }]`.
+     *
+     *   In the example, `Field` indicates the field that is used to sort the retrieved records. Set the value of Field to `TableName`.
+     *
+     *   `Type` indicates the sort type. Valid values (case-insensitive):
+     *
+     *   **Desc**: The entries are sorted in descending order.
+     *   **Asc**: The entries are sorted in ascending order.
+     *
+     * @example [ { "Field":"TableName", "Type":"Asc" } ]
+     *
      * @var string
      */
     public $order;
@@ -29,11 +45,19 @@ class DescribeTableStatisticsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

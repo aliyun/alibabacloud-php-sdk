@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DescribeOperatorPermissionResponseBody extends Model
 {
     /**
+     * @description The time when the authorization takes effect.
+     *
+     * @example 2019-05-20T05:41:19Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The time when the authorization expires.
+     *
+     * @example 2019-05-20T07:41:19Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The type of authorization. Valid values: Control | Data.
+     *
+     * @example Control,Data
+     *
      * @var string
      */
     public $privileges;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;

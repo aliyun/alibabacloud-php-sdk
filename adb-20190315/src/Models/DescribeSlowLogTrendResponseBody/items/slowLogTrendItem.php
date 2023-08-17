@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class slowLogTrendItem extends Model
 {
     /**
+     * @description The trend of slow query logs. The value is AnalyticDB_SlowLogTrend.
+     *
+     * @example AnalyticDB_SlowLogTrend
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The performance metrics.
+     *
      * @var series
      */
     public $series;
 
     /**
+     * @description The unit of performance metrics.
+     *
+     * @example %
+     *
      * @var string
      */
     public $unit;

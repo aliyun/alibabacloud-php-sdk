@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableDetailResponseBody extends Model
 {
     /**
+     * @description The average number of rows in partitions.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $avgSize;
 
     /**
+     * @description The list of partitions.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;

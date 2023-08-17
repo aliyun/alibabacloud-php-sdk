@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogTrendResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end time of the query. The end time must be later than the start time. The maximum time range that can be specified is seven days. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-06-20T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The information about the trend of slow query logs.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the query. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * @example 2019-06-01T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

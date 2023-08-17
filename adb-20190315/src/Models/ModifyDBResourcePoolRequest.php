@@ -9,11 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBResourcePoolRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * @example am-bp1ub9grke1****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The number of nodes.
+     *
+     *   Each node provides 16 cores and 64 GB memory.
+     *   The amount of resources that you want to add to or remove from the cluster cannot exceed the total amount of resources in the cluster.
+     *
+     * >
+     *
+     *   If you do not specify this parameter, the original value is retained.
+     *
+     *   You must specify at least one of the QueryType and NodeNum parameters.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $nodeNum;
@@ -29,11 +47,23 @@ class ModifyDBResourcePoolRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the resource group.
+     *
+     * @example test_group
+     *
      * @var string
      */
     public $poolName;
 
     /**
+     * @description The mode in which SQL statements are executed. Valid values:
+     *
+     *   **batch**
+     *   **interactive**
+     *
+     * > If you do not specify this parameter, the original value is retained.
+     * @example batch
+     *
      * @var string
      */
     public $queryType;

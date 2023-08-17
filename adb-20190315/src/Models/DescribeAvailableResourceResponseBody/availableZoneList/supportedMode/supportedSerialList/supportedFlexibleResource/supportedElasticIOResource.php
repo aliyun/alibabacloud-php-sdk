@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class supportedElasticIOResource extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $maxCount;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $minCount;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $step;

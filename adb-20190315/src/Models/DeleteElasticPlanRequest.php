@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteElasticPlanRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the elastic plan.
+     *
+     * @example test
+     *
      * @var string
      */
     public $elasticPlanName;

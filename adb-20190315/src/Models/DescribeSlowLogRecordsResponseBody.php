@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp1rqvm70uh2****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Details of the slow query logs.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D7559209-7EC3-41E1-8F78-156990******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $totalCount;

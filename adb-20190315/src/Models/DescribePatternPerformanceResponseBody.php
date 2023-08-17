@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribePatternPerformanceResponseBody extends Model
 {
     /**
+     * @description The end time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-11-18T18:05Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The queried performance metrics.
+     *
      * @var performances[]
      */
     public $performances;
 
     /**
+     * @description The request ID.
+     *
+     * @example 210f47011634026610213529******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the query. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-11-18T00:00Z
+     *
      * @var string
      */
     public $startTime;

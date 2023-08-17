@@ -10,17 +10,38 @@ use AlibabaCloud\Tea\Model;
 class availableZoneList extends Model
 {
     /**
+     * @var string[]
+     */
+    public $supportedComputeResource;
+
+    /**
+     * @description The available computing resources.
+     *
      * @var supportedMode[]
      */
     public $supportedMode;
 
     /**
+     * @var string[]
+     */
+    public $supportedStorageResource;
+
+    /**
+     * @description The storage type. Valid values:
+     *
+     *   **hdd**
+     *   **ssd**
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'supportedMode' => 'SupportedMode',
-        'zoneId'        => 'ZoneId',
+        'supportedComputeResource' => 'SupportedComputeResource',
+        'supportedMode'            => 'SupportedMode',
+        'supportedStorageResource' => 'SupportedStorageResource',
+        'zoneId'                   => 'ZoneId',
     ];
 
     public function validate()
@@ -30,6 +51,9 @@ class availableZoneList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->supportedComputeResource) {
+            $res['SupportedComputeResource'] = $this->supportedComputeResource;
+        }
         if (null !== $this->supportedMode) {
             $res['SupportedMode'] = [];
             if (null !== $this->supportedMode && \is_array($this->supportedMode)) {
@@ -38,6 +62,9 @@ class availableZoneList extends Model
                     $res['SupportedMode'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->supportedStorageResource) {
+            $res['SupportedStorageResource'] = $this->supportedStorageResource;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -54,6 +81,11 @@ class availableZoneList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['SupportedComputeResource'])) {
+            if (!empty($map['SupportedComputeResource'])) {
+                $model->supportedComputeResource = $map['SupportedComputeResource'];
+            }
+        }
         if (isset($map['SupportedMode'])) {
             if (!empty($map['SupportedMode'])) {
                 $model->supportedMode = [];
@@ -61,6 +93,11 @@ class availableZoneList extends Model
                 foreach ($map['SupportedMode'] as $item) {
                     $model->supportedMode[$n++] = null !== $item ? supportedMode::fromMap($item) : $item;
                 }
+            }
+        }
+        if (isset($map['SupportedStorageResource'])) {
+            if (!empty($map['SupportedStorageResource'])) {
+                $model->supportedStorageResource = $map['SupportedStorageResource'];
             }
         }
         if (isset($map['ZoneId'])) {

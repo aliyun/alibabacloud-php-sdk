@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class resourcePoolSeries extends Model
 {
     /**
+     * @description The name of the metric.
+     *
+     * @example cpu
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The value of the metric.
+     *
      * @var string[]
      */
     public $values;

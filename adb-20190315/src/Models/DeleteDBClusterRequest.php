@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp1u8c0mgfg58****
+     *
      * @var string
      */
     public $DBClusterId;

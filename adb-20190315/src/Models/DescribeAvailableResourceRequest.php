@@ -9,14 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @description The supported mode. Valid values:
+     *
+     *   **flexible**: elastic mode
+     *   **reserver**: reserved mode
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The resources available in the supported modes.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @example 3.0
+     *
+     * @var string
+     */
+    public $DBClusterVersion;
 
     /**
      * @var string
@@ -29,6 +47,10 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The resources available in the zones.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -44,12 +66,17 @@ class DescribeAvailableResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the zone.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
         'acceptLanguage'       => 'AcceptLanguage',
         'chargeType'           => 'ChargeType',
+        'DBClusterVersion'     => 'DBClusterVersion',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -70,6 +97,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->DBClusterVersion) {
+            $res['DBClusterVersion'] = $this->DBClusterVersion;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -106,6 +136,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['DBClusterVersion'])) {
+            $model->DBClusterVersion = $map['DBClusterVersion'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

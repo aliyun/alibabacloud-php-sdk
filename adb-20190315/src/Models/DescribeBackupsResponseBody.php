@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsResponseBody extends Model
 {
     /**
+     * @description The queried backup sets.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 300
+     *
      * @var string
      */
     public $totalCount;

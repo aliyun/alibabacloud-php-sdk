@@ -9,81 +9,150 @@ use AlibabaCloud\Tea\Model;
 class stageList extends Model
 {
     /**
+     * @description The average `CPU Time` value on each compute node in the stage. Unit: milliseconds.
+     *
+     * @example 5984
+     *
      * @var int
      */
     public $CPUTimeAvg;
 
     /**
+     * @description The maximum `CPU Time` value on each compute node in the stage. Unit: milliseconds.
+     *
+     * @example 5984
+     *
      * @var int
      */
     public $CPUTimeMax;
 
     /**
+     * @description The minimum `CPU Time` value on each compute node in the stage. Unit: milliseconds.
+     *
+     * @example 47
+     *
      * @var int
      */
     public $CPUTimeMin;
 
     /**
+     * @description The average amount of input data on each compute node in the stage. Unit: byte.
+     *
+     * @example 173
+     *
      * @var int
      */
     public $inputSizeAvg;
 
     /**
+     * @description The maximum amount of input data on each compute node in the stage. Unit: byte.
+     *
+     * @example 173
+     *
      * @var int
      */
     public $inputSizeMax;
 
     /**
+     * @description The minimum amount of input data on each compute node in the stage. Unit: byte.
+     *
+     * @example 173
+     *
      * @var int
      */
     public $inputSizeMin;
 
     /**
+     * @description The total CPU time consumed by all operators in the stage, which is equivalent to the total CPU time of the stage. You can use this parameter to determine which parts of the stage consume a large amount of computing resources. Unit: milliseconds.
+     *
+     * @example 5984
+     *
      * @var int
      */
     public $operatorCost;
 
     /**
+     * @description The maximum memory usage when the SQL statement is executed. Unit: byte.
+     *
+     * @example 74208
+     *
      * @var int
      */
     public $peakMemory;
 
     /**
+     * @description The average amount of data scanned by a scan operator on each storage node in the stage. Unit: byte.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanSizeAvg;
 
     /**
+     * @description The maximum amount of data scanned by a scan operator on each storage node in the stage. Unit: byte.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanSizeMax;
 
     /**
+     * @description The minimum amount of data scanned by a scan operator on each storage node in the stage. Unit: byte.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanSizeMin;
 
     /**
+     * @description The average amount of time consumed by a scan operator to read data on each storage node in the stage. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanTimeAvg;
 
     /**
+     * @description The maximum amount of time consumed by a scan operator to read data on each storage node in the stage. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanTimeMax;
 
     /**
+     * @description The minimum amount of time consumed by a scan operator to read data on each storage node in the stage. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $scanTimeMin;
 
     /**
+     * @description The ID of the stage.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $stageId;
 
     /**
+     * @description The final execution state of the stage. Valid values:
+     *
+     *   FINISHED
+     *   CANCELED
+     *   ABORTED
+     *   FAILED
+     *
+     * @example FINISHED
+     *
      * @var string
      */
     public $state;

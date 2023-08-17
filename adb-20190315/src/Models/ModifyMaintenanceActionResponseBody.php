@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyMaintenanceActionResponseBody extends Model
 {
     /**
+     * @description The O\&M event ID.
+     *
+     * @example 11111
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The request ID.
+     *
+     * @example 7856CBE7-5BD0-4EE1-AC62-749392******
+     *
      * @var string
      */
     public $requestId;

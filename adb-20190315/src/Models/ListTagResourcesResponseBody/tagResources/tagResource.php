@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-bp1l20nxxxxxxxxxx
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. A value of cluster indicates an AnalyticDB for MySQL cluster.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the tag.
+     *
+     * @example testkey1
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The value of the tag.
+     *
+     * @example testvalue1
+     *
      * @var string
      */
     public $tagValue;

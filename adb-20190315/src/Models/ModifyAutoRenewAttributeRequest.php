@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * @example am-bp1u389j9zjh5****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The renewal duration. Default value: **1**.
+     *
+     *   Valid values when PeriodUnit is set to **Month**: 1 to 11. Data type: INTEGER.
+     *
+     *   Valid values when PeriodUnit is set to **Year**: 1, 2, 3, and 5. Data type: INTEGER.
+     *
+     * > Longer subscription periods offer more savings. Purchasing a cluster for one year is more cost-effective than purchasing the cluster for 10 or 11 months.
+     * @example 1
+     *
      * @var string
      */
     public $duration;
@@ -29,16 +43,36 @@ class ModifyAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The unit of the renewal duration. Default value: **Month**. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * @example Year
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The renewal status of the cluster. Valid values:
+     *
+     *   **AutoRenewal**: The cluster is automatically renewed.
+     *   **Normal**: The cluster is manually renewed.
+     *   **NotRenewal**: The cluster is not renewed.
+     *
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class shard extends Model
 {
     /**
+     * @description The ID of the partition. Only the numeric part of the partition name is returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The number of rows in the table.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $size;

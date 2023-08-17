@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeElasticDailyPlanResponseBody extends Model
 {
     /**
+     * @description Details of the current-day scaling plans.
+     *
      * @var elasticDailyPlanList[]
      */
     public $elasticDailyPlanList;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;

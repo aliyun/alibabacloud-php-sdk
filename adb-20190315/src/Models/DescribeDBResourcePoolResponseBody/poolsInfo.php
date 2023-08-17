@@ -9,31 +9,60 @@ use AlibabaCloud\Tea\Model;
 class poolsInfo extends Model
 {
     /**
+     * @description The time when the resource group was created.
+     *
+     * @example 2022-03-09 16:57:35.241
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The number of nodes.
+     *
+     * >  Each node consumes 16 cores and 64 GB memory.
+     * @example 2
+     *
      * @var int
      */
     public $nodeNum;
 
     /**
+     * @description The name of the resource group.
+     *
+     * @example USER_DEFAULT
+     *
      * @var string
      */
     public $poolName;
 
     /**
+     * @description The database accounts that are associated with the resource group.
+     *
+     * @example testb,testc
+     *
      * @var string
      */
     public $poolUsers;
 
     /**
+     * @description The mode in which SQL statements are executed.
+     *
+     *   **batch**
+     *   **interactive**
+     *
+     * >  For more information, see [Query execution modes](~~189502~~).
+     * @example default_type
+     *
      * @var string
      */
     public $queryType;
 
     /**
+     * @description The time when the resource group was updated.
+     *
+     * @example 2022-03-09 16:57:35.241
+     *
      * @var string
      */
     public $updateTime;

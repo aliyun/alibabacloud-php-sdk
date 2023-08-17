@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeTableStatisticsResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Details about table statistics.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4C4433FF-5D3A-4C3E-A19C-6D93B2******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

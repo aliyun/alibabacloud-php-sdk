@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadTasksRecordsRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters in a region, including cluster IDs.
+     * @example am-bp2590j****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database that is involved in the import or export task.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+     *
+     * @example 2021-05-18T06:30:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The order in which to sort the tasks by field. Specify the field and the sort order in the JSON format. Example: `[{"Field":"CreateTime", "Type":"desc"}]`.
+     *
+     * >
+     *
+     *   `Field` specifies the field that is used to sort the tasks. Valid values of Field: `State`, `CreateTime`, `DBName`, `ProcessID`, `UpdateTime`, `JobName`, and `ProcessRows`.
+     *
+     *   `Type` specifies the sort order. Valid values of Type: `Desc` and `Asc`. The values are case-insensitive.
+     *
+     * @example [{"Field":"CreateTime", "Type":"desc"}]
+     *
      * @var string
      */
     public $order;
@@ -39,14 +62,31 @@ class DescribeLoadTasksRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @var string
@@ -59,11 +99,25 @@ class DescribeLoadTasksRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.
+     *
+     * > We recommend that you set the query start time to any point in time within 30 days.
+     * @example 2021-05-18T06:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The state of the asynchronous import or export task to be queried. Valid values:
+     *
+     *   **INIT**: The task is being initialized.
+     *   **RUNNING**: The task is running.
+     *   **FINISH**: The task is successful.
+     *   **FAILED**: The task fails.
+     *
+     * @example FINISH
+     *
      * @var string
      */
     public $state;
@@ -76,6 +130,7 @@ class DescribeLoadTasksRecordsRequest extends Model
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'startTime'            => 'StartTime',
@@ -112,6 +167,9 @@ class DescribeLoadTasksRecordsRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -160,6 +218,9 @@ class DescribeLoadTasksRecordsRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

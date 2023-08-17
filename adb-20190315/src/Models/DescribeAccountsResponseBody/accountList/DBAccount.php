@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DBAccount extends Model
 {
     /**
+     * @description The description of the account.
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The name of the account.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The status of the account.
+     *
+     *   Creating: The account is being created.
+     *   Available: The account is available.
+     *   Deleting: The account is being deleted.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @description *   Normal: standard account
+     *   Super: privileged account
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $accountType;

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class series extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
+     * @example worker_avg_cpu_used
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The values of the queried performance metrics.
+     *
      * @var string[]
      */
     public $values;

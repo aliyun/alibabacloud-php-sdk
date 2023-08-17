@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterResourcePoolPerformanceResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end of the time range for monitoring the resource group. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-06-10T07:01:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The queried monitoring information about the metrics.
+     *
      * @var performances[]
      */
     public $performances;
 
     /**
+     * @description The request ID.
+     *
+     * @example C7EDB8E4-9769-4233-88C7-DCA4C9******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range for monitoring the resource group. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-06-10T07:00:00
+     *
      * @var string
      */
     public $startTime;

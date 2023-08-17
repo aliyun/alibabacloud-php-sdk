@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4CE6DF97-AEA4-484F-906F-C407EE3770EB
+     *
      * @var string
      */
     public $requestId;

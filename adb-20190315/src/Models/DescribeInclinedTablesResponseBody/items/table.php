@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class table extends Model
 {
     /**
+     * @description Indicates whether data is skewed in partitions of the table. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isIncline;
 
     /**
+     * @description The name of the table.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the database.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $schema;
 
     /**
+     * @description The number of rows in the table.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $size;
 
     /**
+     * @description The type of the table. Valid values:
+     *
+     *   **FactTable**
+     *   **DimensionTable**
+     *
+     * @example FactTable
+     *
      * @var string
      */
     public $type;

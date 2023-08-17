@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example 212db86sca4384811e0b5e8707ec21345
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +29,20 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The cluster ID. You can specify multiple cluster IDs. Valid values of N: 1 to 50.
+     *
+     * > You must specify at least one of the following parameters: ResourceId.N and Tag.N.Key.
+     * @example am-bp1l20nxxxxxxxxxx
+     *
      * @var string[]
      */
     public $resourceId;
@@ -45,11 +58,17 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **cluster**.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags that are added to clusters.
+     *
      * @var tag[]
      */
     public $tag;

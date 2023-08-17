@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisRecordsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The queried SQL statements.
+     *
      * @var querys[]
      */
     public $querys;
 
     /**
+     * @description The request ID.
+     *
+     * @example 109462AF-B5FA-3D5A-9377-B27E5B******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

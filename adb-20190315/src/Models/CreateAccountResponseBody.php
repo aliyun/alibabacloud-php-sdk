@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp1r053byu48p****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 2FED790E-FB61-4721-8C1C-07C627FA5A19
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
+     * @example 1564657730
+     *
      * @var int
      */
     public $taskId;

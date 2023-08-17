@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeTaskInfoRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
@@ -26,6 +30,11 @@ class DescribeTaskInfoRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -34,6 +43,10 @@ class DescribeTaskInfoRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 225685759
+     *
      * @var int
      */
     public $taskId;
@@ -41,6 +54,7 @@ class DescribeTaskInfoRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'taskId'               => 'TaskId',
@@ -61,6 +75,9 @@ class DescribeTaskInfoRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -91,6 +108,9 @@ class DescribeTaskInfoRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterDescriptionRequest extends Model
 {
     /**
+     * @description The description of the cluster.
+     *
+     *   The description cannot start with `http://` or `https`.
+     *   The description must be 2 to 256 characters in length.
+     *
+     * @example adb_test
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp11q28kvl688****
+     *
      * @var string
      */
     public $DBClusterId;

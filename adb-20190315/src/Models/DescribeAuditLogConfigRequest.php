@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogConfigRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-t4nj8619bz2w3****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +28,10 @@ class DescribeAuditLogConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

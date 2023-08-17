@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlPatternResponseBody extends Model
 {
     /**
+     * @description Details about the SQL pattern.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B6F2D1B4-2C9F-5622-B424-5E7965******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

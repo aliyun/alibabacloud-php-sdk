@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class accountList extends Model
 {
     /**
+     * @description The name of the account.
+     *
+     * @example rdsdt_dts_adb
+     *
      * @var string
      */
     public $user;

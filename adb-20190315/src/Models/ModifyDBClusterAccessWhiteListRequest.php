@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAccessWhiteListRequest extends Model
 {
     /**
+     * @description The attribute of the whitelist. This parameter is empty by default.
+     *
+     * The IP address whitelists that have the hidden attribute are not displayed in the AnalyticDB for MySQL console. These IP address whitelists are used to access Alibaba Cloud services such as Data Transmission Service (DTS) and PolarDB-X.
+     * @example hidden
+     *
      * @var string
      */
     public $DBClusterIPArrayAttribute;
 
     /**
+     * @description The name of the IP address whitelist to be modified. Default value: Default.
+     *
+     * You can create up to 50 whitelists for a cluster.
+     * @example test
+     *
      * @var string
      */
     public $DBClusterIPArrayName;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The method used to modify the whitelist. Valid values:
+     *
+     *   Cover: overwrites the original IP address whitelist.
+     *   Append: adds one or more IP addresses.
+     *   Delete: deletes one or more IP addresses.
+     *
+     * Default value: Cover.
+     * @example Cover
+     *
      * @var string
      */
     public $modifyMode;
@@ -49,6 +72,14 @@ class ModifyDBClusterAccessWhiteListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The IP addresses in an IP address whitelist of a cluster. Separate multiple IP addresses with commas (,). You can add a maximum of 500 different IP addresses to a whitelist. The following formats are supported:
+     *
+     *   IP addresses. Example: 10.23.12.24.
+     *   CIDR blocks. Example: 10.23.12.24/24. 24 indicates that the prefix of the CIDR block is 24-bit long. You can replace 24 with a value within the range of 1 to 32.
+     *
+     * This parameter must be specified unless the ModifyMode parameter is set to Delete.
+     * @example 10.23.12.24
+     *
      * @var string
      */
     public $securityIps;

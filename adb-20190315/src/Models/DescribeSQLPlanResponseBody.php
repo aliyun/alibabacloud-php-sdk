@@ -11,21 +11,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlanResponseBody extends Model
 {
     /**
+     * @description Details about the execution of the SQL statement.
+     *
      * @var detail
      */
     public $detail;
 
     /**
+     * @description The original details of the SQL statement.
+     *
+     * @example {\"queryId\":\"20210527_160443_10581_hdhzr\",\"session\":{\"queryId\":\"20210527_160443_10581_hdhzr\",\"hasSharedStage\":false,\"parentId\":0}}
+     *
      * @var string
      */
     public $originInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 22D6DEF0-CBC7-4388-A41C-D5FD62******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Details about the plan stages.
+     *
      * @var stageList[]
      */
     public $stageList;

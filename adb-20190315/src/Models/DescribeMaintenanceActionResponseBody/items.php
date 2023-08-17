@@ -9,71 +9,140 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the O\&M event was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-06-30T02:44:27Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the cluster involved in the O\&M event.
+     *
+     * @example am-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The database engine.
+     *
+     * @example analyticdb
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 3.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The deadline before which the event can be executed. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-07-04T15:59:59Z
+     *
      * @var string
      */
     public $deadline;
 
     /**
+     * @description The ID of the event.
+     *
+     * @example 11111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The point in time at which the O\&M event was switched. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-07-03T06:33:00Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The preparation time that is required before the pending O\&M event can be switched. The time is in the `HH:mm:ss` format.
+     *
+     * @example 02:00:00
+     *
      * @var string
      */
     public $prepareInterval;
 
     /**
+     * @description The ID of the region where the O\&M event occurs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The execution result of the O\&M event.
+     *
+     * >  This parameter is valid only when `Status` is set to **FAILED** or **CANCEL**.
+     * @example autoCancel
+     *
      * @var string
      */
     public $resultInfo;
 
     /**
+     * @description The time when the task was executed in the backend. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-07-03T04:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The state of the event.
+     *
+     *   If you set `IsHistory` to **0**, the state of the pending O\&M event is returned. Valid values:
+     *
+     *   **WAITING_MODIFY**: The start time of the O\&M event is waiting to be set.
+     *   **WAITING**: The O\&M event is waiting to be processed.
+     *   **PROCESSING**: The O\&M event is being processed. The switching time of an event in this state cannot be changed.
+     *
+     *   If you set `IsHistory` to **1**, the state of the historical O\&M event is returned. Valid values:
+     *
+     *   **SUCCESS**: The event ended and the execution succeeded.
+     *   **FAILED**: The event ended but the execution failed.
+     *   **CANCEL**: The event was canceled.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time when the pending event was switched. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-07-03T06:00:00Z
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @description The type of the O&M event.
+     *
+     * @example rds_apsaradb_upgrade
+     *
      * @var string
      */
     public $taskType;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeOperatorPermissionRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example rm-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;

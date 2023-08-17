@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class loadTasksRecords extends Model
 {
     /**
+     * @description The start time of the task. The time is accurate to milliseconds. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ss.SSSZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-05-18 18:47:27.0
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the database that is involved in the import or export task.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The task ID.
+     *
+     * @example 2021051818472717201616624903453******
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The process ID.
+     *
+     * @example 2021051818472717201616624903453******
+     *
      * @var string
      */
     public $processID;
 
     /**
+     * @description The number of rows that are processed in the asynchronous import or export task.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $processRows;
 
     /**
+     * @description The SQL statement that is used in the asynchronous import or export task.
+     *
+     * @example insert overwrite into courses_external_table\nselect * from courses
+     *
      * @var string
      */
     public $sql;
 
     /**
+     * @description The state of the task.
+     *
+     * @example FINISH
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The time when the task state was updated. The time is accurate to milliseconds. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ss.SSSZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-05-18 18:47:31.0
+     *
      * @var string
      */
     public $updateTime;

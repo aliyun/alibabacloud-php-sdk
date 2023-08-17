@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeInclinedTablesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bpxxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The order in which queries are sorted in the JSON format based on the specified fields. Specify the fields used to sort the queries and the order type.
+     *
+     * Both fields are not case-sensitive.
+     * @example [      {          "Field":"Name",          "Type":"Asc"      }  ]
+     *
      * @var string
      */
     public $order;
@@ -29,11 +38,24 @@ class DescribeInclinedTablesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   30
+     *   50
+     *   100
+     *
+     * Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -49,6 +71,13 @@ class DescribeInclinedTablesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the table. Valid values:
+     *
+     *   FactTable
+     *   DimensionTable
+     *
+     * @example FactTable
+     *
      * @var string
      */
     public $tableType;

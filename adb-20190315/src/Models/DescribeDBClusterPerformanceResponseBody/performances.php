@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
+     * @example AnalyticDB_CPU
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The queried performance metric data.
+     *
      * @var series[]
      */
     public $series;
 
     /**
+     * @description The unit of the performance metric.
+     *
+     * @example %
+     *
      * @var string
      */
     public $unit;

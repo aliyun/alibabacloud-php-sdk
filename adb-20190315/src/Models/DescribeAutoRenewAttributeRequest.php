@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * Separate multiple clusters with commas (,).
+     * @example am-bp11q28kvl688****
+     *
      * @var string
      */
     public $DBClusterIds;
@@ -24,21 +29,43 @@ class DescribeAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0.
+     *
+     * Default value: 1
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   30
+     *   50
+     *   100
+     *
+     * Default value: 30
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-4690g37929****
+     *
      * @var string
      */
     public $resourceGroupId;

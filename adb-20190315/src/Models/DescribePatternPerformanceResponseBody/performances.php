@@ -10,16 +10,37 @@ use AlibabaCloud\Tea\Model;
 class performances extends Model
 {
     /**
+     * @description The performance metric that was queried. Valid values:
+     *
+     *   **AnalyticDB_PatternQueryCount**: the total number of queries executed in association with the SQL pattern.
+     *   **AnalyticDB_PatternQueryTime**: the total amount of time consumed by the queries executed in association with the SQL pattern.
+     *   **AnalyticDB_PatternExecutionTime**: the total execution duration of the queries executed in association with the SQL pattern.
+     *   **AnalyticDB_PatternPeakMemory**: the peak memory usage of the queries executed in association with the SQL pattern.
+     *   **AnalyticDB_PatternScanSize**: the amount of data scanned in the queries executed in association with the SQL pattern.
+     *
+     * @example AnalyticDB_PatternQueryCount
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The queried performance metrics.
+     *
      * @var series[]
      */
     public $series;
 
     /**
+     * @description The unit of the performance metric. Valid values:
+     *
+     *   When the performance metric is related to the query duration (the `Key` value is `AnalyticDB_PatternQueryTime` or `AnalyticDB_PatternExecutionTime`), **ms** is returned.
+     *   When the performance metric is related to the memory usage (the `Key` value is `AnalyticDB_PatternPeakMemory`), **MB** is returned.
+     *   When the performance metric is related to the amount of data scanned (the `Key` value is `AnalyticDB_PatternScanSize`), **MB** is returned.
+     *   When the performance metric is related to the number of queries (the `Key` value is `AnalyticDB_PatternQueryCount`), this parameter is empty.
+     *
+     * @example ms
+     *
      * @var string
      */
     public $unit;

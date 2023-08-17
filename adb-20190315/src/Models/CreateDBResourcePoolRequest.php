@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class CreateDBResourcePoolRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * @example am-bp11q28kvl688****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The number of nodes. Default value: 0.
+     *
+     *   Each node provides 16 cores and 64 GB memory.
+     *   The total amount of resources provided by the nodes (number of nodes × 16 cores, number of nodes × 64 GB memory) cannot exceed the total amount of resources in the cluster. Set this parameter to a proper value.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $nodeNum;
@@ -29,11 +41,28 @@ class CreateDBResourcePoolRequest extends Model
     public $ownerId;
 
     /**
+     * @description The name of the resource group.
+     *
+     *   The name can be up to 255 characters in length.
+     *   The name must start with a letter or a digit.
+     *   The name can contain letters, digits, hyphens (\_), and underscores (\_).
+     *
+     * @example test
+     *
      * @var string
      */
     public $poolName;
 
     /**
+     * @description The mode in which to execute SQL statements.
+     *
+     *   **batch**
+     *
+     *   **interactive**
+     *
+     * > For more information, see [Query execution modes](~~189502~~).
+     * @example interactive
+     *
      * @var string
      */
     public $queryType;

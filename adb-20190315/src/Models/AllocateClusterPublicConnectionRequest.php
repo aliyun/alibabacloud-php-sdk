@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class AllocateClusterPublicConnectionRequest extends Model
 {
     /**
+     * @description The prefix of the public endpoint.
+     *
+     *   The prefix must contain lowercase letters, digits, and hyphens (-). It must start with a lowercase letter.
+     *   The prefix can be up to 30 characters in length.
+     *   By default, the cluster name is used as the prefix of the public endpoint.
+     *
+     * @example am-bp278jg9****.ads.aliyuncs.com
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * @example am-bp278jg9****
+     *
      * @var string
      */
     public $DBClusterId;

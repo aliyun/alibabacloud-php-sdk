@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class resourcePoolPerformances extends Model
 {
     /**
+     * @description The name of the resource group.
+     *
+     * @example test_pool
+     *
      * @var string
      */
     public $resourcePoolName;
 
     /**
+     * @description The sequential monitoring information about the resource groups.
+     *
      * @var resourcePoolSeries[]
      */
     public $resourcePoolSeries;

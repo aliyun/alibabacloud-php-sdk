@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlanTaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The list of tasks.
+     *
      * @var taskList[]
      */
     public $taskList;

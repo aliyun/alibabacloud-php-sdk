@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable log backup. Valid values:
+     *
+     *   **Enable**
+     *   **Disable**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $enableBackupLog;
 
     /**
+     * @description The number of days for which to retain data backup files. Valid values: 7 to 730.
+     *
+     * >  If you leave this parameter empty, the default value 7 is used.
+     * @example 30
+     *
      * @var string
      */
     public $logBackupRetentionPeriod;
@@ -36,6 +52,11 @@ class ModifyLogBackupPolicyRequest extends Model
     /**
      * @var string
      */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -48,6 +69,7 @@ class ModifyLogBackupPolicyRequest extends Model
         'logBackupRetentionPeriod' => 'LogBackupRetentionPeriod',
         'ownerAccount'             => 'OwnerAccount',
         'ownerId'                  => 'OwnerId',
+        'resourceGroupId'          => 'ResourceGroupId',
         'resourceOwnerAccount'     => 'ResourceOwnerAccount',
         'resourceOwnerId'          => 'ResourceOwnerId',
     ];
@@ -73,6 +95,9 @@ class ModifyLogBackupPolicyRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -106,6 +131,9 @@ class ModifyLogBackupPolicyRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class patternDetail extends Model
 {
     /**
+     * @description The average memory consumption associated with the SQL pattern. Unit: MB.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $averageMemory;
 
     /**
+     * @description The average query time associated with the SQL pattern. Unit: milliseconds.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $averageQueryTime;
 
     /**
+     * @description The number of queries performed based on the SQL pattern.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $queryCount;
 
     /**
+     * @description The statement of the SQL pattern.
+     *
+     * @example SELECT * FROM KEPLER_META_NODE_STATIC_INFO WHERE elastic_node = ? OR (elastic_node = ? AND enable = ?)
+     *
      * @var string
      */
     public $SQLPattern;
 
     /**
+     * @description The total query time associated with the SQL pattern. Unit: milliseconds.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $totalQueryTime;

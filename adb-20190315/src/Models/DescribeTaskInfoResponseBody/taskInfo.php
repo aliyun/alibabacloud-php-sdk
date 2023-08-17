@@ -9,26 +9,56 @@ use AlibabaCloud\Tea\Model;
 class taskInfo extends Model
 {
     /**
+     * @description The start time of the task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
+     * @example 2020-01-07T07:39:56Z
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @description The end time of the task. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
+     * @example 2020-01-07T08:08:50Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The progress of the task. Unit: %.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @description The status of the task.
+     *
+     *   Waiting
+     *   Running
+     *   Finished
+     *   Failed
+     *   Closed
+     *   Cancel
+     *   Retry
+     *   Pause
+     *   Stop
+     *
+     * @example Finished
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 225685759
+     *
      * @var int
      */
     public $taskId;

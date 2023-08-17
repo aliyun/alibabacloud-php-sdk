@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description Details of the inappropriate partitions.
+     *
+     * @example 202005,202006
+     *
      * @var string
      */
     public $partitionDetail;
 
     /**
+     * @description The number of partitions.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $partitionNumber;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $schemaName;
 
     /**
+     * @description The table name.
+     *
+     * @example test_table
+     *
      * @var string
      */
     public $tableName;

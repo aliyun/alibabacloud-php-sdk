@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class userRecords extends Model
 {
     /**
+     * @description The number of connections.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The name of the user used to connect to the cluster.
+     *
+     * @example test
+     *
      * @var string
      */
     public $user;

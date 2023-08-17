@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 32732****
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * @example am-bp18934i73vb5****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
+     *
+     * @example 2022-06-02T16:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,11 +47,23 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30** (default)
+     *   **50**
+     *   **100**
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,6 +79,10 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
+     * @example 2022-06-01T16:00Z
+     *
      * @var string
      */
     public $startTime;

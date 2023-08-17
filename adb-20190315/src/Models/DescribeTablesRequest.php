@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeTablesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
@@ -34,6 +38,10 @@ class DescribeTablesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $schemaName;

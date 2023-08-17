@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag. If you want to add multiple tags to a single cluster at a time, click **Add** and enter tag keys and values.
+     *
+     * > You can add up to 20 tags at a time.
+     * @example testkey1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag. If you want to add multiple tags to a single cluster at a time, click **Add** and enter tag keys and values.
+     *
+     * > You can add up to 20 tags at a time.
+     * @example testvalue1
+     *
      * @var string
      */
     public $value;

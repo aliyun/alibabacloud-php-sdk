@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogConfigResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the status of SQL audit is updated. Valid values:
+     *
+     *   **true**: The status of SQL audit is updated.
+     *   **false**: The status of SQL audit is not updated.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $updateSucceed;

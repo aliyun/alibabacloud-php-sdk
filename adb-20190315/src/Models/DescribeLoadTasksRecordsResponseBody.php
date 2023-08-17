@@ -10,31 +10,53 @@ use AlibabaCloud\Tea\Model;
 class DescribeLoadTasksRecordsResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-bp2590j****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The queried asynchronous import and export tasks.
+     *
      * @var loadTasksRecords[]
      */
     public $loadTasksRecords;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
+     * @example C60B05DB-2B77-421A-98E9-92C20E******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

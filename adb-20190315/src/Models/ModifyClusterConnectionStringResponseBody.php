@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterConnectionStringResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 370D09FD-442A-5225-AAD3-7362CAE39177
+     *
      * @var string
      */
     public $requestId;

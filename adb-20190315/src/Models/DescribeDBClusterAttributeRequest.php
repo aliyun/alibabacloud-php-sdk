@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a region.
+     * @example am-bp111m2cfrdl1****
+     *
      * @var string
      */
     public $DBClusterId;

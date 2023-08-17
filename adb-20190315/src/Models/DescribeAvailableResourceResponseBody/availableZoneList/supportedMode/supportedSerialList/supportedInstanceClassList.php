@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class supportedInstanceClassList extends Model
 {
     /**
+     * @example C32
+     *
      * @var string
      */
     public $instanceClass;
@@ -26,6 +28,8 @@ class supportedInstanceClassList extends Model
     public $supportedNodeCountList;
 
     /**
+     * @example C32
+     *
      * @var string
      */
     public $tips;

@@ -10,17 +10,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourcePoolResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp11q28kvl688****
+     *
+     * @var string
+     */
+    public $DBClusterId;
+
+    /**
+     * @description Details of the resource group.
+     *
      * @var poolsInfo[]
      */
     public $poolsInfo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'poolsInfo' => 'PoolsInfo',
-        'requestId' => 'RequestId',
+        'DBClusterId' => 'DBClusterId',
+        'poolsInfo'   => 'PoolsInfo',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -30,6 +46,9 @@ class DescribeDBResourcePoolResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBClusterId) {
+            $res['DBClusterId'] = $this->DBClusterId;
+        }
         if (null !== $this->poolsInfo) {
             $res['PoolsInfo'] = [];
             if (null !== $this->poolsInfo && \is_array($this->poolsInfo)) {
@@ -54,6 +73,9 @@ class DescribeDBResourcePoolResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBClusterId'])) {
+            $model->DBClusterId = $map['DBClusterId'];
+        }
         if (isset($map['PoolsInfo'])) {
             if (!empty($map['PoolsInfo'])) {
                 $model->poolsInfo = [];

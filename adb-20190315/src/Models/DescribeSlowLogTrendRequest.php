@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogTrendRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example am-uf6wjk5xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The maximum time range that can be specified is seven days. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2019-06-20T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -44,6 +56,10 @@ class DescribeSlowLogTrendRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2019-06-01T16:00:00Z
+     *
      * @var string
      */
     public $startTime;

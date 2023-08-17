@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogConfigRequest extends Model
 {
     /**
+     * @description The status of SQL audit. Valid values:
+     *
+     *   **on**: SQL audit is enabled.
+     *   **off**: SQL audit is disabled.
+     *
+     * @example on
+     *
      * @var string
      */
     public $auditLogStatus;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-t4nj8619bz2w3****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,6 +40,10 @@ class ModifyAuditLogConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlanTaskRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +28,10 @@ class DescribeSQLPlanTaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 201907241445301720211111570315107****
+     *
      * @var string
      */
     public $processId;
@@ -39,6 +47,10 @@ class DescribeSQLPlanTaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The stage of the task.
+     *
+     * @example 1785135913****
+     *
      * @var string
      */
     public $stageId;

@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class supportedSerialList extends Model
 {
     /**
+     * @description The step size.
+     *
+     * @example mixed_storage
+     *
      * @var string
      */
     public $serial;
 
     /**
+     * @description The minimum number of EIUs.
+     *
      * @var supportedFlexibleResource[]
      */
     public $supportedFlexibleResource;

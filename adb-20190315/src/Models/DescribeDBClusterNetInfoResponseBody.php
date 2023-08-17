@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterNetInfoResponseBody extends Model
 {
     /**
+     * @description The network type of the cluster.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $clusterNetworkType;
 
     /**
+     * @description The network information of the cluster.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;

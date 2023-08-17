@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The number of accesses to the table.
+     *
+     * @example 6
+     *
      * @var string
      */
     public $accessCount;
 
     /**
+     * @description The ID of the cluster to which the table belongs.
+     *
+     * @example am-bp1r053byu48p****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The date when the table was used.
+     *
+     * @example 2021-08-30
+     *
      * @var string
      */
     public $reportDate;
 
     /**
+     * @description The name of the table.
+     *
+     * @example CUSTOMER
+     *
      * @var string
      */
     public $tableName;
 
     /**
+     * @description The database to which the table belongs.
+     *
+     * @example tpch
+     *
      * @var string
      */
     public $tableSchema;

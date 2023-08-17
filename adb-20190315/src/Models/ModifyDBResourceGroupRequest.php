@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * @example am-bp1ub9grke1****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the resource group.
+     *
+     * @example test_group
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @description The query execution mode. Valid values:
+     *
+     *   **interactive**
+     *   **batch**
+     *
+     * >  For more information, see [Query execution modes](~~189502~~).
+     * @example batch
+     *
      * @var string
      */
     public $groupType;
 
     /**
+     * @description The number of nodes. Default value: 0.
+     *
+     *   Each node is configured with the resources of 16 cores and 64 GB memory.
+     *   Make sure that the amount of resources of the nodes (Number of nodes × 16 cores and 64 GB memory) is less than or equal to the amount of unused resources of the cluster.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeNum;

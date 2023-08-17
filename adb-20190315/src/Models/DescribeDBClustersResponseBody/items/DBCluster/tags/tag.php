@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The tag key.
+     *
+     * > You can call the [TagResources](~~179253~~) operation to add tags to a cluster.
+     * @example tag1
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value.
+     *
+     * @example test1
+     *
      * @var string
      */
     public $value;

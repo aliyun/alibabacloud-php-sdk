@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateDBClusterResponseBody extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp1r053byu48p****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 202353278****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the cluster belongs.
+     *
+     * @example rg-4690g37929****
+     *
      * @var string
      */
     public $resourceGroupId;

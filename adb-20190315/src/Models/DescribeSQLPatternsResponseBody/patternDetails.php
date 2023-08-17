@@ -9,86 +9,158 @@ use AlibabaCloud\Tea\Model;
 class patternDetails extends Model
 {
     /**
+     * @description The IP address of the SQL client that commits the SQL pattern.
+     *
+     * @example 192.168.xx.xx
+     *
      * @var string
      */
     public $accessIp;
 
     /**
+     * @description The average execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+     *
+     * @example 234.78
+     *
      * @var float
      */
     public $averageExecutionTime;
 
     /**
+     * @description The average peak memory usage of the SQL pattern within the query time range. Unit: bytes.
+     *
+     * @example 234.22
+     *
      * @var float
      */
     public $averagePeakMemory;
 
     /**
+     * @description The average total amount of time consumed by the SQL pattern within the query time range. Unit: milliseconds.
+     *
+     * @example 4
+     *
      * @var float
      */
     public $averageQueryTime;
 
     /**
+     * @description The average amount of data scanned based on the SQL pattern within the query time range. Unit: bytes.
+     *
+     * @example 234149.23
+     *
      * @var float
      */
     public $averageScanSize;
 
     /**
+     * @description Indicates whether the execution of the SQL pattern can be blocked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > Only SELECT and INSERT statements can be blocked.
+     * @example true
+     *
      * @var bool
      */
     public $blockable;
 
     /**
+     * @description The number of failed queries executed in association with the SQL pattern within the query time range.
+     *
+     * @example 234
+     *
      * @var int
      */
     public $failedCount;
 
     /**
+     * @description The maximum execution duration of the SQL pattern within the query time range. Unit: milliseconds.
+     *
+     * @example 2142
+     *
      * @var int
      */
     public $maxExecutionTime;
 
     /**
+     * @description The maximum peak memory usage of the SQL pattern within the query time range. Unit: bytes.
+     *
+     * @example 234149
+     *
      * @var int
      */
     public $maxPeakMemory;
 
     /**
+     * @description The maximum total amount of time consumed by the SQL pattern within the query time range. Unit: milliseconds.
+     *
+     * @example 2341
+     *
      * @var int
      */
     public $maxQueryTime;
 
     /**
+     * @description The maximum amount of data scanned based on the SQL pattern within the query time range. Unit: bytes.
+     *
+     * @example 234149
+     *
      * @var int
      */
     public $maxScanSize;
 
     /**
+     * @description The earliest commit time of the SQL pattern within the query time range. Unit: milliseconds.
+     *
+     * @example 2021-11-12 03:06:00
+     *
      * @var string
      */
     public $patternCreationTime;
 
     /**
+     * @description The ID of the SQL pattern.
+     *
+     * @example 5575924945138******
+     *
      * @var string
      */
     public $patternId;
 
     /**
+     * @description The number of queries executed in association with the SQL pattern within the query time range.
+     *
+     * @example 345
+     *
      * @var int
      */
     public $queryCount;
 
     /**
+     * @description The statement of the SQL pattern.
+     *
+     * @example SELECT * FROM KEPLER_META_NODE_STATIC_INFO WHERE elastic_node = ? OR (elastic_node = ? AND enable = ?)
+     *
      * @var string
      */
     public $SQLPattern;
 
     /**
+     * @description The tables scanned based on the SQL pattern.
+     *
+     * @example tpch.orders
+     *
      * @var string
      */
     public $tables;
 
     /**
+     * @description The database username that is used to commit the SQL pattern.
+     *
+     * @example reporter
+     *
      * @var string
      */
     public $user;

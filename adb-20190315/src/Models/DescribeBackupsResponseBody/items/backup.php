@@ -9,36 +9,67 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description The end time of the backup.
+     *
+     * @example 2022-06-02T16:00Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 32732****
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The backup method. Only Snapshot is returned.
+     *
+     * @example Snapshot
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The backup size. Unit: bytes.
+     *
+     * @example 2167808
+     *
      * @var int
      */
     public $backupSize;
 
     /**
+     * @description The start time of the backup.
+     *
+     * @example 2022-06-01T16:00Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The backup type. Valid values:
+     *
+     *   **FullBackup**
+     *   **IncrementalBackup**
+     *
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * @example am-bp18934i73vb5****
+     *
      * @var string
      */
     public $DBClusterId;

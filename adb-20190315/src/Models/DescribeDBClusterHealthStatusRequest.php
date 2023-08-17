@@ -6,32 +6,30 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBClusterForecastRequest extends Model
+class DescribeDBClusterHealthStatusRequest extends Model
 {
     /**
+     * @description The ID of the AnalyticDB for MySQL Data Warehouse Edition (V3.0) cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the cluster IDs of all AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters within a specific region.
+     * @example am-bp1d8lbdj22rx****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
-     * @var string
-     */
-    public $metricType;
-
-    /**
+     * @description The ID of the region.
+     *
+     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
-
-    /**
-     * @var string
-     */
-    public $startTime;
     protected $_name = [
         'DBClusterId' => 'DBClusterId',
-        'metricType'  => 'MetricType',
         'regionId'    => 'RegionId',
-        'startTime'   => 'StartTime',
     ];
 
     public function validate()
@@ -44,14 +42,8 @@ class DescribeDBClusterForecastRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
-        if (null !== $this->metricType) {
-            $res['MetricType'] = $this->metricType;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->startTime) {
-            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -60,7 +52,7 @@ class DescribeDBClusterForecastRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBClusterForecastRequest
+     * @return DescribeDBClusterHealthStatusRequest
      */
     public static function fromMap($map = [])
     {
@@ -68,14 +60,8 @@ class DescribeDBClusterForecastRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
-        if (isset($map['MetricType'])) {
-            $model->metricType = $map['MetricType'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['StartTime'])) {
-            $model->startTime = $map['StartTime'];
         }
 
         return $model;

@@ -9,21 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description The number of days for which to retain full backup files. Valid values: 7 to 730.
+     *
+     * >  If you leave this parameter empty, the default value 7 is used.
+     * @example 30
+     *
      * @var string
      */
     public $backupRetentionPeriod;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example am-bp1xxxxxxxx47
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable real-time log backup. Valid values:
+     *
+     *   **Enable**
+     *
+     *   **Disable**
+     *
+     * > If you leave this parameter empty, the default value Enable is used.
+     * @example Enable
+     *
      * @var string
      */
     public $enableBackupLog;
 
     /**
+     * @description The number of days for which to retain log backup files. Valid values: 7 to 730.
+     *
+     * >  If you leave this parameter empty, the default value 7 is used.
+     * @example 30
+     *
      * @var int
      */
     public $logBackupRetentionPeriod;
@@ -39,11 +62,29 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The days of the week on which to perform full backup. Separate multiple values with commas (,). Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * >  To ensure data security, we recommend that you specify at least two values.
+     * @example Monday,Wednesday,Friday,Sunday
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @description The start time of the full backup within a time range. Specify the time range in the HH:mmZ-HH:mmZ format. The time must be in UTC.
+     *
+     * >  The time range is 1 hour.
+     * @example 00:00Z-01:00Z
+     *
      * @var string
      */
     public $preferredBackupTime;

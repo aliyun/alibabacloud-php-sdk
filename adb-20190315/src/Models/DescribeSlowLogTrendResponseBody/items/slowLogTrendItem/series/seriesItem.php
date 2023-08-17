@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class seriesItem extends Model
 {
     /**
+     * @description The name of the performance metric.
+     *
+     * @example slow_log_trend
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The values of the performance metric.
+     *
+     * @example [ [ "2019-05-06T05:17:46.487Z", 5 ], [ "2019-05-06T05:18:20.784Z", 5 ] ]
+     *
      * @var string
      */
     public $values;

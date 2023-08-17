@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class address extends Model
 {
     /**
+     * @description The endpoint of the cluster.
+     *
+     * @example am-bpxxxxxxxx.ads.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The prefix of the cluster endpoint.
+     *
+     * @example am-bpxxxxxxxx89k51380
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The IP address.
+     *
+     * @example 192.168.x.x
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **Public**: public endpoint
+     *   **VPC**: Virtual Private Cloud (VPC) endpoint
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The port number that is used to connect to the cluster.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * >  This parameter is empty when Public is returned for NetType.
+     * @example vpc-xxxxxxxxx
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * >  This parameter is empty when Public is returned for NetType.
+     * @example vsw-xxxxxx
+     *
      * @var string
      */
     public $vSwitchId;

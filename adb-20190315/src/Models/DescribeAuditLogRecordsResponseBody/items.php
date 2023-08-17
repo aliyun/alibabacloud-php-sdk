@@ -9,51 +9,94 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description This parameter is unavailable.
+     *
+     * @example None
+     *
      * @var string
      */
     public $connId;
 
     /**
+     * @description The name of the database on which the SQL statement was executed.
+     *
+     * @example adb_test
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The start time of the execution of the SQL statement. The time is displayed in the ISO 8601 standard in the yyyy-MM-dd HH:mm:ss format. The time must be in UTC.
+     *
+     * @example 2022-01-23 16:05:08
+     *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @description The IP address and port number of the client that is used to execute the SQL statement.
+     *
+     * @example 100.104.XX.XX:43908
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The task ID.
+     *
+     * @example 202106081752021720161662490345362390
+     *
      * @var string
      */
     public $processID;
 
     /**
+     * @description Details of the SQL statement.
+     *
+     * @example SELECT * FROM tb_courses
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The type of the SQL statement.
+     *
+     * @example SELECT
+     *
      * @var string
      */
     public $SQLType;
 
     /**
+     * @description Indicates whether the SQL statement was successfully executed. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $succeed;
 
     /**
+     * @description The amount of time that is consumed to execute the SQL statement. Unit: milliseconds.
+     *
+     * @example 216
+     *
      * @var string
      */
     public $totalTime;
 
     /**
+     * @description The name of the user who executed the SQL statement.
+     *
+     * @example test_user
+     *
      * @var string
      */
     public $user;

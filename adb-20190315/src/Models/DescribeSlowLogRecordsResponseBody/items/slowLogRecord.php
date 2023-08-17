@@ -9,91 +9,163 @@ use AlibabaCloud\Tea\Model;
 class slowLogRecord extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example adb_demo
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The time when the execution started. The time follows the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time is displayed in UTC.
+     *
+     * @example 2021-05-27T08:04:43Z
+     *
      * @var string
      */
     public $executionStartTime;
 
     /**
+     * @description The IP address of the client that is used to connect to the database.
+     *
+     * @example 172.16.**.**
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The amount of output data in the task. Unit: bytes.
+     *
+     * @example 0.009
+     *
      * @var string
      */
     public $outputSize;
 
     /**
+     * @description The number of rows parsed by the SQL statement.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $parseRowCounts;
 
     /**
+     * @description The maximum memory usage when the SQL statement is executed. Unit: KB.
+     *
+     * @example 431.447
+     *
      * @var string
      */
     public $peakMemoryUsage;
 
     /**
+     * @description The amount of time consumed to generate execution plans. Unit: milliseconds.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $planningTime;
 
     /**
+     * @description The ID of the process.
+     *
+     * @example 2021052716044317201616624903453******
+     *
      * @var string
      */
     public $processID;
 
     /**
+     * @description The time consumed to execute the SQL statement. Unit: milliseconds.
+     *
+     * @example 2344
+     *
      * @var int
      */
     public $queryTime;
 
     /**
+     * @description The queuing duration before the query is executed. Unit: milliseconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $queueTime;
 
     /**
+     * @description The number of rows returned by the SQL statement.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @description Details of the SQL statement.
+     *
+     * @example INSERT OVERWRITE INTO hdfs_import_external\nSELECT *\nFROM adb_hdfs_import_source
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The number of rows scanned from a data source in the task.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $scanRows;
 
     /**
+     * @description The amount of scanned data. Unit: KB.
+     *
+     * @example 0.035
+     *
      * @var string
      */
     public $scanSize;
 
     /**
+     * @description The total amount of time consumed to scan data. It is an accumulated value collected from multiple TableScanNode nodes. Unit: milliseconds.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $scanTime;
 
     /**
+     * @description The execution state of the SQL statement.
+     *
+     * @example SUCCESSED
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description The username.
+     *
+     * @example test
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The accumulated CPU Time value of all operators collected from all nodes. Unit: milliseconds.
+     *
+     * @example 6100
+     *
      * @var int
      */
     public $wallTime;
