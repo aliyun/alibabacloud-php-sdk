@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The name of template parameter N that you want to use to override another parameter. If you do not specify the name and value of a template parameter, ROS uses the name and value specified in the previous operation that was performed to create the stack. Maximum value of N: 200.
+     * @description The name of template parameter N that you want to use to override a specific parameter. If you do not specify the name and value of a template parameter, ROS uses the name and value specified in the previous operation that was performed to create the stack. Maximum value of N: 200.
      *
-     * >  This parameter takes effect only when the Mode parameter is set to Recreate.
+     * > This parameter takes effect only when Mode is set to Recreate.
      * @example Amount
      *
      * @var string
@@ -19,14 +19,14 @@ class parameters extends Model
     public $parameterKey;
 
     /**
-     * @description The value of template parameter N that you want to use to override another parameter. Maximum value of N: 200.
+     * @description The value of template parameter N that you want to use to override a specific parameter. Maximum value of N: 200.
      *
-     * For ROS stacks, the following limits are imposed on the template parameters that you use to override other parameters:
+     * For ROS stacks, the template parameters that you use to override specific parameters are subject to the following limits:
      *
      *   You cannot change the condition values in the Conditions section of a template from true to false or from false to true.
      *   The template parameters can be referenced only by resources that ROS continues to create.
      *
-     * >  This parameter takes effect only when the Mode parameter is set to Recreate.
+     * > This parameter takes effect only when Mode is set to Recreate.
      * @example 12
      *
      * @var string

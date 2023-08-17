@@ -17,7 +17,7 @@ class ContinueCreateStackResponseBody extends Model
     public $dryRunResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B288A0BE-D927-4888-B0F7-B35EF84B6E6
      *
@@ -26,7 +26,7 @@ class ContinueCreateStackResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the stack.
+     * @description The stack ID.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *

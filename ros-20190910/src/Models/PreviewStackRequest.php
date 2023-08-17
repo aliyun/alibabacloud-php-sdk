@@ -73,12 +73,9 @@ class PreviewStackRequest extends Model
     /**
      * @description The stack ID. You can use this parameter to preview a stack that you want to update.
      *
-     * >
      *
-     *   You must and can specify only one of StackName and StackId.
      *
-     *   In the scenario in which you preview a stack that you want to create or update, you cannot preview the resources in its nested stacks.
-     *
+     * > - In the scenario in which you preview a stack that you want to create or update, you cannot preview the resources in its nested stacks.
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
      * @var string

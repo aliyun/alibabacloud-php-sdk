@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class deploymentTargets extends Model
 {
     /**
-     * @description The IDs of the folders in the resource directory. You can specify up to five folder IDs.
+     * @description The IDs of the folders in the resource directory. You can add up to five folder IDs.
      *
-     * You can create stacks within all members in the specified folders. If you create stacks in the Root folder, the stacks are created within all members in the resource directory.
+     * You can create stacks within all the member accounts in the specified folders. If you create stacks in the Root folder, the stacks are created within all member accounts in the resource directory.
      *
-     * >  To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information of a folder](~~111223~~).
+     * > To view the folder IDs, go to the **Overview** page in the **Resource Management** console. For more information, see [View the basic information about a folder](~~111223~~).
      * @var string[]
      */
     public $rdFolderIds;

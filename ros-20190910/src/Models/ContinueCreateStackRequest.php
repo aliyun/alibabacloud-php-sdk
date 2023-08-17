@@ -10,10 +10,10 @@ use AlibabaCloud\Tea\Model;
 class ContinueCreateStackRequest extends Model
 {
     /**
-     * @description Specifies whether only to validate the stack in the request. Default value: false. Valid values:
+     * @description Specifies whether only to validate the stack in the request. Valid values:
      *
      *   true: only validates the stack.
-     *   false: validates and continues to create the stack.
+     *   false (default): validates and continues to create the stack.
      *
      * @example false
      *
@@ -22,29 +22,25 @@ class ContinueCreateStackRequest extends Model
     public $dryRun;
 
     /**
-     * @description The mode in which ROS continues to create the stack. Default value: Recreate. Valid values:
+     * @description The mode in which ROS continues to create the stack. Valid values:
      *
-     *   Recreate
+     *   Recreate (default)
      *
      * If you set this parameter to Recreate, ROS continues to create only the following types of resources:
      *
      *   Resources that fail to be created
-     *
-     *   Resources that you specify for the RecreatingResources.N parameter
-     *
-     *   Dependencies of the resources that you specify for the RecreatingResources.N parameter
-     *
+     *   Resources that you specify for RecreatingResources.N
+     *   Dependencies of the resources that you specify for RecreatingResources.N
      *   Resources that you have not created
      *
-     * >  The RecreatingResources.N, TemplateBody, and TemplateURL parameters, and the Parameters section take effect only when the Mode parameter is set to Recreate.
+     * > RecreatingResources.N, TemplateBody, TemplateURL, and Parameters take effect only when Mode is set to Recreate.
      *
      *   Ignore
      *
-     *   ROS ignores and discards resources that fail to be created and you have not created, and marks the stack as successfully created.
-     *
+     *   ROS ignores and discards resources that fail to be created and you have not created, and considers that the stack is successfully created.
      *   The body of the template that you use to create the stack is changed.
      *
-     * >  This value is valid only for ROS stacks.
+     * > This mode is available only for ROS stacks.
      * @example Recreate
      *
      * @var string
@@ -54,12 +50,7 @@ class ContinueCreateStackRequest extends Model
     /**
      * @description The maximum number of concurrent operations that can be performed on resources.
      *
-     * >
-     *   If you set this parameter to an integer that is greater than 0, the integer is used.
-     *   If you set this parameter to 0, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-     *   If you leave this parameter empty, the value that you specified for this parameter in the previous request is used. If you left this parameter empty in the previous request, no limit is imposed on ROS stacks. However, the default value in Terraform is used for Terraform stacks. In most cases, the default value in Terraform is 10.
-     *   If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack.
-     *
+     * > - If you set this parameter to a specific value, ROS associates the value with the stack. The value affects subsequent operations on the stack.
      * @example 1
      *
      * @var int
@@ -67,15 +58,14 @@ class ContinueCreateStackRequest extends Model
     public $parallelism;
 
     /**
-     * @description The parameters of the template.
+     * @description The template parameters that you want to use to override specific parameters.
      *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.
-     *
+     * @description The name of the RAM role. Resource Orchestration Service (ROS) assumes the RAM role to create the stack and uses the credentials of the role to call the APIs of Alibaba Cloud services.\
      * The name of the RAM role can be up to 64 bytes in length.
      * @example test-role
      *
@@ -84,15 +74,16 @@ class ContinueCreateStackRequest extends Model
     public $ramRoleName;
 
     /**
-     * @description Option N that ROS adopts when ROS continues to create the stack.
+     * @description The options that ROS adopts when ROS continues to create the stack.
      *
      * @var string[]
      */
     public $recreatingOptions;
 
     /**
-     * @description Resource N that ROS continues to create after the resource failed to be created.
+     * @description The resources that ROS continues to create after the resources failed to be created. You can add new resources to the resources that ROS continues to create. ROS continues to create all dependencies of the new resources.
      *
+     * > This parameter is available only for ROS stacks.
      * @example WebServer
      *
      * @var string[]
@@ -109,7 +100,7 @@ class ContinueCreateStackRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the stack.
+     * @description The stack ID.
      *
      * @example 4a6c9851-3b0f-4f5f-b4ca-a14bf691****
      *
@@ -118,9 +109,8 @@ class ContinueCreateStackRequest extends Model
     public $stackId;
 
     /**
-     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.
-     *
-     * An ROS template is subject to the following limits:
+     * @description The structure that contains the template body. The template body must be 1 to 524,288 bytes in length.\
+     * A ROS template is subject to the following limits:
      *
      *   You can modify only the following sections in the template: Description, Metadata, Resources, and Outputs.
      *
@@ -129,14 +119,12 @@ class ContinueCreateStackRequest extends Model
      *   The Resources section is subject to the following limits:
      *
      *   You cannot delete the resources or change the template body for the resources that you do not want to continue to create.
-     *
      *   You can delete the resources or change the template body for the resources that you want to continue to create.
-     *
      *   You can add resources to this section.
      *
-     * > *   This parameter takes effect only when the Mode parameter is set to Recreate.
-     *   You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
      *
+     *
+     * > - You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
      * @example {"ROSTemplateFormatVersion": "2015-09-01"}
      *
      * @var string
@@ -144,12 +132,9 @@ class ContinueCreateStackRequest extends Model
     public $templateBody;
 
     /**
-     * @description The ID of the template. This parameter applies to shared templates and private templates.
+     * @description The template ID. This parameter applies to shared and private templates.
      *
-     * >
-     *   This parameter takes effect when the `Mode` parameter is set to `Recreate`. When you specify the TemplateId parameter in a template, the template is subject to the limits that are described for the `TemplateBody` parameter in this topic.
-     *   You can specify only one of the following parameters: `TemplateBody`, `TemplateURL`, and `TemplateId`. If you do not specify the parameters, the existing template is used.
-     *
+     * > - You can specify only one of the following parameters: `TemplateBody`, `TemplateURL`, and `TemplateId`. If you do not specify the parameters, the existing template is used.
      * @example 5ecd1e10-b0e9-4389-a565-e4c15efc****
      *
      * @var string
@@ -159,10 +144,7 @@ class ContinueCreateStackRequest extends Model
     /**
      * @description The URL of the file that contains the template body. The URL must point to a template that is located on an HTTP or HTTPS web server or in an Object Storage Service (OSS) bucket, such as oss://ros/template/demo or oss://ros/template/demo?RegionId=cn-hangzhou. The template body can be up to 524,288 bytes in length.
      *
-     * >
-     *   This parameter takes effect only when the Mode parameter is set to Recreate. When you specify the TemplateURL parameter in a template, the template is subject to the limits that are described for the TemplateBody parameter in this topic.
-     *   You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
-     *
+     * > - You can specify only one of the following parameters: TemplateBody, TemplateURL, and TemplateId. If you do not specify the parameters, the existing template is used.
      * @example oss://ros-template/demo
      *
      * @var string
@@ -170,7 +152,7 @@ class ContinueCreateStackRequest extends Model
     public $templateURL;
 
     /**
-     * @description The version of the template. This parameter takes effect only when the TemplateId parameter is specified.
+     * @description The version of the template. This parameter takes effect only when TemplateId is specified.
      *
      * @example v1
      *
