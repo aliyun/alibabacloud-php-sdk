@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class SendChatappMassMessageResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The HTTP status code returned.
      *
      *   A value of OK indicates that the call is successful.
@@ -47,10 +52,11 @@ class SendChatappMassMessageResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'           => 'Code',
-        'groupMessageId' => 'GroupMessageId',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'groupMessageId'     => 'GroupMessageId',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class SendChatappMassMessageResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -84,6 +93,9 @@ class SendChatappMassMessageResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

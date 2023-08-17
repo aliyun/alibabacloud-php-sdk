@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMessageRequest\productAction;
 use AlibabaCloud\Tea\Model;
 
 class SendChatappMessageRequest extends Model
@@ -192,6 +193,11 @@ class SendChatappMessageRequest extends Model
     public $payload;
 
     /**
+     * @var productAction
+     */
+    public $productAction;
+
+    /**
      * @description The tag information of the Viber message.
      *
      * @example tag
@@ -278,6 +284,7 @@ class SendChatappMessageRequest extends Model
         'language'         => 'Language',
         'messageType'      => 'MessageType',
         'payload'          => 'Payload',
+        'productAction'    => 'ProductAction',
         'tag'              => 'Tag',
         'taskId'           => 'TaskId',
         'templateCode'     => 'TemplateCode',
@@ -336,6 +343,9 @@ class SendChatappMessageRequest extends Model
         }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
+        }
+        if (null !== $this->productAction) {
+            $res['ProductAction'] = null !== $this->productAction ? $this->productAction->toMap() : null;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -416,6 +426,9 @@ class SendChatappMessageRequest extends Model
             if (!empty($map['Payload'])) {
                 $model->payload = $map['Payload'];
             }
+        }
+        if (isset($map['ProductAction'])) {
+            $model->productAction = productAction::fromMap($map['ProductAction']);
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

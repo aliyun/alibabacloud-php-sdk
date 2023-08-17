@@ -43,6 +43,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetMigrationVerifyCodeResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
@@ -712,6 +714,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->language)) {
             $body['Language'] = $request->language;
         }
+        if (!Utils::isUnset($request->messageSendTtlSeconds)) {
+            $body['MessageSendTtlSeconds'] = $request->messageSendTtlSeconds;
+        }
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
@@ -1080,7 +1085,53 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The message ID.
+     * @param GetPreValidatePhoneIdRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetPreValidatePhoneIdResponse
+     */
+    public function getPreValidatePhoneIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->verifyCode)) {
+            $body['VerifyCode'] = $request->verifyCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'GetPreValidatePhoneId',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPreValidatePhoneIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetPreValidatePhoneIdRequest $request
+     *
+     * @return GetPreValidatePhoneIdResponse
+     */
+    public function getPreValidatePhoneId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getPreValidatePhoneIdWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param IsvGetAppIdRequest $request IsvGetAppIdRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1113,7 +1164,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The message ID.
+     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param IsvGetAppIdRequest $request IsvGetAppIdRequest
      *
@@ -1242,6 +1293,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->language)) {
             $body['Language'] = $request->language;
         }
+        if (!Utils::isUnset($request->messageSendTtlSeconds)) {
+            $body['MessageSendTtlSeconds'] = $request->messageSendTtlSeconds;
+        }
         if (!Utils::isUnset($request->templateCode)) {
             $body['TemplateCode'] = $request->templateCode;
         }
@@ -1281,7 +1335,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ModifyPhoneBusinessProfile.
      *   *
      * @param ModifyPhoneBusinessProfileRequest $tmpReq  ModifyPhoneBusinessProfileRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1340,7 +1394,7 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * ModifyPhoneBusinessProfile.
      *   *
      * @param ModifyPhoneBusinessProfileRequest $request ModifyPhoneBusinessProfileRequest
      *
@@ -1665,6 +1719,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($tmpReq->payload)) {
             $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
+        if (!Utils::isUnset($tmpReq->productAction)) {
+            $request->productActionShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->productAction, 'ProductAction', 'json');
+        }
         if (!Utils::isUnset($tmpReq->templateParams)) {
             $request->templateParamsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->templateParams, 'TemplateParams', 'json');
         }
@@ -1711,6 +1768,9 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->messageType)) {
             $body['MessageType'] = $request->messageType;
+        }
+        if (!Utils::isUnset($request->productActionShrink)) {
+            $body['ProductAction'] = $request->productActionShrink;
         }
         if (!Utils::isUnset($request->tag)) {
             $body['Tag'] = $request->tag;

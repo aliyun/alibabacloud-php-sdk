@@ -9,10 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned.
-     *
-     *   A value of OK indicates that the call is successful.
-     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
+     * @description The URL of the website.
      *
      * @example OK
      *
@@ -21,7 +23,7 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
     public $code;
 
     /**
-     * @description The error message returned.
+     * @description The ID of the request.
      *
      * @example SUCCESS
      *
@@ -30,7 +32,7 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The websites.
      *
      * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
      *
@@ -38,9 +40,10 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -50,6 +53,9 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -71,6 +77,9 @@ class ModifyPhoneBusinessProfileResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

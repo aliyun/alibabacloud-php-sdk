@@ -16,12 +16,14 @@ class buttons extends Model
     public $autofillText;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isOptOut;
 
     /**
-     * @example com.aliyun
+     * @example com.demo
      *
      * @var string
      */
@@ -35,7 +37,7 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @example 293882
+     * @example 29dkeke
      *
      * @var string
      */

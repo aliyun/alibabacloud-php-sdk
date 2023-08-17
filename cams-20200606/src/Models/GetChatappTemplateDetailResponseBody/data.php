@@ -41,11 +41,25 @@ class data extends Model
     public $language;
 
     /**
+     * @example 120
+     *
+     * @var int
+     */
+    public $messageSendTtlSeconds;
+
+    /**
      * @example hello_whatsapp
      *
      * @var string
      */
     public $name;
+
+    /**
+     * @example GREEN
+     *
+     * @var string
+     */
+    public $qualityScore;
 
     /**
      * @example 744c4b5c79c9432497a075bdfca3****
@@ -61,14 +75,16 @@ class data extends Model
      */
     public $templateType;
     protected $_name = [
-        'auditStatus'  => 'AuditStatus',
-        'category'     => 'Category',
-        'components'   => 'Components',
-        'example'      => 'Example',
-        'language'     => 'Language',
-        'name'         => 'Name',
-        'templateCode' => 'TemplateCode',
-        'templateType' => 'TemplateType',
+        'auditStatus'           => 'AuditStatus',
+        'category'              => 'Category',
+        'components'            => 'Components',
+        'example'               => 'Example',
+        'language'              => 'Language',
+        'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
+        'name'                  => 'Name',
+        'qualityScore'          => 'QualityScore',
+        'templateCode'          => 'TemplateCode',
+        'templateType'          => 'TemplateType',
     ];
 
     public function validate()
@@ -99,8 +115,14 @@ class data extends Model
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
+        if (null !== $this->messageSendTtlSeconds) {
+            $res['MessageSendTtlSeconds'] = $this->messageSendTtlSeconds;
+        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->qualityScore) {
+            $res['QualityScore'] = $this->qualityScore;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -141,8 +163,14 @@ class data extends Model
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
+        if (isset($map['MessageSendTtlSeconds'])) {
+            $model->messageSendTtlSeconds = $map['MessageSendTtlSeconds'];
+        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['QualityScore'])) {
+            $model->qualityScore = $map['QualityScore'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

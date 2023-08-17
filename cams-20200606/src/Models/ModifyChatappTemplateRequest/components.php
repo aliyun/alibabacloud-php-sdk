@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $addSecretRecommendation;

@@ -28,6 +28,8 @@ class buttons extends Model
     /**
      * @description Whatsapp模板，在Category为Marketing,并且Button type为QUICK_REPLY时有效，表示按钮为营销退订按钮，客户如果点击了此按钮，并且在chatapp平台上配置了发送控制操作，则后续Marketing消息则不会发送到客户
      *
+     * @example false
+     *
      * @var bool
      */
     public $isOptOut;

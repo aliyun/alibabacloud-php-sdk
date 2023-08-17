@@ -192,6 +192,11 @@ class SendChatappMessageShrinkRequest extends Model
     public $payloadShrink;
 
     /**
+     * @var string
+     */
+    public $productActionShrink;
+
+    /**
      * @description The tag information of the Viber message.
      *
      * @example tag
@@ -278,6 +283,7 @@ class SendChatappMessageShrinkRequest extends Model
         'language'             => 'Language',
         'messageType'          => 'MessageType',
         'payloadShrink'        => 'Payload',
+        'productActionShrink'  => 'ProductAction',
         'tag'                  => 'Tag',
         'taskId'               => 'TaskId',
         'templateCode'         => 'TemplateCode',
@@ -336,6 +342,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (null !== $this->payloadShrink) {
             $res['Payload'] = $this->payloadShrink;
+        }
+        if (null !== $this->productActionShrink) {
+            $res['ProductAction'] = $this->productActionShrink;
         }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
@@ -414,6 +423,9 @@ class SendChatappMessageShrinkRequest extends Model
         }
         if (isset($map['Payload'])) {
             $model->payloadShrink = $map['Payload'];
+        }
+        if (isset($map['ProductAction'])) {
+            $model->productActionShrink = $map['ProductAction'];
         }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];

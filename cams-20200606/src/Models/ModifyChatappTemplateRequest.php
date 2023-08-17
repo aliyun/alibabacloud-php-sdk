@@ -57,6 +57,13 @@ class ModifyChatappTemplateRequest extends Model
     public $language;
 
     /**
+     * @example 120
+     *
+     * @var int
+     */
+    public $messageSendTtlSeconds;
+
+    /**
      * @example 8472929283883
      *
      * @var string
@@ -70,15 +77,16 @@ class ModifyChatappTemplateRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'category'     => 'Category',
-        'components'   => 'Components',
-        'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
-        'example'      => 'Example',
-        'isvCode'      => 'IsvCode',
-        'language'     => 'Language',
-        'templateCode' => 'TemplateCode',
-        'templateType' => 'TemplateType',
+        'category'              => 'Category',
+        'components'            => 'Components',
+        'custSpaceId'           => 'CustSpaceId',
+        'custWabaId'            => 'CustWabaId',
+        'example'               => 'Example',
+        'isvCode'               => 'IsvCode',
+        'language'              => 'Language',
+        'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
+        'templateCode'          => 'TemplateCode',
+        'templateType'          => 'TemplateType',
     ];
 
     public function validate()
@@ -114,6 +122,9 @@ class ModifyChatappTemplateRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->messageSendTtlSeconds) {
+            $res['MessageSendTtlSeconds'] = $this->messageSendTtlSeconds;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -159,6 +170,9 @@ class ModifyChatappTemplateRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['MessageSendTtlSeconds'])) {
+            $model->messageSendTtlSeconds = $map['MessageSendTtlSeconds'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

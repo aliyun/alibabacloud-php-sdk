@@ -12,6 +12,8 @@ class components extends Model
     /**
      * @description Whatsapp类型模板，Category为Authentication，并且Component Type为Body时有效，表示在Body上面显示不要将验证码信息提供给其它人的提示信息
      *
+     * @example false
+     *
      * @var bool
      */
     public $addSecretRecommendation;

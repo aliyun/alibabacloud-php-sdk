@@ -9,16 +9,16 @@ use AlibabaCloud\Tea\Model;
 class ModifyPhoneBusinessProfileShrinkRequest extends Model
 {
     /**
-     * @description The address.
+     * @description The space ID of the user under the independent software vendor (ISV) account.
      *
-     * @example Sichuan
+     * @example The phone number.
      *
      * @var string
      */
     public $address;
 
     /**
-     * @description The space ID of the user under the independent software vendor (ISV) account.
+     * @description Modifies the business information of the account to which a specified phone number is bound.
      *
      * @example 293483938849****
      *
@@ -27,7 +27,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $custSpaceId;
 
     /**
-     * @description The description.
+     * @description The address.
      *
      * @example test
      *
@@ -36,7 +36,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The email address.
+     * @description The description.
      *
      * @example aa@aliyun.com
      *
@@ -45,7 +45,7 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $email;
 
     /**
-     * @description The phone number.
+     * @description You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *
      * @example 8613800001234
      *
@@ -54,8 +54,9 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $phoneNumber;
 
     /**
-     * @description The URL of the profile picture.
+     * @description The industry.
      *
+     * > Enum: {OTHER, AUTO, BEAUTY, APPAREL, EDU, ENTERTAIN, EVENT_PLAN, FINANCE, GROCERY, GOVT, HOTEL, HEALTH, NONPROFIT, PROF_SERVICES, RETAIL, TRAVEL, RESTAURANT}
      * @example http://a.img
      *
      * @var string
@@ -63,16 +64,16 @@ class ModifyPhoneBusinessProfileShrinkRequest extends Model
     public $profilePictureUrl;
 
     /**
-     * @description The industry.
+     * @description Sichuan
      *
-     * @example Retail
+     * @example OTHER
      *
      * @var string
      */
     public $vertical;
 
     /**
-     * @description The websites.
+     * @description The email address.
      *
      * @var string
      */

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ChatappSyncPhoneNumberResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The HTTP status code returned.
      *
      *   A value of OK indicates that the call is successful.
@@ -46,10 +51,11 @@ class ChatappSyncPhoneNumberResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'         => 'Code',
-        'message'      => 'Message',
-        'phoneNumbers' => 'PhoneNumbers',
-        'requestId'    => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'message'            => 'Message',
+        'phoneNumbers'       => 'PhoneNumbers',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -59,6 +65,9 @@ class ChatappSyncPhoneNumberResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -89,6 +98,9 @@ class ChatappSyncPhoneNumberResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

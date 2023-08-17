@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListChatappTemplateResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description The HTTP status code returned.
      *
      *   A value of OK indicates that the call is successful.
@@ -55,11 +60,12 @@ class ListChatappTemplateResponseBody extends Model
      */
     public $total;
     protected $_name = [
-        'code'         => 'Code',
-        'listTemplate' => 'ListTemplate',
-        'message'      => 'Message',
-        'requestId'    => 'RequestId',
-        'total'        => 'Total',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'listTemplate'       => 'ListTemplate',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
+        'total'              => 'Total',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class ListChatappTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -102,6 +111,9 @@ class ListChatappTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

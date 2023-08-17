@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @example OK
      *
      * @var string
@@ -31,16 +36,19 @@ class CreateChatappTemplateResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 90E63D28-E31D-1EB2-8939-A94866411B2D
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'data'               => 'Data',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -50,6 +58,9 @@ class CreateChatappTemplateResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -74,6 +85,9 @@ class CreateChatappTemplateResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

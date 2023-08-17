@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateShrinkRequest extends Model
 {
     /**
-     * @description 是否允许facebook自动变更模板的目录（这样能提高模板的审核通过率）此属性只对TemplateType=WHATSAPP有效
+     * @description Specifies whether to allow Facebook to automatically change the directory of the template. If you set this parameter to true, the review success rate of the template is improved. This parameter is valid only if TemplateType is set to WHATSAPP.
      *
      * @example true
      *
@@ -18,7 +18,23 @@ class CreateChatappTemplateShrinkRequest extends Model
     public $allowCategoryChange;
 
     /**
-     * @description The returned data.
+     * @description The category of the template if TemplateType is set to WHATSAPP. Valid values:
+     *
+     *   **UTILITY**: the transaction template
+     *   **MARKETING**: the marketing template
+     *   **AUTHENTICATION**: the authentication template
+     *
+     * The category of the template if TemplateType is set to VIBER. Valid values:
+     *
+     *   **text**: the template that contains only text
+     *   **image**: the template that contains only images
+     *   **text_image_button**: the template that contains text, images, and buttons
+     *   **text_button**: the template that contains text and buttons
+     *   **document**: the template that contains only documents
+     *   **video**: the template that contains only videos
+     *   **text_video**: the template that contains text and videos
+     *   **text_video_button**: the template that contains text, videos, and buttons
+     *   **text_image**: the template that contains text and images
      *
      * @example The code of the message template.
      *
@@ -27,13 +43,16 @@ class CreateChatappTemplateShrinkRequest extends Model
     public $category;
 
     /**
-     * @description The name of the message template.
+     * @description The components of the message template.
      *
+     * > If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the value of Type is BODY or FOOTER, the Text sub-parameter of the Components parameter is empty.
      * @var string
      */
     public $componentsShrink;
 
     /**
+     * @description The space ID of the user within the independent software vendor (ISV) account.
+     *
      * @example 293483938849493
      *
      * @var string
@@ -50,6 +69,8 @@ class CreateChatappTemplateShrinkRequest extends Model
     public $custWabaId;
 
     /**
+     * @description The examples of variables that are used when you create the message template.
+     *
      * @var string
      */
     public $exampleShrink;
@@ -69,6 +90,13 @@ class CreateChatappTemplateShrinkRequest extends Model
     public $language;
 
     /**
+     * @example 120
+     *
+     * @var int
+     */
+    public $messageSendTtlSeconds;
+
+    /**
      * @example hello_whatsapp
      *
      * @var string
@@ -82,16 +110,17 @@ class CreateChatappTemplateShrinkRequest extends Model
      */
     public $templateType;
     protected $_name = [
-        'allowCategoryChange' => 'AllowCategoryChange',
-        'category'            => 'Category',
-        'componentsShrink'    => 'Components',
-        'custSpaceId'         => 'CustSpaceId',
-        'custWabaId'          => 'CustWabaId',
-        'exampleShrink'       => 'Example',
-        'isvCode'             => 'IsvCode',
-        'language'            => 'Language',
-        'name'                => 'Name',
-        'templateType'        => 'TemplateType',
+        'allowCategoryChange'   => 'AllowCategoryChange',
+        'category'              => 'Category',
+        'componentsShrink'      => 'Components',
+        'custSpaceId'           => 'CustSpaceId',
+        'custWabaId'            => 'CustWabaId',
+        'exampleShrink'         => 'Example',
+        'isvCode'               => 'IsvCode',
+        'language'              => 'Language',
+        'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
+        'name'                  => 'Name',
+        'templateType'          => 'TemplateType',
     ];
 
     public function validate()
@@ -124,6 +153,9 @@ class CreateChatappTemplateShrinkRequest extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->messageSendTtlSeconds) {
+            $res['MessageSendTtlSeconds'] = $this->messageSendTtlSeconds;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -166,6 +198,9 @@ class CreateChatappTemplateShrinkRequest extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['MessageSendTtlSeconds'])) {
+            $model->messageSendTtlSeconds = $map['MessageSendTtlSeconds'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];

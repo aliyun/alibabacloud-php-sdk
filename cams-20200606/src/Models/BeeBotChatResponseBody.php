@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class BeeBotChatResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @description If OK is returned, the request is successful.
      *
      * @example OK
@@ -43,10 +48,11 @@ class BeeBotChatResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'code'               => 'Code',
+        'data'               => 'Data',
+        'message'            => 'Message',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -56,6 +62,9 @@ class BeeBotChatResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = $this->accessDeniedDetail;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -80,6 +89,9 @@ class BeeBotChatResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = $map['AccessDeniedDetail'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

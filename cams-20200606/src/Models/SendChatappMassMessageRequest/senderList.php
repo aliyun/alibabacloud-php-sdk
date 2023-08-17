@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest;
 
+use AlibabaCloud\SDK\Cams\V20200606\Models\SendChatappMassMessageRequest\senderList\productAction;
 use AlibabaCloud\Tea\Model;
 
 class senderList extends Model
@@ -14,6 +15,11 @@ class senderList extends Model
      * @var string[]
      */
     public $payload;
+
+    /**
+     * @var productAction
+     */
+    public $productAction;
 
     /**
      * @description The parameters of the message template.
@@ -32,6 +38,7 @@ class senderList extends Model
     public $to;
     protected $_name = [
         'payload'        => 'Payload',
+        'productAction'  => 'ProductAction',
         'templateParams' => 'TemplateParams',
         'to'             => 'To',
     ];
@@ -45,6 +52,9 @@ class senderList extends Model
         $res = [];
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
+        }
+        if (null !== $this->productAction) {
+            $res['ProductAction'] = null !== $this->productAction ? $this->productAction->toMap() : null;
         }
         if (null !== $this->templateParams) {
             $res['TemplateParams'] = $this->templateParams;
@@ -68,6 +78,9 @@ class senderList extends Model
             if (!empty($map['Payload'])) {
                 $model->payload = $map['Payload'];
             }
+        }
+        if (isset($map['ProductAction'])) {
+            $model->productAction = productAction::fromMap($map['ProductAction']);
         }
         if (isset($map['TemplateParams'])) {
             $model->templateParams = $map['TemplateParams'];
