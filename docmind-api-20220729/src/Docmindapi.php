@@ -6,8 +6,16 @@ namespace AlibabaCloud\SDK\Docmindapi\V20220729;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\ExtractFeedbackAdvanceRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\ExtractFeedbackRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\ExtractFeedbackResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\GetSingleDocumentExtractResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\GetSingleDocumentExtractResultResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\ReClassifyTradeDocumentExtractRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\ReClassifyTradeDocumentExtractResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\ReClassifyTradeDocumentExtractShrinkRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\RetryTradeDocumentExtractRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\RetryTradeDocumentExtractResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitAirWaybillExtractJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitAirWaybillExtractJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitAirWaybillExtractJobResponse;
@@ -41,6 +49,10 @@ use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitSalesConfirmationExtractJ
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitSeaWaybillExtractJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitSeaWaybillExtractJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitSeaWaybillExtractJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitTradeDocumentPackageExtractJobAdvanceRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitTradeDocumentPackageExtractJobRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitTradeDocumentPackageExtractJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitTradeDocumentPackageExtractJobShrinkRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadRequest;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\Models\AuthorizeFileUploadResponse;
 use AlibabaCloud\SDK\OpenPlatform\V20191219\OpenPlatform;
@@ -147,6 +159,127 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
+     * @param ExtractFeedbackRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ExtractFeedbackResponse
+     */
+    public function extractFeedbackWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->feedbackUrl)) {
+            $query['FeedbackUrl'] = $request->feedbackUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ExtractFeedback',
+            'version'     => '2022-07-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExtractFeedbackResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExtractFeedbackRequest $request
+     *
+     * @return ExtractFeedbackResponse
+     */
+    public function extractFeedback($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->extractFeedbackWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExtractFeedbackAdvanceRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ExtractFeedbackResponse
+     */
+    public function extractFeedbackAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'docmind-api',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $extractFeedbackReq = new ExtractFeedbackRequest([]);
+        OpenApiUtilClient::convert($request, $extractFeedbackReq);
+        if (!Utils::isUnset($request->feedbackUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->feedbackUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $extractFeedbackReq->feedbackUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->extractFeedbackWithOptions($extractFeedbackReq, $runtime);
+    }
+
+    /**
      * @param GetSingleDocumentExtractResultRequest $request
      * @param RuntimeOptions                        $runtime
      *
@@ -190,6 +323,100 @@ class Docmindapi extends OpenApiClient
     }
 
     /**
+     * @param ReClassifyTradeDocumentExtractRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ReClassifyTradeDocumentExtractResponse
+     */
+    public function reClassifyTradeDocumentExtractWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ReClassifyTradeDocumentExtractShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->pageUpdateInfoModels)) {
+            $request->pageUpdateInfoModelsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->pageUpdateInfoModels, 'PageUpdateInfoModels', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->pageUpdateInfoModelsShrink)) {
+            $query['PageUpdateInfoModels'] = $request->pageUpdateInfoModelsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ReClassifyTradeDocumentExtract',
+            'version'     => '2022-07-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ReClassifyTradeDocumentExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ReClassifyTradeDocumentExtractRequest $request
+     *
+     * @return ReClassifyTradeDocumentExtractResponse
+     */
+    public function reClassifyTradeDocumentExtract($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->reClassifyTradeDocumentExtractWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RetryTradeDocumentExtractRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return RetryTradeDocumentExtractResponse
+     */
+    public function retryTradeDocumentExtractWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RetryTradeDocumentExtract',
+            'version'     => '2022-07-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RetryTradeDocumentExtractResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RetryTradeDocumentExtractRequest $request
+     *
+     * @return RetryTradeDocumentExtractResponse
+     */
+    public function retryTradeDocumentExtract($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->retryTradeDocumentExtractWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitAirWaybillExtractJobRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -207,6 +434,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -335,6 +565,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -461,6 +694,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -589,6 +825,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -715,6 +954,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -843,6 +1085,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -969,6 +1214,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1097,6 +1345,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1223,6 +1474,9 @@ class Docmindapi extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1351,6 +1605,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1478,6 +1735,9 @@ class Docmindapi extends OpenApiClient
         if (!Utils::isUnset($request->fileUrl)) {
             $query['FileUrl'] = $request->fileUrl;
         }
+        if (!Utils::isUnset($request->parserConfigId)) {
+            $query['ParserConfigId'] = $request->parserConfigId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1584,5 +1844,140 @@ class Docmindapi extends OpenApiClient
         }
 
         return $this->submitSeaWaybillExtractJobWithOptions($submitSeaWaybillExtractJobReq, $runtime);
+    }
+
+    /**
+     * @param SubmitTradeDocumentPackageExtractJobRequest $tmpReq
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return SubmitTradeDocumentPackageExtractJobResponse
+     */
+    public function submitTradeDocumentPackageExtractJobWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SubmitTradeDocumentPackageExtractJobShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customExtractionRange)) {
+            $request->customExtractionRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customExtractionRange, 'CustomExtractionRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->customExtractionRangeShrink)) {
+            $query['CustomExtractionRange'] = $request->customExtractionRangeShrink;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileNameExtension)) {
+            $query['FileNameExtension'] = $request->fileNameExtension;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitTradeDocumentPackageExtractJob',
+            'version'     => '2022-07-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitTradeDocumentPackageExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitTradeDocumentPackageExtractJobRequest $request
+     *
+     * @return SubmitTradeDocumentPackageExtractJobResponse
+     */
+    public function submitTradeDocumentPackageExtractJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitTradeDocumentPackageExtractJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitTradeDocumentPackageExtractJobAdvanceRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return SubmitTradeDocumentPackageExtractJobResponse
+     */
+    public function submitTradeDocumentPackageExtractJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'docmind-api',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $submitTradeDocumentPackageExtractJobReq = new SubmitTradeDocumentPackageExtractJobRequest([]);
+        OpenApiUtilClient::convert($request, $submitTradeDocumentPackageExtractJobReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $submitTradeDocumentPackageExtractJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->submitTradeDocumentPackageExtractJobWithOptions($submitTradeDocumentPackageExtractJobReq, $runtime);
     }
 }

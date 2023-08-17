@@ -29,10 +29,16 @@ class SubmitImportDeclarationSheetExtractJobAdvanceRequest extends Model
      * @var Stream
      */
     public $fileUrlObject;
+
+    /**
+     * @var int
+     */
+    public $parserConfigId;
     protected $_name = [
         'fileName'          => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrlObject'     => 'FileUrl',
+        'parserConfigId'    => 'ParserConfigId',
     ];
 
     public function validate()
@@ -50,6 +56,9 @@ class SubmitImportDeclarationSheetExtractJobAdvanceRequest extends Model
         }
         if (null !== $this->fileUrlObject) {
             $res['FileUrl'] = $this->fileUrlObject;
+        }
+        if (null !== $this->parserConfigId) {
+            $res['ParserConfigId'] = $this->parserConfigId;
         }
 
         return $res;
@@ -71,6 +80,9 @@ class SubmitImportDeclarationSheetExtractJobAdvanceRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrlObject = $map['FileUrl'];
+        }
+        if (isset($map['ParserConfigId'])) {
+            $model->parserConfigId = $map['ParserConfigId'];
         }
 
         return $model;

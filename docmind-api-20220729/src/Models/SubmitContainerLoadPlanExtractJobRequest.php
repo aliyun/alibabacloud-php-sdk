@@ -28,10 +28,16 @@ class SubmitContainerLoadPlanExtractJobRequest extends Model
      * @var string
      */
     public $fileUrl;
+
+    /**
+     * @var int
+     */
+    public $parserConfigId;
     protected $_name = [
         'fileName'          => 'FileName',
         'fileNameExtension' => 'FileNameExtension',
         'fileUrl'           => 'FileUrl',
+        'parserConfigId'    => 'ParserConfigId',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class SubmitContainerLoadPlanExtractJobRequest extends Model
         }
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
+        }
+        if (null !== $this->parserConfigId) {
+            $res['ParserConfigId'] = $this->parserConfigId;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class SubmitContainerLoadPlanExtractJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
+        }
+        if (isset($map['ParserConfigId'])) {
+            $model->parserConfigId = $map['ParserConfigId'];
         }
 
         return $model;

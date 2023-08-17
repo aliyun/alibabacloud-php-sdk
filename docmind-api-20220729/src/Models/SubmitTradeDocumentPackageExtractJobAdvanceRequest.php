@@ -5,12 +5,16 @@
 namespace AlibabaCloud\SDK\Docmindapi\V20220729\Models;
 
 use AlibabaCloud\Tea\Model;
+use GuzzleHttp\Psr7\Stream;
 
-class SubmitInvoiceExtractJobRequest extends Model
+class SubmitTradeDocumentPackageExtractJobAdvanceRequest extends Model
 {
     /**
-     * @example example.pdf
-     *
+     * @var string[]
+     */
+    public $customExtractionRange;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -25,19 +29,14 @@ class SubmitInvoiceExtractJobRequest extends Model
     /**
      * @example https://gw.alipayobjects.com/os/basement_prod/598b9edf-5287-4065-9e36-464305c60698.pdf
      *
-     * @var string
+     * @var Stream
      */
-    public $fileUrl;
-
-    /**
-     * @var int
-     */
-    public $parserConfigId;
+    public $fileUrlObject;
     protected $_name = [
-        'fileName'          => 'FileName',
-        'fileNameExtension' => 'FileNameExtension',
-        'fileUrl'           => 'FileUrl',
-        'parserConfigId'    => 'ParserConfigId',
+        'customExtractionRange' => 'CustomExtractionRange',
+        'fileName'              => 'FileName',
+        'fileNameExtension'     => 'FileNameExtension',
+        'fileUrlObject'         => 'FileUrl',
     ];
 
     public function validate()
@@ -47,17 +46,17 @@ class SubmitInvoiceExtractJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customExtractionRange) {
+            $res['CustomExtractionRange'] = $this->customExtractionRange;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
         if (null !== $this->fileNameExtension) {
             $res['FileNameExtension'] = $this->fileNameExtension;
         }
-        if (null !== $this->fileUrl) {
-            $res['FileUrl'] = $this->fileUrl;
-        }
-        if (null !== $this->parserConfigId) {
-            $res['ParserConfigId'] = $this->parserConfigId;
+        if (null !== $this->fileUrlObject) {
+            $res['FileUrl'] = $this->fileUrlObject;
         }
 
         return $res;
@@ -66,11 +65,16 @@ class SubmitInvoiceExtractJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitInvoiceExtractJobRequest
+     * @return SubmitTradeDocumentPackageExtractJobAdvanceRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomExtractionRange'])) {
+            if (!empty($map['CustomExtractionRange'])) {
+                $model->customExtractionRange = $map['CustomExtractionRange'];
+            }
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
@@ -78,10 +82,7 @@ class SubmitInvoiceExtractJobRequest extends Model
             $model->fileNameExtension = $map['FileNameExtension'];
         }
         if (isset($map['FileUrl'])) {
-            $model->fileUrl = $map['FileUrl'];
-        }
-        if (isset($map['ParserConfigId'])) {
-            $model->parserConfigId = $map['ParserConfigId'];
+            $model->fileUrlObject = $map['FileUrl'];
         }
 
         return $model;

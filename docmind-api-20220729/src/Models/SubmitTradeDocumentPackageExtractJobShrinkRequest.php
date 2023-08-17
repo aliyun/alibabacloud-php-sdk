@@ -6,11 +6,14 @@ namespace AlibabaCloud\SDK\Docmindapi\V20220729\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SubmitInvoiceExtractJobRequest extends Model
+class SubmitTradeDocumentPackageExtractJobShrinkRequest extends Model
 {
     /**
-     * @example example.pdf
-     *
+     * @var string
+     */
+    public $customExtractionRangeShrink;
+
+    /**
      * @var string
      */
     public $fileName;
@@ -28,16 +31,11 @@ class SubmitInvoiceExtractJobRequest extends Model
      * @var string
      */
     public $fileUrl;
-
-    /**
-     * @var int
-     */
-    public $parserConfigId;
     protected $_name = [
-        'fileName'          => 'FileName',
-        'fileNameExtension' => 'FileNameExtension',
-        'fileUrl'           => 'FileUrl',
-        'parserConfigId'    => 'ParserConfigId',
+        'customExtractionRangeShrink' => 'CustomExtractionRange',
+        'fileName'                    => 'FileName',
+        'fileNameExtension'           => 'FileNameExtension',
+        'fileUrl'                     => 'FileUrl',
     ];
 
     public function validate()
@@ -47,6 +45,9 @@ class SubmitInvoiceExtractJobRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->customExtractionRangeShrink) {
+            $res['CustomExtractionRange'] = $this->customExtractionRangeShrink;
+        }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
         }
@@ -56,9 +57,6 @@ class SubmitInvoiceExtractJobRequest extends Model
         if (null !== $this->fileUrl) {
             $res['FileUrl'] = $this->fileUrl;
         }
-        if (null !== $this->parserConfigId) {
-            $res['ParserConfigId'] = $this->parserConfigId;
-        }
 
         return $res;
     }
@@ -66,11 +64,14 @@ class SubmitInvoiceExtractJobRequest extends Model
     /**
      * @param array $map
      *
-     * @return SubmitInvoiceExtractJobRequest
+     * @return SubmitTradeDocumentPackageExtractJobShrinkRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CustomExtractionRange'])) {
+            $model->customExtractionRangeShrink = $map['CustomExtractionRange'];
+        }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];
         }
@@ -79,9 +80,6 @@ class SubmitInvoiceExtractJobRequest extends Model
         }
         if (isset($map['FileUrl'])) {
             $model->fileUrl = $map['FileUrl'];
-        }
-        if (isset($map['ParserConfigId'])) {
-            $model->parserConfigId = $map['ParserConfigId'];
         }
 
         return $model;
