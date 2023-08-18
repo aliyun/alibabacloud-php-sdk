@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStopCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchStopCdnDomainResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\BatchUpdateCdnDomainResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ChangeCdnDomainToDcdnRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\ChangeCdnDomainToDcdnResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnCertificateSigningRequestResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\CreateCdnDeliverTaskRequest;
@@ -57,6 +59,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUserUsageDataExportTaskRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DeleteUserUsageDataExportTaskResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeBlockedRegionsResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailByIdRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailByIdResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnCertificateListRequest;
@@ -93,6 +97,8 @@ use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateDetailRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateDetailResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSMCertificateListResponse;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSSLCertificateListRequest;
+use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSSLCertificateListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnSubListResponse;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryRequest;
 use AlibabaCloud\SDK\Cdn\V20180510\Models\DescribeCdnUserBillHistoryResponse;
@@ -969,6 +975,61 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchUpdateCdnDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeCdnDomainToDcdnRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ChangeCdnDomainToDcdnResponse
+     */
+    public function changeCdnDomainToDcdnWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->operation)) {
+            $query['Operation'] = $request->operation;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeCdnDomainToDcdn',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeCdnDomainToDcdnResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeCdnDomainToDcdnRequest $request
+     *
+     * @return ChangeCdnDomainToDcdnResponse
+     */
+    public function changeCdnDomainToDcdn($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeCdnDomainToDcdnWithOptions($request, $runtime);
     }
 
     /**
@@ -1895,6 +1956,58 @@ class Cdn extends OpenApiClient
     }
 
     /**
+     * @param DescribeCdnCertificateDetailByIdRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeCdnCertificateDetailByIdResponse
+     */
+    public function describeCdnCertificateDetailByIdWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->certId)) {
+            $query['CertId'] = $request->certId;
+        }
+        if (!Utils::isUnset($request->certRegion)) {
+            $query['CertRegion'] = $request->certRegion;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnCertificateDetailById',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnCertificateDetailByIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnCertificateDetailByIdRequest $request
+     *
+     * @return DescribeCdnCertificateDetailByIdResponse
+     */
+    public function describeCdnCertificateDetailById($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnCertificateDetailByIdWithOptions($request, $runtime);
+    }
+
+    /**
      * > You can call this operation up to 30 times per second per account.
      *   *
      * @param DescribeCdnCertificateListRequest $request DescribeCdnCertificateListRequest
@@ -2736,6 +2849,64 @@ class Cdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeCdnSMCertificateListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCdnSSLCertificateListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeCdnSSLCertificateListResponse
+     */
+    public function describeCdnSSLCertificateListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->searchKeyword)) {
+            $query['SearchKeyword'] = $request->searchKeyword;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCdnSSLCertificateList',
+            'version'     => '2018-05-10',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCdnSSLCertificateListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCdnSSLCertificateListRequest $request
+     *
+     * @return DescribeCdnSSLCertificateListResponse
+     */
+    public function describeCdnSSLCertificateList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCdnSSLCertificateListWithOptions($request, $runtime);
     }
 
     /**
