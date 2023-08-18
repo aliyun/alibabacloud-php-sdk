@@ -27,6 +27,11 @@ class items extends Model
     public $backupEndTimeLocal;
 
     /**
+     * @var string
+     */
+    public $backupMethod;
+
+    /**
      * @description The backup mode.
      *
      * Valid values for full backup:
@@ -136,6 +141,7 @@ class items extends Model
     protected $_name = [
         'backupEndTime'        => 'BackupEndTime',
         'backupEndTimeLocal'   => 'BackupEndTimeLocal',
+        'backupMethod'         => 'BackupMethod',
         'backupMode'           => 'BackupMode',
         'backupSetId'          => 'BackupSetId',
         'backupSize'           => 'BackupSize',
@@ -160,6 +166,9 @@ class items extends Model
         }
         if (null !== $this->backupEndTimeLocal) {
             $res['BackupEndTimeLocal'] = $this->backupEndTimeLocal;
+        }
+        if (null !== $this->backupMethod) {
+            $res['BackupMethod'] = $this->backupMethod;
         }
         if (null !== $this->backupMode) {
             $res['BackupMode'] = $this->backupMode;
@@ -208,6 +217,9 @@ class items extends Model
         }
         if (isset($map['BackupEndTimeLocal'])) {
             $model->backupEndTimeLocal = $map['BackupEndTimeLocal'];
+        }
+        if (isset($map['BackupMethod'])) {
+            $model->backupMethod = $map['BackupMethod'];
         }
         if (isset($map['BackupMode'])) {
             $model->backupMode = $map['BackupMode'];

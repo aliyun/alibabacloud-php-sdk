@@ -193,6 +193,9 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UnloadSampleDataResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateCollectionDataMetadataShrinkRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpdateDBInstancePlanResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\UpgradeDBInstanceRequest;
@@ -536,6 +539,9 @@ class Gpdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backupId)) {
+            $query['BackupId'] = $request->backupId;
+        }
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
@@ -578,6 +584,9 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->instanceSpec)) {
             $query['InstanceSpec'] = $request->instanceSpec;
         }
+        if (!Utils::isUnset($request->masterCU)) {
+            $query['MasterCU'] = $request->masterCU;
+        }
         if (!Utils::isUnset($request->masterNodeNum)) {
             $query['MasterNodeNum'] = $request->masterNodeNum;
         }
@@ -616,6 +625,9 @@ class Gpdb extends OpenApiClient
         }
         if (!Utils::isUnset($request->serverlessResource)) {
             $query['ServerlessResource'] = $request->serverlessResource;
+        }
+        if (!Utils::isUnset($request->srcDbInstanceName)) {
+            $query['SrcDbInstanceName'] = $request->srcDbInstanceName;
         }
         if (!Utils::isUnset($request->storageSize)) {
             $query['StorageSize'] = $request->storageSize;
@@ -5226,6 +5238,12 @@ class Gpdb extends OpenApiClient
         if (!Utils::isUnset($request->filter)) {
             $query['Filter'] = $request->filter;
         }
+        if (!Utils::isUnset($request->includeValues)) {
+            $query['IncludeValues'] = $request->includeValues;
+        }
+        if (!Utils::isUnset($request->metrics)) {
+            $query['Metrics'] = $request->metrics;
+        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
         }
@@ -5887,6 +5905,81 @@ class Gpdb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->untagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCollectionDataMetadataRequest $tmpReq
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateCollectionDataMetadataResponse
+     */
+    public function updateCollectionDataMetadataWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateCollectionDataMetadataShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->metadata)) {
+            $request->metadataShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->metadata, 'Metadata', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->collection)) {
+            $query['Collection'] = $request->collection;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->filter)) {
+            $query['Filter'] = $request->filter;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->metadataShrink)) {
+            $query['Metadata'] = $request->metadataShrink;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->namespacePassword)) {
+            $query['NamespacePassword'] = $request->namespacePassword;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCollectionDataMetadata',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCollectionDataMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCollectionDataMetadataRequest $request
+     *
+     * @return UpdateCollectionDataMetadataResponse
+     */
+    public function updateCollectionDataMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCollectionDataMetadataWithOptions($request, $runtime);
     }
 
     /**

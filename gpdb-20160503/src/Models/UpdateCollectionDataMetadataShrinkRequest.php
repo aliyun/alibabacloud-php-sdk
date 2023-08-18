@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class QueryCollectionDataRequest extends Model
+class UpdateCollectionDataMetadataShrinkRequest extends Model
 {
     /**
      * @example document
@@ -16,13 +16,6 @@ class QueryCollectionDataRequest extends Model
     public $collection;
 
     /**
-     * @example hello_world
-     *
-     * @var string
-     */
-    public $content;
-
-    /**
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -30,21 +23,23 @@ class QueryCollectionDataRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @example response > 200
+     * @example business_value = \"chat_file_1\"
      *
      * @var string
      */
     public $filter;
 
     /**
-     * @var bool
-     */
-    public $includeValues;
-
-    /**
      * @var string
      */
-    public $metrics;
+    public $idsShrink;
+
+    /**
+     * @example {
+     * }
+     * @var string
+     */
+    public $metadataShrink;
 
     /**
      * @example mynamespace
@@ -71,31 +66,16 @@ class QueryCollectionDataRequest extends Model
      * @var string
      */
     public $regionId;
-
-    /**
-     * @example 10
-     *
-     * @var int
-     */
-    public $topK;
-
-    /**
-     * @var float[]
-     */
-    public $vector;
     protected $_name = [
         'collection'        => 'Collection',
-        'content'           => 'Content',
         'DBInstanceId'      => 'DBInstanceId',
         'filter'            => 'Filter',
-        'includeValues'     => 'IncludeValues',
-        'metrics'           => 'Metrics',
+        'idsShrink'         => 'Ids',
+        'metadataShrink'    => 'Metadata',
         'namespace'         => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
         'ownerId'           => 'OwnerId',
         'regionId'          => 'RegionId',
-        'topK'              => 'TopK',
-        'vector'            => 'Vector',
     ];
 
     public function validate()
@@ -108,20 +88,17 @@ class QueryCollectionDataRequest extends Model
         if (null !== $this->collection) {
             $res['Collection'] = $this->collection;
         }
-        if (null !== $this->content) {
-            $res['Content'] = $this->content;
-        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
         }
-        if (null !== $this->includeValues) {
-            $res['IncludeValues'] = $this->includeValues;
+        if (null !== $this->idsShrink) {
+            $res['Ids'] = $this->idsShrink;
         }
-        if (null !== $this->metrics) {
-            $res['Metrics'] = $this->metrics;
+        if (null !== $this->metadataShrink) {
+            $res['Metadata'] = $this->metadataShrink;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -135,12 +112,6 @@ class QueryCollectionDataRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->topK) {
-            $res['TopK'] = $this->topK;
-        }
-        if (null !== $this->vector) {
-            $res['Vector'] = $this->vector;
-        }
 
         return $res;
     }
@@ -148,7 +119,7 @@ class QueryCollectionDataRequest extends Model
     /**
      * @param array $map
      *
-     * @return QueryCollectionDataRequest
+     * @return UpdateCollectionDataMetadataShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -156,20 +127,17 @@ class QueryCollectionDataRequest extends Model
         if (isset($map['Collection'])) {
             $model->collection = $map['Collection'];
         }
-        if (isset($map['Content'])) {
-            $model->content = $map['Content'];
-        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
         }
-        if (isset($map['IncludeValues'])) {
-            $model->includeValues = $map['IncludeValues'];
+        if (isset($map['Ids'])) {
+            $model->idsShrink = $map['Ids'];
         }
-        if (isset($map['Metrics'])) {
-            $model->metrics = $map['Metrics'];
+        if (isset($map['Metadata'])) {
+            $model->metadataShrink = $map['Metadata'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
@@ -182,14 +150,6 @@ class QueryCollectionDataRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['TopK'])) {
-            $model->topK = $map['TopK'];
-        }
-        if (isset($map['Vector'])) {
-            if (!empty($map['Vector'])) {
-                $model->vector = $map['Vector'];
-            }
         }
 
         return $model;

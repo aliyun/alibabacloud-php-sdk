@@ -343,6 +343,11 @@ class DBInstanceAttribute extends Model
     public $maintainStartTime;
 
     /**
+     * @var int
+     */
+    public $masterCU;
+
+    /**
      * @description The number of coordinator nodes.
      *
      * @example 1
@@ -663,6 +668,7 @@ class DBInstanceAttribute extends Model
         'lockReason'                => 'LockReason',
         'maintainEndTime'           => 'MaintainEndTime',
         'maintainStartTime'         => 'MaintainStartTime',
+        'masterCU'                  => 'MasterCU',
         'masterNodeNum'             => 'MasterNodeNum',
         'maxConnections'            => 'MaxConnections',
         'memoryPerNode'             => 'MemoryPerNode',
@@ -796,6 +802,9 @@ class DBInstanceAttribute extends Model
         }
         if (null !== $this->maintainStartTime) {
             $res['MaintainStartTime'] = $this->maintainStartTime;
+        }
+        if (null !== $this->masterCU) {
+            $res['MasterCU'] = $this->masterCU;
         }
         if (null !== $this->masterNodeNum) {
             $res['MasterNodeNum'] = $this->masterNodeNum;
@@ -991,6 +1000,9 @@ class DBInstanceAttribute extends Model
         }
         if (isset($map['MaintainStartTime'])) {
             $model->maintainStartTime = $map['MaintainStartTime'];
+        }
+        if (isset($map['MasterCU'])) {
+            $model->masterCU = $map['MasterCU'];
         }
         if (isset($map['MasterNodeNum'])) {
             $model->masterNodeNum = $map['MasterNodeNum'];

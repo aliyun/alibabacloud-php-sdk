@@ -37,6 +37,16 @@ class QueryCollectionDataShrinkRequest extends Model
     public $filter;
 
     /**
+     * @var bool
+     */
+    public $includeValues;
+
+    /**
+     * @var string
+     */
+    public $metrics;
+
+    /**
      * @example mynamespace
      *
      * @var string
@@ -78,6 +88,8 @@ class QueryCollectionDataShrinkRequest extends Model
         'content'           => 'Content',
         'DBInstanceId'      => 'DBInstanceId',
         'filter'            => 'Filter',
+        'includeValues'     => 'IncludeValues',
+        'metrics'           => 'Metrics',
         'namespace'         => 'Namespace',
         'namespacePassword' => 'NamespacePassword',
         'ownerId'           => 'OwnerId',
@@ -104,6 +116,12 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (null !== $this->filter) {
             $res['Filter'] = $this->filter;
+        }
+        if (null !== $this->includeValues) {
+            $res['IncludeValues'] = $this->includeValues;
+        }
+        if (null !== $this->metrics) {
+            $res['Metrics'] = $this->metrics;
         }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
@@ -146,6 +164,12 @@ class QueryCollectionDataShrinkRequest extends Model
         }
         if (isset($map['Filter'])) {
             $model->filter = $map['Filter'];
+        }
+        if (isset($map['IncludeValues'])) {
+            $model->includeValues = $map['IncludeValues'];
+        }
+        if (isset($map['Metrics'])) {
+            $model->metrics = $map['Metrics'];
         }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];

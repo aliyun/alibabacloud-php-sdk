@@ -44,6 +44,11 @@ class DescribeDataBackupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var int
+     */
+    public $totalBackupSize;
+
+    /**
      * @description The total number of entries.
      *
      * @example 1
@@ -52,11 +57,12 @@ class DescribeDataBackupsResponseBody extends Model
      */
     public $totalCount;
     protected $_name = [
-        'items'      => 'Items',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'items'           => 'Items',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'requestId'       => 'RequestId',
+        'totalBackupSize' => 'TotalBackupSize',
+        'totalCount'      => 'TotalCount',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class DescribeDataBackupsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalBackupSize) {
+            $res['TotalBackupSize'] = $this->totalBackupSize;
         }
         if (null !== $this->totalCount) {
             $res['TotalCount'] = $this->totalCount;
@@ -116,6 +125,9 @@ class DescribeDataBackupsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalBackupSize'])) {
+            $model->totalBackupSize = $map['TotalBackupSize'];
         }
         if (isset($map['TotalCount'])) {
             $model->totalCount = $map['TotalCount'];

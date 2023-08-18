@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupId;
+
+    /**
      * @description The client token that is used to ensure the idempotence of the request. For more information, see [Ensure idempotence](~~327176~~).
      *
      * @example 0c593ea1-3bea-11e9-b96b-88**********
@@ -178,6 +183,11 @@ class CreateDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
+     * @var int
+     */
+    public $masterCU;
+
+    /**
      * @description The number of coordinator nodes. Valid values: 1 and 2.
      *
      * > If you do not specify this parameter, 1 is used.
@@ -310,6 +320,11 @@ class CreateDBInstanceRequest extends Model
     public $serverlessResource;
 
     /**
+     * @var string
+     */
+    public $srcDbInstanceName;
+
+    /**
      * @description The storage capacity of the instance. Unit: GB. Valid values: 50 to 4000.
      *
      * > This parameter must be specified when you create an instance in elastic storage mode.
@@ -387,6 +402,7 @@ class CreateDBInstanceRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'backupId'                  => 'BackupId',
         'clientToken'               => 'ClientToken',
         'createSampleData'          => 'CreateSampleData',
         'DBInstanceCategory'        => 'DBInstanceCategory',
@@ -401,6 +417,7 @@ class CreateDBInstanceRequest extends Model
         'idleTime'                  => 'IdleTime',
         'instanceNetworkType'       => 'InstanceNetworkType',
         'instanceSpec'              => 'InstanceSpec',
+        'masterCU'                  => 'MasterCU',
         'masterNodeNum'             => 'MasterNodeNum',
         'ownerId'                   => 'OwnerId',
         'payType'                   => 'PayType',
@@ -414,6 +431,7 @@ class CreateDBInstanceRequest extends Model
         'segStorageType'            => 'SegStorageType',
         'serverlessMode'            => 'ServerlessMode',
         'serverlessResource'        => 'ServerlessResource',
+        'srcDbInstanceName'         => 'SrcDbInstanceName',
         'storageSize'               => 'StorageSize',
         'storageType'               => 'StorageType',
         'tag'                       => 'Tag',
@@ -431,6 +449,9 @@ class CreateDBInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupId) {
+            $res['BackupId'] = $this->backupId;
+        }
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
@@ -473,6 +494,9 @@ class CreateDBInstanceRequest extends Model
         if (null !== $this->instanceSpec) {
             $res['InstanceSpec'] = $this->instanceSpec;
         }
+        if (null !== $this->masterCU) {
+            $res['MasterCU'] = $this->masterCU;
+        }
         if (null !== $this->masterNodeNum) {
             $res['MasterNodeNum'] = $this->masterNodeNum;
         }
@@ -511,6 +535,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->serverlessResource) {
             $res['ServerlessResource'] = $this->serverlessResource;
+        }
+        if (null !== $this->srcDbInstanceName) {
+            $res['SrcDbInstanceName'] = $this->srcDbInstanceName;
         }
         if (null !== $this->storageSize) {
             $res['StorageSize'] = $this->storageSize;
@@ -554,6 +581,9 @@ class CreateDBInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupId'])) {
+            $model->backupId = $map['BackupId'];
+        }
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
@@ -596,6 +626,9 @@ class CreateDBInstanceRequest extends Model
         if (isset($map['InstanceSpec'])) {
             $model->instanceSpec = $map['InstanceSpec'];
         }
+        if (isset($map['MasterCU'])) {
+            $model->masterCU = $map['MasterCU'];
+        }
         if (isset($map['MasterNodeNum'])) {
             $model->masterNodeNum = $map['MasterNodeNum'];
         }
@@ -634,6 +667,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['ServerlessResource'])) {
             $model->serverlessResource = $map['ServerlessResource'];
+        }
+        if (isset($map['SrcDbInstanceName'])) {
+            $model->srcDbInstanceName = $map['SrcDbInstanceName'];
         }
         if (isset($map['StorageSize'])) {
             $model->storageSize = $map['StorageSize'];
