@@ -38,7 +38,7 @@ class CompareFaceAdvanceRequest extends Model
     public $imageURLBObject;
 
     /**
-     * @example 97
+     * @example 75.12
      *
      * @var float
      */

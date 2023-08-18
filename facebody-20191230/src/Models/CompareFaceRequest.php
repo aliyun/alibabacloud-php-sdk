@@ -37,7 +37,7 @@ class CompareFaceRequest extends Model
     public $imageURLB;
 
     /**
-     * @example 97
+     * @example 75.12
      *
      * @var float
      */

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class faceRect extends Model
 {
     /**
+     * @example 94
+     *
      * @var string
      */
     public $height;
 
     /**
+     * @example 89
+     *
      * @var string
      */
     public $width;
 
     /**
+     * @example 254
+     *
      * @var string
      */
     public $x;
 
     /**
+     * @example 318
+     *
      * @var string
      */
     public $y;

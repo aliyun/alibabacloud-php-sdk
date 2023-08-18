@@ -23,6 +23,8 @@ class results extends Model
     public $label;
 
     /**
+     * @example blurred, occluded or large angle face, please check.
+     *
      * @var string
      */
     public $messageTips;

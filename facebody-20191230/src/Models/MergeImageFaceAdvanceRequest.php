@@ -11,6 +11,8 @@ use GuzzleHttp\Psr7\Stream;
 class MergeImageFaceAdvanceRequest extends Model
 {
     /**
+     * @example False
+     *
      * @var bool
      */
     public $addWatermark;
@@ -28,6 +30,8 @@ class MergeImageFaceAdvanceRequest extends Model
     public $mergeInfos;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $modelVersion;

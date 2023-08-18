@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
-     * @example 9j/4AAQSkZJRgABAQAAAQABAAD/2****
-     *
      * @var string
      */
     public $imageData;

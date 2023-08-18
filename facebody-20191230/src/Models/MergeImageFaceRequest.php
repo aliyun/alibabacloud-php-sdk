@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class MergeImageFaceRequest extends Model
 {
     /**
+     * @example False
+     *
      * @var bool
      */
     public $addWatermark;
@@ -27,6 +29,8 @@ class MergeImageFaceRequest extends Model
     public $mergeInfos;
 
     /**
+     * @example v1
+     *
      * @var string
      */
     public $modelVersion;

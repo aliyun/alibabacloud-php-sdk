@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @example 89.88594055175781
-     *
      * @var float
      */
     public $confidence;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $isMaskA;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $isMaskB;
@@ -47,15 +41,11 @@ class data extends Model
     public $messageTips;
 
     /**
-     * @example 97.26718139648438
-     *
      * @var float
      */
     public $qualityScoreA;
 
     /**
-     * @example 96.01641082763672
-     *
      * @var float
      */
     public $qualityScoreB;

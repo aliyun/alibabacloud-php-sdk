@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class rect extends Model
 {
     /**
+     * @example 60
+     *
      * @var int
      */
     public $height;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $left;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $top;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $width;

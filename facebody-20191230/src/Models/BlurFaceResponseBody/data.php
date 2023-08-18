@@ -14,8 +14,14 @@ class data extends Model
      * @var string
      */
     public $imageURL;
+
+    /**
+     * @var string
+     */
+    public $maskURL;
     protected $_name = [
         'imageURL' => 'ImageURL',
+        'maskURL'  => 'MaskURL',
     ];
 
     public function validate()
@@ -27,6 +33,9 @@ class data extends Model
         $res = [];
         if (null !== $this->imageURL) {
             $res['ImageURL'] = $this->imageURL;
+        }
+        if (null !== $this->maskURL) {
+            $res['MaskURL'] = $this->maskURL;
         }
 
         return $res;
@@ -42,6 +51,9 @@ class data extends Model
         $model = new self();
         if (isset($map['ImageURL'])) {
             $model->imageURL = $map['ImageURL'];
+        }
+        if (isset($map['MaskURL'])) {
+            $model->maskURL = $map['MaskURL'];
         }
 
         return $model;

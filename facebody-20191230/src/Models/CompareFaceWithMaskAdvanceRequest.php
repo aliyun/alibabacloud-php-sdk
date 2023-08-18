@@ -10,15 +10,11 @@ use GuzzleHttp\Psr7\Stream;
 class CompareFaceWithMaskAdvanceRequest extends Model
 {
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/CompareFaceWithMask/CompareFaceWithMask-right1.jpeg
-     *
      * @var Stream
      */
     public $imageURLAObject;
 
     /**
-     * @example https://viapi-test.oss-cn-shanghai.aliyuncs.com/viapi-3.0domepic/facebody/CompareFaceWithMask/CompareFaceWithMask-left1.jpeg
-     *
      * @var Stream
      */
     public $imageURLBObject;

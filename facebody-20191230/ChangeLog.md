@@ -1,3 +1,6 @@
+2023-08-18 Version: 4.0.0
+- Generated php 2019-12-30 for facebody.
+
 2023-04-21 Version: 3.0.9
 - Release MergeImageFace.
 

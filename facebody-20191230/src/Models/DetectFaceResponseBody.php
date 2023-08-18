@@ -15,8 +15,6 @@ class DetectFaceResponseBody extends Model
     public $data;
 
     /**
-     * @example E567D988-8072-43CF-B835-7AEF09FC5C1C
-     *
      * @var string
      */
     public $requestId;

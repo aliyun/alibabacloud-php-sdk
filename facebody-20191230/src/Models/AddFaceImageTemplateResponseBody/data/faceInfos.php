@@ -15,6 +15,8 @@ class faceInfos extends Model
     public $faceRect;
 
     /**
+     * @example string 6cd509ea-54fa-4730-8e9d-c94cadcda048_0
+     *
      * @var string
      */
     public $templateFaceID;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class mergeInfos extends Model
 {
     /**
+     * @example http://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/ref/ref.jpg
+     *
      * @var string
      */
     public $imageURL;
 
     /**
+     * @example 6cd509ea-54fa-4730-8e9d-c94cadcda048_0
+     *
      * @var string
      */
     public $templateFaceID;

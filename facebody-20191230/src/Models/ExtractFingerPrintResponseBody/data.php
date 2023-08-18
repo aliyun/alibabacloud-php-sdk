@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @example /9j/4AAQSkZJRgABAQAAAQABAAD****
      *
-     * @var int[]
+     * @var string
      */
     public $fingerPrint;
     protected $_name = [

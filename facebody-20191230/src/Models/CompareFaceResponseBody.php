@@ -15,8 +15,6 @@ class CompareFaceResponseBody extends Model
     public $data;
 
     /**
-     * @example C6499918-E932-41B3-96F5-A18F50D262DD
-     *
      * @var string
      */
     public $requestId;
