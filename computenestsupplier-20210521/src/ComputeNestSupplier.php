@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceInstances
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceInstancesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeleteServiceResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeployServiceInstanceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\DeployServiceInstanceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRepositoryCredentialsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactRequest;
@@ -47,6 +49,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesReque
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListServiceUsagesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactRequest;
@@ -552,6 +556,55 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteServiceInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeployServiceInstanceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return DeployServiceInstanceResponse
+     */
+    public function deployServiceInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeployServiceInstance',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeployServiceInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeployServiceInstanceRequest $request
+     *
+     * @return DeployServiceInstanceResponse
+     */
+    public function deployServiceInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deployServiceInstanceWithOptions($request, $runtime);
     }
 
     /**
@@ -1178,6 +1231,52 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyServiceInstanceResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PushMeteringDataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return PushMeteringDataResponse
+     */
+    public function pushMeteringDataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->metering)) {
+            $query['Metering'] = $request->metering;
+        }
+        if (!Utils::isUnset($request->serviceInstanceId)) {
+            $query['ServiceInstanceId'] = $request->serviceInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PushMeteringData',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PushMeteringDataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PushMeteringDataRequest $request
+     *
+     * @return PushMeteringDataResponse
+     */
+    public function pushMeteringData($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->pushMeteringDataWithOptions($request, $runtime);
     }
 
     /**
