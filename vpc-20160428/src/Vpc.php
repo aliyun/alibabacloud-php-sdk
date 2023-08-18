@@ -454,8 +454,6 @@ use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetIpv4GatewayAttributeResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayAttributeResponse;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayConvertStatusRequest;
-use AlibabaCloud\SDK\Vpc\V20160428\Models\GetNatGatewayConvertStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusRequest;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetPhysicalConnectionServiceStatusResponse;
 use AlibabaCloud\SDK\Vpc\V20160428\Models\GetTrafficMirrorServiceStatusRequest;
@@ -18052,67 +18050,6 @@ class Vpc extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNatGatewayAttributeWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetNatGatewayConvertStatusRequest $request
-     * @param RuntimeOptions                    $runtime
-     *
-     * @return GetNatGatewayConvertStatusResponse
-     */
-    public function getNatGatewayConvertStatusWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->natGatewayId)) {
-            $query['NatGatewayId'] = $request->natGatewayId;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetNatGatewayConvertStatus',
-            'version'     => '2016-04-28',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetNatGatewayConvertStatusResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetNatGatewayConvertStatusRequest $request
-     *
-     * @return GetNatGatewayConvertStatusResponse
-     */
-    public function getNatGatewayConvertStatus($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getNatGatewayConvertStatusWithOptions($request, $runtime);
     }
 
     /**
