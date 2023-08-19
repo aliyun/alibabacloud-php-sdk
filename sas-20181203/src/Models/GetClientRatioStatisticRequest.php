@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class GetClientRatioStatisticRequest extends Model
 {
     /**
+     * @description The ID of the primary account of the Resource Directory member account.
+     * > call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) interface to obtain this parameter.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
 
     /**
+     * @description An array that consists of the details of a statistical type.
+     *
      * @var string[]
      */
     public $statisticTypes;
 
     /**
+     * @description The timestamp that specifies the end of the time range to collect statistics. Unit: milliseconds.
+     *
      * @example 1686412799999
      *
      * @var int
@@ -26,6 +34,8 @@ class GetClientRatioStatisticRequest extends Model
     public $timeEnd;
 
     /**
+     * @description The timestamp that specifies the beginning of the time range to collect statistics. Unit: milliseconds.
+     *
      * @example 1671382800000
      *
      * @var int

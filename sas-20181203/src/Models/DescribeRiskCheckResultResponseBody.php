@@ -28,7 +28,7 @@ class DescribeRiskCheckResultResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the check items.
+     * @description The check items.
      *
      * @var list_[]
      */

@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class currentItems extends Model
 {
     /**
+     * @description The list of the statistics on the installation rate of the client by vendor.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The type of the server. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: a third-party cloud asset
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight asset
+     *
      * @example 0
      *
      * @var int

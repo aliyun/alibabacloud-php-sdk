@@ -23,6 +23,11 @@ class AddImageVulWhiteListRequest extends Model
     public $reason;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @example {\"type\":\"repo\",\"target\":[\"sas_test/script_0209\",\"sas_test/script\"]}
      *
      * @var string
@@ -45,6 +50,7 @@ class AddImageVulWhiteListRequest extends Model
     protected $_name = [
         'lang'      => 'Lang',
         'reason'    => 'Reason',
+        'source'    => 'Source',
         'target'    => 'Target',
         'type'      => 'Type',
         'whitelist' => 'Whitelist',
@@ -62,6 +68,9 @@ class AddImageVulWhiteListRequest extends Model
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->target) {
             $res['Target'] = $this->target;
@@ -89,6 +98,9 @@ class AddImageVulWhiteListRequest extends Model
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Target'])) {
             $model->target = $map['Target'];

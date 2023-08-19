@@ -35,7 +35,7 @@ class cves extends Model
     public $cnvdId;
 
     /**
-     * @description The difficulty level of exploiting the vulnerability. Valid values:
+     * @description The difficulty level of exploiting the vulnerability. Valid value:
      *
      *   **LOW**
      *   **MEDIUM**
@@ -86,7 +86,7 @@ class cves extends Model
     /**
      * @description The instance name of the server.
      *
-     * > This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
      * @example sql-test-001
      *
      * @var string
@@ -96,7 +96,7 @@ class cves extends Model
     /**
      * @description The public IP address of the server.
      *
-     * > This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
      * @example 47.114.XX.XX
      *
      * @var string
@@ -106,7 +106,7 @@ class cves extends Model
     /**
      * @description The private IP address of the server.
      *
-     * > This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
+     * >  This parameter is deprecated. You can call the [DescribeVulList](~~DescribeVulList~~) operation to query the instances that are affected by vulnerabilities.
      * @example 172.19.XX.XX
      *
      * @var string
@@ -114,6 +114,10 @@ class cves extends Model
     public $intranetIp;
 
     /**
+     * @description The ID of the vulnerability.
+     *
+     * @example CVE-2020-8597
+     *
      * @var string
      */
     public $otherId;
@@ -191,7 +195,7 @@ class cves extends Model
     public $summary;
 
     /**
-     * @description The ID of the asset on which the vulnerability is detected.
+     * @description The ID of the asset on which the malicious image sample is detected.
      *
      * @example m-bp17m0pc0xprzbwo****
      *
@@ -200,7 +204,7 @@ class cves extends Model
     public $targetId;
 
     /**
-     * @description The name of the asset on which the vulnerability is detected.
+     * @description The name of the asset on which the malicious image sample is detected.
      *
      * @example frontend
      *
@@ -227,7 +231,7 @@ class cves extends Model
     public $vendor;
 
     /**
-     * @description The severity of the vulnerability. Valid values:
+     * @description The severity of the vulnerability. Valid value:
      *
      *   **serious**
      *   **high**

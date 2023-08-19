@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class bruteForceSummary extends Model
 {
     /**
+     * @description The number of anti-brute force IP blocking policies.
+     *
      * @example 13
      *
      * @var int
@@ -16,21 +18,35 @@ class bruteForceSummary extends Model
     public $allStrategyCount;
 
     /**
+     * @description The number of defense policies.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $antiBruteForceRuleCount;
 
     /**
+     * @description The number of custom blocking rules that are in effect.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $customEffectiveCount;
 
     /**
+     * @description The number of custom blocking rules.
+     *
+     * @example 19730
+     *
      * @var string
      */
     public $customRecordCount;
 
     /**
+     * @description The number of anti-brute force IP blocking policies enabled.
+     *
      * @example 2
      *
      * @var int
@@ -38,11 +54,19 @@ class bruteForceSummary extends Model
     public $effectiveCount;
 
     /**
+     * @description The number of system blocking rules that are in effect.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $systemEffectiveCount;
 
     /**
+     * @description The number of system blocking rules.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $systemRecordCount;

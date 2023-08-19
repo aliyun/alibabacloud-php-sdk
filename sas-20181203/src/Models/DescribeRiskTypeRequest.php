@@ -21,6 +21,11 @@ class DescribeRiskTypeRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 192.168.X.X
@@ -30,6 +35,7 @@ class DescribeRiskTypeRequest extends Model
     public $sourceIp;
     protected $_name = [
         'lang'     => 'Lang',
+        'source'   => 'Source',
         'sourceIp' => 'SourceIp',
     ];
 
@@ -42,6 +48,9 @@ class DescribeRiskTypeRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -60,6 +69,9 @@ class DescribeRiskTypeRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

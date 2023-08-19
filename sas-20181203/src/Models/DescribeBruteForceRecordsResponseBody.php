@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBruteForceRecordsResponseBody extends Model
 {
     /**
-     * @description An array that consists of the IP addresses.
+     * @description The IP addresses.
      *
      * @var machineList[]
      */

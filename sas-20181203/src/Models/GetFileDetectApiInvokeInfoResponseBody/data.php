@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The total number of authorizations.
+     *
      * @example 10000
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $authCount;
 
     /**
+     * @description The timestamp of the expiration date of the authorization number.
+     *
      * @example 1815753600000
      *
      * @var int
@@ -23,6 +27,8 @@ class data extends Model
     public $expire;
 
     /**
+     * @description The frequency of calls.
+     *
      * @example 20
      *
      * @var int
@@ -30,6 +36,8 @@ class data extends Model
     public $flowRate;
 
     /**
+     * @description The number of remaining authorizations.
+     *
      * @example 900
      *
      * @var int
@@ -37,6 +45,11 @@ class data extends Model
     public $remainAuthCount;
 
     /**
+     * @description The Authorized Version. Valid values include:
+     *
+     * **1:** trial version
+     * **2:** Enterprise Edition
+     *
      * @example 2
      *
      * @var int
@@ -44,6 +57,11 @@ class data extends Model
     public $saleVersion;
 
     /**
+     * @description The time unit of the frequency limit. Value:
+     *
+     * **SECONDS**
+     * **MINUTES**
+     *
      * @example SECONDS
      *
      * @var string

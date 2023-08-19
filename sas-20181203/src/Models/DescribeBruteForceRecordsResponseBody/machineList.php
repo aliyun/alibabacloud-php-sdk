@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class machineList extends Model
 {
     /**
+     * @description The status of the host network extension. Valid values:
+     *
+     *   **true**: online
+     *   **false**: offline
+     *
+     * @example false
+     *
      * @var bool
      */
     public $aliNetOnline;
@@ -23,7 +30,7 @@ class machineList extends Model
     public $blockExpireDate;
 
     /**
-     * @description The blocked IP address.
+     * @description The IP address that is blocked.
      *
      * @example 10.12.XX.XX
      *
@@ -32,6 +39,13 @@ class machineList extends Model
     public $blockIp;
 
     /**
+     * @description The blocking type. Valid values:
+     *
+     *   **group**: security group
+     *   **alinet**: host network extension
+     *
+     * @example alinet
+     *
      * @var string
      */
     public $blockType;
@@ -46,7 +60,7 @@ class machineList extends Model
     public $errorCode;
 
     /**
-     * @description The ID of the primary key in the table of records on the blocked IP address.
+     * @description The ID of the primary key that is recorded in the defense rule.
      *
      * @example 112XX
      *
@@ -55,7 +69,7 @@ class machineList extends Model
     public $id;
 
     /**
-     * @description The name of the server.
+     * @description The instance name of the server.
      *
      * @example record-test-***
      *
@@ -125,7 +139,7 @@ class machineList extends Model
     public $status;
 
     /**
-     * @description The UUID of the server on which access from the IP address is blocked.
+     * @description The UUID of the server on which the defense rule takes effect.
      *
      * @example 6d5b361f-958d-48a8-a9d2-d6e82c1****
      *

@@ -18,6 +18,8 @@ class instances extends Model
     public $asapVulInstanceCount;
 
     /**
+     * @description The number of assets that are protected by the specified edition.
+     *
      * @example 205
      *
      * @var int
@@ -56,6 +58,14 @@ class instances extends Model
     public $instanceCount;
 
     /**
+     * @description The operating system type of the asset. Valid values:
+     *
+     * **windows**
+     * **linux**
+     *
+     * > This parameter is returned only when Lang is set to zh.
+     * @example windows
+     *
      * @var string
      */
     public $os;

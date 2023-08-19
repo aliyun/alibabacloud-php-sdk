@@ -100,6 +100,11 @@ class DescribeCheckWarningsRequest extends Model
     public $riskStatus;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The source IP address of the request.
      *
      * @example 1.2.XX.XX
@@ -126,6 +131,7 @@ class DescribeCheckWarningsRequest extends Model
         'pageSize'      => 'PageSize',
         'riskId'        => 'RiskId',
         'riskStatus'    => 'RiskStatus',
+        'source'        => 'Source',
         'sourceIp'      => 'SourceIp',
         'uuid'          => 'Uuid',
     ];
@@ -160,6 +166,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (null !== $this->riskStatus) {
             $res['RiskStatus'] = $this->riskStatus;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -202,6 +211,9 @@ class DescribeCheckWarningsRequest extends Model
         }
         if (isset($map['RiskStatus'])) {
             $model->riskStatus = $map['RiskStatus'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

@@ -31,6 +31,11 @@ class SaveImageBaselineStrategyRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The ID of the baseline check policy.
      *
      * > You can call the [DescribeImageBaselineStrategy](~~DescribeImageBaselineStrategy~~) operation to query the IDs of baseline check policies.
@@ -51,6 +56,7 @@ class SaveImageBaselineStrategyRequest extends Model
     protected $_name = [
         'baselineItemList' => 'BaselineItemList',
         'lang'             => 'Lang',
+        'source'           => 'Source',
         'strategyId'       => 'StrategyId',
         'strategyName'     => 'StrategyName',
     ];
@@ -67,6 +73,9 @@ class SaveImageBaselineStrategyRequest extends Model
         }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
@@ -91,6 +100,9 @@ class SaveImageBaselineStrategyRequest extends Model
         }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];

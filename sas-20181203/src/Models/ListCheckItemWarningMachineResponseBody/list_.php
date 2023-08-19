@@ -100,6 +100,11 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @var int
+     */
+    public $lastScanTime;
+
+    /**
      * @description Indicates whether a port on the server is accessible over the Internet. Valid values:
      *
      *   **true**: A port on the server is accessible over the Internet.
@@ -149,6 +154,21 @@ class list_ extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $targetId;
+
+    /**
+     * @var string
+     */
+    public $targetName;
+
+    /**
+     * @var string
+     */
+    public $targetType;
+
+    /**
      * @description The UUID of the server.
      *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
@@ -173,10 +193,14 @@ class list_ extends Model
         'instanceName'    => 'InstanceName',
         'internetIp'      => 'InternetIp',
         'intranetIp'      => 'IntranetIp',
+        'lastScanTime'    => 'LastScanTime',
         'portOpen'        => 'PortOpen',
         'prompt'          => 'Prompt',
         'regionId'        => 'RegionId',
         'status'          => 'Status',
+        'targetId'        => 'TargetId',
+        'targetName'      => 'TargetName',
+        'targetType'      => 'TargetType',
         'uuid'            => 'Uuid',
         'warningRiskList' => 'WarningRiskList',
     ];
@@ -221,6 +245,9 @@ class list_ extends Model
         if (null !== $this->intranetIp) {
             $res['IntranetIp'] = $this->intranetIp;
         }
+        if (null !== $this->lastScanTime) {
+            $res['LastScanTime'] = $this->lastScanTime;
+        }
         if (null !== $this->portOpen) {
             $res['PortOpen'] = $this->portOpen;
         }
@@ -232,6 +259,15 @@ class list_ extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->targetId) {
+            $res['TargetId'] = $this->targetId;
+        }
+        if (null !== $this->targetName) {
+            $res['TargetName'] = $this->targetName;
+        }
+        if (null !== $this->targetType) {
+            $res['TargetType'] = $this->targetType;
         }
         if (null !== $this->uuid) {
             $res['Uuid'] = $this->uuid;
@@ -290,6 +326,9 @@ class list_ extends Model
         if (isset($map['IntranetIp'])) {
             $model->intranetIp = $map['IntranetIp'];
         }
+        if (isset($map['LastScanTime'])) {
+            $model->lastScanTime = $map['LastScanTime'];
+        }
         if (isset($map['PortOpen'])) {
             $model->portOpen = $map['PortOpen'];
         }
@@ -301,6 +340,15 @@ class list_ extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TargetId'])) {
+            $model->targetId = $map['TargetId'];
+        }
+        if (isset($map['TargetName'])) {
+            $model->targetName = $map['TargetName'];
+        }
+        if (isset($map['TargetType'])) {
+            $model->targetType = $map['TargetType'];
         }
         if (isset($map['Uuid'])) {
             $model->uuid = $map['Uuid'];

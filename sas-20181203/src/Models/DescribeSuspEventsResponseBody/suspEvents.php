@@ -235,6 +235,10 @@ class suspEvents extends Model
     public $id;
 
     /**
+     * @description The UUID of the image.
+     *
+     * @example 70489fb520cea585ad9761d5a842****
+     *
      * @var string
      */
     public $imageUuid;
@@ -330,6 +334,11 @@ class suspEvents extends Model
     public $k8sPodName;
 
     /**
+     * @description Indicates whether the alert event can be detected by the cloud sandbox feature. Valid values:
+     *
+     * **true**
+     * **false**
+     *
      * @var bool
      */
     public $largeModel;

@@ -11,16 +11,33 @@ use AlibabaCloud\Tea\Model;
 class securityEventOperationsResponse extends Model
 {
     /**
+     * @description The object on which the operation is performed. This parameter is required when you set the OperationCode parameter to **advance_mark_mis_info**.
+     *
      * @var markField[]
      */
     public $markField;
 
     /**
+     * @description The metadata configuration returned by the advanced whitelist rule.
+     *
      * @var markFieldsSource[]
      */
     public $markFieldsSource;
 
     /**
+     * @description The operation performed to handle the alert. Valid values:
+     *
+     *   **block_ip**: blocks the alert.
+     *   **advance_mark_mis_info**: adds the alert to the whitelist.
+     *   **ignore**: ignores the alert.
+     *   **manual_handled**: marks the alert as manually handled.
+     *   **kill_process**: terminates the malicious process.
+     *   **cleanup**: performs in-depth virus detection and removal.
+     *   **kill_and_quara**: performs virus detection and removal.
+     *   **disable_malicious_defense**: turns off malicious defense behavior.
+     *   **client_problem_check**: performs troubleshooting.
+     *   **quara**: performs quarantine operations.
+     *
      * @example advance_mark_mis_info
      *
      * @var string
@@ -28,6 +45,8 @@ class securityEventOperationsResponse extends Model
     public $operationCode;
 
     /**
+     * @description The configuration of the operation performed to handle the alert event.
+     *
      * @example {\"subOperation\":\"killByMd5andPath\"}
      *
      * @var string
@@ -35,6 +54,11 @@ class securityEventOperationsResponse extends Model
     public $operationParams;
 
     /**
+     * @description Indicates whether the operation can be performed.
+     *
+     *   **true**: The operation can be performed.
+     *   **false**: The operation cannot be performed.
+     *
      * @example false
      *
      * @var bool

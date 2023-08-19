@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The total number of assets.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class items extends Model
     public $assetTotalCount;
 
     /**
+     * @description The timestamp of the calculation. Unit: milliseconds.
+     *
      * @example 1687759630045
      *
      * @var int
@@ -23,6 +27,8 @@ class items extends Model
     public $calculateTime;
 
     /**
+     * @description The installation rate. Unit: %.
+     *
      * @example 70.00
      *
      * @var float
@@ -30,6 +36,8 @@ class items extends Model
     public $installRatio;
 
     /**
+     * @description The number of assets on which the client is installed.
+     *
      * @example 70
      *
      * @var int

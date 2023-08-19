@@ -35,11 +35,17 @@ class DescribeImageVulWhiteListRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'aliasName'   => 'AliasName',
         'currentPage' => 'CurrentPage',
         'lang'        => 'Lang',
         'pageSize'    => 'PageSize',
+        'source'      => 'Source',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class DescribeImageVulWhiteListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class DescribeImageVulWhiteListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

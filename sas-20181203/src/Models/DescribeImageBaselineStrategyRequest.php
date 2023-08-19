@@ -21,6 +21,11 @@ class DescribeImageBaselineStrategyRequest extends Model
     public $lang;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The ID of the baseline check policy.
      *
      * @example 8037
@@ -30,6 +35,7 @@ class DescribeImageBaselineStrategyRequest extends Model
     public $strategyId;
     protected $_name = [
         'lang'       => 'Lang',
+        'source'     => 'Source',
         'strategyId' => 'StrategyId',
     ];
 
@@ -42,6 +48,9 @@ class DescribeImageBaselineStrategyRequest extends Model
         $res = [];
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->strategyId) {
             $res['StrategyId'] = $this->strategyId;
@@ -60,6 +69,9 @@ class DescribeImageBaselineStrategyRequest extends Model
         $model = new self();
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['StrategyId'])) {
             $model->strategyId = $map['StrategyId'];

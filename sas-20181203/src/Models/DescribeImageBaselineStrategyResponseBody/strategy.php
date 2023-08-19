@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class strategy extends Model
 {
     /**
+     * @var string
+     */
+    public $baselineItem;
+
+    /**
      * @description An array that contains the baselines.
      *
      * @var baselineItemList[]
@@ -65,6 +70,7 @@ class strategy extends Model
      */
     public $type;
     protected $_name = [
+        'baselineItem'      => 'BaselineItem',
         'baselineItemList'  => 'BaselineItemList',
         'selectedItemCount' => 'SelectedItemCount',
         'strategyId'        => 'StrategyId',
@@ -80,6 +86,9 @@ class strategy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->baselineItem) {
+            $res['BaselineItem'] = $this->baselineItem;
+        }
         if (null !== $this->baselineItemList) {
             $res['BaselineItemList'] = [];
             if (null !== $this->baselineItemList && \is_array($this->baselineItemList)) {
@@ -116,6 +125,9 @@ class strategy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BaselineItem'])) {
+            $model->baselineItem = $map['BaselineItem'];
+        }
         if (isset($map['BaselineItemList'])) {
             if (!empty($map['BaselineItemList'])) {
                 $model->baselineItemList = [];

@@ -932,6 +932,8 @@ use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicPreCheckImageScanTaskResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicSyncAndCreateImageScanTaskRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\PublicSyncAndCreateImageScanTaskResponse;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryAttackCountRequest;
+use AlibabaCloud\SDK\Sas\V20181203\Models\QueryAttackCountResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseRequest;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryDiscoverDatabaseResponse;
 use AlibabaCloud\SDK\Sas\V20181203\Models\QueryGroupedSecurityEventMarkMissListRequest;
@@ -1346,6 +1348,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->reason)) {
             $query['Reason'] = $request->reason;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->target)) {
             $query['Target'] = $request->target;
@@ -6619,6 +6624,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->riskStatus)) {
             $query['RiskStatus'] = $request->riskStatus;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
         }
@@ -9407,6 +9415,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->strategyId)) {
             $query['StrategyId'] = $request->strategyId;
         }
@@ -10499,6 +10510,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -12676,7 +12690,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * This operation is phased out. You can use the ListCheckResult operation.
+     *   * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
      *   *
      * Deprecated
      *
@@ -12745,7 +12759,7 @@ class Sas extends OpenApiClient
 
     /**
      * @deprecated
-     *   * This operation is phased out. You can use the ListCheckResult operation.
+     *   * This operation is phased out. You can use the [ListCheckResult](~~ListCheckResult~~) operation.
      *   *
      * Deprecated
      *
@@ -12961,6 +12975,9 @@ class Sas extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
@@ -19318,6 +19335,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->reason)) {
             $query['Reason'] = $request->reason;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->type)) {
             $query['Type'] = $request->type;
         }
@@ -19375,6 +19395,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskId)) {
             $query['RiskId'] = $request->riskId;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->sourceIp)) {
             $query['SourceIp'] = $request->sourceIp;
@@ -20305,6 +20328,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->riskType)) {
             $query['RiskType'] = $request->riskType;
         }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
@@ -20380,6 +20406,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->riskType)) {
             $query['RiskType'] = $request->riskType;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -26050,6 +26079,57 @@ class Sas extends OpenApiClient
     }
 
     /**
+     * @param QueryAttackCountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAttackCountResponse
+     */
+    public function queryAttackCountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sourceIp)) {
+            $query['SourceIp'] = $request->sourceIp;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->from)) {
+            $body['From'] = $request->from;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $body['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAttackCount',
+            'version'     => '2018-12-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAttackCountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAttackCountRequest $request
+     *
+     * @return QueryAttackCountResponse
+     */
+    public function queryAttackCount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAttackCountWithOptions($request, $runtime);
+    }
+
+    /**
      * @param QueryDiscoverDatabaseRequest $request
      * @param RuntimeOptions               $runtime
      *
@@ -26641,6 +26721,9 @@ class Sas extends OpenApiClient
         }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
         }
         if (!Utils::isUnset($request->strategyId)) {
             $query['StrategyId'] = $request->strategyId;

@@ -95,6 +95,11 @@ class ListCheckItemWarningMachineRequest extends Model
     public $riskType;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The status of the check item. Valid values:
      *
      *   1: failed
@@ -122,6 +127,7 @@ class ListCheckItemWarningMachineRequest extends Model
         'pageSize'            => 'PageSize',
         'remark'              => 'Remark',
         'riskType'            => 'RiskType',
+        'source'              => 'Source',
         'status'              => 'Status',
     ];
 
@@ -158,6 +164,9 @@ class ListCheckItemWarningMachineRequest extends Model
         }
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -200,6 +209,9 @@ class ListCheckItemWarningMachineRequest extends Model
         }
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

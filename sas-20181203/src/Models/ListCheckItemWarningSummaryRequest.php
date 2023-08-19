@@ -116,6 +116,11 @@ class ListCheckItemWarningSummaryRequest extends Model
      * @var string
      */
     public $riskType;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'checkItemFuzzy'      => 'CheckItemFuzzy',
         'checkLevel'          => 'CheckLevel',
@@ -128,6 +133,7 @@ class ListCheckItemWarningSummaryRequest extends Model
         'lang'                => 'Lang',
         'pageSize'            => 'PageSize',
         'riskType'            => 'RiskType',
+        'source'              => 'Source',
     ];
 
     public function validate()
@@ -169,6 +175,9 @@ class ListCheckItemWarningSummaryRequest extends Model
         }
         if (null !== $this->riskType) {
             $res['RiskType'] = $this->riskType;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -214,6 +223,9 @@ class ListCheckItemWarningSummaryRequest extends Model
         }
         if (isset($map['RiskType'])) {
             $model->riskType = $map['RiskType'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

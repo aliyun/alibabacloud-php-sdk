@@ -19,9 +19,9 @@ class AddInstallCodeRequest extends Model
     public $expiredDate;
 
     /**
-     * @description The ID of the asset group to which the you want to add the asset.
+     * @description The ID of the asset group to which you want to add the asset.
      *
-     * >  You can call the [DescribeAllGroups](~~describeallgroups~~) operation to query the IDs of asset groups.
+     * > You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of asset groups.
      * @example 8076980
      *
      * @var int
@@ -54,6 +54,8 @@ class AddInstallCodeRequest extends Model
     public $os;
 
     /**
+     * @description The name of the proxy cluster.
+     *
      * @example proxy_test
      *
      * @var string

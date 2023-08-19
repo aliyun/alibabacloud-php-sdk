@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class clientOnlineRatio extends Model
 {
     /**
+     * @description The list of current statistics on the online rate of the client.
+     *
      * @var currentItems[]
      */
     public $currentItems;
 
     /**
+     * @description The list of historical statistics on the online rate of the client.
+     *
      * @var historyItems[]
      */
     public $historyItems;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class CreateAssetSelectionConfigResponseBody extends Model
 {
     /**
+     * @description The response parameters.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example A3D7C47D-3F11-57BB-90E8-E5C20C619F37
      *
      * @var string

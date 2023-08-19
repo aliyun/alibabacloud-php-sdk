@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class markFieldsSource extends Model
 {
     /**
+     * @description The alias of the field that can be used in the whitelist rule.
+     *
      * @example file path
      *
      * @var string
@@ -16,6 +18,8 @@ class markFieldsSource extends Model
     public $filedAliasName;
 
     /**
+     * @description The field that can be used in the whitelist rule.
+     *
      * @example filePath
      *
      * @var string
@@ -23,6 +27,8 @@ class markFieldsSource extends Model
     public $filedName;
 
     /**
+     * @description The value of the field that can be used in the whitelist rule.
+     *
      * @example contains
      *
      * @var string
@@ -30,6 +36,14 @@ class markFieldsSource extends Model
     public $markMisValue;
 
     /**
+     * @description The operation that is supported in the whitelist rule. Valid values:
+     *
+     *   **contains**: contains
+     *   **notContains**: does not contain
+     *   **regex**: regular expression
+     *   **strEqual**: equals
+     *   **strNotEqual**: does not equal
+     *
      * @var string[]
      */
     public $supportedMisType;

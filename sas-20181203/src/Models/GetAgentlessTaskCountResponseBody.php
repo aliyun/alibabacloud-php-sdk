@@ -59,6 +59,11 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $scanMachine;
 
     /**
+     * @var string
+     */
+    public $sysVulCount;
+
+    /**
      * @example 1
      *
      * @var int
@@ -73,6 +78,7 @@ class GetAgentlessTaskCountResponseBody extends Model
         'riskMachine'        => 'RiskMachine',
         'scaVulCount'        => 'ScaVulCount',
         'scanMachine'        => 'ScanMachine',
+        'sysVulCount'        => 'SysVulCount',
         'vulnerability'      => 'Vulnerability',
     ];
 
@@ -106,6 +112,9 @@ class GetAgentlessTaskCountResponseBody extends Model
         }
         if (null !== $this->scanMachine) {
             $res['ScanMachine'] = $this->scanMachine;
+        }
+        if (null !== $this->sysVulCount) {
+            $res['SysVulCount'] = $this->sysVulCount;
         }
         if (null !== $this->vulnerability) {
             $res['Vulnerability'] = $this->vulnerability;
@@ -145,6 +154,9 @@ class GetAgentlessTaskCountResponseBody extends Model
         }
         if (isset($map['ScanMachine'])) {
             $model->scanMachine = $map['ScanMachine'];
+        }
+        if (isset($map['SysVulCount'])) {
+            $model->sysVulCount = $map['SysVulCount'];
         }
         if (isset($map['Vulnerability'])) {
             $model->vulnerability = $map['Vulnerability'];

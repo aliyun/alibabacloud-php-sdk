@@ -37,6 +37,11 @@ class IgnoreHcCheckWarningsRequest extends Model
     public $riskId;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @example 192.168.XX.XX
      *
      * @var string
@@ -54,6 +59,7 @@ class IgnoreHcCheckWarningsRequest extends Model
         'checkWarningIds' => 'CheckWarningIds',
         'reason'          => 'Reason',
         'riskId'          => 'RiskId',
+        'source'          => 'Source',
         'sourceIp'        => 'SourceIp',
         'type'            => 'Type',
     ];
@@ -76,6 +82,9 @@ class IgnoreHcCheckWarningsRequest extends Model
         }
         if (null !== $this->riskId) {
             $res['RiskId'] = $this->riskId;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->sourceIp) {
             $res['SourceIp'] = $this->sourceIp;
@@ -106,6 +115,9 @@ class IgnoreHcCheckWarningsRequest extends Model
         }
         if (isset($map['RiskId'])) {
             $model->riskId = $map['RiskId'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['SourceIp'])) {
             $model->sourceIp = $map['SourceIp'];

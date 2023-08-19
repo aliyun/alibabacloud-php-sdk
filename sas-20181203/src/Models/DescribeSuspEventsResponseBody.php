@@ -46,7 +46,7 @@ class DescribeSuspEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the information about the alert event.
+     * @description The information about the alert event.
      *
      * @var suspEvents[]
      */

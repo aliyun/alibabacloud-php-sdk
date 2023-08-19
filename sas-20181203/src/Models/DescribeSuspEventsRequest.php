@@ -11,7 +11,7 @@ class DescribeSuspEventsRequest extends Model
     /**
      * @description The ID of the alert event.
      *
-     * >  To query the details about the exceptions of an alert event, you must specify the ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the IDs of alert events.
+     * > To query the details of an alert event, you must specify the ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the IDs of alert events.
      * @example 8df914418f4211fb****
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeSuspEventsRequest extends Model
     public $alarmUniqueInfo;
 
     /**
-     * @description The types of assets.
+     * @description The types of the assets.
      *
      * @var string[]
      */
@@ -182,7 +182,7 @@ class DescribeSuspEventsRequest extends Model
     public $operateTimeStart;
 
     /**
-     * @description The number of entries to return on each page. Default value: **20**.
+     * @description The number of entries to return on each page. Default value: **20**. Maximum value: 100.
      *
      * @example 20
      *
@@ -234,6 +234,11 @@ class DescribeSuspEventsRequest extends Model
     public $remark;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 16670360956*****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

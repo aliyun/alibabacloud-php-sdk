@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class currentItems extends Model
 {
     /**
+     * @description The list of current statistics on the online rate of the client by vendor.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The type of the cloud asset. Valid values:
+     *
+     *   **0**: an asset provided by Alibaba Cloud
+     *   **1**: a third-party cloud asset
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a simple application server
+     *
      * @example 3
      *
      * @var int

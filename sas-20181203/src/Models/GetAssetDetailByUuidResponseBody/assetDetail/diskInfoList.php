@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class diskInfoList extends Model
 {
     /**
+     * @description The name of the disk.
+     *
      * @example /dev/vda1
      *
      * @var string
@@ -16,6 +18,8 @@ class diskInfoList extends Model
     public $diskName;
 
     /**
+     * @description The total disk space. Unit: GB.
+     *
      * @example 40
      *
      * @var int
@@ -23,6 +27,8 @@ class diskInfoList extends Model
     public $totalSize;
 
     /**
+     * @description The total disk space. Unit: bytes.
+     *
      * @example 42140479488
      *
      * @var int
@@ -30,6 +36,8 @@ class diskInfoList extends Model
     public $totalSizeByte;
 
     /**
+     * @description The amount of the used disk space. Unit: GB.
+     *
      * @example 2
      *
      * @var int
@@ -37,6 +45,8 @@ class diskInfoList extends Model
     public $useSize;
 
     /**
+     * @description The amount of the used disk space. Unit: bytes.
+     *
      * @example 2998996992
      *
      * @var int

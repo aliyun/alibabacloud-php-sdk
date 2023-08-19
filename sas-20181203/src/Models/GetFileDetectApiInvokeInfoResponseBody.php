@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetFileDetectApiInvokeInfoResponseBody extends Model
 {
     /**
+     * @description Returns the response body.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 9f368b6e-d60a-43c5-bd6f-c7087f2d****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAssetDetailByUuidResponseBody extends Model
 {
     /**
+     * @description The details of the server.
+     *
      * @var assetDetail
      */
     public $assetDetail;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 4892B68B-47BC-5E56-B327-9C2ACC6C1C09
      *
      * @var string

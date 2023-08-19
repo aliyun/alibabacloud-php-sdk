@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class AdvanceSecurityEventOperationsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A4EB8B1C-1DEC-5E18-BCD0-XXXXXXXXX
      *
      * @var string
@@ -17,6 +19,8 @@ class AdvanceSecurityEventOperationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The operation performed on the alert event.
+     *
      * @var securityEventOperationsResponse[]
      */
     public $securityEventOperationsResponse;

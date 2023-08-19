@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The business type that is selected for the asset. Valid values:
+     *
+     *   **VIRUS_SCAN_CYCLE_CONFIG**: virus detection configuration
+     *   **VIRUS_SCAN_ONCE_TASK**: one-time scan for virus detection
+     *
      * @example VIRUS_SCAN_CYCLE_CONFIG
      *
      * @var string
@@ -16,6 +21,8 @@ class data extends Model
     public $businessType;
 
     /**
+     * @description The ID of the current asset selection. It can be used to query and modify the asset that is selected.
+     *
      * @example 53e93435-d694-4c03-9ce7-da12bee1****
      *
      * @var int
@@ -23,6 +30,12 @@ class data extends Model
     public $selectionKey;
 
     /**
+     * @description The dimension based on which the asset is selected. Valid values:
+     *
+     *   **group**: The asset is selected by server.
+     *   **group**: The asset is selected by group.
+     *   **vpc**: The asset is selected by VPC.
+     *
      * @example group
      *
      * @var string

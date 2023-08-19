@@ -38,6 +38,11 @@ class IgnoreCheckItemsRequest extends Model
     public $reason;
 
     /**
+     * @var string
+     */
+    public $source;
+
+    /**
      * @description The operation that you want to perform on the risk item.Valid values:
      *  **1**: adds the risk item to the whitelist
      *  **2**: removes the risk item from the whitelist
@@ -59,6 +64,7 @@ class IgnoreCheckItemsRequest extends Model
         'checkAndRiskTypeList' => 'CheckAndRiskTypeList',
         'lang'                 => 'Lang',
         'reason'               => 'Reason',
+        'source'               => 'Source',
         'type'                 => 'Type',
         'uuidList'             => 'UuidList',
     ];
@@ -84,6 +90,9 @@ class IgnoreCheckItemsRequest extends Model
         }
         if (null !== $this->reason) {
             $res['Reason'] = $this->reason;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -117,6 +126,9 @@ class IgnoreCheckItemsRequest extends Model
         }
         if (isset($map['Reason'])) {
             $model->reason = $map['Reason'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
