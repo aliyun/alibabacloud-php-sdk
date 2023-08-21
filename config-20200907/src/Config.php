@@ -69,6 +69,8 @@ use AlibabaCloud\SDK\Config\V20200907\Models\DeleteConfigRulesRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteConfigRulesResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DeleteRemediationsResponse;
+use AlibabaCloud\SDK\Config\V20200907\Models\DescribeRemediationRequest;
+use AlibabaCloud\SDK\Config\V20200907\Models\DescribeRemediationResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackRequest;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachAggregateConfigRuleToCompliancePackResponse;
 use AlibabaCloud\SDK\Config\V20200907\Models\DetachConfigRuleToCompliancePackRequest;
@@ -1314,9 +1316,10 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
-     *   * ## Limits
-     *   * You can use a common account to create up to 200 rules.
+     * ### Limits
+     *   * You can use an ordinary account to create up to 200 rules.
+     *   * ### Usage notes
+     *   * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
      *   *
      * @param CreateConfigRuleRequest $tmpReq  CreateConfigRuleRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1402,9 +1405,10 @@ class Config extends OpenApiClient
     }
 
     /**
-     * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
-     *   * ## Limits
-     *   * You can use a common account to create up to 200 rules.
+     * ### Limits
+     *   * You can use an ordinary account to create up to 200 rules.
+     *   * ### Usage notes
+     *   * This topic provides an example on how to create a managed rule named required-tags. The returned result indicates that the rule is created and the ID of the rule is `cr-5772ba41209e007b****`.
      *   *
      * @param CreateConfigRuleRequest $request CreateConfigRuleRequest
      *
@@ -2116,6 +2120,46 @@ class Config extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteRemediationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRemediationRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeRemediationResponse
+     */
+    public function describeRemediationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRemediation',
+            'version'     => '2020-09-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRemediationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRemediationRequest $request
+     *
+     * @return DescribeRemediationResponse
+     */
+    public function describeRemediation($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRemediationWithOptions($request, $runtime);
     }
 
     /**

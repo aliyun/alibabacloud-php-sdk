@@ -6,28 +6,24 @@ namespace AlibabaCloud\SDK\Config\V20200907\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateConfigRuleResponseBody extends Model
+class DescribeRemediationRequest extends Model
 {
     /**
-     * @description The rule ID.
-     *
-     * @example cr-5772ba41209e007b****
+     * @example cr-3184626622af003****
      *
      * @var string
      */
     public $configRuleId;
 
     /**
-     * @description The request ID.
-     *
-     * @example 6EC7AED1-172F-42AE-9C12-295BC2ADB751
+     * @example crr-f381cf0c1c2f004e****
      *
      * @var string
      */
-    public $requestId;
+    public $remediationId;
     protected $_name = [
-        'configRuleId' => 'ConfigRuleId',
-        'requestId'    => 'RequestId',
+        'configRuleId'  => 'ConfigRuleId',
+        'remediationId' => 'RemediationId',
     ];
 
     public function validate()
@@ -40,8 +36,8 @@ class CreateConfigRuleResponseBody extends Model
         if (null !== $this->configRuleId) {
             $res['ConfigRuleId'] = $this->configRuleId;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->remediationId) {
+            $res['RemediationId'] = $this->remediationId;
         }
 
         return $res;
@@ -50,7 +46,7 @@ class CreateConfigRuleResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateConfigRuleResponseBody
+     * @return DescribeRemediationRequest
      */
     public static function fromMap($map = [])
     {
@@ -58,8 +54,8 @@ class CreateConfigRuleResponseBody extends Model
         if (isset($map['ConfigRuleId'])) {
             $model->configRuleId = $map['ConfigRuleId'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['RemediationId'])) {
+            $model->remediationId = $map['RemediationId'];
         }
 
         return $model;

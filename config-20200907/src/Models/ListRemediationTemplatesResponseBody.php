@@ -28,7 +28,7 @@ class ListRemediationTemplatesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The description of the remediation template.
+     * @description The queried remediation templates.
      *
      * @var remediationTemplates[]
      */

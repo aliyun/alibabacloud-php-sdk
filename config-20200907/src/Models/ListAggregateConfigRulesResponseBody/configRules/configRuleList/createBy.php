@@ -61,7 +61,7 @@ class createBy extends Model
     public $creatorName;
 
     /**
-     * @description The type of the creator of the rule. The value is fixed to AGGREGATOR, which indicates an account group.
+     * @description The type of the creator of the rule. Valid value: AGGREGATOR, which indicates an account group.
      *
      * @example AGGREGATOR
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateResourceComplianceTimelineResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8D53A78F-1EB8-4264-A554-72F07E34FAE6
      *

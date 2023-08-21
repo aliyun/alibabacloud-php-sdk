@@ -55,7 +55,7 @@ class configRules extends Model
     public $description;
 
     /**
-     * @description The ID of the managed rule.
+     * @description The identifier of the managed rule.
      *
      * @example slb-servercertificate-expired-check
      *
@@ -71,7 +71,7 @@ class configRules extends Model
     public $managedRuleName;
 
     /**
-     * @description 规则评估的资源类型。
+     * @description The type of the resource evaluated based on the rule.
      *
      * @example ACS::SLB::ServerCertificate
      *

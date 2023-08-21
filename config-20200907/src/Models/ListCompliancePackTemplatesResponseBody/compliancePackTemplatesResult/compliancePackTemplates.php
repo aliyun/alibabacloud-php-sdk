@@ -26,7 +26,7 @@ class compliancePackTemplates extends Model
     public $compliancePackTemplateName;
 
     /**
-     * @description An array that contains the managed rules in the compliance package.
+     * @description The information about managed rules in the compliance package.
      *
      * @var configRules[]
      */

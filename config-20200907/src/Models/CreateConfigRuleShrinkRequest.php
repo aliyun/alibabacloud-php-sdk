@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateConfigRuleShrinkRequest extends Model
 {
     /**
-     * @description The client token that you want to use to ensure the idempotency of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.``
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The `token` can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example 1594295238-f9361358-5843-4294-8d30-b5183fac****
      *
@@ -18,7 +18,7 @@ class CreateConfigRuleShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @var string
      */
@@ -30,7 +30,7 @@ class CreateConfigRuleShrinkRequest extends Model
      *   ConfigurationItemChangeNotification: The rule is triggered by configuration changes.
      *   ScheduledNotification: The rule is periodically triggered.
      *
-     * >  If a rule supports the preceding trigger types, separate the types with a comma (,).
+     * > Separate two trigger mechanisms with commas (,).
      * @example ConfigurationItemChangeNotification
      *
      * @var string
@@ -38,16 +38,16 @@ class CreateConfigRuleShrinkRequest extends Model
     public $configRuleTriggerTypes;
 
     /**
-     * @description The description of the rule.
+     * @description The rule description.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the resource to be excluded from the compliance evaluations performed by the rule. Separate multiple resource IDs with commas (,).
+     * @description The ID of the resource excluded from the compliance evaluations performed based on the rule. Separate multiple resource IDs with commas (,).
      *
-     * >  This parameter applies only to managed rules.
+     * > This parameter applies only to a managed rule.
      * @example lb-t4nbowvtbkss7t326****
      *
      * @var string
@@ -55,7 +55,7 @@ class CreateConfigRuleShrinkRequest extends Model
     public $excludeResourceIdsScope;
 
     /**
-     * @description The input parameter of the rule.
+     * @description The input parameters of the rule.
      *
      * @example {"tag1Key":"ECS","tag1Value":"test"}
      *
@@ -64,7 +64,7 @@ class CreateConfigRuleShrinkRequest extends Model
     public $inputParametersShrink;
 
     /**
-     * @description The intervals at which the rule is triggered. Valid values:
+     * @description The interval at which the rule is triggered. Valid values:
      *
      *   One_Hour: 1 hour.
      *   Three_Hours: 3 hours.
@@ -72,7 +72,7 @@ class CreateConfigRuleShrinkRequest extends Model
      *   Twelve_Hours: 12 hours.
      *   TwentyFour_Hours (default): 24 hours.
      *
-     * >  This parameter is required if the ConfigRuleTriggerTypes parameter is set to ScheduledNotification.
+     * > This parameter is required if the ConfigRuleTriggerTypes parameter is set to ScheduledNotification.
      * @example One_Hour
      *
      * @var string
@@ -82,7 +82,7 @@ class CreateConfigRuleShrinkRequest extends Model
     /**
      * @description The ID of the region to which the rule applies. Separate multiple region IDs with commas (,).
      *
-     * >  This parameter applies only to managed rules.
+     * > This parameter applies only to a managed rule.
      * @example cn-hangzhou
      *
      * @var string
@@ -92,7 +92,7 @@ class CreateConfigRuleShrinkRequest extends Model
     /**
      * @description The ID of the resource group to which the rule applies. Separate multiple resource group IDs with commas (,).
      *
-     * >  This parameter applies only to managed rules.
+     * > This parameter applies only to a managed rule.
      * @example rg-aekzc7r7rhx****
      *
      * @var string
@@ -100,7 +100,7 @@ class CreateConfigRuleShrinkRequest extends Model
     public $resourceGroupIdsScope;
 
     /**
-     * @description The type of the resource to be evaluated by the rule. Separate multiple resource types with commas (,).
+     * @description The type of the resource evaluated by the rule. Separate multiple resource types with commas (,).
      *
      * @example ACS::ECS::Instance
      *
@@ -109,11 +109,11 @@ class CreateConfigRuleShrinkRequest extends Model
     public $resourceTypesScopeShrink;
 
     /**
-     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     * @description The risk level of the resources that do not comply with the rule. Valid values:
      *
-     *   1: high risk level
-     *   2: medium risk level
-     *   3: low risk level
+     *   1: high
+     *   2: medium
+     *   3: low
      *
      * @example 1
      *
@@ -122,7 +122,7 @@ class CreateConfigRuleShrinkRequest extends Model
     public $riskLevel;
 
     /**
-     * @description The ID of the rule.
+     * @description The identifier of the rule.
      *
      *   If you set the SourceOwner parameter to ALIYUN, set this parameter to the name of the managed rule.
      *   If you set the SourceOwner parameter to CUSTOM_FC, set this parameter to the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
@@ -135,10 +135,10 @@ class CreateConfigRuleShrinkRequest extends Model
     public $sourceIdentifier;
 
     /**
-     * @description The type of the rule Valid values:
+     * @description The type of the rule. Valid values:
      *
-     *   ALIYUN: managed rule.
-     *   CUSTOM_FC: custom rule.
+     *   ALIYUN: managed rule
+     *   CUSTOM_FC: a custom rule
      *
      * @example ALIYUN
      *
@@ -147,10 +147,10 @@ class CreateConfigRuleShrinkRequest extends Model
     public $sourceOwner;
 
     /**
-     * @description The logical relationship among the tag keys if you specify multiple tag keys for the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
+     * @description The logical relationship among the tag keys if you specify multiple tag keys by using the `TagKeyScope` parameter. For example, if you set the `TagKeyScope` parameter to `ECS,OSS` and set the TagKeyLogicScope parameter to `AND`, the rule applies to resources with both the `ECS` and `OSS` tag keys. Valid values:
      *
-     *   AND: logical AND
-     *   OR: logical OR
+     *   AND
+     *   OR
      *
      * @example AND
      *
@@ -159,9 +159,9 @@ class CreateConfigRuleShrinkRequest extends Model
     public $tagKeyLogicScope;
 
     /**
-     * @description The tag key used to filter resources. The rule applies only to the resources with a specified tag key.
+     * @description The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
      *
-     * >  This parameter applies only to managed rules. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example ECS
      *
      * @var string
@@ -169,9 +169,9 @@ class CreateConfigRuleShrinkRequest extends Model
     public $tagKeyScope;
 
     /**
-     * @description The tag key used to filter resources. The rule applies only to the resources with the specified tag key.
+     * @description The tag value used to filter resources. The rule applies only to the resources that use the specified tag value.
      *
-     * >  This parameter applies only to managed rules. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
+     * > This parameter applies only to a managed rule. You must configure the `TagKeyScope` and `TagValueScope` parameters at the same time.
      * @example test
      *
      * @var string

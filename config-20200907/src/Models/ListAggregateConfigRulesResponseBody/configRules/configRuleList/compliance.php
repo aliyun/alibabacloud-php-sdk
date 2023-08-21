@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class compliance extends Model
 {
     /**
-     * @description The summary result of the rule compliance evaluation. Valid values:
+     * @description The compliance evaluation result. Valid values:
      *
-     *   COMPLIANT: The resource was evaluated as compliant.
-     *   NON_COMPLIANT: The resource was evaluated as incompliant.
-     *   NOT_APPLICABLE: The rule did not apply to your resources.
-     *   INSUFFICIENT_DATA: No resource data was available.
+     *   COMPLIANT: The resource is evaluated as compliant.
+     *   NON_COMPLIANT: The resource is evaluated as non-compliant.
+     *   NOT_APPLICABLE: The rule does not apply to the resource.
+     *   INSUFFICIENT_DATA: No resource data is available.
      *
      * @example COMPLIANT
      *
@@ -23,7 +23,7 @@ class compliance extends Model
     public $complianceType;
 
     /**
-     * @description The number of evaluation resources that correspond to the summary result of the rule compliance evaluation.
+     * @description The number of evaluated resources.
      *
      * @example 2
      *

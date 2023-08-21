@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutEvaluationsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example EDB324E2-A202-5FE4-A9BC-31E2C34F78A4
      *
      * @var string
@@ -16,6 +18,11 @@ class PutEvaluationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The submission status of the evaluation results of the custom rule. Valid values:
+     *
+     *   true: The evaluation results are submitted.
+     *   false: The evaluation results failed to be submitted.
+     *
      * @example true
      *
      * @var bool
