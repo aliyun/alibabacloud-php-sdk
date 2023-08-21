@@ -116,6 +116,11 @@ class CreateSandboxInstanceRequest extends Model
      * @var string
      */
     public $vpcSwitchId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'backupPlanId'         => 'BackupPlanId',
         'backupSetId'          => 'BackupSetId',
@@ -127,6 +132,7 @@ class CreateSandboxInstanceRequest extends Model
         'sandboxUser'          => 'SandboxUser',
         'vpcId'                => 'VpcId',
         'vpcSwitchId'          => 'VpcSwitchId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -165,6 +171,9 @@ class CreateSandboxInstanceRequest extends Model
         }
         if (null !== $this->vpcSwitchId) {
             $res['VpcSwitchId'] = $this->vpcSwitchId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -207,6 +216,9 @@ class CreateSandboxInstanceRequest extends Model
         }
         if (isset($map['VpcSwitchId'])) {
             $model->vpcSwitchId = $map['VpcSwitchId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

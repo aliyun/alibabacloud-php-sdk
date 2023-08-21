@@ -271,6 +271,9 @@ class Dbs extends OpenApiClient
         if (!Utils::isUnset($request->vpcSwitchId)) {
             $query['VpcSwitchId'] = $request->vpcSwitchId;
         }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -320,6 +323,9 @@ class Dbs extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

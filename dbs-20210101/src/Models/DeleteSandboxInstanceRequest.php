@@ -26,9 +26,15 @@ class DeleteSandboxInstanceRequest extends Model
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
         'backupPlanId' => 'BackupPlanId',
         'instanceId'   => 'InstanceId',
+        'zoneId'       => 'ZoneId',
     ];
 
     public function validate()
@@ -43,6 +49,9 @@ class DeleteSandboxInstanceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -61,6 +70,9 @@ class DeleteSandboxInstanceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;
