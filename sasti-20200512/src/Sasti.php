@@ -12,8 +12,6 @@ use AlibabaCloud\SDK\Sasti\V20200512\Models\DescribeFileReportRequest;
 use AlibabaCloud\SDK\Sasti\V20200512\Models\DescribeFileReportResponse;
 use AlibabaCloud\SDK\Sasti\V20200512\Models\DescribeIpReportRequest;
 use AlibabaCloud\SDK\Sasti\V20200512\Models\DescribeIpReportResponse;
-use AlibabaCloud\SDK\Sasti\V20200512\Models\GetGraphQueryTemplatesRequest;
-use AlibabaCloud\SDK\Sasti\V20200512\Models\GetGraphQueryTemplatesResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -198,51 +196,5 @@ class Sasti extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeIpReportWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param GetGraphQueryTemplatesRequest $request
-     * @param RuntimeOptions                $runtime
-     *
-     * @return GetGraphQueryTemplatesResponse
-     */
-    public function getGraphQueryTemplatesWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->env)) {
-            $body['Env'] = $request->env;
-        }
-        if (!Utils::isUnset($request->serviceUnit)) {
-            $body['ServiceUnit'] = $request->serviceUnit;
-        }
-        $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'GetGraphQueryTemplates',
-            'version'     => '2020-05-12',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetGraphQueryTemplatesResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param GetGraphQueryTemplatesRequest $request
-     *
-     * @return GetGraphQueryTemplatesResponse
-     */
-    public function getGraphQueryTemplates($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getGraphQueryTemplatesWithOptions($request, $runtime);
     }
 }
