@@ -89,6 +89,11 @@ class clusters extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'clusterDescription' => 'ClusterDescription',
         'clusterId'          => 'ClusterId',
@@ -102,6 +107,7 @@ class clusters extends Model
         'resourceGroupId'    => 'ResourceGroupId',
         'taskId'             => 'TaskId',
         'updateTime'         => 'UpdateTime',
+        'vpcId'              => 'VpcId',
     ];
 
     public function validate()
@@ -146,6 +152,9 @@ class clusters extends Model
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -194,6 +203,9 @@ class clusters extends Model
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

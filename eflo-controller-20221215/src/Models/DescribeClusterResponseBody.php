@@ -101,6 +101,11 @@ class DescribeClusterResponseBody extends Model
      * @var string
      */
     public $updateTime;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'clusterDescription' => 'ClusterDescription',
         'clusterId'          => 'ClusterId',
@@ -116,6 +121,7 @@ class DescribeClusterResponseBody extends Model
         'resourceGroupId'    => 'ResourceGroupId',
         'taskId'             => 'TaskId',
         'updateTime'         => 'UpdateTime',
+        'vpcId'              => 'VpcId',
     ];
 
     public function validate()
@@ -178,6 +184,9 @@ class DescribeClusterResponseBody extends Model
         }
         if (null !== $this->updateTime) {
             $res['UpdateTime'] = $this->updateTime;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -244,6 +253,9 @@ class DescribeClusterResponseBody extends Model
         }
         if (isset($map['UpdateTime'])) {
             $model->updateTime = $map['UpdateTime'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;
