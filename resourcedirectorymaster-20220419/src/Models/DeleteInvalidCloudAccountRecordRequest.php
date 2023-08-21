@@ -2,22 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTagValuesResponseBody;
+namespace AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class tags extends Model
+class DeleteInvalidCloudAccountRecordRequest extends Model
 {
     /**
-     * @description The tag value.
-     *
-     * @example v1
+     * @example 2aaaa785-9b4e-48db-880f-2d76b4d9e***
      *
      * @var string
      */
-    public $value;
+    public $recordId;
     protected $_name = [
-        'value' => 'Value',
+        'recordId' => 'RecordId',
     ];
 
     public function validate()
@@ -27,8 +25,8 @@ class tags extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->value) {
-            $res['Value'] = $this->value;
+        if (null !== $this->recordId) {
+            $res['RecordId'] = $this->recordId;
         }
 
         return $res;
@@ -37,13 +35,13 @@ class tags extends Model
     /**
      * @param array $map
      *
-     * @return tags
+     * @return DeleteInvalidCloudAccountRecordRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Value'])) {
-            $model->value = $map['Value'];
+        if (isset($map['RecordId'])) {
+            $model->recordId = $map['RecordId'];
         }
 
         return $model;

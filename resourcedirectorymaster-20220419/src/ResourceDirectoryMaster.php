@@ -41,6 +41,8 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteControlPolic
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteFolderResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteInvalidCloudAccountRecordRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteInvalidCloudAccountRecordResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteMessageContactRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteMessageContactResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeregisterDelegatedAdministratorRequest;
@@ -112,6 +114,8 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTrustedService
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\ListTrustedServiceStatusResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\MoveAccountRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\MoveAccountResponse;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\PrecheckForConsolidatedBillingAccountRequest;
+use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\PrecheckForConsolidatedBillingAccountResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RegisterDelegatedAdministratorRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RegisterDelegatedAdministratorResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\RemoveCloudAccountRequest;
@@ -1024,6 +1028,49 @@ class ResourceDirectoryMaster extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFolderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteInvalidCloudAccountRecordRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return DeleteInvalidCloudAccountRecordResponse
+     */
+    public function deleteInvalidCloudAccountRecordWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->recordId)) {
+            $query['RecordId'] = $request->recordId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteInvalidCloudAccountRecord',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteInvalidCloudAccountRecordResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteInvalidCloudAccountRecordRequest $request
+     *
+     * @return DeleteInvalidCloudAccountRecordResponse
+     */
+    public function deleteInvalidCloudAccountRecord($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteInvalidCloudAccountRecordWithOptions($request, $runtime);
     }
 
     /**
@@ -2812,6 +2859,49 @@ class ResourceDirectoryMaster extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->moveAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param PrecheckForConsolidatedBillingAccountRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return PrecheckForConsolidatedBillingAccountResponse
+     */
+    public function precheckForConsolidatedBillingAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->billingAccountId)) {
+            $query['BillingAccountId'] = $request->billingAccountId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'PrecheckForConsolidatedBillingAccount',
+            'version'     => '2022-04-19',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return PrecheckForConsolidatedBillingAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param PrecheckForConsolidatedBillingAccountRequest $request
+     *
+     * @return PrecheckForConsolidatedBillingAccountResponse
+     */
+    public function precheckForConsolidatedBillingAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->precheckForConsolidatedBillingAccountWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
+     * @description The tag key for a fuzzy query.
+     *
      * @example team
      *
      * @var string
@@ -16,6 +18,9 @@ class ListTagKeysRequest extends Model
     public $keyFilter;
 
     /**
+     * @description The maximum number of entries to return for a single request.
+     *
+     * Valid values: 1 to 100. Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +28,8 @@ class ListTagKeysRequest extends Model
     public $maxResults;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request.
+     *
      * @example TGlzdFJlc291cm****
      *
      * @var string
@@ -30,6 +37,9 @@ class ListTagKeysRequest extends Model
     public $nextToken;
 
     /**
+     * @description The resource type.
+     *
+     * The value Account indicates the members of the resource directory.
      * @example Account
      *
      * @var string
