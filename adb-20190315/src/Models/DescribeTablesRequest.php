@@ -30,6 +30,11 @@ class DescribeTablesRequest extends Model
     /**
      * @var string
      */
+    public $regionId;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -49,6 +54,7 @@ class DescribeTablesRequest extends Model
         'DBClusterId'          => 'DBClusterId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
+        'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'schemaName'           => 'SchemaName',
@@ -69,6 +75,9 @@ class DescribeTablesRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -99,6 +108,9 @@ class DescribeTablesRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
