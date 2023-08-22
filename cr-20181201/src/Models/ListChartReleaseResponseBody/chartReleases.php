@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class chartReleases extends Model
 {
     /**
+     * @description The name of the chart version.
+     *
+     * @example chart1
+     *
      * @var string
      */
     public $chart;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the chart was last modified.
+     *
+     * @example 1571930323000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @description The version number of the chart.
+     *
+     * @example 0.1.0
+     *
      * @var string
      */
     public $release;
 
     /**
+     * @description The ID of the chart repository.
+     *
+     * @example crcr-gpsu7b8chmxk****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The size of the chart of the version. Unit: bytes.
+     *
+     * @example 2826
+     *
      * @var string
      */
     public $size;
 
     /**
+     * @description The status of the chart.
+     *
+     * @example ENABLED
+     *
      * @var string
      */
     public $status;

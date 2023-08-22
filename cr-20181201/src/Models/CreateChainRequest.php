@@ -9,36 +9,62 @@ use AlibabaCloud\Tea\Model;
 class CreateChainRequest extends Model
 {
     /**
+     * @description The configuration of the delivery chain in the JSON format.
+     *
+     * @example chainconfig
+     *
      * @var string
      */
     public $chainConfig;
 
     /**
+     * @description The description of the delivery chain.
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-4cdrlqmhn4gm****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the delivery chain.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description Repositories in which the delivery chain does not take effect.
+     *
      * @var string[]
      */
     public $scopeExclude;

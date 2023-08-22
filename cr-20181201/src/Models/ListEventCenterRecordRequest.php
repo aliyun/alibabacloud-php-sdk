@@ -9,26 +9,52 @@ use AlibabaCloud\Tea\Model;
 class ListEventCenterRecordRequest extends Model
 {
     /**
+     * @description The type of the event. Valid values:
+     *
+     *   `cr:Artifact:DeliveryChainCompleted`: The delivery chain is processed.
+     *   `cr:Artifact:SynchronizationCompleted`: The image is replicated.
+     *   `cr:Artifact:BuildCompleted`: The image is built.
+     *   `cr:Artifact:ScanCompleted`: The image is scanned.
+     *   `cr:Artifact:SigningCompleted`: The image is signed.
+     *
+     * @example cr:Artifact:DeliveryChainCompleted
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the event notification rule.
+     *
+     * @example crecr-n6pbhgjxtla***
+     *
      * @var string
      */
     public $ruleId;

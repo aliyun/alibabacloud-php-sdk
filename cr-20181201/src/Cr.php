@@ -12,6 +12,8 @@ use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CancelRepoBuildRecordResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\ChangeResourceGroupResponse;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleRequest;
+use AlibabaCloud\SDK\Cr\V20181201\Models\CreateArtifactBuildRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleRequest;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateBuildRecordByRuleResponse;
 use AlibabaCloud\SDK\Cr\V20181201\Models\CreateChainRequest;
@@ -360,6 +362,62 @@ class Cr extends OpenApiClient
     }
 
     /**
+     * The ID of the rule.
+     *   *
+     * @param CreateArtifactBuildRuleRequest $request CreateArtifactBuildRuleRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateArtifactBuildRuleResponse CreateArtifactBuildRuleResponse
+     */
+    public function createArtifactBuildRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->artifactType)) {
+            $query['ArtifactType'] = $request->artifactType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->scopeId)) {
+            $query['ScopeId'] = $request->scopeId;
+        }
+        if (!Utils::isUnset($request->scopeType)) {
+            $query['ScopeType'] = $request->scopeType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateArtifactBuildRule',
+            'version'     => '2018-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateArtifactBuildRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * The ID of the rule.
+     *   *
+     * @param CreateArtifactBuildRuleRequest $request CreateArtifactBuildRuleRequest
+     *
+     * @return CreateArtifactBuildRuleResponse CreateArtifactBuildRuleResponse
+     */
+    public function createArtifactBuildRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createArtifactBuildRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateBuildRecordByRuleRequest $request
      * @param RuntimeOptions                 $runtime
      *
@@ -632,10 +690,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request
-     * @param RuntimeOptions                            $runtime
+     * The ID of the request.
+     *   *
+     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request CreateInstanceVpcEndpointLinkedVpcRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstanceVpcEndpointLinkedVpcResponse
+     * @return CreateInstanceVpcEndpointLinkedVpcResponse CreateInstanceVpcEndpointLinkedVpcResponse
      */
     public function createInstanceVpcEndpointLinkedVpcWithOptions($request, $runtime)
     {
@@ -675,9 +735,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request
+     * The ID of the request.
+     *   *
+     * @param CreateInstanceVpcEndpointLinkedVpcRequest $request CreateInstanceVpcEndpointLinkedVpcRequest
      *
-     * @return CreateInstanceVpcEndpointLinkedVpcResponse
+     * @return CreateInstanceVpcEndpointLinkedVpcResponse CreateInstanceVpcEndpointLinkedVpcResponse
      */
     public function createInstanceVpcEndpointLinkedVpc($request)
     {
@@ -1343,10 +1405,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param DeleteChartNamespaceRequest $request
-     * @param RuntimeOptions              $runtime
+     * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
+     *   *
+     * @param DeleteChartNamespaceRequest $request DeleteChartNamespaceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteChartNamespaceResponse
+     * @return DeleteChartNamespaceResponse DeleteChartNamespaceResponse
      */
     public function deleteChartNamespaceWithOptions($request, $runtime)
     {
@@ -1377,9 +1441,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param DeleteChartNamespaceRequest $request
+     * >  If you delete a chart namespace, all repositories in the namespace and the charts in all repositories are deleted.
+     *   *
+     * @param DeleteChartNamespaceRequest $request DeleteChartNamespaceRequest
      *
-     * @return DeleteChartNamespaceResponse
+     * @return DeleteChartNamespaceResponse DeleteChartNamespaceResponse
      */
     public function deleteChartNamespace($request)
     {
@@ -1643,10 +1709,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
-     * @param RuntimeOptions         $runtime
+     * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
+     *   *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespaceWithOptions($request, $runtime)
     {
@@ -1677,9 +1745,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param DeleteNamespaceRequest $request
+     * > After you delete a namespace, all repositories in the namespace and all images in these repositories are deleted as well.
+     *   *
+     * @param DeleteNamespaceRequest $request DeleteNamespaceRequest
      *
-     * @return DeleteNamespaceResponse
+     * @return DeleteNamespaceResponse DeleteNamespaceResponse
      */
     public function deleteNamespace($request)
     {
@@ -1882,10 +1952,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param DeleteRepositoryRequest $request
-     * @param RuntimeOptions          $runtime
+     * If you delete a repository, all images in the repository are also deleted.
+     *   *
+     * @param DeleteRepositoryRequest $request DeleteRepositoryRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRepositoryResponse
+     * @return DeleteRepositoryResponse DeleteRepositoryResponse
      */
     public function deleteRepositoryWithOptions($request, $runtime)
     {
@@ -1922,9 +1994,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param DeleteRepositoryRequest $request
+     * If you delete a repository, all images in the repository are also deleted.
+     *   *
+     * @param DeleteRepositoryRequest $request DeleteRepositoryRequest
      *
-     * @return DeleteRepositoryResponse
+     * @return DeleteRepositoryResponse DeleteRepositoryResponse
      */
     public function deleteRepository($request)
     {
@@ -1974,10 +2048,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetAuthorizationTokenRequest $request
-     * @param RuntimeOptions               $runtime
+     * The ID of the Container Registry instance.
+     *   *
+     * @param GetAuthorizationTokenRequest $request GetAuthorizationTokenRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAuthorizationTokenResponse
+     * @return GetAuthorizationTokenResponse GetAuthorizationTokenResponse
      */
     public function getAuthorizationTokenWithOptions($request, $runtime)
     {
@@ -2005,9 +2081,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetAuthorizationTokenRequest $request
+     * The ID of the Container Registry instance.
+     *   *
+     * @param GetAuthorizationTokenRequest $request GetAuthorizationTokenRequest
      *
-     * @return GetAuthorizationTokenResponse
+     * @return GetAuthorizationTokenResponse GetAuthorizationTokenResponse
      */
     public function getAuthorizationToken($request)
     {
@@ -2421,10 +2499,12 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetRepoBuildRecordRequest $request
-     * @param RuntimeOptions            $runtime
+     * ****
+     *   *
+     * @param GetRepoBuildRecordRequest $request GetRepoBuildRecordRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRepoBuildRecordResponse
+     * @return GetRepoBuildRecordResponse GetRepoBuildRecordResponse
      */
     public function getRepoBuildRecordWithOptions($request, $runtime)
     {
@@ -2455,9 +2535,11 @@ class Cr extends OpenApiClient
     }
 
     /**
-     * @param GetRepoBuildRecordRequest $request
+     * ****
+     *   *
+     * @param GetRepoBuildRecordRequest $request GetRepoBuildRecordRequest
      *
-     * @return GetRepoBuildRecordResponse
+     * @return GetRepoBuildRecordResponse GetRepoBuildRecordResponse
      */
     public function getRepoBuildRecord($request)
     {

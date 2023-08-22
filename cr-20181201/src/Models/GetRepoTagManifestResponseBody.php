@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagManifestResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The information about the image manifest.
+     *
      * @var manifest
      */
     public $manifest;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D39D7151-0299-47E3-B948-E49E1EA8D406
+     *
      * @var string
      */
     public $requestId;

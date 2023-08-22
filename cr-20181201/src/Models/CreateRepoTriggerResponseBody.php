@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoTriggerResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B79F5E0E-8770-407D-BCB6-ECF4BA9C****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the trigger.
+     *
+     * @example crw-0z4pf81pgz35****
+     *
      * @var string
      */
     public $triggerId;

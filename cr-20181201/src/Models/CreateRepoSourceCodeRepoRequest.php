@@ -9,41 +9,82 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSourceCodeRepoRequest extends Model
 {
     /**
+     * @description Specifies whether to trigger image building when source code is committed. Valid values:
+     *
+     *   `true`: triggers image building when source code is committed.
+     *   `false`: does not trigger image building when source code is committed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoBuild;
 
     /**
+     * @description The name of the source code repository.
+     *
+     * @example repo
+     *
      * @var string
      */
     public $codeRepoName;
 
     /**
+     * @description The namespace to which the source code repository belongs.
+     *
+     * @example namespace
+     *
      * @var string
      */
     public $codeRepoNamespaceName;
 
     /**
+     * @description The type of the source code hosting platform. Valid values: `GITHUB`, `GITLAB`, `GITEE`, `CODE`, and `CODEUP`.
+     *
+     * @example GITHUB
+     *
      * @var string
      */
     public $codeRepoType;
 
     /**
+     * @description Specifies whether to disable building caches. Valid values:
+     *
+     *   `true`: disables building caches.
+     *   `false`: enables building caches.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $disableCacheBuild;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Specifies whether to enable Build With Servers Deployed Outside Chinese Mainland. Valid values:
+     *
+     *   `true`: enables Build With Servers Deployed Outside Chinese Mainland.
+     *   `false`: does not enable Build With Servers Deployed Outside Chinese Mainland.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $overseaBuild;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-gzsrlevmvoaq****
+     *
      * @var string
      */
     public $repoId;

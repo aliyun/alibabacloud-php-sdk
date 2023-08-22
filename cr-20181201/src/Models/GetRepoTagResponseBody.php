@@ -9,51 +9,92 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagResponseBody extends Model
 {
     /**
+     * @description The ID of the image.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The size of the image. Unit: Bytes.
+     *
+     * @example 67bfbcc12b67936ec7f867927817cbb071832b873dbcaed312a1930ba5f1****
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description crr-tquyps22md8p****
+     *
+     * @example 1572839125000
+     *
      * @var int
      */
     public $imageCreate;
 
     /**
+     * @example 45023655bf39c382e26a8607d057c27871dee163c1ecf48cc1ebf2a1****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The number of milliseconds that have elapsed since the image was last updated.
+     *
+     * @example 27107966
+     *
      * @var int
      */
     public $imageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1572875608000
+     *
      * @var int
      */
     public $imageUpdate;
 
     /**
+     * @description The status of the image. Valid values:
+     *
+     *   `NORMAL`: The image is normal.
+     *   `DELETING`: The image is being deleted.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description 1.0
+     *
+     * @example 031572FA-7D8F-4C05-B790-1071E0E05DE6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The version of the repository.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $tag;

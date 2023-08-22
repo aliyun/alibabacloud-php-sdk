@@ -9,46 +9,94 @@ use AlibabaCloud\Tea\Model;
 class GetChartNamespaceResponseBody extends Model
 {
     /**
+     * @description Indicates whether a repository was automatically created in the namespace. Valid values:
+     *
+     *   `true`: A repository was automatically created in the namespace.
+     *   `false`: No repository was automatically created in the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The default repository type. Valid values:
+     *
+     *   `PUBLIC`: a public repository.
+     *   `PRIVATE`: a private repository.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example crcn-43dhbjbyt2xl****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The status of the namespace. Valid values:
+     *
+     *   `NORMAL`: The namespace is normal.
+     *   `DELETING`: The namespace is being deleted.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $namespaceStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CD71CF13-93AA-4805-848B-69B2DD543A9A
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSyncTaskByRuleRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-hpdfkc6utbaq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-hnoq7j93or3k****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the synchronization rule.
+     *
+     * @example crsr-o8n4dijbumgq****
+     *
      * @var string
      */
     public $syncRuleId;
 
     /**
+     * @description The version of the image to be synchronized.
+     *
+     * @example 1.24
+     *
      * @var string
      */
     public $tag;

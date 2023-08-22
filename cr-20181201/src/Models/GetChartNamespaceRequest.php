@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetChartNamespaceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $namespaceName;

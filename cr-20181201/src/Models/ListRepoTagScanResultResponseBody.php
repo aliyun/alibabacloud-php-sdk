@@ -10,36 +10,65 @@ use AlibabaCloud\Tea\Model;
 class ListRepoTagScanResultResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request failed.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 56B5C92F-F5D9-46E0-823F-EC71D1892DAA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of vulnerabilities detected on images.
+     *
+     * @example 196
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @description The details about the detected vulnerabilities.
+     *
      * @var vulnerabilities[]
      */
     public $vulnerabilities;

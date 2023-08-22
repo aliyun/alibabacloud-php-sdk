@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateChartRepositoryResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crcr-2micxey5ewj4****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 60390244-A483-491A-B41D-F866C95380A1
+     *
      * @var string
      */
     public $requestId;

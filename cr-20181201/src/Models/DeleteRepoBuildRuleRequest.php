@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoBuildRuleRequest extends Model
 {
     /**
+     * @description The ID of the image building rule.
+     *
+     * @example crbr-36tffn0kouvi****
+     *
      * @var string
      */
     public $buildRuleId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-xwvi3osiy4ff****
+     *
      * @var string
      */
     public $repoId;

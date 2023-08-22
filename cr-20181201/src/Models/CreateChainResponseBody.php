@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateChainResponseBody extends Model
 {
     /**
+     * @description The ID of the delivery chain.
+     *
+     * @example chi-02ymhtwl3cq8****
+     *
      * @var string
      */
     public $chainId;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4BC03B36-E515-5806-99AC-268AE3C0****
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoSyncRuleResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 72DD4198-1BB9-47A3-BC01-EAD1A6D5E173
+     *
      * @var string
      */
     public $requestId;

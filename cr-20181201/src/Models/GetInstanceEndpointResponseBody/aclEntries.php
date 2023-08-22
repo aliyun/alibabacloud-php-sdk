@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
+     * @description Remarks for public IP address whitelists.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The public IP address whitelist.
+     *
+     * @example 192.168.1.0/24
+     *
      * @var string
      */
     public $entry;

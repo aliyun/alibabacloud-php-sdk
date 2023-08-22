@@ -14,21 +14,37 @@ class buildRules extends Model
     public $buildArgs;
 
     /**
+     * @description The ID of the image building rule.
+     *
+     * @example crbr-khys0nd3asbe****
+     *
      * @var string
      */
     public $buildRuleId;
 
     /**
+     * @description The directory of the Dockerfile.
+     *
+     * @example /
+     *
      * @var string
      */
     public $dockerfileLocation;
 
     /**
+     * @description The name of the Dockerfile.
+     *
+     * @example Dockerfile
+     *
      * @var string
      */
     public $dockerfileName;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example v0.1
+     *
      * @var string
      */
     public $imageTag;
@@ -39,11 +55,22 @@ class buildRules extends Model
     public $platforms;
 
     /**
+     * @description The name of the push that triggers the building rule.
+     *
+     * @example v0.1
+     *
      * @var string
      */
     public $pushName;
 
     /**
+     * @description The type of the push that triggers the image building rule. Valid values:
+     *
+     *   GIT_BRANCH: branch push
+     *   GIT_TAG: tag push
+     *
+     * @example GIT_BRANCH
+     *
      * @var string
      */
     public $pushType;

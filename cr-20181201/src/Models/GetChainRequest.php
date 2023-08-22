@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetChainRequest extends Model
 {
     /**
+     * @example chi-0ops0gsmw5x2****
+     *
      * @var string
      */
     public $chainId;
 
     /**
+     * @example cri-4cdrlqmhn4gm****
+     *
      * @var string
      */
     public $instanceId;

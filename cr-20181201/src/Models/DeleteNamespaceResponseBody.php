@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteNamespaceResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BA08C185-8F76-48D7-ACB3-BA11BF2778F9
+     *
      * @var string
      */
     public $requestId;

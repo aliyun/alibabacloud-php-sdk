@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class ListChainResponseBody extends Model
 {
     /**
+     * @description The list of delivery chains.
+     *
      * @var chains[]
      */
     public $chains;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 85A99B10-3926-5201-958E-C06FA47F****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of delivery chains.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

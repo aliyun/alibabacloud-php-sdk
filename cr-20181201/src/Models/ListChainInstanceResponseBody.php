@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class ListChainInstanceResponseBody extends Model
 {
     /**
+     * @description The number of entries to return on each page.
+     *
      * @var chainInstances[]
      */
     public $chainInstances;
 
     /**
+     * @description The version of the delivery chain.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The page number of the page to return.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The execution record of the delivery chain.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description 30
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description Indicates whether the operation is successful.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the Container Registry instance.
+     *
+     * @example 838D1602-6D8F-47FB-B60A-656645D2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

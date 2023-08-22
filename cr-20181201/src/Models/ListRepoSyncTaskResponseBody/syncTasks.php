@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class syncTasks extends Model
 {
     /**
+     * @example 1572839126000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $crossUser;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $customLink;
@@ -36,36 +42,50 @@ class syncTasks extends Model
     public $imageTo;
 
     /**
+     * @example 1572839133000
+     *
      * @var int
      */
     public $modifedTime;
 
     /**
+     * @example 15DEEB56-9271-4FDD-AC4D-C3A5CC2C****
+     *
      * @var string
      */
     public $syncBatchTaskId;
 
     /**
+     * @example crsr-7lph66uloi6h****
+     *
      * @var string
      */
     public $syncRuleId;
 
     /**
+     * @example rst-4kfd7fk6pohk****
+     *
      * @var string
      */
     public $syncTaskId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $syncTransAccelerate;
 
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @example PASSIVE
+     *
      * @var string
      */
     public $taskTrigger;

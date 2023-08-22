@@ -9,51 +9,97 @@ use AlibabaCloud\Tea\Model;
 class repositories extends Model
 {
     /**
+     * @description The time when the repository was created.
+     *
+     * @example 1571926644000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the repository was last modified.
+     *
+     * @example 1571930329000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crcr-gpsu7b8chmxk****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description The status of the repository. Valid values:
+     *
+     *   `NORMAL`: The repository is normal.
+     *   `DELETING`: The repository is being deleted.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $repoStatus;
 
     /**
+     * @description The type of the repository. Valid values:
+     *
+     *   `PRIVATE`: a private repository
+     *   `PUBLIC`: a public repository
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @description The ID of the resource group to which the repository belongs.
+     *
+     * @example rg-aek2ikd5rxxxxxx
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The summary about the repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $summary;

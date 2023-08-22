@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
+     * @description The digest of the image.
+     *
+     * @example 67bfbcc12b67936ec7f867927817cbb071832b873dbcaed312a1930ba5f1****
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The time when the image was created.
+     *
+     * @example 1572839125000
+     *
      * @var string
      */
     public $imageCreate;
 
     /**
+     * @description The ID of the image.
+     *
+     * @example 45023655bf39c382e26a8607d057c27871dee163c1ecf48cc1ebf2a1****
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The size of the image.
+     *
+     * @example 27107966
+     *
      * @var int
      */
     public $imageSize;
 
     /**
+     * @description The time when the image was last updated.
+     *
+     * @example 1572875608000
+     *
      * @var string
      */
     public $imageUpdate;
 
     /**
+     * @description The status of the image.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example v0.1
+     *
      * @var string
      */
     public $tag;

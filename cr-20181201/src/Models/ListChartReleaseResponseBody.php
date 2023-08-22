@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class ListChartReleaseResponseBody extends Model
 {
     /**
+     * @description The list of chart versions.
+     *
      * @var chartReleases[]
      */
     public $chartReleases;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F68823F6-F1B5-4A4E-8421-A83CAB8F2963
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

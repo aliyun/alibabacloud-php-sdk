@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class layers extends Model
 {
     /**
+     * @description The digest of a single image layer.
+     *
+     * @example sha256:a3ed95caeb02ffe68cdd9fd84406680ae93d633cb16422d00e8a7c22955b46d4
+     *
      * @var string
      */
     public $blobDigest;
 
     /**
+     * @description The size of the image layer.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $blobSize;
 
     /**
+     * @description Operation on the image layer.
+     *
+     * @example ["bash"]
+     *
      * @var string
      */
     public $layerCMD;
 
     /**
+     * @description The sequence number of the layer stack.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $layerIndex;
 
     /**
+     * @description The command for the image layer.
+     *
+     * @example CMD
+     *
      * @var string
      */
     public $layerInstruction;

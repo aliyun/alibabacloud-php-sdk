@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class GetRepoBuildRecordResponseBody extends Model
 {
     /**
+     * @description The ID of the image building record.
+     *
+     * @example 79174CBA-8556-443A-8976-22C922D7****
+     *
      * @var string
      */
     public $buildRecordId;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the image building was completed.
+     *
+     * @example 1568718698000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The information about the image.
+     *
      * @var image
      */
     public $image;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example a78ec6fb-16ea-4649-93b7-f52afba7d9de1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The time when the image building started.
+     *
+     * @example 1568718468000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example true
+     *
      * @var string
      */
     public $status;

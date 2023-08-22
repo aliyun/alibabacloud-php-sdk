@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class ListRepoSyncTaskRequest extends Model
 {
     /**
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example ns
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @example crsr-7lph66uloi6h****
+     *
      * @var string
      */
     public $syncRecordId;
 
     /**
+     * @example nginx
+     *
      * @var string
      */
     public $tag;

@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class ListRepoTriggerResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2CA76D52-A8F0-4D0B-854E-FBD9F6C99049
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The triggers of the repository.
+     *
      * @var triggers[]
      */
     public $triggers;

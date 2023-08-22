@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactBuildTaskRequest extends Model
 {
     /**
+     * @description The ID of the artifact building task.
+     *
+     * @example i2a-1yu****
+     *
      * @var string
      */
     public $buildTaskId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $instanceId;

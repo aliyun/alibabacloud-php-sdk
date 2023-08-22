@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoTagRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-xwvi3osiy4ff****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example 1.24
+     *
      * @var string
      */
     public $tag;

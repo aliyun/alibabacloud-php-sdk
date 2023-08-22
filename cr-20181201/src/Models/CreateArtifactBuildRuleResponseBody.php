@@ -6,11 +6,16 @@ namespace AlibabaCloud\SDK\Cr\V20181201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CancelArtifactBuildTaskResponseBody extends Model
+class CreateArtifactBuildRuleResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @example crabr-7dfa5qye5****
      *
+     * @var string
+     */
+    public $buildRuleId;
+
+    /**
      * @example success
      *
      * @var string
@@ -18,11 +23,6 @@ class CancelArtifactBuildTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request is successful. Valid values:
-     *
-     *   `true`: The request is successful.
-     *   `false`: The request fails.
-     *
      * @example true
      *
      * @var bool
@@ -30,17 +30,16 @@ class CancelArtifactBuildTaskResponseBody extends Model
     public $isSuccess;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example C4C7DD0C-C9D6-437A-A7EE-121EFD70D002
+     * @example C8E90AB5-0A96-5D12-9E59-11EE46360642
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'Code',
-        'isSuccess' => 'IsSuccess',
-        'requestId' => 'RequestId',
+        'buildRuleId' => 'BuildRuleId',
+        'code'        => 'Code',
+        'isSuccess'   => 'IsSuccess',
+        'requestId'   => 'RequestId',
     ];
 
     public function validate()
@@ -50,6 +49,9 @@ class CancelArtifactBuildTaskResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->buildRuleId) {
+            $res['BuildRuleId'] = $this->buildRuleId;
+        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
@@ -66,11 +68,14 @@ class CancelArtifactBuildTaskResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CancelArtifactBuildTaskResponseBody
+     * @return CreateArtifactBuildRuleResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BuildRuleId'])) {
+            $model->buildRuleId = $map['BuildRuleId'];
+        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }

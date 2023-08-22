@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
@@ -20,26 +22,36 @@ class ListInstanceResponseBody extends Model
     public $instances;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A2A9BA68-B264-4953-9154-CE61B1C03BA6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 12121
+     *
      * @var int
      */
     public $totalCount;

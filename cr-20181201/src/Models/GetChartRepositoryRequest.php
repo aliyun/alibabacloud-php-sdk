@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetChartRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;

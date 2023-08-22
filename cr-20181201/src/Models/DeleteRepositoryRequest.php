@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-l4933wbcmun2****
+     *
      * @var string
      */
     public $repoId;

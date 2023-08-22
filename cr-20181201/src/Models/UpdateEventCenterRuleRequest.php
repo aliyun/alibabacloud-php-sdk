@@ -9,51 +9,104 @@ use AlibabaCloud\Tea\Model;
 class UpdateEventCenterRuleRequest extends Model
 {
     /**
+     * @description The event notification channel.
+     *
+     * @example EVENT_BRIDGE
+     *
      * @var string
      */
     public $eventChannel;
 
     /**
+     * @description The event configuration.
+     *
+     * @example {
+     * "Url":"http://www.aliyundoc.com",
+     * "id":"MaAV3HgTkO5Fh8l1V********",
+     * }
      * @var string
      */
     public $eventConfig;
 
     /**
+     * @description The event scope. Valid values:
+     *
+     *   `INSTANCE`
+     *   `NAMESPACE`
+     *   `REPO`
+     *
+     * Default value: `INSTANCE`
+     * @example INSTANCE
+     *
      * @var string
      */
     public $eventScope;
 
     /**
+     * @description The type of the event. Valid values:
+     *
+     *   `cr:Artifact:DeliveryChainCompleted`: The delivery chain is processed.
+     *   `cr:Artifact:SynchronizationCompleted`: The image is replicated.
+     *   `cr:Artifact:BuildCompleted`: The image is built.
+     *   `cr:Artifact:ScanCompleted`: The image is scanned.
+     *   `cr:Artifact:SigningCompleted`: The image is signed.
+     *
+     * @example cr:Artifact:DeliveryChainCompleted
+     *
      * @var string
      */
     public $eventType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The namespaces to which the event notification rule applies.
+     *
+     * @example ns
+     *
      * @var string[]
      */
     public $namespaces;
 
     /**
+     * @description The names of the repositories to which the event notification rule applies.
+     *
+     * @example reponame
+     *
      * @var string[]
      */
     public $repoNames;
 
     /**
+     * @description The regular expression for image tags.
+     *
+     * @example .*
+     *
      * @var string
      */
     public $repoTagFilterPattern;
 
     /**
+     * @description The ID of the event notification rule.
+     *
+     * @example crecr-n6pbhgjxt*****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the event notification rule.
+     *
+     * @example chain-demo
+     *
      * @var string
      */
     public $ruleName;

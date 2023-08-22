@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceEndpointStatusResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2FC14396-A16A-42BA-AAE4-BB94D956DF09
+     *
      * @var string
      */
     public $requestId;

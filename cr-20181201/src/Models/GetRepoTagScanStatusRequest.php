@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagScanStatusRequest extends Model
 {
     /**
+     * @example 67bfbcc12b67936ec7f867927817cbb071832b873dbcaed312a1930ba5f1d529
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @example cri-2j88dtld8yel****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example crr-uf082u9dg8do****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example 838152F9-F725-5A52-A344-8972D65AC045
+     *
      * @var string
      */
     public $scanTaskId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $tag;

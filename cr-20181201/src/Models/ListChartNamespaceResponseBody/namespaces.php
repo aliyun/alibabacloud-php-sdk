@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
+     * @description Indicates whether a repository was automatically created when a chart is pushed to the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @description The default repository type. Valid values:
+     *
+     *   `PUBLIC`: a public repository
+     *   `PRIVATE`: a private repository
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example null
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The status of the namespace. Valid values:
+     *
+     *   `NORMAL`: The namespace is normal.
+     *   `DELETING`: The namespace is being deleted.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $namespaceStatus;

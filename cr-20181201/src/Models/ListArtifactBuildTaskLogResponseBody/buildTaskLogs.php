@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class buildTaskLogs extends Model
 {
     /**
+     * @description The row number of the log entry.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $lineNumber;
 
     /**
+     * @description The content of the log entry.
+     *
+     * @example Start Build
+     *
      * @var string
      */
     public $message;

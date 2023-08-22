@@ -15,46 +15,64 @@ class GetChainResponseBody extends Model
     public $chainConfig;
 
     /**
+     * @example chi-0ops0gsmw5x2****
+     *
      * @var string
      */
     public $chainId;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1638255427000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example cri-4cdrlqmhn4gm****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 1638259914000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example C87993B5-7D61-5CAC-8D64-1AC732DD69FF
+     *
      * @var string
      */
     public $requestId;
@@ -65,11 +83,15 @@ class GetChainResponseBody extends Model
     public $scopeExclude;
 
     /**
+     * @example crr-nyrh2oko32xb****
+     *
      * @var string
      */
     public $scopeId;
 
     /**
+     * @example REPOSITORY
+     *
      * @var string
      */
     public $scopeType;

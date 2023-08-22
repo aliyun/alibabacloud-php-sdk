@@ -9,56 +9,103 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceUsageResponseBody extends Model
 {
     /**
+     * @description The quota of chart namespaces.
+     *
+     * @example 50
+     *
      * @var string
      */
     public $chartNamespaceQuota;
 
     /**
+     * @description The number of chart namespaces that are created in the instance.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $chartNamespaceUsage;
 
     /**
+     * @description The quota of chart repositories for the instance.
+     *
+     * @example 5000
+     *
      * @var string
      */
     public $chartRepoQuota;
 
     /**
+     * @description The number of chart repositories that are created.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $chartRepoUsage;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The quota of image namespaces for the instance.
+     *
+     * @example 100
+     *
      * @var string
      */
     public $namespaceQuota;
 
     /**
+     * @description The number of image namespaces that are created in the instance.
+     *
+     * @example 4
+     *
      * @var string
      */
     public $namespaceUsage;
 
     /**
+     * @description The quota of image repositories for the instance.
+     *
+     * @example 1000
+     *
      * @var string
      */
     public $repoQuota;
 
     /**
+     * @description The number of image repositories that are created in the instance.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $repoUsage;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A726E801-7FCF-43F9-AF1C-51B3E65D3E7A
+     *
      * @var string
      */
     public $requestId;

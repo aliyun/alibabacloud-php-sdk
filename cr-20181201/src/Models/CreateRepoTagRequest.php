@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoTagRequest extends Model
 {
     /**
+     * @description The source image tag.
+     *
+     * @example v1
+     *
      * @var string
      */
     public $fromTag;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-shac42yvqzv****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The image tag that you want to create.
+     *
+     * @example v2
+     *
      * @var string
      */
     public $toTag;

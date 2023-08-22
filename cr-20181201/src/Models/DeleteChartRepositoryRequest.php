@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteChartRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example repo01
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example namespace01
+     *
      * @var string
      */
     public $repoNamespaceName;

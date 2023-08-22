@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoTriggerRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-xwvi3osiy4ff****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the trigger.
+     *
+     * @example crw-0z4pf81pgz35****
+     *
      * @var string
      */
     public $triggerId;

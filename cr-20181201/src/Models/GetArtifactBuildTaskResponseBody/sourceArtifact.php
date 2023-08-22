@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class sourceArtifact extends Model
 {
     /**
+     * @description The type of the artifact that is built in the task. The value can only be IMAGE.
+     *
+     * @example IMAGE
+     *
      * @var string
      */
     public $artifactType;
 
     /**
+     * @description The ID of the repository to which the source artifact belongs. The repository can only be an image repository.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The version of the artifact. The artifact can only be an image.
+     *
+     * @example latest
+     *
      * @var string
      */
     public $version;

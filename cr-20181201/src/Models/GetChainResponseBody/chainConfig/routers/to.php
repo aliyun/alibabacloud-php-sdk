@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class to extends Model
 {
     /**
+     * @example DOCKER_IMAGE_PUSH
+     *
      * @var string
      */
     public $nodeName;

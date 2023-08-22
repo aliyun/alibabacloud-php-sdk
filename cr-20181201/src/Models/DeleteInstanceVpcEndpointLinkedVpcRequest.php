@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceVpcEndpointLinkedVpcRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: the image repository.
+     *   `Chart`: a Helm chart.
+     *
+     * @example Chart
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-uf6pa68zxnnlc48dd****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vpc-uf6pa68zxnnlc48dd****
+     *
      * @var string
      */
     public $vswitchId;

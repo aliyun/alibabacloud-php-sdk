@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DeleteChartReleaseRequest extends Model
 {
     /**
+     * @description The name of the chart.
+     *
+     * @example chart3
+     *
      * @var string
      */
     public $chart;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The version of the chart that you want to delete.
+     *
+     * @example 0.1.0
+     *
      * @var string
      */
     public $release;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $repoNamespaceName;

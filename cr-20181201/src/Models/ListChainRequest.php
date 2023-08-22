@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListChainRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-4cdrlqmhn4gm****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $repoNamespaceName;

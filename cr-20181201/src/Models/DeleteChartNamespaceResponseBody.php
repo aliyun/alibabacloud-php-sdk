@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteChartNamespaceResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FEC62DF1-1394-467F-A69F-4BC1BA29F383
+     *
      * @var string
      */
     public $requestId;

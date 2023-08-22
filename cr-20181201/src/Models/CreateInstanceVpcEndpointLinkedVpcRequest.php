@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceVpcEndpointLinkedVpcRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $enableCreateDNSRecordInPvzt;
 
     /**
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Registry
+     *
      * @var string
      */
     public $moduleName;
 
     /**
+     * @example vpc-uf6pa68zxnnlc48dd****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @example vsw-uf6u0kn8x2gbzxfn2****
+     *
      * @var string
      */
     public $vswitchId;

@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSyncRuleRequest extends Model
 {
     /**
+     * @example cri-hpdfkc6utbaq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example ns1
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example rule
+     *
      * @var string
      */
     public $syncRuleName;
 
     /**
+     * @example REPO
+     *
      * @var string
      */
     public $syncScope;
 
     /**
+     * @example PASSIVE
+     *
      * @var string
      */
     public $syncTrigger;
 
     /**
+     * @example .*
+     *
      * @var string
      */
     public $tagFilter;
 
     /**
+     * @example cri-ibxs3piklys3****
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example ns1
+     *
      * @var string
      */
     public $targetNamespaceName;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $targetRegionId;
 
     /**
+     * @example repo1
+     *
      * @var string
      */
     public $targetRepoName;
 
     /**
+     * @example 12645940***
+     *
      * @var string
      */
     public $targetUserId;

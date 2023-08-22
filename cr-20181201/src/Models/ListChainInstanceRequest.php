@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListChainInstanceRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set this parameter to **ListChainInstance**.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the delivery chain started.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The time when the delivery chain is completed.
+     *
+     * @example test-repo
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the delivery chain.
+     *
+     * @example test-namespace
+     *
      * @var string
      */
     public $repoNamespaceName;

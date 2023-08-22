@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class targetArtifact extends Model
 {
     /**
+     * @description The type of the artifact that is built in the task. The value can only be IMAGE.
+     *
+     * @example IMAGE
+     *
      * @var string
      */
     public $artifactType;
 
     /**
+     * @description The ID of the repository to which the artifact that is built in the task belongs. The repository can only be an image repository. The value is the same as the ID of the repository to which the source artifact belongs.
+     *
+     * @example crr-1234567
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The version of the artifact that is built in the task. The artifact can only be an image.
+     *
+     * @example latest_accelerated
+     *
      * @var string
      */
     public $version;

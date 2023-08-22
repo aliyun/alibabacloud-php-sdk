@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListRepoTagRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crr-tquyps22md8p****
+     *
      * @var string
      */
     public $repoId;

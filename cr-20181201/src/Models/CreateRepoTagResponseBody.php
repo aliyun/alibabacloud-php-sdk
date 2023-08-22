@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoTagResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C4C7DD0C-C9D6-437A-A7EE-8BY*****
+     *
      * @var string
      */
     public $requestId;

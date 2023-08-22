@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationTokenResponseBody extends Model
 {
     /**
+     * @description The temporary password returned after you call this API operation is a Security Token Service (STS) token whose validity period is 1 hour. Take note of the following items when you log on to Container Registry instances by using an STS token:
+     *
+     *   If the STS token belongs to an Alibaba Cloud account, you can use the STS token to log on to all Container Registry instances that belong to the Alibaba Cloud account.
+     *   If the STS token belongs to a Resource Access Management (RAM) user, you can use the STS token to log on to all Container Registry instances that belong to the RAM user.
+     *   You can use an STS token to access only Container Registry instances to which the STS token is scoped.
+     *
+     * @example shaunadadakks:uuczxnjcyeyhdjadkkajsjdjadhyucb
+     *
      * @var string
      */
     public $authorizationToken;
 
     /**
+     * @description Indicates whether the API call is successful.
+     *
+     *   `true`: successful
+     *   `false`: failed
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The return value.
+     *
+     * @example 1571242083000
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @description The username that is used to log on to the Container Registry instance.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The timestamp when the temporary password expires. Unit: milliseconds.
+     *
+     * @example E069EB86-E6AD-4A98-ADDE-0E993390239A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The password that is used to log on to the Container Registry instance.
+     *
+     * @example temp_user_cr
+     *
      * @var string
      */
     public $tempUsername;

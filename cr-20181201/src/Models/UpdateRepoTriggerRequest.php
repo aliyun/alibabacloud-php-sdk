@@ -9,36 +9,69 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepoTriggerRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-tquyps22md8p****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the trigger.
+     *
+     * @example crw-k7bdx4kt52ty****
+     *
      * @var string
      */
     public $triggerId;
 
     /**
+     * @description The name of the trigger.
+     *
+     * You can specify the TriggerName or TriggerUrl parameter. The TriggerName parameter is optional.
+     * @example test_trigger
+     *
      * @var string
      */
     public $triggerName;
 
     /**
+     * @description The image tag based on which the trigger is set.
+     *
+     * @example master
+     *
      * @var string
      */
     public $triggerTag;
 
     /**
+     * @description The type of the trigger. Valid values:
+     *
+     *   `ALL`: a trigger that supports both tags and regular expressions.
+     *   `TAG_LISTTAG`: a tag-based trigger.
+     *   `TAG_REG_EXP`: a regular expression-based trigger.
+     *
+     * @example TAG_LIST
+     *
      * @var string
      */
     public $triggerType;
 
     /**
+     * @description The URL of the trigger.
+     *
+     * @example https://www.test.com
+     *
      * @var string
      */
     public $triggerUrl;

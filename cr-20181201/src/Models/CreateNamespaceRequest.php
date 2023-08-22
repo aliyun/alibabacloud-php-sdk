@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateNamespaceRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically create an image repository in the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @description The default type of the repository that is automatically created. Valid values:
+     *
+     *   `PUBLIC`: a public repository
+     *   `PRIVATE`: a private repository
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace. The name must be 2 to 120 characters in length, and can contain lowercase letters, digits, and the following delimiters: underscores (\_), hyphens (-), and periods (.). The name cannot start or end with a delimiter.
+     *
+     * @example namespace1
+     *
      * @var string
      */
     public $namespaceName;

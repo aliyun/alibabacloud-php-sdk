@@ -9,46 +9,85 @@ use AlibabaCloud\Tea\Model;
 class GetNamespaceResponseBody extends Model
 {
     /**
+     * @description Indicates whether a repository is automatically created when an image is pushed to the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The default type of the repository. Valid values:
+     *
+     *   PUBLIC: The repository is a public repository.
+     *   PRIVATE: The repository is a private repository.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example crn-tiw8t3f8i5lt****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The status of the namespace.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $namespaceStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E4BC9E21-8AA5-4582-83C1-C1209AB8196F
+     *
      * @var string
      */
     public $requestId;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceCountResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example BC648259-91A7-4502-BED3-EDF64361FA83
+     *
      * @var string
      */
     public $requestId;

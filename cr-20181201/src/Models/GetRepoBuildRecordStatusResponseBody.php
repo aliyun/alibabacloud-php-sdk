@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetRepoBuildRecordStatusResponseBody extends Model
 {
     /**
+     * @description The status of the image building.
+     *
+     * @example success
+     *
      * @var string
      */
     public $buildStatus;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 79174CBA-8556-443A-8976-22C922D7BE37
+     *
      * @var string
      */
     public $requestId;

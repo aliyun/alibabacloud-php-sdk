@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoBuildRuleResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2E3F55BF-FA7B-454E-B2C6-85265E243ADC
+     *
      * @var string
      */
     public $requestId;

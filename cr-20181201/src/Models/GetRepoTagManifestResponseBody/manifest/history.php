@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class history extends Model
 {
     /**
+     * @description The raw V1 compatibility information.
+     *
+     * @example null
+     *
      * @var mixed[]
      */
     public $v1Compatibility;

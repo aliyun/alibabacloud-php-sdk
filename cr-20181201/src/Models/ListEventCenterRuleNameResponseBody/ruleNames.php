@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ruleNames extends Model
 {
     /**
+     * @description The ID of the event notification rule.
+     *
+     * @example crecr-n6pbhgjxtl*****
+     *
      * @var string
      */
     public $ruleId;
 
     /**
+     * @description The name of the event notification rule.
+     *
+     * @example test-chain
+     *
      * @var string
      */
     public $ruleName;

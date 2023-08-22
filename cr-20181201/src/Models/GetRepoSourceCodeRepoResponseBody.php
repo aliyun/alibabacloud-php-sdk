@@ -9,56 +9,112 @@ use AlibabaCloud\Tea\Model;
 class GetRepoSourceCodeRepoResponseBody extends Model
 {
     /**
+     * @description Indicates whether image building is automatically triggered when source code is committed. Valid values:
+     *
+     *   `true`: Image building is automatically triggered when source code is committed.
+     *   `false`: Image building is not triggered when source code is committed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $autoBuild;
 
     /**
+     * @description The response code.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The address of the source code repository.
+     *
+     * @example https://github.com
+     *
      * @var string
      */
     public $codeRepoDomain;
 
     /**
+     * @description The name of the source code repository.
+     *
+     * @example repo
+     *
      * @var string
      */
     public $codeRepoName;
 
     /**
+     * @description The namespace to which the source code repository belongs.
+     *
+     * @example namespace
+     *
      * @var string
      */
     public $codeRepoNamespaceName;
 
     /**
+     * @description The type of the code hosting platform. Valid values: `GITHUB`, `GITLAB`, `GITEE`, `CODE`, and `CODEUP`.
+     *
+     * @example GITHUB
+     *
      * @var string
      */
     public $codeRepoType;
 
     /**
+     * @description Indicates whether build cache is disabled. Valid values:
+     *
+     *   `true`: Build cache is disabled.
+     *   `false`: Build cache is enabled.
+     *
+     * @example false
+     *
      * @var string
      */
     public $disableCacheBuild;
 
     /**
+     * @description Indicates whether the API call is successful. Valid values:
+     *
+     *   `true`: successful
+     *   `false`: failed
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description Indicates whether image building is accelerated for servers outside the Chinese mainland. Valid values:
+     *
+     *   `true`: Image building is accelerated for servers outside the Chinese mainland.
+     *   `false`: Image building is not accelerated for servers outside the Chinese mainland.
+     *
+     * @example false
+     *
      * @var string
      */
     public $overseaBuild;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crr-gzsrlevmvoaq****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4CE1F661-75DD-4EBD-A4AD-057B26834ABB
+     *
      * @var string
      */
     public $requestId;

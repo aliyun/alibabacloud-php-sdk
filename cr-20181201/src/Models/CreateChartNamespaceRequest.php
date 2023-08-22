@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class CreateChartNamespaceRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically create repositories in the namespace. Valid values:
+     *
+     * \-`  false `: does not automatically create repositories in the namespace.
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @description The default repository type. Valid values:
+     *
+     *   `PUBLIC`: a public repository
+     *   `PRIVATE`: a private repository
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example namespace01
+     *
      * @var string
      */
     public $namespaceName;

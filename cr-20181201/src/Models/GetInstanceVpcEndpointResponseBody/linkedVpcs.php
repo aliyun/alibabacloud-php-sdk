@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class linkedVpcs extends Model
 {
     /**
+     * @description Indicates whether the default ACL is used.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $defaultAccess;
 
     /**
+     * @description IP address.
+     *
+     * @example 192.168.10.11
+     *
      * @var string
      */
     public $ip;
 
     /**
+     * @description The status of the VPC. Valid values:
+     *
+     *   `CREATING`: The VPC is being created.
+     *   `RUNNING`: The VPC is running.
+     *
+     * @example CREATING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description VPC ID
+     *
+     * @example vpc-uf6aamu2nomfr1thd****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-uf62m5vmxl2e72dk7****
+     *
      * @var string
      */
     public $vswitchId;

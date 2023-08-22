@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class UpdateChartRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description The type of the repository. Valid values:
+     *
+     *   `PUBLIC`: a public repository.
+     *   `PRIVATE`: a private repository.
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @description The summary of the repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $summary;

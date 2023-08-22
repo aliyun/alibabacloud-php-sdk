@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateBuildRecordByRuleRequest extends Model
 {
     /**
+     * @description The ID of the image building rule.
+     *
+     * @example crbr-1j95g4bu2s1i****
+     *
      * @var string
      */
     public $buildRuleId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-asd6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-8dz3aedjqlmk****
+     *
      * @var string
      */
     public $repoId;

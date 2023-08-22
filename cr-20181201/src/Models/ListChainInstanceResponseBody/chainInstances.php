@@ -10,41 +10,81 @@ use AlibabaCloud\Tea\Model;
 class chainInstances extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
      * @var chain
      */
     public $chain;
 
     /**
+     * @description 1
+     *
+     * @example F4CF4DDB-BEF2-5575-****-*******
+     *
      * @var string
      */
     public $chainInstanceId;
 
     /**
+     * @description The ID of the Container Registry instance.
+     *
+     * @example 1636685856000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description The ID of the delivery chain.
+     *
+     * @example test-repo
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The execution result of the delivery chain. Valid values:
+     *
+     *   `SUCCESS`
+     *   `FAILED`
+     *   `CANCELED`
+     *   `DENIED`
+     *
+     * @example test-ns
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description The list of the execution records of delivery chains.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $result;
 
     /**
+     * @description test-repo
+     *
+     * @example 1636685776000
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The status of the delivery chain. Valid values:
+     *
+     *   `RUNNING`
+     *   `COMPLETE`
+     *   `CANCELING`
+     *   `CANCELED`
+     *
+     * @example COMPLETE
+     *
      * @var string
      */
     public $status;

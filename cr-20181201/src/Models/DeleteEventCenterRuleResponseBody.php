@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventCenterRuleResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 031572FA-7D8F-4C05-B790-1071E0E05DE6
+     *
      * @var string
      */
     public $requestId;

@@ -11,21 +11,40 @@ use AlibabaCloud\Tea\Model;
 class GetArtifactBuildTaskResponseBody extends Model
 {
     /**
+     * @description The type of the artifact building task. Valid values:
+     *
+     *   `IMAGE_TO_ACCELERATED_IMAGE`: builds accelerated images for Container Service for Kubernetes (ACK) clusters.
+     *   `IMAGE_TO_ECI_ACCELERATED_IMAGE`: builds accelerated images for elastic container instances.
+     *
+     * @example IMAGE_TO_ACCELERATED_IMAGE
+     *
      * @var string
      */
     public $artifactBuildType;
 
     /**
+     * @description The ID of the artifact building task.
+     *
+     * @example i2a-1yu****
+     *
      * @var string
      */
     public $buildTaskId;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the artifact building task ends.
+     *
+     * @example 156871880
+     *
      * @var int
      */
     public $endTime;
@@ -36,31 +55,56 @@ class GetArtifactBuildTaskResponseBody extends Model
     public $instructions;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C4C7DD0C-C9D6-437A-A7EE-121EFD70D002
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the source artifact.
+     *
      * @var sourceArtifact
      */
     public $sourceArtifact;
 
     /**
+     * @description The time when the artifact building task starts.
+     *
+     * @example 156871881
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description The artifact that is built in the task.
+     *
      * @var targetArtifact
      */
     public $targetArtifact;
 
     /**
+     * @description The status of the artifact that is built in the task. Valid values:
+     *
+     *   `PENDING`: The artifact is being scheduled.
+     *   `BUILDING`: The artifact is being built.
+     *   `SUCCESS`: The artifact is built.
+     *   `FAILED`: The artifact fails to be built.
+     *
+     * @example BUILDING
+     *
      * @var string
      */
     public $taskStatus;

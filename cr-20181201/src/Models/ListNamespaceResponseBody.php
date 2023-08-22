@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListNamespaceResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
@@ -25,21 +29,29 @@ class ListNamespaceResponseBody extends Model
     public $namespaces;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example B7E5FCA5-55ED-451C-9649-0BB2B93387D0
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

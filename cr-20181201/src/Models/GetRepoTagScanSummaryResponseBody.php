@@ -9,41 +9,74 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagScanSummaryResponseBody extends Model
 {
     /**
+     * @description The number of medium-severity vulnerabilities.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The number of low-severity vulnerabilities.
+     *
+     * @example 22
+     *
      * @var int
      */
     public $highSeverity;
 
     /**
+     * @description The number of high-severity vulnerabilities.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 89
+     *
      * @var int
      */
     public $lowSeverity;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example 81
+     *
      * @var int
      */
     public $mediumSeverity;
 
     /**
+     * @description The total number of vulnerabilities detected on images.
+     *
+     * @example BC648259-91A7-4502-BED3-EDF64361FA83
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The return value.
+     *
+     * @example 196
+     *
      * @var int
      */
     public $totalSeverity;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $unknownSeverity;

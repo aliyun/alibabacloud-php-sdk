@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ResetLoginPasswordResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example EB9C5722-51E2-4497-A573-575B0CA5CE0C
+     *
      * @var string
      */
     public $requestId;

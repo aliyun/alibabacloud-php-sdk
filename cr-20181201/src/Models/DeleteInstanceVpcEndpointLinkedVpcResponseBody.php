@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceVpcEndpointLinkedVpcResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example true
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 20FE7A66-0044-4E23-BBEC-C434EADBD7AF
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateChartNamespaceResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 724402D0-75CD-4794-BC20-7D3720823AE0
+     *
      * @var string
      */
     public $requestId;

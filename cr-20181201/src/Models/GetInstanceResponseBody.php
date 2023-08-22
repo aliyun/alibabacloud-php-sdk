@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 1571926439000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
@@ -26,34 +32,53 @@ class GetInstanceResponseBody extends Model
     /**
      * @var string
      */
+    public $instanceIssue;
+
+    /**
+     * @example shanghai-instance1
+     *
+     * @var string
+     */
     public $instanceName;
 
     /**
+     * @example Enterprise_Basic
+     *
      * @var string
      */
     public $instanceSpecification;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 1571926560000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example 6EF34B18-4228-470C-860C-D28597CF010E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rg-acfmv36i4isx****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -61,6 +86,7 @@ class GetInstanceResponseBody extends Model
         'code'                  => 'Code',
         'createTime'            => 'CreateTime',
         'instanceId'            => 'InstanceId',
+        'instanceIssue'         => 'InstanceIssue',
         'instanceName'          => 'InstanceName',
         'instanceSpecification' => 'InstanceSpecification',
         'instanceStatus'        => 'InstanceStatus',
@@ -85,6 +111,9 @@ class GetInstanceResponseBody extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceIssue) {
+            $res['InstanceIssue'] = $this->instanceIssue;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -127,6 +156,9 @@ class GetInstanceResponseBody extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceIssue'])) {
+            $model->instanceIssue = $map['InstanceIssue'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

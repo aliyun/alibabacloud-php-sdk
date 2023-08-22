@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateNamespaceResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 90B8475C-C066-4B92-946E-4D0DECB514E8
+     *
      * @var string
      */
     public $requestId;

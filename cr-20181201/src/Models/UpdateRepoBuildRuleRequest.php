@@ -9,51 +9,99 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepoBuildRuleRequest extends Model
 {
     /**
+     * @description Building arguments.
+     *
      * @var string[]
      */
     public $buildArgs;
 
     /**
+     * @description The ID of the building rule.
+     *
+     * @example crbr-ly77w5i3t31f****
+     *
      * @var string
      */
     public $buildRuleId;
 
     /**
+     * @description The path of the Dockerfile.
+     *
+     * @example /
+     *
      * @var string
      */
     public $dockerfileLocation;
 
     /**
+     * @description The name of the Dockerfile.
+     *
+     * @example Dockerfile
+     *
      * @var string
      */
     public $dockerfileName;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example v0.9.5
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Architecture for image building. Valid values:
+     *
+     *   `linux/amd64`
+     *   `linux/arm64`
+     *   `linux/386`
+     *   `linux/arm/v7`
+     *   `linux/arm/v6`
+     *
+     * Default value: `linux/amd64`
+     * @example linux/amd64
+     *
      * @var string[]
      */
     public $platforms;
 
     /**
+     * @description The name of the push that triggers the building rule.
+     *
+     * @example master
+     *
      * @var string
      */
     public $pushName;
 
     /**
+     * @description The type of the push that triggers the building rule. Valid values:
+     *
+     *   `GIT_TAG`: tag push
+     *   `GIT_BRANCH`: branch push
+     *
+     * @example GIT_BRANCH
+     *
      * @var string
      */
     public $pushType;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-tquyps22md8p****
+     *
      * @var string
      */
     public $repoId;

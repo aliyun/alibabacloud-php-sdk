@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class ListChartNamespaceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The status of the namespace. Valid values:
+     *
+     *   `NORMAL`: The namespace is normal.
+     *   `DELETING`: The namespace is being deleted.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $namespaceStatus;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

@@ -9,56 +9,109 @@ use AlibabaCloud\Tea\Model;
 class GetChartRepositoryResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The time when the chart repository was created.
+     *
+     * @example 1563767620000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The time when the chart repository was last modified.
+     *
+     * @example 1563767700000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @description The ID of the chart repository.
+     *
+     * @example crcr-c7letfwev5oq****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the chart repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the chart repository belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description The status of the chart repository. Valid values:
+     *
+     *   `NORMAL`: The repository is normal.
+     *   `DELETING`: The repository is being deleted.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $repoStatus;
 
     /**
+     * @description The type of the chart repository. Valid values:
+     *
+     *   `PUBLIC`: a public repository
+     *   `PRIVATE`: a private repository
+     *
+     * @example PUBLIC
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A3F6AB56-DEF4-4FF5-8DE4-680362C0E21F
+     *
      * @var string
      */
     public $requestId;
@@ -69,6 +122,10 @@ class GetChartRepositoryResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The summary about the chart repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $summary;

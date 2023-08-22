@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
+     * @description The digest of the image.
+     *
+     * @example sha256:b5b2b2c507a0944348e0303114d8d93aaaa081732b86451d9bce1f432a537bc7
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The MIME type of the configuration file.
+     *
+     * @example application/vnd.docker.container.image.v1+json
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @description Size
+     *
+     * @example 7023
+     *
      * @var int
      */
     public $size;

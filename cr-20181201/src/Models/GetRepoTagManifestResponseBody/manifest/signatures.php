@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class signatures extends Model
 {
     /**
+     * @description The header information of the signature.
+     *
+     * @example null
+     *
      * @var mixed[]
      */
     public $header;
 
     /**
+     * @description The signed protected header.
+     *
+     * @example null
+     *
      * @var string
      */
     public $protected;
 
     /**
+     * @description The signature for the image manifest.
+     *
+     * @example null
+     *
      * @var string
      */
     public $signature;

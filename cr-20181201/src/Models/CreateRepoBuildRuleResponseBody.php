@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoBuildRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the building rule.
+     *
+     * @example crbr-ly77w5i3t31f****
+     *
      * @var string
      */
     public $buildRuleId;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4CE1F661-75DD-4EBD-A4AD-057B26834ABB
+     *
      * @var string
      */
     public $requestId;

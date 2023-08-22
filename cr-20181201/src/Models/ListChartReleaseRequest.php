@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class ListChartReleaseRequest extends Model
 {
     /**
+     * @description The chart whose versions you want to query.
+     *
+     * @example null
+     *
      * @var string
      */
     public $chart;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $repoNamespaceName;

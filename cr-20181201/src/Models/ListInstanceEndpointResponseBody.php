@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceEndpointResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description The endpoints of the instance.
+     *
      * @var endpoints[]
      */
     public $endpoints;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1B21A877-66A2-4095-90EB-20A7781A4A67
+     *
      * @var string
      */
     public $requestId;

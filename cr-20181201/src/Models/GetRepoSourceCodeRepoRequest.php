@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetRepoSourceCodeRepoRequest extends Model
 {
     /**
+     * @description The ID of the Container Registry instance.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crr-gzsrlevmvoaq****
+     *
      * @var string
      */
     public $repoId;

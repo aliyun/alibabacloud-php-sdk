@@ -9,56 +9,108 @@ use AlibabaCloud\Tea\Model;
 class ListRepoTagScanResultRequest extends Model
 {
     /**
+     * @description The digest of the image.
+     *
+     * @example sha256:6b0b094f8a904f8fb6602427aed0d1fa
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The parameter whose value that you want to query. Fox example, if the value is `FixCmd`, only the `FixCmd` parameter is returned.
+     *
+     * @example FixCmd
+     *
      * @var string
      */
     public $filterValue;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-2j88dtld8yel****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-uf082u9dg8do****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The ID of the security scan task.
+     *
+     * @example 6b0b094f-8a90-4f8f-b660-2427aed0****
+     *
      * @var string
      */
     public $scanTaskId;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   `cve`: image system vulnerability
+     *   `sca`: image application vulnerability
+     *
+     * @example sca
+     *
      * @var string
      */
     public $scanType;
 
     /**
+     * @description The severity of the vulnerability. Valid values:
+     *
+     *   `High`
+     *   `Medium`
+     *   `Low`
+     *   `Unknown`
+     *
+     * @example High
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The name of the image tag.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @description The keyword for fuzzy search used in scanning. The value can be a CVE name.
+     *
+     * @example CVE-2021
+     *
      * @var string
      */
     public $vulQueryKey;

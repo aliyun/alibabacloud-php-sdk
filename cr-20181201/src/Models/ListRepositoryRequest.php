@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryRequest extends Model
 {
     /**
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example repo-test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example repo-namespace-test
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @example ALL
+     *
      * @var string
      */
     public $repoStatus;

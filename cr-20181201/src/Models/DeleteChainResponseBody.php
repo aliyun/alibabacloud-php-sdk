@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteChainResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DB1809A8-E1C8-5707-BAF8-D4FC1C11****
+     *
      * @var string
      */
     public $requestId;

@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ListRepoSyncRuleRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test-namespace
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the image repository.
+     *
+     * @example test-repo
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The ID of the destination instance.
+     *
+     * @example cri-k77rd2eo9ztt****
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @description The region ID of the destination instance.
+     *
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $targetRegionId;

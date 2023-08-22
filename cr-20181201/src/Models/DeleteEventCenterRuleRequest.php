@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteEventCenterRuleRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the event notification rule.
+     *
+     * @example crecr-n6pbhgjx*****
+     *
      * @var string
      */
     public $ruleId;

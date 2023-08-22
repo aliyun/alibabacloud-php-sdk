@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepositoryRequest extends Model
 {
     /**
+     * @example repo-for-test
+     *
      * @var string
      */
     public $detail;
 
     /**
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example crr-tquyps22md8p****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example dsp/domain-microapp
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example ejiayou-other
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @example test repo
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $tagImmutability;

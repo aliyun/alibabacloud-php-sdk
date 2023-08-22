@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class ListRepositoryResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -35,11 +43,15 @@ class ListRepositoryResponseBody extends Model
     public $repositories;
 
     /**
+     * @example 5241C090-DA69-4B0F-8E3F-2F24FDE1110E
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

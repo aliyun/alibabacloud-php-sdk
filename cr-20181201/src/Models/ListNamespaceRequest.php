@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ListNamespaceRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example cri-94klsruryslx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example test-namespace
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $namespaceStatus;
 
     /**
+     * @description The list of namespaces.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

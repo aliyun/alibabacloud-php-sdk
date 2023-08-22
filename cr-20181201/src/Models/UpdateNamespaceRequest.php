@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class UpdateNamespaceRequest extends Model
 {
     /**
+     * @description Specifies whether to automatically create a repository when an image is pushed to the namespace.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @description The default type of the repository. Valid values:
+     *
+     *   `PUBLIC`: The repository is a public repository.
+     *   `PRIVATE`: The repository is a private repository.
+     *
+     * @example PRIVATE
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;

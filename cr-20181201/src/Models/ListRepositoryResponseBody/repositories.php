@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class repositories extends Model
 {
     /**
+     * @example 1564153576000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @example cri-kmsiwlxxdcv****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1564153576000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @example MANUAL
+     *
      * @var string
      */
     public $repoBuildType;
 
     /**
+     * @example crr-03cuozrsqhkw****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $repoStatus;
 
     /**
+     * @example PRIVATE
+     *
      * @var string
      */
     public $repoType;
@@ -59,11 +77,15 @@ class repositories extends Model
     public $resourceGroupId;
 
     /**
+     * @example test OK
+     *
      * @var string
      */
     public $summary;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $tagImmutability;

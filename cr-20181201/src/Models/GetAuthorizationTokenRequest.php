@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetAuthorizationTokenRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example cri-kmsiwlxxdcvaduwb
+     *
      * @var string
      */
     public $instanceId;

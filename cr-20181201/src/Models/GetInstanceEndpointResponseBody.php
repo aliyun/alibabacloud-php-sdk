@@ -11,41 +11,69 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceEndpointResponseBody extends Model
 {
     /**
+     * @description Indicates whether the access control list (ACL) feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $aclEnable;
 
     /**
+     * @description The ACLs.
+     *
      * @var aclEntries[]
      */
     public $aclEntries;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Domain names.
+     *
      * @var domains[]
      */
     public $domains;
 
     /**
+     * @description Indicates whether the ACL feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8F3D5EC5-39D1-4C53-A198-48C54C658FA3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

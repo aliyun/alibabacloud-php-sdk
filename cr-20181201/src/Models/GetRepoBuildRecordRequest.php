@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetRepoBuildRecordRequest extends Model
 {
     /**
+     * @description The ID of the image building record.
+     *
+     * @example a78ec6fb-16ea-4649-93b7-f52afba7d****
+     *
      * @var string
      */
     public $buildRecordId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;

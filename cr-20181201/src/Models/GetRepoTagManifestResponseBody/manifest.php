@@ -14,51 +14,81 @@ use AlibabaCloud\Tea\Model;
 class manifest extends Model
 {
     /**
+     * @description Architecture.
+     *
+     * @example null
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @description The configuration information.
+     *
      * @var config
      */
     public $config;
 
     /**
+     * @description The digest of the referenced filesystem image layer.
+     *
      * @var fsLayers[]
      */
     public $fsLayers;
 
     /**
+     * @description A list of unstructured historical data for V1 compatibility.
+     *
      * @var history[]
      */
     public $history;
 
     /**
+     * @description The information about image layers.
+     *
      * @var layers[]
      */
     public $layers;
 
     /**
+     * @description The type.
+     *
+     * @example application/vnd.docker.distribution.manifest.v2+json
+     *
      * @var string
      */
     public $mediaType;
 
     /**
+     * @description The name.
+     *
+     * @example null
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The schema version of the manifest.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $schemaVersion;
 
     /**
+     * @description The information about signatures.
+     *
      * @var signatures[]
      */
     public $signatures;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example master
+     *
      * @var string
      */
     public $tag;

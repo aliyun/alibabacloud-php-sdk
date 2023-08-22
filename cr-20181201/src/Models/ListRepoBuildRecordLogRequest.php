@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListRepoBuildRecordLogRequest extends Model
 {
     /**
+     * @description The ID of the image building record.
+     *
+     * @example C5B4D5D7-A1C6-4E9B-ABD2-401361C4****
+     *
      * @var string
      */
     public $buildRecordId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-nmbv37dlv5d3****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The offset of log lines.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $offset;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-z4dvahhku9wv4****
+     *
      * @var string
      */
     public $repoId;

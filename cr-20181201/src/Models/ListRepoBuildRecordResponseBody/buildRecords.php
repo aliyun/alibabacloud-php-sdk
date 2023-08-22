@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class buildRecords extends Model
 {
     /**
+     * @description The ID of the image building record.
+     *
+     * @example 537e08ab-735e-415f-b7c2-160eb87f8****
+     *
      * @var string
      */
     public $buildRecordId;
 
     /**
+     * @description The status of the image building.
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $buildStatus;
 
     /**
+     * @description The time when the image building ended.
+     *
+     * @example 1572875610000
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The information about the image.
+     *
      * @var image
      */
     public $image;
 
     /**
+     * @description The time when the image building started.
+     *
+     * @example 1572872207000
+     *
      * @var string
      */
     public $startTime;

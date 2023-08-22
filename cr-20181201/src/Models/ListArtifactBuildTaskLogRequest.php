@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactBuildTaskLogRequest extends Model
 {
     /**
+     * @description The ID of the artifact build task.
+     *
+     * @example i2a-1yu****
+     *
      * @var string
      */
     public $buildTaskId;
 
     /**
+     * @description The ID of the Container Registry instance.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $page;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $pageSize;

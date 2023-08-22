@@ -15,11 +15,15 @@ class nodeConfig extends Model
     public $denyPolicy;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $retry;
 
     /**
+     * @example ACR_SCAN_SERVICE
+     *
      * @var string
      */
     public $scanEngine;

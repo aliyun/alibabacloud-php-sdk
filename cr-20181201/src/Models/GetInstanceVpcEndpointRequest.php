@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceVpcEndpointRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: the image repository.
+     *   `Chart`: a Helm chart.
+     *
+     * @example Chart
+     *
      * @var string
      */
     public $moduleName;

@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceEndpointAclPolicyRequest extends Model
 {
     /**
+     * @description The description.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The type of the endpoint. Set the value to Internet.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The CIDR block that is accessible.
+     *
+     * @example 192.168.1.1/32
+     *
      * @var string
      */
     public $entry;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: the image repository.
+     *   `Chart`: a Helm chart.
+     *
+     * @example Registry
+     *
      * @var string
      */
     public $moduleName;

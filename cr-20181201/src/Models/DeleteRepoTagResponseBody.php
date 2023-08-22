@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoTagResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 96E66B3A-C81A-48BE-ACD6-C0AB1F9313C0
+     *
      * @var string
      */
     public $requestId;

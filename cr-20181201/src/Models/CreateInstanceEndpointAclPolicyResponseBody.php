@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceEndpointAclPolicyResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D735C5EC-4206-4F48-A090-307BF56BEB99
+     *
      * @var string
      */
     public $requestId;

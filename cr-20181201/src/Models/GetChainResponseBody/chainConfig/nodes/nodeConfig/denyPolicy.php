@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class denyPolicy extends Model
 {
     /**
+     * @example BLOCK
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @example identification,hc_image_exploit
+     *
      * @var string
      */
     public $baselineList;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $issueCount;
 
     /**
+     * @example HIGH
+     *
      * @var string
      */
     public $issueLevel;
 
     /**
+     * @example CVE-2020-8286,CVE-2020-8285
+     *
      * @var string
      */
     public $issueList;
 
     /**
+     * @example AND
+     *
      * @var string
      */
     public $logic;
 
     /**
+     * @example mutate_cockhorse,abnormal_program
+     *
      * @var string
      */
     public $maliciousList;

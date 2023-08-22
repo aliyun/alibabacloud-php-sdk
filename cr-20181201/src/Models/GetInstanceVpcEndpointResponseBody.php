@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceVpcEndpointResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
@@ -20,21 +24,46 @@ class GetInstanceVpcEndpointResponseBody extends Model
     public $domains;
 
     /**
+     * @description Indicates whether the access control list (ACL) feature is enabled. Valid values:
+     *
+     *   `true`: The ACL feature is enabled.
+     *   `false`: The ACL feature is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The VPCs in which the instance is deployed.
+     *
      * @var linkedVpcs[]
      */
     public $linkedVpcs;
 
     /**
+     * @var string
+     */
+    public $moduleName;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example BAE9349D-A587-4F9A-B574-9DA0EF2638D1
+     *
      * @var string
      */
     public $requestId;
@@ -44,6 +73,7 @@ class GetInstanceVpcEndpointResponseBody extends Model
         'enable'     => 'Enable',
         'isSuccess'  => 'IsSuccess',
         'linkedVpcs' => 'LinkedVpcs',
+        'moduleName' => 'ModuleName',
         'requestId'  => 'RequestId',
     ];
 
@@ -74,6 +104,9 @@ class GetInstanceVpcEndpointResponseBody extends Model
                     $res['LinkedVpcs'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->moduleName) {
+            $res['ModuleName'] = $this->moduleName;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -112,6 +145,9 @@ class GetInstanceVpcEndpointResponseBody extends Model
                     $model->linkedVpcs[$n++] = null !== $item ? linkedVpcs::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['ModuleName'])) {
+            $model->moduleName = $map['ModuleName'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

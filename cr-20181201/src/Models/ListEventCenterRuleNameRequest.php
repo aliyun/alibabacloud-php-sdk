@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListEventCenterRuleNameRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;

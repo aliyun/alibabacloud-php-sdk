@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class CreateBuildRecordByRuleResponseBody extends Model
 {
     /**
+     * @description The ID of the image building record.
+     *
+     * @example 0A311FC5-B8C6-4332-80E4-539EB73****
+     *
      * @var string
      */
     public $buildRecordId;
 
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B01B8857-A16E-40E9-A37E-764F15776FAA
+     *
      * @var string
      */
     public $requestId;

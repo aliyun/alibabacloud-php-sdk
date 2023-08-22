@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -20,6 +22,8 @@ class nodes extends Model
     public $nodeConfig;
 
     /**
+     * @example VULNERABILITY_SCANNING
+     *
      * @var string
      */
     public $nodeName;

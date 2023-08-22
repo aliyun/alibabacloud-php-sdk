@@ -9,51 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSyncTaskRequest extends Model
 {
     /**
+     * @example cri-hpdfkc6utbaq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $override;
 
     /**
+     * @example crr-iql7jalx4g0****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @example tag1
+     *
      * @var string
      */
     public $tag;
 
     /**
+     * @example cri-ibxs3piklys3****
+     *
      * @var string
      */
     public $targetInstanceId;
 
     /**
+     * @example ns1
+     *
      * @var string
      */
     public $targetNamespace;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $targetRegionId;
 
     /**
+     * @example repo1
+     *
      * @var string
      */
     public $targetRepoName;
 
     /**
+     * @example tag1
+     *
      * @var string
      */
     public $targetTag;
 
     /**
+     * @example 12345***
+     *
      * @var string
      */
     public $targetUserId;

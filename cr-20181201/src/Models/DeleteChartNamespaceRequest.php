@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteChartNamespaceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the chart namespace that you want to delete.
+     *
+     * @example ns2
+     *
      * @var string
      */
     public $namespaceName;

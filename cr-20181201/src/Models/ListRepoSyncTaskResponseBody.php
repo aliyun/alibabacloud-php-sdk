@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ListRepoSyncTaskResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 7640819A-FB5B-4E25-A227-97717F62****
+     *
      * @var string
      */
     public $requestId;
@@ -40,6 +50,8 @@ class ListRepoSyncTaskResponseBody extends Model
     public $syncTasks;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $totalCount;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crr-03cuozrsqhkw****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;

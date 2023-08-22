@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class chainConfig extends Model
 {
     /**
+     * @example cci-lz3ycgo69ukt****
+     *
      * @var string
      */
     public $chainConfigId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isActive;
@@ -31,6 +35,8 @@ class chainConfig extends Model
     public $routers;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $version;

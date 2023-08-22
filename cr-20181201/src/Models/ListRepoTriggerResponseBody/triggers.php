@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class triggers extends Model
 {
     /**
+     * @description The type of the event that activates the trigger. Valid values:
+     *
+     *   `BUILD_SUCCESS`: The trigger is activated when an image building task is successful.
+     *   `BUILD_Fail`: The trigger is activated when an image building task fails.
+     *
+     * @example BUILD_SUCCESS
+     *
      * @var string
      */
     public $repoEvent;
 
     /**
+     * @description The ID of the trigger.
+     *
+     * @example crw-vriyql9eq7ep****
+     *
      * @var string
      */
     public $triggerId;
 
     /**
+     * @description The name of the trigger.
+     *
+     * @example test
+     *
      * @var string
      */
     public $triggerName;
 
     /**
+     * @description The image tag based on which the trigger is set.
+     *
+     * @example *
+     *
      * @var string
      */
     public $triggerTag;
 
     /**
+     * @description The type of the trigger. Valid values:
+     *
+     *   `ALL`: a trigger that supports both tags and regular expressions.
+     *   `TAG_LISTTAG`: a tag-based trigger.
+     *   `TAG_REG_EXP`: a regular expression-based trigger.
+     *
+     * @example ALL
+     *
      * @var string
      */
     public $triggerType;
 
     /**
+     * @description The URL of the trigger.
+     *
+     * @example https://www.test.com
+     *
      * @var string
      */
     public $triggerUrl;

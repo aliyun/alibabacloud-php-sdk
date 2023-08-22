@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRequest extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example rg-acfmv36i4is****
+     *
      * @var string
      */
     public $resourceGroupId;

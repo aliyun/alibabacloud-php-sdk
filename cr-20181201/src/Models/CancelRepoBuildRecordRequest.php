@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CancelRepoBuildRecordRequest extends Model
 {
     /**
+     * @description The ID of the image building record.
+     *
+     * @example 74FDBA62-30C0-4F22-BE7B-F1D36FD1****
+     *
      * @var string
      */
     public $buildRecordId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-tquyps22md8p****
+     *
      * @var string
      */
     public $repoId;

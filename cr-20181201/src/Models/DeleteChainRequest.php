@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteChainRequest extends Model
 {
     /**
+     * @description The ID of the delivery pipeline.
+     *
+     * @example chi-02ymhtwl3cq8****
+     *
      * @var string
      */
     public $chainId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-4cdrlqmhn4gm****
+     *
      * @var string
      */
     public $instanceId;

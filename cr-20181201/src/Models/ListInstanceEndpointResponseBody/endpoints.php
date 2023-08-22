@@ -12,36 +12,58 @@ use AlibabaCloud\Tea\Model;
 class endpoints extends Model
 {
     /**
+     * @description Indicates whether the access control list (ACL) feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $aclEnable;
 
     /**
+     * @description The ACL configured for the instance.
+     *
      * @var aclEntries[]
      */
     public $aclEntries;
 
     /**
+     * @description Domain names.
+     *
      * @var domains[]
      */
     public $domains;
 
     /**
+     * @description Indicates whether the ACL feature is enabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The type of the endpoint.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The virtual private clouds (VPCs) that are associated with the instance.
+     *
      * @var linkedVpcs[]
      */
     public $linkedVpcs;
 
     /**
+     * @description The status of the instance.
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;

@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The tag of the image.
+     *
+     * @example v0.1
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crr-gzsrlevmvoaq****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;

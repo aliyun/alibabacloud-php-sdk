@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoCreateRepo;
 
     /**
+     * @example PUBLIC
+     *
      * @var string
      */
     public $defaultRepoType;
 
     /**
+     * @example cri-94klsruryslx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example crn-tiw8t3f8i5lt****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;
 
     /**
+     * @example NORMAL
+     *
      * @var string
      */
     public $namespaceStatus;
 
     /**
+     * @example rg-acfm4n5kzyf2fbi
+     *
      * @var string
      */
     public $resourceGroupId;

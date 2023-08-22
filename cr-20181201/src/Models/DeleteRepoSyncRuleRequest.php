@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteRepoSyncRuleRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-hpdfkc6utbaq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the synchronization rule.
+     *
+     * @example crsr-gk5p2ns1kzns****
+     *
      * @var string
      */
     public $syncRuleId;

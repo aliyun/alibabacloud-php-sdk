@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceEndpointAclPolicyRequest extends Model
 {
     /**
+     * @description The type of the endpoint. Set the value to Internet.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The CIDR block.
+     *
+     * @example 127.0.0.1/32
+     *
      * @var string
      */
     public $entry;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: the image repository.
+     *   `Chart`: a Helm chart.
+     *
+     * @example Chart
+     *
      * @var string
      */
     public $moduleName;

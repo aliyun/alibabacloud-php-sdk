@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagLayersRequest extends Model
 {
     /**
+     * @description The digest of the image.
+     *
+     * @example sha256:c851258edfe02c14772a1a3c0194a8aeb2a08c0db5e51371165b3610946f0953
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-v7m9m2g0qkqjf56p
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example master
+     *
      * @var string
      */
     public $tag;

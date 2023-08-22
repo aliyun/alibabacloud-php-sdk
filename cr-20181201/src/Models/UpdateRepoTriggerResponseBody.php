@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepoTriggerResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 32535049-ED91-4589-98C0-7C88766EDF1F
+     *
      * @var string
      */
     public $requestId;

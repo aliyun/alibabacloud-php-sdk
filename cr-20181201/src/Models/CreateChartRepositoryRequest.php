@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateChartRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example repo01
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example namespace01
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description The default repository type. Valid values:
+     *
+     *   `PUBLIC`: a public repository.
+     *   `PRIVATE`: a private repository.
+     *
+     * You can specify the RepoType or Summary parameter. The RepoType parameter is optional.
+     * @example PUBLIC
+     *
      * @var string
      */
     public $repoType;
 
     /**
+     * @description The summary of the repository.
+     *
+     * @example summary
+     *
      * @var string
      */
     public $summary;

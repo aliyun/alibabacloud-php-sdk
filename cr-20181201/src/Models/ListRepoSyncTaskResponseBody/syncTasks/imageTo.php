@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class imageTo extends Model
 {
     /**
+     * @example v0.1
+     *
      * @var string
      */
     public $imageTag;
 
     /**
+     * @example cri-k77rd2eo9zttneqo
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example cn-shenzhen
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $repoNamespaceName;

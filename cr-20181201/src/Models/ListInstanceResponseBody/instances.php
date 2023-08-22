@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @example 1562849679000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example cri-sgedpenzw80e****
+     *
      * @var string
      */
     public $instanceId;
@@ -21,24 +25,39 @@ class instances extends Model
     /**
      * @var string
      */
+    public $instanceIssue;
+
+    /**
+     * @example test
+     *
+     * @var string
+     */
     public $instanceName;
 
     /**
+     * @example Enterprise_Basic
+     *
      * @var string
      */
     public $instanceSpecification;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example 1562849760000
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;
@@ -50,6 +69,7 @@ class instances extends Model
     protected $_name = [
         'createTime'            => 'CreateTime',
         'instanceId'            => 'InstanceId',
+        'instanceIssue'         => 'InstanceIssue',
         'instanceName'          => 'InstanceName',
         'instanceSpecification' => 'InstanceSpecification',
         'instanceStatus'        => 'InstanceStatus',
@@ -70,6 +90,9 @@ class instances extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceIssue) {
+            $res['InstanceIssue'] = $this->instanceIssue;
         }
         if (null !== $this->instanceName) {
             $res['InstanceName'] = $this->instanceName;
@@ -106,6 +129,9 @@ class instances extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceIssue'])) {
+            $model->instanceIssue = $map['InstanceIssue'];
         }
         if (isset($map['InstanceName'])) {
             $model->instanceName = $map['InstanceName'];

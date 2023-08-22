@@ -9,66 +9,121 @@ use AlibabaCloud\Tea\Model;
 class vulnerabilities extends Model
 {
     /**
+     * @description The ID of the image layer where the vulnerability was detected.
+     *
+     * @example sha256:123456717b8e40b6480979b739010d8d549989602bcdd07922119aec6f9dbe57
+     *
      * @var string
      */
     public $addedBy;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example Vulnerability
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @description The URL of the vulnerability.
+     *
+     * @example https://security-tracker.debian.org/tracker/CVE-2009-5155
+     *
      * @var string
      */
     public $cveLink;
 
     /**
+     * @description The directory of the vulnerability.
+     *
+     * @example /test.txt
+     *
      * @var string
      */
     public $cveLocation;
 
     /**
+     * @description The name of the vulnerability.
+     *
+     * @example CVE-2009-5155
+     *
      * @var string
      */
     public $cveName;
 
     /**
+     * @description The description of the vulnerability.
+     *
+     * @example description.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The cause of the vulnerability.
+     *
+     * @example eglibc
+     *
      * @var string
      */
     public $feature;
 
     /**
+     * @description The command used to fix the vulnerability.
+     *
+     * @example yum install -y xxx
+     *
      * @var string
      */
     public $fixCmd;
 
     /**
+     * @description The type of the vulnerability. Valid values:
+     *
+     *   `cve`: image system vulnerability
+     *   `sca`: image application vulnerability
+     *
+     * @example cve
+     *
      * @var string
      */
     public $scanType;
 
     /**
+     * @description The severity of the vulnerability.
+     *
+     * @example Medium
+     *
      * @var string
      */
     public $severity;
 
     /**
+     * @description The version of the vulnerability.
+     *
+     * @example 2.19-6.9
+     *
      * @var string
      */
     public $version;
 
     /**
+     * @description The version where the vulnerability was fixed.
+     *
+     * @example 2.19-18+deb8u5
+     *
      * @var string
      */
     public $versionFixed;
 
     /**
+     * @description The format of the vulnerability.
+     *
+     * @example dpkg
+     *
      * @var string
      */
     public $versionFormat;

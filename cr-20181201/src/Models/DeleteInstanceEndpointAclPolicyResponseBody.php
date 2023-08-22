@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceEndpointAclPolicyResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example BDB1F145-F0FF-44E9-AADF-A678642A7C7D
+     *
      * @var string
      */
     public $requestId;

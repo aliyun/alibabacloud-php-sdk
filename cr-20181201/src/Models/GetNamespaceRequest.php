@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetNamespaceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the namespace.
+     *
+     * @example crn-tiw8t3f8i5lta****
+     *
      * @var string
      */
     public $namespaceId;
 
     /**
+     * @description The name of the namespace.
+     *
+     * @example test
+     *
      * @var string
      */
     public $namespaceName;

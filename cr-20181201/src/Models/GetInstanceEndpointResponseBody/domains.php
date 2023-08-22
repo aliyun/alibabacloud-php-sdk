@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The domain name that is used to access the Container Registry Enterprise Edition instance.
+     *
+     * @example shanghai-instance1-registry.cn-shanghai.cr.aliyuncs.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description The type of the domain name. Valid values:
+     *
+     *   `SYSTEM`: a system domain name.
+     *   `USER`: a user domain name.
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $type;

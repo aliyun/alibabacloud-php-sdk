@@ -9,26 +9,49 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoTagScanTaskRequest extends Model
 {
     /**
+     * @description The digest of the image.
+     *
+     * @example sha256:815386ebbe9a3490f38785ab11bda34ec8dacf4634af77b8912832d4f85dca04
+     *
      * @var string
      */
     public $digest;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-xwvi3osiy4ff****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The type of the scanning engine.
+     *
+     *   `SAS_SCAN_SERVICE`: Security Center scan engine (paid service)
+     *   `ACR_SCAN_SERVICE`: Container Registry scan engine
+     *
+     * @example ACR_SCAN_SERVICE
+     *
      * @var string
      */
     public $scanService;
 
     /**
+     * @description The version of the image.
+     *
+     * @example 1.24
+     *
      * @var string
      */
     public $tag;

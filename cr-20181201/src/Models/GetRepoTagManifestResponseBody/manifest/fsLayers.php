@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class fsLayers extends Model
 {
     /**
+     * @description A list of filesystem layer blob sums contained in this image.
+     *
+     * @example null
+     *
      * @var string
      */
     public $blobSum;

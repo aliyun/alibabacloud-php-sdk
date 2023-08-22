@@ -9,46 +9,91 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepoSourceCodeRepoRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic image building when code is committed. Valid values:
+     *
+     *   `true`: enables automatic image building when code is committed.
+     *   `false`: disables automatic image building when code is committed.
+     *
+     * @example true
+     *
      * @var string
      */
     public $autoBuild;
 
     /**
+     * @description The ID of the source code repository.
+     *
+     * @example crr-cp7d6sget5r****
+     *
      * @var string
      */
     public $codeRepoId;
 
     /**
+     * @description The name of the source code repository.
+     *
+     * @example repo
+     *
      * @var string
      */
     public $codeRepoName;
 
     /**
+     * @description The namespace to which the source code repository belongs.
+     *
+     * @example namespace
+     *
      * @var string
      */
     public $codeRepoNamespaceName;
 
     /**
+     * @description The type of the source code hosting platform. Valid values: GITHUB, GITLAB, GITEE, CODE, and CODEUP.
+     *
+     * @example GITHUB
+     *
      * @var string
      */
     public $codeRepoType;
 
     /**
+     * @description Specifies whether to disable building caches. Valid values:
+     *
+     *   `true`: disables building caches.
+     *   `false`: enables building caches.
+     *
+     * @example false
+     *
      * @var string
      */
     public $disableCacheBuild;
 
     /**
+     * @description The ID of the Container Registry Enterprise Edition instance.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Specifies whether to enable Build With Servers Deployed Outside Chinese Mainland. Valid values:
+     *
+     *   `true`: enables Build With Servers Deployed Outside Chinese Mainland.
+     *   `false`: disables Build With Servers Deployed Outside Chinese Mainland.
+     *
+     * @example false
+     *
      * @var string
      */
     public $overseaBuild;
 
     /**
+     * @description The ID of the image repository.
+     *
+     * @example crr-gzsrlevmvoa****
+     *
      * @var string
      */
     public $repoId;

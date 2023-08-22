@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRegionResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The list of regions.
+     *
      * @var regions[]
      */
     public $regions;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 11F182E1-0F84-4F5B-8D3B-61E991482727
+     *
      * @var string
      */
     public $requestId;

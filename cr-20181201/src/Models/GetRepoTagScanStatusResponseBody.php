@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagScanStatusResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example BC648259-91A7-4502-BED3-EDF64361FA83
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example ACR_SCAN_SERVICE
+     *
      * @var string
      */
     public $scanService;
 
     /**
+     * @example COMPLETE
+     *
      * @var string
      */
     public $status;

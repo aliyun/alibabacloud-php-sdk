@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagRequest extends Model
 {
     /**
+     * @description The return value of status code.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **GetRepoTag**.
+     *
+     * @example crr-tquyps22md8p****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The number of milliseconds that have elapsed since the image was created.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $tag;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class UpdateEventCenterRuleResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 031572FA-7D8F-4C05-B790-1071E0E05DE6
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the event notification rule.
+     *
+     * @example crecr-n6pbhgjxt*****
+     *
      * @var string
      */
     public $ruleId;

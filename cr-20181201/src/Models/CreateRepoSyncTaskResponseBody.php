@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSyncTaskResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example 8F8A0BA6-7F06-4BAE-B147-10BD6A25****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example rst-gbch330f0c****
+     *
      * @var string
      */
     public $syncTaskId;

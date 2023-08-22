@@ -9,46 +9,80 @@ use AlibabaCloud\Tea\Model;
 class chains extends Model
 {
     /**
+     * @description The ID of the delivery chain.
+     *
+     * @example chi-0ops0gsmw5x2****
+     *
      * @var string
      */
     public $chainId;
 
     /**
+     * @description The time when the delivery chain was created.
+     *
+     * @example 1638255427000
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description The description of the delivery chain.
+     *
+     * @example description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-4cdrlqmhn4gm****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The time when the delivery chain was last modified.
+     *
+     * @example 1638259914000
+     *
      * @var int
      */
     public $modifiedTime;
 
     /**
+     * @description The name of the delivery chain.
+     *
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description Repositories to which the delivery chain does not apply.
+     *
      * @var string[]
      */
     public $scopeExclude;
 
     /**
+     * @description The ID of the delivery chain scope.
+     *
+     * @example crr-nyrh2oko32xb****
+     *
      * @var string
      */
     public $scopeId;
 
     /**
+     * @description The type of the delivery chain scope.
+     *
+     * @example REPOSITORY
+     *
      * @var string
      */
     public $scopeType;

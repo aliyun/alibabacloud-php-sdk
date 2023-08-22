@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateRepositoryResponseBody extends Model
 {
     /**
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @example CC43EC6B-0DD4-40AE-8811-B0519617051A
+     *
      * @var string
      */
     public $requestId;

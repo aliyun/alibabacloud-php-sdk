@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class buildRecordLogs extends Model
 {
     /**
+     * @description The stage of the building that is recorded in the log entry.
+     *
+     * @example GIT_CLONE
+     *
      * @var string
      */
     public $buildStage;
 
     /**
+     * @description The line number of the log entry.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $lineNumber;
 
     /**
+     * @description The content of the log.
+     *
+     * @example fetch stage begin
+     *
      * @var string
      */
     public $message;

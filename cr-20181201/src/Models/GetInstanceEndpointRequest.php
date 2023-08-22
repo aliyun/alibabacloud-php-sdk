@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class GetInstanceEndpointRequest extends Model
 {
     /**
+     * @description The type of the endpoint. Set the value to Internet.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: the image repository.
+     *   `Chart`: a Helm chart.
+     *
+     * @example Registry
+     *
      * @var string
      */
     public $moduleName;

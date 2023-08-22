@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ResetLoginPasswordRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The new password that you specify to log on to the instance. The password must be 8 to 32 bits in length, and must contain at least two of the following character types: letters, special characters, and digits.
+     *
+     * @example test
+     *
      * @var string
      */
     public $password;

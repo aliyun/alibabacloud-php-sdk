@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CancelArtifactBuildTaskRequest extends Model
 {
     /**
+     * @description The ID of the artifact building task.
+     *
+     * @example i2ei-12****
+     *
      * @var string
      */
     public $buildTaskId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-shac42yvqzvq****
+     *
      * @var string
      */
     public $instanceId;

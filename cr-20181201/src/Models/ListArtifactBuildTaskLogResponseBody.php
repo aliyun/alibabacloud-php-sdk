@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class ListArtifactBuildTaskLogResponseBody extends Model
 {
     /**
+     * @description The log entries of the artifact build task.
+     *
      * @var buildTaskLogs[]
      */
     public $buildTaskLogs;
 
     /**
+     * @description The response code.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the API call is successful.
+     *
+     *   `true`: successful
+     *   `false`: failed
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C4C7DD0C-C9D6-437A-A7EE-121EFD70D002
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of log entries.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

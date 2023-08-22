@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class CreateRepoSyncTaskByRuleResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 17A4C658-AE8F-4A08-821F-EDCB5FC74EE8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example rst-biu4u4pm4it5****
+     *
      * @var string
      */
     public $syncTaskId;

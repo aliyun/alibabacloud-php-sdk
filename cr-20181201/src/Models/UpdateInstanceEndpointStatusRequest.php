@@ -9,21 +9,43 @@ use AlibabaCloud\Tea\Model;
 class UpdateInstanceEndpointStatusRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the instance endpoint. Valid values:
+     *
+     *   `true`: enables the instance endpoint.
+     *   `false`: disables the instance endpoint
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enable;
 
     /**
+     * @description The type of the endpoint. Set the value to Internet.
+     *
+     * @example internet
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the module that you want to access. Valid values:
+     *
+     *   `Registry`: the image repository.
+     *   `Chart`: a Helm chart.
+     *
+     * @example Chart
+     *
      * @var string
      */
     public $moduleName;

@@ -12,76 +12,133 @@ use AlibabaCloud\Tea\Model;
 class GetRepoSyncTaskResponseBody extends Model
 {
     /**
+     * @description The return value.
+     *
+     * @example success
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description Indicates whether the synchronization task is performed across Alibaba Cloud accounts.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $crossUser;
 
     /**
+     * @description The source address of the image.
+     *
      * @var imageFrom
      */
     public $imageFrom;
 
     /**
+     * @description The destination address of the image.
+     *
      * @var imageTo
      */
     public $imageTo;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isSuccess;
 
     /**
+     * @description The synchronization tasks for the image layer.
+     *
      * @var layerTasks[]
      */
     public $layerTasks;
 
     /**
+     * @description The synchronization progress. Valid values:
+     *
+     *   `0`: The synchronization starts or failed.
+     *   `1`: The synchronization is successful.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A6DEF8B0-5D45-46D6-867D-8C7FF0966B07
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the synchronization task in which multiple images are synchronized at a time.
+     *
+     * @example a9434731-95ef-4087-9cf4-369c8e90****
+     *
      * @var string
      */
     public $syncBatchTaskId;
 
     /**
+     * @description The ID of the synchronization rule.
+     *
+     * @example crsr-cllro6ho3wne****
+     *
      * @var string
      */
     public $syncRuleId;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example rst-zxjkiv5oil6f****
+     *
      * @var string
      */
     public $syncTaskId;
 
     /**
+     * @description Indicates whether transfer acceleration is enabled in the synchronization process.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $syncTransAccelerate;
 
     /**
+     * @description The size of the image layer that is synchronized. Unit: bytes.
+     *
+     * @example 23655489
+     *
      * @var int
      */
     public $syncedSize;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     * @example SUCCESS
+     *
      * @var string
      */
     public $taskStatus;
 
     /**
+     * @description The policy that is used to trigger the synchronization task.
+     *
+     * @example null
+     *
      * @var string
      */
     public $taskTrigger;

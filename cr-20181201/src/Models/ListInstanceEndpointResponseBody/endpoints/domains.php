@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The domain name.
+     *
+     * @example t****-registry.cn-shanghai.cr.aliyuncs.com
+     *
      * @var string
      */
     public $domain;
 
     /**
+     * @description Type
+     *
+     * @example SYSTEM
+     *
      * @var string
      */
     public $type;

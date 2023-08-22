@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetRepoSyncTaskRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-sgedpenzw80e****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the synchronization task.
+     *
+     * @example rst-zxjkiv5oil6f****
+     *
      * @var string
      */
     public $syncTaskId;

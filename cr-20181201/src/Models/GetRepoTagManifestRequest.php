@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class GetRepoTagManifestRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-kmsiwlxxdcva****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the repository.
+     *
+     * @example crr-kwgb20p8wwmh****
+     *
      * @var string
      */
     public $repoId;
 
     /**
+     * @description The schema version of the manifest. Valid values: 1 and 2.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $schemaVersion;
 
     /**
+     * @description The tag of the image.
+     *
+     * @example master
+     *
      * @var string
      */
     public $tag;

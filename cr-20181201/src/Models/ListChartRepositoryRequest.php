@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class ListChartRepositoryRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example cri-xkx6vujuhay0****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNo;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The name of the repository.
+     *
+     * @example ns1
+     *
      * @var string
      */
     public $repoName;
 
     /**
+     * @description The name of the namespace to which the repository belongs.
+     *
+     * @example repo1
+     *
      * @var string
      */
     public $repoNamespaceName;
 
     /**
+     * @description The status of the chart repositories that you want to query. Valid values:
+     *
+     *   `ALL`: query repositories of all status.
+     *   `NORMAL`: query normal repositories.
+     *   `DELETING`: query repositories that are being deleted.
+     *
+     * @example ALL
+     *
      * @var string
      */
     public $repoStatus;

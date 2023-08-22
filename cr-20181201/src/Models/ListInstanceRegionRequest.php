@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceRegionRequest extends Model
 {
     /**
+     * @description The language used for response parameters. Set this parameter to `zh-CN`.
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $lang;

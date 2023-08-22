@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class chain extends Model
 {
     /**
+     * @description The name of the namespace.
+     *
+     * @example chi-m42gbku0****
+     *
      * @var string
      */
     public $chainId;
 
     /**
+     * @description The number of entries returned on each page.
+     *
+     * @example test-chain
+     *
      * @var string
      */
     public $chainName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $version;
