@@ -52,6 +52,11 @@ class module extends Model
     public $gmtModified;
 
     /**
+     * @var string
+     */
+    public $isDeleted;
+
+    /**
      * @var itineraries[]
      */
     public $itineraries;
@@ -113,6 +118,7 @@ class module extends Model
         'expenses'           => 'expenses',
         'gmtCreate'          => 'gmt_create',
         'gmtModified'        => 'gmt_modified',
+        'isDeleted'          => 'is_deleted',
         'itineraries'        => 'itineraries',
         'paymentInfos'       => 'payment_infos',
         'personalAmount'     => 'personal_amount',
@@ -155,6 +161,9 @@ class module extends Model
         }
         if (null !== $this->gmtModified) {
             $res['gmt_modified'] = $this->gmtModified;
+        }
+        if (null !== $this->isDeleted) {
+            $res['is_deleted'] = $this->isDeleted;
         }
         if (null !== $this->itineraries) {
             $res['itineraries'] = [];
@@ -233,6 +242,9 @@ class module extends Model
         }
         if (isset($map['gmt_modified'])) {
             $model->gmtModified = $map['gmt_modified'];
+        }
+        if (isset($map['is_deleted'])) {
+            $model->isDeleted = $map['is_deleted'];
         }
         if (isset($map['itineraries'])) {
             if (!empty($map['itineraries'])) {

@@ -50,6 +50,11 @@ class dataList extends Model
     public $applyId;
 
     /**
+     * @var string
+     */
+    public $averageNights;
+
+    /**
      * @example 2022-07-20T10:40Z
      *
      * @var string
@@ -279,6 +284,16 @@ class dataList extends Model
     public $remark;
 
     /**
+     * @var string
+     */
+    public $reserveRule;
+
+    /**
+     * @var string
+     */
+    public $roomNo;
+
+    /**
      * @example 1
      *
      * @var int
@@ -391,6 +406,7 @@ class dataList extends Model
         'applyDepCityName'   => 'apply_dep_city_name',
         'applyExtendField'   => 'apply_extend_field',
         'applyId'            => 'apply_id',
+        'averageNights'      => 'average_nights',
         'billRecordTime'     => 'bill_record_time',
         'bookTime'           => 'book_time',
         'bookerId'           => 'booker_id',
@@ -428,6 +444,8 @@ class dataList extends Model
         'projectName'        => 'project_name',
         'promotionFee'       => 'promotion_fee',
         'remark'             => 'remark',
+        'reserveRule'        => 'reserve_rule',
+        'roomNo'             => 'room_no',
         'roomNumber'         => 'room_number',
         'roomPrice'          => 'room_price',
         'roomType'           => 'room_type',
@@ -473,6 +491,9 @@ class dataList extends Model
         }
         if (null !== $this->applyId) {
             $res['apply_id'] = $this->applyId;
+        }
+        if (null !== $this->averageNights) {
+            $res['average_nights'] = $this->averageNights;
         }
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
@@ -585,6 +606,12 @@ class dataList extends Model
         if (null !== $this->remark) {
             $res['remark'] = $this->remark;
         }
+        if (null !== $this->reserveRule) {
+            $res['reserve_rule'] = $this->reserveRule;
+        }
+        if (null !== $this->roomNo) {
+            $res['room_no'] = $this->roomNo;
+        }
         if (null !== $this->roomNumber) {
             $res['room_number'] = $this->roomNumber;
         }
@@ -665,6 +692,9 @@ class dataList extends Model
         }
         if (isset($map['apply_id'])) {
             $model->applyId = $map['apply_id'];
+        }
+        if (isset($map['average_nights'])) {
+            $model->averageNights = $map['average_nights'];
         }
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
@@ -776,6 +806,12 @@ class dataList extends Model
         }
         if (isset($map['remark'])) {
             $model->remark = $map['remark'];
+        }
+        if (isset($map['reserve_rule'])) {
+            $model->reserveRule = $map['reserve_rule'];
+        }
+        if (isset($map['room_no'])) {
+            $model->roomNo = $map['room_no'];
         }
         if (isset($map['room_number'])) {
             $model->roomNumber = $map['room_number'];

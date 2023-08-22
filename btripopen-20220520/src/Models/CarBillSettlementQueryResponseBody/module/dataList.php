@@ -84,6 +84,11 @@ class dataList extends Model
     public $billRecordTime;
 
     /**
+     * @var string
+     */
+    public $bookModel;
+
+    /**
      * @example 2022-05-15 22:27:00
      *
      * @var string
@@ -382,6 +387,11 @@ class dataList extends Model
     /**
      * @var string
      */
+    public $timeType;
+
+    /**
+     * @var string
+     */
     public $travelerId;
 
     /**
@@ -421,6 +431,7 @@ class dataList extends Model
         'arrLocation'           => 'arr_location',
         'arrTime'               => 'arr_time',
         'billRecordTime'        => 'bill_record_time',
+        'bookModel'             => 'book_model',
         'bookTime'              => 'book_time',
         'bookerId'              => 'booker_id',
         'bookerJobNo'           => 'booker_job_no',
@@ -469,6 +480,7 @@ class dataList extends Model
         'subOrderId'            => 'sub_order_id',
         'taxRate'               => 'tax_rate',
         'thirdItineraryId'      => 'third_itinerary_id',
+        'timeType'              => 'time_type',
         'travelerId'            => 'traveler_id',
         'travelerJobNo'         => 'traveler_job_no',
         'travelerName'          => 'traveler_name',
@@ -521,6 +533,9 @@ class dataList extends Model
         }
         if (null !== $this->billRecordTime) {
             $res['bill_record_time'] = $this->billRecordTime;
+        }
+        if (null !== $this->bookModel) {
+            $res['book_model'] = $this->bookModel;
         }
         if (null !== $this->bookTime) {
             $res['book_time'] = $this->bookTime;
@@ -666,6 +681,9 @@ class dataList extends Model
         if (null !== $this->thirdItineraryId) {
             $res['third_itinerary_id'] = $this->thirdItineraryId;
         }
+        if (null !== $this->timeType) {
+            $res['time_type'] = $this->timeType;
+        }
         if (null !== $this->travelerId) {
             $res['traveler_id'] = $this->travelerId;
         }
@@ -731,6 +749,9 @@ class dataList extends Model
         }
         if (isset($map['bill_record_time'])) {
             $model->billRecordTime = $map['bill_record_time'];
+        }
+        if (isset($map['book_model'])) {
+            $model->bookModel = $map['book_model'];
         }
         if (isset($map['book_time'])) {
             $model->bookTime = $map['book_time'];
@@ -875,6 +896,9 @@ class dataList extends Model
         }
         if (isset($map['third_itinerary_id'])) {
             $model->thirdItineraryId = $map['third_itinerary_id'];
+        }
+        if (isset($map['time_type'])) {
+            $model->timeType = $map['time_type'];
         }
         if (isset($map['traveler_id'])) {
             $model->travelerId = $map['traveler_id'];
