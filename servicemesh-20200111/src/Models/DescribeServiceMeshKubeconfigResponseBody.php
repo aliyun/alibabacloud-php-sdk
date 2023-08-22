@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeServiceMeshKubeconfigResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $expireTime;
+
+    /**
      * @description The content of the kubeconfig file of the cluster.
      *
      * @example apiVersion: v1 clusters: - cluster:     server: https://47.110.xx.xx:6443     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSURUakNDQWphZ0F3SUJBZ0lVYzBQVy82ejR1aHlxYkRRdnNsV1htSmpJeFdNd0RRWUpLb1pJaHZjTkFRRUwKQlFBd1BqRW5NQThHQTFVRUNoTUlhR0Z1WjNwb2IzVXdGQVlEVlFRS0V3MWhiR2xpWVdKaElHTnNiM1ZrTVJNdwpFUVlEVlFRREV3cHJkV0psY201bGRHVnpNQ0FYRFRJeU1EUXdOekExTVRnd01Gb1lEekl3TlRJd016TXdNRFV4Ck9EQXdXakErTVNjd0R3WURWUVFLRXdob1lXNW5lbWh2ZFRBVUJnTlZCQW9URFdGc2FXSmhZbUVnWTJ4dmRXUXgKRXpBUkJnTlZCQU1UQ210MVltVnlibVYwWlhNd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQUE0SUJE****
@@ -26,6 +31,7 @@ class DescribeServiceMeshKubeconfigResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
+        'expireTime' => 'ExpireTime',
         'kubeconfig' => 'Kubeconfig',
         'requestId'  => 'RequestId',
     ];
@@ -37,6 +43,9 @@ class DescribeServiceMeshKubeconfigResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->expireTime) {
+            $res['ExpireTime'] = $this->expireTime;
+        }
         if (null !== $this->kubeconfig) {
             $res['Kubeconfig'] = $this->kubeconfig;
         }
@@ -55,6 +64,9 @@ class DescribeServiceMeshKubeconfigResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExpireTime'])) {
+            $model->expireTime = $map['ExpireTime'];
+        }
         if (isset($map['Kubeconfig'])) {
             $model->kubeconfig = $map['Kubeconfig'];
         }

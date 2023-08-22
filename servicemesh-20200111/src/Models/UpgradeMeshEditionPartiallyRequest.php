@@ -28,7 +28,7 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     public $expectedVersion;
 
     /**
-     * @description 执行升级检查。如果该值设置为true，则只会执行升级检查，并不会实际升级。
+     * @description Specifies whether to perform an upgrade check. If the value of this parameter is set to true, only the upgrade check is performed and the ASM instance is not upgraded.
      *
      * @example true
      *
@@ -46,8 +46,10 @@ class UpgradeMeshEditionPartiallyRequest extends Model
     public $serviceMeshId;
 
     /**
-     * @description *   ``
-     *   ``
+     * @description Specifies whether to upgrade the ASM instance to Professional Edition. Valid values:
+     *
+     *   `true`
+     *   `false`
      *
      * @example true
      *
