@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class CreateProjectRequest extends Model
 {
     /**
+     * @example LRS
+     *
+     * @var string
+     */
+    public $dataRedundancyType;
+
+    /**
      * @example this is test
      *
      * @var string
@@ -27,9 +34,10 @@ class CreateProjectRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'description'     => 'description',
-        'projectName'     => 'projectName',
-        'resourceGroupId' => 'resourceGroupId',
+        'dataRedundancyType' => 'dataRedundancyType',
+        'description'        => 'description',
+        'projectName'        => 'projectName',
+        'resourceGroupId'    => 'resourceGroupId',
     ];
 
     public function validate()
@@ -39,6 +47,9 @@ class CreateProjectRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->dataRedundancyType) {
+            $res['dataRedundancyType'] = $this->dataRedundancyType;
+        }
         if (null !== $this->description) {
             $res['description'] = $this->description;
         }
@@ -60,6 +71,9 @@ class CreateProjectRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['dataRedundancyType'])) {
+            $model->dataRedundancyType = $map['dataRedundancyType'];
+        }
         if (isset($map['description'])) {
             $model->description = $map['description'];
         }

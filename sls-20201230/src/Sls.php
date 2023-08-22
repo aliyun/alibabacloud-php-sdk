@@ -985,6 +985,9 @@ class Sls extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->dataRedundancyType)) {
+            $body['dataRedundancyType'] = $request->dataRedundancyType;
+        }
         if (!Utils::isUnset($request->description)) {
             $body['description'] = $request->description;
         }
@@ -1007,7 +1010,7 @@ class Sls extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'json',
-            'bodyType'    => 'json',
+            'bodyType'    => 'none',
         ]);
 
         return CreateProjectResponse::fromMap($this->execute($params, $req, $runtime));
