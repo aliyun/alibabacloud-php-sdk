@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mfaDevices extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The number of consecutive failures to bind the virtual MFA device, or the number of MFA failures based on the virtual MFA device.
      *
      * @example 0
      *
@@ -18,6 +18,8 @@ class mfaDevices extends Model
     public $consecutiveFails;
 
     /**
+     * @description The types of the virtual MFA device. Set the value to TOTP_VIRTUAL, which indicates that the virtual MFA devices follow the Time-based One-time Password (TOTP) algorithm.
+     *
      * @example TOTP_VIRTUAL
      *
      * @var string
@@ -25,7 +27,7 @@ class mfaDevices extends Model
     public $deviceType;
 
     /**
-     * @description The username of the convenience user that uses the virtual MFA device.
+     * @description This parameter is unavailable.
      *
      * @example username@example.com
      *
@@ -34,7 +36,7 @@ class mfaDevices extends Model
     public $email;
 
     /**
-     * @description The types of the virtual MFA device. Set the value to TOTP_VIRTUAL, which indicates that the virtual MFA devices follow the Time-based One-time Password (TOTP) algorithm.
+     * @description The username of the convenience user that uses the virtual MFA device.
      *
      * @example test
      *
@@ -43,7 +45,7 @@ class mfaDevices extends Model
     public $endUserId;
 
     /**
-     * @description The serial numbers of the virtual MFA devices.
+     * @description The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-06-22T06:20:49Z
      *
@@ -52,7 +54,7 @@ class mfaDevices extends Model
     public $gmtEnabled;
 
     /**
-     * @description The serial number of the virtual MFA device, which is a unique identifier.
+     * @description The time when a locked virtual MFA device is automatically unlocked. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-06-23T06:20:49Z
      *
@@ -61,9 +63,8 @@ class mfaDevices extends Model
     public $gmtUnlock;
 
     /**
-     * @description The maximum number of entries to return. Valid values: 1 to 500.
+     * @description This parameter is unavailable.
      *
-     * Default value: 100.
      * @example 36
      *
      * @var int
@@ -71,7 +72,7 @@ class mfaDevices extends Model
     public $id;
 
     /**
-     * @description Queries the information about virtual MFA devices that are bound to convenience users.
+     * @description The serial number of the virtual MFA device, which is a unique identifier.
      *
      * @example dc856334-446b-4035-bfbc-18af261e****
      *
@@ -80,6 +81,12 @@ class mfaDevices extends Model
     public $serialNumber;
 
     /**
+     * @description The status of the virtual MFA device. Valid values:
+     *
+     *   UNBOUND
+     *   NORMAL
+     *   LOCKED
+     *
      * @example NORMAL
      *
      * @var string

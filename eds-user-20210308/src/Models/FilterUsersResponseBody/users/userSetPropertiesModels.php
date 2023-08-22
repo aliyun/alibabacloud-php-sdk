@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class userSetPropertiesModels extends Model
 {
     /**
-     * @description The ID of the property.
+     * @description The property ID.
      *
      * @example 12
      *
@@ -19,7 +19,7 @@ class userSetPropertiesModels extends Model
     public $propertyId;
 
     /**
-     * @description The name of the property.
+     * @description The property name.
      *
      * @example department
      *
@@ -28,7 +28,7 @@ class userSetPropertiesModels extends Model
     public $propertyKey;
 
     /**
-     * @description The ID of property.
+     * @description The property ID.
      *
      * @example 2
      *
@@ -37,7 +37,7 @@ class userSetPropertiesModels extends Model
     public $propertyType;
 
     /**
-     * @description Details of the property value.
+     * @description The property value.
      *
      * @var propertyValues[]
      */

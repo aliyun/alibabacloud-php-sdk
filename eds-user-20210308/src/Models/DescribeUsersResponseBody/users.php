@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
+     * @description The email address.
+     *
      * @example username@example.com
      *
      * @var string
@@ -16,16 +18,26 @@ class users extends Model
     public $email;
 
     /**
+     * @description The name of the user.
+     *
+     * @example alice
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 4205**
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description Indicates whether the user is an administrator. If the convenience user is of the administrator-activated type, you must specify a user administrator. Notifications such as password reset on a client are sent to the email address or mobile phone of the user administrator. For more information, see [Create a convenience user](~~214472~~).
+     *
      * @example true
      *
      * @var bool
@@ -33,6 +45,17 @@ class users extends Model
     public $isTenantManager;
 
     /**
+     * @description The nickname of the user.
+     *
+     * @example Lee
+     *
+     * @var string
+     */
+    public $nickName;
+
+    /**
+     * @description The ID of the organization to which the user belongs.
+     *
      * @example org-4mdgc1cocc59z****
      *
      * @var string
@@ -40,6 +63,20 @@ class users extends Model
     public $orgId;
 
     /**
+     * @description The type of the convenience account.
+     *
+     *   The administrator-activated type. The administrator specifies the username and the password of the convenience account. User notifications such as password reset are sent to the email address or mobile number of the administrator.
+     *   The user-activated type. The administrator specifies the username and the email address or mobile number of a user. Activation notifications are sent to the email address or mobile number of the user.
+     *
+     * Valid values:
+     *
+     *   CreateFromManager
+     *
+     * <!-- -->
+     *
+     *   Normal: user-activated
+     *
+     * <!-- -->
      * @example Normal
      *
      * @var string
@@ -47,6 +84,8 @@ class users extends Model
     public $ownerType;
 
     /**
+     * @description The mobile number of the user. If you leave this parameter empty, the value of this parameter is not returned.
+     *
      * @example 1381111****
      *
      * @var string
@@ -54,11 +93,24 @@ class users extends Model
     public $phone;
 
     /**
+     * @description The remarks on the user.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The status of the user.
+     *
+     * Valid values:
+     *
+     *   0: The user status is normal.
+     *
+     * <!-- -->
+     *
+     *   9: The user is locked.
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -66,6 +118,8 @@ class users extends Model
     public $status;
 
     /**
+     * @description The user ID that is globally unique.
+     *
      * @example 41fd1254d8f7****
      *
      * @var string
@@ -76,6 +130,7 @@ class users extends Model
         'endUserId'       => 'EndUserId',
         'id'              => 'Id',
         'isTenantManager' => 'IsTenantManager',
+        'nickName'        => 'NickName',
         'orgId'           => 'OrgId',
         'ownerType'       => 'OwnerType',
         'phone'           => 'Phone',
@@ -102,6 +157,9 @@ class users extends Model
         }
         if (null !== $this->isTenantManager) {
             $res['IsTenantManager'] = $this->isTenantManager;
+        }
+        if (null !== $this->nickName) {
+            $res['NickName'] = $this->nickName;
         }
         if (null !== $this->orgId) {
             $res['OrgId'] = $this->orgId;
@@ -144,6 +202,9 @@ class users extends Model
         }
         if (isset($map['IsTenantManager'])) {
             $model->isTenantManager = $map['IsTenantManager'];
+        }
+        if (isset($map['NickName'])) {
+            $model->nickName = $map['NickName'];
         }
         if (isset($map['OrgId'])) {
             $model->orgId = $map['OrgId'];

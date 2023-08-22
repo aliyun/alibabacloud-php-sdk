@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class resetUsersResult extends Model
 {
     /**
+     * @description The information about the convenience users whose passwords failed to be reset.
+     *
      * @var failedUsers[]
      */
     public $failedUsers;
 
     /**
+     * @description The convenience users to which the system sent a password reset email.
+     *
      * @var string[]
      */
     public $resetUsers;

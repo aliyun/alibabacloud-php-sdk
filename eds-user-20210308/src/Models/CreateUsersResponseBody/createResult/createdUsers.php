@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class createdUsers extends Model
 {
     /**
+     * @description The email address of the end user.
+     *
      * @example username@example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class createdUsers extends Model
     public $email;
 
     /**
+     * @description The name of the end user.
+     *
      * @example test1
      *
      * @var string
@@ -23,6 +27,8 @@ class createdUsers extends Model
     public $endUserId;
 
     /**
+     * @description The mobile number of the end user.
+     *
      * @example 1381111****
      *
      * @var string
@@ -30,6 +36,8 @@ class createdUsers extends Model
     public $phone;
 
     /**
+     * @description The remarks of the end user.
+     *
      * @example remark1
      *
      * @var string

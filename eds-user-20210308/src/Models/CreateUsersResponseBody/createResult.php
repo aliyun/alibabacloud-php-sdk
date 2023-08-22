@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class createResult extends Model
 {
     /**
+     * @description Details of the created convenience users.
+     *
      * @var createdUsers[]
      */
     public $createdUsers;
 
     /**
+     * @description Details of the convenience users that failed to be created.
+     *
      * @var failedUsers[]
      */
     public $failedUsers;

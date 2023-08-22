@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedUsers extends Model
 {
     /**
+     * @description The ID of the convenience user whose password failed to be reset.
+     *
      * @example test123
      *
      * @var string
@@ -16,6 +18,8 @@ class failedUsers extends Model
     public $endUserId;
 
     /**
+     * @description The error code.
+     *
      * @example InvalidUsername
      *
      * @var string
@@ -23,6 +27,8 @@ class failedUsers extends Model
     public $errorCode;
 
     /**
+     * @description The error message.
+     *
      * @example test123 is an invalid username.
      *
      * @var string

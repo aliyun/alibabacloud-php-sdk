@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateUsersRequest extends Model
 {
     /**
+     * @description The initial password. If this parameter is left empty, an email for password reset is sent to the specified email address.
+     *
      * @example Test123****
      *
      * @var string
@@ -17,7 +19,7 @@ class CreateUsersRequest extends Model
     public $password;
 
     /**
-     * @description The remarks of the end user.
+     * @description Details of the convenience users.
      *
      * @example CreateUsers
      *

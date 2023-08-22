@@ -229,7 +229,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The mobile number of the end user.
+     * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
      *   *
      * @param CreateUsersRequest $request CreateUsersRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -265,7 +265,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The mobile number of the end user.
+     * Convenience users are dedicated Elastic Desktop Service (EDS) user accounts and are suitable for scenarios in which you do not need to connect to enterprise Active Directory (AD) systems. The information about a convenience user includes the username, email address, and mobile number. You must specify the username or email address.
      *   *
      * @param CreateUsersRequest $request CreateUsersRequest
      *
@@ -341,6 +341,9 @@ class Edsuser extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adDomain)) {
+            $query['AdDomain'] = $request->adDomain;
+        }
         if (!Utils::isUnset($request->endUserIds)) {
             $query['EndUserIds'] = $request->endUserIds;
         }
@@ -609,6 +612,9 @@ class Edsuser extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adDomain)) {
+            $query['AdDomain'] = $request->adDomain;
+        }
         if (!Utils::isUnset($request->serialNumber)) {
             $query['SerialNumber'] = $request->serialNumber;
         }
@@ -779,6 +785,9 @@ class Edsuser extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adDomain)) {
+            $query['AdDomain'] = $request->adDomain;
+        }
         if (!Utils::isUnset($request->serialNumber)) {
             $query['SerialNumber'] = $request->serialNumber;
         }
@@ -1043,6 +1052,9 @@ class Edsuser extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->adDomain)) {
+            $query['AdDomain'] = $request->adDomain;
+        }
         if (!Utils::isUnset($request->serialNumber)) {
             $query['SerialNumber'] = $request->serialNumber;
         }

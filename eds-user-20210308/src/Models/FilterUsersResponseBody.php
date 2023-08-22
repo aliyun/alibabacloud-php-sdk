@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class FilterUsersResponseBody extends Model
 {
     /**
-     * @description The token that is used to query the next page. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to perform the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to start the next query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -19,7 +19,7 @@ class FilterUsersResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DBD276B5-00FF-5E04-8EF7-5CBA09BF112A
      *

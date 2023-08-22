@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertyKeyValueFilterParam extends Model
 {
     /**
-     * @description The name of the property.
+     * @description The property name.
      *
      * @example job
      *
@@ -18,7 +18,7 @@ class propertyKeyValueFilterParam extends Model
     public $propertyKey;
 
     /**
-     * @description The values of the property.
+     * @description The property values.
      *
      * @example dev
      *

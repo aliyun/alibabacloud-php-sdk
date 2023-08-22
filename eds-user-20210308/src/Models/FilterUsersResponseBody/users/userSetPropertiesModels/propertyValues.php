@@ -18,7 +18,7 @@ class propertyValues extends Model
     public $propertyValue;
 
     /**
-     * @description The ID of the property value.
+     * @description The property value ID.
      *
      * @example 42
      *

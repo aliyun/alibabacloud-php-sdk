@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UnlockMfaDeviceRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $adDomain;
+
+    /**
      * @example dc856334-446b-4035-bfbc-18af261e****
      *
      * @var string
      */
     public $serialNumber;
     protected $_name = [
+        'adDomain'     => 'AdDomain',
         'serialNumber' => 'SerialNumber',
     ];
 
@@ -25,6 +31,9 @@ class UnlockMfaDeviceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adDomain) {
+            $res['AdDomain'] = $this->adDomain;
+        }
         if (null !== $this->serialNumber) {
             $res['SerialNumber'] = $this->serialNumber;
         }
@@ -40,6 +49,9 @@ class UnlockMfaDeviceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdDomain'])) {
+            $model->adDomain = $map['AdDomain'];
+        }
         if (isset($map['SerialNumber'])) {
             $model->serialNumber = $map['SerialNumber'];
         }

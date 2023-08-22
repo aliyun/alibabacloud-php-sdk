@@ -24,6 +24,8 @@ class DescribeUsersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details of the convenience users.
+     *
      * @var users[]
      */
     public $users;

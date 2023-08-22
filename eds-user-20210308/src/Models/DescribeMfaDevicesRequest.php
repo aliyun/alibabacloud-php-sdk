@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeMfaDevicesRequest extends Model
 {
     /**
-     * @description This parameter is unavailable.
+     * @var string
+     */
+    public $adDomain;
+
+    /**
+     * @description The list of username of convenience users.
      *
      * @example test
      *
@@ -18,8 +23,9 @@ class DescribeMfaDevicesRequest extends Model
     public $endUserIds;
 
     /**
-     * @description The list of username of convenience users.
+     * @description The maximum number of entries to return. Valid values: 1 to 500.
      *
+     * Default value: 100.
      * @example 100
      *
      * @var int
@@ -27,7 +33,7 @@ class DescribeMfaDevicesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The time when the virtual MFA device was enabled. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The query token. Set the value to the NextToken value returned in the last call.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -36,7 +42,7 @@ class DescribeMfaDevicesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The time when a locked virtual MFA device is automatically unlocked. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The list of serial numbers of the virtual MFA devices.
      *
      * @example c2d9ae94-a64b-4a0d-8024-9519ca50****
      *
@@ -44,6 +50,7 @@ class DescribeMfaDevicesRequest extends Model
      */
     public $serialNumbers;
     protected $_name = [
+        'adDomain'      => 'AdDomain',
         'endUserIds'    => 'EndUserIds',
         'maxResults'    => 'MaxResults',
         'nextToken'     => 'NextToken',
@@ -57,6 +64,9 @@ class DescribeMfaDevicesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->adDomain) {
+            $res['AdDomain'] = $this->adDomain;
+        }
         if (null !== $this->endUserIds) {
             $res['EndUserIds'] = $this->endUserIds;
         }
@@ -81,6 +91,9 @@ class DescribeMfaDevicesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AdDomain'])) {
+            $model->adDomain = $map['AdDomain'];
+        }
         if (isset($map['EndUserIds'])) {
             if (!empty($map['EndUserIds'])) {
                 $model->endUserIds = $map['EndUserIds'];

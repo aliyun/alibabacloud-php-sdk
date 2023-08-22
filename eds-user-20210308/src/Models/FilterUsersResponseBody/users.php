@@ -29,7 +29,7 @@ class users extends Model
     public $desktopGroupCount;
 
     /**
-     * @description The email address of the user.
+     * @description The email address.
      *
      * @example testName@example.com
      *
@@ -38,6 +38,17 @@ class users extends Model
     public $email;
 
     /**
+     * @description Indicates whether the user is a local administrator.
+     *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -45,7 +56,7 @@ class users extends Model
     public $enableAdminAccess;
 
     /**
-     * @description The name of the user.
+     * @description The username.
      *
      * @example testName
      *
@@ -61,7 +72,7 @@ class users extends Model
     public $externalInfo;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example 12345
      *
@@ -70,8 +81,17 @@ class users extends Model
     public $id;
 
     /**
-     * @description Specifies whether the user is a tenant administrator.
+     * @description Indicates whether the user is a tenant administrator.
      *
+     * Valid values:
+     *
+     *   true
+     *
+     * <!-- -->
+     *
+     *   false
+     *
+     * <!-- -->
      * @example true
      *
      * @var bool
@@ -81,6 +101,15 @@ class users extends Model
     /**
      * @description The type of the account ownership.
      *
+     * Valid values:
+     *
+     *   CreateFromManager
+     *
+     * <!-- -->
+     *
+     *   Normal
+     *
+     * <!-- -->
      * @example Normal
      *
      * @var string
@@ -88,7 +117,7 @@ class users extends Model
     public $ownerType;
 
     /**
-     * @description The mobile number of the user.
+     * @description The mobile number.
      *
      * @example 1381111****
      *
@@ -97,7 +126,7 @@ class users extends Model
     public $phone;
 
     /**
-     * @description The remarks of the user.
+     * @description The remarks.
      *
      * @example 1
      *
@@ -106,8 +135,17 @@ class users extends Model
     public $remark;
 
     /**
-     * @description The status of the user.
+     * @description The user status.
      *
+     * Valid values:
+     *
+     *   0: The user status is normal.
+     *
+     * <!-- -->
+     *
+     *   9: The user is locked.
+     *
+     * <!-- -->
      * @example 0
      *
      * @var int
@@ -115,7 +153,7 @@ class users extends Model
     public $status;
 
     /**
-     * @description Details of the user properties.
+     * @description Details of the properties.
      *
      * @var userSetPropertiesModels[]
      */

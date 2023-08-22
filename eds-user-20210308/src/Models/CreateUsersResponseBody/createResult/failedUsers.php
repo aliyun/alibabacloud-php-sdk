@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class failedUsers extends Model
 {
     /**
+     * @description The email address of the end user.
+     *
      * @example username2@example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class failedUsers extends Model
     public $email;
 
     /**
+     * @description The name of the end user.
+     *
      * @example test2
      *
      * @var string
@@ -23,6 +27,8 @@ class failedUsers extends Model
     public $endUserId;
 
     /**
+     * @description The error code returned if the request failed.
+     *
      * @example ExistedEndUserId
      *
      * @var string
@@ -30,6 +36,8 @@ class failedUsers extends Model
     public $errorCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example The username test is used by another user.
      *
      * @var string
@@ -37,6 +45,8 @@ class failedUsers extends Model
     public $errorMessage;
 
     /**
+     * @description The mobile number of the end user.
+     *
      * @example 1390000****
      *
      * @var string

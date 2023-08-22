@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class users extends Model
 {
     /**
-     * @description The name of the end user.
+     * @description The email address of the end user. The email address is used to receive notifications about events such as desktop assignment. You must specify an email address or a mobile number to receive notifications.
      *
      * @example username@example.com
      *
@@ -18,7 +18,7 @@ class users extends Model
     public $email;
 
     /**
-     * @description Details of the convenience user that failed to be created.
+     * @description The name of the end user. The name must be 3 to 24 characters in length, and can contain lowercase letters, digits, and underscores (\_).
      *
      * @example test1
      *
@@ -27,7 +27,7 @@ class users extends Model
     public $endUserId;
 
     /**
-     * @description The error message returned.
+     * @description The organization to which the end user belongs.
      *
      * @example 1111****
      *
@@ -36,7 +36,7 @@ class users extends Model
     public $orgId;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The type of the account ownership.
      *
      * @example Normal
      *
@@ -45,7 +45,7 @@ class users extends Model
     public $ownerType;
 
     /**
-     * @description The mobile number of the end user.
+     * @description The password of the end user.
      *
      * @example password1
      *
@@ -54,7 +54,7 @@ class users extends Model
     public $password;
 
     /**
-     * @description The email address of the end user.
+     * @description Mobile numbers are not supported on the international site (alibabacloud.com).
      *
      * @example 1381111****
      *
@@ -63,6 +63,8 @@ class users extends Model
     public $phone;
 
     /**
+     * @description The remarks of the end user.
+     *
      * @example remark1
      *
      * @var string

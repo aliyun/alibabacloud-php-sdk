@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ResetUserPasswordResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 32D05B39-E6EE-4D7A-9FD0-762A26859D0D
      *
      * @var string
@@ -17,6 +19,8 @@ class ResetUserPasswordResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of resetting the password of the convenience user.
+     *
      * @var resetUsersResult
      */
     public $resetUsersResult;

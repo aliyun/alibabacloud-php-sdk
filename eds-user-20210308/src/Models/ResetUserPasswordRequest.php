@@ -9,6 +9,21 @@ use AlibabaCloud\Tea\Model;
 class ResetUserPasswordRequest extends Model
 {
     /**
+     * @description The method to notify the user after the password is reset.
+     *
+     * Valid values:
+     *
+     *   1
+     *
+     * <!-- -->
+     *
+     *   2
+     *
+     * <!-- -->
+     *
+     *   3
+     *
+     * <!-- -->
      * @example 1
      *
      * @var int
@@ -16,6 +31,8 @@ class ResetUserPasswordRequest extends Model
     public $notifyType;
 
     /**
+     * @description The names of the convenience users whose passwords you want to reset.
+     *
      * @example test1
      *
      * @var string[]

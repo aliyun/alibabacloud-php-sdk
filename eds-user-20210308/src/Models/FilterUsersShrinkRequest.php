@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class FilterUsersShrinkRequest extends Model
 {
     /**
-     * @description The IDs of excluded users.
+     * @description The list of usernames to be precisely excluded.
      *
      * @var string[]
      */
     public $excludeEndUserIds;
 
     /**
-     * @description The string that you enter for a fuzzy search. You can enter a string to match the username or email address.
+     * @description The string that is used for fuzzy search. You can use usernames and email addresses to perform fuzzy search. Wildcard characters (\*) are supported for this parameter. For example, if you set this parameter to a\*m, the usernames or an email addresses that start with a or end with m are returned.
      *
      * @example test
      *
@@ -45,7 +45,7 @@ class FilterUsersShrinkRequest extends Model
     public $includeDesktopGroupCount;
 
     /**
-     * @description The number of entries to return on each page. If you set this parameter to a value greater than 100, the system resets the value to 100.
+     * @description The number of entries per page. If you set this parameter to a value greater than 100, the system resets the value to 100.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class FilterUsersShrinkRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that determines the start point of the query. You do not need to configure this parameter if you call this operation for the first time. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to perform the next query.
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If not all results are returned in a query, a value is returned for the NextToken parameter. In this case, you can use the returned NextToken value to start the next query.
      *
      * @example caeba0bbb2be03f84eb48b699f0a4883
      *
@@ -63,7 +63,7 @@ class FilterUsersShrinkRequest extends Model
     public $nextToken;
 
     /**
-     * @description The parameter that is supported to sort query results.
+     * @description The parameter that supports to sort query results.
      *
      * @var string
      */
@@ -88,14 +88,14 @@ class FilterUsersShrinkRequest extends Model
     public $ownerType;
 
     /**
-     * @description Details of the user property that you want to perform fuzzy search.
+     * @description The list of properties for fuzzy search.
      *
      * @var propertyFilterParam[]
      */
     public $propertyFilterParam;
 
     /**
-     * @description Details of the properties and property values.
+     * @description The list of property names and property values.
      *
      * @var propertyKeyValueFilterParam[]
      */
