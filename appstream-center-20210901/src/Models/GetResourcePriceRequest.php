@@ -16,6 +16,13 @@ class GetResourcePriceRequest extends Model
     public $amount;
 
     /**
+     * @example appstreaming.general
+     *
+     * @var string
+     */
+    public $appInstanceType;
+
+    /**
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +63,7 @@ class GetResourcePriceRequest extends Model
     public $productType;
     protected $_name = [
         'amount'           => 'Amount',
+        'appInstanceType'  => 'AppInstanceType',
         'bizRegionId'      => 'BizRegionId',
         'chargeType'       => 'ChargeType',
         'nodeInstanceType' => 'NodeInstanceType',
@@ -73,6 +81,9 @@ class GetResourcePriceRequest extends Model
         $res = [];
         if (null !== $this->amount) {
             $res['Amount'] = $this->amount;
+        }
+        if (null !== $this->appInstanceType) {
+            $res['AppInstanceType'] = $this->appInstanceType;
         }
         if (null !== $this->bizRegionId) {
             $res['BizRegionId'] = $this->bizRegionId;
@@ -106,6 +117,9 @@ class GetResourcePriceRequest extends Model
         $model = new self();
         if (isset($map['Amount'])) {
             $model->amount = $map['Amount'];
+        }
+        if (isset($map['AppInstanceType'])) {
+            $model->appInstanceType = $map['AppInstanceType'];
         }
         if (isset($map['BizRegionId'])) {
             $model->bizRegionId = $map['BizRegionId'];

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class securityPolicy extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $resetAfterUnbind;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipUserAuthCheck;

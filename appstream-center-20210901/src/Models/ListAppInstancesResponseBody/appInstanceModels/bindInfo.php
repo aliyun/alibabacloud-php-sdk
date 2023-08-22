@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class bindInfo extends Model
 {
     /**
+     * @example app.test
+     *
      * @var string
      */
     public $endUserId;
 
     /**
+     * @example 2000
+     *
      * @var int
      */
     public $usageDuration;

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\network;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\nodePool;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\securityPolicy;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\ModifyAppInstanceGroupAttributeRequest\storagePolicy;
@@ -24,9 +25,24 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
     public $appInstanceGroupName;
 
     /**
+     * @var network
+     */
+    public $network;
+
+    /**
      * @var nodePool
      */
     public $nodePool;
+
+    /**
+     * @var string
+     */
+    public $preOpenAppId;
+
+    /**
+     * @var string
+     */
+    public $preOpenMode;
 
     /**
      * @example CloudApp
@@ -54,7 +70,10 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
     protected $_name = [
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
+        'network'              => 'Network',
         'nodePool'             => 'NodePool',
+        'preOpenAppId'         => 'PreOpenAppId',
+        'preOpenMode'          => 'PreOpenMode',
         'productType'          => 'ProductType',
         'securityPolicy'       => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
@@ -74,8 +93,17 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
         if (null !== $this->appInstanceGroupName) {
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
         }
+        if (null !== $this->network) {
+            $res['Network'] = null !== $this->network ? $this->network->toMap() : null;
+        }
         if (null !== $this->nodePool) {
             $res['NodePool'] = null !== $this->nodePool ? $this->nodePool->toMap() : null;
+        }
+        if (null !== $this->preOpenAppId) {
+            $res['PreOpenAppId'] = $this->preOpenAppId;
+        }
+        if (null !== $this->preOpenMode) {
+            $res['PreOpenMode'] = $this->preOpenMode;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
@@ -107,8 +135,17 @@ class ModifyAppInstanceGroupAttributeRequest extends Model
         if (isset($map['AppInstanceGroupName'])) {
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
         }
+        if (isset($map['Network'])) {
+            $model->network = network::fromMap($map['Network']);
+        }
         if (isset($map['NodePool'])) {
             $model->nodePool = nodePool::fromMap($map['NodePool']);
+        }
+        if (isset($map['PreOpenAppId'])) {
+            $model->preOpenAppId = $map['PreOpenAppId'];
+        }
+        if (isset($map['PreOpenMode'])) {
+            $model->preOpenMode = $map['PreOpenMode'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];

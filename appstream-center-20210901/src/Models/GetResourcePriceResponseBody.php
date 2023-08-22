@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceList;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\GetResourcePriceResponseBody\priceModel;
 use AlibabaCloud\Tea\Model;
 
@@ -24,6 +25,11 @@ class GetResourcePriceResponseBody extends Model
     public $message;
 
     /**
+     * @var priceList[]
+     */
+    public $priceList;
+
+    /**
      * @var priceModel
      */
     public $priceModel;
@@ -37,6 +43,7 @@ class GetResourcePriceResponseBody extends Model
     protected $_name = [
         'code'       => 'Code',
         'message'    => 'Message',
+        'priceList'  => 'PriceList',
         'priceModel' => 'PriceModel',
         'requestId'  => 'RequestId',
     ];
@@ -53,6 +60,15 @@ class GetResourcePriceResponseBody extends Model
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->priceList) {
+            $res['PriceList'] = [];
+            if (null !== $this->priceList && \is_array($this->priceList)) {
+                $n = 0;
+                foreach ($this->priceList as $item) {
+                    $res['PriceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->priceModel) {
             $res['PriceModel'] = null !== $this->priceModel ? $this->priceModel->toMap() : null;
@@ -77,6 +93,15 @@ class GetResourcePriceResponseBody extends Model
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['PriceList'])) {
+            if (!empty($map['PriceList'])) {
+                $model->priceList = [];
+                $n                = 0;
+                foreach ($map['PriceList'] as $item) {
+                    $model->priceList[$n++] = null !== $item ? priceList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['PriceModel'])) {
             $model->priceModel = priceModel::fromMap($map['PriceModel']);

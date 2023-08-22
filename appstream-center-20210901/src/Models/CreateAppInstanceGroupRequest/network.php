@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest;
 
+use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network\domainRules;
 use AlibabaCloud\SDK\Appstreamcenter\V20210901\Models\CreateAppInstanceGroupRequest\network\routes;
 use AlibabaCloud\Tea\Model;
 
 class network extends Model
 {
+    /**
+     * @var domainRules[]
+     */
+    public $domainRules;
+
     /**
      * @example 60
      *
@@ -28,6 +34,7 @@ class network extends Model
      */
     public $strategyType;
     protected $_name = [
+        'domainRules'     => 'DomainRules',
         'ipExpireMinutes' => 'IpExpireMinutes',
         'routes'          => 'Routes',
         'strategyType'    => 'StrategyType',
@@ -40,6 +47,15 @@ class network extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->domainRules) {
+            $res['DomainRules'] = [];
+            if (null !== $this->domainRules && \is_array($this->domainRules)) {
+                $n = 0;
+                foreach ($this->domainRules as $item) {
+                    $res['DomainRules'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->ipExpireMinutes) {
             $res['IpExpireMinutes'] = $this->ipExpireMinutes;
         }
@@ -67,6 +83,15 @@ class network extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DomainRules'])) {
+            if (!empty($map['DomainRules'])) {
+                $model->domainRules = [];
+                $n                  = 0;
+                foreach ($map['DomainRules'] as $item) {
+                    $model->domainRules[$n++] = null !== $item ? domainRules::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['IpExpireMinutes'])) {
             $model->ipExpireMinutes = $map['IpExpireMinutes'];
         }

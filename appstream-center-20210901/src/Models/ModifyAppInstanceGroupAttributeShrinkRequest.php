@@ -23,7 +23,22 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
     /**
      * @var string
      */
+    public $networkShrink;
+
+    /**
+     * @var string
+     */
     public $nodePoolShrink;
+
+    /**
+     * @var string
+     */
+    public $preOpenAppId;
+
+    /**
+     * @var string
+     */
+    public $preOpenMode;
 
     /**
      * @example CloudApp
@@ -51,7 +66,10 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
     protected $_name = [
         'appInstanceGroupId'   => 'AppInstanceGroupId',
         'appInstanceGroupName' => 'AppInstanceGroupName',
+        'networkShrink'        => 'Network',
         'nodePoolShrink'       => 'NodePool',
+        'preOpenAppId'         => 'PreOpenAppId',
+        'preOpenMode'          => 'PreOpenMode',
         'productType'          => 'ProductType',
         'securityPolicyShrink' => 'SecurityPolicy',
         'sessionTimeout'       => 'SessionTimeout',
@@ -71,8 +89,17 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         if (null !== $this->appInstanceGroupName) {
             $res['AppInstanceGroupName'] = $this->appInstanceGroupName;
         }
+        if (null !== $this->networkShrink) {
+            $res['Network'] = $this->networkShrink;
+        }
         if (null !== $this->nodePoolShrink) {
             $res['NodePool'] = $this->nodePoolShrink;
+        }
+        if (null !== $this->preOpenAppId) {
+            $res['PreOpenAppId'] = $this->preOpenAppId;
+        }
+        if (null !== $this->preOpenMode) {
+            $res['PreOpenMode'] = $this->preOpenMode;
         }
         if (null !== $this->productType) {
             $res['ProductType'] = $this->productType;
@@ -104,8 +131,17 @@ class ModifyAppInstanceGroupAttributeShrinkRequest extends Model
         if (isset($map['AppInstanceGroupName'])) {
             $model->appInstanceGroupName = $map['AppInstanceGroupName'];
         }
+        if (isset($map['Network'])) {
+            $model->networkShrink = $map['Network'];
+        }
         if (isset($map['NodePool'])) {
             $model->nodePoolShrink = $map['NodePool'];
+        }
+        if (isset($map['PreOpenAppId'])) {
+            $model->preOpenAppId = $map['PreOpenAppId'];
+        }
+        if (isset($map['PreOpenMode'])) {
+            $model->preOpenMode = $map['PreOpenMode'];
         }
         if (isset($map['ProductType'])) {
             $model->productType = $map['ProductType'];

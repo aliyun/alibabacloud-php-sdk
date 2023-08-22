@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class appInstanceGroupModels extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $amount;
@@ -87,6 +89,20 @@ class appInstanceGroupModels extends Model
     public $gmtCreate;
 
     /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $maxAmount;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $minAmount;
+
+    /**
      * @var nodePool[]
      */
     public $nodePool;
@@ -118,11 +134,53 @@ class appInstanceGroupModels extends Model
     public $regionId;
 
     /**
+     * @example 20
+     *
+     * @var string
+     */
+    public $reserveAmountRatio;
+
+    /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $reserveMaxAmount;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $reserveMinAmount;
+
+    /**
      * @example AVAILABLE
      *
      * @var string
      */
     public $resourceStatus;
+
+    /**
+     * @example 5
+     *
+     * @var int
+     */
+    public $scalingDownAfterIdleMinutes;
+
+    /**
+     * @example 10
+     *
+     * @var int
+     */
+    public $scalingStep;
+
+    /**
+     * @example 85
+     *
+     * @var string
+     */
+    public $scalingUsageThreshold;
 
     /**
      * @example 15
@@ -132,6 +190,8 @@ class appInstanceGroupModels extends Model
     public $sessionTimeout;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipUserAuthCheck;
@@ -150,27 +210,35 @@ class appInstanceGroupModels extends Model
      */
     public $status;
     protected $_name = [
-        'amount'               => 'Amount',
-        'appCenterImageId'     => 'AppCenterImageId',
-        'appInstanceGroupId'   => 'AppInstanceGroupId',
-        'appInstanceGroupName' => 'AppInstanceGroupName',
-        'appInstanceType'      => 'AppInstanceType',
-        'appPolicyId'          => 'AppPolicyId',
-        'apps'                 => 'Apps',
-        'chargeResourceMode'   => 'ChargeResourceMode',
-        'chargeType'           => 'ChargeType',
-        'expiredTime'          => 'ExpiredTime',
-        'gmtCreate'            => 'GmtCreate',
-        'nodePool'             => 'NodePool',
-        'osType'               => 'OsType',
-        'otaInfo'              => 'OtaInfo',
-        'productType'          => 'ProductType',
-        'regionId'             => 'RegionId',
-        'resourceStatus'       => 'ResourceStatus',
-        'sessionTimeout'       => 'SessionTimeout',
-        'skipUserAuthCheck'    => 'SkipUserAuthCheck',
-        'specId'               => 'SpecId',
-        'status'               => 'Status',
+        'amount'                      => 'Amount',
+        'appCenterImageId'            => 'AppCenterImageId',
+        'appInstanceGroupId'          => 'AppInstanceGroupId',
+        'appInstanceGroupName'        => 'AppInstanceGroupName',
+        'appInstanceType'             => 'AppInstanceType',
+        'appPolicyId'                 => 'AppPolicyId',
+        'apps'                        => 'Apps',
+        'chargeResourceMode'          => 'ChargeResourceMode',
+        'chargeType'                  => 'ChargeType',
+        'expiredTime'                 => 'ExpiredTime',
+        'gmtCreate'                   => 'GmtCreate',
+        'maxAmount'                   => 'MaxAmount',
+        'minAmount'                   => 'MinAmount',
+        'nodePool'                    => 'NodePool',
+        'osType'                      => 'OsType',
+        'otaInfo'                     => 'OtaInfo',
+        'productType'                 => 'ProductType',
+        'regionId'                    => 'RegionId',
+        'reserveAmountRatio'          => 'ReserveAmountRatio',
+        'reserveMaxAmount'            => 'ReserveMaxAmount',
+        'reserveMinAmount'            => 'ReserveMinAmount',
+        'resourceStatus'              => 'ResourceStatus',
+        'scalingDownAfterIdleMinutes' => 'ScalingDownAfterIdleMinutes',
+        'scalingStep'                 => 'ScalingStep',
+        'scalingUsageThreshold'       => 'ScalingUsageThreshold',
+        'sessionTimeout'              => 'SessionTimeout',
+        'skipUserAuthCheck'           => 'SkipUserAuthCheck',
+        'specId'                      => 'SpecId',
+        'status'                      => 'Status',
     ];
 
     public function validate()
@@ -219,6 +287,12 @@ class appInstanceGroupModels extends Model
         if (null !== $this->gmtCreate) {
             $res['GmtCreate'] = $this->gmtCreate;
         }
+        if (null !== $this->maxAmount) {
+            $res['MaxAmount'] = $this->maxAmount;
+        }
+        if (null !== $this->minAmount) {
+            $res['MinAmount'] = $this->minAmount;
+        }
         if (null !== $this->nodePool) {
             $res['NodePool'] = [];
             if (null !== $this->nodePool && \is_array($this->nodePool)) {
@@ -240,8 +314,26 @@ class appInstanceGroupModels extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
+        if (null !== $this->reserveAmountRatio) {
+            $res['ReserveAmountRatio'] = $this->reserveAmountRatio;
+        }
+        if (null !== $this->reserveMaxAmount) {
+            $res['ReserveMaxAmount'] = $this->reserveMaxAmount;
+        }
+        if (null !== $this->reserveMinAmount) {
+            $res['ReserveMinAmount'] = $this->reserveMinAmount;
+        }
         if (null !== $this->resourceStatus) {
             $res['ResourceStatus'] = $this->resourceStatus;
+        }
+        if (null !== $this->scalingDownAfterIdleMinutes) {
+            $res['ScalingDownAfterIdleMinutes'] = $this->scalingDownAfterIdleMinutes;
+        }
+        if (null !== $this->scalingStep) {
+            $res['ScalingStep'] = $this->scalingStep;
+        }
+        if (null !== $this->scalingUsageThreshold) {
+            $res['ScalingUsageThreshold'] = $this->scalingUsageThreshold;
         }
         if (null !== $this->sessionTimeout) {
             $res['SessionTimeout'] = $this->sessionTimeout;
@@ -306,6 +398,12 @@ class appInstanceGroupModels extends Model
         if (isset($map['GmtCreate'])) {
             $model->gmtCreate = $map['GmtCreate'];
         }
+        if (isset($map['MaxAmount'])) {
+            $model->maxAmount = $map['MaxAmount'];
+        }
+        if (isset($map['MinAmount'])) {
+            $model->minAmount = $map['MinAmount'];
+        }
         if (isset($map['NodePool'])) {
             if (!empty($map['NodePool'])) {
                 $model->nodePool = [];
@@ -327,8 +425,26 @@ class appInstanceGroupModels extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
+        if (isset($map['ReserveAmountRatio'])) {
+            $model->reserveAmountRatio = $map['ReserveAmountRatio'];
+        }
+        if (isset($map['ReserveMaxAmount'])) {
+            $model->reserveMaxAmount = $map['ReserveMaxAmount'];
+        }
+        if (isset($map['ReserveMinAmount'])) {
+            $model->reserveMinAmount = $map['ReserveMinAmount'];
+        }
         if (isset($map['ResourceStatus'])) {
             $model->resourceStatus = $map['ResourceStatus'];
+        }
+        if (isset($map['ScalingDownAfterIdleMinutes'])) {
+            $model->scalingDownAfterIdleMinutes = $map['ScalingDownAfterIdleMinutes'];
+        }
+        if (isset($map['ScalingStep'])) {
+            $model->scalingStep = $map['ScalingStep'];
+        }
+        if (isset($map['ScalingUsageThreshold'])) {
+            $model->scalingUsageThreshold = $map['ScalingUsageThreshold'];
         }
         if (isset($map['SessionTimeout'])) {
             $model->sessionTimeout = $map['SessionTimeout'];

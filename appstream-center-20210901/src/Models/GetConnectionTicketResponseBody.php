@@ -58,6 +58,11 @@ class GetConnectionTicketResponseBody extends Model
     public $taskStatus;
 
     /**
+     * @var int
+     */
+    public $tenantId;
+
+    /**
      * @example DQpbRGVza3RvcF0NCkZvcmNlVGxzVHlwZT0xDQpHV1Rva2VuUGFydDE9MDAva09ROW1FUTU3dU****
      *
      * @var string
@@ -71,6 +76,7 @@ class GetConnectionTicketResponseBody extends Model
         'requestId'          => 'RequestId',
         'taskId'             => 'TaskId',
         'taskStatus'         => 'TaskStatus',
+        'tenantId'           => 'TenantId',
         'ticket'             => 'Ticket',
     ];
 
@@ -101,6 +107,9 @@ class GetConnectionTicketResponseBody extends Model
         }
         if (null !== $this->taskStatus) {
             $res['TaskStatus'] = $this->taskStatus;
+        }
+        if (null !== $this->tenantId) {
+            $res['TenantId'] = $this->tenantId;
         }
         if (null !== $this->ticket) {
             $res['Ticket'] = $this->ticket;
@@ -137,6 +146,9 @@ class GetConnectionTicketResponseBody extends Model
         }
         if (isset($map['TaskStatus'])) {
             $model->taskStatus = $map['TaskStatus'];
+        }
+        if (isset($map['TenantId'])) {
+            $model->tenantId = $map['TenantId'];
         }
         if (isset($map['Ticket'])) {
             $model->ticket = $map['Ticket'];

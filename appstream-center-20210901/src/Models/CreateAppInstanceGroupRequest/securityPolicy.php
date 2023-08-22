@@ -16,6 +16,8 @@ class securityPolicy extends Model
     public $resetAfterUnbind;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $skipUserAuthCheck;

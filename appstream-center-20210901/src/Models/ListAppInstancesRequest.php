@@ -28,6 +28,8 @@ class ListAppInstancesRequest extends Model
     public $appInstanceIdList;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $includeDeleted;

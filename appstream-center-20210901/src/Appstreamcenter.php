@@ -732,6 +732,9 @@ class Appstreamcenter extends OpenApiClient
         if (!Utils::isUnset($request->amount)) {
             $query['Amount'] = $request->amount;
         }
+        if (!Utils::isUnset($request->appInstanceType)) {
+            $query['AppInstanceType'] = $request->appInstanceType;
+        }
         if (!Utils::isUnset($request->bizRegionId)) {
             $query['BizRegionId'] = $request->bizRegionId;
         }
@@ -1200,6 +1203,9 @@ class Appstreamcenter extends OpenApiClient
         Utils::validateModel($tmpReq);
         $request = new ModifyAppInstanceGroupAttributeShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->network)) {
+            $request->networkShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->network, 'Network', 'json');
+        }
         if (!Utils::isUnset($tmpReq->nodePool)) {
             $request->nodePoolShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodePool, 'NodePool', 'json');
         }
@@ -1226,6 +1232,15 @@ class Appstreamcenter extends OpenApiClient
             $query['SessionTimeout'] = $request->sessionTimeout;
         }
         $body = [];
+        if (!Utils::isUnset($request->networkShrink)) {
+            $body['Network'] = $request->networkShrink;
+        }
+        if (!Utils::isUnset($request->preOpenAppId)) {
+            $body['PreOpenAppId'] = $request->preOpenAppId;
+        }
+        if (!Utils::isUnset($request->preOpenMode)) {
+            $body['PreOpenMode'] = $request->preOpenMode;
+        }
         if (!Utils::isUnset($request->securityPolicyShrink)) {
             $body['SecurityPolicy'] = $request->securityPolicyShrink;
         }
