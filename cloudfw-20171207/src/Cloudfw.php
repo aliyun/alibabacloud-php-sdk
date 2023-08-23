@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\AddInstanceMembersResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\BatchCopyVpcFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Request;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2Response;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\CreateTrFirewallV2RoutePolicyRequest;
@@ -33,6 +35,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesReque
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteFirewallV2RoutePoliciesResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteInstanceMembersResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteTrFirewallV2Request;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteTrFirewallV2Response;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DeleteVpcFirewallCenConfigureRequest;
@@ -57,6 +61,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendReques
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInternetTrafficTrendResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeInvadeEventListResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallControlPolicyResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeNatFirewallPolicyPriorUsedResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDestinationIPResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeOutgoingDomainRequest;
@@ -67,6 +75,8 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribePolicyPriorUsedResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventGroupResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeRiskEventPayloadResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallPolicyBackUpAssociationListResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\DescribeTrFirewallsV2DetailRequest;
@@ -111,6 +121,10 @@ use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchR
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyFirewallV2RoutePolicySwitchResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyInstanceMemberAttributesResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyPositionRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyPositionResponse;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyRequest;
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyNatFirewallControlPolicyResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigRequest;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyPolicyAdvancedConfigResponse;
 use AlibabaCloud\SDK\Cloudfw\V20171207\Models\ModifyTrFirewallV2ConfigurationRequest;
@@ -479,6 +493,100 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->batchCopyVpcFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNatFirewallControlPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return CreateNatFirewallControlPolicyResponse
+     */
+    public function createNatFirewallControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
+        }
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
+        }
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNatFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNatFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNatFirewallControlPolicyRequest $request
+     *
+     * @return CreateNatFirewallControlPolicyResponse
+     */
+    public function createNatFirewallControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNatFirewallControlPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1099,6 +1207,58 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteInstanceMembersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNatFirewallControlPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DeleteNatFirewallControlPolicyResponse
+     */
+    public function deleteNatFirewallControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNatFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNatFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNatFirewallControlPolicyRequest $request
+     *
+     * @return DeleteNatFirewallControlPolicyResponse
+     */
+    public function deleteNatFirewallControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNatFirewallControlPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1889,6 +2049,134 @@ class Cloudfw extends OpenApiClient
     }
 
     /**
+     * @param DescribeNatFirewallControlPolicyRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DescribeNatFirewallControlPolicyResponse
+     */
+    public function describeNatFirewallControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNatFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNatFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNatFirewallControlPolicyRequest $request
+     *
+     * @return DescribeNatFirewallControlPolicyResponse
+     */
+    public function describeNatFirewallControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNatFirewallPolicyPriorUsedRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return DescribeNatFirewallPolicyPriorUsedResponse
+     */
+    public function describeNatFirewallPolicyPriorUsedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->ipVersion)) {
+            $query['IpVersion'] = $request->ipVersion;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNatFirewallPolicyPriorUsed',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNatFirewallPolicyPriorUsedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNatFirewallPolicyPriorUsedRequest $request
+     *
+     * @return DescribeNatFirewallPolicyPriorUsedResponse
+     */
+    public function describeNatFirewallPolicyPriorUsed($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNatFirewallPolicyPriorUsedWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeOutgoingDestinationIPRequest $request
      * @param RuntimeOptions                       $runtime
      *
@@ -2275,6 +2563,73 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeRiskEventGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeRiskEventPayloadRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeRiskEventPayloadResponse
+     */
+    public function describeRiskEventPayloadWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dstIP)) {
+            $query['DstIP'] = $request->dstIP;
+        }
+        if (!Utils::isUnset($request->dstVpcId)) {
+            $query['DstVpcId'] = $request->dstVpcId;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->firewallType)) {
+            $query['FirewallType'] = $request->firewallType;
+        }
+        if (!Utils::isUnset($request->publicIP)) {
+            $query['PublicIP'] = $request->publicIP;
+        }
+        if (!Utils::isUnset($request->srcIP)) {
+            $query['SrcIP'] = $request->srcIP;
+        }
+        if (!Utils::isUnset($request->srcVpcId)) {
+            $query['SrcVpcId'] = $request->srcVpcId;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->UUID)) {
+            $query['UUID'] = $request->UUID;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeRiskEventPayload',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeRiskEventPayloadResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeRiskEventPayloadRequest $request
+     *
+     * @return DescribeRiskEventPayloadResponse
+     */
+    public function describeRiskEventPayload($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeRiskEventPayloadWithOptions($request, $runtime);
     }
 
     /**
@@ -3700,6 +4055,146 @@ class Cloudfw extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyInstanceMemberAttributesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyNatFirewallControlPolicyRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ModifyNatFirewallControlPolicyResponse
+     */
+    public function modifyNatFirewallControlPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclAction)) {
+            $query['AclAction'] = $request->aclAction;
+        }
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->applicationNameList)) {
+            $query['ApplicationNameList'] = $request->applicationNameList;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->destPort)) {
+            $query['DestPort'] = $request->destPort;
+        }
+        if (!Utils::isUnset($request->destPortGroup)) {
+            $query['DestPortGroup'] = $request->destPortGroup;
+        }
+        if (!Utils::isUnset($request->destPortType)) {
+            $query['DestPortType'] = $request->destPortType;
+        }
+        if (!Utils::isUnset($request->destination)) {
+            $query['Destination'] = $request->destination;
+        }
+        if (!Utils::isUnset($request->destinationType)) {
+            $query['DestinationType'] = $request->destinationType;
+        }
+        if (!Utils::isUnset($request->domainResolveType)) {
+            $query['DomainResolveType'] = $request->domainResolveType;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->proto)) {
+            $query['Proto'] = $request->proto;
+        }
+        if (!Utils::isUnset($request->release)) {
+            $query['Release'] = $request->release;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->sourceType)) {
+            $query['SourceType'] = $request->sourceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNatFirewallControlPolicy',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyNatFirewallControlPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyNatFirewallControlPolicyRequest $request
+     *
+     * @return ModifyNatFirewallControlPolicyResponse
+     */
+    public function modifyNatFirewallControlPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyNatFirewallControlPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyNatFirewallControlPolicyPositionRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return ModifyNatFirewallControlPolicyPositionResponse
+     */
+    public function modifyNatFirewallControlPolicyPositionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aclUuid)) {
+            $query['AclUuid'] = $request->aclUuid;
+        }
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->natGatewayId)) {
+            $query['NatGatewayId'] = $request->natGatewayId;
+        }
+        if (!Utils::isUnset($request->newOrder)) {
+            $query['NewOrder'] = $request->newOrder;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyNatFirewallControlPolicyPosition',
+            'version'     => '2017-12-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyNatFirewallControlPolicyPositionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyNatFirewallControlPolicyPositionRequest $request
+     *
+     * @return ModifyNatFirewallControlPolicyPositionResponse
+     */
+    public function modifyNatFirewallControlPolicyPosition($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyNatFirewallControlPolicyPositionWithOptions($request, $runtime);
     }
 
     /**
