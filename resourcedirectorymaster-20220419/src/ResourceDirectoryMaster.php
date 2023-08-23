@@ -41,8 +41,6 @@ use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteControlPolic
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteControlPolicyResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteFolderRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteFolderResponse;
-use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteInvalidCloudAccountRecordRequest;
-use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteInvalidCloudAccountRecordResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteMessageContactRequest;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeleteMessageContactResponse;
 use AlibabaCloud\SDK\ResourceDirectoryMaster\V20220419\Models\DeregisterDelegatedAdministratorRequest;
@@ -1028,49 +1026,6 @@ class ResourceDirectoryMaster extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteFolderWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DeleteInvalidCloudAccountRecordRequest $request
-     * @param RuntimeOptions                         $runtime
-     *
-     * @return DeleteInvalidCloudAccountRecordResponse
-     */
-    public function deleteInvalidCloudAccountRecordWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->recordId)) {
-            $query['RecordId'] = $request->recordId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DeleteInvalidCloudAccountRecord',
-            'version'     => '2022-04-19',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DeleteInvalidCloudAccountRecordResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DeleteInvalidCloudAccountRecordRequest $request
-     *
-     * @return DeleteInvalidCloudAccountRecordResponse
-     */
-    public function deleteInvalidCloudAccountRecord($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->deleteInvalidCloudAccountRecordWithOptions($request, $runtime);
     }
 
     /**
