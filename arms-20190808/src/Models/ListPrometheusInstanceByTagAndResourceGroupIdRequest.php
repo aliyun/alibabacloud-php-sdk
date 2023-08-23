@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusInstanceByTagAndResourceGroupIdRequest extends Model
 {
     /**
-     * @description code!=200
+     * @description The region ID of the Prometheus instance.
      *
      * @example cn-hangzhou
      *
@@ -19,7 +19,7 @@ class ListPrometheusInstanceByTagAndResourceGroupIdRequest extends Model
     public $regionId;
 
     /**
-     * @description http://arms.${regionId}.aliyun-inc.com:8099/prometheus/ListPrometheusInstanceByTagAndResourceGroupId.json
+     * @description The ID of the resource group.
      *
      * @example rg-acfmxyexli2****
      *
@@ -28,6 +28,8 @@ class ListPrometheusInstanceByTagAndResourceGroupIdRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

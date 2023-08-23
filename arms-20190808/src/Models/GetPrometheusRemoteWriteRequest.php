@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetPrometheusRemoteWriteRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
+     * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b\*\*\*\* or vpc-\*\*\*
      *
@@ -27,7 +27,7 @@ class GetPrometheusRemoteWriteRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the remote write configuration.
+     * @description The name of the remote write configuration item.
      *
      * @example rw1
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class prometheusInstances extends Model
 {
     /**
+     * @description The ID of the Prometheus instance.
+     *
      * @example c9d5dda1aeca64220853ace304baeb03d
      *
      * @var string
@@ -17,6 +19,8 @@ class prometheusInstances extends Model
     public $clusterId;
 
     /**
+     * @description The name of the Prometheus instance.
+     *
      * @example prom1
      *
      * @var string
@@ -24,6 +28,14 @@ class prometheusInstances extends Model
     public $clusterName;
 
     /**
+     * @description The type of the cluster. Valid values: remote-write: Prometheus instance for remote write.
+     *
+     *   ecs: Prometheus instances for ECS.
+     *   cloud-monitor: Prometheus instance for Alibaba Cloud services in the Chinese mainland.
+     *   cloud-product: Prometheus instance for Alibaba Cloud services outside China.
+     *   global-view: Prometheus instance for GlobalView.
+     *   aliyun-cs: Prometheus instance for Container Service.
+     *
      * @example ecs
      *
      * @var string
@@ -31,6 +43,8 @@ class prometheusInstances extends Model
     public $clusterType;
 
     /**
+     * @description The ID of the Grafana workspace.
+     *
      * @example grafana-rnggfvhlcdl6m71l**
      *
      * @var string
@@ -38,6 +52,11 @@ class prometheusInstances extends Model
     public $grafanaInstanceId;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   PREPAY: subscription.
+     *   POSTPAY: pay-as-you-go.
+     *
      * @example POSTPAY
      *
      * @var string
@@ -45,6 +64,8 @@ class prometheusInstances extends Model
     public $paymentType;
 
     /**
+     * @description The region ID of the Prometheus instance.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -52,6 +73,8 @@ class prometheusInstances extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the Prometheus instance belongs.
+     *
      * @example rg-acfmz7nocpeidcy
      *
      * @var string
@@ -68,6 +91,8 @@ class prometheusInstances extends Model
     public $resourceType;
 
     /**
+     * @description The ID of the security group.
+     *
      * @example sg-f8zd1toc10wmbi1v5rom
      *
      * @var string
@@ -75,16 +100,24 @@ class prometheusInstances extends Model
     public $securityGroupId;
 
     /**
+     * @description The child instances of the Prometheus instance for GlobalView instance. The value is a JSON string.
+     *
+     * @example \[ { "headers": {}, "regionId": "cn-hangzhou", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c39a1048921e04fceb039db2fb\*\*\*\*", "sourceName": "arms-luyao-test", "dataSource": "", "userId": "167275301789\*\*\*\*" }, { "headers": {}, "regionId": "cn-beijing", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c6b6485496d5b400abde22cb47b5\*\*\*\*", "sourceName": "agent-321-test", "dataSource": "", "userId": "167275301789\*\*\*\*" }, { "headers": {}, "regionId": "cn-zhangjiakou", "sourceType": "AlibabaPrometheus", "extras": {}, "clusterId": "c261a4f3200c446659133f1ade78\*\*\*\*", "sourceName": "zaifeng-cardinality-01", "dataSource": "", "userId": "167275301789\*\*\*\*" } ]
+     *
      * @var string
      */
     public $subClustersJson;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 1672753017899***
      *
      * @var string
@@ -92,6 +125,8 @@ class prometheusInstances extends Model
     public $userId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-f8z73vcja1tqnw90aav5a
      *
      * @var string
@@ -99,6 +134,8 @@ class prometheusInstances extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example vpc-8vbtp1fsm8mir18l8rl0u
      *
      * @var string

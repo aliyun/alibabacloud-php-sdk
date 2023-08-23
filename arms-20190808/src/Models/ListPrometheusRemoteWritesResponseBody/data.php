@@ -18,7 +18,7 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The name of the remote write configuration.
+     * @description The name of the remote write configuration item.
      *
      * @example abc123
      *
@@ -27,10 +27,10 @@ class data extends Model
     public $remoteWriteName;
 
     /**
-     * @description The remote write configuration. The configuration is displayed in the YAML format.
+     * @description The information about the queried remote write configuration item of the Prometheus instance. The information is displayed in the YAML format.
      *
-     * @example Please refer to the supplementary explanation of the request parameters.
-     *
+     * @example remote_write:
+     * action: keep
      * @var string
      */
     public $remoteWriteYaml;

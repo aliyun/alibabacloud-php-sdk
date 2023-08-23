@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddPrometheusIntegrationRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -18,7 +18,7 @@ class AddPrometheusIntegrationRequest extends Model
     public $clusterId;
 
     /**
-     * @description The integration type.
+     * @description The type of the integration.
      *
      * @example kafka, mysql, redis, snmp, emr, nubela, and tidb
      *

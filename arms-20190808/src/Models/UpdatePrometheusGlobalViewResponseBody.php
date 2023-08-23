@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusGlobalViewResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful.
+     * @description The response code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class UpdatePrometheusGlobalViewResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message returned if the Prometheus agent failed to be installed.
+     * @description The error message that is returned if the request failed.
      *
      * @example message
      *
@@ -35,7 +35,7 @@ class UpdatePrometheusGlobalViewResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     * @description The ID of the request. You can use the ID to query logs and troubleshoot issues.
      *
      * @example E9C9DA3D-10FE-472E-9EEF-2D0A3E41****
      *

@@ -44,6 +44,11 @@ class ListAlertsRequest extends Model
     public $page;
 
     /**
+     * @var string
+     */
+    public $regionId;
+
+    /**
      * @example P6
      *
      * @var string
@@ -90,6 +95,7 @@ class ListAlertsRequest extends Model
         'endTime'         => 'EndTime',
         'integrationType' => 'IntegrationType',
         'page'            => 'Page',
+        'regionId'        => 'RegionId',
         'severity'        => 'Severity',
         'showActivities'  => 'ShowActivities',
         'showEvents'      => 'ShowEvents',
@@ -119,6 +125,9 @@ class ListAlertsRequest extends Model
         }
         if (null !== $this->page) {
             $res['Page'] = $this->page;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->severity) {
             $res['Severity'] = $this->severity;
@@ -164,6 +173,9 @@ class ListAlertsRequest extends Model
         }
         if (isset($map['Page'])) {
             $model->page = $map['Page'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['Severity'])) {
             $model->severity = $map['Severity'];

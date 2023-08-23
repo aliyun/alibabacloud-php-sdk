@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class annotations extends Model
 {
     /**
+     * @description The key of the annotation.
+     *
      * @example 123
      *
      * @var string
@@ -16,6 +18,8 @@ class annotations extends Model
     public $name;
 
     /**
+     * @description The value of the annotation.
+     *
      * @example abc
      *
      * @var string

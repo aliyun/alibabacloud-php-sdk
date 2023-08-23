@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetManagedPrometheusStatusResponseBody extends Model
 {
     /**
+     * @description The status code or error code.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,13 @@ class GetManagedPrometheusStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The status of the Prometheus instance.
+     *
+     *   Installing: The Prometheus instance is created and the Prometheus agent has no registration information.
+     *   Succeed: The Prometheus instance is created and the Prometheus agent is registered.
+     *   Failure: The Prometheus instance failed to be created or the Prometheus agent failed to be registered.
+     *   Unknown: No status of the Prometheus instance is available.
+     *
      * @example Installing
      *
      * @var string
@@ -23,11 +32,17 @@ class GetManagedPrometheusStatusResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example F7781D4A-2818-41E7-B7BB-79D809E9****
      *
      * @var string
@@ -35,6 +50,11 @@ class GetManagedPrometheusStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool

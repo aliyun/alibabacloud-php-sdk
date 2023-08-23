@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetManagedPrometheusStatusRequest extends Model
 {
     /**
-     * @description __null__
+     * @description The ID of the ASK cluster. This parameter is required if the ClusterType parameter is set to ask.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -18,6 +18,8 @@ class GetManagedPrometheusStatusRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of the monitoring object. Valid values: ask and ecs.
+     *
      * @example ask
      *
      * @var string
@@ -25,7 +27,7 @@ class GetManagedPrometheusStatusRequest extends Model
     public $clusterType;
 
     /**
-     * @description code!=200
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -34,6 +36,8 @@ class GetManagedPrometheusStatusRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the Prometheus instance belongs.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -41,6 +45,8 @@ class GetManagedPrometheusStatusRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description This parameter is required if the ClusterType parameter is set to ecs.
+     *
      * @example vpc-***
      *
      * @var string

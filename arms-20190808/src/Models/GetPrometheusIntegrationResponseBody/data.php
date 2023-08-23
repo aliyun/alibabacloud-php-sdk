@@ -18,7 +18,7 @@ class data extends Model
     public $canDelete;
 
     /**
-     * @description Indicates whether the exporter can be edited.
+     * @description Indicates whether the exporter can be modified.
      *
      * @example true
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The name of the container.
+     * @description The container name.
      *
      * @example kafka-exporter-1
      *
@@ -81,7 +81,7 @@ class data extends Model
     public $instanceName;
 
     /**
-     * @description The integration type.
+     * @description The type of the integration.
      *
      * @example tidb
      *
@@ -153,7 +153,7 @@ class data extends Model
     public $target;
 
     /**
-     * @description The version number.
+     * @description The version information.
      *
      * @example 1.0.0
      *

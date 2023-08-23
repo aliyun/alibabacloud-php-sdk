@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class alertRuleContent extends Model
 {
     /**
+     * @description The trigger conditions of the Application Monitoring or Browser Monitoring alert rule.
+     *
      * @var alertRuleItems[]
      */
     public $alertRuleItems;
 
     /**
+     * @description The relationship between multiple alert conditions specified for the Application Monitoring or Browser Monitoring alert rule. Valid values:
+     *
+     *   OR: meets any of the specified conditions.
+     *   AND: meets all the specified conditions.
+     *
      * @example OR
      *
      * @var string

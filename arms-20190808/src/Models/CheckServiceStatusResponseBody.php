@@ -11,8 +11,8 @@ class CheckServiceStatusResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true
-     *   false
+     *   true.
+     *   false.
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class CheckServiceStatusResponseBody extends Model
     public $data;
 
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID. You can use the ID to find logs and troubleshoot issues.
      *
      * @example 5710C923-AD09-4293-9E11-DCBE3D15F8D4
      *

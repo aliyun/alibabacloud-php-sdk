@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsServiceSecondVersionRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,14 @@ class OpenArmsServiceSecondVersionRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of the service. Valid values:
+     *
+     *   `arms`: ARMS
+     *   `arms_app`: Application Monitoring
+     *   `arms_web`: Browser Monitoring
+     *   `prometheus_monitor`: Managed Service for Prometheus
+     *   `synthetic_post`: Synthetic Monitoring
+     *
      * @example arms
      *
      * @var string

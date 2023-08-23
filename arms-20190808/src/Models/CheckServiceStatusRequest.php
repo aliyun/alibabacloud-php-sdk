@@ -18,7 +18,7 @@ class CheckServiceStatusRequest extends Model
     public $regionId;
 
     /**
-     * @description The service code of an Alibaba Cloud service. The service code of Prometheus Service is prometheus.
+     * @description The service code of an Alibaba Cloud service. The service code of Managed Service for Prometheus is prometheus.
      *
      * @example prometheus
      *

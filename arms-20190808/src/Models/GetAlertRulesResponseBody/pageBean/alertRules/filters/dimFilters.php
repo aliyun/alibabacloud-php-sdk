@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dimFilters extends Model
 {
     /**
+     * @description The key of the filter condition.
+     *
      * @example rootIp
      *
      * @var string
@@ -16,6 +18,8 @@ class dimFilters extends Model
     public $filterKey;
 
     /**
+     * @description The logical operator of the filter condition.
+     *
      * @example ALL
      *
      * @var string
@@ -23,6 +27,8 @@ class dimFilters extends Model
     public $filterOpt;
 
     /**
+     * @description The details of the filter condition.
+     *
      * @var string[]
      */
     public $filterValues;

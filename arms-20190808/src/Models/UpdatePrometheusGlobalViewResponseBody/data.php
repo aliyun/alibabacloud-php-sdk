@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The Prometheus instances or data sources that failed to be updated.
+     * @description The data sources that failed to be updated.
      *
      * @var failedInstances[]
      */

@@ -10,12 +10,16 @@ use AlibabaCloud\Tea\Model;
 class CreatePrometheusInstanceRequest extends Model
 {
     /**
+     * @description 创建GlobalView时，是否要求所有子实例都校验成功时，才创建GlobalView实例。默认是false，即可以部分成功。
+     *
+     * @example true
+     *
      * @var bool
      */
     public $allSubClustersSuccess;
 
     /**
-     * @description The cluster ID. This parameter is required if you set the ClusterType parameter to aliyun-cs��.
+     * @description The ID of the cluster. This parameter is required if you set ClusterType to aliyun-cs��.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -24,7 +28,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster. This parameter is required if you set the ClusterType parameter to remote-write, ecs, or global-view.
+     * @description The name of the cluster. This parameter is required if you set ClusterType to remote-write, ecs, or global-view.
      *
      * @example clusterNameOfTest
      *
@@ -33,7 +37,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterName;
 
     /**
-     * @description The type of the Prometheus instance. The following types are provided: remote-write (Prometheus instance for Remote Write) ecs (Prometheus instance for ECS) cloud-monitor� (Prometheus instance for Alibaba Cloud services in China) cloud-product (Prometheus instance for Alibaba Cloud services outside China) global-view (Prometheus instance for GlobalView) aliyun-cs�� (Prometheus instances for Container Service)
+     * @description The type of the Prometheus instance. Valid values: remote-write: Prometheus instance for remote write. ecs: Prometheus instance for ECS. cloud-monitor�: Prometheus instance for cloud services in China. cloud-product: Prometheus instance for Alibaba Cloud services outside China. global-view: Prometheus instance for GlobalView. aliyun-cs��: Prometheus instance for Container Service.
      *
      * @example remote-write
      *
@@ -42,7 +46,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $clusterType;
 
     /**
-     * @description The ID of the Grafana dedicated instance. This parameter is available if you set the ClusterType parameter to ecs.
+     * @description The ID of the Grafana dedicated instance. This parameter is available if you set ClusterType to ecs.
      *
      * @example grafana-bp1*****
      *
@@ -51,12 +55,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $grafanaInstanceId;
 
     /**
-     * @var string
-     */
-    public $paramJson;
-
-    /**
-     * @description The region ID. If you create a Prometheus instance for cloud services in China, set the value to cn-shanghai.
+     * @description The region ID. If you create a Prometheus instance for a cloud service in China, set this parameter to cn-shanghai.
      *
      * @example cn-shanghai
      *
@@ -65,7 +64,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the custom resource group. You can configure this parameter to bind the instance to the resource group.
+     * @description The ID of the custom resource group. You can specify this parameter to bind the instance to the resource group.
      *
      * @example rg-acfmxyexli2****
      *
@@ -74,7 +73,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The security group. This parameter is required if you set the clusterType parameter to ecs or create an ASK managed cluster.
+     * @description The ID of the security group. This parameter is required if you set ClusterType to ecs or create an ASK managed cluster.
      *
      * @example sg-bp1********
      *
@@ -83,16 +82,16 @@ class CreatePrometheusInstanceRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The child instances of the global aggregation instance. The value is a JSON string.
+     * @description The child instances of the Prometheus instance for GlobalView. The value is a JSON string.
      *
-     * @example The information about the instances to be aggregated. This parameter must be specified when clusterType is set to global-view. Example: \[ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" } ]
+     * @example The information about the instances to be aggregated. This parameter is required if you set ClusterType to global-view. Example: \[ { "headers":{ }, "regionId":"cn-hangzhou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c39a1048921e04f\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"arms-luyao-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-beijing", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c6b6485496d5b40\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"agent-321-test", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" }, { "headers":{ }, "regionId":"cn-zhangjiakou", "sourceType":"AlibabaPrometheus", "extras":{ }, "clusterId":"c261a4f3200c446\*\*\*\*\*\*\*\*\*\*\*", "sourceName":"zaifeng-cardinality-01", "dataSource":"", "userId":"1672753\*\*\*\*\*\*\*\*\*\*\*" } ]
      *
      * @var string
      */
     public $subClustersJson;
 
     /**
-     * @description The tags of the instance. You can configure this parameter to manage tags for the instance.
+     * @description The tags of the instance. You can specify this parameter to manage tags for the instance.
      *
      * @example [
      * ]
@@ -101,7 +100,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $tags;
 
     /**
-     * @description The vSwitch. This parameter is required if you set the clusterType parameter to ecs or create an ASK managed cluster.
+     * @description The ID of the vSwitch. This parameter is required if you set ClusterType to ecs or create an ASK managed cluster.
      *
      * @example vsw-bp1*********
      *
@@ -110,7 +109,7 @@ class CreatePrometheusInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The virtual private cloud (VPC). This parameter is required if you set the clusterType parameter to ecs or create a serverless Kubernetes (ASK) managed cluster.
+     * @description The ID of the virtual private cloud (VPC). This parameter is required if you set ClusterType to ecs or create a serverless Kubernetes (ASK) managed cluster.
      *
      * @example vpc-rpn**********
      *
@@ -123,7 +122,6 @@ class CreatePrometheusInstanceRequest extends Model
         'clusterName'           => 'ClusterName',
         'clusterType'           => 'ClusterType',
         'grafanaInstanceId'     => 'GrafanaInstanceId',
-        'paramJson'             => 'ParamJson',
         'regionId'              => 'RegionId',
         'resourceGroupId'       => 'ResourceGroupId',
         'securityGroupId'       => 'SecurityGroupId',
@@ -154,9 +152,6 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (null !== $this->grafanaInstanceId) {
             $res['GrafanaInstanceId'] = $this->grafanaInstanceId;
-        }
-        if (null !== $this->paramJson) {
-            $res['ParamJson'] = $this->paramJson;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -211,9 +206,6 @@ class CreatePrometheusInstanceRequest extends Model
         }
         if (isset($map['GrafanaInstanceId'])) {
             $model->grafanaInstanceId = $map['GrafanaInstanceId'];
-        }
-        if (isset($map['ParamJson'])) {
-            $model->paramJson = $map['ParamJson'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

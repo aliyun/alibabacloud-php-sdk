@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusRemoteWriteRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance.
+     * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b\*\*\*\* or vpc-xxxx
      *

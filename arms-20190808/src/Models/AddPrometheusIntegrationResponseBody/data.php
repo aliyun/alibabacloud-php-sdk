@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The exporter ID.
+     * @description The ID of the exporter.
      *
      * @example 2829
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The exporter name.
+     * @description The name of the exporter.
      *
      * @example hw-cloud02
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListNotificationPoliciesRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $directedMode;
+
+    /**
      * @description The ID of the notification policy.
      *
      * @example 12345
@@ -65,12 +70,13 @@ class ListNotificationPoliciesRequest extends Model
      */
     public $size;
     protected $_name = [
-        'ids'      => 'Ids',
-        'isDetail' => 'IsDetail',
-        'name'     => 'Name',
-        'page'     => 'Page',
-        'regionId' => 'RegionId',
-        'size'     => 'Size',
+        'directedMode' => 'DirectedMode',
+        'ids'          => 'Ids',
+        'isDetail'     => 'IsDetail',
+        'name'         => 'Name',
+        'page'         => 'Page',
+        'regionId'     => 'RegionId',
+        'size'         => 'Size',
     ];
 
     public function validate()
@@ -80,6 +86,9 @@ class ListNotificationPoliciesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->directedMode) {
+            $res['DirectedMode'] = $this->directedMode;
+        }
         if (null !== $this->ids) {
             $res['Ids'] = $this->ids;
         }
@@ -110,6 +119,9 @@ class ListNotificationPoliciesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DirectedMode'])) {
+            $model->directedMode = $map['DirectedMode'];
+        }
         if (isset($map['Ids'])) {
             $model->ids = $map['Ids'];
         }

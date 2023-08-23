@@ -18,7 +18,7 @@ class DeletePrometheusIntegrationResponseBody extends Model
     public $code;
 
     /**
-     * @description The success or failure information.
+     * @description success or an error message.
      *
      * @example success
      *
@@ -27,7 +27,7 @@ class DeletePrometheusIntegrationResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example message
      *

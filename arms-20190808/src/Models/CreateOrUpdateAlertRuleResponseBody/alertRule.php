@@ -70,7 +70,7 @@ class alertRule extends Model
      *   STOPPED
      *   PAUSED
      *
-     * > The **PAUSED** status indicates that the alert rule was abnormal and was paused by the system. The alert rule might be paused because it was not unique or the associated cluster was deleted.
+     * > The PAUSED status indicates that the alert rule is abnormal and is actively paused by the system. The alert rule may be paused because that it is not unique or the associated cluster has been deleted.
      * @example RUNNING
      *
      * @var string
@@ -78,11 +78,11 @@ class alertRule extends Model
     public $alertStatus;
 
     /**
-     * @description The type of the alert rule.
+     * @description The type of the alert rule. Valid values:
      *
-     *   APPLICATION_MONITORING_ALERT_RULE: an alert rule of Application Monitoring
-     *   BROWSER_MONITORING_ALERT_RULE: an alert rule of Browser Monitoring
-     *   PROMETHEUS_MONITORING_ALERT_RULE: an alert rule of Prometheus Service
+     *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+     *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Prometheus Service
      *
      * @example APPLICATION_MONITORING_ALERT_RULE
      *
@@ -100,8 +100,8 @@ class alertRule extends Model
     /**
      * @description Indicates whether the alert rule was applied to new applications that were created in Application Monitoring or Browser Monitoring. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enables the health check feature.
+     *   `false`: disables the automatic backup feature.
      *
      * @example false
      *
@@ -110,7 +110,7 @@ class alertRule extends Model
     public $autoAddNewApplication;
 
     /**
-     * @description The cluster ID of the Prometheus alert rule.
+     * @description The ID of the monitored cluster.
      *
      * @example ceba9b9ea5b924dd0b6726d2de6******
      *

@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreatePrometheusInstanceResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned for the request. Valid values:
+     * @description The status code that is returned. Valid values:
      *
-     *   `2XX`: The request is successful.
-     *   `3XX`: A redirection message is returned.
-     *   `4XX`: The request is invalid.
-     *   `5XX`: A server error occurs.
+     *   `2XX: The request is successful.`
+     *   `3XX: A redirection message is returned.`
+     *   `4XX: The request is invalid.`
+     *   `5XX: A server error occurred.`
      *
      * @example 200
      *
@@ -32,7 +32,7 @@ class CreatePrometheusInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The error message returned if the call fails.
+     * @description The error message that is returned if the request failed.
      *
      * @example message
      *

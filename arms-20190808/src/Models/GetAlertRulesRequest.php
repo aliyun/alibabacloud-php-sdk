@@ -10,6 +10,12 @@ use AlibabaCloud\Tea\Model;
 class GetAlertRulesRequest extends Model
 {
     /**
+     * @description The unique IDs of alert rules.
+     *
+     *   If you do not specify this parameter, the API operation does not filter alert rules based on their IDs.
+     *   If you specify this parameter, the API operation returns only the information of the specified alert rules. Other filter conditions also take effect.
+     *
+     * > When you call the GetAlertRules operation, you can specify other request parameters to obtain the AlertIds parameter from the response. Then, you can specify the AlertIds parameter to query the specified alert rules.
      * @example ["12345"]
      *
      * @var string
@@ -17,6 +23,11 @@ class GetAlertRulesRequest extends Model
     public $alertIds;
 
     /**
+     * @description The names of alert rules. When you create alert rules of the new version, you cannot specify duplicate names. However, existing alert rules may have duplicate names. Therefore, the **AlertName** parameter does not uniquely identify an alert rule.
+     *
+     *   If you do not specify this parameter, the API operation does not filter alert rules based on their names.
+     *   If you specify this parameter, the API operation returns only the information of the specified alert rules. Other filter conditions also take effect.
+     *
      * @example ["test"]
      *
      * @var string
@@ -24,6 +35,13 @@ class GetAlertRulesRequest extends Model
     public $alertNames;
 
     /**
+     * @description The status of the alert rule. Valid values:
+     *
+     *   RUNNING
+     *   STOPPED
+     *   PAUSED
+     *
+     * > The **PAUSED** status indicates that the alert rule is abnormal and is actively paused by the system. The alert rule may be paused because that it is not unique or the associated cluster has been deleted.
      * @example RUNNING
      *
      * @var string
@@ -31,6 +49,12 @@ class GetAlertRulesRequest extends Model
     public $alertStatus;
 
     /**
+     * @description The type of the alert rule.
+     *
+     *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+     *   BROWSER_MONITORING_ALERT_RULE: an alert rule for Browser Monitoring.
+     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Managed Service for Prometheus.
+     *
      * @example APPLICATION_MONITORING_ALERT_RULE
      *
      * @var string
@@ -38,6 +62,8 @@ class GetAlertRulesRequest extends Model
     public $alertType;
 
     /**
+     * @description The ID of the monitored cluster.
+     *
      * @example ceba9b9ea5b924dd0b6726d2de6******
      *
      * @var string
@@ -45,6 +71,8 @@ class GetAlertRulesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -52,6 +80,8 @@ class GetAlertRulesRequest extends Model
     public $page;
 
     /**
+     * @description You do not need to configure this parameter.
+     *
      * @example null
      *
      * @var string
@@ -59,6 +89,8 @@ class GetAlertRulesRequest extends Model
     public $productCode;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -66,6 +98,8 @@ class GetAlertRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The number of alert rules to return on each page.
+     *
      * @example 20
      *
      * @var int

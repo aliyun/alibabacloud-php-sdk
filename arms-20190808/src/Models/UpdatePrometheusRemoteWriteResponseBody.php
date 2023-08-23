@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusRemoteWriteResponseBody extends Model
 {
     /**
-     * @description The status code returned. The status code 200 indicates that the request was successful.
+     * @description The status code. A value of 200 indicates that the request is successful.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdatePrometheusRemoteWriteResponseBody extends Model
     public $code;
 
     /**
-     * @description The name of the remote write configuration item or the exception information.
+     * @description The name of the remote write configuration that was modified, or the exception information.
      *
      * @example rw1
      *
@@ -45,10 +45,10 @@ class UpdatePrometheusRemoteWriteResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request is successful. Valid values:
      *
-     *   `true`: The call was successful.
-     *   `false`: The call failed.
+     *   `true`
+     *   `false`
      *
      * @example true
      *

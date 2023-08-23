@@ -63,7 +63,7 @@ class dashboardVos extends Model
     public $httpsUrl;
 
     /**
-     * @description The information about the Grafana dashboards.
+     * @description The information about the Grafana dashboard.
      *
      * @var i18nChild
      */
@@ -134,7 +134,7 @@ class dashboardVos extends Model
     public $tags;
 
     /**
-     * @description The timestamp generated when the Grafana dashboard was created. Unit: seconds
+     * @description The timestamp when the Grafana dashboard was created. Unit: seconds.
      *
      * @example 1590136924
      *

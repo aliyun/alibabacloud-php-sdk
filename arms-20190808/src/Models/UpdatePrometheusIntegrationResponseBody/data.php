@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The exporter ID.
+     *
      * @example 2866
      *
      * @var int
@@ -16,6 +18,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The exporter name.
+     *
      * @example inet
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UninstallPromClusterResponseBody extends Model
 {
     /**
-     * @description The status code returned. The status code 200 indicates that the request was successful.
+     * @description The status code. The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -27,7 +27,7 @@ class UninstallPromClusterResponseBody extends Model
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example message
      *
@@ -36,7 +36,7 @@ class UninstallPromClusterResponseBody extends Model
     public $message;
 
     /**
-     * @description The request ID. You can use the ID to query logs and troubleshoot issues.
+     * @description The request ID. You can use the ID to find logs and troubleshoot issues.
      *
      * @example 53980F48-DE82-53A1-9ADE-D2629226DD9A
      *

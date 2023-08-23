@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeletePrometheusIntegrationRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -18,7 +18,7 @@ class DeletePrometheusIntegrationRequest extends Model
     public $clusterId;
 
     /**
-     * @description The ID of the exporter that is integrated into the Prometheus instance.
+     * @description The ID of the exporter.
      *
      * @example 2875
      *
@@ -27,9 +27,9 @@ class DeletePrometheusIntegrationRequest extends Model
     public $instanceId;
 
     /**
-     * @description The integration type.
+     * @description The type of the integration.
      *
-     * @example Kafka and MySQL.
+     * @example kafka and mysql.
      *
      * @var string
      */

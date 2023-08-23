@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetPrometheusApiTokenResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 1A9C645C-C83F-4C9D-8CCB-29BEC9E1****
      *
      * @var string
@@ -16,6 +18,8 @@ class GetPrometheusApiTokenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The token required for integrating Prometheus Service.
+     *
      * @example 6dcbb77ef4ba6ef5466b5debf9e2****
      *
      * @var string

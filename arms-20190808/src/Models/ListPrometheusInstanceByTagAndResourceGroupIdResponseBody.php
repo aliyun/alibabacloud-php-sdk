@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListPrometheusInstanceByTagAndResourceGroupIdResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful. Other status codes indicate that the request failed.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class ListPrometheusInstanceByTagAndResourceGroupIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The struct returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example message
      *
      * @var string
@@ -29,6 +35,8 @@ class ListPrometheusInstanceByTagAndResourceGroupIdResponseBody extends Model
     public $message;
 
     /**
+     * @description Id of the request
+     *
      * @example 4789C3E9-A85A-524B-B97B-9D2B14BA06BC
      *
      * @var string

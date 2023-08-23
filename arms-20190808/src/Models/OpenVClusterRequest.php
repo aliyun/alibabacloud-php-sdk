@@ -27,7 +27,7 @@ class OpenVClusterRequest extends Model
     public $length;
 
     /**
-     * @description The name of the cloud service. This parameter must be specified when ClusterType is set to `cloud-product-prometheus`. Valid values: influxdb, mongodb, and DLA. You cannot specify multiple service names.
+     * @description The name of the cloud service. This parameter is required if you set ClusterType to `cloud-product-prometheus`. Valid values: influxdb, mongodb, and DLA. You cannot specify multiple service names.
      *
      * @example influxdb
      *

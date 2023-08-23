@@ -80,11 +80,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $alertStatus;
 
     /**
-     * @description The type of the alert rule.
+     * @description The type of the alert rule. Valid values:
      *
-     *   APPLICATION_MONITORING_ALERT_RULE: an alert rule of Application Monitoring
-     *   BROWSER_MONITORING_ALERT_RULE: an alert rule of Browser Monitoring
-     *   PROMETHEUS_MONITORING_ALERT_RULE: an alert rule of Prometheus Service
+     *   APPLICATION_MONITORING_ALERT_RULE: alert rule for Application Monitoring
+     *   BROWSER_MONITORING_ALERT_RULE: alert rule for Browser Monitoring
+     *   PROMETHEUS_MONITORING_ALERT_RULE: alert rule for Prometheus Service
      *
      * Valid values:
      *
@@ -113,8 +113,8 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description Specifies whether to apply the alert rule to new applications that are created in Application Monitoring or Browser Monitoring. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: enables the health check feature.
+     *   `false`: disables the automatic backup feature.
      *
      * @example false
      *
@@ -123,7 +123,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $autoAddNewApplication;
 
     /**
-     * @description The cluster ID of the Prometheus alert rule.
+     * @description The ID of the monitored cluster.
      *
      * @example ceba9b9ea5b924dd0b6726d2de6******
      *
@@ -141,7 +141,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $duration;
 
     /**
-     * @description The filter conditions of the Application Monitoring or Browser Monitoring alert rule. The name must meet the following format requirements:
+     * @description The filter conditions of the Application Monitoring or Browser Monitoring alert rule. The following code shows the format of matching rules:
      *
      * ]
      *
@@ -212,7 +212,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
     /**
      * @description The notification policy.
      *
-     *   If you set this parameter to null, no notification policy is specified. After you create an alert rule, you can create a notification policy and specify match rules and match conditions. For example, you can specify the name of the alert rule as the match condition. If the alert rule is triggered, an alert event is generated and an alert notification is sent to the contacts or contact groups that are specified in the notification policy.
+     *   If you set this parameter to null, no notification policy is specified. After you create an alert rule, you can create a notification policy and specify match rules and match conditions. For example, you can specify the name of the alert rule as the match condition. When the alert rule is triggered, an alert event is generated and an alert notification is sent to the contacts or contact groups that are specified in the notification policy.
      *   To specify a notification policy, set this parameter to the ID of the notification policy. Application Real-Time Monitoring Service (ARMS) automatically adds a match rule to the notification policy and specifies the ID of the alert rule as the match condition. The name of the alert rule is also displayed. This way, the alert events that are generated based on the alert rule can be matched by the specified notification policy.
      *
      * @example 569xxx

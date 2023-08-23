@@ -18,7 +18,7 @@ class data extends Model
     public $clusterId;
 
     /**
-     * @description The name of the remote write configuration.
+     * @description The name of the remote write configuration item.
      *
      * @example abc123
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $remoteWriteName;
 
     /**
-     * @description The remote write configuration. The configuration is displayed in the YAML format.
+     * @description The details of the remote write configuration item. The value is in the YAML format.
      *
      * @example remote_write:
      * action: keep

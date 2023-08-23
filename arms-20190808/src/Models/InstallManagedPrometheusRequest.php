@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class InstallManagedPrometheusRequest extends Model
 {
     /**
-     * @description The response object.
+     * @description The ID of the ACK cluster.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b****
      *
@@ -18,7 +18,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterId;
 
     /**
-     * @description The request ID.
+     * @description The name of the ECS instance. If you set the ClusterType parameter to ecs, you must configure this parameter.
      *
      * @example prd-ecs
      *
@@ -27,7 +27,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterName;
 
     /**
-     * @description The response content. In most cases, the installation status of the Prometheus agent is returned.
+     * @description The type of the monitoring object. Valid values: ask and ecs.
      *
      * @example ask
      *
@@ -36,7 +36,7 @@ class InstallManagedPrometheusRequest extends Model
     public $clusterType;
 
     /**
-     * @description success=false
+     * @description The ID of the Grafana workspace used by the ASK cluster or ECS instance. If you set the value to free or leave the parameter empty, a shared Grafana workspace is used.
      *
      * @example grafana-bp1*****
      *
@@ -45,7 +45,7 @@ class InstallManagedPrometheusRequest extends Model
     public $grafanaInstanceId;
 
     /**
-     * @description __null__
+     * @description This parameter is not supported.
      *
      * @example -
      *
@@ -54,7 +54,7 @@ class InstallManagedPrometheusRequest extends Model
     public $kubeConfig;
 
     /**
-     * @description The parameter is not supported.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -63,7 +63,7 @@ class InstallManagedPrometheusRequest extends Model
     public $regionId;
 
     /**
-     * @description Prometheus实例的资源组ID。
+     * @description The ID of the resource group to which the Prometheus instance belongs.
      *
      * @example rg-acfmxyexli2****
      *
@@ -72,7 +72,7 @@ class InstallManagedPrometheusRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     * @description The security group of the ASK cluster or ECS instance.
      *
      * @example sg-bp1********
      *
@@ -81,7 +81,7 @@ class InstallManagedPrometheusRequest extends Model
     public $securityGroupId;
 
     /**
-     * @description The error message returned if the Prometheus agent failed to be installed.
+     * @description The vSwitch used by the ASK cluster or ECS instance.
      *
      * @example vsw-bp1*********
      *
@@ -90,7 +90,7 @@ class InstallManagedPrometheusRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description Indicates whether the Prometheus agent was installed.
+     * @description The virtual private cloud (VPC) where the ASK cluster or ECS instance resides.
      *
      * @example vpc-xxxxxx
      *

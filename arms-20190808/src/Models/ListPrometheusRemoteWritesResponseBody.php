@@ -19,7 +19,7 @@ class ListPrometheusRemoteWritesResponseBody extends Model
     public $code;
 
     /**
-     * @description The queried remote write configurations.
+     * @description The remote write configuration items returned.
      *
      * @example [
      * "name": "TiDBxxx",
@@ -32,7 +32,7 @@ class ListPrometheusRemoteWritesResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example message
      *

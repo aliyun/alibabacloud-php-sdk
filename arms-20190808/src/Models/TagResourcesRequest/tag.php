@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description http://arms.${regionId}.aliyun-inc.com:8099/tag/TagResources.json
+     * @description The key of the tag.
      *
      * @example Key1
      *
@@ -18,6 +18,8 @@ class tag extends Model
     public $key;
 
     /**
+     * @description The value of the tag.
+     *
      * @example Test1
      *
      * @var string

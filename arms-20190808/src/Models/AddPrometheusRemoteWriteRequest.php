@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddPrometheusRemoteWriteRequest extends Model
 {
     /**
-     * @description The ID of the Prometheus instance. Only aliyun-cs and ecs instances are supported.
+     * @description The ID of the Prometheus instance. Only a Prometheus instance for Container Service or a Prometheus instance for ECS is supported.
      *
      * @example cc7a37ee31aea4ed1a059eff8034b\*\*\*\* or vpc-xxxxx
      *
@@ -27,7 +27,7 @@ class AddPrometheusRemoteWriteRequest extends Model
     public $regionId;
 
     /**
-     * @description The remote write configuration. Specify the value in the YAML format.
+     * @description The details of the remote write configuration item. Specify the value in the YAML format.
      *
      * @example remote_write:
      * action: keep

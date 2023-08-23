@@ -18,7 +18,7 @@ class DeletePrometheusRemoteWriteResponseBody extends Model
     public $code;
 
     /**
-     * @description The number of remote write configuration items that are deleted, or an error message.
+     * @description The remote write configuration items. If the request fails, an error message is returned.
      *
      * @example 1
      *

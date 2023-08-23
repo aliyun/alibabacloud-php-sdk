@@ -18,7 +18,7 @@ class BindPrometheusGrafanaInstanceResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description Indicates whether the request was successful.
      *
      *   true
      *   false
@@ -30,7 +30,7 @@ class BindPrometheusGrafanaInstanceResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example message
      *

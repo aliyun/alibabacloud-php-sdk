@@ -18,7 +18,7 @@ class CreatePrometheusMonitoringResponseBody extends Model
     public $code;
 
     /**
-     * @description The name of the remote write configuration that was added, or the exception information.
+     * @description The name of the monitoring configuration that was added, or the exception information.
      *
      * @example name1
      *

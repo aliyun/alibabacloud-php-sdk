@@ -19,14 +19,14 @@ class GetPrometheusIntegrationResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned struct.
+     * @description The struct returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example message
      *

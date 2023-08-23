@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenArmsServiceSecondVersionResponseBody extends Model
 {
     /**
+     * @description The service ID that is returned if the service is activated.
+     *
      * @example 20896874992****
      *
      * @var string
@@ -16,6 +18,8 @@ class OpenArmsServiceSecondVersionResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
      * @example 9ED50893-F3C4-42DF-ABB2-C200BE******
      *
      * @var string

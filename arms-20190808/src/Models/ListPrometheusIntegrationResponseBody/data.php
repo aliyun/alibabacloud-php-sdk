@@ -83,7 +83,7 @@ class data extends Model
     /**
      * @description The integration type.
      *
-     * @example kafka, mysql, redis, snmp, emr, nubela, and tidb
+     * @example Kafka, mysql, redis, snmp, emr, nubela, and tidb
      *
      * @var string
      */
@@ -144,7 +144,7 @@ class data extends Model
     public $showLog;
 
     /**
-     * @description The status of the exporter.
+     * @description The state of the exporter.
      *
      * @example installed
      *

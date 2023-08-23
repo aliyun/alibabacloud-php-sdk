@@ -27,7 +27,7 @@ class UpdatePrometheusRemoteWriteRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the remote write configuration.
+     * @description The name of the remote write configuration item.
      *
      * @example rw1
      *

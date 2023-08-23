@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePrometheusIntegrationResponseBody extends Model
 {
     /**
+     * @description The status code or error code.
+     *
      * @example 200
      *
      * @var int
@@ -17,16 +19,24 @@ class UpdatePrometheusIntegrationResponseBody extends Model
     public $code;
 
     /**
+     * @description The struct returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description Id of the request
+     *
      * @example 2DB771C3-D1BB-5363-8A5F-ADB2AF2948DB
      *
      * @var string

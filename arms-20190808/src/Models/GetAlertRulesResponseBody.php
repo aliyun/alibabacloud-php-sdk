@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAlertRulesResponseBody extends Model
 {
     /**
+     * @description The pages returned.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The request ID.
+     *
      * @example 337B8F7E-0A64-5768-9225-E9B3CF******
      *
      * @var string

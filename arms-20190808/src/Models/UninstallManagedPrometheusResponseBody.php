@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallManagedPrometheusResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,8 @@ class UninstallManagedPrometheusResponseBody extends Model
     public $code;
 
     /**
+     * @description The response content. The status of the Prometheus instance is returned.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class UninstallManagedPrometheusResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message that is returned if the request fails.
+     *
      * @example vpcId is blank
      *
      * @var string
@@ -30,6 +36,8 @@ class UninstallManagedPrometheusResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 2A0CEDF1-06FE-44AC-8E21-21A5BE65****
      *
      * @var string
@@ -37,6 +45,8 @@ class UninstallManagedPrometheusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the Prometheus instance was removed.
+     *
      * @example true
      *
      * @var bool

@@ -1826,6 +1826,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->directedMode)) {
+            $body['DirectedMode'] = $request->directedMode;
+        }
         if (!Utils::isUnset($request->escalationPolicyId)) {
             $body['EscalationPolicyId'] = $request->escalationPolicyId;
         }
@@ -2108,9 +2111,6 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->grafanaInstanceId)) {
             $query['GrafanaInstanceId'] = $request->grafanaInstanceId;
-        }
-        if (!Utils::isUnset($request->paramJson)) {
-            $query['ParamJson'] = $request->paramJson;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -4808,7 +4808,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * None.
      *   *
      * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -4841,7 +4841,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * None.
      *   *
      * @param GetPrometheusApiTokenRequest $request GetPrometheusApiTokenRequest
      *
@@ -5912,7 +5912,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * $.parameters[5].schema.example.
+     * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
      *   *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -5972,7 +5972,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * $.parameters[5].schema.example.
+     * If you call the operation to monitor an ASK cluster or an ECS instance, a Prometheus agent is installed in the ASK cluster or ECS instance. Make sure that the ASK cluster or ECS instance has no Prometheus agent installed in advance.
      *   *
      * @param InstallManagedPrometheusRequest $request InstallManagedPrometheusRequest
      *
@@ -6122,6 +6122,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->page)) {
             $query['Page'] = $request->page;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
         }
         if (!Utils::isUnset($request->severity)) {
             $query['Severity'] = $request->severity;
@@ -6632,6 +6635,9 @@ class ARMS extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->directedMode)) {
+            $query['DirectedMode'] = $request->directedMode;
+        }
         if (!Utils::isUnset($request->ids)) {
             $query['Ids'] = $request->ids;
         }
@@ -7520,10 +7526,16 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenArmsServiceSecondVersionRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+     *   * *   Application Monitoring: Basic Edition
+     *   * *   Browser Monitoring: Basic Edition
+     *   * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+     *   * *   Prometheus Service: Pro Edition.
+     *   *
+     * @param OpenArmsServiceSecondVersionRequest $request OpenArmsServiceSecondVersionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return OpenArmsServiceSecondVersionResponse
+     * @return OpenArmsServiceSecondVersionResponse OpenArmsServiceSecondVersionResponse
      */
     public function openArmsServiceSecondVersionWithOptions($request, $runtime)
     {
@@ -7554,9 +7566,15 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * @param OpenArmsServiceSecondVersionRequest $request
+     * The **OpenArmsServiceSecondVersion** operation supports the following sub-service editions:
+     *   * *   Application Monitoring: Basic Edition
+     *   * *   Browser Monitoring: Basic Edition
+     *   * *   Synthetic Monitoring: Pro Edition (pay-as-you-go)
+     *   * *   Prometheus Service: Pro Edition.
+     *   *
+     * @param OpenArmsServiceSecondVersionRequest $request OpenArmsServiceSecondVersionRequest
      *
-     * @return OpenArmsServiceSecondVersionResponse
+     * @return OpenArmsServiceSecondVersionResponse OpenArmsServiceSecondVersionResponse
      */
     public function openArmsServiceSecondVersion($request)
     {
@@ -9111,7 +9129,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
      *   *
      * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -9156,7 +9174,7 @@ class ARMS extends OpenApiClient
     }
 
     /**
-     * The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     * Make sure that the ASK cluster or ECS instance is monitored in Managed Service for Prometheus.
      *   *
      * @param UninstallManagedPrometheusRequest $request UninstallManagedPrometheusRequest
      *
@@ -9670,9 +9688,6 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->mostRegionId)) {
             $query['MostRegionId'] = $request->mostRegionId;
-        }
-        if (!Utils::isUnset($request->paramJson)) {
-            $query['ParamJson'] = $request->paramJson;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;

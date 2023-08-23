@@ -13,6 +13,11 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicy extends Model
 {
     /**
+     * @var bool
+     */
+    public $directedMode;
+
+    /**
      * @description The ID of the escalation policy.
      *
      * @example 123
@@ -105,6 +110,7 @@ class notificationPolicy extends Model
      */
     public $sendRecoverMessage;
     protected $_name = [
+        'directedMode'       => 'DirectedMode',
         'escalationPolicyId' => 'EscalationPolicyId',
         'groupRule'          => 'GroupRule',
         'id'                 => 'Id',
@@ -125,6 +131,9 @@ class notificationPolicy extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->directedMode) {
+            $res['DirectedMode'] = $this->directedMode;
+        }
         if (null !== $this->escalationPolicyId) {
             $res['EscalationPolicyId'] = $this->escalationPolicyId;
         }
@@ -176,6 +185,9 @@ class notificationPolicy extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DirectedMode'])) {
+            $model->directedMode = $map['DirectedMode'];
+        }
         if (isset($map['EscalationPolicyId'])) {
             $model->escalationPolicyId = $map['EscalationPolicyId'];
         }

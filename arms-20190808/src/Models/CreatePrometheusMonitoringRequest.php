@@ -36,8 +36,8 @@ class CreatePrometheusMonitoringRequest extends Model
     public $regionId;
 
     /**
-     * @description The status of the monitoring configuration. Valid values: run and stop.
-     * Probe does not support status, this field set empty.
+     * @description The status of the monitoring configuration. Valid values: run and stop. Default value: run. This parameter is not available if the Type parameter is set to Probe.
+     *
      * @example run
      *
      * @var string

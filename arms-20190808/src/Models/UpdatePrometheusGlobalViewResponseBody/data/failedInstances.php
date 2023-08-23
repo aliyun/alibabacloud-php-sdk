@@ -27,11 +27,7 @@ class failedInstances extends Model
     public $sourceName;
 
     /**
-     * @description The type of the data source. Valid values:
-     *
-     *   AlibabaPrometheus
-     *   MetricStore
-     *   CustomPrometheus
+     * @description The type of the data source. AlibabaPrometheus MetricStore CustomPrometheus
      *
      * @example AlibabaPrometheus
      *
