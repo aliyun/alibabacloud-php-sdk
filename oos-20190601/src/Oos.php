@@ -3070,6 +3070,9 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resourceGroupld)) {
+            $query['ResourceGroupld'] = $request->resourceGroupld;
+        }
         if (!Utils::isUnset($request->shareType)) {
             $query['ShareType'] = $request->shareType;
         }

@@ -72,6 +72,11 @@ class ListPatchBaselinesShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupld;
+
+    /**
      * @description The token that is used to retrieve the next page of results.
      *
      * @example Private
@@ -97,6 +102,7 @@ class ListPatchBaselinesShrinkRequest extends Model
         'nextToken'                        => 'NextToken',
         'operationSystem'                  => 'OperationSystem',
         'regionId'                         => 'RegionId',
+        'resourceGroupld'                  => 'ResourceGroupld',
         'shareType'                        => 'ShareType',
         'sourcesShrink'                    => 'Sources',
         'tagsShrink'                       => 'Tags',
@@ -129,6 +135,9 @@ class ListPatchBaselinesShrinkRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupld) {
+            $res['ResourceGroupld'] = $this->resourceGroupld;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -171,6 +180,9 @@ class ListPatchBaselinesShrinkRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupld'])) {
+            $model->resourceGroupld = $map['ResourceGroupld'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

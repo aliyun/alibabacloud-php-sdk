@@ -73,6 +73,11 @@ class ListPatchBaselinesRequest extends Model
     public $regionId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupld;
+
+    /**
      * @description The token that is used to retrieve the next page of results.
      *
      * @example Private
@@ -98,6 +103,7 @@ class ListPatchBaselinesRequest extends Model
         'nextToken'                        => 'NextToken',
         'operationSystem'                  => 'OperationSystem',
         'regionId'                         => 'RegionId',
+        'resourceGroupld'                  => 'ResourceGroupld',
         'shareType'                        => 'ShareType',
         'sources'                          => 'Sources',
         'tags'                             => 'Tags',
@@ -130,6 +136,9 @@ class ListPatchBaselinesRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupld) {
+            $res['ResourceGroupld'] = $this->resourceGroupld;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -180,6 +189,9 @@ class ListPatchBaselinesRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupld'])) {
+            $model->resourceGroupld = $map['ResourceGroupld'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

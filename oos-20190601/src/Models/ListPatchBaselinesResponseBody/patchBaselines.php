@@ -83,6 +83,11 @@ class patchBaselines extends Model
     public $operationSystem;
 
     /**
+     * @var string
+     */
+    public $resourceGroupld;
+
+    /**
      * @description Queries the details of patch baselines.
      *
      * @example Private
@@ -128,6 +133,7 @@ class patchBaselines extends Model
         'isDefault'                        => 'IsDefault',
         'name'                             => 'Name',
         'operationSystem'                  => 'OperationSystem',
+        'resourceGroupld'                  => 'ResourceGroupld',
         'shareType'                        => 'ShareType',
         'sources'                          => 'Sources',
         'tags'                             => 'Tags',
@@ -168,6 +174,9 @@ class patchBaselines extends Model
         }
         if (null !== $this->operationSystem) {
             $res['OperationSystem'] = $this->operationSystem;
+        }
+        if (null !== $this->resourceGroupld) {
+            $res['ResourceGroupld'] = $this->resourceGroupld;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -230,6 +239,9 @@ class patchBaselines extends Model
         }
         if (isset($map['OperationSystem'])) {
             $model->operationSystem = $map['OperationSystem'];
+        }
+        if (isset($map['ResourceGroupld'])) {
+            $model->resourceGroupld = $map['ResourceGroupld'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];
