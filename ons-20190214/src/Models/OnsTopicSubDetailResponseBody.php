@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsTopicSubDetailResponseBody extends Model
 {
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */

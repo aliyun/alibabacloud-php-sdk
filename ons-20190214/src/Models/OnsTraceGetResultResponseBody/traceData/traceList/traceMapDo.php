@@ -70,7 +70,7 @@ class traceMapDo extends Model
      *   **SEND_FAILED**: The message failed to be sent.
      *   **SEND_ROLLBACK:** The message is a transactional message and is rolled back.
      *   **SEND_UNKNOWN:** The message is a transactional message and is not committed.
-     *   **SEND_DELAY:** The message is a scheduled or delayed message and is waiting to be sent at the specified point in time.
+     *   **SEND_DELAY:** The message is a scheduled or delayed message and is waiting to be consumed at the specified point in time.
      *
      * @example SEND_SUCCESS
      *
@@ -95,7 +95,7 @@ class traceMapDo extends Model
     public $tag;
 
     /**
-     * @description The topic in which the message is stored.
+     * @description The topic to which the message belongs.
      *
      * @example test
      *

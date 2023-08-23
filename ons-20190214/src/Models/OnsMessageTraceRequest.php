@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageTraceRequest extends Model
 {
     /**
-     * @description The ID of the instance where the message that you want to query resides.
+     * @description The ID of the instance to which the message you want to query belongs.
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *

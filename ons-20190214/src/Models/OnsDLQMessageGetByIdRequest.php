@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsDLQMessageGetByIdRequest extends Model
 {
     /**
-     * @description The ID of the consumer group whose dead-letter messages you want to query.
+     * @description The ID of the consumer group whose dead-letter message you want to query.
      *
      * @example GID_test_group_id
      *

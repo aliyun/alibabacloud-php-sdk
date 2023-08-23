@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsTraceQueryByMsgIdRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The beginning of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
      * @example 1570852800000
      *
@@ -18,7 +18,7 @@ class OnsTraceQueryByMsgIdRequest extends Model
     public $beginTime;
 
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The end of the time range to query. The value of this parameter is a UNIX timestamp in milliseconds.
      *
      * @example 1570968000000
      *
@@ -27,7 +27,7 @@ class OnsTraceQueryByMsgIdRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance which contains the specified topic.
+     * @description The ID of the ApsaraMQ for RocketMQ instance that contains the specified topic.
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -45,7 +45,7 @@ class OnsTraceQueryByMsgIdRequest extends Model
     public $msgId;
 
     /**
-     * @description The topic in which the message you want to query is stored.
+     * @description The topic that contains the message you want to query.
      *
      * @example test
      *

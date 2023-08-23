@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceBaseInfo extends Model
 {
     /**
+     * @description The time when the instance was created. The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1570701259403
      *
      * @var string
@@ -17,7 +19,7 @@ class instanceBaseInfo extends Model
     public $createTime;
 
     /**
-     * @description The endpoints that correspond to different protocols.
+     * @description The endpoints used to access ApsaraMQ for RocketMQ over different protocols.
      *
      * @var endpoints
      */
@@ -27,7 +29,7 @@ class instanceBaseInfo extends Model
      * @description Indicates whether the instance uses a namespace. Valid values:
      *
      *   **true**: The instance uses a separate namespace. The name of each resource must be unique in the instance. The names of resources in different instances can be the same.
-     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within and across all instances.
+     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within the instance and across all instances.
      *
      * @example true
      *
@@ -36,7 +38,7 @@ class instanceBaseInfo extends Model
     public $independentNaming;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_138015630679****_BAAy1Hac
      *
@@ -71,10 +73,10 @@ class instanceBaseInfo extends Model
     /**
      * @description The instance type. Valid values:
      *
-     *   **1**: The instance is a Standard Edition instance that uses the pay-as-you-go billing method.
-     *   **2**: The instance is an Enterprise Platinum Edition instance that uses the subscription billing method.
+     *   **1**: Standard Edition instances that use the pay-as-you-go billing method.
+     *   **2**: Enterprise Platinum Edition instances that use the subscription billing method.
      *
-     * For information about the editions and specifications of Message Queue for Apache RocketMQ instances, see [Instance editions](~~185261~~).
+     * For information about the editions and specifications of ApsaraMQ for RocketMQ instances, see [Instance editions](~~185261~~).
      * @example 2
      *
      * @var int
@@ -82,9 +84,9 @@ class instanceBaseInfo extends Model
     public $instanceType;
 
     /**
-     * @description The maximum transactions per second (TPS) for sending and receiving messages. Valid values: 5000, 10000, 20000, 50000, 100000, 200000, 300000, 500000, 800000, and 1000000.
+     * @description The maximum messaging transactions per second (TPS). Valid values: 5000, 10000, 20000, 50000, 100000, 200000, 300000, 500000, 800000, and 1000000.
      *
-     * >  This parameter is available only for Message Queue for Apache RocketMQ instances of the Enterprise Platinum Edition.
+     * > This parameter is available only to the ApsaraMQ for RocketMQ Enterprise Platinum Edition instances.
      * @example 10000
      *
      * @var int
@@ -92,7 +94,7 @@ class instanceBaseInfo extends Model
     public $maxTps;
 
     /**
-     * @description The point in time when the Enterprise Platinum Edition instance expires.
+     * @description The time when the Enterprise Platinum Edition instance expires.
      *
      * @example 1603555200000
      *
@@ -103,7 +105,7 @@ class instanceBaseInfo extends Model
     /**
      * @description The description of the instance.
      *
-     * @example onspre-cn-m7r1r5f****
+     * @example ons-cn-m7r1r5f****
      *
      * @var string
      */
@@ -112,7 +114,7 @@ class instanceBaseInfo extends Model
     /**
      * @description The maximum number of topics that can be created on the instance. Valid values: 25, 50, 100, 300, and 500.
      *
-     * >  This parameter is available only for Message Queue for Apache RocketMQ instances of the Enterprise Platinum Edition.
+     * > This parameter is available only to the ApsaraMQ for RocketMQ Enterprise Platinum Edition instances.
      * @example 50
      *
      * @var int
@@ -120,6 +122,8 @@ class instanceBaseInfo extends Model
     public $topicCapacity;
 
     /**
+     * @description The commodity ID of the instance.
+     *
      * @example ons-cn-m7r1r5f****
      *
      * @var string
@@ -127,6 +131,8 @@ class instanceBaseInfo extends Model
     public $spInstanceId;
 
     /**
+     * @description The commodity type of the instance.
+     *
      * @example 1
      *
      * @var int

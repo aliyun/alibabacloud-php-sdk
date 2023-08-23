@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageGetByMsgIdRequest extends Model
 {
     /**
-     * @description The ID of the instance where the message that you want to query resides.
+     * @description The ID of the instance to which the message you want to query belongs.
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -27,7 +27,7 @@ class OnsMessageGetByMsgIdRequest extends Model
     public $msgId;
 
     /**
-     * @description The topic that contains the message that you want to query.
+     * @description The topic that contains the message you want to query.
      *
      * @example test-mq_topic
      *

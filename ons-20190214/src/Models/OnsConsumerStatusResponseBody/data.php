@@ -21,8 +21,8 @@ class data extends Model
     /**
      * @description The consumption mode. Valid values:
      *
-     *   **CLUSTERING:** the clustering consumption mode
-     *   **BROADCASTING:** the broadcasting consumption mode
+     *   **CLUSTERING**: the clustering consumption mode
+     *   **BROADCASTING**: the broadcasting consumption mode
      *
      * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](~~43163~~).
      * @example CLUSTERING
@@ -48,7 +48,7 @@ class data extends Model
     public $consumerConnectionInfoList;
 
     /**
-     * @description The maximum latency of message consumption in all topics to which the consumer group subscribe. Unit: milliseconds.
+     * @description The maximum latency of message consumption in all topics to which the consumer group subscribes. Unit: milliseconds.
      *
      * @example 100857
      *
@@ -64,7 +64,7 @@ class data extends Model
     public $detailInTopicList;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -94,8 +94,8 @@ class data extends Model
     /**
      * @description Indicates whether load balancing is performed as expected. Valid values:
      *
-     *   **true:** Load balancing is performed as expected.
-     *   **false:** Load balancing is not performed as expected.
+     *   **true**: Load balancing is performed as expected.
+     *   **false**: Load balancing is not performed as expected.
      *
      * @example true
      *

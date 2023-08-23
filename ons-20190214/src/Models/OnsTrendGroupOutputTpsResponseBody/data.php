@@ -10,23 +10,23 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The data set that is returned based on sampling period.
+     * @description The data set returned based on sampling period.
      *
      * @var records
      */
     public $records;
 
     /**
-     * @description The name of the table that stores the data.
+     * @description The name of the table.
      *
-     * @example MQ_INST_111111111111_DOxxxxxx%test@MQ_INST_111111111111_DOxxxxxx%GID_test trend of received messages
+     * @example MQ_INST\_111111111111\_DOxxxxxx%test@MQ_INST\_111111111111\_DOxxxxxx%GID_test trend chart of delivered messages
      *
      * @var string
      */
     public $title;
 
     /**
-     * @description The unit of the timestamp. Unit: milliseconds.
+     * @description The unit of the timestamp.
      *
      * @example time
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $XUnit;
 
     /**
-     * @description The unit of the value of the Y parameter.
+     * @description The total number of messages.
      *
      * @example msg
      *

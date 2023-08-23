@@ -18,9 +18,9 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The edition of the instance. Valid value:
+     * @description The edition of the instance that you created. Valid value:
      *
-     *   **1**: Standard Edition
+     *   **1**: Standard Edition instances
      *
      * @example 1
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsTopicDeleteRequest extends Model
 {
     /**
-     * @description The ID of the instance that contains the topic you want to delete.
+     * @description The ID of the instance to which the topic you want to delete belongs.
      *
      * @example MQ_INST_188077086902****_BXSuW61e
      *

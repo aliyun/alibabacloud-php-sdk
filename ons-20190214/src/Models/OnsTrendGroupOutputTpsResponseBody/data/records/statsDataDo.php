@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class statsDataDo extends Model
 {
     /**
-     * @description Indicates the timestamp. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The X axis. The value of this parameter is a UNIX timestamp in milliseconds.
      *
      * @example 1570867800000
      *
@@ -18,7 +18,7 @@ class statsDataDo extends Model
     public $x;
 
     /**
-     * @description Indicates the TPS for message consumption or the number of messages that are consumed.
+     * @description The Y axis. This parameter indicates the TPS for message consumption or the number of messages that are consumed.
      *
      * @example 0
      *

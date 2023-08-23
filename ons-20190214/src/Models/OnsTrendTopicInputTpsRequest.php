@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsTrendTopicInputTpsRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
      *
      * @example 1570852800000
      *
@@ -18,7 +18,7 @@ class OnsTrendTopicInputTpsRequest extends Model
     public $beginTime;
 
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The timestamp that indicates the end of the time range to query. Unit: milliseconds.
      *
      * @example 1570868400000
      *
@@ -27,7 +27,7 @@ class OnsTrendTopicInputTpsRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance which contains the topic you want to query.
+     * @description The ID of the instance to which the topic you want to query belongs.
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -56,8 +56,8 @@ class OnsTrendTopicInputTpsRequest extends Model
     /**
      * @description The type of information that you want to query. Valid values:
      *
-     *   **0**: the number of the messages that are published to the specified topic during each sampling period.
-     *   **1**: the TPS for message publishing to the specified topic during each sampling period.
+     *   **0**: the number of messages that are published to the topic during each sampling period.
+     *   **1**: the TPS for message publishing in the topic during each sampling period.
      *
      * @example 0
      *

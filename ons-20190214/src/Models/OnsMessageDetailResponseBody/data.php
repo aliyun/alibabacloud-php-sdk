@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The body of the message.
+     * @description The string that is obtained after the message body is encrypted by using the Base 64 algorithm.
      *
-     * @example hello,mq
+     * @example aGVsbG8=
      *
      * @var string
      */
@@ -21,14 +21,14 @@ class data extends Model
     /**
      * @description The cyclic redundancy check (CRC) value of the message body.
      *
-     * @example 914112295
+     * @example 907060870
      *
      * @var int
      */
     public $bodyCRC;
 
     /**
-     * @description 消息体内容。
+     * @description The information about the message body.
      *
      * @example hello
      *
@@ -55,7 +55,7 @@ class data extends Model
     public $bornTimestamp;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ Instance.
+     * @description The ID of the ApsaraMQ for RocketMQ Instance.
      *
      * @example MQ_INST_184681981******_BXig0x6A
      *
@@ -80,7 +80,7 @@ class data extends Model
     public $propertyList;
 
     /**
-     * @description The number of retries that Message Queue for Apache RocketMQ performed to send the message to consumers.
+     * @description The number of retries that ApsaraMQ for RocketMQ performed to send the message to consumers.
      *
      * @example 0
      *
@@ -89,7 +89,7 @@ class data extends Model
     public $reconsumeTimes;
 
     /**
-     * @description The Message Queue for Apache RocketMQ broker that stores the message.
+     * @description The ApsaraMQ for RocketMQ broker that stores the message.
      *
      * @example 11.220.***.***:10911
      *
@@ -107,7 +107,7 @@ class data extends Model
     public $storeSize;
 
     /**
-     * @description The timestamp that indicates the point in time when the Message Queue for Apache RocketMQ broker stored the message. Unit: milliseconds.
+     * @description The timestamp that indicates the point in time when the ApsaraMQ for RocketMQ broker stored the message. Unit: milliseconds.
      *
      * @example 1570761026708
      *

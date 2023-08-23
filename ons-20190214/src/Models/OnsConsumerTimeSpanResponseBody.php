@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerTimeSpanResponseBody extends Model
 {
     /**
-     * @description The query results.
+     * @description The data returned.
      *
      * @var data
      */

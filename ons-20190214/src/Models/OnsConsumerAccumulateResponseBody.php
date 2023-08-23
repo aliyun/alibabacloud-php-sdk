@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerAccumulateResponseBody extends Model
 {
     /**
-     * @description The information about message accumulation of topics to which the consumer group subscribes.
+     * @description The message accumulation information about topics to which the specified consumer subscribes.
      *
      * @var data
      */

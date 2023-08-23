@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsTrendGroupOutputTpsRequest extends Model
 {
     /**
-     * @description The beginning of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The timestamp that indicates the beginning of the time range to query. Unit: milliseconds.
      *
      * @example 1570852800000
      *
@@ -18,7 +18,7 @@ class OnsTrendGroupOutputTpsRequest extends Model
     public $beginTime;
 
     /**
-     * @description The end of the time range to query. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The timestamp that indicates the end of the time range to query. Unit: milliseconds.
      *
      * @example 1570868400000
      *
@@ -36,7 +36,7 @@ class OnsTrendGroupOutputTpsRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance which contains the specified consumer group.
+     * @description The ID of the instance to which the consumer group you want to query belongs.
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *

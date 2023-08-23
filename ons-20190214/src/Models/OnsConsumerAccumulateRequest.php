@@ -21,7 +21,7 @@ class OnsConsumerAccumulateRequest extends Model
     public $detail;
 
     /**
-     * @description The ID of the consumer group whose message accumulation you want to query.
+     * @description The ID of the consumer group.
      *
      * @example GID_test_consumer_id
      *

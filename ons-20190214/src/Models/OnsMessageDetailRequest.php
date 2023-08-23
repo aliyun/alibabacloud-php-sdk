@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageDetailRequest extends Model
 {
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ Instance.
+     * @description The ID of the ApsaraMQ for RocketMQ Instance.
      *
      * @example MQ_INST_184681981******_BXig0x6A
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsDLQMessageResendByIdRequest extends Model
 {
     /**
-     * @description The ID of the consumer group whose dead-letter messages you want to query.
+     * @description The ID of the consumer group in which you want to query dead-letter messages.
      *
      * @example GID_test_group_id
      *
@@ -18,7 +18,7 @@ class OnsDLQMessageResendByIdRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the instance to which the message you want to query belongs.
+     * @description The ID of the instance in which the dead-letter message you want to query resides.
      *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
@@ -27,7 +27,7 @@ class OnsDLQMessageResendByIdRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the dead-letter message that you want to query.
+     * @description The ID of the dead-letter message that you want to send to a consumer group for consumption.
      *
      * @example 0BC16699343051CD9F1D798E7734****
      *

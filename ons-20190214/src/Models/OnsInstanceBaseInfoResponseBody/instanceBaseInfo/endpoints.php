@@ -54,7 +54,7 @@ class endpoints extends Model
      *   TCP client SDK for Java: V2.0.0.Final or later For more information, see [Release notes for the SDK for Java](~~325569~~).
      *   TCP client SDK for C++: V3.0.0 or later For more information, see [Release notes for the SDK for C++](~~325570~~).
      *
-     *   You must pay the data transfer cost when you use a public TCP endpoint. For more information, see [Internet traffic fee](~~325571~~).
+     *   You are charged for Internet traffic when you use a public TCP endpoint. For more information, see [Internet traffic fee](~~325571~~).
      *
      * @example http://MQ_INST_138015630679****_BAAy1Hac.mq.cn-chengdu.aliyuncs.com:80
      *

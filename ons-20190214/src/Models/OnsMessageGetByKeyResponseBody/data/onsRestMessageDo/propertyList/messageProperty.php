@@ -11,14 +11,14 @@ class messageProperty extends Model
     /**
      * @description The name of the attribute. Valid values:
      *
-     *   **TRACE_ON**: indicates whether a trace of the message exists.
+     *   **TRACE_ON**: indicates whether the message trace exists.
      *
      * \-\*\* KEYS\*\*: indicates the key of the message.
      *
      *   **TAGS**: indicates the tag that is attached to the message.
      *   **INSTANCE_ID**: indicates the ID of the instance that contains the message.
      *
-     * For more information about the terms that are used in Message Queue for Apache RocketMQ, see [Terms](~~29533~~).
+     * For information about the terms that are used in ApsaraMQ for RocketMQ, see [Terms](~~29533~~).
      * @example TAGS
      *
      * @var string

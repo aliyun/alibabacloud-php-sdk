@@ -20,9 +20,9 @@ class OnsTopicUpdateRequest extends Model
     /**
      * @description The read/write mode that you want to configure for the topic. Valid values:
      *
-     *   **6:** Both read and write operations are allowed.
-     *   **4:** Write operations are forbidden.
-     *   **2:** Read operations are forbidden.
+     *   **6**: Both read and write operations are allowed.
+     *   **4**: Write operations are forbidden.
+     *   **2**: Read operations are forbidden.
      *
      * @example 6
      *

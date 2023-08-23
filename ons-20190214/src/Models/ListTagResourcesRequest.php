@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the instance to which the resource whose tags you want to query belongs.
+     * @description The ID of the ApsaraMQ for RocketMQ instance to which the resource whose tags you want to query belongs.
      *
-     * > : This parameter is required when you query the tags of a topic or a group.
+     * > This parameter is required when you query the tags of a topic or a group.
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string
@@ -20,7 +20,7 @@ class ListTagResourcesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The token that determines the start point of the query.
+     * @description The token that determines the start point of the next query.
      *
      * @example caeba0****be03f84eb48b699f0a4883
      *
@@ -38,7 +38,7 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource to which you want to attach tags. Valid values:
+     * @description The type of the resource whose tags you want to query. Valid values:
      *
      *   **INSTANCE**
      *   **TOPIC**
@@ -51,7 +51,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags that are attached to the resources. A maximum of 20 tags can be included in the list.
+     * @description The tags that you want to query. A maximum of 20 tags can be included in the list.
      *
      * @var tag[]
      */

@@ -35,7 +35,7 @@ class data extends Model
     public $detailInTopicList;
 
     /**
-     * @description The point in time when the latest message that was consumed by a consumer in the consumer group was produced.
+     * @description The point in time when the latest message consumed by a consumer in the consumer group was produced.
      *
      * @example 1566231000000
      *
@@ -44,7 +44,7 @@ class data extends Model
     public $lastTimestamp;
 
     /**
-     * @description Indicates whether the consumer group is online. The group is online if one of the consumers in the group is online. Valid values:
+     * @description Indicates whether the consumer group is online. The consumer group is online if one of the consumers in the group is online. Valid values:
      *
      *   **true**: The consumer group is online.
      *   **false**: The consumer group is offline.

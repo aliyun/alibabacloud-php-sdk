@@ -18,7 +18,7 @@ class regionDo extends Model
     public $onsRegionId;
 
     /**
-     * @description The ID of the region.
+     * @description The name of the region.
      *
      * @example China (Hangzhou)
      *

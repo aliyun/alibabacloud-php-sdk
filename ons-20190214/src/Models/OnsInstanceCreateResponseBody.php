@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceCreateResponseBody extends Model
 {
     /**
-     * @description The results that are returned.
+     * @description The result returned.
      *
      * @var data
      */

@@ -28,7 +28,7 @@ class onsRestMessageDo extends Model
     public $bornHost;
 
     /**
-     * @description The timestamp when the message was generated. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The time when the message was generated. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
      * @example 1570760999721
      *
@@ -37,7 +37,7 @@ class onsRestMessageDo extends Model
     public $bornTimestamp;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -62,7 +62,7 @@ class onsRestMessageDo extends Model
     public $propertyList;
 
     /**
-     * @description The number of retries that Message Queue for Apache RocketMQ performed to send the message to consumers.
+     * @description The number of retries that were performed to send the message to consumers.
      *
      * @example 1
      *
@@ -71,7 +71,7 @@ class onsRestMessageDo extends Model
     public $reconsumeTimes;
 
     /**
-     * @description The Message Queue for Apache RocketMQ broker that stores the message.
+     * @description The ApsaraMQ for RocketMQ broker that stores the message.
      *
      * @example 11.193.***.***:10911
      *
@@ -89,7 +89,7 @@ class onsRestMessageDo extends Model
     public $storeSize;
 
     /**
-     * @description The timestamp when the Message Queue for Apache RocketMQ broker stored the message. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The time when the ApsaraMQ for RocketMQ broker stored the message. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      *
      * @example 1570760999811
      *

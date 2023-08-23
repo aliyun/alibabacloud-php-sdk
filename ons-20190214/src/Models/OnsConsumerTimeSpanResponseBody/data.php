@@ -27,7 +27,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The earliest point in time when a message was published to the topic.
+     * @description The point in time when the earliest stored message was published to the topic.
      *
      * @example 1570761026804
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $maxTimeStamp;
 
     /**
-     * @description The most recent point in time when a message was published to the topic.
+     * @description The point in time when the most recently stored message was published to the topic.
      *
      * @example 1570701231122
      *

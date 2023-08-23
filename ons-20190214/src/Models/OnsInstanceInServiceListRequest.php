@@ -10,13 +10,19 @@ use AlibabaCloud\Tea\Model;
 class OnsInstanceInServiceListRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $needResourceInfo;
+
+    /**
      * @description The list of tags that are attached to the instance. A maximum of 20 tags can be included in a list.
      *
      * @var tag[]
      */
     public $tag;
     protected $_name = [
-        'tag' => 'Tag',
+        'needResourceInfo' => 'NeedResourceInfo',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -26,6 +32,9 @@ class OnsInstanceInServiceListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->needResourceInfo) {
+            $res['NeedResourceInfo'] = $this->needResourceInfo;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -47,6 +56,9 @@ class OnsInstanceInServiceListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['NeedResourceInfo'])) {
+            $model->needResourceInfo = $map['NeedResourceInfo'];
+        }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {
                 $model->tag = [];

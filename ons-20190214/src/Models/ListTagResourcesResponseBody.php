@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description The token that determines the start point of the query.
+     * @description The token that determines the start point of the next query.
      *
      * @example caeba0****be03f84eb48b699f0a4883
      *
@@ -28,7 +28,7 @@ class ListTagResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Details of the resource and tags, including the resource ID, the resource type, and the keys and values of tags.
+     * @description Details of the resource and tags, including the resource ID, the resource type, tag keys, and tag values.
      *
      * @var tagResources[]
      */

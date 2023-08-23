@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class subscribeInfoDo extends Model
 {
     /**
-     * @description The time when the group was created.
+     * @description The point in time when the consumer group was created.
      *
      * @example 1568896605000
      *
@@ -28,10 +28,10 @@ class subscribeInfoDo extends Model
     public $groupId;
 
     /**
-     * @description The protocol over which the queried consumer groups consume messages. All clients in a consumer group communicate with the Message Queue for Apache RocketMQ broker over the same protocol. A consumer group cannot contain TCP clients and HTTP clients at the same time. You must create different consumer groups for TCP clients and HTTP clients. Valid values:
+     * @description The protocol over which the queried consumer group publishes and subscribes to messages. All clients in a consumer group communicate with the ApsaraMQ for RocketMQ broker over the same protocol. You must create different consumer groups for TCP clients and HTTP clients. Valid values:
      *
-     *   **tcp**: indicates that the consumer group consumes messages over TCP.
-     *   **http**: indicates that the consumer group consumes messages over HTTP.
+     *   **tcp**: indicates that the consumer group publishes and subscribes to messages over TCP.
+     *   **http**: indicates that the consumer group publishes and subscribes to messages over HTTP.
      *
      * @example tcp
      *
@@ -43,7 +43,7 @@ class subscribeInfoDo extends Model
      * @description Indicates whether the instance uses a namespace. Valid values:
      *
      *   **true**: The instance uses a separate namespace. The name of each resource must be unique in the instance. The names of resources in different instances can be the same.
-     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within and across all instances.
+     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within the instance and across all instances.
      *
      * @example true
      *
@@ -52,7 +52,7 @@ class subscribeInfoDo extends Model
     public $independentNaming;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -61,7 +61,7 @@ class subscribeInfoDo extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the user who created the consumer group.
+     * @description The Alibaba Cloud account ID of the user who created the consumer group.
      *
      * @example 138015630679****
      *
@@ -86,7 +86,7 @@ class subscribeInfoDo extends Model
     public $tags;
 
     /**
-     * @description The time when the group ID was updated.
+     * @description The most recent point in time when the consumer group was updated.
      *
      * @example 1570700979000
      *

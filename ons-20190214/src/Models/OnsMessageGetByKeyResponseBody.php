@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsMessageGetByKeyResponseBody extends Model
 {
     /**
-     * @description The information about the message that is queried.
+     * @description The list of returned results.
      *
      * @var data
      */

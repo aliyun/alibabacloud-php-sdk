@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance which contains the resource to which you want to attach tags.
+     * @description The ID of the ApsaraMQ for RocketMQ instance that contains the resource to which you want to attach tags.
      *
-     * > : This parameter is required when you attach tags to a topic or a group.
+     * > This parameter is required when you attach tags to a topic or a group.
      * @example MQ_INST_188077086902****_BXSuW61e
      *
      * @var string
@@ -20,7 +20,7 @@ class TagResourcesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The list of resource IDs.
+     * @description The resource IDs.
      *
      * @example TopicA
      *
@@ -42,7 +42,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags that are attached to the resources.
+     * @description The tags that you want to attach to the resource.
      *
      * @var tag[]
      */

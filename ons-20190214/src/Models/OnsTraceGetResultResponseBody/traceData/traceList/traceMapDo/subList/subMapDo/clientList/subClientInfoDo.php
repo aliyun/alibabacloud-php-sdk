@@ -27,7 +27,7 @@ class subClientInfoDo extends Model
     public $costTime;
 
     /**
-     * @description The number of attempts that the Message Queue for Apache RocketMQ broker tried to send the message to the consumer.
+     * @description The number of attempts that the ApsaraMQ for RocketMQ broker tried to send the message to the consumer.
      *
      * @example 1
      *

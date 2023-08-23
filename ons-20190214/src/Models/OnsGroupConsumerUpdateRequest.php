@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsGroupConsumerUpdateRequest extends Model
 {
     /**
-     * @description The ID of the consumer group for which you want to configure the read permissions.
+     * @description The ID of the consumer group for which you want to configure read permissions.
      *
      * @example GID_test_groupId
      *
@@ -27,10 +27,10 @@ class OnsGroupConsumerUpdateRequest extends Model
     public $instanceId;
 
     /**
-     * @description Specifies whether to authorize the consumer group with the specified ID to read messages. Valid values:
+     * @description Specifies whether to authorize the consumer group to read messages. Valid values:
      *
-     *   **true**: Authorize the consumer group with the specified ID to read messages.
-     *   **false**: Do not authorize the consumer group with the specified group ID to read messages.
+     *   **true**: The consumer group can read messages.
+     *   **false**: The consumer group cannot read messages.
      *
      * Default value: **true**.
      * @example true

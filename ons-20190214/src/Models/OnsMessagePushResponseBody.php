@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsMessagePushResponseBody extends Model
 {
     /**
-     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
      *
      * @example B8EDC90D-F726-4B9E-8BEF-F0DD25EC****
      *

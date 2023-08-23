@@ -18,7 +18,7 @@ class OnsTraceQueryByMsgIdResponseBody extends Model
     public $queryId;
 
     /**
-     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use this ID to troubleshoot issues.
      *
      * @example B93332A3-160D-404F-880F-1F8736D1****
      *

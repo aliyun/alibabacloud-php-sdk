@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
@@ -18,7 +18,7 @@ class tagResources extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the resource.
+     * @description Indicates the ID of the resource.
      *
      * @example TopicA
      *
@@ -27,9 +27,9 @@ class tagResources extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource to which you want to attach tags.
+     * @description The type of the resource whose tags you want to query.
      *
-     *   ALIYUN::MQ::INSTANCE: indicates that the resource is an instance.
+     *   ALIYUN::MQ::INSTANCE: indicates that the resource is a ApsaraMQ for RocketMQ instance.
      *   ALIYUN::MQ::TOPIC: indicates that the resource is a topic.
      *   ALIYUN::MQ::GROUP: indicates that the resource is a group.
      *
@@ -40,7 +40,7 @@ class tagResources extends Model
     public $resourceType;
 
     /**
-     * @description The key of the tag.
+     * @description The tag key.
      *
      * @example CartService
      *
@@ -49,7 +49,7 @@ class tagResources extends Model
     public $tagKey;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
      * @example ServiceA
      *

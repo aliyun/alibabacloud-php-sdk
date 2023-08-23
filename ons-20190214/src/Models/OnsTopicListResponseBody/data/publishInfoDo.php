@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class publishInfoDo extends Model
 {
     /**
-     * @description The point in time when the topic was created.
+     * @description The time when the topic was created.
      *
      * @example 1570700947000
      *
@@ -22,7 +22,7 @@ class publishInfoDo extends Model
      * @description Indicates whether the instance that contains the topic uses a namespace. Valid values:
      *
      *   **true**: The instance uses a separate namespace. The name of each resource must be unique in the instance. The names of resources in different instances can be the same.
-     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within and across all instances.
+     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within an instance and across all instances.
      *
      * @example true
      *
@@ -40,7 +40,7 @@ class publishInfoDo extends Model
     public $instanceId;
 
     /**
-     * @description The type of the messages. Valid values:
+     * @description The message type. Valid values:
      *
      *   **0**: normal messages
      *   **1**: partitionally ordered messages
@@ -55,7 +55,7 @@ class publishInfoDo extends Model
     public $messageType;
 
     /**
-     * @description The user ID of the topic owner.
+     * @description The user ID of the topic owner. The value of this parameter is an Alibaba account ID.
      *
      * @example 138015630679****
      *
@@ -64,7 +64,7 @@ class publishInfoDo extends Model
     public $owner;
 
     /**
-     * @description The code of the relationship between the current account and the topic. Valid values:
+     * @description Indicates the relationship between the current account and the topic. Valid values:
      *
      *   **1**: The current account is the owner of the topic.
      *   **2**: The current account can publish messages to the topic.
@@ -78,7 +78,7 @@ class publishInfoDo extends Model
     public $relation;
 
     /**
-     * @description The name of the relationship between the current account and the topic. The value of this parameter indicates that the current account is the owner of the topic, the current account can publish messages to the topic, the current account can subscribe to the topic, or the current account can publish messages to and subscribe to the topic.
+     * @description The relationship between the current account and the topic. The value of this parameter indicates whether the current account is the owner of the topic, and whether the current account can subscribe or publish messages to the topic. the topic.
      *
      * @example Publish and subscribe
      *
@@ -96,7 +96,7 @@ class publishInfoDo extends Model
     public $remark;
 
     /**
-     * @description The status of the topic. Valid values:
+     * @description The status of the topic that is asynchronously created. Valid values:
      *
      *   **0**: The topic is being created.
      *   **1**: The topic is being used.
@@ -115,7 +115,7 @@ class publishInfoDo extends Model
     public $tags;
 
     /**
-     * @description The name of the topic.
+     * @description The topic name.
      *
      * @example test
      *

@@ -27,7 +27,7 @@ class connectionDo extends Model
     public $clientId;
 
     /**
-     * @description The programming language that the consumer client supports.
+     * @description The programming language in which the consumer is developed.
      *
      * @example JAVA
      *

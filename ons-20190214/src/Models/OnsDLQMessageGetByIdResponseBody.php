@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsDLQMessageGetByIdResponseBody extends Model
 {
     /**
-     * @description The returned results.
+     * @description The data returned.
      *
      * @var data
      */

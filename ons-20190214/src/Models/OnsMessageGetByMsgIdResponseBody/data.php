@@ -19,7 +19,7 @@ class data extends Model
     public $bodyCRC;
 
     /**
-     * @description The producer client that generated the message.
+     * @description The producer instance that generated the message.
      *
      * @example 42.120.**.**:64646
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $bornHost;
 
     /**
-     * @description The timestamp when the message was produced.
+     * @description The timestamp that indicates when the message was produced.
      *
      * @example 1570761026630
      *
@@ -37,7 +37,7 @@ class data extends Model
     public $bornTimestamp;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *
@@ -62,7 +62,7 @@ class data extends Model
     public $propertyList;
 
     /**
-     * @description The number of retries that Message Queue for Apache RocketMQ performed to send the message to consumers.
+     * @description The number of retries that were performed to send the message to consumers.
      *
      * @example 1
      *
@@ -71,7 +71,7 @@ class data extends Model
     public $reconsumeTimes;
 
     /**
-     * @description The Message Queue for Apache RocketMQ broker that stores the message.
+     * @description The ApsaraMQ for RocketMQ broker that stores the message.
      *
      * @example 11.220.***.***:10911
      *
@@ -89,7 +89,7 @@ class data extends Model
     public $storeSize;
 
     /**
-     * @description The timestamp when the Message Queue for Apache RocketMQ broker stored the message.
+     * @description The timestamp that indicates when the ApsaraMQ for RocketMQ broker stored the message.
      *
      * @example 1570761026708
      *

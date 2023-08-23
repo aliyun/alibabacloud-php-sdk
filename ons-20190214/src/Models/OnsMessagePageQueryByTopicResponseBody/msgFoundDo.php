@@ -35,7 +35,7 @@ class msgFoundDo extends Model
     public $msgFoundList;
 
     /**
-     * @description The ID of the query task. The first time you call this operation to query the dead-letter messages that are sent to a specified consumer group within a specified time range, this parameter is returned. You can use the task ID to query the details of dead-letter messages on other returned pages.
+     * @description The ID of the query task. The first time you call this operation to query the messages that are sent to a specified consumer group within a specified time range, this parameter is returned. You can use the task ID to query the details of messages on other returned pages.
      *
      * @example 0BC1310300002A9F000021E4D7A48346
      *

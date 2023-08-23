@@ -28,7 +28,7 @@ class detailInTopicDo extends Model
     public $lastTimestamp;
 
     /**
-     * @description The name of the topic.
+     * @description The topic name.
      *
      * @example test-mq_topic
      *

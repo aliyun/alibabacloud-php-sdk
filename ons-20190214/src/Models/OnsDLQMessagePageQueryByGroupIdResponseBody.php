@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsDLQMessagePageQueryByGroupIdResponseBody extends Model
 {
     /**
-     * @description The returned results.
+     * @description The information about dead-letter messages that are queried.
      *
      * @var msgFoundDo
      */

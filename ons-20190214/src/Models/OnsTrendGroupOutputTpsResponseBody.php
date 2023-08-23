@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class OnsTrendGroupOutputTpsResponseBody extends Model
 {
     /**
-     * @description The data that is returned.
+     * @description The data returned.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request. The system generates a unique ID for each request. You can troubleshoot issues based on the request ID.
+     * @description The ID of the request. This parameter is a common parameter. Each request has a unique ID. You can use the ID to troubleshoot issues.
      *
      * @example CE57AEDC-8FD2-43ED-8E3B-1F878077****
      *

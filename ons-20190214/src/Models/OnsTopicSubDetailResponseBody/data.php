@@ -17,7 +17,7 @@ class data extends Model
     public $subscriptionDataList;
 
     /**
-     * @description The name of the topic.
+     * @description The topic name.
      *
      * @example test
      *

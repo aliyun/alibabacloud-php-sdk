@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class OnsConsumerStatusResponseBody extends Model
 {
     /**
-     * @description The query results.
+     * @description The data returned.
      *
      * @var data
      */

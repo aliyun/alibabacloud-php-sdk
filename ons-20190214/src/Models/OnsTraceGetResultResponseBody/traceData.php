@@ -19,7 +19,7 @@ class traceData extends Model
     public $createTime;
 
     /**
-     * @description The ID of the instance that contains the message.
+     * @description The ID of the instance
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *

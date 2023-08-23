@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OnsMessagePushRequest extends Model
 {
     /**
-     * @description The ID of the consumer. You can call the [OnsConsumerGetConnection](~~29598~~) operation to query the ID of each consumer in a consumer group.
+     * @description The ID of the consumer client. You can call the [OnsConsumerGetConnection](~~29598~~) operation to query client IDs.
      *
      * @example 30.5.121.**@24813#-1999745829#-1737591554#453111174894656
      *
@@ -27,7 +27,7 @@ class OnsMessagePushRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the Message Queue for Apache RocketMQ instance to which the specified consumer group belongs.
+     * @description The ID of the ApsaraMQ for RocketMQ instance to which the specified consumer group belongs.
      *
      * @example MQ_INST_111111111111_DOxxxxxx
      *

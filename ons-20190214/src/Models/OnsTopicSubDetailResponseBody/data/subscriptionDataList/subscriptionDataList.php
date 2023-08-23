@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class subscriptionDataList extends Model
 {
     /**
-     * @description The ID of the consumer group.
+     * @description The ID of the consumer group that subscribes to the topic.
      *
      * @example GID_test
      *

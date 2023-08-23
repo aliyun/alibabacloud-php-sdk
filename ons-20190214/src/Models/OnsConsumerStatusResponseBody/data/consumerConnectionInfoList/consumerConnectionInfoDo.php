@@ -32,8 +32,8 @@ class consumerConnectionInfoDo extends Model
     /**
      * @description The consumption mode. Valid values:
      *
-     *   **CLUSTERING:** the clustering consumption mode
-     *   **BROADCASTING:** the broadcasting consumption mode
+     *   **CLUSTERING**: the clustering consumption mode
+     *   **BROADCASTING**: the broadcasting consumption mode
      *
      * For more information about consumption modes, see [Clustering consumption and broadcasting consumption](~~43163~~).
      * @example CLUSTERING
@@ -45,8 +45,8 @@ class consumerConnectionInfoDo extends Model
     /**
      * @description The mode in which the consumer consumes messages. Valid values:
      *
-     *   **PUSH:** The Message Queue for Apache RocketMQ broker pushes messages to the consumer.
-     *   **PULL:** The consumer pulls messages from the Message Queue for Apache RocketMQ broker.
+     *   **PUSH**: The ApsaraMQ for RocketMQ broker pushes messages to the consumer.
+     *   **PULL**: The consumer pulls messages from the ApsaraMQ for RocketMQ broker.
      *
      * @example PUSH
      *

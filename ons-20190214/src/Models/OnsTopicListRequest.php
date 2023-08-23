@@ -26,7 +26,7 @@ class OnsTopicListRequest extends Model
     public $tag;
 
     /**
-     * @description The name of the topic that you want to query. This parameter is required when you want to query a specific topic. If you do not include this parameter in a request, all topics that you can access are queried.
+     * @description The name of the topic that you want to query. This parameter is required if you want to query a specific topic. If you do not include this parameter in a request, all topics that you can access are queried.
      *
      * @example test
      *
@@ -35,6 +35,8 @@ class OnsTopicListRequest extends Model
     public $topic;
 
     /**
+     * @description The user ID of the topic owner. Set this parameter to an Alibaba Cloud account ID.
+     *
      * @example 138015630679****
      *
      * @var string

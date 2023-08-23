@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class connectionDo extends Model
 {
     /**
-     * @description The IP address and port number of the consumer instance.
+     * @description The IP address and port number of the consumer client.
      *
      * @example 30.5.121.**
      *
@@ -18,7 +18,7 @@ class connectionDo extends Model
     public $clientAddr;
 
     /**
-     * @description The ID of the consumer instance.
+     * @description The ID of the consumer client.
      *
      * @example 30.5.121.**@24813#-1999745829#-1737591554#453111174894656
      *

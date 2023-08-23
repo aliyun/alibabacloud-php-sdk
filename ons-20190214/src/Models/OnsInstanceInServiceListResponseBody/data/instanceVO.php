@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class instanceVO extends Model
 {
     /**
+     * @description The time when the instance was created. The value of this parameter is a UNIX timestamp in milliseconds.
+     *
      * @example 1640847284000
      *
      * @var int
@@ -17,10 +19,15 @@ class instanceVO extends Model
     public $createTime;
 
     /**
+     * @var int
+     */
+    public $groupCount;
+
+    /**
      * @description Indicates whether the instance uses a namespace. Valid values:
      *
      *   **true**: The instance uses a separate namespace. The name of each resource must be unique in the instance. The names of resources in different instances can be the same.
-     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within and across all instances.
+     *   **false**: The instance does not use a separate namespace. The name of each resource must be globally unique within the instance and across all instances.
      *
      * @example true
      *
@@ -29,7 +36,7 @@ class instanceVO extends Model
     public $independentNaming;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example MQ_INST_188077086902****_BXSuW61e
      *
@@ -64,8 +71,8 @@ class instanceVO extends Model
     /**
      * @description The instance type. Valid values:
      *
-     *   **1**: Standard Edition
-     *   **2**: Enterprise Platinum Edition
+     *   **1**: Standard Edition instances
+     *   **2**: Enterprise Platinum Edition instances
      *
      * For more information about the instance editions and differences between the editions, see [Instance editions](~~185261~~).
      * @example 2
@@ -75,7 +82,7 @@ class instanceVO extends Model
     public $instanceType;
 
     /**
-     * @description The point in time when the instance expires. If the instance is an Enterprise Platinum Edition instance, this parameter is returned.
+     * @description The time when the instance expires. If the instance is an Enterprise Platinum Edition instance, this parameter is returned.
      *
      * @example 1551024000000
      *
@@ -84,13 +91,19 @@ class instanceVO extends Model
     public $releaseTime;
 
     /**
-     * @description The tags that are attached to the instance.
+     * @description The tags that are attached to the instance you want to query.
      *
      * @var tags
      */
     public $tags;
+
+    /**
+     * @var int
+     */
+    public $topicCount;
     protected $_name = [
         'createTime'        => 'CreateTime',
+        'groupCount'        => 'GroupCount',
         'independentNaming' => 'IndependentNaming',
         'instanceId'        => 'InstanceId',
         'instanceName'      => 'InstanceName',
@@ -98,6 +111,7 @@ class instanceVO extends Model
         'instanceType'      => 'InstanceType',
         'releaseTime'       => 'ReleaseTime',
         'tags'              => 'Tags',
+        'topicCount'        => 'TopicCount',
     ];
 
     public function validate()
@@ -109,6 +123,9 @@ class instanceVO extends Model
         $res = [];
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->groupCount) {
+            $res['GroupCount'] = $this->groupCount;
         }
         if (null !== $this->independentNaming) {
             $res['IndependentNaming'] = $this->independentNaming;
@@ -131,6 +148,9 @@ class instanceVO extends Model
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
+        if (null !== $this->topicCount) {
+            $res['TopicCount'] = $this->topicCount;
+        }
 
         return $res;
     }
@@ -145,6 +165,9 @@ class instanceVO extends Model
         $model = new self();
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['GroupCount'])) {
+            $model->groupCount = $map['GroupCount'];
         }
         if (isset($map['IndependentNaming'])) {
             $model->independentNaming = $map['IndependentNaming'];
@@ -166,6 +189,9 @@ class instanceVO extends Model
         }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
+        }
+        if (isset($map['TopicCount'])) {
+            $model->topicCount = $map['TopicCount'];
         }
 
         return $model;

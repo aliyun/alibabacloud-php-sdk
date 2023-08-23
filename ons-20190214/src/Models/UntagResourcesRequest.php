@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags that are attached to the specified resource. This parameter takes effect only when the **TagKey.N** parameter is not configured. Default value: **false**.
+     * @description Specifies whether to remove all tags that are attached to the specified resource. This parameter takes effect only if the **TagKey** parameter is empty. Default value: **false**.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class UntagResourcesRequest extends Model
     public $instanceId;
 
     /**
-     * @description The list of resource IDs.
+     * @description The resource IDs.
      *
      * @example TopicA
      *
@@ -36,7 +36,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resources from which you want to detach tags. Valid values:
+     * @description The type of the resource from which you want to detach tags. Valid values:
      *
      *   **INSTANCE**
      *   **TOPIC**

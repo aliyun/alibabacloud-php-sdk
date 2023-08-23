@@ -11,14 +11,14 @@ class propertyList extends Model
     /**
      * @description The name of the attribute. Valid values:
      *
-     *   **BODY**: indicates the message body
      *   **TRACE_ON**: indicates whether the trace of the message exists.
-     *   **KEYS**: indicates the key of the message.
-     *   **TAGS**: indicates the tag that is attached to the message.
-     *   **INSTANCE_ID**: indicates the ID of the instance that contains the message.
+     *   **MSG_REGION**: The region ID of the instance to which the topic belongs.
+     *   **\__MESSAGE_DECODED_TIME**: The time when the message was decoded.
+     *   **\__BORNHOST**: The IP address of the producer client.
+     *   **UNIQ_KEY**: The ID of the message.
      *
-     * For more information about the terms that are used in Message Queue for Apache RocketMQ, see [Terms](~~29533~~).
-     * @example TAGS
+     * For information about the terms that are used in ApsaraMQ for RocketMQ, see [Terms](~~29533~~).
+     * @example cn-hangzhou
      *
      * @var string
      */
@@ -27,7 +27,7 @@ class propertyList extends Model
     /**
      * @description The value of the attribute.
      *
-     * @example TagA
+     * @example MSG_REGION
      *
      * @var string
      */
