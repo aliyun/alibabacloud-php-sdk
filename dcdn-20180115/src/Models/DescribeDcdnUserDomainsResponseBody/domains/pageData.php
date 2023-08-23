@@ -110,6 +110,14 @@ class pageData extends Model
     public $sandbox;
 
     /**
+     * @description The moderation scenario. Valid values:
+     *
+     *   **apiscene**: Api scene acceleration.
+     *   **webservicescene**: Web scene acceleration.
+     *   **staticscene**: Video and graphic scene acceleration.
+     *
+     * @example apiscene
+     *
      * @var string
      */
     public $scene;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainCertificateInfoRequest extends Model
 {
     /**
-     * @description The certificate information of the domain name.
+     * @description The accelerated domain name. You can specify only one domain name in each request.
      *
      * @example example.com
      *

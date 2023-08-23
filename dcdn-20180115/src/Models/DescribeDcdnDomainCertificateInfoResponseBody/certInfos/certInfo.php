@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class certInfo extends Model
 {
     /**
-     * @description The certificate authority (CA) that issued the certificate.
+     * @description The domain name that matches the certificate.
      *
      * @example example.com
      *
@@ -18,10 +18,7 @@ class certInfo extends Model
     public $certDomainName;
 
     /**
-     * @description The status of HTTPS. Valid values:
-     *
-     *   **on**: enabled
-     *   **off**: disabled
+     * @description The time at which the certificate expires.
      *
      * @example 2018-06-03T22:03:39Z
      *
@@ -30,11 +27,7 @@ class certInfo extends Model
     public $certExpireTime;
 
     /**
-     * @description The type of the certificate. Valid values:
-     *
-     *   **free**: a free certificate
-     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service
-     *   **upload**: a certificate that is uploaded by the user
+     * @description The ID of the certificate.
      *
      * @example 9002448
      *
@@ -43,7 +36,7 @@ class certInfo extends Model
     public $certId;
 
     /**
-     * @description The public key of the certificate.
+     * @description The validity period of the certificate. Unit: **months** or **years**.
      *
      * @example 3 months
      *
@@ -52,7 +45,7 @@ class certInfo extends Model
     public $certLife;
 
     /**
-     * @description The accelerated domain name.
+     * @description The name of the certificate.
      *
      * @example cert-example.com
      *
@@ -61,7 +54,7 @@ class certInfo extends Model
     public $certName;
 
     /**
-     * @description >  The maximum number of times that each user can call this operation per second is 100.
+     * @description The certificate authority (CA) that issued the certificate.
      *
      * @example Let\"s Encrypt
      *
@@ -70,7 +63,7 @@ class certInfo extends Model
     public $certOrg;
 
     /**
-     * @description The expiration time of the certificate.
+     * @description The region where the certificate is used.
      *
      * @example cn-hangzhou
      *
@@ -79,7 +72,10 @@ class certInfo extends Model
     public $certRegion;
 
     /**
-     * @description The name of the certificate.
+     * @description The type of the certificate.
+     *
+     *   **cas**: a certificate that is purchased by using Certificates Management Service
+     *   **upload**: a custom certificate that you upload
      *
      * @example cas
      *
@@ -88,7 +84,7 @@ class certInfo extends Model
     public $certType;
 
     /**
-     * @description The domain name that matches the certificate.
+     * @description The accelerated domain name.
      *
      * @example example.com
      *
@@ -97,7 +93,10 @@ class certInfo extends Model
     public $domainName;
 
     /**
-     * @description The domain name that matches the certificate.
+     * @description The status of HTTPS. Valid values:
+     *
+     *   **on**
+     *   **off**
      *
      * @example on
      *
@@ -106,11 +105,7 @@ class certInfo extends Model
     public $SSLProtocol;
 
     /**
-     * @description The type of the certificate. Valid values:
-     *
-     *   **free**: a free certificate
-     *   **cas**: a certificate that is purchased from Alibaba Cloud SSL Certificates Service
-     *   **upload**: a certificate that is uploaded by the user
+     * @description The public key of the certificate.
      *
      * @example xxxx
      *
@@ -119,7 +114,18 @@ class certInfo extends Model
     public $SSLPub;
 
     /**
-     * @description The expiration time of the certificate.
+     * @description The status of the certificate. Valid values:
+     *
+     *   **success**: The certificate has taken effect.
+     *   **checking**: The system is checking whether the domain name is using Dynamic Route for CDN (DCDN).
+     *   **cname_error**: The domain name is not using DCDN.
+     *   **domain_invalid**: The domain name contains invalid characters.
+     *   **unsupport_wildcard**: The wildcard domain name is not supported.
+     *   **applying**: Certificate application is in progress.
+     *   **get_token_timeout**: The certificate application request has timed out.
+     *   **check_token_timeout**: The verification has timed out.
+     *   **get_cert_timeout**: The request to obtain the certificate has timed out.
+     *   **failed**: The certificate application request failed.
      *
      * @example success
      *

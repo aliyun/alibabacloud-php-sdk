@@ -31,6 +31,8 @@ class defenseScenes extends Model
     public $policyId;
 
     /**
+     * @description The IDs of the protection policy.
+     *
      * @example 10000001,10000004
      *
      * @var string

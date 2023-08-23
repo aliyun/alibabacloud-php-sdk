@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRegionAndIspResponseBody extends Model
 {
     /**
+     * @description The list of ISPs.
+     *
      * @var isps
      */
     public $isps;

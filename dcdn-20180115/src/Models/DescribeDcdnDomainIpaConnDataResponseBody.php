@@ -26,7 +26,7 @@ class DescribeDcdnDomainIpaConnDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example A2A1EEF8-043E-43A1-807C-BEAC18EA1807
      *

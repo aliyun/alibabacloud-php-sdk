@@ -20,6 +20,8 @@ class region extends Model
     /**
      * @description The Chinese name of the region.
      *
+     * @example 辽宁省
+     *
      * @var string
      */
     public $nameZh;

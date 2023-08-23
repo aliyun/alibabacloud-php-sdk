@@ -36,11 +36,19 @@ class DescribeDcdnUserQuotaResponseBody extends Model
     public $domainQuota;
 
     /**
+     * @description The maximum number of URLs or directories with parameters ignored that can be refreshed on the current day.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $ignoreParamsQuota;
 
     /**
+     * @description The number of remaining URLs or directories that can be refreshed with parameters ignored on the current day.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $ignoreParamsRemain;

@@ -10,11 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnKvAccountResponseBody extends Model
 {
     /**
+     * @description The available capacity of all namespaces.
+     *
+     * @example 2GB
+     *
      * @var string
      */
     public $capacityString;
 
     /**
+     * @description All namespaces have used capacity.
+     *
+     * @example 200 MB
+     *
      * @var string
      */
     public $capacityUsedString;

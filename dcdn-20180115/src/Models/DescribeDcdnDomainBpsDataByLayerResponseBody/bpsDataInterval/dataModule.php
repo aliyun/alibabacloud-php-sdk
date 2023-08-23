@@ -11,12 +11,16 @@ class dataModule extends Model
     /**
      * @description The traffic that is used to deliver dynamic content. Unit: bytes.
      *
+     * @example 200
+     *
      * @var string
      */
     public $dynamicTrafficValue;
 
     /**
      * @description The bandwidth that is used to deliver dynamic content. Unit: bit/s.
+     *
+     * @example 0.34
      *
      * @var string
      */
@@ -25,12 +29,16 @@ class dataModule extends Model
     /**
      * @description The traffic that is used to deliver static content. Unit: bytes.
      *
+     * @example 131
+     *
      * @var string
      */
     public $staticTrafficValue;
 
     /**
      * @description The bandwidth that is used to deliver static content. Unit: bit/s.
+     *
+     * @example 0.22
      *
      * @var string
      */

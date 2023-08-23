@@ -18,6 +18,8 @@ class tags extends Model
     public $key;
 
     /**
+     * @description The value of the tag that you want to query.
+     *
      * @var string[]
      */
     public $value;

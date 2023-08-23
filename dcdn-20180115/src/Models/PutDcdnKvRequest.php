@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class PutDcdnKvRequest extends Model
 {
     /**
+     * @description The time when the key expires.Example: "1690081381".
+     *
+     * @example 1690081381
+     *
      * @var int
      */
     public $expiration;
 
     /**
+     * @description The time when the key expires.Example: "3600".
+     *
+     * @example 3600
+     *
      * @var int
      */
     public $expirationTtl;

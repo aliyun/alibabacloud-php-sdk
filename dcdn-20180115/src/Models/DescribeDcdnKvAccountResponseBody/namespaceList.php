@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class namespaceList extends Model
 {
     /**
+     * @description The available capacity of the namespace.
+     *
+     * @example 1 GB
+     *
      * @var string
      */
     public $capacityString;
 
     /**
+     * @description The namespace has used capacity.
+     *
+     * @example 100 MB
+     *
      * @var string
      */
     public $capacityUsedString;

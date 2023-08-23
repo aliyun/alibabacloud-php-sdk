@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class keys extends Model
 {
     /**
-     * @description The name of the key.
+     * @description The value of the key obtained in this traversal.
      *
      * @example Key1
      *
