@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example GOODS
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 生活及洗漱用品
+     *
      * @var string
      */
     public $desc;
 
     /**
+     * @example https://ailabsaicloudservice.alicdn.com/hotel/icon/changjingfenlei/wupintianjia.png
+     *
      * @var string
      */
     public $icon;
 
     /**
+     * @example 物品添加
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example HOTEL_SERVICE
+     *
      * @var string
      */
     public $type;

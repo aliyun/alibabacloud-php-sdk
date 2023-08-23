@@ -15,6 +15,8 @@ class payload extends Model
     public $itemList;
 
     /**
+     * @example GOODS
+     *
      * @var string
      */
     public $type;

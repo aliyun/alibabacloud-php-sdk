@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example GOODS
+     *
      * @var string
      */
     public $type;

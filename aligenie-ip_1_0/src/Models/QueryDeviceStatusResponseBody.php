@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class QueryDeviceStatusResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example fdsgrefds
+     *
      * @var string
      */
     public $requestId;

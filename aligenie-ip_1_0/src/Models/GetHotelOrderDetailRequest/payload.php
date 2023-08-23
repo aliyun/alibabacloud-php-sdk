@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example 20220714150702000168270112410630
+     *
      * @var string
      */
     public $orderNo;

@@ -15,6 +15,8 @@ class secondCategoryList extends Model
     public $itemList;
 
     /**
+     * @example 客用品类
+     *
      * @var string
      */
     public $secondCategoryName;

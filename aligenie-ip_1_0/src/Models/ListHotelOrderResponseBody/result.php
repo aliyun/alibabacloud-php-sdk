@@ -9,46 +9,64 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 21.5
+     *
      * @var int
      */
     public $applyAmt;
 
     /**
+     * @example 1659952892000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example 20220808180132000114508555527711
+     *
      * @var string
      */
     public $orderNo;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @example 2001
+     *
      * @var string
      */
     public $roomNo;
 
     /**
+     * @example INIT
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example REPAIR
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example https://ailabsaicloudservice.alicdn.com/hotel/icon/changjingfenlei/shebeiweixiu.png
+     *
      * @var string
      */
     public $typeIconUrl;
 
     /**
+     * @example 设备维修
+     *
      * @var string
      */
     public $typeName;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class locationDevices extends Model
 {
     /**
+     * @example night_light
+     *
      * @var string
      */
     public $deviceNumber;
 
     /**
+     * @example light
+     *
      * @var string
      */
     public $deviceType;
 
     /**
+     * @example room
+     *
      * @var string
      */
     public $location;

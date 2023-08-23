@@ -14,21 +14,29 @@ class page extends Model
     public $hasNext;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $total;
 
     /**
+     * @example 6
+     *
      * @var int
      */
     public $totalPage;

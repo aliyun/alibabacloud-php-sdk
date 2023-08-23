@@ -9,36 +9,36 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example aircondition
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example open
+     *
      * @var string
      */
     public $cmd;
 
     /**
-     * @var string
-     */
-    public $current;
-
-    /**
-     * @var string
-     */
-    public $device;
-
-    /**
+     * @example air_condition
+     *
      * @var string
      */
     public $deviceNumber;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extendInfo;
 
     /**
+     * @example room
+     *
      * @var string
      */
     public $location;
@@ -50,8 +50,6 @@ class payload extends Model
     protected $_name = [
         'category'     => 'Category',
         'cmd'          => 'Cmd',
-        'current'      => 'Current',
-        'device'       => 'Device',
         'deviceNumber' => 'DeviceNumber',
         'extendInfo'   => 'ExtendInfo',
         'location'     => 'Location',
@@ -70,12 +68,6 @@ class payload extends Model
         }
         if (null !== $this->cmd) {
             $res['Cmd'] = $this->cmd;
-        }
-        if (null !== $this->current) {
-            $res['Current'] = $this->current;
-        }
-        if (null !== $this->device) {
-            $res['Device'] = $this->device;
         }
         if (null !== $this->deviceNumber) {
             $res['DeviceNumber'] = $this->deviceNumber;
@@ -106,12 +98,6 @@ class payload extends Model
         }
         if (isset($map['Cmd'])) {
             $model->cmd = $map['Cmd'];
-        }
-        if (isset($map['Current'])) {
-            $model->current = $map['Current'];
-        }
-        if (isset($map['Device'])) {
-            $model->device = $map['Device'];
         }
         if (isset($map['DeviceNumber'])) {
             $model->deviceNumber = $map['DeviceNumber'];

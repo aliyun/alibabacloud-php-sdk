@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class ListHotelOrderResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -26,6 +30,8 @@ class ListHotelOrderResponseBody extends Model
     public $page;
 
     /**
+     * @example 07F61FDA-606F-10A0-8ED0-C6CE62710A48
+     *
      * @var string
      */
     public $requestId;

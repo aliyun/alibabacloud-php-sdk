@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetHotelHomeBackImageAndModesResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 394450FC-9035-1B7C-8829-BC88832473FC
+     *
      * @var string
      */
     public $requestId;

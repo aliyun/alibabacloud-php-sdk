@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example https://ailabs.alibabausercontent.com/platform/3d4fe6d66ec49d9789635f66627f0339/welcome_audios/976210a6532150f49c2677a8b7dbc105/l6fspbhd.jpg
+     *
      * @var string
      */
     public $picUrl;
 
     /**
+     * @example common-weather
+     *
      * @var string
      */
     public $styleCode;

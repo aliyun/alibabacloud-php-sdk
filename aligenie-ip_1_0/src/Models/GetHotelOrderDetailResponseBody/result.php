@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $applyAmt;
 
     /**
+     * @example 1659952892000
+     *
      * @var int
      */
     public $gmtCreate;
 
     /**
+     * @example https://ailabsaicloudservice.alicdn.com/hotel/icon/jiudianmianban_fuwushangpintu/weixiu/dianqilei/chuanglian.png
+     *
      * @var string
      */
     public $itemUrl;
 
     /**
+     * @example 窗帘
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $quantity;

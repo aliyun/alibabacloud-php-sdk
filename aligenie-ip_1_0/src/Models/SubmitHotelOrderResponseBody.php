@@ -9,29 +9,43 @@ use AlibabaCloud\Tea\Model;
 class SubmitHotelOrderResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example CCCF2E86-D9B5-12A6-AD25-8A06933D2B0F
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20220809104752000114671478353329
+     *
      * @var string
      */
     public $result;
+
+    /**
+     * @var int
+     */
+    public $statusCode;
     protected $_name = [
-        'code'      => 'Code',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'result'    => 'Result',
+        'code'       => 'Code',
+        'message'    => 'Message',
+        'requestId'  => 'RequestId',
+        'result'     => 'Result',
+        'statusCode' => 'StatusCode',
     ];
 
     public function validate()
@@ -52,6 +66,9 @@ class SubmitHotelOrderResponseBody extends Model
         }
         if (null !== $this->result) {
             $res['Result'] = $this->result;
+        }
+        if (null !== $this->statusCode) {
+            $res['StatusCode'] = $this->statusCode;
         }
 
         return $res;
@@ -76,6 +93,9 @@ class SubmitHotelOrderResponseBody extends Model
         }
         if (isset($map['Result'])) {
             $model->result = $map['Result'];
+        }
+        if (isset($map['StatusCode'])) {
+            $model->statusCode = $map['StatusCode'];
         }
 
         return $model;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class modeList extends Model
 {
     /**
+     * @example 浪漫模式
+     *
      * @var string
      */
     public $cnName;
 
     /**
+     * @example romantic
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example https://ailabsaicloudservice.alicdn.com/hotel/icon/changjingmoshi/langman.png
+     *
      * @var string
      */
     public $icon;

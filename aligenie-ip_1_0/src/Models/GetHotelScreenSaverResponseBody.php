@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetHotelScreenSaverResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 5F0467E1-19F2-1757-B6D0-B79917BA2E81
+     *
      * @var string
      */
     public $requestId;
