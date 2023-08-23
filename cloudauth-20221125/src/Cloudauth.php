@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntElementVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryRequest;
+use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntRiskQueryResponse;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20221125\Models\EntVerifyResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -114,6 +116,64 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->entElementVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EntRiskQueryRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return EntRiskQueryResponse
+     */
+    public function entRiskQueryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->paramValue)) {
+            $query['ParamValue'] = $request->paramValue;
+        }
+        if (!Utils::isUnset($request->sceneCode)) {
+            $query['SceneCode'] = $request->sceneCode;
+        }
+        if (!Utils::isUnset($request->userAuthorization)) {
+            $query['UserAuthorization'] = $request->userAuthorization;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EntRiskQuery',
+            'version'     => '2022-11-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EntRiskQueryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EntRiskQueryRequest $request
+     *
+     * @return EntRiskQueryResponse
+     */
+    public function entRiskQuery($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->entRiskQueryWithOptions($request, $runtime);
     }
 
     /**
