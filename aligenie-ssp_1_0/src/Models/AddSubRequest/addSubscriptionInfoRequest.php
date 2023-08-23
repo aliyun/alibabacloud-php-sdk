@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class addSubscriptionInfoRequest extends Model
 {
     /**
+     * @example 51999575
+     *
      * @var string
      */
     public $albumId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $dailyStudyCnt;
 
     /**
+     * @example sequence
+     *
      * @var string
      */
     public $playMode;

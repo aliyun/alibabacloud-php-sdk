@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class actionDTOs extends Model
 {
     /**
+     * @example {"k1":"v1","k2":{"key":1}}
+     *
      * @var mixed[]
      */
     public $customAction;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $alarmId;

@@ -14,21 +14,29 @@ class player extends Model
     public $audioAlbum;
 
     /**
+     * @example 刘德华
+     *
      * @var string
      */
     public $audioAnchor;
 
     /**
+     * @example ""
+     *
      * @var string
      */
     public $audioExt;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $audioId;
 
     /**
+     * @example 253
+     *
      * @var string
      */
     public $audioLength;
@@ -39,31 +47,43 @@ class player extends Model
     public $audioName;
 
     /**
+     * @example xiami
+     *
      * @var string
      */
     public $audioSource;
 
     /**
+     * @example https://xxx
+     *
      * @var string
      */
     public $audioUrl;
 
     /**
+     * @example mp3
+     *
      * @var string
      */
     public $format;
 
     /**
+     * @example 30
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example cloud
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example pause
+     *
      * @var string
      */
     public $status;

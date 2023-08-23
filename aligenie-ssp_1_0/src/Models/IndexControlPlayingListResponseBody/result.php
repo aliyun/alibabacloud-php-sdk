@@ -15,16 +15,22 @@ class result extends Model
     public $albumName;
 
     /**
+     * @example 260744
+     *
      * @var string
      */
     public $albumRawId;
 
     /**
+     * @example 190
+     *
      * @var int
      */
     public $audioLength;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $copyright;
@@ -35,41 +41,57 @@ class result extends Model
     public $cover;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $defaultPlayOrder;
 
     /**
+     * @example https://openaudio.cos.tx.xmcdn.com/storages/587f-audiofreehighqps/15/CE/GKwRIJIGnb11ABc6SwF59DNb.mp3
+     *
      * @var string
      */
     public $itemUrl;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $liked;
 
     /**
+     * @example https://aicontent.alibabausercontent.com/lyric/thirdsource/6f4c8408073db134b0d097c122b5a1a1.lrc
+     *
      * @var string
      */
     public $lyricUrl;
 
     /**
+     * @example Repeat
+     *
      * @var string
      */
     public $playMode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $pos;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example 550144364
+     *
      * @var string
      */
     public $rawId;
@@ -80,6 +102,8 @@ class result extends Model
     public $singer;
 
     /**
+     * @example ximalayav2
+     *
      * @var string
      */
     public $source;
@@ -90,11 +114,15 @@ class result extends Model
     public $title;
 
     /**
+     * @example story
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example VALID
+     *
      * @var string
      */
     public $valid;

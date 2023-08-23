@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class GetDeviceIdByIdentityRequest extends Model
 {
     /**
+     * @example 129****0946
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
 
     /**
+     * @example b4:xx:xx:xx:65:2b
+     *
      * @var string
      */
     public $identityId;
 
     /**
+     * @example MAC
+     *
      * @var string
      */
     public $identityType;
 
     /**
+     * @example Mm*****XnZ8
+     *
      * @var string
      */
     public $productKey;

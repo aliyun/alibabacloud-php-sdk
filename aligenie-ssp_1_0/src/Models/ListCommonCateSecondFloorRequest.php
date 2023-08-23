@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCommonCateSecondFloorRequest extends Model
 {
     /**
+     * @example 80010
+     *
      * @var int
      */
     public $parentCateId;

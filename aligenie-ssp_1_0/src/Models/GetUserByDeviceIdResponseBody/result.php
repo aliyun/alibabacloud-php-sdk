@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 0963*0158
+     *
      * @var string
      */
     public $userOpenId;

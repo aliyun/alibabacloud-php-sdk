@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class once extends Model
 {
     /**
+     * @example 26
+     *
      * @var int
      */
     public $day;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $hour;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $minute;
 
     /**
+     * @example 7
+     *
      * @var int
      */
     public $month;
 
     /**
+     * @example 2022
+     *
      * @var int
      */
     public $year;

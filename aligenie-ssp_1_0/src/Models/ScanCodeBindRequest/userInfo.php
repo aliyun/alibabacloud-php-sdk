@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class userInfo extends Model
 {
     /**
+     * @example 129****0946
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
 
     /**
+     * @example DAFE****ce3ej=
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example OPEN_ID
+     *
      * @var string
      */
     public $idType;
 
     /**
+     * @example 111
+     *
      * @var string
      */
     public $organizationId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $aligenieNickname;
 
     /**
+     * @example http://img.alicdn.com/xxx.jpg
+     *
      * @var string
      */
     public $avatar;

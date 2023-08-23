@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserMessageRequest extends Model
 {
     /**
+     * @example 2022-07-27 14:06:55.984
+     *
      * @var string
      */
     public $beforeTime;
@@ -20,6 +22,8 @@ class ListUserMessageRequest extends Model
     public $userInfo;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;

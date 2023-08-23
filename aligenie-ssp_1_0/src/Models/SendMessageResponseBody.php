@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendMessageResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class SendMessageResponseBody extends Model
     public $message;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

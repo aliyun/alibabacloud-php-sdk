@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteScheduleTaskResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var string
      */
     public $code;
@@ -19,11 +21,15 @@ class DeleteScheduleTaskResponseBody extends Model
     public $message;
 
     /**
+     * @example F7E2****B7C94
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 900
+     *
      * @var int
      */
     public $expireIn;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $repeatInterval;

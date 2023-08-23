@@ -1,3 +1,6 @@
+2023-08-23 Version: 1.0.13
+- Generated php ssp_1.0 for AliGenie.
+
 2022-10-08 Version: 1.0.13
 - Add EcologyAuthenticate api.
 

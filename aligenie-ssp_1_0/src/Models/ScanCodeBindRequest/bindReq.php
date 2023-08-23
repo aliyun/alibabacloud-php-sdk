@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class bindReq extends Model
 {
     /**
+     * @example RnY8v0W0ZVn58ZrUAOr2RD
+     *
      * @var string
      */
     public $clientId;
 
     /**
+     * @description authCode
+     *
+     * @example ASdfre
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example {"key":"value"}
+     *
      * @var string
      */
     public $extInfo;

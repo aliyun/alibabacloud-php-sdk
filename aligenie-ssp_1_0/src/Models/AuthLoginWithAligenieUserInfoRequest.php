@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AuthLoginWithAligenieUserInfoRequest extends Model
 {
     /**
+     * @example UYugfm/3Nb9q24AyES2rYmC5tIglSoDX3Mbna/vrldcjGPtC8VzFwo+CU5c4CHLjrK7ekskG2WVaevM5Zi9f0w==
+     *
      * @var string
      */
     public $encryptedAligenieUserIdentifier;
 
     /**
+     * @example dbe2eb4458302b9246c6da17fbc95f4b
+     *
      * @var string
      */
     public $sessionId;

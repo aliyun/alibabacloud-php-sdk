@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class controlRequest extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $muted;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $volume;

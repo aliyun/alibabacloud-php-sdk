@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example A963*0158
+     *
      * @var string
      */
     public $deviceOpenId;

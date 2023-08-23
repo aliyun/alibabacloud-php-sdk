@@ -9,17 +9,41 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example X1
+     *
      * @var string
      */
     public $bizGroup;
 
     /**
+     * @example AILABS
+     *
      * @var string
      */
     public $bizType;
+
+    /**
+     * @description A963*0158
+     *
+     * @example 设备OpenId
+     *
+     * @var string
+     */
+    public $deviceOpenId;
+
+    /**
+     * @description DAFE****ce3ej=
+     *
+     * @example 用户opneId
+     *
+     * @var string
+     */
+    public $userOpenId;
     protected $_name = [
-        'bizGroup' => 'bizGroup',
-        'bizType'  => 'bizType',
+        'bizGroup'     => 'BizGroup',
+        'bizType'      => 'BizType',
+        'deviceOpenId' => 'DeviceOpenId',
+        'userOpenId'   => 'UserOpenId',
     ];
 
     public function validate()
@@ -30,10 +54,16 @@ class result extends Model
     {
         $res = [];
         if (null !== $this->bizGroup) {
-            $res['bizGroup'] = $this->bizGroup;
+            $res['BizGroup'] = $this->bizGroup;
         }
         if (null !== $this->bizType) {
-            $res['bizType'] = $this->bizType;
+            $res['BizType'] = $this->bizType;
+        }
+        if (null !== $this->deviceOpenId) {
+            $res['DeviceOpenId'] = $this->deviceOpenId;
+        }
+        if (null !== $this->userOpenId) {
+            $res['UserOpenId'] = $this->userOpenId;
         }
 
         return $res;
@@ -47,11 +77,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['bizGroup'])) {
-            $model->bizGroup = $map['bizGroup'];
+        if (isset($map['BizGroup'])) {
+            $model->bizGroup = $map['BizGroup'];
         }
-        if (isset($map['bizType'])) {
-            $model->bizType = $map['bizType'];
+        if (isset($map['BizType'])) {
+            $model->bizType = $map['BizType'];
+        }
+        if (isset($map['DeviceOpenId'])) {
+            $model->deviceOpenId = $map['DeviceOpenId'];
+        }
+        if (isset($map['UserOpenId'])) {
+            $model->userOpenId = $map['UserOpenId'];
         }
 
         return $model;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SendMessageRequest extends Model
 {
     /**
+     * @example http://xx
+     *
      * @var string
      */
     public $url;

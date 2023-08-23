@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class ScgSearchResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 73C67BD9-175A-1324-8202-9FAABBB3E6FA
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetUnreadMessageCountResponseBody extends Model
 {
     /**
+     * @example SUCCESS
+     *
      * @var string
      */
     public $code;
@@ -19,6 +21,8 @@ class GetUnreadMessageCountResponseBody extends Model
     public $message;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $result;

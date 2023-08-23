@@ -15,11 +15,15 @@ class AddSubResponseBody extends Model
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example B99D27ED-4E12-1414-9FDE-599C57C4B204
+     *
      * @var string
      */
     public $requestId;

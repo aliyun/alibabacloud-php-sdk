@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class userListToAuthLogin extends Model
 {
     /**
+     * @example https://xxx
+     *
      * @var string
      */
     public $avatar;
 
     /**
+     * @example KsVgypxAipf+xNECMZV2ONMcheqiIoEGFvgx+T8s1oV6/euTK9+ImYvLVPsSqFDh
+     *
      * @var string
      */
     public $encryptedUserIdentifier;
 
     /**
+     * @example PHONE_NUMBER_BINDING_WITH_ALIGENIE：phoneNumber
+     *
      * @var string
      */
     public $findingType;
 
     /**
+     * @example XXX
+     *
      * @var string
      */
     public $nickname;
 
     /**
+     * @example ALIGENIE
+     *
      * @var string
      */
     public $userType;

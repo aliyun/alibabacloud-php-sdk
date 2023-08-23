@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AuthLoginWithThirdUserInfoRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var mixed[]
      */
     public $extInfo;
 
     /**
+     * @example wechat_ecology_openness
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example o5qxy6EItZBasv2VZAf-MGwllHL4
+     *
      * @var string
      */
     public $thirdUserIdentifier;
 
     /**
+     * @example weChatUser
+     *
      * @var string
      */
     public $thirdUserType;

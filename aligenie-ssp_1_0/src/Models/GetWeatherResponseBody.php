@@ -10,6 +10,10 @@ use AlibabaCloud\Tea\Model;
 class GetWeatherResponseBody extends Model
 {
     /**
+     * @description HttpCode
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,6 +24,8 @@ class GetWeatherResponseBody extends Model
     public $message;
 
     /**
+     * @example F7E2****B7C94
+     *
      * @var string
      */
     public $requestId;

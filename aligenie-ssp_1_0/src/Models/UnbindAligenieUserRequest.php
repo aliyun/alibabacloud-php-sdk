@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UnbindAligenieUserRequest extends Model
 {
     /**
+     * @example 99ce8a70c23a94f8569e1a525bef6e85
+     *
      * @var string
      */
     public $loginStateAccessToken;

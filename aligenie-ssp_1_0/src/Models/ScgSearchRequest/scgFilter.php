@@ -27,6 +27,8 @@ class scgFilter extends Model
     public $sortParam;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $useOffSet;

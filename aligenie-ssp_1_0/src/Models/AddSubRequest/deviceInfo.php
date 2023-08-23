@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
@@ -24,6 +28,8 @@ class deviceInfo extends Model
     public $id;
 
     /**
+     * @example OPEN_ID
+     *
      * @var string
      */
     public $idType;

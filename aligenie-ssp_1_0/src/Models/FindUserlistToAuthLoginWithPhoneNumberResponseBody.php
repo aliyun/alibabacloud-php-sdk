@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class FindUserlistToAuthLoginWithPhoneNumberResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -21,11 +23,15 @@ class FindUserlistToAuthLoginWithPhoneNumberResponseBody extends Model
     public $dataObj;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 73C67BD9-175A-1324-8202-9FAABBB3E6FA
+     *
      * @var string
      */
     public $requestId;

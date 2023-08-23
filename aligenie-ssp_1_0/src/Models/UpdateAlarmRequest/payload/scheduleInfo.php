@@ -22,6 +22,8 @@ class scheduleInfo extends Model
     public $statutoryWorkingDay;
 
     /**
+     * @example WEEKLY
+     *
      * @var string
      */
     public $type;

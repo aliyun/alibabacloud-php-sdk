@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SendMessageShrinkRequest extends Model
 {
     /**
+     * @example http://xx
+     *
      * @var string
      */
     public $url;

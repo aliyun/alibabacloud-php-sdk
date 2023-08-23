@@ -14,11 +14,15 @@ class scheduleInfo extends Model
     public $daysOfWeek;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $hour;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $minute;

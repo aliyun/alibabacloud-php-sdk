@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class musicInfo extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $musicId;
@@ -19,6 +21,8 @@ class musicInfo extends Model
     public $musicName;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $musicType;
@@ -29,6 +33,8 @@ class musicInfo extends Model
     public $musicTypeName;
 
     /**
+     * @example http://music-url.mp3
+     *
      * @var string
      */
     public $musicUrl;

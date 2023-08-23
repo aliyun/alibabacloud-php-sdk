@@ -16,6 +16,8 @@ class openDataItemList extends Model
     public $alias;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $audition;
@@ -26,16 +28,22 @@ class openDataItemList extends Model
     public $authors;
 
     /**
+     * @example audio
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $charge;
 
     /**
+     * @example 80012017
+     *
      * @var string
      */
     public $commCateId;
@@ -51,21 +59,29 @@ class openDataItemList extends Model
     public $description;
 
     /**
+     * @example 0
+     *
      * @var float
      */
     public $hotScore;
 
     /**
+     * @example ALBUM
+     *
      * @var string
      */
     public $itemType;
 
     /**
+     * @example 206775
+     *
      * @var string
      */
     public $rawId;
 
     /**
+     * @example qingting
+     *
      * @var string
      */
     public $source;
@@ -76,16 +92,22 @@ class openDataItemList extends Model
     public $title;
 
     /**
+     * @example program
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example VALID
+     *
      * @var string
      */
     public $valid;
 
     /**
+     * @example 26152778
+     *
      * @var int
      */
     public $id;

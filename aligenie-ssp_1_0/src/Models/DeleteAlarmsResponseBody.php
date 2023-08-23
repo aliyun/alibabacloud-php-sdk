@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlarmsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -19,11 +21,15 @@ class DeleteAlarmsResponseBody extends Model
     public $message;
 
     /**
+     * @example 43***28C-A810-5***-8747-EC226A086881
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $result;

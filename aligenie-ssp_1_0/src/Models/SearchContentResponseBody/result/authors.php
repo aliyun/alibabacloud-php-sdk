@@ -25,26 +25,36 @@ class authors extends Model
     public $description;
 
     /**
+     * @example MALE
+     *
      * @var string
      */
     public $gender;
 
     /**
+     * @example 13597709
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @example 123123
+     *
      * @var string
      */
     public $rawId;
 
     /**
+     * @example qingting
+     *
      * @var string
      */
     public $source;

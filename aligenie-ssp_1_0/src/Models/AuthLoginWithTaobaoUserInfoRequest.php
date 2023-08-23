@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AuthLoginWithTaobaoUserInfoRequest extends Model
 {
     /**
+     * @example KsVgypxAipf+xNECMZV2ONMcheqiIoEGFvgx+T8s1oV6/euTK9+ImYvLVPsSqFDh
+     *
      * @var string
      */
     public $encryptedTaobaoUserIdentifier;
 
     /**
+     * @example dbe2eb4458302b9246c6da17fbc95f4b
+     *
      * @var string
      */
     public $sessionId;

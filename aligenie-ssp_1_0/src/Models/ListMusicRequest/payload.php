@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $musicId;
@@ -24,6 +28,8 @@ class payload extends Model
     public $musicName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $musicType;
@@ -34,6 +40,8 @@ class payload extends Model
     public $musicTypeName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

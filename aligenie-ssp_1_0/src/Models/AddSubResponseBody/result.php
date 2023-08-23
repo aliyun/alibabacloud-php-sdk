@@ -10,26 +10,36 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 51999575
+     *
      * @var string
      */
     public $albumId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $dailyStudyCnt;
 
     /**
+     * @example 5874DBCCA3038FAA1A70A8060F07F26D
+     *
      * @var string
      */
     public $deviceId;
 
     /**
+     * @example 81
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example sequence
+     *
      * @var string
      */
     public $playMode;
@@ -40,6 +50,8 @@ class result extends Model
     public $scheduleInfo;
 
     /**
+     * @example 1152893538998276761
+     *
      * @var string
      */
     public $userId;

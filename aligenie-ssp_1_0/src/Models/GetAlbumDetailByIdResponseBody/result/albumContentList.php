@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class albumContentList extends Model
 {
     /**
+     * @example 3分24秒
+     *
      * @var string
      */
     public $duration;
 
     /**
+     * @example 468009044
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 1000
+     *
      * @var string
      */
     public $orderIndex;
 
     /**
+     * @example 001为什么肚子饿时会咕咕叫
+     *
      * @var string
      */
     public $title;

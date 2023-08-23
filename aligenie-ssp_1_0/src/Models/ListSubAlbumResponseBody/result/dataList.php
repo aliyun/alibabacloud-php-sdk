@@ -10,21 +10,29 @@ use AlibabaCloud\Tea\Model;
 class dataList extends Model
 {
     /**
+     * @example 4476001
+     *
      * @var string
      */
     public $albumId;
 
     /**
+     * @example 80011
+     *
      * @var int
      */
     public $categoryId;
 
     /**
+     * @example https://ailabs.alibabausercontent.com/images/17825/jknoamc2.jpg
+     *
      * @var string
      */
     public $coverUrl;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $id;
@@ -40,16 +48,22 @@ class dataList extends Model
     public $scheduleInfo;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $sequence;
 
     /**
+     * @example 睡前故事
+     *
      * @var string
      */
     public $title;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $totalEpisode;

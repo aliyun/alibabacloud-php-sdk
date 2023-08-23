@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class EcologyOpennessAuthenticateRequest extends Model
 {
     /**
+     * @example 12*****
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
 
     /**
+     * @example d15aa*****ee
+     *
      * @var string
      */
     public $loginStateAccessToken;

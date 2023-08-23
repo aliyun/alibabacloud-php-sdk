@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataObj extends Model
 {
     /**
+     * @example dbe2eb4458302b9246c6da17fbc95f4b
+     *
      * @var string
      */
     public $sessionId;

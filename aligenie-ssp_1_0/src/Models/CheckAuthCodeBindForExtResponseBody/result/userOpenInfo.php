@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class userOpenInfo extends Model
 {
     /**
+     * @example 0963*0158
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description USER_ID
+     *
+     * @example USER_ID
+     *
      * @var string
      */
     public $idType;

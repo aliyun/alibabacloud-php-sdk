@@ -14,21 +14,29 @@ class authors extends Model
     public $authorTypes;
 
     /**
+     * @example MALE
+     *
      * @var string
      */
     public $gender;
 
     /**
+     * @example 13123
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $online;
 
     /**
+     * @example qignting
+     *
      * @var string
      */
     public $source;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListUserMessageShrinkRequest extends Model
 {
     /**
+     * @example 2022-07-27 14:06:55.984
+     *
      * @var string
      */
     public $beforeTime;
@@ -19,6 +21,8 @@ class ListUserMessageShrinkRequest extends Model
     public $userInfoShrink;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;

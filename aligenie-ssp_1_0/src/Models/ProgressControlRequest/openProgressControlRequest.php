@@ -14,6 +14,8 @@ class openProgressControlRequest extends Model
     public $extendInfo;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $progress;

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 12****7
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $thirdUserIdentifier;
 
     /**
+     * @example ******
+     *
      * @var string
      */
     public $thirdUserType;
 
     /**
+     * @example o****RnNAW/smBNX9By7Zlc3J7iQUXPiUj/6OizU+ifLSzn1vpQL9ZgSp22u7hsxj0UZ2i6urbv9HQ==
+     *
      * @var string
      */
     public $userOpenId;

@@ -14,11 +14,15 @@ class weekly extends Model
     public $daysOfWeek;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $hour;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $minute;

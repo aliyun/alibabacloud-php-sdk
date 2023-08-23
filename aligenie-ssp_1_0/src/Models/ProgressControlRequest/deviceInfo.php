@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class deviceInfo extends Model
 {
     /**
+     * @example 123
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
 
     /**
+     * @example rV/XSgPuxZjx/hN3iw8U+e8ouRjKOX95tn1a0kwb2+Ao6Q1CAxASJUZDWtlk1r43LWcVW6fvY1Rr4sEPFodpnA==
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example OPEN_ID
+     *
      * @var string
      */
     public $idType;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $organizationId;

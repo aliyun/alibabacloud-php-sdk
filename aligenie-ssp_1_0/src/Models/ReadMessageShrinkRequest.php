@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReadMessageShrinkRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $messageId;

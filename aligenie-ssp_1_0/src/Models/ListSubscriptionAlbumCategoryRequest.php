@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListSubscriptionAlbumCategoryRequest extends Model
 {
     /**
+     * @example 儿歌
+     *
      * @var string
      */
     public $categoryName;

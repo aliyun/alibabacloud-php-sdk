@@ -19,41 +19,57 @@ class result extends Model
     public $deviceName;
 
     /**
+     * @example 2022-07-27 14:06:27.000
+     *
      * @var string
      */
     public $gmtCreate;
 
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example http://xx
+     *
      * @var string
      */
     public $pic;
 
     /**
+     * @example app
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example AF188**065EE4B**DD68CE**951D84D4
+     *
      * @var string
      */
     public $sourceUuid;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example audio
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example http://xx
+     *
      * @var string
      */
     public $url;

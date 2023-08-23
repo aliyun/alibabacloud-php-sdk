@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class AuthLoginWithThirdUserInfoShrinkRequest extends Model
 {
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfoShrink;
 
     /**
+     * @example wechat_ecology_openness
+     *
      * @var string
      */
     public $sceneCode;
 
     /**
+     * @example o5qxy6EItZBasv2VZAf-MGwllHL4
+     *
      * @var string
      */
     public $thirdUserIdentifier;
 
     /**
+     * @example weChatUser
+     *
      * @var string
      */
     public $thirdUserType;

@@ -14,6 +14,8 @@ class ScgSearchShrinkRequest extends Model
     public $scgFilterShrink;
 
     /**
+     * @example MC201132
+     *
      * @var string
      */
     public $topicId;

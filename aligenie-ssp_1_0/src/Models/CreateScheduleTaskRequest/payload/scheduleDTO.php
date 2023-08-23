@@ -17,16 +17,22 @@ class scheduleDTO extends Model
     public $once;
 
     /**
+     * @example 1661589255000
+     *
      * @var int
      */
     public $scheduleEndTime;
 
     /**
+     * @example 1656318855000
+     *
      * @var int
      */
     public $scheduleStartTime;
 
     /**
+     * @example ONCE
+     *
      * @var string
      */
     public $scheduleType;

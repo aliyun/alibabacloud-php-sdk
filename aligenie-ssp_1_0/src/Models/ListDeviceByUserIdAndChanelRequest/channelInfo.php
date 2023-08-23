@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class channelInfo extends Model
 {
     /**
+     * @example WeChat、ThirdApp
+     *
      * @var string
      */
     public $channel;
 
     /**
+     * @example {}
+     *
      * @var string
      */
     public $extInfo;

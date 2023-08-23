@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceByUserIdAndChanelResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example RE***D
+     *
      * @var string
      */
     public $requestId;

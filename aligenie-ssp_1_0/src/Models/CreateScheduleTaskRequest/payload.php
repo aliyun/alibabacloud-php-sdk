@@ -16,6 +16,8 @@ class payload extends Model
     public $actionDTOs;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $idempotentId;

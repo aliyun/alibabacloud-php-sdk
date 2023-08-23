@@ -27,10 +27,18 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\AuthLoginWithThirdUserInfoShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAndDoVoipCallForHotelHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAndDoVoipCallForHotelRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAndDoVoipCallForHotelResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAndDoVoipCallForHotelShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CheckAuthCodeBindForExtShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CloudPlayerHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CloudPlayerRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CloudPlayerResponse;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CloudPlayerShrinkRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateAlarmHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateAlarmRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\CreateAlarmResponse;
@@ -225,6 +233,9 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryMusicTypeShrinkRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryUserDeviceListByTmeUserIdHeaders;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryUserDeviceListByTmeUserIdRequest;
+use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\QueryUserDeviceListByTmeUserIdResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\ReadMessageResponse;
@@ -260,7 +271,6 @@ use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmHeaders;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmRequest;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmResponse;
 use AlibabaCloud\SDK\AliGenie\Vssp_1_0\Models\UpdateAlarmShrinkRequest;
-use AlibabaCloud\Tea\Tea;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -301,19 +311,6 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param AddAndRemoveFavoriteContentRequest $request
-     *
-     * @return AddAndRemoveFavoriteContentResponse
-     */
-    public function addAndRemoveFavoriteContent($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = new AddAndRemoveFavoriteContentHeaders([]);
-
-        return $this->addAndRemoveFavoriteContentWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @param AddAndRemoveFavoriteContentRequest $tmpReq
      * @param AddAndRemoveFavoriteContentHeaders $headers
      * @param RuntimeOptions                     $runtime
@@ -326,13 +323,13 @@ class AliGenie extends OpenApiClient
         $request = new AddAndRemoveFavoriteContentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openAddAndRemoveFavoriteContentRequest)) {
-            $request->openAddAndRemoveFavoriteContentRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openAddAndRemoveFavoriteContentRequest), 'OpenAddAndRemoveFavoriteContentRequest', 'json');
+            $request->openAddAndRemoveFavoriteContentRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openAddAndRemoveFavoriteContentRequest, 'OpenAddAndRemoveFavoriteContentRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -376,16 +373,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param AddSubRequest $request
+     * @param AddAndRemoveFavoriteContentRequest $request
      *
-     * @return AddSubResponse
+     * @return AddAndRemoveFavoriteContentResponse
      */
-    public function addSub($request)
+    public function addAndRemoveFavoriteContent($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AddSubHeaders([]);
+        $headers = new AddAndRemoveFavoriteContentHeaders([]);
 
-        return $this->addSubWithOptions($request, $headers, $runtime);
+        return $this->addAndRemoveFavoriteContentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -401,13 +398,13 @@ class AliGenie extends OpenApiClient
         $request = new AddSubShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->addSubscriptionInfoRequest)) {
-            $request->addSubscriptionInfoRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->addSubscriptionInfoRequest), 'AddSubscriptionInfoRequest', 'json');
+            $request->addSubscriptionInfoRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addSubscriptionInfoRequest, 'AddSubscriptionInfoRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->addSubscriptionInfoRequestShrink)) {
@@ -449,16 +446,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param AuthLoginWithAligenieUserInfoRequest $request
+     * @param AddSubRequest $request
      *
-     * @return AuthLoginWithAligenieUserInfoResponse
+     * @return AddSubResponse
      */
-    public function authLoginWithAligenieUserInfo($request)
+    public function addSub($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AuthLoginWithAligenieUserInfoHeaders([]);
+        $headers = new AddSubHeaders([]);
 
-        return $this->authLoginWithAligenieUserInfoWithOptions($request, $headers, $runtime);
+        return $this->addSubWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -508,16 +505,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest $request
+     * @param AuthLoginWithAligenieUserInfoRequest $request
      *
-     * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
+     * @return AuthLoginWithAligenieUserInfoResponse
      */
-    public function authLoginWithAligenieUserInfoGeneratedByPhoneNumber($request)
+    public function authLoginWithAligenieUserInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders([]);
+        $headers = new AuthLoginWithAligenieUserInfoHeaders([]);
 
-        return $this->authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions($request, $headers, $runtime);
+        return $this->authLoginWithAligenieUserInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -564,16 +561,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param AuthLoginWithTaobaoUserInfoRequest $request
+     * @param AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberRequest $request
      *
-     * @return AuthLoginWithTaobaoUserInfoResponse
+     * @return AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberResponse
      */
-    public function authLoginWithTaobaoUserInfo($request)
+    public function authLoginWithAligenieUserInfoGeneratedByPhoneNumber($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AuthLoginWithTaobaoUserInfoHeaders([]);
+        $headers = new AuthLoginWithAligenieUserInfoGeneratedByPhoneNumberHeaders([]);
 
-        return $this->authLoginWithTaobaoUserInfoWithOptions($request, $headers, $runtime);
+        return $this->authLoginWithAligenieUserInfoGeneratedByPhoneNumberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -623,16 +620,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param AuthLoginWithThirdUserInfoRequest $request
+     * @param AuthLoginWithTaobaoUserInfoRequest $request
      *
-     * @return AuthLoginWithThirdUserInfoResponse
+     * @return AuthLoginWithTaobaoUserInfoResponse
      */
-    public function authLoginWithThirdUserInfo($request)
+    public function authLoginWithTaobaoUserInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new AuthLoginWithThirdUserInfoHeaders([]);
+        $headers = new AuthLoginWithTaobaoUserInfoHeaders([]);
 
-        return $this->authLoginWithThirdUserInfoWithOptions($request, $headers, $runtime);
+        return $this->authLoginWithTaobaoUserInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -693,16 +690,92 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param CheckAuthCodeBindForExtRequest $request
+     * @param AuthLoginWithThirdUserInfoRequest $request
      *
-     * @return CheckAuthCodeBindForExtResponse
+     * @return AuthLoginWithThirdUserInfoResponse
      */
-    public function checkAuthCodeBindForExt($request)
+    public function authLoginWithThirdUserInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CheckAuthCodeBindForExtHeaders([]);
+        $headers = new AuthLoginWithThirdUserInfoHeaders([]);
 
-        return $this->checkAuthCodeBindForExtWithOptions($request, $headers, $runtime);
+        return $this->authLoginWithThirdUserInfoWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CheckAndDoVoipCallForHotelRequest $tmpReq
+     * @param CheckAndDoVoipCallForHotelHeaders $headers
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return CheckAndDoVoipCallForHotelResponse
+     */
+    public function checkAndDoVoipCallForHotelWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CheckAndDoVoipCallForHotelShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deviceInfo)) {
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userInfo)) {
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->bizData)) {
+            $body['BizData'] = $request->bizData;
+        }
+        if (!Utils::isUnset($request->calleeNick)) {
+            $body['CalleeNick'] = $request->calleeNick;
+        }
+        if (!Utils::isUnset($request->calleePhoneNum)) {
+            $body['CalleePhoneNum'] = $request->calleePhoneNum;
+        }
+        if (!Utils::isUnset($request->deviceInfoShrink)) {
+            $body['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+        if (!Utils::isUnset($request->userInfoShrink)) {
+            $body['UserInfo'] = $request->userInfoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckAndDoVoipCallForHotel',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/checkAndDoVoipCallForHotel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckAndDoVoipCallForHotelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckAndDoVoipCallForHotelRequest $request
+     *
+     * @return CheckAndDoVoipCallForHotelResponse
+     */
+    public function checkAndDoVoipCallForHotel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CheckAndDoVoipCallForHotelHeaders([]);
+
+        return $this->checkAndDoVoipCallForHotelWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -718,7 +791,7 @@ class AliGenie extends OpenApiClient
         $request = new CheckAuthCodeBindForExtShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->authCode)) {
@@ -763,16 +836,101 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param CreateAlarmRequest $request
+     * @param CheckAuthCodeBindForExtRequest $request
      *
-     * @return CreateAlarmResponse
+     * @return CheckAuthCodeBindForExtResponse
      */
-    public function createAlarm($request)
+    public function checkAuthCodeBindForExt($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateAlarmHeaders([]);
+        $headers = new CheckAuthCodeBindForExtHeaders([]);
 
-        return $this->createAlarmWithOptions($request, $headers, $runtime);
+        return $this->checkAuthCodeBindForExtWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CloudPlayerRequest $tmpReq
+     * @param CloudPlayerHeaders $headers
+     * @param RuntimeOptions     $runtime
+     *
+     * @return CloudPlayerResponse
+     */
+    public function cloudPlayerWithOptions($tmpReq, $headers, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CloudPlayerShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->deviceInfo)) {
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->songIdList)) {
+            $request->songIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->songIdList, 'SongIdList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->userInfo)) {
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->curPlayIndex)) {
+            $query['CurPlayIndex'] = $request->curPlayIndex;
+        }
+        if (!Utils::isUnset($request->deviceInfoShrink)) {
+            $query['DeviceInfo'] = $request->deviceInfoShrink;
+        }
+        if (!Utils::isUnset($request->playMode)) {
+            $query['PlayMode'] = $request->playMode;
+        }
+        if (!Utils::isUnset($request->songId)) {
+            $query['SongId'] = $request->songId;
+        }
+        if (!Utils::isUnset($request->songIdListShrink)) {
+            $query['SongIdList'] = $request->songIdListShrink;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        if (!Utils::isUnset($request->userInfoShrink)) {
+            $query['UserInfo'] = $request->userInfoShrink;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CloudPlayer',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/cloud/player',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CloudPlayerResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CloudPlayerRequest $request
+     *
+     * @return CloudPlayerResponse
+     */
+    public function cloudPlayer($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CloudPlayerHeaders([]);
+
+        return $this->cloudPlayerWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -788,13 +946,13 @@ class AliGenie extends OpenApiClient
         $request = new CreateAlarmShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -836,16 +994,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param CreatePlayingListRequest $request
+     * @param CreateAlarmRequest $request
      *
-     * @return CreatePlayingListResponse
+     * @return CreateAlarmResponse
      */
-    public function createPlayingList($request)
+    public function createAlarm($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreatePlayingListHeaders([]);
+        $headers = new CreateAlarmHeaders([]);
 
-        return $this->createPlayingListWithOptions($request, $headers, $runtime);
+        return $this->createAlarmWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -861,13 +1019,13 @@ class AliGenie extends OpenApiClient
         $request = new CreatePlayingListShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openCreatePlayingListRequest)) {
-            $request->openCreatePlayingListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openCreatePlayingListRequest), 'OpenCreatePlayingListRequest', 'json');
+            $request->openCreatePlayingListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openCreatePlayingListRequest, 'OpenCreatePlayingListRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -911,16 +1069,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param CreateScheduleTaskRequest $request
+     * @param CreatePlayingListRequest $request
      *
-     * @return CreateScheduleTaskResponse
+     * @return CreatePlayingListResponse
      */
-    public function createScheduleTask($request)
+    public function createPlayingList($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new CreateScheduleTaskHeaders([]);
+        $headers = new CreatePlayingListHeaders([]);
 
-        return $this->createScheduleTaskWithOptions($request, $headers, $runtime);
+        return $this->createPlayingListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -936,13 +1094,13 @@ class AliGenie extends OpenApiClient
         $request = new CreateScheduleTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -984,16 +1142,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param DeleteAlarmsRequest $request
+     * @param CreateScheduleTaskRequest $request
      *
-     * @return DeleteAlarmsResponse
+     * @return CreateScheduleTaskResponse
      */
-    public function deleteAlarms($request)
+    public function createScheduleTask($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteAlarmsHeaders([]);
+        $headers = new CreateScheduleTaskHeaders([]);
 
-        return $this->deleteAlarmsWithOptions($request, $headers, $runtime);
+        return $this->createScheduleTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1009,13 +1167,13 @@ class AliGenie extends OpenApiClient
         $request = new DeleteAlarmsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -1057,16 +1215,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param DeleteScheduleTaskRequest $request
+     * @param DeleteAlarmsRequest $request
      *
-     * @return DeleteScheduleTaskResponse
+     * @return DeleteAlarmsResponse
      */
-    public function deleteScheduleTask($request)
+    public function deleteAlarms($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteScheduleTaskHeaders([]);
+        $headers = new DeleteAlarmsHeaders([]);
 
-        return $this->deleteScheduleTaskWithOptions($request, $headers, $runtime);
+        return $this->deleteAlarmsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1082,13 +1240,13 @@ class AliGenie extends OpenApiClient
         $request = new DeleteScheduleTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -1130,16 +1288,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param DeleteSubRequest $request
+     * @param DeleteScheduleTaskRequest $request
      *
-     * @return DeleteSubResponse
+     * @return DeleteScheduleTaskResponse
      */
-    public function deleteSub($request)
+    public function deleteScheduleTask($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeleteSubHeaders([]);
+        $headers = new DeleteScheduleTaskHeaders([]);
 
-        return $this->deleteSubWithOptions($request, $headers, $runtime);
+        return $this->deleteScheduleTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1186,16 +1344,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param DeviceControlRequest $request
+     * @param DeleteSubRequest $request
      *
-     * @return DeviceControlResponse
+     * @return DeleteSubResponse
      */
-    public function deviceControl($request)
+    public function deleteSub($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new DeviceControlHeaders([]);
+        $headers = new DeleteSubHeaders([]);
 
-        return $this->deviceControlWithOptions($request, $headers, $runtime);
+        return $this->deleteSubWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1211,10 +1369,10 @@ class AliGenie extends OpenApiClient
         $request = new DeviceControlShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->controlRequest)) {
-            $request->controlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->controlRequest), 'ControlRequest', 'json');
+            $request->controlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->controlRequest, 'ControlRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -1255,16 +1413,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param EcologyOpennessAuthenticateRequest $request
+     * @param DeviceControlRequest $request
      *
-     * @return EcologyOpennessAuthenticateResponse
+     * @return DeviceControlResponse
      */
-    public function ecologyOpennessAuthenticate($request)
+    public function deviceControl($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EcologyOpennessAuthenticateHeaders([]);
+        $headers = new DeviceControlHeaders([]);
 
-        return $this->ecologyOpennessAuthenticateWithOptions($request, $headers, $runtime);
+        return $this->deviceControlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1317,16 +1475,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param EcologyOpennessSendVerificationCodeRequest $request
+     * @param EcologyOpennessAuthenticateRequest $request
      *
-     * @return EcologyOpennessSendVerificationCodeResponse
+     * @return EcologyOpennessAuthenticateResponse
      */
-    public function ecologyOpennessSendVerificationCode($request)
+    public function ecologyOpennessAuthenticate($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new EcologyOpennessSendVerificationCodeHeaders([]);
+        $headers = new EcologyOpennessAuthenticateHeaders([]);
 
-        return $this->ecologyOpennessSendVerificationCodeWithOptions($request, $headers, $runtime);
+        return $this->ecologyOpennessAuthenticateWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1379,16 +1537,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param FindUserlistToAuthLoginWithPhoneNumberRequest $request
+     * @param EcologyOpennessSendVerificationCodeRequest $request
      *
-     * @return FindUserlistToAuthLoginWithPhoneNumberResponse
+     * @return EcologyOpennessSendVerificationCodeResponse
      */
-    public function findUserlistToAuthLoginWithPhoneNumber($request)
+    public function ecologyOpennessSendVerificationCode($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new FindUserlistToAuthLoginWithPhoneNumberHeaders([]);
+        $headers = new EcologyOpennessSendVerificationCodeHeaders([]);
 
-        return $this->findUserlistToAuthLoginWithPhoneNumberWithOptions($request, $headers, $runtime);
+        return $this->ecologyOpennessSendVerificationCodeWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1444,16 +1602,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetAlarmRequest $request
+     * @param FindUserlistToAuthLoginWithPhoneNumberRequest $request
      *
-     * @return GetAlarmResponse
+     * @return FindUserlistToAuthLoginWithPhoneNumberResponse
      */
-    public function getAlarm($request)
+    public function findUserlistToAuthLoginWithPhoneNumber($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetAlarmHeaders([]);
+        $headers = new FindUserlistToAuthLoginWithPhoneNumberHeaders([]);
 
-        return $this->getAlarmWithOptions($request, $headers, $runtime);
+        return $this->findUserlistToAuthLoginWithPhoneNumberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1469,13 +1627,13 @@ class AliGenie extends OpenApiClient
         $request = new GetAlarmShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -1517,16 +1675,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetAlbumRequest $request
+     * @param GetAlarmRequest $request
      *
-     * @return GetAlbumResponse
+     * @return GetAlarmResponse
      */
-    public function getAlbum($request)
+    public function getAlarm($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetAlbumHeaders([]);
+        $headers = new GetAlarmHeaders([]);
 
-        return $this->getAlbumWithOptions($request, $headers, $runtime);
+        return $this->getAlarmWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1576,16 +1734,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetAlbumDetailByIdRequest $request
+     * @param GetAlbumRequest $request
      *
-     * @return GetAlbumDetailByIdResponse
+     * @return GetAlbumResponse
      */
-    public function getAlbumDetailById($request)
+    public function getAlbum($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetAlbumDetailByIdHeaders([]);
+        $headers = new GetAlbumHeaders([]);
 
-        return $this->getAlbumDetailByIdWithOptions($request, $headers, $runtime);
+        return $this->getAlbumWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1632,16 +1790,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetAligenieUserInfoRequest $request
+     * @param GetAlbumDetailByIdRequest $request
      *
-     * @return GetAligenieUserInfoResponse
+     * @return GetAlbumDetailByIdResponse
      */
-    public function getAligenieUserInfo($request)
+    public function getAlbumDetailById($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetAligenieUserInfoHeaders([]);
+        $headers = new GetAlbumDetailByIdHeaders([]);
 
-        return $this->getAligenieUserInfoWithOptions($request, $headers, $runtime);
+        return $this->getAlbumDetailByIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1688,16 +1846,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetCodeEnhanceRequest $request
+     * @param GetAligenieUserInfoRequest $request
      *
-     * @return GetCodeEnhanceResponse
+     * @return GetAligenieUserInfoResponse
      */
-    public function getCodeEnhance($request)
+    public function getAligenieUserInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetCodeEnhanceHeaders([]);
+        $headers = new GetAligenieUserInfoHeaders([]);
 
-        return $this->getCodeEnhanceWithOptions($request, $headers, $runtime);
+        return $this->getAligenieUserInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1713,10 +1871,10 @@ class AliGenie extends OpenApiClient
         $request = new GetCodeEnhanceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->channelInfo)) {
-            $request->channelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->channelInfo), 'ChannelInfo', 'json');
+            $request->channelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelInfo, 'ChannelInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->channelInfoShrink)) {
@@ -1755,16 +1913,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetContentRequest $request
+     * @param GetCodeEnhanceRequest $request
      *
-     * @return GetContentResponse
+     * @return GetCodeEnhanceResponse
      */
-    public function getContent($request)
+    public function getCodeEnhance($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetContentHeaders([]);
+        $headers = new GetCodeEnhanceHeaders([]);
 
-        return $this->getContentWithOptions($request, $headers, $runtime);
+        return $this->getCodeEnhanceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1814,16 +1972,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetCurrentPlayingItemRequest $request
+     * @param GetContentRequest $request
      *
-     * @return GetCurrentPlayingItemResponse
+     * @return GetContentResponse
      */
-    public function getCurrentPlayingItem($request)
+    public function getContent($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetCurrentPlayingItemHeaders([]);
+        $headers = new GetContentHeaders([]);
 
-        return $this->getCurrentPlayingItemWithOptions($request, $headers, $runtime);
+        return $this->getContentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1839,10 +1997,10 @@ class AliGenie extends OpenApiClient
         $request = new GetCurrentPlayingItemShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -1881,16 +2039,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetCurrentPlayingListRequest $request
+     * @param GetCurrentPlayingItemRequest $request
      *
-     * @return GetCurrentPlayingListResponse
+     * @return GetCurrentPlayingItemResponse
      */
-    public function getCurrentPlayingList($request)
+    public function getCurrentPlayingItem($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetCurrentPlayingListHeaders([]);
+        $headers = new GetCurrentPlayingItemHeaders([]);
 
-        return $this->getCurrentPlayingListWithOptions($request, $headers, $runtime);
+        return $this->getCurrentPlayingItemWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1906,13 +2064,13 @@ class AliGenie extends OpenApiClient
         $request = new GetCurrentPlayingListShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openQueryPlayListRequest)) {
-            $request->openQueryPlayListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openQueryPlayListRequest), 'OpenQueryPlayListRequest', 'json');
+            $request->openQueryPlayListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openQueryPlayListRequest, 'OpenQueryPlayListRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -1956,16 +2114,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceBasicInfoRequest $request
+     * @param GetCurrentPlayingListRequest $request
      *
-     * @return GetDeviceBasicInfoResponse
+     * @return GetCurrentPlayingListResponse
      */
-    public function getDeviceBasicInfo($request)
+    public function getCurrentPlayingList($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeviceBasicInfoHeaders([]);
+        $headers = new GetCurrentPlayingListHeaders([]);
 
-        return $this->getDeviceBasicInfoWithOptions($request, $headers, $runtime);
+        return $this->getCurrentPlayingListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1981,7 +2139,7 @@ class AliGenie extends OpenApiClient
         $request = new GetDeviceBasicInfoShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2017,16 +2175,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceIdByIdentityRequest $request
+     * @param GetDeviceBasicInfoRequest $request
      *
-     * @return GetDeviceIdByIdentityResponse
+     * @return GetDeviceBasicInfoResponse
      */
-    public function getDeviceIdByIdentity($request)
+    public function getDeviceBasicInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeviceIdByIdentityHeaders([]);
+        $headers = new GetDeviceBasicInfoHeaders([]);
 
-        return $this->getDeviceIdByIdentityWithOptions($request, $headers, $runtime);
+        return $this->getDeviceBasicInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2085,16 +2243,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceSettingRequest $request
+     * @param GetDeviceIdByIdentityRequest $request
      *
-     * @return GetDeviceSettingResponse
+     * @return GetDeviceIdByIdentityResponse
      */
-    public function getDeviceSetting($request)
+    public function getDeviceIdByIdentity($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeviceSettingHeaders([]);
+        $headers = new GetDeviceIdByIdentityHeaders([]);
 
-        return $this->getDeviceSettingWithOptions($request, $headers, $runtime);
+        return $this->getDeviceIdByIdentityWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2110,7 +2268,7 @@ class AliGenie extends OpenApiClient
         $request = new GetDeviceSettingShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->keys)) {
             $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
@@ -2152,16 +2310,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceStatusDetailRequest $request
+     * @param GetDeviceSettingRequest $request
      *
-     * @return GetDeviceStatusDetailResponse
+     * @return GetDeviceSettingResponse
      */
-    public function getDeviceStatusDetail($request)
+    public function getDeviceSetting($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeviceStatusDetailHeaders([]);
+        $headers = new GetDeviceSettingHeaders([]);
 
-        return $this->getDeviceStatusDetailWithOptions($request, $headers, $runtime);
+        return $this->getDeviceSettingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2177,7 +2335,7 @@ class AliGenie extends OpenApiClient
         $request = new GetDeviceStatusDetailShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->keys)) {
             $request->keysShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->keys, 'Keys', 'json');
@@ -2219,16 +2377,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceStatusInfoRequest $request
+     * @param GetDeviceStatusDetailRequest $request
      *
-     * @return GetDeviceStatusInfoResponse
+     * @return GetDeviceStatusDetailResponse
      */
-    public function getDeviceStatusInfo($request)
+    public function getDeviceStatusDetail($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeviceStatusInfoHeaders([]);
+        $headers = new GetDeviceStatusDetailHeaders([]);
 
-        return $this->getDeviceStatusInfoWithOptions($request, $headers, $runtime);
+        return $this->getDeviceStatusDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2244,7 +2402,7 @@ class AliGenie extends OpenApiClient
         $request = new GetDeviceStatusInfoShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2280,16 +2438,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetDeviceTagRequest $request
+     * @param GetDeviceStatusInfoRequest $request
      *
-     * @return GetDeviceTagResponse
+     * @return GetDeviceStatusInfoResponse
      */
-    public function getDeviceTag($request)
+    public function getDeviceStatusInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetDeviceTagHeaders([]);
+        $headers = new GetDeviceStatusInfoHeaders([]);
 
-        return $this->getDeviceTagWithOptions($request, $headers, $runtime);
+        return $this->getDeviceStatusInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2305,7 +2463,7 @@ class AliGenie extends OpenApiClient
         $request = new GetDeviceTagShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2341,16 +2499,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetScheduleTaskRequest $request
+     * @param GetDeviceTagRequest $request
      *
-     * @return GetScheduleTaskResponse
+     * @return GetDeviceTagResponse
      */
-    public function getScheduleTask($request)
+    public function getDeviceTag($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetScheduleTaskHeaders([]);
+        $headers = new GetDeviceTagHeaders([]);
 
-        return $this->getScheduleTaskWithOptions($request, $headers, $runtime);
+        return $this->getDeviceTagWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2366,13 +2524,13 @@ class AliGenie extends OpenApiClient
         $request = new GetScheduleTaskShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2414,16 +2572,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetUnreadMessageCountRequest $request
+     * @param GetScheduleTaskRequest $request
      *
-     * @return GetUnreadMessageCountResponse
+     * @return GetScheduleTaskResponse
      */
-    public function getUnreadMessageCount($request)
+    public function getScheduleTask($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUnreadMessageCountHeaders([]);
+        $headers = new GetScheduleTaskHeaders([]);
 
-        return $this->getUnreadMessageCountWithOptions($request, $headers, $runtime);
+        return $this->getScheduleTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2439,7 +2597,7 @@ class AliGenie extends OpenApiClient
         $request = new GetUnreadMessageCountShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->userInfoShrink)) {
@@ -2475,16 +2633,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetUserByDeviceIdRequest $request
+     * @param GetUnreadMessageCountRequest $request
      *
-     * @return GetUserByDeviceIdResponse
+     * @return GetUnreadMessageCountResponse
      */
-    public function getUserByDeviceId($request)
+    public function getUnreadMessageCount($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetUserByDeviceIdHeaders([]);
+        $headers = new GetUnreadMessageCountHeaders([]);
 
-        return $this->getUserByDeviceIdWithOptions($request, $headers, $runtime);
+        return $this->getUnreadMessageCountWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2500,7 +2658,7 @@ class AliGenie extends OpenApiClient
         $request = new GetUserByDeviceIdShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2536,16 +2694,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param GetWeatherRequest $request
+     * @param GetUserByDeviceIdRequest $request
      *
-     * @return GetWeatherResponse
+     * @return GetUserByDeviceIdResponse
      */
-    public function getWeather($request)
+    public function getUserByDeviceId($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new GetWeatherHeaders([]);
+        $headers = new GetUserByDeviceIdHeaders([]);
 
-        return $this->getWeatherWithOptions($request, $headers, $runtime);
+        return $this->getUserByDeviceIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2561,13 +2719,13 @@ class AliGenie extends OpenApiClient
         $request = new GetWeatherShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2609,16 +2767,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param IndexControlPlayingListRequest $request
+     * @param GetWeatherRequest $request
      *
-     * @return IndexControlPlayingListResponse
+     * @return GetWeatherResponse
      */
-    public function indexControlPlayingList($request)
+    public function getWeather($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new IndexControlPlayingListHeaders([]);
+        $headers = new GetWeatherHeaders([]);
 
-        return $this->indexControlPlayingListWithOptions($request, $headers, $runtime);
+        return $this->getWeatherWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2634,13 +2792,13 @@ class AliGenie extends OpenApiClient
         $request = new IndexControlPlayingListShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openIndexControlRequest)) {
-            $request->openIndexControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openIndexControlRequest), 'OpenIndexControlRequest', 'json');
+            $request->openIndexControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openIndexControlRequest, 'OpenIndexControlRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2684,16 +2842,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListAlarmsRequest $request
+     * @param IndexControlPlayingListRequest $request
      *
-     * @return ListAlarmsResponse
+     * @return IndexControlPlayingListResponse
      */
-    public function listAlarms($request)
+    public function indexControlPlayingList($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListAlarmsHeaders([]);
+        $headers = new IndexControlPlayingListHeaders([]);
 
-        return $this->listAlarmsWithOptions($request, $headers, $runtime);
+        return $this->indexControlPlayingListWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2709,13 +2867,13 @@ class AliGenie extends OpenApiClient
         $request = new ListAlarmsShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2757,16 +2915,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListAlbumDetailRequest $request
+     * @param ListAlarmsRequest $request
      *
-     * @return ListAlbumDetailResponse
+     * @return ListAlarmsResponse
      */
-    public function listAlbumDetail($request)
+    public function listAlarms($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListAlbumDetailHeaders([]);
+        $headers = new ListAlarmsHeaders([]);
 
-        return $this->listAlbumDetailWithOptions($request, $headers, $runtime);
+        return $this->listAlarmsWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2819,16 +2977,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListAlbumIsAddedRequest $request
+     * @param ListAlbumDetailRequest $request
      *
-     * @return ListAlbumIsAddedResponse
+     * @return ListAlbumDetailResponse
      */
-    public function listAlbumIsAdded($request)
+    public function listAlbumDetail($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListAlbumIsAddedHeaders([]);
+        $headers = new ListAlbumDetailHeaders([]);
 
-        return $this->listAlbumIsAddedWithOptions($request, $headers, $runtime);
+        return $this->listAlbumDetailWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2847,10 +3005,10 @@ class AliGenie extends OpenApiClient
             $request->albumIdListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->albumIdList, 'AlbumIdList', 'json');
         }
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->albumIdListShrink)) {
@@ -2892,16 +3050,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListCateContentRequest $request
+     * @param ListAlbumIsAddedRequest $request
      *
-     * @return ListCateContentResponse
+     * @return ListAlbumIsAddedResponse
      */
-    public function listCateContent($request)
+    public function listAlbumIsAdded($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListCateContentHeaders([]);
+        $headers = new ListAlbumIsAddedHeaders([]);
 
-        return $this->listCateContentWithOptions($request, $headers, $runtime);
+        return $this->listAlbumIsAddedWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -2917,13 +3075,13 @@ class AliGenie extends OpenApiClient
         $request = new ListCateContentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->request), 'Request', 'json');
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -2967,16 +3125,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListCateInfoRequest $request
+     * @param ListCateContentRequest $request
      *
-     * @return ListCateInfoResponse
+     * @return ListCateContentResponse
      */
-    public function listCateInfo($request)
+    public function listCateContent($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListCateInfoHeaders([]);
+        $headers = new ListCateContentHeaders([]);
 
-        return $this->listCateInfoWithOptions($request, $headers, $runtime);
+        return $this->listCateContentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3023,16 +3181,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListCommonCateFirstFloorRequest $request
+     * @param ListCateInfoRequest $request
      *
-     * @return ListCommonCateFirstFloorResponse
+     * @return ListCateInfoResponse
      */
-    public function listCommonCateFirstFloor($request)
+    public function listCateInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListCommonCateFirstFloorHeaders([]);
+        $headers = new ListCateInfoHeaders([]);
 
-        return $this->listCommonCateFirstFloorWithOptions($request, $headers, $runtime);
+        return $this->listCateInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3079,16 +3237,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListCommonCateSecondFloorRequest $request
+     * @param ListCommonCateFirstFloorRequest $request
      *
-     * @return ListCommonCateSecondFloorResponse
+     * @return ListCommonCateFirstFloorResponse
      */
-    public function listCommonCateSecondFloor($request)
+    public function listCommonCateFirstFloor($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListCommonCateSecondFloorHeaders([]);
+        $headers = new ListCommonCateFirstFloorHeaders([]);
 
-        return $this->listCommonCateSecondFloorWithOptions($request, $headers, $runtime);
+        return $this->listCommonCateFirstFloorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3135,16 +3293,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceBasicInfoRequest $request
+     * @param ListCommonCateSecondFloorRequest $request
      *
-     * @return ListDeviceBasicInfoResponse
+     * @return ListCommonCateSecondFloorResponse
      */
-    public function listDeviceBasicInfo($request)
+    public function listCommonCateSecondFloor($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListDeviceBasicInfoHeaders([]);
+        $headers = new ListCommonCateSecondFloorHeaders([]);
 
-        return $this->listDeviceBasicInfoWithOptions($request, $headers, $runtime);
+        return $this->listCommonCateSecondFloorWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3160,7 +3318,7 @@ class AliGenie extends OpenApiClient
         $request = new ListDeviceBasicInfoShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfos)) {
-            $request->deviceInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfos), 'DeviceInfos', 'json');
+            $request->deviceInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfos, 'DeviceInfos', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfosShrink)) {
@@ -3196,16 +3354,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceByUserIdRequest $request
+     * @param ListDeviceBasicInfoRequest $request
      *
-     * @return ListDeviceByUserIdResponse
+     * @return ListDeviceBasicInfoResponse
      */
-    public function listDeviceByUserId($request)
+    public function listDeviceBasicInfo($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListDeviceByUserIdHeaders([]);
+        $headers = new ListDeviceBasicInfoHeaders([]);
 
-        return $this->listDeviceByUserIdWithOptions($request, $headers, $runtime);
+        return $this->listDeviceBasicInfoWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3221,7 +3379,7 @@ class AliGenie extends OpenApiClient
         $request = new ListDeviceByUserIdShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->userInfoShrink)) {
@@ -3257,16 +3415,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceByUserIdAndChanelRequest $request
+     * @param ListDeviceByUserIdRequest $request
      *
-     * @return ListDeviceByUserIdAndChanelResponse
+     * @return ListDeviceByUserIdResponse
      */
-    public function listDeviceByUserIdAndChanel($request)
+    public function listDeviceByUserId($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListDeviceByUserIdAndChanelHeaders([]);
+        $headers = new ListDeviceByUserIdHeaders([]);
 
-        return $this->listDeviceByUserIdAndChanelWithOptions($request, $headers, $runtime);
+        return $this->listDeviceByUserIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3282,10 +3440,10 @@ class AliGenie extends OpenApiClient
         $request = new ListDeviceByUserIdAndChanelShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->channelInfo)) {
-            $request->channelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->channelInfo), 'ChannelInfo', 'json');
+            $request->channelInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->channelInfo, 'ChannelInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->channelInfoShrink)) {
@@ -3324,16 +3482,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListDeviceIdByIdentitiesRequest $request
+     * @param ListDeviceByUserIdAndChanelRequest $request
      *
-     * @return ListDeviceIdByIdentitiesResponse
+     * @return ListDeviceByUserIdAndChanelResponse
      */
-    public function listDeviceIdByIdentities($request)
+    public function listDeviceByUserIdAndChanel($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListDeviceIdByIdentitiesHeaders([]);
+        $headers = new ListDeviceByUserIdAndChanelHeaders([]);
 
-        return $this->listDeviceIdByIdentitiesWithOptions($request, $headers, $runtime);
+        return $this->listDeviceByUserIdAndChanelWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3397,16 +3555,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListMusicRequest $request
+     * @param ListDeviceIdByIdentitiesRequest $request
      *
-     * @return ListMusicResponse
+     * @return ListDeviceIdByIdentitiesResponse
      */
-    public function listMusic($request)
+    public function listDeviceIdByIdentities($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListMusicHeaders([]);
+        $headers = new ListDeviceIdByIdentitiesHeaders([]);
 
-        return $this->listMusicWithOptions($request, $headers, $runtime);
+        return $this->listDeviceIdByIdentitiesWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3422,13 +3580,13 @@ class AliGenie extends OpenApiClient
         $request = new ListMusicShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -3470,16 +3628,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListPlayHistoryRequest $request
+     * @param ListMusicRequest $request
      *
-     * @return ListPlayHistoryResponse
+     * @return ListMusicResponse
      */
-    public function listPlayHistory($request)
+    public function listMusic($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListPlayHistoryHeaders([]);
+        $headers = new ListMusicHeaders([]);
 
-        return $this->listPlayHistoryWithOptions($request, $headers, $runtime);
+        return $this->listMusicWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3495,13 +3653,13 @@ class AliGenie extends OpenApiClient
         $request = new ListPlayHistoryShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->request), 'Request', 'json');
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -3545,16 +3703,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListRecommendContentRequest $request
+     * @param ListPlayHistoryRequest $request
      *
-     * @return ListRecommendContentResponse
+     * @return ListPlayHistoryResponse
      */
-    public function listRecommendContent($request)
+    public function listPlayHistory($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListRecommendContentHeaders([]);
+        $headers = new ListPlayHistoryHeaders([]);
 
-        return $this->listRecommendContentWithOptions($request, $headers, $runtime);
+        return $this->listPlayHistoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3570,13 +3728,13 @@ class AliGenie extends OpenApiClient
         $request = new ListRecommendContentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->request), 'Request', 'json');
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -3620,16 +3778,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListSubRequest $request
+     * @param ListRecommendContentRequest $request
      *
-     * @return ListSubResponse
+     * @return ListRecommendContentResponse
      */
-    public function listSub($request)
+    public function listRecommendContent($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListSubHeaders([]);
+        $headers = new ListRecommendContentHeaders([]);
 
-        return $this->listSubWithOptions($request, $headers, $runtime);
+        return $this->listRecommendContentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3645,13 +3803,13 @@ class AliGenie extends OpenApiClient
         $request = new ListSubShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->page)) {
-            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->page), 'Page', 'json');
+            $request->pageShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->page, 'Page', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -3693,16 +3851,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListSubAlbumRequest $request
+     * @param ListSubRequest $request
      *
-     * @return ListSubAlbumResponse
+     * @return ListSubResponse
      */
-    public function listSubAlbum($request)
+    public function listSub($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListSubAlbumHeaders([]);
+        $headers = new ListSubHeaders([]);
 
-        return $this->listSubAlbumWithOptions($request, $headers, $runtime);
+        return $this->listSubWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3718,13 +3876,13 @@ class AliGenie extends OpenApiClient
         $request = new ListSubAlbumShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->querySubscriptionAlbumRequest)) {
-            $request->querySubscriptionAlbumRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->querySubscriptionAlbumRequest), 'QuerySubscriptionAlbumRequest', 'json');
+            $request->querySubscriptionAlbumRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->querySubscriptionAlbumRequest, 'QuerySubscriptionAlbumRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -3766,16 +3924,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListSubscriptionAlbumCategoryRequest $request
+     * @param ListSubAlbumRequest $request
      *
-     * @return ListSubscriptionAlbumCategoryResponse
+     * @return ListSubAlbumResponse
      */
-    public function listSubscriptionAlbumCategory($request)
+    public function listSubAlbum($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListSubscriptionAlbumCategoryHeaders([]);
+        $headers = new ListSubAlbumHeaders([]);
 
-        return $this->listSubscriptionAlbumCategoryWithOptions($request, $headers, $runtime);
+        return $this->listSubAlbumWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3822,16 +3980,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ListUserMessageRequest $request
+     * @param ListSubscriptionAlbumCategoryRequest $request
      *
-     * @return ListUserMessageResponse
+     * @return ListSubscriptionAlbumCategoryResponse
      */
-    public function listUserMessage($request)
+    public function listSubscriptionAlbumCategory($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ListUserMessageHeaders([]);
+        $headers = new ListSubscriptionAlbumCategoryHeaders([]);
 
-        return $this->listUserMessageWithOptions($request, $headers, $runtime);
+        return $this->listSubscriptionAlbumCategoryWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3847,7 +4005,7 @@ class AliGenie extends OpenApiClient
         $request = new ListUserMessageShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->beforeTime)) {
@@ -3889,16 +4047,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param PlayAndPauseControlRequest $request
+     * @param ListUserMessageRequest $request
      *
-     * @return PlayAndPauseControlResponse
+     * @return ListUserMessageResponse
      */
-    public function playAndPauseControl($request)
+    public function listUserMessage($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PlayAndPauseControlHeaders([]);
+        $headers = new ListUserMessageHeaders([]);
 
-        return $this->playAndPauseControlWithOptions($request, $headers, $runtime);
+        return $this->listUserMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3914,13 +4072,13 @@ class AliGenie extends OpenApiClient
         $request = new PlayAndPauseControlShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openPlayAndPauseControlParam)) {
-            $request->openPlayAndPauseControlParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openPlayAndPauseControlParam), 'OpenPlayAndPauseControlParam', 'json');
+            $request->openPlayAndPauseControlParamShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openPlayAndPauseControlParam, 'OpenPlayAndPauseControlParam', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -3964,16 +4122,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param PlayModeControlRequest $request
+     * @param PlayAndPauseControlRequest $request
      *
-     * @return PlayModeControlResponse
+     * @return PlayAndPauseControlResponse
      */
-    public function playModeControl($request)
+    public function playAndPauseControl($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PlayModeControlHeaders([]);
+        $headers = new PlayAndPauseControlHeaders([]);
 
-        return $this->playModeControlWithOptions($request, $headers, $runtime);
+        return $this->playAndPauseControlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3989,13 +4147,13 @@ class AliGenie extends OpenApiClient
         $request = new PlayModeControlShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openPlayModeControlRequest)) {
-            $request->openPlayModeControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openPlayModeControlRequest), 'OpenPlayModeControlRequest', 'json');
+            $request->openPlayModeControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openPlayModeControlRequest, 'OpenPlayModeControlRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4039,16 +4197,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param PreviousAndNextControlRequest $request
+     * @param PlayModeControlRequest $request
      *
-     * @return PreviousAndNextControlResponse
+     * @return PlayModeControlResponse
      */
-    public function previousAndNextControl($request)
+    public function playModeControl($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new PreviousAndNextControlHeaders([]);
+        $headers = new PlayModeControlHeaders([]);
 
-        return $this->previousAndNextControlWithOptions($request, $headers, $runtime);
+        return $this->playModeControlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4064,13 +4222,13 @@ class AliGenie extends OpenApiClient
         $request = new PreviousAndNextControlShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openControlPlayingListRequest)) {
-            $request->openControlPlayingListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openControlPlayingListRequest), 'OpenControlPlayingListRequest', 'json');
+            $request->openControlPlayingListRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openControlPlayingListRequest, 'OpenControlPlayingListRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4114,16 +4272,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ProgressControlRequest $request
+     * @param PreviousAndNextControlRequest $request
      *
-     * @return ProgressControlResponse
+     * @return PreviousAndNextControlResponse
      */
-    public function progressControl($request)
+    public function previousAndNextControl($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ProgressControlHeaders([]);
+        $headers = new PreviousAndNextControlHeaders([]);
 
-        return $this->progressControlWithOptions($request, $headers, $runtime);
+        return $this->previousAndNextControlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4139,13 +4297,13 @@ class AliGenie extends OpenApiClient
         $request = new ProgressControlShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->openProgressControlRequest)) {
-            $request->openProgressControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->openProgressControlRequest), 'OpenProgressControlRequest', 'json');
+            $request->openProgressControlRequestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->openProgressControlRequest, 'OpenProgressControlRequest', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4189,16 +4347,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param QueryMusicTypeRequest $request
+     * @param ProgressControlRequest $request
      *
-     * @return QueryMusicTypeResponse
+     * @return ProgressControlResponse
      */
-    public function queryMusicType($request)
+    public function progressControl($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new QueryMusicTypeHeaders([]);
+        $headers = new ProgressControlHeaders([]);
 
-        return $this->queryMusicTypeWithOptions($request, $headers, $runtime);
+        return $this->progressControlWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4214,13 +4372,13 @@ class AliGenie extends OpenApiClient
         $request = new QueryMusicTypeShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4262,16 +4420,75 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ReadMessageRequest $request
+     * @param QueryMusicTypeRequest $request
      *
-     * @return ReadMessageResponse
+     * @return QueryMusicTypeResponse
      */
-    public function readMessage($request)
+    public function queryMusicType($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ReadMessageHeaders([]);
+        $headers = new QueryMusicTypeHeaders([]);
 
-        return $this->readMessageWithOptions($request, $headers, $runtime);
+        return $this->queryMusicTypeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param QueryUserDeviceListByTmeUserIdRequest $request
+     * @param QueryUserDeviceListByTmeUserIdHeaders $headers
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return QueryUserDeviceListByTmeUserIdResponse
+     */
+    public function queryUserDeviceListByTmeUserIdWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->sp)) {
+            $query['Sp'] = $request->sp;
+        }
+        if (!Utils::isUnset($request->tmeUserId)) {
+            $query['TmeUserId'] = $request->tmeUserId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->xAcsAligenieAccessToken)) {
+            $realHeaders['x-acs-aligenie-access-token'] = Utils::toJSONString($headers->xAcsAligenieAccessToken);
+        }
+        if (!Utils::isUnset($headers->authorization)) {
+            $realHeaders['Authorization'] = Utils::toJSONString($headers->authorization);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryUserDeviceListByTmeUserId',
+            'version'     => 'ssp_1.0',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v1.0/ssp/queryUserDeviceListByTmeUserId',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryUserDeviceListByTmeUserIdResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryUserDeviceListByTmeUserIdRequest $request
+     *
+     * @return QueryUserDeviceListByTmeUserIdResponse
+     */
+    public function queryUserDeviceListByTmeUserId($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryUserDeviceListByTmeUserIdHeaders([]);
+
+        return $this->queryUserDeviceListByTmeUserIdWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4287,7 +4504,7 @@ class AliGenie extends OpenApiClient
         $request = new ReadMessageShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->messageId)) {
@@ -4326,16 +4543,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ScanCodeBindRequest $request
+     * @param ReadMessageRequest $request
      *
-     * @return ScanCodeBindResponse
+     * @return ReadMessageResponse
      */
-    public function scanCodeBind($request)
+    public function readMessage($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ScanCodeBindHeaders([]);
+        $headers = new ReadMessageHeaders([]);
 
-        return $this->scanCodeBindWithOptions($request, $headers, $runtime);
+        return $this->readMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4351,10 +4568,10 @@ class AliGenie extends OpenApiClient
         $request = new ScanCodeBindShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->bindReq)) {
-            $request->bindReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->bindReq), 'BindReq', 'json');
+            $request->bindReqShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->bindReq, 'BindReq', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->bindReqShrink)) {
@@ -4393,16 +4610,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param ScgSearchRequest $request
+     * @param ScanCodeBindRequest $request
      *
-     * @return ScgSearchResponse
+     * @return ScanCodeBindResponse
      */
-    public function scgSearch($request)
+    public function scanCodeBind($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new ScgSearchHeaders([]);
+        $headers = new ScanCodeBindHeaders([]);
 
-        return $this->scgSearchWithOptions($request, $headers, $runtime);
+        return $this->scanCodeBindWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4418,7 +4635,7 @@ class AliGenie extends OpenApiClient
         $request = new ScgSearchShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->scgFilter)) {
-            $request->scgFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->scgFilter), 'ScgFilter', 'json');
+            $request->scgFilterShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->scgFilter, 'ScgFilter', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->scgFilterShrink)) {
@@ -4457,16 +4674,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param SearchContentRequest $request
+     * @param ScgSearchRequest $request
      *
-     * @return SearchContentResponse
+     * @return ScgSearchResponse
      */
-    public function searchContent($request)
+    public function scgSearch($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new SearchContentHeaders([]);
+        $headers = new ScgSearchHeaders([]);
 
-        return $this->searchContentWithOptions($request, $headers, $runtime);
+        return $this->scgSearchWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4482,13 +4699,13 @@ class AliGenie extends OpenApiClient
         $request = new SearchContentShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->request)) {
-            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->request), 'Request', 'json');
+            $request->requestShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->request, 'Request', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4532,16 +4749,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param SendMessageRequest $request
+     * @param SearchContentRequest $request
      *
-     * @return SendMessageResponse
+     * @return SearchContentResponse
      */
-    public function sendMessage($request)
+    public function searchContent($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new SendMessageHeaders([]);
+        $headers = new SearchContentHeaders([]);
 
-        return $this->sendMessageWithOptions($request, $headers, $runtime);
+        return $this->searchContentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4557,7 +4774,7 @@ class AliGenie extends OpenApiClient
         $request = new SendMessageShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->url)) {
@@ -4596,16 +4813,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param SetDeviceSettingRequest $request
+     * @param SendMessageRequest $request
      *
-     * @return SetDeviceSettingResponse
+     * @return SendMessageResponse
      */
-    public function setDeviceSetting($request)
+    public function sendMessage($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new SetDeviceSettingHeaders([]);
+        $headers = new SendMessageHeaders([]);
 
-        return $this->setDeviceSettingWithOptions($request, $headers, $runtime);
+        return $this->sendMessageWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4621,7 +4838,7 @@ class AliGenie extends OpenApiClient
         $request = new SetDeviceSettingShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4665,16 +4882,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param UnbindAligenieUserRequest $request
+     * @param SetDeviceSettingRequest $request
      *
-     * @return UnbindAligenieUserResponse
+     * @return SetDeviceSettingResponse
      */
-    public function unbindAligenieUser($request)
+    public function setDeviceSetting($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UnbindAligenieUserHeaders([]);
+        $headers = new SetDeviceSettingHeaders([]);
 
-        return $this->unbindAligenieUserWithOptions($request, $headers, $runtime);
+        return $this->setDeviceSettingWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4721,16 +4938,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param UnbindDeviceRequest $request
+     * @param UnbindAligenieUserRequest $request
      *
-     * @return UnbindDeviceResponse
+     * @return UnbindAligenieUserResponse
      */
-    public function unbindDevice($request)
+    public function unbindAligenieUser($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UnbindDeviceHeaders([]);
+        $headers = new UnbindAligenieUserHeaders([]);
 
-        return $this->unbindDeviceWithOptions($request, $headers, $runtime);
+        return $this->unbindAligenieUserWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4746,10 +4963,10 @@ class AliGenie extends OpenApiClient
         $request = new UnbindDeviceShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4788,16 +5005,16 @@ class AliGenie extends OpenApiClient
     }
 
     /**
-     * @param UpdateAlarmRequest $request
+     * @param UnbindDeviceRequest $request
      *
-     * @return UpdateAlarmResponse
+     * @return UnbindDeviceResponse
      */
-    public function updateAlarm($request)
+    public function unbindDevice($request)
     {
         $runtime = new RuntimeOptions([]);
-        $headers = new UpdateAlarmHeaders([]);
+        $headers = new UnbindDeviceHeaders([]);
 
-        return $this->updateAlarmWithOptions($request, $headers, $runtime);
+        return $this->unbindDeviceWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4813,13 +5030,13 @@ class AliGenie extends OpenApiClient
         $request = new UpdateAlarmShrinkRequest([]);
         OpenApiUtilClient::convert($tmpReq, $request);
         if (!Utils::isUnset($tmpReq->deviceInfo)) {
-            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->deviceInfo), 'DeviceInfo', 'json');
+            $request->deviceInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->deviceInfo, 'DeviceInfo', 'json');
         }
         if (!Utils::isUnset($tmpReq->payload)) {
-            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->payload), 'Payload', 'json');
+            $request->payloadShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->payload, 'Payload', 'json');
         }
         if (!Utils::isUnset($tmpReq->userInfo)) {
-            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle(Tea::merge($tmpReq->userInfo), 'UserInfo', 'json');
+            $request->userInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userInfo, 'UserInfo', 'json');
         }
         $body = [];
         if (!Utils::isUnset($request->deviceInfoShrink)) {
@@ -4858,5 +5075,18 @@ class AliGenie extends OpenApiClient
         ]);
 
         return UpdateAlarmResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAlarmRequest $request
+     *
+     * @return UpdateAlarmResponse
+     */
+    public function updateAlarm($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateAlarmHeaders([]);
+
+        return $this->updateAlarmWithOptions($request, $headers, $runtime);
     }
 }

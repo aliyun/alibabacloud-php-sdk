@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class contentList extends Model
 {
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $rawId;
 
     /**
+     * @example xiami
+     *
      * @var string
      */
     public $source;

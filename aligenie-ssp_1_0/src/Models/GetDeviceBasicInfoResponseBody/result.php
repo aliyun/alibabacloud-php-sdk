@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 2.0.3
+     *
      * @var string
      */
     public $firmwareVersion;
 
     /**
+     * @example b4:xx:xx:xx:65:2b
+     *
      * @var string
      */
     public $mac;
 
     /**
+     * @example 我的设备
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1200xxx048
+     *
      * @var string
      */
     public $sn;

@@ -14,6 +14,8 @@ class speaker extends Model
     public $muted;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $volume;

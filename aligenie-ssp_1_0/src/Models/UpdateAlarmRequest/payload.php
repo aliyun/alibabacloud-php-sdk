@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $alarmId;
@@ -26,6 +28,8 @@ class payload extends Model
     public $scheduleInfo;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $volume;

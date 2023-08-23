@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ReadMessageRequest extends Model
 {
     /**
+     * @example 12345
+     *
      * @var int
      */
     public $messageId;

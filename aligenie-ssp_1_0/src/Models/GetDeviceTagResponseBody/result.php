@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example {       "antest1": "antest1",       "antest": "a"     }
+     *
      * @var mixed[]
      */
     public $deviceTags;

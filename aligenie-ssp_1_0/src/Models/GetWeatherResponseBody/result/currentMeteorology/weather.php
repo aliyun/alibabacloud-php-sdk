@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class weather extends Model
 {
     /**
+     * @example 000
+     *
      * @var string
      */
     public $code;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class power extends Model
 {
     /**
+     * @example 30
+     *
      * @var int
      */
     public $quantity;

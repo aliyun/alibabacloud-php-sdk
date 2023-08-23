@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class temperature extends Model
 {
     /**
+     * @example 36
+     *
      * @var string
      */
     public $current;
@@ -19,6 +21,8 @@ class temperature extends Model
     public $currentDesc;
 
     /**
+     * @example 37
+     *
      * @var string
      */
     public $high;
@@ -29,11 +33,15 @@ class temperature extends Model
     public $highDesc;
 
     /**
+     * @example 41
+     *
      * @var string
      */
     public $logical;
 
     /**
+     * @example 28
+     *
      * @var string
      */
     public $low;

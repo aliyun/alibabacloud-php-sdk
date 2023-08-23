@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class sortParam extends Model
 {
     /**
+     * @example internal_id
+     *
      * @var string
      */
     public $sortKey;
 
     /**
+     * @example ASC
+     *
      * @var string
      */
     public $sortOrder;
 
     /**
+     * @example “”
+     *
      * @var string
      */
     public $sortText;

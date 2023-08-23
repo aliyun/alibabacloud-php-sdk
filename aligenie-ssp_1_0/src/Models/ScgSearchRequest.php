@@ -15,6 +15,8 @@ class ScgSearchRequest extends Model
     public $scgFilter;
 
     /**
+     * @example MC201132
+     *
      * @var string
      */
     public $topicId;

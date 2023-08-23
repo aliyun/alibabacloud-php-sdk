@@ -15,6 +15,8 @@ class openCreatePlayingListRequest extends Model
     public $contentList;
 
     /**
+     * @example content
+     *
      * @var string
      */
     public $contentType;
@@ -25,21 +27,29 @@ class openCreatePlayingListRequest extends Model
     public $extendInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $needAlbumContinued;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $playFrom;
 
     /**
+     * @example Repeat
+     *
      * @var string
      */
     public $playMode;

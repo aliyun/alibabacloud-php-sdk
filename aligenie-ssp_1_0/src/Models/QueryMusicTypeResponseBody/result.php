@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $musicType;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $musicTypeName;

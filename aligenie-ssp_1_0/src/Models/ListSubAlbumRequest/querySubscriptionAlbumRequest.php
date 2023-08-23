@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class querySubscriptionAlbumRequest extends Model
 {
     /**
+     * @example 4476001
+     *
      * @var string
      */
     public $albumId;
 
     /**
+     * @example 80011
+     *
      * @var int
      */
     public $categoryId;
@@ -25,6 +29,8 @@ class querySubscriptionAlbumRequest extends Model
     public $page;
 
     /**
+     * @example 睡前故事
+     *
      * @var string
      */
     public $title;

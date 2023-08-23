@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class AuthLoginWithThirdUserInfoResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -21,11 +23,15 @@ class AuthLoginWithThirdUserInfoResponseBody extends Model
     public $dataObj;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 73C67BD9-175A-1324-8202-9FAABBB3E6FA
+     *
      * @var string
      */
     public $requestId;
@@ -36,6 +42,8 @@ class AuthLoginWithThirdUserInfoResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

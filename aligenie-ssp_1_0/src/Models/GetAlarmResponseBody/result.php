@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $alarmId;
@@ -31,21 +33,29 @@ class result extends Model
     public $scheduleTypeDesc;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example 2022-07-29
+     *
      * @var string
      */
     public $triggerDateDesc;
 
     /**
+     * @example 10:00
+     *
      * @var string
      */
     public $triggerTimeDesc;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $volume;

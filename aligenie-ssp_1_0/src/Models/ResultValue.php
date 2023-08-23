@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ResultValue extends Model
 {
     /**
+     * @example A963*0158
+     *
      * @var string
      */
     public $deviceOpenId;
@@ -20,21 +22,29 @@ class ResultValue extends Model
     public $deviceUnionIds;
 
     /**
+     * @example 我的设备
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2.0.3
+     *
      * @var string
      */
     public $firmwareVersion;
 
     /**
+     * @example b4:xx:xx:xx:65:2b
+     *
      * @var string
      */
     public $mac;
 
     /**
+     * @example 1200xx048
+     *
      * @var string
      */
     public $sn;

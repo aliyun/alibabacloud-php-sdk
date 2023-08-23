@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCateInfoRequest extends Model
 {
     /**
+     * @example song
+     *
      * @var string
      */
     public $type;

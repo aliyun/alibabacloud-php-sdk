@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
+     * @example 80010
+     *
      * @var int
      */
     public $cateId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isAlbum;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example hot_score
+     *
      * @var string
      */
     public $sortBy;
 
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $sortOrder;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class offSetParam extends Model
 {
     /**
+     * @example 20
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $offset;

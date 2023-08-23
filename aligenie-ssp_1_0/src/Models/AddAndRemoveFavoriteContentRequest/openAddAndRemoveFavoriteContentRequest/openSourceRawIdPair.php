@@ -14,11 +14,15 @@ class openSourceRawIdPair extends Model
     public $extendInfo;
 
     /**
+     * @example 2105818057
+     *
      * @var string
      */
     public $rawId;
 
     /**
+     * @example xiami
+     *
      * @var string
      */
     public $source;

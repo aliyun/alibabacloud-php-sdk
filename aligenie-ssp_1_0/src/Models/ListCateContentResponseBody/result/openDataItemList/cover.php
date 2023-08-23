@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class cover extends Model
 {
     /**
+     * @example http://pic.qtfm.cn/2017/0207/2017020718285.jpg
+     *
      * @var string
      */
     public $img;
 
     /**
+     * @example http://pic.qtfm.cn/2017/0207/2017020718275.jpg
+     *
      * @var string
      */
     public $large;
 
     /**
+     * @example http://pic.qtfm.cn/2017/0207/2017020718275.jpg
+     *
      * @var string
      */
     public $mediam;
 
     /**
+     * @example http://pic.qtfm.cn/2017/0207/20170207175.jpg
+     *
      * @var string
      */
     public $medium;
 
     /**
+     * @example http://pic.qtfm.cn/2017/0207/2017020675.jpg
+     *
      * @var string
      */
     public $small;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $canResize;

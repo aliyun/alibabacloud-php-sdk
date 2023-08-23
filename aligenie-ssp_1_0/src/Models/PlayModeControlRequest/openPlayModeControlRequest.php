@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class openPlayModeControlRequest extends Model
 {
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $openPlayMode;

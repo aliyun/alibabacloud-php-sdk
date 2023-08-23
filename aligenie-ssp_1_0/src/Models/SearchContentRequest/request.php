@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class request extends Model
 {
     /**
+     * @example music
+     *
      * @var string
      */
     public $cate;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
@@ -29,11 +35,15 @@ class request extends Model
     public $query;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $queryAlbum;
 
     /**
+     * @example singer
+     *
      * @var string
      */
     public $subCate;

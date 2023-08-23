@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CheckAuthCodeBindForExtRequest extends Model
 {
     /**
+     * @example Aexfgc
+     *
      * @var string
      */
     public $authCode;
 
     /**
+     * @example 123
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;

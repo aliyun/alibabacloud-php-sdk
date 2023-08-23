@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class EcologyOpennessAuthenticateResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example OK
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 73****9-175A-1324-8202-9FAAB*****A
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class EcologyOpennessAuthenticateResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

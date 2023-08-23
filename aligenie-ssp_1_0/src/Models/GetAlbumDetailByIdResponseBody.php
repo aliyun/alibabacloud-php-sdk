@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetAlbumDetailByIdResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example A0B7CACD-485B-14E2-854F-39EACB09E45B
+     *
      * @var string
      */
     public $requestId;

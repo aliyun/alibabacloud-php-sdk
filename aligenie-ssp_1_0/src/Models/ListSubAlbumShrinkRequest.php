@@ -14,6 +14,8 @@ class ListSubAlbumShrinkRequest extends Model
     public $deviceInfoShrink;
 
     /**
+     * @description request
+     *
      * @var string
      */
     public $querySubscriptionAlbumRequestShrink;

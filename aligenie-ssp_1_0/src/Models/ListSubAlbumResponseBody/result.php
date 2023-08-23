@@ -20,11 +20,15 @@ class result extends Model
     public $hasNext;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $totalPageCount;

@@ -15,26 +15,36 @@ class result extends Model
     public $actionTopicList;
 
     /**
+     * @example 0 10 20 30 6 ? 2022
+     *
      * @var string
      */
     public $cron;
 
     /**
+     * @example 1659169473000
+     *
      * @var string
      */
     public $scheduleEndTime;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $scheduleId;
 
     /**
+     * @example 1656577473000
+     *
      * @var string
      */
     public $scheduleStartTime;
 
     /**
+     * @example ONCE
+     *
      * @var string
      */
     public $scheduleType;

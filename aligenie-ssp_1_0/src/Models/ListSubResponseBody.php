@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListSubResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0D0C09C2-ADC1-198B-964D-24F4FAD967DB
+     *
      * @var string
      */
     public $requestId;

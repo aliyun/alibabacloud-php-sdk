@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class openControlPlayingListRequest extends Model
 {
     /**
+     * @example NEXT
+     *
      * @var string
      */
     public $cmd;
@@ -19,6 +21,8 @@ class openControlPlayingListRequest extends Model
     public $extendInfo;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isFromDevice;

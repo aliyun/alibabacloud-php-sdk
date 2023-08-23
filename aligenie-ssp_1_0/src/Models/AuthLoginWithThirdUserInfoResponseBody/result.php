@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 1659428051452
+     *
      * @var int
      */
     public $expiredTimeLong;
 
     /**
+     * @example bd9ccdb121ee950ddead51e943e081fe
+     *
      * @var string
      */
     public $loginStateAccessToken;

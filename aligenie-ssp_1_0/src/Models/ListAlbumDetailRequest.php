@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListAlbumDetailRequest extends Model
 {
     /**
+     * @example 121321
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

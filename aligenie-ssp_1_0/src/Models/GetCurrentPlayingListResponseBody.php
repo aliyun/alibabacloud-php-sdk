@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetCurrentPlayingListResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 10002398812
+     *
      * @var string
      */
     public $requestId;
@@ -30,6 +36,8 @@ class GetCurrentPlayingListResponseBody extends Model
     public $result;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $success;

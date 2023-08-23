@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class model_ extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $musicId;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $musicName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $musicType;
 
     /**
+     * @example xx
+     *
      * @var string
      */
     public $musicTypeName;
 
     /**
+     * @example http://xx
+     *
      * @var string
      */
     public $musicUrl;

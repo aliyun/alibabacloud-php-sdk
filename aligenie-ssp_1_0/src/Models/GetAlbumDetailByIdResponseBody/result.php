@@ -15,21 +15,29 @@ class result extends Model
     public $albumContentList;
 
     /**
+     * @example https://ailabs.alibabausercontent.com/images/8838/1600839452498.jpg
+     *
      * @var string
      */
     public $albumCoverUrl;
 
     /**
+     * @example 每次一个百科知识或者故事\n丰富孩子的视野，拓展眼界和知识面，培养和孩子的探究能力和好奇心\n\n
+     *
      * @var string
      */
     public $albumDescription;
 
     /**
+     * @example 51999575
+     *
      * @var string
      */
     public $albumId;
 
     /**
+     * @example 小科学家探索
+     *
      * @var string
      */
     public $albumTitle;

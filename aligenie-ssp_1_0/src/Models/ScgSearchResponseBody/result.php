@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $album;
 
     /**
+     * @example 1795716629
+     *
      * @var string
      */
     public $albumRawId;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $albumType;
@@ -40,11 +46,15 @@ class result extends Model
     public $authorNames;
 
     /**
+     * @example audio
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example MUSIC_CONTENT
+     *
      * @var string
      */
     public $contentType;
@@ -55,22 +65,30 @@ class result extends Model
     public $cover;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $isAudition;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $isCharge;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needCharge;
 
     /**
-     * @var int
+     * @example 1795716629
+     *
+     * @var string
      */
     public $rawId;
 
@@ -80,11 +98,15 @@ class result extends Model
     public $singers;
 
     /**
+     * @example xiami
+     *
      * @var string
      */
     public $source;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $supportAudition;
@@ -95,6 +117,8 @@ class result extends Model
     public $title;
 
     /**
+     * @example music
+     *
      * @var string
      */
     public $type;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class openQueryPlayListRequest extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNum;
 
     /**
+     * @example 15
+     *
      * @var int
      */
     public $pageSize;

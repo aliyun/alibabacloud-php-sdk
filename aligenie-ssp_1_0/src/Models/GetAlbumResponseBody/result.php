@@ -16,6 +16,8 @@ class result extends Model
     public $alias;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $audition;
@@ -26,16 +28,22 @@ class result extends Model
     public $authors;
 
     /**
+     * @example audio
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $charge;
 
     /**
+     * @example 80012017
+     *
      * @var int
      */
     public $commCateId;
@@ -51,31 +59,43 @@ class result extends Model
     public $description;
 
     /**
+     * @example FINISHED
+     *
      * @var string
      */
     public $finished;
 
     /**
+     * @example 10
+     *
      * @var float
      */
     public $hotScore;
 
     /**
+     * @example 1231231
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example ALBUM
+     *
      * @var string
      */
     public $itemType;
 
     /**
+     * @example 23242
+     *
      * @var string
      */
     public $rawId;
 
     /**
+     * @example qignting
+     *
      * @var string
      */
     public $source;
@@ -86,16 +106,22 @@ class result extends Model
     public $title;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $totalEpisode;
 
     /**
+     * @example program
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example VALID
+     *
      * @var string
      */
     public $valid;

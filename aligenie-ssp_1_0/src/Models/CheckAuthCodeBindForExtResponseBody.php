@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class CheckAuthCodeBindForExtResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 0EC7*726E
+     *
      * @var string
      */
     public $requestId;

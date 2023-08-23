@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class userUnionIds extends Model
 {
     /**
+     * @example 1**2
+     *
      * @var string
      */
     public $organizationId;
 
     /**
+     * @example 1553*B0C3
+     *
      * @var string
      */
     public $userUnionId;

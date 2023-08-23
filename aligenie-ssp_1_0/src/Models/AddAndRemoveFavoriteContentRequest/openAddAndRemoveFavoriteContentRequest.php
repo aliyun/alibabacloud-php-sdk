@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class openAddAndRemoveFavoriteContentRequest extends Model
 {
     /**
+     * @example ADD
+     *
      * @var string
      */
     public $favoriteCmd;
@@ -20,6 +22,8 @@ class openAddAndRemoveFavoriteContentRequest extends Model
     public $openSourceRawIdPair;
 
     /**
+     * @example CONTENT
+     *
      * @var string
      */
     public $packageType;

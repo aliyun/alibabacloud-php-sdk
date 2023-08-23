@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class payload extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $currentPage;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetAlbumRequest extends Model
 {
     /**
+     * @example 12343
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example song
+     *
      * @var string
      */
     public $type;

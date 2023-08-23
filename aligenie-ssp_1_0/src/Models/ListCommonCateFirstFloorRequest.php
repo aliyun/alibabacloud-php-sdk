@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCommonCateFirstFloorRequest extends Model
 {
     /**
+     * @example song
+     *
      * @var string
      */
     public $type;

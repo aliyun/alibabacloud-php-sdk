@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ScanCodeBindResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 686DF82F-45C4-7DF7-8B67-27B91CFD63A9
+     *
      * @var string
      */
     public $requestId;

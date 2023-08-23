@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 51999575
+     *
      * @var string
      */
     public $albumId;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $isAdded;

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class QueryMusicTypeResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,6 +22,8 @@ class QueryMusicTypeResponseBody extends Model
     public $message;
 
     /**
+     * @example 43***28C-A810-5***-8747-EC226A086881
+     *
      * @var string
      */
     public $requestId;

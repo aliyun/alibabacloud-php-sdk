@@ -15,11 +15,15 @@ class SetDeviceSettingRequest extends Model
     public $deviceInfo;
 
     /**
+     * @example nightMode
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example {"enable":true}
+     *
      * @var mixed
      */
     public $value;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class ListSubAlbumResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example CB13B8D7-37FB-1B3E-8EB9-65BB413267E1
+     *
      * @var string
      */
     public $requestId;

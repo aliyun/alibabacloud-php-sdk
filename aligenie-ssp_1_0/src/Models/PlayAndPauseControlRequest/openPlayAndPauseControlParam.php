@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class openPlayAndPauseControlParam extends Model
 {
     /**
+     * @example Play
+     *
      * @var string
      */
     public $openPlayAndPauseCommand;

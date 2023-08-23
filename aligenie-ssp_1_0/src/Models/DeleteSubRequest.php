@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteSubRequest extends Model
 {
     /**
+     * @example 81
+     *
      * @var int
      */
     public $subId;

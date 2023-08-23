@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example 80018009
+     *
      * @var int
      */
     public $cateId;
@@ -19,6 +21,8 @@ class result extends Model
     public $cateName;
 
     /**
+     * @example 80018
+     *
      * @var int
      */
     public $parentCateId;

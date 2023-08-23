@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListDeviceIdByIdentitiesShrinkRequest extends Model
 {
     /**
+     * @example 125****0946
+     *
      * @var string
      */
     public $encodeKey;
 
     /**
+     * @example PROJECT_ID
+     *
      * @var string
      */
     public $encodeType;
@@ -24,11 +28,15 @@ class ListDeviceIdByIdentitiesShrinkRequest extends Model
     public $identityIdsShrink;
 
     /**
+     * @example MAC
+     *
      * @var string
      */
     public $identityType;
 
     /**
+     * @example Mm*****XnZ8
+     *
      * @var string
      */
     public $productKey;

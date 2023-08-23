@@ -17,6 +17,8 @@ class ListSubAlbumRequest extends Model
     public $deviceInfo;
 
     /**
+     * @description request
+     *
      * @var querySubscriptionAlbumRequest
      */
     public $querySubscriptionAlbumRequest;

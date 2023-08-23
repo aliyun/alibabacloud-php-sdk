@@ -14,11 +14,15 @@ class openIndexControlRequest extends Model
     public $extendInfo;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $index;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $needContentContinued;

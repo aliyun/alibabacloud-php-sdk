@@ -21,6 +21,8 @@ class payload extends Model
     public $scheduleInfo;
 
     /**
+     * @example 40
+     *
      * @var int
      */
     public $volume;

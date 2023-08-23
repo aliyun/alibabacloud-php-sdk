@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAlbumDetailByIdRequest extends Model
 {
     /**
+     * @example 51999575
+     *
      * @var string
      */
     public $albumId;

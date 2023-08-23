@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateScheduleTaskResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -19,11 +21,15 @@ class CreateScheduleTaskResponseBody extends Model
     public $message;
 
     /**
+     * @example F7E2****B7C94
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 1234567
+     *
      * @var int
      */
     public $result;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class GetContentResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example F12B6147-5925-19E5-A3AD-E1EE1360F34E
+     *
      * @var string
      */
     public $requestId;

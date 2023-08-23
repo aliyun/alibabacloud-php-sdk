@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class deviceOpenInfo extends Model
 {
     /**
+     * @example A963*0158
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description DEVICE_ID
+     *
+     * @example DEVICE_ID
+     *
      * @var string
      */
     public $idType;

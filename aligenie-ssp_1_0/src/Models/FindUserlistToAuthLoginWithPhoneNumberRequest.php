@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class FindUserlistToAuthLoginWithPhoneNumberRequest extends Model
 {
     /**
+     * @example 123456
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 18612345678
+     *
      * @var string
      */
     public $phoneNumber;
 
     /**
+     * @example +86
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example dbe2eb4458302b9246c6da17fbc95f4b
+     *
      * @var string
      */
     public $sessionId;
