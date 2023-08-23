@@ -5,6 +5,14 @@
 namespace AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors;
 
 use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\assertions;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\blockedUrlList;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserHeaders;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserHosts;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\browserInfo;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\expectExistString;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\expectNonExistString;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\trafficHijackElementBlacklist;
+use AlibabaCloud\SDK\Cms\V20190101\Models\DescribeSiteMonitorAttributeResponseBody\siteMonitors\optionJson\trafficHijackElementWhitelist;
 use AlibabaCloud\Tea\Model;
 
 class optionJson extends Model
@@ -27,6 +35,36 @@ class optionJson extends Model
      * @var int
      */
     public $authentication;
+
+    /**
+     * @var blockedUrlList
+     */
+    public $blockedUrlList;
+
+    /**
+     * @var browserHeaders
+     */
+    public $browserHeaders;
+
+    /**
+     * @var browserHosts
+     */
+    public $browserHosts;
+
+    /**
+     * @var browserInfo
+     */
+    public $browserInfo;
+
+    /**
+     * @var bool
+     */
+    public $browserInsecure;
+
+    /**
+     * @var string
+     */
+    public $browserTaskVersion;
 
     /**
      * @example lang=en
@@ -70,6 +108,16 @@ class optionJson extends Model
      * @var string
      */
     public $dnsType;
+
+    /**
+     * @var expectExistString
+     */
+    public $expectExistString;
+
+    /**
+     * @var expectNonExistString
+     */
+    public $expectNonExistString;
 
     /**
      * @example dns_server
@@ -133,6 +181,20 @@ class optionJson extends Model
     public $pingNum;
 
     /**
+     * @example 80
+     *
+     * @var int
+     */
+    public $pingPort;
+
+    /**
+     * @example icmp,tcp,udp
+     *
+     * @var string
+     */
+    public $pingType;
+
+    /**
      * @example 110
      *
      * @var int
@@ -180,11 +242,31 @@ class optionJson extends Model
     public $retryDelay;
 
     /**
+     * @var bool
+     */
+    public $strictMode;
+
+    /**
      * @example 3
      *
      * @var int
      */
     public $timeOut;
+
+    /**
+     * @var trafficHijackElementBlacklist
+     */
+    public $trafficHijackElementBlacklist;
+
+    /**
+     * @var int
+     */
+    public $trafficHijackElementCount;
+
+    /**
+     * @var trafficHijackElementWhitelist
+     */
+    public $trafficHijackElementWhitelist;
 
     /**
      * @example testUser
@@ -193,34 +275,48 @@ class optionJson extends Model
      */
     public $username;
     protected $_name = [
-        'assertions'         => 'assertions',
-        'attempts'           => 'attempts',
-        'authentication'     => 'authentication',
-        'cookie'             => 'cookie',
-        'diagnosisMtr'       => 'diagnosis_mtr',
-        'diagnosisPing'      => 'diagnosis_ping',
-        'dnsHijackWhitelist' => 'dns_hijack_whitelist',
-        'dnsMatchRule'       => 'dns_match_rule',
-        'dnsServer'          => 'dns_server',
-        'dnsType'            => 'dns_type',
-        'expectValue'        => 'expect_value',
-        'failureRate'        => 'failure_rate',
-        'header'             => 'header',
-        'httpMethod'         => 'http_method',
-        'isBase64Encode'     => 'isBase64Encode',
-        'matchRule'          => 'match_rule',
-        'minTlsVersion'      => 'min_tls_version',
-        'password'           => 'password',
-        'pingNum'            => 'ping_num',
-        'port'               => 'port',
-        'protocol'           => 'protocol',
-        'requestContent'     => 'request_content',
-        'requestFormat'      => 'request_format',
-        'responseContent'    => 'response_content',
-        'responseFormat'     => 'response_format',
-        'retryDelay'         => 'retry_delay',
-        'timeOut'            => 'time_out',
-        'username'           => 'username',
+        'assertions'                    => 'assertions',
+        'attempts'                      => 'attempts',
+        'authentication'                => 'authentication',
+        'blockedUrlList'                => 'blocked_url_list',
+        'browserHeaders'                => 'browser_headers',
+        'browserHosts'                  => 'browser_hosts',
+        'browserInfo'                   => 'browser_info',
+        'browserInsecure'               => 'browser_insecure',
+        'browserTaskVersion'            => 'browser_task_version',
+        'cookie'                        => 'cookie',
+        'diagnosisMtr'                  => 'diagnosis_mtr',
+        'diagnosisPing'                 => 'diagnosis_ping',
+        'dnsHijackWhitelist'            => 'dns_hijack_whitelist',
+        'dnsMatchRule'                  => 'dns_match_rule',
+        'dnsServer'                     => 'dns_server',
+        'dnsType'                       => 'dns_type',
+        'expectExistString'             => 'expect_exist_string',
+        'expectNonExistString'          => 'expect_non_exist_string',
+        'expectValue'                   => 'expect_value',
+        'failureRate'                   => 'failure_rate',
+        'header'                        => 'header',
+        'httpMethod'                    => 'http_method',
+        'isBase64Encode'                => 'isBase64Encode',
+        'matchRule'                     => 'match_rule',
+        'minTlsVersion'                 => 'min_tls_version',
+        'password'                      => 'password',
+        'pingNum'                       => 'ping_num',
+        'pingPort'                      => 'ping_port',
+        'pingType'                      => 'ping_type',
+        'port'                          => 'port',
+        'protocol'                      => 'protocol',
+        'requestContent'                => 'request_content',
+        'requestFormat'                 => 'request_format',
+        'responseContent'               => 'response_content',
+        'responseFormat'                => 'response_format',
+        'retryDelay'                    => 'retry_delay',
+        'strictMode'                    => 'strict_mode',
+        'timeOut'                       => 'time_out',
+        'trafficHijackElementBlacklist' => 'traffic_hijack_element_blacklist',
+        'trafficHijackElementCount'     => 'traffic_hijack_element_count',
+        'trafficHijackElementWhitelist' => 'traffic_hijack_element_whitelist',
+        'username'                      => 'username',
     ];
 
     public function validate()
@@ -238,6 +334,24 @@ class optionJson extends Model
         }
         if (null !== $this->authentication) {
             $res['authentication'] = $this->authentication;
+        }
+        if (null !== $this->blockedUrlList) {
+            $res['blocked_url_list'] = null !== $this->blockedUrlList ? $this->blockedUrlList->toMap() : null;
+        }
+        if (null !== $this->browserHeaders) {
+            $res['browser_headers'] = null !== $this->browserHeaders ? $this->browserHeaders->toMap() : null;
+        }
+        if (null !== $this->browserHosts) {
+            $res['browser_hosts'] = null !== $this->browserHosts ? $this->browserHosts->toMap() : null;
+        }
+        if (null !== $this->browserInfo) {
+            $res['browser_info'] = null !== $this->browserInfo ? $this->browserInfo->toMap() : null;
+        }
+        if (null !== $this->browserInsecure) {
+            $res['browser_insecure'] = $this->browserInsecure;
+        }
+        if (null !== $this->browserTaskVersion) {
+            $res['browser_task_version'] = $this->browserTaskVersion;
         }
         if (null !== $this->cookie) {
             $res['cookie'] = $this->cookie;
@@ -259,6 +373,12 @@ class optionJson extends Model
         }
         if (null !== $this->dnsType) {
             $res['dns_type'] = $this->dnsType;
+        }
+        if (null !== $this->expectExistString) {
+            $res['expect_exist_string'] = null !== $this->expectExistString ? $this->expectExistString->toMap() : null;
+        }
+        if (null !== $this->expectNonExistString) {
+            $res['expect_non_exist_string'] = null !== $this->expectNonExistString ? $this->expectNonExistString->toMap() : null;
         }
         if (null !== $this->expectValue) {
             $res['expect_value'] = $this->expectValue;
@@ -287,6 +407,12 @@ class optionJson extends Model
         if (null !== $this->pingNum) {
             $res['ping_num'] = $this->pingNum;
         }
+        if (null !== $this->pingPort) {
+            $res['ping_port'] = $this->pingPort;
+        }
+        if (null !== $this->pingType) {
+            $res['ping_type'] = $this->pingType;
+        }
         if (null !== $this->port) {
             $res['port'] = $this->port;
         }
@@ -308,8 +434,20 @@ class optionJson extends Model
         if (null !== $this->retryDelay) {
             $res['retry_delay'] = $this->retryDelay;
         }
+        if (null !== $this->strictMode) {
+            $res['strict_mode'] = $this->strictMode;
+        }
         if (null !== $this->timeOut) {
             $res['time_out'] = $this->timeOut;
+        }
+        if (null !== $this->trafficHijackElementBlacklist) {
+            $res['traffic_hijack_element_blacklist'] = null !== $this->trafficHijackElementBlacklist ? $this->trafficHijackElementBlacklist->toMap() : null;
+        }
+        if (null !== $this->trafficHijackElementCount) {
+            $res['traffic_hijack_element_count'] = $this->trafficHijackElementCount;
+        }
+        if (null !== $this->trafficHijackElementWhitelist) {
+            $res['traffic_hijack_element_whitelist'] = null !== $this->trafficHijackElementWhitelist ? $this->trafficHijackElementWhitelist->toMap() : null;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -335,6 +473,24 @@ class optionJson extends Model
         if (isset($map['authentication'])) {
             $model->authentication = $map['authentication'];
         }
+        if (isset($map['blocked_url_list'])) {
+            $model->blockedUrlList = blockedUrlList::fromMap($map['blocked_url_list']);
+        }
+        if (isset($map['browser_headers'])) {
+            $model->browserHeaders = browserHeaders::fromMap($map['browser_headers']);
+        }
+        if (isset($map['browser_hosts'])) {
+            $model->browserHosts = browserHosts::fromMap($map['browser_hosts']);
+        }
+        if (isset($map['browser_info'])) {
+            $model->browserInfo = browserInfo::fromMap($map['browser_info']);
+        }
+        if (isset($map['browser_insecure'])) {
+            $model->browserInsecure = $map['browser_insecure'];
+        }
+        if (isset($map['browser_task_version'])) {
+            $model->browserTaskVersion = $map['browser_task_version'];
+        }
         if (isset($map['cookie'])) {
             $model->cookie = $map['cookie'];
         }
@@ -355,6 +511,12 @@ class optionJson extends Model
         }
         if (isset($map['dns_type'])) {
             $model->dnsType = $map['dns_type'];
+        }
+        if (isset($map['expect_exist_string'])) {
+            $model->expectExistString = expectExistString::fromMap($map['expect_exist_string']);
+        }
+        if (isset($map['expect_non_exist_string'])) {
+            $model->expectNonExistString = expectNonExistString::fromMap($map['expect_non_exist_string']);
         }
         if (isset($map['expect_value'])) {
             $model->expectValue = $map['expect_value'];
@@ -383,6 +545,12 @@ class optionJson extends Model
         if (isset($map['ping_num'])) {
             $model->pingNum = $map['ping_num'];
         }
+        if (isset($map['ping_port'])) {
+            $model->pingPort = $map['ping_port'];
+        }
+        if (isset($map['ping_type'])) {
+            $model->pingType = $map['ping_type'];
+        }
         if (isset($map['port'])) {
             $model->port = $map['port'];
         }
@@ -404,8 +572,20 @@ class optionJson extends Model
         if (isset($map['retry_delay'])) {
             $model->retryDelay = $map['retry_delay'];
         }
+        if (isset($map['strict_mode'])) {
+            $model->strictMode = $map['strict_mode'];
+        }
         if (isset($map['time_out'])) {
             $model->timeOut = $map['time_out'];
+        }
+        if (isset($map['traffic_hijack_element_blacklist'])) {
+            $model->trafficHijackElementBlacklist = trafficHijackElementBlacklist::fromMap($map['traffic_hijack_element_blacklist']);
+        }
+        if (isset($map['traffic_hijack_element_count'])) {
+            $model->trafficHijackElementCount = $map['traffic_hijack_element_count'];
+        }
+        if (isset($map['traffic_hijack_element_whitelist'])) {
+            $model->trafficHijackElementWhitelist = trafficHijackElementWhitelist::fromMap($map['traffic_hijack_element_whitelist']);
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];

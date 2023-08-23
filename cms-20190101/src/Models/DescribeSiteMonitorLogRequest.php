@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorLogRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $browser;
+
+    /**
+     * @var string
+     */
+    public $browserInfo;
+
+    /**
      * @description The city identification code.
      *
      * @example 546
@@ -16,6 +26,11 @@ class DescribeSiteMonitorLogRequest extends Model
      * @var string
      */
     public $city;
+
+    /**
+     * @var string
+     */
+    public $device;
 
     /**
      * @description The end of the time range to query data. The following formats are supported:
@@ -107,16 +122,19 @@ class DescribeSiteMonitorLogRequest extends Model
      */
     public $taskIds;
     protected $_name = [
-        'city'       => 'City',
-        'endTime'    => 'EndTime',
-        'filter'     => 'Filter',
-        'isp'        => 'Isp',
-        'length'     => 'Length',
-        'metricName' => 'MetricName',
-        'nextToken'  => 'NextToken',
-        'regionId'   => 'RegionId',
-        'startTime'  => 'StartTime',
-        'taskIds'    => 'TaskIds',
+        'browser'     => 'Browser',
+        'browserInfo' => 'BrowserInfo',
+        'city'        => 'City',
+        'device'      => 'Device',
+        'endTime'     => 'EndTime',
+        'filter'      => 'Filter',
+        'isp'         => 'Isp',
+        'length'      => 'Length',
+        'metricName'  => 'MetricName',
+        'nextToken'   => 'NextToken',
+        'regionId'    => 'RegionId',
+        'startTime'   => 'StartTime',
+        'taskIds'     => 'TaskIds',
     ];
 
     public function validate()
@@ -126,8 +144,17 @@ class DescribeSiteMonitorLogRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->browser) {
+            $res['Browser'] = $this->browser;
+        }
+        if (null !== $this->browserInfo) {
+            $res['BrowserInfo'] = $this->browserInfo;
+        }
         if (null !== $this->city) {
             $res['City'] = $this->city;
+        }
+        if (null !== $this->device) {
+            $res['Device'] = $this->device;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -168,8 +195,17 @@ class DescribeSiteMonitorLogRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Browser'])) {
+            $model->browser = $map['Browser'];
+        }
+        if (isset($map['BrowserInfo'])) {
+            $model->browserInfo = $map['BrowserInfo'];
+        }
         if (isset($map['City'])) {
             $model->city = $map['City'];
+        }
+        if (isset($map['Device'])) {
+            $model->device = $map['Device'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

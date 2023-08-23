@@ -1307,7 +1307,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
      *   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
      *   *
      * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
@@ -1356,7 +1356,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
      *   * This topic provides an example to show how to create an instant test task. The name of the task is `task1`. The tested address is `http://www.aliyun.com`. The test type is `HTTP`. The number of detection points is `1`.
      *   *
      * @param CreateInstantSiteMonitorRequest $request CreateInstantSiteMonitorRequest
@@ -6538,7 +6538,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
      *   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
      *   *
      * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest
@@ -6550,8 +6550,17 @@ class Cms extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->browser)) {
+            $query['Browser'] = $request->browser;
+        }
+        if (!Utils::isUnset($request->browserInfo)) {
+            $query['BrowserInfo'] = $request->browserInfo;
+        }
         if (!Utils::isUnset($request->city)) {
             $query['City'] = $request->city;
+        }
+        if (!Utils::isUnset($request->device)) {
+            $query['Device'] = $request->device;
         }
         if (!Utils::isUnset($request->endTime)) {
             $query['EndTime'] = $request->endTime;
@@ -6596,7 +6605,7 @@ class Cms extends OpenApiClient
     }
 
     /**
-     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring. For more information, see [Billing of Network Analysis and Monitoring](~~341649~~).
+     * You can create an instant test task only by using the Alibaba Cloud account that you used to enable Network Analysis and Monitoring.
      *   * This topic provides an example to show how to query the logs of an instant test task whose ID is `afa5c3ce-f944-4363-9edb-ce919a29****`.
      *   *
      * @param DescribeSiteMonitorLogRequest $request DescribeSiteMonitorLogRequest

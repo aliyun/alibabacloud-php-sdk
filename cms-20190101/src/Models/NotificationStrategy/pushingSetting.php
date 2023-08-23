@@ -11,6 +11,11 @@ class pushingSetting extends Model
     /**
      * @var string
      */
+    public $pushingDataFormat;
+
+    /**
+     * @var string
+     */
     public $range;
 
     /**
@@ -23,9 +28,10 @@ class pushingSetting extends Model
      */
     public $templateUuid;
     protected $_name = [
-        'range'        => 'Range',
-        'targetUuids'  => 'TargetUuids',
-        'templateUuid' => 'TemplateUuid',
+        'pushingDataFormat' => 'PushingDataFormat',
+        'range'             => 'Range',
+        'targetUuids'       => 'TargetUuids',
+        'templateUuid'      => 'TemplateUuid',
     ];
 
     public function validate()
@@ -35,6 +41,9 @@ class pushingSetting extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->pushingDataFormat) {
+            $res['PushingDataFormat'] = $this->pushingDataFormat;
+        }
         if (null !== $this->range) {
             $res['Range'] = $this->range;
         }
@@ -56,6 +65,9 @@ class pushingSetting extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['PushingDataFormat'])) {
+            $model->pushingDataFormat = $map['PushingDataFormat'];
+        }
         if (isset($map['Range'])) {
             $model->range = $map['Range'];
         }
