@@ -2212,6 +2212,9 @@ class Cdn extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->exact)) {
+            $query['Exact'] = $request->exact;
+        }
         if (!Utils::isUnset($request->SSLPub)) {
             $query['SSLPub'] = $request->SSLPub;
         }
@@ -6602,12 +6605,10 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 50 times per second per account.
-     *   *
-     * @param DescribeIpInfoRequest $request DescribeIpInfoRequest
-     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     * @param DescribeIpInfoRequest $request
+     * @param RuntimeOptions        $runtime
      *
-     * @return DescribeIpInfoResponse DescribeIpInfoResponse
+     * @return DescribeIpInfoResponse
      */
     public function describeIpInfoWithOptions($request, $runtime)
     {
@@ -6635,11 +6636,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 50 times per second per account.
-     *   *
-     * @param DescribeIpInfoRequest $request DescribeIpInfoRequest
+     * @param DescribeIpInfoRequest $request
      *
-     * @return DescribeIpInfoResponse DescribeIpInfoResponse
+     * @return DescribeIpInfoResponse
      */
     public function describeIpInfo($request)
     {

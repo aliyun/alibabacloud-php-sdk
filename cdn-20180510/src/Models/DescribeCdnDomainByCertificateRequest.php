@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainByCertificateRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $exact;
+
+    /**
      * @description The public key of the SSL certificate. You must encode the public key in Base64 before you invoke the encodeURIComponent function to encode a URI component.
      *
      * A public key in the Privacy Enhanced Mail (PEM) format is supported.
@@ -30,6 +35,7 @@ class DescribeCdnDomainByCertificateRequest extends Model
      */
     public $SSLStatus;
     protected $_name = [
+        'exact'     => 'Exact',
         'SSLPub'    => 'SSLPub',
         'SSLStatus' => 'SSLStatus',
     ];
@@ -41,6 +47,9 @@ class DescribeCdnDomainByCertificateRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->exact) {
+            $res['Exact'] = $this->exact;
+        }
         if (null !== $this->SSLPub) {
             $res['SSLPub'] = $this->SSLPub;
         }
@@ -59,6 +68,9 @@ class DescribeCdnDomainByCertificateRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Exact'])) {
+            $model->exact = $map['Exact'];
+        }
         if (isset($map['SSLPub'])) {
             $model->SSLPub = $map['SSLPub'];
         }

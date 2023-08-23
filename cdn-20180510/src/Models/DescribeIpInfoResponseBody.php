@@ -10,9 +10,8 @@ class DescribeIpInfoResponseBody extends Model
 {
     /**
      * @description Indicates whether the IP address belongs to an Alibaba Cloud CDN POP.
-     *
-     *   **True**
-     *   **False**
+     *   **True**:Yes.
+     *   **False**:No.
      *
      * @example True
      *
@@ -21,14 +20,16 @@ class DescribeIpInfoResponseBody extends Model
     public $cdnIp;
 
     /**
-     * @description The Chinese name of the ISP.
+     * @description The name of the ISP in Chinese.
+     *
+     * @example 电信
      *
      * @var string
      */
     public $ISP;
 
     /**
-     * @description The English name of the Internet service provider (ISP).
+     * @description The name of the ISP.
      *
      * @example telecom
      *
@@ -37,14 +38,16 @@ class DescribeIpInfoResponseBody extends Model
     public $ispEname;
 
     /**
-     * @description The Chinese name of the region.
+     * @description The name of the region in Chinese.
+     *
+     * @example 中国-贵州省-贵阳市
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The English name of the region.
+     * @description The name of the region.
      *
      * @example China-Guizhou-guiyang
      *

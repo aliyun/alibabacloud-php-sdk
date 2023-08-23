@@ -68,11 +68,6 @@ class getDomainDetailModel extends Model
     public $domainStatus;
 
     /**
-     * @var string
-     */
-    public $globalResourcePlan;
-
-    /**
      * @description The time when the domain name was created.
      *
      * @example 2015-06-25T03:30:50Z
@@ -141,7 +136,6 @@ class getDomainDetailModel extends Model
         'description'             => 'Description',
         'domainName'              => 'DomainName',
         'domainStatus'            => 'DomainStatus',
-        'globalResourcePlan'      => 'GlobalResourcePlan',
         'gmtCreated'              => 'GmtCreated',
         'gmtModified'             => 'GmtModified',
         'httpsCname'              => 'HttpsCname',
@@ -172,9 +166,6 @@ class getDomainDetailModel extends Model
         }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
-        }
-        if (null !== $this->globalResourcePlan) {
-            $res['GlobalResourcePlan'] = $this->globalResourcePlan;
         }
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
@@ -223,9 +214,6 @@ class getDomainDetailModel extends Model
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
-        }
-        if (isset($map['GlobalResourcePlan'])) {
-            $model->globalResourcePlan = $map['GlobalResourcePlan'];
         }
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];

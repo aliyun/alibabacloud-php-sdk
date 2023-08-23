@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeIpInfoRequest extends Model
 {
     /**
-     * @description The IP address that you want to query. You can specify only one IP address in each request.
+     * @description The IP address. You can specify only one IP address.
      *
      * @example 192.168.0.1
      *

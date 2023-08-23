@@ -36,11 +36,19 @@ class DescribeCdnUserQuotaResponseBody extends Model
     public $domainQuota;
 
     /**
+     * @description The maximum number of ignore params that can be refreshed.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $ignoreParamsQuota;
 
     /**
+     * @description The remaining number of ignore params that can be refreshed.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $ignoreParamsRemain;
