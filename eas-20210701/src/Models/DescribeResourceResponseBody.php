@@ -100,6 +100,11 @@ class DescribeResourceResponseBody extends Model
     public $resourceName;
 
     /**
+     * @var string
+     */
+    public $resourceType;
+
+    /**
      * @example ResourceReady
      *
      * @var string
@@ -126,6 +131,7 @@ class DescribeResourceResponseBody extends Model
         'requestId'             => 'RequestId',
         'resourceId'            => 'ResourceId',
         'resourceName'          => 'ResourceName',
+        'resourceType'          => 'ResourceType',
         'status'                => 'Status',
         'updateTime'            => 'UpdateTime',
     ];
@@ -175,6 +181,9 @@ class DescribeResourceResponseBody extends Model
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -232,6 +241,9 @@ class DescribeResourceResponseBody extends Model
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

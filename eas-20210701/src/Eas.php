@@ -270,6 +270,21 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->ecsInstanceType)) {
             $body['EcsInstanceType'] = $request->ecsInstanceType;
         }
+        if (!Utils::isUnset($request->externalClusterId)) {
+            $body['ExternalClusterId'] = $request->externalClusterId;
+        }
+        if (!Utils::isUnset($request->nodeMatchLabels)) {
+            $body['NodeMatchLabels'] = $request->nodeMatchLabels;
+        }
+        if (!Utils::isUnset($request->nodeTolerations)) {
+            $body['NodeTolerations'] = $request->nodeTolerations;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $body['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->roleName)) {
+            $body['RoleName'] = $request->roleName;
+        }
         if (!Utils::isUnset($request->systemDiskSize)) {
             $body['SystemDiskSize'] = $request->systemDiskSize;
         }
@@ -2167,6 +2182,9 @@ class Eas extends OpenApiClient
         if (!Utils::isUnset($request->resourceName)) {
             $query['ResourceName'] = $request->resourceName;
         }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'query'   => OpenApiUtilClient::query($query),
@@ -2791,6 +2809,12 @@ class Eas extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->nodeMatchLabels)) {
+            $body['NodeMatchLabels'] = $request->nodeMatchLabels;
+        }
+        if (!Utils::isUnset($request->nodeTolerations)) {
+            $body['NodeTolerations'] = $request->nodeTolerations;
+        }
         if (!Utils::isUnset($request->resourceName)) {
             $body['ResourceName'] = $request->resourceName;
         }

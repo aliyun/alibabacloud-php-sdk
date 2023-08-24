@@ -66,6 +66,11 @@ class Resource extends Model
     /**
      * @var string
      */
+    public $resourceType;
+
+    /**
+     * @var string
+     */
     public $status;
 
     /**
@@ -84,6 +89,7 @@ class Resource extends Model
         'prePaidInstanceCount'  => 'PrePaidInstanceCount',
         'resourceId'            => 'ResourceId',
         'resourceName'          => 'ResourceName',
+        'resourceType'          => 'ResourceType',
         'status'                => 'Status',
         'updateTime'            => 'UpdateTime',
     ];
@@ -127,6 +133,9 @@ class Resource extends Model
         }
         if (null !== $this->resourceName) {
             $res['ResourceName'] = $this->resourceName;
+        }
+        if (null !== $this->resourceType) {
+            $res['ResourceType'] = $this->resourceType;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -178,6 +187,9 @@ class Resource extends Model
         }
         if (isset($map['ResourceName'])) {
             $model->resourceName = $map['ResourceName'];
+        }
+        if (isset($map['ResourceType'])) {
+            $model->resourceType = $map['ResourceType'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
