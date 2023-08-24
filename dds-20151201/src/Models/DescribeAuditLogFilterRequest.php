@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogFilterRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
      * @example dds-bp12c5b040dc****
      *
      * @var string
@@ -36,6 +38,14 @@ class DescribeAuditLogFilterRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The role of the node in the instance. Valid values:
+     *
+     * **mongos**: mongos node.
+     * **db** : shard node.
+     * **logic** : logical instance.
+     *
+     * @example logic
+     *
      * @var string
      */
     public $roleType;

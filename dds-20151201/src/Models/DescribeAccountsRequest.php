@@ -18,7 +18,7 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp1fd530f271****
      *

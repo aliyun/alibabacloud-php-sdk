@@ -233,6 +233,11 @@ class CreateDBInstanceRequest extends Model
     public $period;
 
     /**
+     * @var int
+     */
+    public $provisionedIops;
+
+    /**
      * @description The storage type of the instance. Valid values:
      *
      *   **cloud_essd1** :ESSD PL1.
@@ -444,6 +449,7 @@ class CreateDBInstanceRequest extends Model
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
         'period'                 => 'Period',
+        'provisionedIops'        => 'ProvisionedIops',
         'readonlyReplicas'       => 'ReadonlyReplicas',
         'regionId'               => 'RegionId',
         'replicationFactor'      => 'ReplicationFactor',
@@ -535,6 +541,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
@@ -670,6 +679,9 @@ class CreateDBInstanceRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];

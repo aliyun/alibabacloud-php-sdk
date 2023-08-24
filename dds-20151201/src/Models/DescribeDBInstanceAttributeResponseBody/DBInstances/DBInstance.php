@@ -14,6 +14,11 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
      * @description The storage type of the instance. Valid values:
      *
      **cloud_essd1** :ESSD PL1 **cloud_essd2**: ESSD of PL2. **cloud_essd3**: ESSD of PL3. **local_ssd**: local SSD.
@@ -340,6 +345,11 @@ class DBInstance extends Model
     public $protocolType;
 
     /**
+     * @var int
+     */
+    public $provisionedIops;
+
+    /**
      * @description The kind code of the instance. Valid values:
      *
      *   **0**: physical machine
@@ -533,6 +543,7 @@ class DBInstance extends Model
      */
     public $zoneId;
     protected $_name = [
+        'burstingEnabled'             => 'BurstingEnabled',
         'capacityUnit'                => 'CapacityUnit',
         'chargeType'                  => 'ChargeType',
         'configserverList'            => 'ConfigserverList',
@@ -563,6 +574,7 @@ class DBInstance extends Model
         'mongosList'                  => 'MongosList',
         'networkType'                 => 'NetworkType',
         'protocolType'                => 'ProtocolType',
+        'provisionedIops'             => 'ProvisionedIops',
         'readonlyReplicas'            => 'ReadonlyReplicas',
         'regionId'                    => 'RegionId',
         'replacateId'                 => 'ReplacateId',
@@ -590,6 +602,9 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
+        }
         if (null !== $this->capacityUnit) {
             $res['CapacityUnit'] = $this->capacityUnit;
         }
@@ -680,6 +695,9 @@ class DBInstance extends Model
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
         }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
+        }
         if (null !== $this->readonlyReplicas) {
             $res['ReadonlyReplicas'] = $this->readonlyReplicas;
         }
@@ -746,6 +764,9 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
+        }
         if (isset($map['CapacityUnit'])) {
             $model->capacityUnit = $map['CapacityUnit'];
         }
@@ -835,6 +856,9 @@ class DBInstance extends Model
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
         if (isset($map['ReadonlyReplicas'])) {
             $model->readonlyReplicas = $map['ReadonlyReplicas'];

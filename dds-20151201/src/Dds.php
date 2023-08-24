@@ -658,6 +658,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
+        }
         if (!Utils::isUnset($request->readonlyReplicas)) {
             $query['ReadonlyReplicas'] = $request->readonlyReplicas;
         }
@@ -1059,6 +1062,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->protocolType)) {
             $query['ProtocolType'] = $request->protocolType;
         }
+        if (!Utils::isUnset($request->provisionedIops)) {
+            $query['ProvisionedIops'] = $request->provisionedIops;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
@@ -1353,7 +1359,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation can query only the information of the root account.
+     * >  You can call this operation to query only the information of the root account.
      *   *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1404,7 +1410,7 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  This operation can query only the information of the root account.
+     * >  You can call this operation to query only the information of the root account.
      *   *
      * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
@@ -1537,9 +1543,9 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The role of the node in the instance. Valid values:
-     *   * *   **primary**
-     *   * *   **secondary**.
+     * *   The instance must be in the running state when you call this operation.
+     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
      *   *
      * @param DescribeAuditLogFilterRequest $request DescribeAuditLogFilterRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -1590,9 +1596,9 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * The role of the node in the instance. Valid values:
-     *   * *   **primary**
-     *   * *   **secondary**.
+     * *   The instance must be in the running state when you call this operation.
+     *   * *   This operation is applicable only to **general-purpose local-disk** and **dedicated local-disk** instances.
+     *   * *   You can call this operation up to 30 times per minute. To call this operation at a higher frequency, use a Logstore. For more information, see [Manage a Logstore](~~48990~~).
      *   *
      * @param DescribeAuditLogFilterRequest $request DescribeAuditLogFilterRequest
      *
@@ -5103,10 +5109,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  operation is currently unavailable.
+     * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the frequency at which the monitoring data of an ApsaraDB for MongoDB instance is collected.
      *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   A replica set or sharded cluster instance is used.
-     *   * *   MongoDB 3.4 (the latest minor version) or 4.0 must be selected.
+     *   * *   The instance is a replica set or sharded cluster instance.
+     *   * *   The instance runs MongoDB 3.4 (the latest minor version) or 4.0.
      *   *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5157,10 +5163,10 @@ class Dds extends OpenApiClient
     }
 
     /**
-     * >  operation is currently unavailable.
+     * >  This operation is applicable only to the ApsaraDB for MongoDB console of the previous version due to the change in the frequency at which the monitoring data of an ApsaraDB for MongoDB instance is collected.
      *   * Before you call this operation, make sure that the following requirements are met:
-     *   * *   A replica set or sharded cluster instance is used.
-     *   * *   MongoDB 3.4 (the latest minor version) or 4.0 must be selected.
+     *   * *   The instance is a replica set or sharded cluster instance.
+     *   * *   The instance runs MongoDB 3.4 (the latest minor version) or 4.0.
      *   *
      * @param ModifyDBInstanceMonitorRequest $request ModifyDBInstanceMonitorRequest
      *

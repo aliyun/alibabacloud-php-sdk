@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogFilterResponseBody extends Model
 {
     /**
+     * @description The type of the audit log entries. Valid values:
+     *
+     *   **admin**: O\&M and management operations
+     *   **slow**: slow query logs
+     *   **query**: query operations
+     *   **insert**: insert operations
+     *   **update**: update operations
+     *   **delete**: delete operations
+     *   **command**: protocol commands such as the aggregate method
+     *
      * @example admin,slow,insert,query,update,delete,command
      *
      * @var string
@@ -16,6 +26,8 @@ class DescribeAuditLogFilterResponseBody extends Model
     public $filter;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7BAFB0B3-2A54-5B65-B13E-3937CF08FEE6
      *
      * @var string
@@ -23,6 +35,10 @@ class DescribeAuditLogFilterResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The role of the node.
+     *
+     * @example logic
+     *
      * @var string
      */
     public $roleType;

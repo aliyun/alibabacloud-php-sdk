@@ -230,6 +230,11 @@ class CreateShardingDBInstanceRequest extends Model
     public $protocolType;
 
     /**
+     * @var int
+     */
+    public $provisionedIops;
+
+    /**
      * @description The region ID of the instance. You can call the [DescribeRegions](~~61933~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
@@ -428,6 +433,7 @@ class CreateShardingDBInstanceRequest extends Model
         'ownerId'                => 'OwnerId',
         'period'                 => 'Period',
         'protocolType'           => 'ProtocolType',
+        'provisionedIops'        => 'ProvisionedIops',
         'regionId'               => 'RegionId',
         'replicaSet'             => 'ReplicaSet',
         'resourceGroupId'        => 'ResourceGroupId',
@@ -518,6 +524,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
+        }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -656,6 +665,9 @@ class CreateShardingDBInstanceRequest extends Model
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];
+        }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
