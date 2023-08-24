@@ -60,6 +60,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListAuthorizationRulesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListBatchOperateCardsTasksResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardAreaLimitSupportAreaRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardAreaLimitSupportAreaResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardDayUsagesRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardDayUsagesResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ListCardsRequest;
@@ -94,6 +96,8 @@ use AlibabaCloud\SDK\CC5G\V20220314\Models\RebindCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RebindCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RemoveWirelessCloudConnectorFromGroupRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RemoveWirelessCloudConnectorFromGroupResponse;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ResetAreaLimitCardsRequest;
+use AlibabaCloud\SDK\CC5G\V20220314\Models\ResetAreaLimitCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsRequest;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\ResumeCardsResponse;
 use AlibabaCloud\SDK\CC5G\V20220314\Models\RevokeNetLinkRequest;
@@ -1584,6 +1588,46 @@ class CC5G extends OpenApiClient
     }
 
     /**
+     * @param ListCardAreaLimitSupportAreaRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ListCardAreaLimitSupportAreaResponse
+     */
+    public function listCardAreaLimitSupportAreaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCardAreaLimitSupportArea',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCardAreaLimitSupportAreaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCardAreaLimitSupportAreaRequest $request
+     *
+     * @return ListCardAreaLimitSupportAreaResponse
+     */
+    public function listCardAreaLimitSupportArea($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCardAreaLimitSupportAreaWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListCardDayUsagesRequest $request
      * @param RuntimeOptions           $runtime
      *
@@ -2339,6 +2383,61 @@ class CC5G extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->removeWirelessCloudConnectorFromGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetAreaLimitCardsRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ResetAreaLimitCardsResponse
+     */
+    public function resetAreaLimitCardsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->iccids)) {
+            $query['Iccids'] = $request->iccids;
+        }
+        if (!Utils::isUnset($request->province)) {
+            $query['Province'] = $request->province;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetAreaLimitCards',
+            'version'     => '2022-03-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetAreaLimitCardsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetAreaLimitCardsRequest $request
+     *
+     * @return ResetAreaLimitCardsResponse
+     */
+    public function resetAreaLimitCards($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetAreaLimitCardsWithOptions($request, $runtime);
     }
 
     /**
