@@ -9,36 +9,26 @@ use AlibabaCloud\Tea\Model;
 class FlightModifyCancelV2Request extends Model
 {
     /**
-     * @example name
-     *
      * @var string
      */
     public $isvName;
 
     /**
-     * @example 1017002195370467138
-     *
      * @var int
      */
     public $orderId;
 
     /**
-     * @example 1017002195370467137
-     *
      * @var string
      */
     public $outOrderId;
 
     /**
-     * @example 1019195786853020
-     *
      * @var string
      */
     public $outSubOrderId;
 
     /**
-     * @example 1019195786853020
-     *
      * @var int
      */
     public $subOrderId;

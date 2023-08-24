@@ -3048,15 +3048,15 @@ class BtripOpen extends OpenApiClient
     public function flightCancelOrderV2WithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+            $query['isv_name'] = $request->isvName;
         }
         if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+            $query['order_id'] = $request->orderId;
         }
         if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+            $query['out_order_id'] = $request->outOrderId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -3067,7 +3067,7 @@ class BtripOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'FlightCancelOrderV2',
@@ -3077,7 +3077,7 @@ class BtripOpen extends OpenApiClient
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 
@@ -3675,21 +3675,21 @@ class BtripOpen extends OpenApiClient
     public function flightModifyCancelV2WithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->isvName)) {
-            $body['isv_name'] = $request->isvName;
+            $query['isv_name'] = $request->isvName;
         }
         if (!Utils::isUnset($request->orderId)) {
-            $body['order_id'] = $request->orderId;
+            $query['order_id'] = $request->orderId;
         }
         if (!Utils::isUnset($request->outOrderId)) {
-            $body['out_order_id'] = $request->outOrderId;
+            $query['out_order_id'] = $request->outOrderId;
         }
         if (!Utils::isUnset($request->outSubOrderId)) {
-            $body['out_sub_order_id'] = $request->outSubOrderId;
+            $query['out_sub_order_id'] = $request->outSubOrderId;
         }
         if (!Utils::isUnset($request->subOrderId)) {
-            $body['sub_order_id'] = $request->subOrderId;
+            $query['sub_order_id'] = $request->subOrderId;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -3700,7 +3700,7 @@ class BtripOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'FlightModifyCancelV2',
@@ -3710,7 +3710,7 @@ class BtripOpen extends OpenApiClient
             'method'      => 'DELETE',
             'authType'    => 'AK',
             'style'       => 'ROA',
-            'reqBodyType' => 'formData',
+            'reqBodyType' => 'json',
             'bodyType'    => 'json',
         ]);
 

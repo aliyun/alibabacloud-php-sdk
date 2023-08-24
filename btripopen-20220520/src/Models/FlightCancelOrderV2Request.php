@@ -9,22 +9,16 @@ use AlibabaCloud\Tea\Model;
 class FlightCancelOrderV2Request extends Model
 {
     /**
-     * @example cheshiapi
-     *
      * @var string
      */
     public $isvName;
 
     /**
-     * @example 1017002195798359369
-     *
      * @var string
      */
     public $orderId;
 
     /**
-     * @example cheshiapi002kwl
-     *
      * @var string
      */
     public $outOrderId;
