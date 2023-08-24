@@ -13,10 +13,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
@@ -79,10 +77,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
-use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupResponse;
 use AlibabaCloud\Tea\Tea;
@@ -249,28 +245,18 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessApplicationRequest $tmpReq
+     * @param CreatePrivateAccessApplicationRequest $request
      * @param RuntimeOptions                        $runtime
      *
      * @return CreatePrivateAccessApplicationResponse
      */
-    public function createPrivateAccessApplicationWithOptions($tmpReq, $runtime)
+    public function createPrivateAccessApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreatePrivateAccessApplicationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addresses)) {
-            $request->addressesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addresses, 'Addresses', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->portRanges)) {
-            $request->portRangesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->portRanges, 'PortRanges', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->addressesShrink)) {
-            $body['Addresses'] = $request->addressesShrink;
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->addresses)) {
+            $bodyFlat['Addresses'] = $request->addresses;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -278,8 +264,8 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $body['Name'] = $request->name;
         }
-        if (!Utils::isUnset($request->portRangesShrink)) {
-            $body['PortRanges'] = $request->portRangesShrink;
+        if (!Utils::isUnset($request->portRanges)) {
+            $bodyFlat['PortRanges'] = $request->portRanges;
         }
         if (!Utils::isUnset($request->protocol)) {
             $body['Protocol'] = $request->protocol;
@@ -287,10 +273,11 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $body['TagIds'] = $request->tagIdsShrink;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -321,37 +308,24 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param CreatePrivateAccessPolicyRequest $tmpReq
+     * @param CreatePrivateAccessPolicyRequest $request
      * @param RuntimeOptions                   $runtime
      *
      * @return CreatePrivateAccessPolicyResponse
      */
-    public function createPrivateAccessPolicyWithOptions($tmpReq, $runtime)
+    public function createPrivateAccessPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new CreatePrivateAccessPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationIds)) {
-            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->customUserAttributes)) {
-            $request->customUserAttributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customUserAttributes, 'CustomUserAttributes', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->userGroupIds)) {
-            $request->userGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'UserGroupIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->applicationIdsShrink)) {
-            $body['ApplicationIds'] = $request->applicationIdsShrink;
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
         if (!Utils::isUnset($request->applicationType)) {
             $body['ApplicationType'] = $request->applicationType;
         }
-        if (!Utils::isUnset($request->customUserAttributesShrink)) {
-            $body['CustomUserAttributes'] = $request->customUserAttributesShrink;
+        if (!Utils::isUnset($request->customUserAttributes)) {
+            $bodyFlat['CustomUserAttributes'] = $request->customUserAttributes;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -368,16 +342,17 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $body['TagIds'] = $request->tagIdsShrink;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-        if (!Utils::isUnset($request->userGroupIdsShrink)) {
-            $body['UserGroupIds'] = $request->userGroupIdsShrink;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
         if (!Utils::isUnset($request->userGroupMode)) {
             $body['UserGroupMode'] = $request->userGroupMode;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1682,28 +1657,18 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrivateAccessApplicationRequest $tmpReq
+     * @param UpdatePrivateAccessApplicationRequest $request
      * @param RuntimeOptions                        $runtime
      *
      * @return UpdatePrivateAccessApplicationResponse
      */
-    public function updatePrivateAccessApplicationWithOptions($tmpReq, $runtime)
+    public function updatePrivateAccessApplicationWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdatePrivateAccessApplicationShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->addresses)) {
-            $request->addressesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->addresses, 'Addresses', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->portRanges)) {
-            $request->portRangesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->portRanges, 'PortRanges', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->addressesShrink)) {
-            $body['Addresses'] = $request->addressesShrink;
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->addresses)) {
+            $bodyFlat['Addresses'] = $request->addresses;
         }
         if (!Utils::isUnset($request->applicationId)) {
             $body['ApplicationId'] = $request->applicationId;
@@ -1714,8 +1679,8 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->modifyType)) {
             $body['ModifyType'] = $request->modifyType;
         }
-        if (!Utils::isUnset($request->portRangesShrink)) {
-            $body['PortRanges'] = $request->portRangesShrink;
+        if (!Utils::isUnset($request->portRanges)) {
+            $bodyFlat['PortRanges'] = $request->portRanges;
         }
         if (!Utils::isUnset($request->protocol)) {
             $body['Protocol'] = $request->protocol;
@@ -1723,10 +1688,11 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $body['TagIds'] = $request->tagIdsShrink;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
@@ -1757,37 +1723,24 @@ class Csas extends OpenApiClient
     }
 
     /**
-     * @param UpdatePrivateAccessPolicyRequest $tmpReq
+     * @param UpdatePrivateAccessPolicyRequest $request
      * @param RuntimeOptions                   $runtime
      *
      * @return UpdatePrivateAccessPolicyResponse
      */
-    public function updatePrivateAccessPolicyWithOptions($tmpReq, $runtime)
+    public function updatePrivateAccessPolicyWithOptions($request, $runtime)
     {
-        Utils::validateModel($tmpReq);
-        $request = new UpdatePrivateAccessPolicyShrinkRequest([]);
-        OpenApiUtilClient::convert($tmpReq, $request);
-        if (!Utils::isUnset($tmpReq->applicationIds)) {
-            $request->applicationIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->applicationIds, 'ApplicationIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->customUserAttributes)) {
-            $request->customUserAttributesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customUserAttributes, 'CustomUserAttributes', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->tagIds)) {
-            $request->tagIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tagIds, 'TagIds', 'json');
-        }
-        if (!Utils::isUnset($tmpReq->userGroupIds)) {
-            $request->userGroupIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->userGroupIds, 'UserGroupIds', 'json');
-        }
-        $body = [];
-        if (!Utils::isUnset($request->applicationIdsShrink)) {
-            $body['ApplicationIds'] = $request->applicationIdsShrink;
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
         }
         if (!Utils::isUnset($request->applicationType)) {
             $body['ApplicationType'] = $request->applicationType;
         }
-        if (!Utils::isUnset($request->customUserAttributesShrink)) {
-            $body['CustomUserAttributes'] = $request->customUserAttributesShrink;
+        if (!Utils::isUnset($request->customUserAttributes)) {
+            $bodyFlat['CustomUserAttributes'] = $request->customUserAttributes;
         }
         if (!Utils::isUnset($request->description)) {
             $body['Description'] = $request->description;
@@ -1807,16 +1760,17 @@ class Csas extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $body['Status'] = $request->status;
         }
-        if (!Utils::isUnset($request->tagIdsShrink)) {
-            $body['TagIds'] = $request->tagIdsShrink;
+        if (!Utils::isUnset($request->tagIds)) {
+            $bodyFlat['TagIds'] = $request->tagIds;
         }
-        if (!Utils::isUnset($request->userGroupIdsShrink)) {
-            $body['UserGroupIds'] = $request->userGroupIdsShrink;
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
         }
         if (!Utils::isUnset($request->userGroupMode)) {
             $body['UserGroupMode'] = $request->userGroupMode;
         }
-        $req = new OpenApiRequest([
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
