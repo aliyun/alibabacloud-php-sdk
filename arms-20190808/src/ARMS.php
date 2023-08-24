@@ -1510,6 +1510,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->level)) {
             $body['Level'] = $request->level;
         }
+        if (!Utils::isUnset($request->markTags)) {
+            $body['MarkTags'] = $request->markTags;
+        }
         if (!Utils::isUnset($request->message)) {
             $body['Message'] = $request->message;
         }
@@ -3715,6 +3718,9 @@ class ARMS extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->taskId)) {
             $query['TaskId'] = $request->taskId;

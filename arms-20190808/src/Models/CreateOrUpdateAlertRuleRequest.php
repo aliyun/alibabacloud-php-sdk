@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
+use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateAlertRuleRequest\markTags;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\CreateOrUpdateAlertRuleRequest\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -182,6 +183,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $level;
 
     /**
+     * @var markTags[]
+     */
+    public $markTags;
+
+    /**
      * @description The alert message of the Prometheus alert rule.
      *
      * @example Namespace: {{$labels.namespace}} / Pod: {{$labels.pod_name}} / Container: {{$labels.container}} Memory usage exceeds 80%. Current value: {{ printf \\\\\"%.2f\\\\\" $value }}%
@@ -267,6 +273,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'filters'               => 'Filters',
         'labels'                => 'Labels',
         'level'                 => 'Level',
+        'markTags'              => 'MarkTags',
         'message'               => 'Message',
         'metricsKey'            => 'MetricsKey',
         'metricsType'           => 'MetricsType',
@@ -325,6 +332,15 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (null !== $this->level) {
             $res['Level'] = $this->level;
+        }
+        if (null !== $this->markTags) {
+            $res['MarkTags'] = [];
+            if (null !== $this->markTags && \is_array($this->markTags)) {
+                $n = 0;
+                foreach ($this->markTags as $item) {
+                    $res['MarkTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -409,6 +425,15 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (isset($map['Level'])) {
             $model->level = $map['Level'];
+        }
+        if (isset($map['MarkTags'])) {
+            if (!empty($map['MarkTags'])) {
+                $model->markTags = [];
+                $n               = 0;
+                foreach ($map['MarkTags'] as $item) {
+                    $model->markTags[$n++] = null !== $item ? markTags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
