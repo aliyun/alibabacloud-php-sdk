@@ -28,6 +28,11 @@ class ModifyDesensitizationStrategyRequest extends Model
     public $dbId;
 
     /**
+     * @var bool
+     */
+    public $isDefault;
+
+    /**
      * @description Specifies whether the database is a logical database. Valid values:
      *
      *   **true:** The database is a physical database.
@@ -93,6 +98,7 @@ class ModifyDesensitizationStrategyRequest extends Model
     protected $_name = [
         'columnName' => 'ColumnName',
         'dbId'       => 'DbId',
+        'isDefault'  => 'IsDefault',
         'isLogic'    => 'IsLogic',
         'isReset'    => 'IsReset',
         'ruleId'     => 'RuleId',
@@ -113,6 +119,9 @@ class ModifyDesensitizationStrategyRequest extends Model
         }
         if (null !== $this->dbId) {
             $res['DbId'] = $this->dbId;
+        }
+        if (null !== $this->isDefault) {
+            $res['IsDefault'] = $this->isDefault;
         }
         if (null !== $this->isLogic) {
             $res['IsLogic'] = $this->isLogic;
@@ -149,6 +158,9 @@ class ModifyDesensitizationStrategyRequest extends Model
         }
         if (isset($map['DbId'])) {
             $model->dbId = $map['DbId'];
+        }
+        if (isset($map['IsDefault'])) {
+            $model->isDefault = $map['IsDefault'];
         }
         if (isset($map['IsLogic'])) {
             $model->isLogic = $map['IsLogic'];

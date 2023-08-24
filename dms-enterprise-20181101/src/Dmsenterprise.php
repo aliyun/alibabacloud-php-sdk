@@ -9187,6 +9187,9 @@ class Dmsenterprise extends OpenApiClient
         if (!Utils::isUnset($request->dbId)) {
             $query['DbId'] = $request->dbId;
         }
+        if (!Utils::isUnset($request->isDefault)) {
+            $query['IsDefault'] = $request->isDefault;
+        }
         if (!Utils::isUnset($request->isLogic)) {
             $query['IsLogic'] = $request->isLogic;
         }
