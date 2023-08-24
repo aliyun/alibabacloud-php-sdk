@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesRequest extends Model
 {
     /**
+     * @description Indicates whether the parameter can be reconfigured. Valid values:
+     *
+     *   **true**: The parameter can be reconfigured.
+     *   **false**: The parameter cannot be reconfigured.
+     *
+     * @example logic
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeParameterTemplates**.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine that is run on the instance. The value **Redis** is returned for this parameter.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description r-bp1zxszhcgatnx****
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +58,10 @@ class DescribeParameterTemplatesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the IDs of instances.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;

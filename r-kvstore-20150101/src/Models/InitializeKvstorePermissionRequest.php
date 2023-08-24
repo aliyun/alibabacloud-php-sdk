@@ -19,6 +19,10 @@ class InitializeKvstorePermissionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **InitializeKvstorePermission**.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

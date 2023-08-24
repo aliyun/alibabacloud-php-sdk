@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogConfigRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $dbAudit;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +45,8 @@ class ModifyAuditLogConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $retention;

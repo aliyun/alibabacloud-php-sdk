@@ -9,26 +9,31 @@ use AlibabaCloud\Tea\Model;
 class TransformInstanceChargeTypeRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
-     * @var string
-     */
-    public $businessInfo;
-
-    /**
+     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     *
+     *   **true**: Automatic payment is enabled.
+     *   **false**: Automatic payment is disabled. If automatic payment is disabled, you must perform the following steps to complete the payment: In the top navigation bar of the ApsaraDB for Redis console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane of the Billing Management console, click **Orders**. On the **Orders** page, find the order and complete the payment.
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
-     * @var string
-     */
-    public $couponNo;
-
-    /**
+     * @description r-bp1zxszhcgatnx****
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -44,6 +49,11 @@ class TransformInstanceChargeTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The subscription duration. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, **36**.
+     *
+     * >  This parameter is valid and required only if you set the **ChargeType** parameter to **PrePaid**.
+     * @example 1
+     *
      * @var int
      */
     public $period;
@@ -64,9 +74,7 @@ class TransformInstanceChargeTypeRequest extends Model
     public $securityToken;
     protected $_name = [
         'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
         'chargeType'           => 'ChargeType',
-        'couponNo'             => 'CouponNo',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -86,14 +94,8 @@ class TransformInstanceChargeTypeRequest extends Model
         if (null !== $this->autoPay) {
             $res['AutoPay'] = $this->autoPay;
         }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
-        }
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
-        }
-        if (null !== $this->couponNo) {
-            $res['CouponNo'] = $this->couponNo;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -131,14 +133,8 @@ class TransformInstanceChargeTypeRequest extends Model
         if (isset($map['AutoPay'])) {
             $model->autoPay = $map['AutoPay'];
         }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
-        }
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
-        }
-        if (isset($map['CouponNo'])) {
-            $model->couponNo = $map['CouponNo'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

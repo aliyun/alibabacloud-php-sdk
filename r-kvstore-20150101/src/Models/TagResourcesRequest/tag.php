@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag associated with the instance.
+     *
+     * > * **N** specifies the serial number of the tag. For example, **Tag.1.Key** specifies the key of the first tag and **Tag.2.Key** specifies the key of the second tag.
+     * > * If the key of the tag does not exist, the key is automatically created.
+     * @example demokey
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag associated with the instance.
+     *
+     * > **N** specifies the serial number of the tag. For example, **Tag.1.Value** specifies the value of the first tag and **Tag.2.Value** specifies the value of the second tag.
+     * @example demovalue
+     *
      * @var string
      */
     public $value;

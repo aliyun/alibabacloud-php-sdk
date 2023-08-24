@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeEngineVersionRequest extends Model
 {
     /**
+     * @description The instance ID. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

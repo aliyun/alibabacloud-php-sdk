@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterMemberInfoRequest extends Model
 {
     /**
+     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,11 +28,20 @@ class DescribeClusterMemberInfoRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+     *
+     * >  Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

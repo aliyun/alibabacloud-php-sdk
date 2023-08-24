@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPasswordRequest extends Model
 {
     /**
+     * @description The username of the account for which you want to change the password. You can call the [DescribeAccounts](~~95802~~) operation to query the username of the account.
+     *
+     * @example testaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The new password to be set for the account. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+     *
+     * @example newPassWd888****
+     *
      * @var string
      */
     public $newAccountPassword;
 
     /**
+     * @description The current password of the account.
+     *
+     * > If you forget your password, you can call the [ResetAccountPassword](~~95941~~) operation to reset your password.
+     * @example oldPassWd999****
+     *
      * @var string
      */
     public $oldAccountPassword;

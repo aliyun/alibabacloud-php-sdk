@@ -12,16 +12,27 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
+     * @description The number of instances that you want to purchase. Valid values: **1** to **30**.
+     *
+     * >  Default value: **1**.
      * @var order
      */
     public $order;
 
     /**
+     * @description Details about coupons.
+     *
+     * @example String
+     *
      * @var string
      */
     public $orderParams;
 
     /**
+     * @description A JSON string that contains multiple instances. For more information, see [Description of the Instances parameter in the DescribePrice API operation](~~161811~~).
+     *
+     * @example 3A40BE4E-1890-4972-889C-FEFA37663635
+     *
      * @var string
      */
     public $requestId;

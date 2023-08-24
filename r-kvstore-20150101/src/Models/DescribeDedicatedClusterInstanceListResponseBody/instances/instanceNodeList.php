@@ -9,41 +9,80 @@ use AlibabaCloud\Tea\Model;
 class instanceNodeList extends Model
 {
     /**
+     * @description The ID of the host in the dedicated cluster.
+     *
+     * @example ch-bp13vf0y9gx3c****
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1e7vl6ygf1yq****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example 17921111
+     *
      * @var int
      */
     public $nodeId;
 
     /**
+     * @description The IP address of the node.
+     *
+     * @example 10.0.33.***
+     *
      * @var string
      */
     public $nodeIp;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **db**: data node.
+     *   **proxy**: proxy node.
+     *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description The port number that is used to connect to the node.
+     *
+     * @example 3001
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **master**: master node
+     *   **slave**: replica node
+     *
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The zone ID of the node.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditRecordsResponseBody extends Model
 {
     /**
+     * @description The end time of the query.
+     *
+     * @example 2019-03-25T12:10:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The collection of returned audit log entries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9F5EB478-824E-4AC4-8D2B-58F31A02****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the query.
+     *
+     * @example 2019-03-24T12:10:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 22222
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeIntranetAttributeRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class DescribeIntranetAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;

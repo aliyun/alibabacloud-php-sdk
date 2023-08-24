@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportListResponseBody extends Model
 {
     /**
+     * @description 30
+     *
      * @var dailyTasks
      */
     public $dailyTasks;
 
     /**
+     * @description The date when the offline key analysis task was performed.
+     *
+     * @example 1041xxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 743D0A03-52DE-4E6F-8D09-EC1414CF****
+     *
      * @var string
      */
     public $requestId;

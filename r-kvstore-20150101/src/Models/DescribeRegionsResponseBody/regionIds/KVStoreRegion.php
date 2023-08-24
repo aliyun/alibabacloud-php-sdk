@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class KVStoreRegion extends Model
 {
     /**
+     * @description The name of the region.
+     *
+     * @example China (Hangzhou)
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The endpoint of the region.
+     *
+     * @example r-kvstore.aliyuncs.com
+     *
      * @var string
      */
     public $regionEndpoint;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The list of zone IDs.
+     *
      * @var zoneIdList
      */
     public $zoneIdList;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneIds;

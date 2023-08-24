@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeEncryptionKeyRequest extends Model
 {
     /**
+     * @description The ID of the custom key. You can call the [DescribeEncryptionKeyList](~~302339~~) operation to query the ID of the key.
+     *
+     * @example ad463061-992d-4195-8a94-ed63********
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

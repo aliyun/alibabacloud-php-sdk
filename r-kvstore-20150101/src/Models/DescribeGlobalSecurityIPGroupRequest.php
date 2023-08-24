@@ -6,17 +6,16 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyActiveOperationTasksRequest extends Model
+class DescribeGlobalSecurityIPGroupRequest extends Model
 {
     /**
+     * @description The ID of the IP whitelist template.
+     *
+     * @example g-zsldxfiwjmti0kcm****
+     *
      * @var string
      */
-    public $ids;
-
-    /**
-     * @var int
-     */
-    public $immediateStart;
+    public $globalSecurityGroupId;
 
     /**
      * @var string
@@ -27,6 +26,24 @@ class ModifyActiveOperationTasksRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $regionId;
+
+    /**
+     * @description The resource group ID.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -42,20 +59,15 @@ class ModifyActiveOperationTasksRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $switchTime;
     protected $_name = [
-        'ids'                  => 'Ids',
-        'immediateStart'       => 'ImmediateStart',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
-        'securityToken'        => 'SecurityToken',
-        'switchTime'           => 'SwitchTime',
+        'globalSecurityGroupId' => 'GlobalSecurityGroupId',
+        'ownerAccount'          => 'OwnerAccount',
+        'ownerId'               => 'OwnerId',
+        'regionId'              => 'RegionId',
+        'resourceGroupId'       => 'ResourceGroupId',
+        'resourceOwnerAccount'  => 'ResourceOwnerAccount',
+        'resourceOwnerId'       => 'ResourceOwnerId',
+        'securityToken'         => 'SecurityToken',
     ];
 
     public function validate()
@@ -65,17 +77,20 @@ class ModifyActiveOperationTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
-        }
-        if (null !== $this->immediateStart) {
-            $res['ImmediateStart'] = $this->immediateStart;
+        if (null !== $this->globalSecurityGroupId) {
+            $res['GlobalSecurityGroupId'] = $this->globalSecurityGroupId;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -86,9 +101,6 @@ class ModifyActiveOperationTasksRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->switchTime) {
-            $res['SwitchTime'] = $this->switchTime;
-        }
 
         return $res;
     }
@@ -96,22 +108,25 @@ class ModifyActiveOperationTasksRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyActiveOperationTasksRequest
+     * @return DescribeGlobalSecurityIPGroupRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ids'])) {
-            $model->ids = $map['Ids'];
-        }
-        if (isset($map['ImmediateStart'])) {
-            $model->immediateStart = $map['ImmediateStart'];
+        if (isset($map['GlobalSecurityGroupId'])) {
+            $model->globalSecurityGroupId = $map['GlobalSecurityGroupId'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -121,9 +136,6 @@ class ModifyActiveOperationTasksRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['SwitchTime'])) {
-            $model->switchTime = $map['SwitchTime'];
         }
 
         return $model;

@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class AddShardingNodeResponseBody extends Model
 {
     /**
+     * @description The IDs of the data shards.
+     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 20741011111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example B79C1A90-495B-4E99-A2AA-A4DB13B8****
+     *
      * @var string
      */
     public $requestId;

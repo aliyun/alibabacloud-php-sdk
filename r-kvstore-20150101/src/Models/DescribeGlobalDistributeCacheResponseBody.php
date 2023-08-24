@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDistributeCacheResponseBody extends Model
 {
     /**
+     * @description Details of the distributed instance.
+     *
      * @var globalDistributeCaches[]
      */
     public $globalDistributeCaches;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The instance type of the child instance. For more information, see the following topics:
+     *
+     *   [Standard DRAM-based instances](~~145228~~)
+     *   [Cluster DRAM-based instances](~~150458~~)
+     *   [Read/write splitting DRAM-based instances](~~150459~~)
+     *
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the child instance that is attached to the distributed instance.
+     *
+     * @example F3F44BE3-5419-4B61-9BAC-E66E295A****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

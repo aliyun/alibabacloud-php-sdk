@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GrantAccountPrivilegeResponseBody extends Model
 {
     /**
+     * @example 3845BDF5-15A6-4444-B770-78501819****
+     *
      * @var string
      */
     public $requestId;

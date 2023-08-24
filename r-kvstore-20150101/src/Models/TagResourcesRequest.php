@@ -20,11 +20,19 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -40,11 +48,17 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tag[]
      */
     public $tag;

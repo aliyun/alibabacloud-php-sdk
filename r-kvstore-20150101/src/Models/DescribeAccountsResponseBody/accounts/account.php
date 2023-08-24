@@ -10,31 +10,59 @@ use AlibabaCloud\Tea\Model;
 class account extends Model
 {
     /**
+     * @description The name of the account that you want to query.
+     *
+     * @example testdec
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeAccounts**.
+     *
+     * @example demoaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Available
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @description The description of the account.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The permission of the account. Default value: RoleReadWrite. Valid values:
+     *
+     *   **RoleReadOnly**: The account has the read-only permissions.
+     *   **RoleReadWrite**: The account has the read and write permissions.
+     *
      * @var databasePrivileges
      */
     public $databasePrivileges;
 
     /**
+     * @description The type of the account. Valid values:
+     *
+     *   **Normal**: standard account
+     *   **Super**: super account
+     *
+     * @example r-bp10noxlhcoim2****
+     *
      * @var string
      */
     public $instanceId;

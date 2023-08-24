@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you set the time range to 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2019-03-22T14:11Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the node in the instance. You can specify this parameter to query the slow logs of a specified node.
+     *
+     * > This parameter is available only if the instance uses the read/write splitting or cluster architecture.
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The dimension by which to sort the results. Default value: execution_time. Valid values:
+     *
+     *   **execution_time**: sorts the results by query start time.
+     *   **latency**: sorts the results by query latency.
+     *
+     * @example execution_time
+     *
      * @var string
      */
     public $orderBy;
 
     /**
+     * @description The sorting order of the results to return. Default value: DESC. Valid values:
+     *
+     *   **ASC**: ascending order
+     *   **DESC**: descending order
+     *
+     * @example ASC
+     *
      * @var string
      */
     public $orderType;
@@ -49,16 +80,28 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The keyword based on which slow logs are queried. You can set this parameter to a value of the string type.
+     *
+     * @example keyword1
+     *
      * @var string
      */
     public $queryKeyword;
@@ -79,11 +122,22 @@ class DescribeSlowLogRecordsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The type of the slow logs. Default value: db. Valid values:
+     *
+     *   **proxy**: slow logs of proxy nodes
+     *   **db**: slow logs of data nodes
+     *
+     * @example proxy
+     *
      * @var string
      */
     public $slowLogRecordType;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2019-03-10T14:11Z
+     *
      * @var string
      */
     public $startTime;

@@ -9,35 +9,51 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @example 96
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @example 2048
+     *
      * @var string
      */
     public $capacity;
 
     /**
+     * @example 10000
+     *
      * @var string
      */
     public $connection;
 
     /**
+     * @example r-bp10noxlhcoim2****-db-0#688****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example db
+     *
      * @var string
      */
     public $nodeType;
+
+    /**
+     * @var string
+     */
+    public $subInstanceType;
     protected $_name = [
-        'bandwidth'  => 'Bandwidth',
-        'capacity'   => 'Capacity',
-        'connection' => 'Connection',
-        'nodeId'     => 'NodeId',
-        'nodeType'   => 'NodeType',
+        'bandwidth'       => 'Bandwidth',
+        'capacity'        => 'Capacity',
+        'connection'      => 'Connection',
+        'nodeId'          => 'NodeId',
+        'nodeType'        => 'NodeType',
+        'subInstanceType' => 'SubInstanceType',
     ];
 
     public function validate()
@@ -61,6 +77,9 @@ class nodeInfo extends Model
         }
         if (null !== $this->nodeType) {
             $res['NodeType'] = $this->nodeType;
+        }
+        if (null !== $this->subInstanceType) {
+            $res['SubInstanceType'] = $this->subInstanceType;
         }
 
         return $res;
@@ -88,6 +107,9 @@ class nodeInfo extends Model
         }
         if (isset($map['NodeType'])) {
             $model->nodeType = $map['NodeType'];
+        }
+        if (isset($map['SubInstanceType'])) {
+            $model->subInstanceType = $map['SubInstanceType'];
         }
 
         return $model;

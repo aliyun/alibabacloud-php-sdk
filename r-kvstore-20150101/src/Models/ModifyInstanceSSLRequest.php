@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSSLRequest extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -34,6 +38,10 @@ class ModifyInstanceSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $SSLEnabled;

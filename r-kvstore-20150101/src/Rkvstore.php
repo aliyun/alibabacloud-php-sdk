@@ -22,6 +22,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateCacheAnalysisTaskRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateCacheAnalysisTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalDistributeCacheResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\CreateInstancesRequest;
@@ -36,8 +38,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DeleteShardingNodeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAccountsResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditLogConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeAuditRecordsRequest;
@@ -68,8 +70,12 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeEngineVersionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalDistributeCacheResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryMonitorValuesRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryMonitorValuesResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeHistoryTasksResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAttributeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeInstanceAutoRenewalAttributeRequest;
@@ -90,6 +96,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyRequ
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeLogicInstanceTopologyResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeMonitorItemsRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeMonitorItemsResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterModificationHistoryRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterModificationHistoryResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParametersRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParametersResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeParameterTemplatesRequest;
@@ -116,6 +124,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\EnableAdditionalBandwidthResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushExpireKeysRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushExpireKeysResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushInstanceForDBRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushInstanceForDBResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushInstanceRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\FlushInstanceResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\GrantAccountPrivilegeRequest;
@@ -130,8 +140,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAccountPasswordResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTasksResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyActiveOperationTaskResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyAuditLogConfigResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyBackupPolicyRequest;
@@ -152,6 +162,8 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceMinorVersionRequest
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceMinorVersionResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceNetExpireTimeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceNetExpireTimeResponse;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceParameterRequest;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceParameterResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSpecRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSpecResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceSSLRequest;
@@ -162,8 +174,6 @@ use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceVpcAuthModeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyInstanceVpcAuthModeResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyIntranetAttributeRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyIntranetAttributeResponse;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyNodeSpecRequest;
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyNodeSpecResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyResourceGroupRequest;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifyResourceGroupResponse;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\ModifySecurityGroupConfigurationRequest;
@@ -289,10 +299,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param AddShardingNodeRequest $request
-     * @param RuntimeOptions         $runtime
+     * This operation is available only for cluster instances that use cloud disks.
+     *   *
+     * @param AddShardingNodeRequest $request AddShardingNodeRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddShardingNodeResponse
+     * @return AddShardingNodeResponse AddShardingNodeResponse
      */
     public function addShardingNodeWithOptions($request, $runtime)
     {
@@ -307,6 +319,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
         }
+        if (!Utils::isUnset($request->forceTrans)) {
+            $query['ForceTrans'] = $request->forceTrans;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -316,9 +331,6 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
-        if (!Utils::isUnset($request->readOnlyCount)) {
-            $query['ReadOnlyCount'] = $request->readOnlyCount;
-        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -327,9 +339,6 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->shardClass)) {
-            $query['ShardClass'] = $request->shardClass;
         }
         if (!Utils::isUnset($request->shardCount)) {
             $query['ShardCount'] = $request->shardCount;
@@ -356,9 +365,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param AddShardingNodeRequest $request
+     * This operation is available only for cluster instances that use cloud disks.
+     *   *
+     * @param AddShardingNodeRequest $request AddShardingNodeRequest
      *
-     * @return AddShardingNodeResponse
+     * @return AddShardingNodeResponse AddShardingNodeResponse
      */
     public function addShardingNode($request)
     {
@@ -368,10 +379,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param AllocateDirectConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * The ID of the instance.
+     *   *
+     * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateDirectConnectionResponse
+     * @return AllocateDirectConnectionResponse AllocateDirectConnectionResponse
      */
     public function allocateDirectConnectionWithOptions($request, $runtime)
     {
@@ -420,9 +433,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param AllocateDirectConnectionRequest $request
+     * The ID of the instance.
+     *   *
+     * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
      *
-     * @return AllocateDirectConnectionResponse
+     * @return AllocateDirectConnectionResponse AllocateDirectConnectionResponse
      */
     public function allocateDirectConnection($request)
     {
@@ -432,10 +447,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                          $runtime
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -484,9 +501,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param AllocateInstancePublicConnectionRequest $request
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param AllocateInstancePublicConnectionRequest $request AllocateInstancePublicConnectionRequest
      *
-     * @return AllocateInstancePublicConnectionResponse
+     * @return AllocateInstancePublicConnectionResponse AllocateInstancePublicConnectionResponse
      */
     public function allocateInstancePublicConnection($request)
     {
@@ -496,10 +515,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CheckCloudResourceAuthorizedRequest $request
-     * @param RuntimeOptions                      $runtime
+     * The operation that you want to perform. Set the value to **CheckCloudResourceAuthorized**.
+     *   *
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorizedWithOptions($request, $runtime)
     {
@@ -545,9 +566,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CheckCloudResourceAuthorizedRequest $request
+     * The operation that you want to perform. Set the value to **CheckCloudResourceAuthorized**.
+     *   *
+     * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
-     * @return CheckCloudResourceAuthorizedResponse
+     * @return CheckCloudResourceAuthorizedResponse CheckCloudResourceAuthorizedResponse
      */
     public function checkCloudResourceAuthorized($request)
     {
@@ -557,10 +580,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * The name of the account.
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccountWithOptions($request, $runtime)
     {
@@ -618,9 +643,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateAccountRequest $request
+     * The name of the account.
+     *   *
+     * @param CreateAccountRequest $request CreateAccountRequest
      *
-     * @return CreateAccountResponse
+     * @return CreateAccountResponse CreateAccountResponse
      */
     public function createAccount($request)
     {
@@ -630,10 +657,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
+     * The ID of the backup job.
+     *   *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
@@ -676,9 +705,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request
+     * The ID of the backup job.
+     *   *
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -688,10 +719,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateCacheAnalysisTaskRequest $request
-     * @param RuntimeOptions                 $runtime
+     * The operation that you want to perform. Set the value to **CreateCacheAnalysisTask**.
+     *   *
+     * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateCacheAnalysisTaskResponse
+     * @return CreateCacheAnalysisTaskResponse CreateCacheAnalysisTaskResponse
      */
     public function createCacheAnalysisTaskWithOptions($request, $runtime)
     {
@@ -734,9 +767,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateCacheAnalysisTaskRequest $request
+     * The operation that you want to perform. Set the value to **CreateCacheAnalysisTask**.
+     *   *
+     * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
      *
-     * @return CreateCacheAnalysisTaskResponse
+     * @return CreateCacheAnalysisTaskResponse CreateCacheAnalysisTaskResponse
      */
     public function createCacheAnalysisTask($request)
     {
@@ -746,10 +781,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalDistributeCacheRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+     *   * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
+     *   * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
+     *   * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+     *   *
+     * @param CreateGlobalDistributeCacheRequest $request CreateGlobalDistributeCacheRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalDistributeCacheResponse
+     * @return CreateGlobalDistributeCacheResponse CreateGlobalDistributeCacheResponse
      */
     public function createGlobalDistributeCacheWithOptions($request, $runtime)
     {
@@ -760,6 +800,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -792,9 +835,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalDistributeCacheRequest $request
+     * You cannot directly create a distributed instance. If you require a distributed instance, you must call this operation to convert an existing instance to the first child instance of the distributed instance. After the instance is converted, the distributed instance is created. Before you call this operation, make sure that the following requirements are met:
+     *   * *   A [DRAM-based instance](~~126164~~) of Enhanced Edition is used.
+     *   * *   If the existing instance is a cluster instance, the direct connection mode must be disabled for the instance. For more information, see [Release a private endpoint](~~150047~~).
+     *   * > You can also call the [CreateInstance](~~60873~~) operation to create an instance that is specified as the first child instance of a distributed instance. After the child instance is created, the distributed instance to which the child instance belongs is created.
+     *   *
+     * @param CreateGlobalDistributeCacheRequest $request CreateGlobalDistributeCacheRequest
      *
-     * @return CreateGlobalDistributeCacheResponse
+     * @return CreateGlobalDistributeCacheResponse CreateGlobalDistributeCacheResponse
      */
     public function createGlobalDistributeCache($request)
     {
@@ -804,15 +852,89 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * @param CreateGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return CreateInstanceResponse
+     * @return CreateGlobalSecurityIPGroupResponse
+     */
+    public function createGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->GIpList)) {
+            $query['GIpList'] = $request->GIpList;
+        }
+        if (!Utils::isUnset($request->globalIgName)) {
+            $query['GlobalIgName'] = $request->globalIgName;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateGlobalSecurityIPGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateGlobalSecurityIPGroupRequest $request
+     *
+     * @return CreateGlobalSecurityIPGroupResponse
+     */
+    public function createGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * You can call this operation to create an ApsaraDB for Redis instance that uses local or cloud disks or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks. To create a Tair instance that uses cloud disks, call the [CreateTairInstance](~~208271~~) operation.
+     *   * > You can also create an instance in the ApsaraDB for Redis console. For more information, see [Create an instance](~~26351~~).
+     *   *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstanceWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->appendonly)) {
+            $query['Appendonly'] = $request->appendonly;
+        }
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
         }
@@ -834,6 +956,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
         }
+        if (!Utils::isUnset($request->connectionStringPrefix)) {
+            $query['ConnectionStringPrefix'] = $request->connectionStringPrefix;
+        }
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
         }
@@ -852,6 +977,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->globalInstanceId)) {
             $query['GlobalInstanceId'] = $request->globalInstanceId;
         }
+        if (!Utils::isUnset($request->globalSecurityGroupIds)) {
+            $query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
+        }
         if (!Utils::isUnset($request->instanceClass)) {
             $query['InstanceClass'] = $request->instanceClass;
         }
@@ -863,6 +991,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->networkType)) {
             $query['NetworkType'] = $request->networkType;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -881,6 +1012,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -943,9 +1077,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstanceRequest $request
+     * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * You can call this operation to create an ApsaraDB for Redis instance that uses local or cloud disks or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks. To create a Tair instance that uses cloud disks, call the [CreateTairInstance](~~208271~~) operation.
+     *   * > You can also create an instance in the ApsaraDB for Redis console. For more information, see [Create an instance](~~26351~~).
+     *   *
+     * @param CreateInstanceRequest $request CreateInstanceRequest
      *
-     * @return CreateInstanceResponse
+     * @return CreateInstanceResponse CreateInstanceResponse
      */
     public function createInstance($request)
     {
@@ -955,10 +1093,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstancesRequest $request
-     * @param RuntimeOptions         $runtime
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
+     *   * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+     *   *
+     * @param CreateInstancesRequest $request CreateInstancesRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateInstancesResponse
+     * @return CreateInstancesResponse CreateInstancesResponse
      */
     public function createInstancesWithOptions($request, $runtime)
     {
@@ -1025,9 +1167,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateInstancesRequest $request
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * >  For more information about how to create an instance that meets your requirements in the ApsaraDB for Redis console, see [Step 1: Create an ApsaraDB for Redis instance](~~26351~~).
+     *   * To create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks, call [CreateTairInstance](~~208271~~).
+     *   *
+     * @param CreateInstancesRequest $request CreateInstancesRequest
      *
-     * @return CreateInstancesResponse
+     * @return CreateInstancesResponse CreateInstancesResponse
      */
     public function createInstances($request)
     {
@@ -1037,10 +1183,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateTairInstanceRequest $request
-     * @param RuntimeOptions            $runtime
+     * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
+     *   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * >
+     *   * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+     *   * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+     *   *
+     * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateTairInstanceResponse
+     * @return CreateTairInstanceResponse CreateTairInstanceResponse
      */
     public function createTairInstanceWithOptions($request, $runtime)
     {
@@ -1073,11 +1225,17 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
         }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
         if (!Utils::isUnset($request->engineVersion)) {
             $query['EngineVersion'] = $request->engineVersion;
         }
         if (!Utils::isUnset($request->globalInstanceId)) {
             $query['GlobalInstanceId'] = $request->globalInstanceId;
+        }
+        if (!Utils::isUnset($request->globalSecurityGroupIds)) {
+            $query['GlobalSecurityGroupIds'] = $request->globalSecurityGroupIds;
         }
         if (!Utils::isUnset($request->instanceClass)) {
             $query['InstanceClass'] = $request->instanceClass;
@@ -1094,14 +1252,23 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->paramGroupId)) {
+            $query['ParamGroupId'] = $request->paramGroupId;
+        }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
         if (!Utils::isUnset($request->privateIpAddress)) {
             $query['PrivateIpAddress'] = $request->privateIpAddress;
+        }
+        if (!Utils::isUnset($request->readOnlyCount)) {
+            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -1136,6 +1303,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->storageType)) {
             $query['StorageType'] = $request->storageType;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
         }
@@ -1164,9 +1334,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param CreateTairInstanceRequest $request
+     * For more information about instance selection, see [Select an ApsaraDB for Redis instance](~~223808~~).
+     *   * Before you call this operation, make sure that you are familiar with the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * >
+     *   * *   For more information about how to create an ApsaraDB for Redis Enhanced Edition (Tair) instance that uses cloud disks in the ApsaraDB for Redis console, see [Create an ApsaraDB for Redis instance](~~443863~~).
+     *   * *   To create an instance of another edition or series such as a Community Edition instance or Tair [DRAM-based instance](~~126164~~) that uses local disks, call [CreateInstance](~~60873~~).
+     *   *
+     * @param CreateTairInstanceRequest $request CreateTairInstanceRequest
      *
-     * @return CreateTairInstanceResponse
+     * @return CreateTairInstanceResponse CreateTairInstanceResponse
      */
     public function createTairInstance($request)
     {
@@ -1176,10 +1352,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+     *   * *   The ApsaraDB for Redis instance must be in the Running state.
+     *   *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
@@ -1225,9 +1404,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0.
+     *   * *   The ApsaraDB for Redis instance must be in the Running state.
+     *   *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1237,10 +1419,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
-     * @param RuntimeOptions        $runtime
+     * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
+     *   * Before you call this operation, make sure that the following requirements are met:
+     *   * *   The instance is in the running state.
+     *   * *   The instance is charged on a pay-as-you-go basis.
+     *   * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+     *   *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstanceWithOptions($request, $runtime)
     {
@@ -1286,9 +1474,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteInstanceRequest $request
+     * For more information about how to perform the corresponding operation in the console, see [Release an instance](~~43882~~).
+     *   * Before you call this operation, make sure that the following requirements are met:
+     *   * *   The instance is in the running state.
+     *   * *   The instance is charged on a pay-as-you-go basis.
+     *   * >  You cannot call this operation to release a subscription instance, which is automatically released when it expires. To release a subscription instance before it expires, submit a ticket.
+     *   *
+     * @param DeleteInstanceRequest $request DeleteInstanceRequest
      *
-     * @return DeleteInstanceResponse
+     * @return DeleteInstanceResponse DeleteInstanceResponse
      */
     public function deleteInstance($request)
     {
@@ -1298,15 +1492,23 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteShardingNodeRequest $request
-     * @param RuntimeOptions            $runtime
+     * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
+     *   * *   The instance has more than one data shard.
+     *   *
+     * @param DeleteShardingNodeRequest $request DeleteShardingNodeRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteShardingNodeResponse
+     * @return DeleteShardingNodeResponse DeleteShardingNodeResponse
      */
     public function deleteShardingNodeWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->forceTrans)) {
+            $query['ForceTrans'] = $request->forceTrans;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -1318,9 +1520,6 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->readOnlyCount)) {
-            $query['ReadOnlyCount'] = $request->readOnlyCount;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -1353,9 +1552,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DeleteShardingNodeRequest $request
+     * You can also remove data shards from an instance in the ApsaraDB for Redis console. For more information, see [Adjust the number of shards for an ApsaraDB for Redis instance with cloud disks](~~198082~~).\\
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The instance is a persistent memory-optimized instance in the cluster architecture. For more information about persistent memory-optimized instances, see [Persistent memory-optimized instances](~~183956~~).
+     *   * *   The instance has more than one data shard.
+     *   *
+     * @param DeleteShardingNodeRequest $request DeleteShardingNodeRequest
      *
-     * @return DeleteShardingNodeResponse
+     * @return DeleteShardingNodeResponse DeleteShardingNodeResponse
      */
     public function deleteShardingNode($request)
     {
@@ -1365,10 +1569,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
-     * @param RuntimeOptions          $runtime
+     * Details about returned accounts of the instance.
+     *   *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccountsWithOptions($request, $runtime)
     {
@@ -1414,9 +1620,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAccountsRequest $request
+     * Details about returned accounts of the instance.
+     *   *
+     * @param DescribeAccountsRequest $request DescribeAccountsRequest
      *
-     * @return DescribeAccountsResponse
+     * @return DescribeAccountsResponse DescribeAccountsResponse
      */
     public function describeAccounts($request)
     {
@@ -1426,29 +1634,21 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
-     * @param RuntimeOptions                      $runtime
+     * Specifies whether to return the historical tasks. Valid values:
+     *   * *   **0**: returns the current task. This is the default value.
+     *   * *   **1**: returns the historical tasks.
+     *   *
+     * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
      */
-    public function describeActiveOperationTasksWithOptions($request, $runtime)
+    public function describeActiveOperationTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->allowCancel)) {
-            $query['AllowCancel'] = $request->allowCancel;
-        }
-        if (!Utils::isUnset($request->allowChange)) {
-            $query['AllowChange'] = $request->allowChange;
-        }
-        if (!Utils::isUnset($request->changeLevel)) {
-            $query['ChangeLevel'] = $request->changeLevel;
-        }
-        if (!Utils::isUnset($request->dbType)) {
-            $query['DbType'] = $request->dbType;
-        }
-        if (!Utils::isUnset($request->insName)) {
-            $query['InsName'] = $request->insName;
+        if (!Utils::isUnset($request->isHistory)) {
+            $query['IsHistory'] = $request->isHistory;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -1462,8 +1662,8 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
-        if (!Utils::isUnset($request->productId)) {
-            $query['ProductId'] = $request->productId;
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
@@ -1474,9 +1674,6 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
         if (!Utils::isUnset($request->taskType)) {
             $query['TaskType'] = $request->taskType;
         }
@@ -1484,7 +1681,7 @@ class Rkvstore extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'DescribeActiveOperationTasks',
+            'action'      => 'DescribeActiveOperationTask',
             'version'     => '2015-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -1495,26 +1692,36 @@ class Rkvstore extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return DescribeActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return DescribeActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param DescribeActiveOperationTasksRequest $request
+     * Specifies whether to return the historical tasks. Valid values:
+     *   * *   **0**: returns the current task. This is the default value.
+     *   * *   **1**: returns the historical tasks.
+     *   *
+     * @param DescribeActiveOperationTaskRequest $request DescribeActiveOperationTaskRequest
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return DescribeActiveOperationTaskResponse DescribeActiveOperationTaskResponse
      */
-    public function describeActiveOperationTasks($request)
+    public function describeActiveOperationTask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeActiveOperationTasksWithOptions($request, $runtime);
+        return $this->describeActiveOperationTaskWithOptions($request, $runtime);
     }
 
     /**
-     * @param DescribeAuditLogConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
+     *   * Before you call this API operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     *   * *   The instance is an instance of the ApsaraDB for Redis Community Edition or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair). For more information, see [Performance-enhanced instances](~~126164~~).
+     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
+     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+     *   *
+     * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAuditLogConfigResponse
+     * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
      */
     public function describeAuditLogConfigWithOptions($request, $runtime)
     {
@@ -1560,9 +1767,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditLogConfigRequest $request
+     * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
+     *   * Before you call this API operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     *   * *   The instance is an instance of the ApsaraDB for Redis Community Edition or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair). For more information, see [Performance-enhanced instances](~~126164~~).
+     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
+     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+     *   *
+     * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
      *
-     * @return DescribeAuditLogConfigResponse
+     * @return DescribeAuditLogConfigResponse DescribeAuditLogConfigResponse
      */
     public function describeAuditLogConfig($request)
     {
@@ -1572,10 +1785,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditRecordsRequest $request
-     * @param RuntimeOptions              $runtime
+     * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+     *   *
+     * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeAuditRecordsResponse
+     * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
      */
     public function describeAuditRecordsWithOptions($request, $runtime)
     {
@@ -1645,9 +1864,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeAuditRecordsRequest $request
+     * This operation can be called up to 100 times per minute. You can also query audit logs in the ApsaraDB for Redis console. For more information, see [Query audit logs of an instance](~~101937~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or an ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance.
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
+     *   *
+     * @param DescribeAuditRecordsRequest $request DescribeAuditRecordsRequest
      *
-     * @return DescribeAuditRecordsResponse
+     * @return DescribeAuditRecordsResponse DescribeAuditRecordsResponse
      */
     public function describeAuditRecords($request)
     {
@@ -1677,6 +1902,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceScene)) {
+            $query['InstanceScene'] = $request->instanceScene;
         }
         if (!Utils::isUnset($request->nodeId)) {
             $query['NodeId'] = $request->nodeId;
@@ -1940,10 +2168,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeCacheAnalysisReportRequest $request
-     * @param RuntimeOptions                     $runtime
+     * The number of entries returned on the current page.
+     *   *
+     * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCacheAnalysisReportResponse
+     * @return DescribeCacheAnalysisReportResponse DescribeCacheAnalysisReportResponse
      */
     public function describeCacheAnalysisReportWithOptions($request, $runtime)
     {
@@ -2001,9 +2231,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeCacheAnalysisReportRequest $request
+     * The number of entries returned on the current page.
+     *   *
+     * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
      *
-     * @return DescribeCacheAnalysisReportResponse
+     * @return DescribeCacheAnalysisReportResponse DescribeCacheAnalysisReportResponse
      */
     public function describeCacheAnalysisReport($request)
     {
@@ -2013,10 +2245,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeCacheAnalysisReportListRequest $request
-     * @param RuntimeOptions                         $runtime
+     * The operation that you want to perform. Set the value to **DescribeCacheAnalysisReportList**.
+     *   *
+     * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeCacheAnalysisReportListResponse
+     * @return DescribeCacheAnalysisReportListResponse DescribeCacheAnalysisReportListResponse
      */
     public function describeCacheAnalysisReportListWithOptions($request, $runtime)
     {
@@ -2071,9 +2305,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeCacheAnalysisReportListRequest $request
+     * The operation that you want to perform. Set the value to **DescribeCacheAnalysisReportList**.
+     *   *
+     * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
      *
-     * @return DescribeCacheAnalysisReportListResponse
+     * @return DescribeCacheAnalysisReportListResponse DescribeCacheAnalysisReportListResponse
      */
     public function describeCacheAnalysisReportList($request)
     {
@@ -2083,10 +2319,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterMemberInfoRequest $request
-     * @param RuntimeOptions                   $runtime
+     * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
+     *   *
+     * @param DescribeClusterMemberInfoRequest $request DescribeClusterMemberInfoRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeClusterMemberInfoResponse
+     * @return DescribeClusterMemberInfoResponse DescribeClusterMemberInfoResponse
      */
     public function describeClusterMemberInfoWithOptions($request, $runtime)
     {
@@ -2135,9 +2373,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeClusterMemberInfoRequest $request
+     * > This API operation is applicable only to ApsaraDB for Redis instances that use [cloud disks](~~188068~~) and the [cluster architecture](~~52228~~).
+     *   *
+     * @param DescribeClusterMemberInfoRequest $request DescribeClusterMemberInfoRequest
      *
-     * @return DescribeClusterMemberInfoResponse
+     * @return DescribeClusterMemberInfoResponse DescribeClusterMemberInfoResponse
      */
     public function describeClusterMemberInfo($request)
     {
@@ -2205,10 +2445,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeDedicatedClusterInstanceListRequest $request
-     * @param RuntimeOptions                              $runtime
+     * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
+     *   *
+     * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDedicatedClusterInstanceListResponse
+     * @return DescribeDedicatedClusterInstanceListResponse DescribeDedicatedClusterInstanceListResponse
      */
     public function describeDedicatedClusterInstanceListWithOptions($request, $runtime)
     {
@@ -2281,9 +2523,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeDedicatedClusterInstanceListRequest $request
+     * > If you want to query the information about ApsaraDB for Redis instances that are not deployed in a dedicated cluster, call the [DescribeInstanceAttribute](~~60996~~) operation.
+     *   *
+     * @param DescribeDedicatedClusterInstanceListRequest $request DescribeDedicatedClusterInstanceListRequest
      *
-     * @return DescribeDedicatedClusterInstanceListResponse
+     * @return DescribeDedicatedClusterInstanceListResponse DescribeDedicatedClusterInstanceListResponse
      */
     public function describeDedicatedClusterInstanceList($request)
     {
@@ -2293,10 +2537,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeEncryptionKeyRequest $request
-     * @param RuntimeOptions               $runtime
+     * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
+     *   * > For more information about TDE, see [Enable TDE](~~265913~~).
+     *   *
+     * @param DescribeEncryptionKeyRequest $request DescribeEncryptionKeyRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEncryptionKeyResponse
+     * @return DescribeEncryptionKeyResponse DescribeEncryptionKeyResponse
      */
     public function describeEncryptionKeyWithOptions($request, $runtime)
     {
@@ -2342,9 +2589,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeEncryptionKeyRequest $request
+     * Before you call this operation, TDE must be enabled for the ApsaraDB for Redis instance by using a custom key. For more information, see [ModifyInstanceTDE](~~302337~~).
+     *   * > For more information about TDE, see [Enable TDE](~~265913~~).
+     *   *
+     * @param DescribeEncryptionKeyRequest $request DescribeEncryptionKeyRequest
      *
-     * @return DescribeEncryptionKeyResponse
+     * @return DescribeEncryptionKeyResponse DescribeEncryptionKeyResponse
      */
     public function describeEncryptionKey($request)
     {
@@ -2354,10 +2604,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeEncryptionKeyListRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The ID of the request.
+     *   *
+     * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeEncryptionKeyListResponse
+     * @return DescribeEncryptionKeyListResponse DescribeEncryptionKeyListResponse
      */
     public function describeEncryptionKeyListWithOptions($request, $runtime)
     {
@@ -2400,9 +2652,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeEncryptionKeyListRequest $request
+     * The ID of the request.
+     *   *
+     * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
      *
-     * @return DescribeEncryptionKeyListResponse
+     * @return DescribeEncryptionKeyListResponse DescribeEncryptionKeyListResponse
      */
     public function describeEncryptionKeyList($request)
     {
@@ -2537,10 +2791,52 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryMonitorValuesRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @param DescribeGlobalSecurityIPGroupRequest $request
+     * @param RuntimeOptions                       $runtime
      *
-     * @return DescribeHistoryMonitorValuesResponse
+     * @return DescribeGlobalSecurityIPGroupResponse
+     */
+    public function describeGlobalSecurityIPGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeGlobalSecurityIPGroup',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeGlobalSecurityIPGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeGlobalSecurityIPGroupRequest $request
+     *
+     * @return DescribeGlobalSecurityIPGroupResponse
+     */
+    public function describeGlobalSecurityIPGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeGlobalSecurityIPGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
+     *   *
+     * @param DescribeHistoryMonitorValuesRequest $request DescribeHistoryMonitorValuesRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeHistoryMonitorValuesResponse DescribeHistoryMonitorValuesResponse
      */
     public function describeHistoryMonitorValuesWithOptions($request, $runtime)
     {
@@ -2598,15 +2894,102 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeHistoryMonitorValuesRequest $request
+     * You can also query the performance monitoring data of an instance in the ApsaraDB for Redis console. For more information, see [Metrics](~~43887~~).
+     *   *
+     * @param DescribeHistoryMonitorValuesRequest $request DescribeHistoryMonitorValuesRequest
      *
-     * @return DescribeHistoryMonitorValuesResponse
+     * @return DescribeHistoryMonitorValuesResponse DescribeHistoryMonitorValuesResponse
      */
     public function describeHistoryMonitorValues($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeHistoryMonitorValuesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeHistoryTasksRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasksWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fromExecTime)) {
+            $query['FromExecTime'] = $request->fromExecTime;
+        }
+        if (!Utils::isUnset($request->fromStartTime)) {
+            $query['FromStartTime'] = $request->fromStartTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->instanceType)) {
+            $query['InstanceType'] = $request->instanceType;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $query['TaskId'] = $request->taskId;
+        }
+        if (!Utils::isUnset($request->taskType)) {
+            $query['TaskType'] = $request->taskType;
+        }
+        if (!Utils::isUnset($request->toExecTime)) {
+            $query['ToExecTime'] = $request->toExecTime;
+        }
+        if (!Utils::isUnset($request->toStartTime)) {
+            $query['ToStartTime'] = $request->toStartTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeHistoryTasks',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeHistoryTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeHistoryTasksRequest $request
+     *
+     * @return DescribeHistoryTasksResponse
+     */
+    public function describeHistoryTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeHistoryTasksWithOptions($request, $runtime);
     }
 
     /**
@@ -2735,10 +3118,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceConfigRequest $request
-     * @param RuntimeOptions                $runtime
+     * This operation is available only for instances that use cloud disks.
+     *   * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
+     *   *
+     * @param DescribeInstanceConfigRequest $request DescribeInstanceConfigRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceConfigResponse
+     * @return DescribeInstanceConfigResponse DescribeInstanceConfigResponse
      */
     public function describeInstanceConfigWithOptions($request, $runtime)
     {
@@ -2781,9 +3167,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceConfigRequest $request
+     * This operation is available only for instances that use cloud disks.
+     *   * > You can call the [DescribeParameters](~~473847~~) operation to query the parameter settings of instances that use local disks.
+     *   *
+     * @param DescribeInstanceConfigRequest $request DescribeInstanceConfigRequest
      *
-     * @return DescribeInstanceConfigResponse
+     * @return DescribeInstanceConfigResponse DescribeInstanceConfigResponse
      */
     public function describeInstanceConfig($request)
     {
@@ -2793,10 +3182,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSSLRequest $request
-     * @param RuntimeOptions             $runtime
+     * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+     *   * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+     *   * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
+     *   * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+     *   * > After SSL encryption is enabled, the instance may respond slower.
+     *   *
+     * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceSSLResponse
+     * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
      */
     public function describeInstanceSSLWithOptions($request, $runtime)
     {
@@ -2839,9 +3234,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceSSLRequest $request
+     * SSL encryption is supported for ApsaraDB for Redis 2.8 standard master-replica instances, ApsaraDB for Redis 2.8 master-replica cluster instances, and ApsaraDB for Redis 4.0 master-replica cluster instances. You can enable SSL encryption to enhance data transmission security.
+     *   * You can use one of the following methods to enable or disable SSL encryption or update the SSL certificate for an ApsaraDB for Redis instance:
+     *   * *   Call the [ModifyInstanceSSL](~~96194~~) operation.
+     *   * *   Enable or disable SSL encryption or update the SSL certificate in the ApsaraDB for Redis console. For more information, see [Configure SSL encryption](~~84898~~).
+     *   * > After SSL encryption is enabled, the instance may respond slower.
+     *   *
+     * @param DescribeInstanceSSLRequest $request DescribeInstanceSSLRequest
      *
-     * @return DescribeInstanceSSLResponse
+     * @return DescribeInstanceSSLResponse DescribeInstanceSSLResponse
      */
     public function describeInstanceSSL($request)
     {
@@ -2851,10 +3252,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTDEStatusRequest $request
-     * @param RuntimeOptions                   $runtime
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstanceTDEStatusResponse
+     * @return DescribeInstanceTDEStatusResponse DescribeInstanceTDEStatusResponse
      */
     public function describeInstanceTDEStatusWithOptions($request, $runtime)
     {
@@ -2897,9 +3300,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstanceTDEStatusRequest $request
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
      *
-     * @return DescribeInstanceTDEStatusResponse
+     * @return DescribeInstanceTDEStatusResponse DescribeInstanceTDEStatusResponse
      */
     public function describeInstanceTDEStatus($request)
     {
@@ -3027,10 +3432,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesOverviewRequest $request
-     * @param RuntimeOptions                   $runtime
+     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+     *   * > This operation returns non-paged results.
+     *   *
+     * @param DescribeInstancesOverviewRequest $request DescribeInstancesOverviewRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeInstancesOverviewResponse
+     * @return DescribeInstancesOverviewResponse DescribeInstancesOverviewResponse
      */
     public function describeInstancesOverviewWithOptions($request, $runtime)
     {
@@ -3118,9 +3526,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeInstancesOverviewRequest $request
+     * If you do not specify the InstanceIds parameter when you call this operation, the overview information of all instances is returned.
+     *   * > This operation returns non-paged results.
+     *   *
+     * @param DescribeInstancesOverviewRequest $request DescribeInstancesOverviewRequest
      *
-     * @return DescribeInstancesOverviewResponse
+     * @return DescribeInstancesOverviewResponse DescribeInstancesOverviewResponse
      */
     public function describeInstancesOverview($request)
     {
@@ -3130,10 +3541,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntranetAttributeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
+     *   *
+     * @param DescribeIntranetAttributeRequest $request DescribeIntranetAttributeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeIntranetAttributeResponse
+     * @return DescribeIntranetAttributeResponse DescribeIntranetAttributeResponse
      */
     public function describeIntranetAttributeWithOptions($request, $runtime)
     {
@@ -3179,9 +3592,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeIntranetAttributeRequest $request
+     * You can call the [EnableAdditionalBandwidth](~~206173~~) operation to increase the internal bandwidth of an instance.
+     *   *
+     * @param DescribeIntranetAttributeRequest $request DescribeIntranetAttributeRequest
      *
-     * @return DescribeIntranetAttributeResponse
+     * @return DescribeIntranetAttributeResponse DescribeIntranetAttributeResponse
      */
     public function describeIntranetAttribute($request)
     {
@@ -3191,10 +3606,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogicInstanceTopologyRequest $request
-     * @param RuntimeOptions                       $runtime
+     * The maximum number of connections.
+     *   *
+     * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeLogicInstanceTopologyResponse
+     * @return DescribeLogicInstanceTopologyResponse DescribeLogicInstanceTopologyResponse
      */
     public function describeLogicInstanceTopologyWithOptions($request, $runtime)
     {
@@ -3237,9 +3654,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeLogicInstanceTopologyRequest $request
+     * The maximum number of connections.
+     *   *
+     * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
      *
-     * @return DescribeLogicInstanceTopologyResponse
+     * @return DescribeLogicInstanceTopologyResponse DescribeLogicInstanceTopologyResponse
      */
     public function describeLogicInstanceTopology($request)
     {
@@ -3249,10 +3668,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorItemsRequest $request
-     * @param RuntimeOptions              $runtime
+     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
+     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+     *   *
+     * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeMonitorItemsResponse
+     * @return DescribeMonitorItemsResponse DescribeMonitorItemsResponse
      */
     public function describeMonitorItemsWithOptions($request, $runtime)
     {
@@ -3292,9 +3714,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeMonitorItemsRequest $request
+     * >  ApsaraDB for Redis has upgraded the monitoring metrics. The DescribeMonitorItems operation is phased out. For more information, see [The DescribeMonitorItems operation supported by ApsaraDB for Redis is phased out](~~189893~~).
+     *   * After you call this operation to retrieve a list of metrics for a specified ApsaraDB for Redis instance, you can call the [DescribeHistoryMonitorValues](~~61107~~) operation to query monitoring history of the instance.
+     *   *
+     * @param DescribeMonitorItemsRequest $request DescribeMonitorItemsRequest
      *
-     * @return DescribeMonitorItemsResponse
+     * @return DescribeMonitorItemsResponse DescribeMonitorItemsResponse
      */
     public function describeMonitorItems($request)
     {
@@ -3304,10 +3729,82 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
-     * @param RuntimeOptions                    $runtime
+     * @param DescribeParameterModificationHistoryRequest $request
+     * @param RuntimeOptions                              $runtime
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterModificationHistoryResponse
+     */
+    public function describeParameterModificationHistoryWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->nodeId)) {
+            $query['NodeId'] = $request->nodeId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameterName)) {
+            $query['ParameterName'] = $request->parameterName;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeParameterModificationHistory',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeParameterModificationHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeParameterModificationHistoryRequest $request
+     *
+     * @return DescribeParameterModificationHistoryResponse
+     */
+    public function describeParameterModificationHistory($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeParameterModificationHistoryWithOptions($request, $runtime);
+    }
+
+    /**
+     * An array that consists of the details about the parameters returned.
+     *   *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplatesWithOptions($request, $runtime)
     {
@@ -3362,9 +3859,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterTemplatesRequest $request
+     * An array that consists of the details about the parameters returned.
+     *   *
+     * @param DescribeParameterTemplatesRequest $request DescribeParameterTemplatesRequest
      *
-     * @return DescribeParameterTemplatesResponse
+     * @return DescribeParameterTemplatesResponse DescribeParameterTemplatesResponse
      */
     public function describeParameterTemplates($request)
     {
@@ -3374,10 +3873,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
-     * @param RuntimeOptions            $runtime
+     * This operation is available only for instances that use local disks.
+     *   * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
+     *   *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParametersWithOptions($request, $runtime)
     {
@@ -3426,9 +3928,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeParametersRequest $request
+     * This operation is available only for instances that use local disks.
+     *   * > You can call the [DescribeInstanceConfig](~~473846~~) operation to query the parameter settings of instances that use cloud disks.
+     *   *
+     * @param DescribeParametersRequest $request DescribeParametersRequest
      *
-     * @return DescribeParametersResponse
+     * @return DescribeParametersResponse DescribeParametersResponse
      */
     public function describeParameters($request)
     {
@@ -3663,10 +4168,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRunningLogRecordsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
+     *   * This operation can be called up to 100 times per minute.
+     *   *
+     * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeRunningLogRecordsResponse
+     * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
      */
     public function describeRunningLogRecordsWithOptions($request, $runtime)
     {
@@ -3742,9 +4250,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeRunningLogRecordsRequest $request
+     * For more information about how to view the operational logs of an instance in the ApsaraDB for Redis console, see [View active logs](~~101713~~).
+     *   * This operation can be called up to 100 times per minute.
+     *   *
+     * @param DescribeRunningLogRecordsRequest $request DescribeRunningLogRecordsRequest
      *
-     * @return DescribeRunningLogRecordsResponse
+     * @return DescribeRunningLogRecordsResponse DescribeRunningLogRecordsResponse
      */
     public function describeRunningLogRecords($request)
     {
@@ -3870,10 +4381,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
+     *   *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
@@ -3946,9 +4459,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
+     * You can also query slow logs in the ApsaraDB for Redis console. For more information, see [Query slow logs of an instance](~~95874~~). This operation can be called up to 100 times per minute.
+     *   *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -3958,10 +4473,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeTasksRequest $request
-     * @param RuntimeOptions       $runtime
+     * The progress of the task. Unit: %.
+     *   *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
@@ -4019,9 +4536,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeTasksRequest $request
+     * The progress of the task. Unit: %.
+     *   *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
      *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasks($request)
     {
@@ -4092,10 +4611,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param EnableAdditionalBandwidthRequest $request
-     * @param RuntimeOptions                   $runtime
+     * For more information about the fees, limits, and answers to some frequently asked questions about bandwidth adjustments, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~).
+     *   * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the bandwidth of each data shard in the instance.
+     *   *
+     * @param EnableAdditionalBandwidthRequest $request EnableAdditionalBandwidthRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableAdditionalBandwidthResponse
+     * @return EnableAdditionalBandwidthResponse EnableAdditionalBandwidthResponse
      */
     public function enableAdditionalBandwidthWithOptions($request, $runtime)
     {
@@ -4112,6 +4634,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->bandwidth)) {
             $query['Bandwidth'] = $request->bandwidth;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
         if (!Utils::isUnset($request->couponNo)) {
             $query['CouponNo'] = $request->couponNo;
@@ -4162,9 +4687,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param EnableAdditionalBandwidthRequest $request
+     * For more information about the fees, limits, and answers to some frequently asked questions about bandwidth adjustments, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~).
+     *   * >  Before you call this operation, you can call the [DescribeRoleZoneInfo](~~190794~~) operation to query the bandwidth of each data shard in the instance.
+     *   *
+     * @param EnableAdditionalBandwidthRequest $request EnableAdditionalBandwidthRequest
      *
-     * @return EnableAdditionalBandwidthResponse
+     * @return EnableAdditionalBandwidthResponse EnableAdditionalBandwidthResponse
      */
     public function enableAdditionalBandwidth($request)
     {
@@ -4174,10 +4702,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushExpireKeysRequest $request
-     * @param RuntimeOptions         $runtime
+     * The time when the minor version is upgraded. Valid values:
+     *   * *   **Immediately**: immediately deletes expired keys.
+     *   * *   **MaintainTime:**deletes expired key in the maintenance window.
+     *   * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     *   *
+     * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlushExpireKeysResponse
+     * @return FlushExpireKeysResponse FlushExpireKeysResponse
      */
     public function flushExpireKeysWithOptions($request, $runtime)
     {
@@ -4223,9 +4756,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushExpireKeysRequest $request
+     * The time when the minor version is upgraded. Valid values:
+     *   * *   **Immediately**: immediately deletes expired keys.
+     *   * *   **MaintainTime:**deletes expired key in the maintenance window.
+     *   * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     *   *
+     * @param FlushExpireKeysRequest $request FlushExpireKeysRequest
      *
-     * @return FlushExpireKeysResponse
+     * @return FlushExpireKeysResponse FlushExpireKeysResponse
      */
     public function flushExpireKeys($request)
     {
@@ -4235,10 +4773,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * The ID of the instance.
+     *   *
+     * @param FlushInstanceRequest $request FlushInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlushInstanceResponse
+     * @return FlushInstanceResponse FlushInstanceResponse
      */
     public function flushInstanceWithOptions($request, $runtime)
     {
@@ -4281,9 +4821,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushInstanceRequest $request
+     * The ID of the instance.
+     *   *
+     * @param FlushInstanceRequest $request FlushInstanceRequest
      *
-     * @return FlushInstanceResponse
+     * @return FlushInstanceResponse FlushInstanceResponse
      */
     public function flushInstance($request)
     {
@@ -4293,10 +4835,73 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param GrantAccountPrivilegeRequest $request
-     * @param RuntimeOptions               $runtime
+     * @param FlushInstanceForDBRequest $request
+     * @param RuntimeOptions            $runtime
      *
-     * @return GrantAccountPrivilegeResponse
+     * @return FlushInstanceForDBResponse
+     */
+    public function flushInstanceForDBWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dbIndex)) {
+            $query['DbIndex'] = $request->dbIndex;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'FlushInstanceForDB',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return FlushInstanceForDBResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param FlushInstanceForDBRequest $request
+     *
+     * @return FlushInstanceForDBResponse
+     */
+    public function flushInstanceForDB($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->flushInstanceForDBWithOptions($request, $runtime);
+    }
+
+    /**
+     * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+     *   *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilegeWithOptions($request, $runtime)
     {
@@ -4345,9 +4950,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param GrantAccountPrivilegeRequest $request
+     * The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+     *   *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilege($request)
     {
@@ -4357,10 +4964,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param InitializeKvstorePermissionRequest $request
-     * @param RuntimeOptions                     $runtime
+     * The ID of the request.
+     *   *
+     * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return InitializeKvstorePermissionResponse
+     * @return InitializeKvstorePermissionResponse InitializeKvstorePermissionResponse
      */
     public function initializeKvstorePermissionWithOptions($request, $runtime)
     {
@@ -4403,9 +5012,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param InitializeKvstorePermissionRequest $request
+     * The ID of the request.
+     *   *
+     * @param InitializeKvstorePermissionRequest $request InitializeKvstorePermissionRequest
      *
-     * @return InitializeKvstorePermissionResponse
+     * @return InitializeKvstorePermissionResponse InitializeKvstorePermissionResponse
      */
     public function initializeKvstorePermission($request)
     {
@@ -4415,10 +5026,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
-     * @param RuntimeOptions          $runtime
+     * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResourcesWithOptions($request, $runtime)
     {
@@ -4470,9 +5083,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ListTagResourcesRequest $request
+     * You can also query the relationships between instances and tags in the ApsaraDB for Redis console. For more information, see [Filter ApsaraDB for Redis instances by tag](~~119160~~) and [View tags bound to an instance](~~134038~~).
+     *   *
+     * @param ListTagResourcesRequest $request ListTagResourcesRequest
      *
-     * @return ListTagResourcesResponse
+     * @return ListTagResourcesResponse ListTagResourcesResponse
      */
     public function listTagResources($request)
     {
@@ -4482,10 +5097,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param MigrateToOtherZoneRequest $request
-     * @param RuntimeOptions            $runtime
+     * The ID of the request.
+     *   *
+     * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZoneWithOptions($request, $runtime)
     {
@@ -4540,9 +5157,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param MigrateToOtherZoneRequest $request
+     * The ID of the request.
+     *   *
+     * @param MigrateToOtherZoneRequest $request MigrateToOtherZoneRequest
      *
-     * @return MigrateToOtherZoneResponse
+     * @return MigrateToOtherZoneResponse MigrateToOtherZoneResponse
      */
     public function migrateToOtherZone($request)
     {
@@ -4552,10 +5171,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > This operation is supported only for instances that run Redis 4.0 or later.
+     *   *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescriptionWithOptions($request, $runtime)
     {
@@ -4604,9 +5225,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyAccountDescriptionRequest $request
+     * > This operation is supported only for instances that run Redis 4.0 or later.
+     *   *
+     * @param ModifyAccountDescriptionRequest $request ModifyAccountDescriptionRequest
      *
-     * @return ModifyAccountDescriptionResponse
+     * @return ModifyAccountDescriptionResponse ModifyAccountDescriptionResponse
      */
     public function modifyAccountDescription($request)
     {
@@ -4683,20 +5306,19 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
-     * @param RuntimeOptions                    $runtime
+     * 11111,22222.
+     *   *
+     * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTaskResponse ModifyActiveOperationTaskResponse
      */
-    public function modifyActiveOperationTasksWithOptions($request, $runtime)
+    public function modifyActiveOperationTaskWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
         if (!Utils::isUnset($request->ids)) {
             $query['Ids'] = $request->ids;
-        }
-        if (!Utils::isUnset($request->immediateStart)) {
-            $query['ImmediateStart'] = $request->immediateStart;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -4720,7 +5342,7 @@ class Rkvstore extends OpenApiClient
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ModifyActiveOperationTasks',
+            'action'      => 'ModifyActiveOperationTask',
             'version'     => '2015-01-01',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
@@ -4731,26 +5353,33 @@ class Rkvstore extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ModifyActiveOperationTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ModifyActiveOperationTaskResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ModifyActiveOperationTasksRequest $request
+     * 11111,22222.
+     *   *
+     * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
      *
-     * @return ModifyActiveOperationTasksResponse
+     * @return ModifyActiveOperationTaskResponse ModifyActiveOperationTaskResponse
      */
-    public function modifyActiveOperationTasks($request)
+    public function modifyActiveOperationTask($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->modifyActiveOperationTasksWithOptions($request, $runtime);
+        return $this->modifyActiveOperationTaskWithOptions($request, $runtime);
     }
 
     /**
-     * @param ModifyAuditLogConfigRequest $request
-     * @param RuntimeOptions              $runtime
+     * Specifies whether to enable the audit log feature. Default value: true. Valid values:
+     *   * *   **true**: enables the audit log feature.
+     *   * *   **false**: disables the audit log feature.
+     *   * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+     *   *
+     * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyAuditLogConfigResponse
+     * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
      */
     public function modifyAuditLogConfigWithOptions($request, $runtime)
     {
@@ -4799,9 +5428,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyAuditLogConfigRequest $request
+     * Specifies whether to enable the audit log feature. Default value: true. Valid values:
+     *   * *   **true**: enables the audit log feature.
+     *   * *   **false**: disables the audit log feature.
+     *   * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+     *   *
+     * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      *
-     * @return ModifyAuditLogConfigResponse
+     * @return ModifyAuditLogConfigResponse ModifyAuditLogConfigResponse
      */
     public function modifyAuditLogConfig($request)
     {
@@ -4878,10 +5512,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
-     * @param RuntimeOptions                          $runtime
+     * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
+     *   *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionStringWithOptions($request, $runtime)
     {
@@ -4936,9 +5572,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBInstanceConnectionStringRequest $request
+     * You can also modify the endpoint or port number of an instance in the ApsaraDB for Redis console. For more information, see [Change the endpoint or port number of an instance](~~85683~~).
+     *   *
+     * @param ModifyDBInstanceConnectionStringRequest $request ModifyDBInstanceConnectionStringRequest
      *
-     * @return ModifyDBInstanceConnectionStringResponse
+     * @return ModifyDBInstanceConnectionStringResponse ModifyDBInstanceConnectionStringResponse
      */
     public function modifyDBInstanceConnectionString($request)
     {
@@ -4948,10 +5586,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * uW8+nsrp.
+     *   *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttributeWithOptions($request, $runtime)
     {
@@ -5003,9 +5643,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAttributeRequest $request
+     * uW8+nsrp.
+     *   *
+     * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
-     * @return ModifyInstanceAttributeResponse
+     * @return ModifyInstanceAttributeResponse ModifyInstanceAttributeResponse
      */
     public function modifyInstanceAttribute($request)
     {
@@ -5015,10 +5657,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
-     * @param RuntimeOptions                            $runtime
+     * > Auto-renewal is triggered seven days before the expiration date of the instance.
+     *   *
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
      */
     public function modifyInstanceAutoRenewalAttributeWithOptions($request, $runtime)
     {
@@ -5067,9 +5711,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceAutoRenewalAttributeRequest $request
+     * > Auto-renewal is triggered seven days before the expiration date of the instance.
+     *   *
+     * @param ModifyInstanceAutoRenewalAttributeRequest $request ModifyInstanceAutoRenewalAttributeRequest
      *
-     * @return ModifyInstanceAutoRenewalAttributeResponse
+     * @return ModifyInstanceAutoRenewalAttributeResponse ModifyInstanceAutoRenewalAttributeResponse
      */
     public function modifyInstanceAutoRenewalAttribute($request)
     {
@@ -5204,10 +5850,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMajorVersionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceMajorVersionResponse
+     * @return ModifyInstanceMajorVersionResponse ModifyInstanceMajorVersionResponse
      */
     public function modifyInstanceMajorVersionWithOptions($request, $runtime)
     {
@@ -5256,9 +5904,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMajorVersionRequest $request
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
      *
-     * @return ModifyInstanceMajorVersionResponse
+     * @return ModifyInstanceMajorVersionResponse ModifyInstanceMajorVersionResponse
      */
     public function modifyInstanceMajorVersion($request)
     {
@@ -5268,10 +5918,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMinorVersionRequest $request
-     * @param RuntimeOptions                    $runtime
+     * The ID of the instance.
+     *   *
+     * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceMinorVersionResponse
+     * @return ModifyInstanceMinorVersionResponse ModifyInstanceMinorVersionResponse
      */
     public function modifyInstanceMinorVersionWithOptions($request, $runtime)
     {
@@ -5320,9 +5972,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMinorVersionRequest $request
+     * The ID of the instance.
+     *   *
+     * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
      *
-     * @return ModifyInstanceMinorVersionResponse
+     * @return ModifyInstanceMinorVersionResponse ModifyInstanceMinorVersionResponse
      */
     public function modifyInstanceMinorVersion($request)
     {
@@ -5332,10 +5986,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNetExpireTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
+     *   * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
+     *   *
+     * @param ModifyInstanceNetExpireTimeRequest $request ModifyInstanceNetExpireTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceNetExpireTimeResponse
+     * @return ModifyInstanceNetExpireTimeResponse ModifyInstanceNetExpireTimeResponse
      */
     public function modifyInstanceNetExpireTimeWithOptions($request, $runtime)
     {
@@ -5384,9 +6041,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceNetExpireTimeRequest $request
+     * You can also perform this operation in the ApsaraDB for Redis console. For more information, see [Change the expiration time for the endpoint of the classic network](~~60062~~).
+     *   * > For more information about how to switch the network type of an ApsaraDB for Redis instance from classic network to VPC, see [SwitchNetwork](~~61005~~).
+     *   *
+     * @param ModifyInstanceNetExpireTimeRequest $request ModifyInstanceNetExpireTimeRequest
      *
-     * @return ModifyInstanceNetExpireTimeResponse
+     * @return ModifyInstanceNetExpireTimeResponse ModifyInstanceNetExpireTimeResponse
      */
     public function modifyInstanceNetExpireTime($request)
     {
@@ -5396,10 +6056,79 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSSLRequest $request
-     * @param RuntimeOptions           $runtime
+     * @param ModifyInstanceParameterRequest $request
+     * @param RuntimeOptions                 $runtime
      *
-     * @return ModifyInstanceSSLResponse
+     * @return ModifyInstanceParameterResponse
+     */
+    public function modifyInstanceParameterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameterGroupId)) {
+            $query['ParameterGroupId'] = $request->parameterGroupId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyInstanceParameter',
+            'version'     => '2015-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyInstanceParameterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyInstanceParameterRequest $request
+     *
+     * @return ModifyInstanceParameterResponse
+     */
+    public function modifyInstanceParameter($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyInstanceParameterWithOptions($request, $runtime);
+    }
+
+    /**
+     * Modifies SSL encryption configurations. Valid values:
+     *   * *   **Disable**: The SSL encryption is disabled.
+     *   * *   **Enable**: The SSL encryption is enabled.
+     *   * *   **Update**: The SSL certificate is updated.
+     *   *
+     * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
      */
     public function modifyInstanceSSLWithOptions($request, $runtime)
     {
@@ -5445,9 +6174,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSSLRequest $request
+     * Modifies SSL encryption configurations. Valid values:
+     *   * *   **Disable**: The SSL encryption is disabled.
+     *   * *   **Enable**: The SSL encryption is enabled.
+     *   * *   **Update**: The SSL certificate is updated.
+     *   *
+     * @param ModifyInstanceSSLRequest $request ModifyInstanceSSLRequest
      *
-     * @return ModifyInstanceSSLResponse
+     * @return ModifyInstanceSSLResponse ModifyInstanceSSLResponse
      */
     public function modifyInstanceSSL($request)
     {
@@ -5457,10 +6191,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSpecRequest $request
-     * @param RuntimeOptions            $runtime
+     * The ID of the promotional event or business information.
+     *   *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpecWithOptions($request, $runtime)
     {
@@ -5480,6 +6216,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->effectiveTime)) {
             $query['EffectiveTime'] = $request->effectiveTime;
+        }
+        if (!Utils::isUnset($request->forceTrans)) {
+            $query['ForceTrans'] = $request->forceTrans;
         }
         if (!Utils::isUnset($request->forceUpgrade)) {
             $query['ForceUpgrade'] = $request->forceUpgrade;
@@ -5517,6 +6256,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->shardCount)) {
+            $query['ShardCount'] = $request->shardCount;
+        }
         if (!Utils::isUnset($request->sourceBiz)) {
             $query['SourceBiz'] = $request->sourceBiz;
         }
@@ -5539,9 +6281,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceSpecRequest $request
+     * The ID of the promotional event or business information.
+     *   *
+     * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      *
-     * @return ModifyInstanceSpecResponse
+     * @return ModifyInstanceSpecResponse ModifyInstanceSpecResponse
      */
     public function modifyInstanceSpec($request)
     {
@@ -5551,10 +6295,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTDERequest $request
-     * @param RuntimeOptions           $runtime
+     * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
+     *   *
+     * @param ModifyInstanceTDERequest $request ModifyInstanceTDERequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceTDEResponse
+     * @return ModifyInstanceTDEResponse ModifyInstanceTDEResponse
      */
     public function modifyInstanceTDEWithOptions($request, $runtime)
     {
@@ -5609,9 +6355,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceTDERequest $request
+     * > For more information about TDE and the impact of TDE, see [Enable TDE](~~265913~~).
+     *   *
+     * @param ModifyInstanceTDERequest $request ModifyInstanceTDERequest
      *
-     * @return ModifyInstanceTDEResponse
+     * @return ModifyInstanceTDEResponse ModifyInstanceTDEResponse
      */
     public function modifyInstanceTDE($request)
     {
@@ -5621,10 +6369,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceVpcAuthModeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * The ID of the request.
+     *   *
+     * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceVpcAuthModeResponse
+     * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
      */
     public function modifyInstanceVpcAuthModeWithOptions($request, $runtime)
     {
@@ -5670,9 +6420,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceVpcAuthModeRequest $request
+     * The ID of the request.
+     *   *
+     * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
-     * @return ModifyInstanceVpcAuthModeResponse
+     * @return ModifyInstanceVpcAuthModeResponse ModifyInstanceVpcAuthModeResponse
      */
     public function modifyInstanceVpcAuthMode($request)
     {
@@ -5682,10 +6434,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyIntranetAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * >
+     *   * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
+     *   *
+     * @param ModifyIntranetAttributeRequest $request ModifyIntranetAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyIntranetAttributeResponse
+     * @return ModifyIntranetAttributeResponse ModifyIntranetAttributeResponse
      */
     public function modifyIntranetAttributeWithOptions($request, $runtime)
     {
@@ -5734,9 +6489,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyIntranetAttributeRequest $request
+     * >
+     *   * *   This operation is applicable only to an ApsaraDB for Redis instance that is deployed in a dedicated cluster. To adjust the bandwidth of a standard ApsaraDB for Redis instance, call the [EnableAdditionalBandwidth](~~206173~~) operation.
+     *   *
+     * @param ModifyIntranetAttributeRequest $request ModifyIntranetAttributeRequest
      *
-     * @return ModifyIntranetAttributeResponse
+     * @return ModifyIntranetAttributeResponse ModifyIntranetAttributeResponse
      */
     public function modifyIntranetAttribute($request)
     {
@@ -5746,89 +6504,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyNodeSpecRequest $request
-     * @param RuntimeOptions        $runtime
+     * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
+     *   * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
+     *   *
+     * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyNodeSpecResponse
-     */
-    public function modifyNodeSpecWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->autoPay)) {
-            $query['AutoPay'] = $request->autoPay;
-        }
-        if (!Utils::isUnset($request->businessInfo)) {
-            $query['BusinessInfo'] = $request->businessInfo;
-        }
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
-        }
-        if (!Utils::isUnset($request->instanceClass)) {
-            $query['InstanceClass'] = $request->instanceClass;
-        }
-        if (!Utils::isUnset($request->instanceId)) {
-            $query['InstanceId'] = $request->instanceId;
-        }
-        if (!Utils::isUnset($request->nodeId)) {
-            $query['NodeId'] = $request->nodeId;
-        }
-        if (!Utils::isUnset($request->orderType)) {
-            $query['OrderType'] = $request->orderType;
-        }
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        if (!Utils::isUnset($request->securityToken)) {
-            $query['SecurityToken'] = $request->securityToken;
-        }
-        if (!Utils::isUnset($request->switchTimeMode)) {
-            $query['SwitchTimeMode'] = $request->switchTimeMode;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ModifyNodeSpec',
-            'version'     => '2015-01-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return ModifyNodeSpecResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ModifyNodeSpecRequest $request
-     *
-     * @return ModifyNodeSpecResponse
-     */
-    public function modifyNodeSpec($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->modifyNodeSpecWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param ModifyResourceGroupRequest $request
-     * @param RuntimeOptions             $runtime
-     *
-     * @return ModifyResourceGroupResponse
+     * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
      */
     public function modifyResourceGroupWithOptions($request, $runtime)
     {
@@ -5877,9 +6559,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyResourceGroupRequest $request
+     * Resource groups allow you to sort resources owned by your Alibaba Cloud account into groups. This simplifies resource and permission management within your Alibaba Cloud account. For more information, see [What is Resource Management?](~~94475~~)
+     *   * > For more information about resource group API operations, see [Resource Management API overview](~~160024~~).
+     *   *
+     * @param ModifyResourceGroupRequest $request ModifyResourceGroupRequest
      *
-     * @return ModifyResourceGroupResponse
+     * @return ModifyResourceGroupResponse ModifyResourceGroupResponse
      */
     public function modifyResourceGroup($request)
     {
@@ -5889,10 +6574,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityGroupConfigurationRequest $request
-     * @param RuntimeOptions                          $runtime
+     * The ID of the request.
+     *   *
+     * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityGroupConfigurationResponse
+     * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
      */
     public function modifySecurityGroupConfigurationWithOptions($request, $runtime)
     {
@@ -5938,9 +6625,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityGroupConfigurationRequest $request
+     * The ID of the request.
+     *   *
+     * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
-     * @return ModifySecurityGroupConfigurationResponse
+     * @return ModifySecurityGroupConfigurationResponse ModifySecurityGroupConfigurationResponse
      */
     public function modifySecurityGroupConfiguration($request)
     {
@@ -5950,10 +6639,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
-     * @param RuntimeOptions           $runtime
+     * The IP addresses in the whitelist group. Up to 1,000 IP addresses can be specified in each whitelist. Separate multiple IP addresses with a comma (,). You can add 0.0.0.0/0, IP addresses such as 10.23.12.24, and Classless Inter-Domain Routing (CIDR) blocks such as 10.23.12.24/24 to the whitelist group. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix in the IP addresses. The prefix length ranges from 1 to 32.
+     *   *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIpsWithOptions($request, $runtime)
     {
@@ -6008,9 +6699,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifySecurityIpsRequest $request
+     * The IP addresses in the whitelist group. Up to 1,000 IP addresses can be specified in each whitelist. Separate multiple IP addresses with a comma (,). You can add 0.0.0.0/0, IP addresses such as 10.23.12.24, and Classless Inter-Domain Routing (CIDR) blocks such as 10.23.12.24/24 to the whitelist group. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix in the IP addresses. The prefix length ranges from 1 to 32.
+     *   *
+     * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *
-     * @return ModifySecurityIpsResponse
+     * @return ModifySecurityIpsResponse ModifySecurityIpsResponse
      */
     public function modifySecurityIps($request)
     {
@@ -6020,10 +6713,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ReleaseDirectConnectionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
+     *   *
+     * @param ReleaseDirectConnectionRequest $request ReleaseDirectConnectionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseDirectConnectionResponse
+     * @return ReleaseDirectConnectionResponse ReleaseDirectConnectionResponse
      */
     public function releaseDirectConnectionWithOptions($request, $runtime)
     {
@@ -6066,9 +6761,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ReleaseDirectConnectionRequest $request
+     * In direct connection mode, clients can bypass proxy nodes and use private endpoints to connect to ApsaraDB for Redis instances. This is similar to the connection to a native Redis cluster. The direct connection mode can reduce communication overheads and the response time of ApsaraDB for Redis. For more information, see [Enable the direct connection mode](~~146901~~).
+     *   *
+     * @param ReleaseDirectConnectionRequest $request ReleaseDirectConnectionRequest
      *
-     * @return ReleaseDirectConnectionResponse
+     * @return ReleaseDirectConnectionResponse ReleaseDirectConnectionResponse
      */
     public function releaseDirectConnection($request)
     {
@@ -6078,10 +6775,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
-     * @param RuntimeOptions                         $runtime
+     * The ID of the request.
+     *   *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnectionWithOptions($request, $runtime)
     {
@@ -6127,9 +6826,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ReleaseInstancePublicConnectionRequest $request
+     * The ID of the request.
+     *   *
+     * @param ReleaseInstancePublicConnectionRequest $request ReleaseInstancePublicConnectionRequest
      *
-     * @return ReleaseInstancePublicConnectionResponse
+     * @return ReleaseInstancePublicConnectionResponse ReleaseInstancePublicConnectionResponse
      */
     public function releaseInstancePublicConnection($request)
     {
@@ -6139,10 +6840,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RemoveSubInstanceRequest $request
-     * @param RuntimeOptions           $runtime
+     * The operation that you want to perform. Set the value to **RemoveSubInstance**.
+     *   *
+     * @param RemoveSubInstanceRequest $request RemoveSubInstanceRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveSubInstanceResponse
+     * @return RemoveSubInstanceResponse RemoveSubInstanceResponse
      */
     public function removeSubInstanceWithOptions($request, $runtime)
     {
@@ -6185,9 +6888,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RemoveSubInstanceRequest $request
+     * The operation that you want to perform. Set the value to **RemoveSubInstance**.
+     *   *
+     * @param RemoveSubInstanceRequest $request RemoveSubInstanceRequest
      *
-     * @return RemoveSubInstanceResponse
+     * @return RemoveSubInstanceResponse RemoveSubInstanceResponse
      */
     public function removeSubInstance($request)
     {
@@ -6197,10 +6902,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RenewAdditionalBandwidthRequest $request
-     * @param RuntimeOptions                  $runtime
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+     *   * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+     *   *
+     * @param RenewAdditionalBandwidthRequest $request RenewAdditionalBandwidthRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewAdditionalBandwidthResponse
+     * @return RenewAdditionalBandwidthResponse RenewAdditionalBandwidthResponse
      */
     public function renewAdditionalBandwidthWithOptions($request, $runtime)
     {
@@ -6255,9 +6964,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RenewAdditionalBandwidthRequest $request
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of ApsaraDB for Redis.
+     *   * You can adjust the bandwidth of an instance in the ApsaraDB for Redis console. For more information, see [Adjust the bandwidth of an ApsaraDB for Redis instance](~~102588~~). You can also call the [EnableAdditionalBandwidth](~~206173~~) operation to adjust the bandwidth of an instance. If you want to continue using the bandwidth that you purchase after the validity period of the bandwidth, you must call the RenewAdditionalBandwidth operation to renew the bandwidth before the bandwidth expires.
+     *   * > Before you call this operation, you can call the [DescribeIntranetAttribute](~~128715~~) operation, which returns the expiration time of the purchased bandwidth in the **BandwidthExpireTime** parameter.
+     *   *
+     * @param RenewAdditionalBandwidthRequest $request RenewAdditionalBandwidthRequest
      *
-     * @return RenewAdditionalBandwidthResponse
+     * @return RenewAdditionalBandwidthResponse RenewAdditionalBandwidthResponse
      */
     public function renewAdditionalBandwidth($request)
     {
@@ -6267,10 +6980,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
-     * @param RuntimeOptions       $runtime
+     * This operation is applicable only to subscription instances.
+     *   *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstanceWithOptions($request, $runtime)
     {
@@ -6337,9 +7052,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RenewInstanceRequest $request
+     * This operation is applicable only to subscription instances.
+     *   *
+     * @param RenewInstanceRequest $request RenewInstanceRequest
      *
-     * @return RenewInstanceResponse
+     * @return RenewInstanceResponse RenewInstanceResponse
      */
     public function renewInstance($request)
     {
@@ -6349,10 +7066,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
-     * @param RuntimeOptions              $runtime
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPasswordWithOptions($request, $runtime)
     {
@@ -6401,9 +7120,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountPasswordRequest $request
+     * r-bp1zxszhcgatnx****.
+     *   *
+     * @param ResetAccountPasswordRequest $request ResetAccountPasswordRequest
      *
-     * @return ResetAccountPasswordResponse
+     * @return ResetAccountPasswordResponse ResetAccountPasswordResponse
      */
     public function resetAccountPassword($request)
     {
@@ -6477,10 +7198,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RestoreInstanceRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+     *   * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
+     *   *
+     * @param RestoreInstanceRequest $request RestoreInstanceRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestoreInstanceResponse
+     * @return RestoreInstanceResponse RestoreInstanceResponse
      */
     public function restoreInstanceWithOptions($request, $runtime)
     {
@@ -6516,6 +7240,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->securityToken)) {
             $query['SecurityToken'] = $request->securityToken;
         }
+        if (!Utils::isUnset($request->timeShift)) {
+            $query['TimeShift'] = $request->timeShift;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -6535,9 +7262,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param RestoreInstanceRequest $request
+     * *   If your instance is a [persistent memory-optimized instance](~~443828~~) or [DRAM-based instance](~~443827~~) that is compatible with Redis 5.0 and the [data flashback](~~443784~~) feature is enabled, you can call this operation to restore the data of a specified key to a specified point in time that is accurate to the second. Other keys are not affected. This way, you can achieve more fine-grained data restoration.
+     *   * *   For other instance series, this operation overwrites the existing data of your instance with the backup data. Proceed with caution. We recommend that you call the [CreateInstance](~~60873~~) operation to create an instance. Then, you can restore data to the new instance.
+     *   *
+     * @param RestoreInstanceRequest $request RestoreInstanceRequest
      *
-     * @return RestoreInstanceResponse
+     * @return RestoreInstanceResponse RestoreInstanceResponse
      */
     public function restoreInstance($request)
     {
@@ -6547,10 +7277,16 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SwitchInstanceHARequest $request
-     * @param RuntimeOptions          $runtime
+     * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
+     *   * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
+     *   * A call to this operation has the following impacts on your instance:
+     *   * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+     *   * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+     *   *
+     * @param SwitchInstanceHARequest $request SwitchInstanceHARequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchInstanceHAResponse
+     * @return SwitchInstanceHAResponse SwitchInstanceHAResponse
      */
     public function switchInstanceHAWithOptions($request, $runtime)
     {
@@ -6602,9 +7338,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SwitchInstanceHARequest $request
+     * > For more information about nearby access to applications that are deployed across zones, see [Switch node roles](~~164222~~).
+     *   * The instance must be an ApsaraDB for Redis Community Edition instance or Enhanced Edition (Tair) [DRAM-based](~~126164~~) instance that uses local disks.
+     *   * A call to this operation has the following impacts on your instance:
+     *   * *   The data shards in the instance may change to the read-only state and experience transient connections within seconds. Make sure that your application is configured to automatically reconnect to the instance.
+     *   * *   If the instance enters the switching state, you cannot manage this instance. For example, you cannot modify the instance configurations or migrate the instance to another zone.
+     *   *
+     * @param SwitchInstanceHARequest $request SwitchInstanceHARequest
      *
-     * @return SwitchInstanceHAResponse
+     * @return SwitchInstanceHAResponse SwitchInstanceHAResponse
      */
     public function switchInstanceHA($request)
     {
@@ -6614,10 +7356,15 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SwitchInstanceProxyRequest $request
-     * @param RuntimeOptions             $runtime
+     * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
+     *   * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+     *   * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
+     *   * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+     *   *
+     * @param SwitchInstanceProxyRequest $request SwitchInstanceProxyRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return SwitchInstanceProxyResponse
+     * @return SwitchInstanceProxyResponse SwitchInstanceProxyResponse
      */
     public function switchInstanceProxyWithOptions($request, $runtime)
     {
@@ -6660,9 +7407,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param SwitchInstanceProxyRequest $request
+     * For more information about the proxy mode, see [Features of proxy nodes](~~142959~~). Before you call this operation, make sure that the following requirements are met:
+     *   * *   Your ApsaraDB for Redis instance is created by using a dedicated cluster. For more information, see [What is ApsaraDB MyBase?](~~141455~~)
+     *   * *   The instance uses the cluster architecture. For more information about the cluster architecture, see [Cluster master-replica instances](~~52228~~).
+     *   * > Before you call the SwitchInstanceProxy operation, you must call the [DescribeDedicatedClusterInstanceList](~~229522~~) operation and view the value of the **ProxyCount** response parameter to check whether the proxy mode is enabled. A value of 0 indicates that the proxy mode is disabled. A value that is greater than 0 indicates that the proxy mode is enabled.
+     *   *
+     * @param SwitchInstanceProxyRequest $request SwitchInstanceProxyRequest
      *
-     * @return SwitchInstanceProxyResponse
+     * @return SwitchInstanceProxyResponse SwitchInstanceProxyResponse
      */
     public function switchInstanceProxy($request)
     {
@@ -6812,10 +7564,18 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
-     * @param RuntimeOptions      $runtime
+     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     *   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+     *   * *   You can add up to 20 tags to each instance.
+     *   * *   You can add tags to up to 50 instances in each request.
+     *   * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResourcesWithOptions($request, $runtime)
     {
@@ -6864,9 +7624,17 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param TagResourcesRequest $request
+     * If you have a large number of instances, you can create multiple tags and add these tags to the instances. Then, you can filter instances by tag.
+     *   * *   A tag consists of a key and a value. Each key must be unique in a region for an Alibaba Cloud account. Different keys can be mapped to the same value.
+     *   * *   If the tag that you specify does not exist, this tag is automatically created and added to the specified instance.
+     *   * *   If the key of the specified tag is the same as that of an existing tag, the specified tag overwrites the existing tag.
+     *   * *   You can add up to 20 tags to each instance.
+     *   * *   You can add tags to up to 50 instances in each request.
+     *   * You can also add tags to instances in the ApsaraDB for Redis console. For more information, see [Create a tag](~~118779~~).
+     *   *
+     * @param TagResourcesRequest $request TagResourcesRequest
      *
-     * @return TagResourcesResponse
+     * @return TagResourcesResponse TagResourcesResponse
      */
     public function tagResources($request)
     {
@@ -6876,10 +7644,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param TransformInstanceChargeTypeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * 1.
+     *   *
+     * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransformInstanceChargeTypeResponse
+     * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
      */
     public function transformInstanceChargeTypeWithOptions($request, $runtime)
     {
@@ -6888,14 +7658,8 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->autoPay)) {
             $query['AutoPay'] = $request->autoPay;
         }
-        if (!Utils::isUnset($request->businessInfo)) {
-            $query['BusinessInfo'] = $request->businessInfo;
-        }
         if (!Utils::isUnset($request->chargeType)) {
             $query['ChargeType'] = $request->chargeType;
-        }
-        if (!Utils::isUnset($request->couponNo)) {
-            $query['CouponNo'] = $request->couponNo;
         }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
@@ -6937,9 +7701,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param TransformInstanceChargeTypeRequest $request
+     * 1.
+     *   *
+     * @param TransformInstanceChargeTypeRequest $request TransformInstanceChargeTypeRequest
      *
-     * @return TransformInstanceChargeTypeResponse
+     * @return TransformInstanceChargeTypeResponse TransformInstanceChargeTypeResponse
      */
     public function transformInstanceChargeType($request)
     {
@@ -6949,10 +7715,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param TransformToPrePaidRequest $request
-     * @param RuntimeOptions            $runtime
+     * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *   *
+     * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransformToPrePaidResponse
+     * @return TransformToPrePaidResponse TransformToPrePaidResponse
      */
     public function transformToPrePaidWithOptions($request, $runtime)
     {
@@ -7001,9 +7769,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param TransformToPrePaidRequest $request
+     * The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *   *
+     * @param TransformToPrePaidRequest $request TransformToPrePaidRequest
      *
-     * @return TransformToPrePaidResponse
+     * @return TransformToPrePaidResponse TransformToPrePaidResponse
      */
     public function transformToPrePaid($request)
     {
@@ -7013,10 +7783,14 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
-     * @param RuntimeOptions        $runtime
+     * *   You can remove up to 20 tags at a time.
+     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+     *   * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResourcesWithOptions($request, $runtime)
     {
@@ -7068,9 +7842,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param UntagResourcesRequest $request
+     * *   You can remove up to 20 tags at a time.
+     *   * *   If a tag is removed from an instance and is not added to other instances, the tag is deleted.
+     *   * You can also remove tags from instances in the ApsaraDB for Redis console. For more information, see [Remove a tag](~~119157~~).
+     *   *
+     * @param UntagResourcesRequest $request UntagResourcesRequest
      *
-     * @return UntagResourcesResponse
+     * @return UntagResourcesResponse UntagResourcesResponse
      */
     public function untagResources($request)
     {

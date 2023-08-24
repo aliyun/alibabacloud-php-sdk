@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class templateRecord extends Model
 {
     /**
+     * @description The number of parameters that are supported by the instance.
+     *
+     * @example [yes|no]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description DescribeParameterTemplates
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceModify;
 
     /**
+     * @description Queries the parameters and default values of an ApsaraDB for Redis instance that runs a specific major version in a specific architecture.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forceRestart;
@@ -29,11 +41,20 @@ class templateRecord extends Model
     public $parameterDescription;
 
     /**
+     * @description 5.0
+     *
+     * @example appendonly
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
+     *
+     * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](~~151181~~).
+     * @example yes
+     *
      * @var string
      */
     public $parameterValue;

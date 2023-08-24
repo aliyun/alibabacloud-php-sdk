@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the node.
+     *
+     * > You can set this parameter to query the parameter settings of the specified node in a cluster instance.
+     * @example r-bp1xxxxxxxxxxxxx-db-0
+     *
      * @var string
      */
     public $nodeId;
@@ -29,6 +38,10 @@ class DescribeParametersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

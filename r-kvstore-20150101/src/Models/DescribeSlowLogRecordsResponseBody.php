@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @description The database engine that the instance runs.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp10n********
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Details of slow log entries.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of log entries returned on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The maximum number of log entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 686BB8A6-BBA5-47E5-8A75-D2ADE433****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the query.
+     *
+     * @example 2019-03-10T13:11Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total number of returned log entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNetExpireTimeRequest extends Model
 {
     /**
+     * @description The extension period to retain the classic network endpoint of the instance. Unit: days. Valid values: **14**, **30**, **60**, and **120**.
+     *
+     * @example 14
+     *
      * @var int
      */
     public $classicExpiredDays;
 
     /**
+     * @description The endpoint of the classic network.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

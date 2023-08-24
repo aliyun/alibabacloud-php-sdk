@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class supportedSeriesType extends Model
 {
     /**
+     * @description The instance series. Valid values:
+     *
+     *   **enhanced_performance_type**: ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance
+     *   **hybrid_storage**: ApsaraDB for Redis Community Edition hybrid-storage instance
+     *
+     * @example enhanced_performance_type
+     *
      * @var string
      */
     public $seriesType;
 
     /**
+     * @description The available engine versions.
+     *
      * @var supportedEngineVersions
      */
     public $supportedEngineVersions;

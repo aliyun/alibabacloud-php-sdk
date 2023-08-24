@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesResponseBody extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The default value of the parameter.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The architecture of the instance. For more information, see [Overview](~~86132~~). Valid values:
+     *
+     *   **logic**: The instance is a cluster master-replica instance or a read/write splitting instance.
+     *   **normal**: The instance is a standard master-replica instance.
+     *
+     * @example 24
+     *
      * @var string
      */
     public $parameterCount;
 
     /**
+     * @description Redis
+     *
      * @var parameters
      */
     public $parameters;
 
     /**
+     * @description The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](~~259681~~).
+     *
+     * @example 9DA28D8E-514D-4F12-ADED-70A9C818****
+     *
      * @var string
      */
     public $requestId;

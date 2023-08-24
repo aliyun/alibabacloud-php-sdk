@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class subOrder extends Model
 {
     /**
+     * @example 0.21
+     *
      * @var string
      */
     public $discountAmount;
 
     /**
+     * @example r-bp1xxxxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 0.21
+     *
      * @var string
      */
     public $originalAmount;
@@ -30,6 +36,8 @@ class subOrder extends Model
     public $ruleIds;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $tradeAmount;

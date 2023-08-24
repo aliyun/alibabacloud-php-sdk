@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class SwitchInstanceHARequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the data shard. You can call the [DescribeRoleZoneInfo](~~190794~~) operation to obtain the value of the CustinsId parameter. Separate multiple data shard IDs with commas (,). `all` indicates that all data shards are specified.
+     *
+     * > This parameter is available and required only for read/write splitting and cluster instances.
+     * @example 56****19,56****20
+     *
      * @var string
      */
     public $nodeId;
@@ -44,11 +53,27 @@ class SwitchInstanceHARequest extends Model
     public $securityToken;
 
     /**
+     * @description The time when to perform the switchover. Default value: 0. Valid values:
+     *
+     *   **0**: immediately performs the switchover.
+     *   **1**: performs the switchover during the maintenance window.
+     *
+     * > You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
+     * @example 0
+     *
      * @var int
      */
     public $switchMode;
 
     /**
+     * @description The switching mode. Valid values:
+     *
+     *   **AvailablePriority**: prioritizes the availability and performs a switchover immediately without considering the latency of data synchronization between the master and replica nodes. This may cause data loss.
+     *   **ReliabilityPriority**: prioritizes the reliability and performs a switchover after no latency of data synchronization between the master and replica nodes exists. This ensures data integrity. This mode may cause a switchover failure in scenarios that involve a large volume of data writes and persistent latency of data synchronization.
+     *
+     * > You must evaluate the requirements for data and services based on your business scenarios and then select a switching mode.
+     * @example AvailablePriority
+     *
      * @var string
      */
     public $switchType;

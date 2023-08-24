@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RestartInstanceRequest extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The operation that you want to perform. Set the value to **RestartInstance**.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -44,6 +52,8 @@ class RestartInstanceRequest extends Model
     public $securityToken;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $upgradeMinorVersion;

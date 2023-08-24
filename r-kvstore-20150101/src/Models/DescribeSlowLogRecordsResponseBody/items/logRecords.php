@@ -9,46 +9,82 @@ use AlibabaCloud\Tea\Model;
 class logRecords extends Model
 {
     /**
+     * @description The ID of the account.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $account;
 
     /**
+     * @description The username of the account.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The slow query statement.
+     *
+     * @example KEYS *
+     *
      * @var string
      */
     public $command;
 
     /**
+     * @description The name of the database.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The name of the database, which serves the same purpose as the **DBName** parameter. We recommend that you use the value of the **DBName** parameter.
+     *
+     * @example -1
+     *
      * @var string
      */
     public $dataBaseName;
 
     /**
+     * @description The amount of time consumed to execute the slow query statement. Unit: microseconds.
+     *
+     * @example 248
+     *
      * @var int
      */
     public $elapsedTime;
 
     /**
+     * @description The start time when the slow query statement was executed. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format.
+     *
+     * @example 2019-03-20T09:18:41Z
+     *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 172.16.88.***
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;

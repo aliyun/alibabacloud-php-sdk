@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
+     * @description 2020-11-26T01:00Z
+     *
+     * @example 2020-11-26T01:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The identifier of the task.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -29,11 +37,19 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeTasks**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,11 +70,19 @@ class DescribeTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2020-11-20T01:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $status;

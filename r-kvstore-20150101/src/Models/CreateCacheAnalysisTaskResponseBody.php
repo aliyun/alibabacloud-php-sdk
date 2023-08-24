@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCacheAnalysisTaskResponseBody extends Model
 {
     /**
+     * @example BBC1E3D6-7C88-4DF5-9A3D-0DB1E6D9****
+     *
      * @var string
      */
     public $requestId;

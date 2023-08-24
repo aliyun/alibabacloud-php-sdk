@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTDEStatusResponseBody extends Model
 {
     /**
+     * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeInstanceTDEStatus**.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $TDEStatus;

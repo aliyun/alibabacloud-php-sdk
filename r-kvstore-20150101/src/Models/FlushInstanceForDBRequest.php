@@ -6,42 +6,21 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyNodeSpecRequest extends Model
+class FlushInstanceForDBRequest extends Model
 {
     /**
-     * @var bool
+     * @example 1
+     *
+     * @var int
      */
-    public $autoPay;
+    public $dbIndex;
 
     /**
-     * @var string
-     */
-    public $businessInfo;
-
-    /**
-     * @var string
-     */
-    public $couponNo;
-
-    /**
-     * @var string
-     */
-    public $instanceClass;
-
-    /**
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
-
-    /**
-     * @var string
-     */
-    public $orderType;
 
     /**
      * @var string
@@ -67,25 +46,14 @@ class ModifyNodeSpecRequest extends Model
      * @var string
      */
     public $securityToken;
-
-    /**
-     * @var string
-     */
-    public $switchTimeMode;
     protected $_name = [
-        'autoPay'              => 'AutoPay',
-        'businessInfo'         => 'BusinessInfo',
-        'couponNo'             => 'CouponNo',
-        'instanceClass'        => 'InstanceClass',
+        'dbIndex'              => 'DbIndex',
         'instanceId'           => 'InstanceId',
-        'nodeId'               => 'NodeId',
-        'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
-        'switchTimeMode'       => 'SwitchTimeMode',
     ];
 
     public function validate()
@@ -95,26 +63,11 @@ class ModifyNodeSpecRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->autoPay) {
-            $res['AutoPay'] = $this->autoPay;
-        }
-        if (null !== $this->businessInfo) {
-            $res['BusinessInfo'] = $this->businessInfo;
-        }
-        if (null !== $this->couponNo) {
-            $res['CouponNo'] = $this->couponNo;
-        }
-        if (null !== $this->instanceClass) {
-            $res['InstanceClass'] = $this->instanceClass;
+        if (null !== $this->dbIndex) {
+            $res['DbIndex'] = $this->dbIndex;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
-        }
-        if (null !== $this->orderType) {
-            $res['OrderType'] = $this->orderType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -131,9 +84,6 @@ class ModifyNodeSpecRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
-        if (null !== $this->switchTimeMode) {
-            $res['SwitchTimeMode'] = $this->switchTimeMode;
-        }
 
         return $res;
     }
@@ -141,31 +91,16 @@ class ModifyNodeSpecRequest extends Model
     /**
      * @param array $map
      *
-     * @return ModifyNodeSpecRequest
+     * @return FlushInstanceForDBRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AutoPay'])) {
-            $model->autoPay = $map['AutoPay'];
-        }
-        if (isset($map['BusinessInfo'])) {
-            $model->businessInfo = $map['BusinessInfo'];
-        }
-        if (isset($map['CouponNo'])) {
-            $model->couponNo = $map['CouponNo'];
-        }
-        if (isset($map['InstanceClass'])) {
-            $model->instanceClass = $map['InstanceClass'];
+        if (isset($map['DbIndex'])) {
+            $model->dbIndex = $map['DbIndex'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
-        }
-        if (isset($map['OrderType'])) {
-            $model->orderType = $map['OrderType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -181,9 +116,6 @@ class ModifyNodeSpecRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['SwitchTimeMode'])) {
-            $model->switchTimeMode = $map['SwitchTimeMode'];
         }
 
         return $model;

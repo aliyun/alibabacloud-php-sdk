@@ -19,26 +19,36 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public $hotKeys;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example A057C066-C3F5-4CC9-9FE4-A8D8B0DC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 160
+     *
      * @var int
      */
     public $totalRecordCount;

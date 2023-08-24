@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class RenewAdditionalBandwidthResponseBody extends Model
 {
     /**
+     * @description The ID of the order.
+     *
+     * @example 2084452111111
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example D622714-AEDD-4609-9167-F5DDD3D1****
+     *
      * @var string
      */
     public $requestId;

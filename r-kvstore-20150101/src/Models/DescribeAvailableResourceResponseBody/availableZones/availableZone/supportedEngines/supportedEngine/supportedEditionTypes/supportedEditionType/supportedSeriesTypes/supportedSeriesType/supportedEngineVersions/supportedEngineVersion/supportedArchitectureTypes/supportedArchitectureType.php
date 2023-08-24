@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class supportedArchitectureType extends Model
 {
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **standard**: standard architecture
+     *   **cluster**: cluster architecture
+     *   **rwsplit**: read/write splitting architecture
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $architecture;
 
     /**
+     * @description The numbers of shards that are allowed.
+     *
      * @var supportedShardNumbers
      */
     public $supportedShardNumbers;

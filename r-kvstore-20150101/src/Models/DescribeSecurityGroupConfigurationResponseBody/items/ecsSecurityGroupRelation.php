@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ecsSecurityGroupRelation extends Model
 {
     /**
+     * @example vpc
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description Queries the security groups that are included in the whitelist of an ApsaraDB for Redis instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeSecurityGroupConfiguration**.
+     *
+     * @example sg-bp14p9y07ns3gwq****
+     *
      * @var string
      */
     public $securityGroupId;

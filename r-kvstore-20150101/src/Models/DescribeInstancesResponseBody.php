@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesResponseBody extends Model
 {
     /**
+     * @description Details of the instances.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E83311F-0EE4-4922-A3BF-730B312B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

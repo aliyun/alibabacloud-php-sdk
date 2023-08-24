@@ -9,11 +9,27 @@ use AlibabaCloud\Tea\Model;
 class DeleteShardingNodeRequest extends Model
 {
     /**
+     * @var bool
+     */
+    public $forceTrans;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the data shard that you want to remove. You can specify multiple IDs at a time. Separate multiple IDs with commas (,).
+     *
+     * > If you specify both the NodeId and ShardCount parameters, the system prioritizes the NodeId parameter.
+     * @example r-bp1zxszhcgatnx****-db-0,r-bp1zxszhcgatnx****-db-1
+     *
+     * @deprecated
+     *
      * @var string
      */
     public $nodeId;
@@ -27,11 +43,6 @@ class DeleteShardingNodeRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var int
-     */
-    public $readOnlyCount;
 
     /**
      * @var string
@@ -49,15 +60,20 @@ class DeleteShardingNodeRequest extends Model
     public $securityToken;
 
     /**
+     * @description The number of data shards that you want to remove. Shard removal starts from the end of the shard list.
+     *
+     * > For example, the instance has the following data shards: db-0, db-1, db-2, db-3, and db-4. In this case, if you set this parameter to 2, db-3 and db-4 are removed.
+     * @example 1
+     *
      * @var int
      */
     public $shardCount;
     protected $_name = [
+        'forceTrans'           => 'ForceTrans',
         'instanceId'           => 'InstanceId',
         'nodeId'               => 'NodeId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'readOnlyCount'        => 'ReadOnlyCount',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -71,6 +87,9 @@ class DeleteShardingNodeRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->forceTrans) {
+            $res['ForceTrans'] = $this->forceTrans;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -82,9 +101,6 @@ class DeleteShardingNodeRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
-        }
-        if (null !== $this->readOnlyCount) {
-            $res['ReadOnlyCount'] = $this->readOnlyCount;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -110,6 +126,9 @@ class DeleteShardingNodeRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ForceTrans'])) {
+            $model->forceTrans = $map['ForceTrans'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -121,9 +140,6 @@ class DeleteShardingNodeRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
-        }
-        if (isset($map['ReadOnlyCount'])) {
-            $model->readOnlyCount = $map['ReadOnlyCount'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

@@ -10,56 +10,141 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesRequest extends Model
 {
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **cluster**: cluster architecture
+     *   **standard**: standard architecture
+     *   **rwsplit**: read/write splitting architecture
+     *
+     * @example standard
+     *
      * @var string
      */
     public $architectureType;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **Community**: Community Edition
+     *   **Enterprise**: Enhance Edition (Tair)
+     *
+     * @example Enterprise
+     *
      * @var string
      */
     public $editionType;
 
     /**
+     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, **5.0**, and **6.0**.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description Specifies whether the instance has expired. Valid values:
+     *
+     *   **true**: The instance has expired.
+     *   **false**: The instance has not expired.
+     *
+     * @example false
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description Specifies whether to return the child instances of distributed instances. Valid values:
+     *
+     *   **true**: Only child instances are returned.
+     *   **false**: Child instances are not returned.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $globalInstance;
 
     /**
+     * @description The instance type of the instance. For more information, see [Instance types](~~107984~~).
+     *
+     * @example redis.master.small.default
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > If you specify multiple instance IDs, separate these IDs with commas (,).
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceIds;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     *   **Normal**: The instance is normal.
+     *   **Creating**: The instance is being created.
+     *   **Changing**: The configurations of the instance are being changed.
+     *   **Inactive**: The instance is disabled.
+     *   **Flushing**: The instance is being released.
+     *   **Released**: The instance is released.
+     *   **Transforming**: The billing method of the instance is being changed.
+     *   **Unavailable**: The instance is suspended.
+     *   **Error**: The instance failed to be created.
+     *   **Migrating**: The instance is being migrated.
+     *   **BackupRecovering**: The instance is being restored from a backup.
+     *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+     *   **NetworkModifying**: The network type of the instance is being changed.
+     *   **SSLModifying**: The SSL certificate of the instance is being changed.
+     *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+     *
+     * > For more information about instance states, see [Instance states and impacts](~~200740~~).
+     * @example Normal
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The database engine of the instance. Valid values:
+     *
+     *   **Tair**
+     *   **Redis**
+     *   **Memcache**
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **CLASSIC**: classic network
+     *   **VPC**: Virtual Private Cloud (VPC)
+     *
+     * @example CLASSIC
+     *
      * @var string
      */
     public $networkType;
@@ -75,26 +160,48 @@ class DescribeInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The private IP address of the instance.
+     *
+     * @example 172.16.49.***
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > When you call this operation and specify the **Tag** parameter, you must also specify this parameter.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * > You can query resource group IDs by using the ApsaraDB for Redis console or by calling the [ListResourceGroups](~~158855~~) operation. For more information, see [View basic information of a resource group](~~151181~~).
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -110,6 +217,10 @@ class DescribeInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The keyword used for fuzzy search. The keyword can be based on an instance name or an instance ID.
+     *
+     * @example apitest
+     *
      * @var string
      */
     public $searchKey;
@@ -120,21 +231,35 @@ class DescribeInstancesRequest extends Model
     public $securityToken;
 
     /**
+     * @description The tags of the instance.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hongkong-b
+     *
      * @var string
      */
     public $zoneId;

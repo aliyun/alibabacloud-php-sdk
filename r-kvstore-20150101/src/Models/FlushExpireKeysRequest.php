@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class FlushExpireKeysRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMinorVersionRequest extends Model
 {
     /**
+     * @description The minor version to which you want to update. Default value: **latest_version**.
+     *
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyInstanceMinorVersion**.
+     *
+     * @example latest_version
+     *
      * @var string
      */
     public $minorversion;

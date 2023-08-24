@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedResponseBody extends Model
 {
     /**
+     * @description CheckCloudResourceAuthorized
+     *
+     * @example 1
+     *
      * @var int
      */
     public $authorizationState;
 
     /**
+     * @example A501A191-BD70-5E50-98A9-C2A486A82****
+     *
      * @var string
      */
     public $requestId;

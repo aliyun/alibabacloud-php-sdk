@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class netInfoItem extends Model
 {
     /**
+     * @description The endpoint of the classic network.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The network type of the instance. The returned value is **Classic**.
+     *
+     * @example Classic
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @description The expiration time of the classic network endpoint.
+     *
+     * @example 2019-08-01T09:29:18Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The IP address of the instance in the classic network.
+     *
+     * @example 100.118.142.***
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The port number that is used to connect to the instance.
+     *
+     * @example 6379
+     *
      * @var string
      */
     public $port;

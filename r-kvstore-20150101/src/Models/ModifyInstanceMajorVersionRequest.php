@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMajorVersionRequest extends Model
 {
     /**
+     * @description The major version to which you want to upgrade the instance. Valid values: **4.0** and **5.0**.
+     *
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyInstanceMajorVersion**.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $majorVersion;

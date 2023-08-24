@@ -6,32 +6,16 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeActiveOperationTasksRequest extends Model
+class DescribeActiveOperationTaskRequest extends Model
 {
     /**
+     * @description The time when the O\&M task was created. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     *
+     * @example 1
+     *
      * @var int
      */
-    public $allowCancel;
-
-    /**
-     * @var int
-     */
-    public $allowChange;
-
-    /**
-     * @var string
-     */
-    public $changeLevel;
-
-    /**
-     * @var string
-     */
-    public $dbType;
-
-    /**
-     * @var string
-     */
-    public $insName;
+    public $isHistory;
 
     /**
      * @var string
@@ -44,19 +28,31 @@ class DescribeActiveOperationTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The deadline before which the time to execute the O\&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeActiveOperationTask**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the O\&M task.
+     *
+     * @example all
+     *
      * @var string
      */
-    public $productId;
+    public $region;
 
     /**
      * @var string
@@ -74,29 +70,23 @@ class DescribeActiveOperationTasksRequest extends Model
     public $securityToken;
 
     /**
-     * @var int
-     */
-    public $status;
-
-    /**
+     * @description The ID of the region.
+     *
+     * @example all
+     *
      * @var string
      */
     public $taskType;
     protected $_name = [
-        'allowCancel'          => 'AllowCancel',
-        'allowChange'          => 'AllowChange',
-        'changeLevel'          => 'ChangeLevel',
-        'dbType'               => 'DbType',
-        'insName'              => 'InsName',
+        'isHistory'            => 'IsHistory',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
-        'productId'            => 'ProductId',
+        'region'               => 'Region',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
-        'status'               => 'Status',
         'taskType'             => 'TaskType',
     ];
 
@@ -107,20 +97,8 @@ class DescribeActiveOperationTasksRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->allowCancel) {
-            $res['AllowCancel'] = $this->allowCancel;
-        }
-        if (null !== $this->allowChange) {
-            $res['AllowChange'] = $this->allowChange;
-        }
-        if (null !== $this->changeLevel) {
-            $res['ChangeLevel'] = $this->changeLevel;
-        }
-        if (null !== $this->dbType) {
-            $res['DbType'] = $this->dbType;
-        }
-        if (null !== $this->insName) {
-            $res['InsName'] = $this->insName;
+        if (null !== $this->isHistory) {
+            $res['IsHistory'] = $this->isHistory;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -134,8 +112,8 @@ class DescribeActiveOperationTasksRequest extends Model
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
-        if (null !== $this->productId) {
-            $res['ProductId'] = $this->productId;
+        if (null !== $this->region) {
+            $res['Region'] = $this->region;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -145,9 +123,6 @@ class DescribeActiveOperationTasksRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
         }
         if (null !== $this->taskType) {
             $res['TaskType'] = $this->taskType;
@@ -159,25 +134,13 @@ class DescribeActiveOperationTasksRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeActiveOperationTasksRequest
+     * @return DescribeActiveOperationTaskRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AllowCancel'])) {
-            $model->allowCancel = $map['AllowCancel'];
-        }
-        if (isset($map['AllowChange'])) {
-            $model->allowChange = $map['AllowChange'];
-        }
-        if (isset($map['ChangeLevel'])) {
-            $model->changeLevel = $map['ChangeLevel'];
-        }
-        if (isset($map['DbType'])) {
-            $model->dbType = $map['DbType'];
-        }
-        if (isset($map['InsName'])) {
-            $model->insName = $map['InsName'];
+        if (isset($map['IsHistory'])) {
+            $model->isHistory = $map['IsHistory'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
@@ -191,8 +154,8 @@ class DescribeActiveOperationTasksRequest extends Model
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
-        if (isset($map['ProductId'])) {
-            $model->productId = $map['ProductId'];
+        if (isset($map['Region'])) {
+            $model->region = $map['Region'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
@@ -202,9 +165,6 @@ class DescribeActiveOperationTasksRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
         }
         if (isset($map['TaskType'])) {
             $model->taskType = $map['TaskType'];

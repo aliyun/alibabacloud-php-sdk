@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceConfigResponseBody extends Model
 {
     /**
+     * @description The parameter settings of the instance. For more information, see [Parameter overview and configuration guide](~~43885~~).
+     *
+     * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"list-max-ziplist-entries\":512,\"list-max-ziplist-value\":64,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4E2C08F6-2D11-4ECD-9A4C-27EF2D3D****
+     *
      * @var string
      */
     public $requestId;

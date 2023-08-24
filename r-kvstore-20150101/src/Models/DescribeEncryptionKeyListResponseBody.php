@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeEncryptionKeyListResponseBody extends Model
 {
     /**
+     * @description DescribeEncryptionKeyList
+     *
      * @var keyIds
      */
     public $keyIds;
 
     /**
+     * @description Queries the custom keys that are available for an ApsaraDB for Redis instance to use transparent data encryption (TDE).
+     *
+     * @example 10E2160B-959C-5C3E-BFE6-86EC5925****
+     *
      * @var string
      */
     public $requestId;

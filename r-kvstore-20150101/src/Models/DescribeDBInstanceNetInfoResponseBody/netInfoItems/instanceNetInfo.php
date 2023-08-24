@@ -9,56 +9,109 @@ use AlibabaCloud\Tea\Model;
 class instanceNetInfo extends Model
 {
     /**
+     * @description Indicates whether the address is a private endpoint. Valid values:
+     *
+     *   **0**: no.
+     *   **1**: yes.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The endpoint of the instance.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeDBInstanceNetInfo**.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $directConnection;
 
     /**
+     * @description The expiration time of the classic network address of an ApsaraDB for Redis instance. Unit: seconds.
+     *
+     * @example 5183779
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @example 172.16.49.***
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The network type of the IP address. Valid values:
+     *
+     *   **Public**: Internet.
+     *   **Inner**: classic network.
+     *   **Private**: VPC.
+     *
+     * @example Inner
+     *
      * @var string
      */
     public $IPType;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **0**: the Internet.
+     *   **1**: classic network.
+     *   **2**: VPC.
+     *
+     * @example 6379
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $upgradeable;
 
     /**
+     * @description Queries the network information about an ApsaraDB for Redis instance.
+     *
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The list of network information about the instance.
+     *
+     * @example r-bp1ky7j6qc7umk****
+     *
      * @var string
      */
     public $VPCInstanceId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;

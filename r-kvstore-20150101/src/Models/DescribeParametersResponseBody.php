@@ -11,26 +11,42 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
+     * @description The configuration parameters.
+     *
      * @var configParameters
      */
     public $configParameters;
 
     /**
+     * @description The database engine that the instance runs.
+     *
+     * @example redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9C1338BE-8DE8-4890-A900-E1BC06BF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The running parameters.
+     *
      * @var runningParameters
      */
     public $runningParameters;

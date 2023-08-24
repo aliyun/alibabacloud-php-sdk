@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogConfigRequest extends Model
 {
     /**
+     * @description The region ID of the instance. You can call the [DescribeInstanceAttribute](~~60996~~) operation to query the region ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -24,6 +28,10 @@ class DescribeAuditLogConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The retention period of audit logs. Unit: day.
+     *
+     * @example cn-hanghzou
+     *
      * @var string
      */
     public $regionId;

@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description Details of the instances.
+     *
      * @var instances
      */
     public $instances;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CA40C261-EB72-4EDA-AC57-958722162595
+     *
      * @var string
      */
     public $requestId;

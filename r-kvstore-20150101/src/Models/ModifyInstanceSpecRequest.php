@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSpecRequest extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @example 000000001
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @example ETnLKlblzczshOTUbOCz****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
@@ -36,24 +46,41 @@ class ModifyInstanceSpecRequest extends Model
     /**
      * @var bool
      */
+    public $forceTrans;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
     public $forceUpgrade;
 
     /**
+     * @example redis.master.small.default
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description ModifyInstanceSpec
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 5.0
+     *
      * @var string
      */
     public $majorVersion;
 
     /**
+     * @example DOWNGRADE
+     *
      * @var string
      */
     public $orderType;
@@ -69,11 +96,17 @@ class ModifyInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $readOnlyCount;
 
     /**
+     * @description Changes the configurations of an ApsaraDB for Redis instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -94,6 +127,15 @@ class ModifyInstanceSpecRequest extends Model
     public $securityToken;
 
     /**
+     * @example 8
+     *
+     * @var int
+     */
+    public $shardCount;
+
+    /**
+     * @example SDK
+     *
      * @var string
      */
     public $sourceBiz;
@@ -103,6 +145,7 @@ class ModifyInstanceSpecRequest extends Model
         'clientToken'          => 'ClientToken',
         'couponNo'             => 'CouponNo',
         'effectiveTime'        => 'EffectiveTime',
+        'forceTrans'           => 'ForceTrans',
         'forceUpgrade'         => 'ForceUpgrade',
         'instanceClass'        => 'InstanceClass',
         'instanceId'           => 'InstanceId',
@@ -115,6 +158,7 @@ class ModifyInstanceSpecRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'shardCount'           => 'ShardCount',
         'sourceBiz'            => 'SourceBiz',
     ];
 
@@ -139,6 +183,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
+        }
+        if (null !== $this->forceTrans) {
+            $res['ForceTrans'] = $this->forceTrans;
         }
         if (null !== $this->forceUpgrade) {
             $res['ForceUpgrade'] = $this->forceUpgrade;
@@ -176,6 +223,9 @@ class ModifyInstanceSpecRequest extends Model
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
         }
+        if (null !== $this->shardCount) {
+            $res['ShardCount'] = $this->shardCount;
+        }
         if (null !== $this->sourceBiz) {
             $res['SourceBiz'] = $this->sourceBiz;
         }
@@ -205,6 +255,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];
+        }
+        if (isset($map['ForceTrans'])) {
+            $model->forceTrans = $map['ForceTrans'];
         }
         if (isset($map['ForceUpgrade'])) {
             $model->forceUpgrade = $map['ForceUpgrade'];
@@ -241,6 +294,9 @@ class ModifyInstanceSpecRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['ShardCount'])) {
+            $model->shardCount = $map['ShardCount'];
         }
         if (isset($map['SourceBiz'])) {
             $model->sourceBiz = $map['SourceBiz'];

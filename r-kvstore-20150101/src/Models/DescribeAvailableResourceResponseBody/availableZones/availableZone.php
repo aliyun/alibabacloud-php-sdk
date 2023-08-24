@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class availableZone extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The available database engines.
+     *
      * @var supportedEngines
      */
     public $supportedEngines;
 
     /**
+     * @description The ID of the zone in which the instance is located.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
 
     /**
+     * @description The name of the zone.
+     *
+     * @example Hangzhou Zone H
+     *
      * @var string
      */
     public $zoneName;

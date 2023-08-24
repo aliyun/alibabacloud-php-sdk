@@ -10,46 +10,81 @@ use AlibabaCloud\Tea\Model;
 class DescribeRunningLogRecordsResponseBody extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * >  If a standard instance is queried, `(null)` is returned.
+     * @example Redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The beginning of the time range to query.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The number of log entries returned on the current page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The keyword that is used to query operational logs.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     *
+     * @example 093B8579-9264-43A0-ABA9-AA86****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2018-12-03T07:01Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $totalRecordCount;

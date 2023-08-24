@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
+     * @description r-bp1zxszhcgatnx****
+     *
+     * @example demoaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The name of the account.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

@@ -6,19 +6,15 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyActiveOperationTasksResponseBody extends Model
+class FlushInstanceForDBResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $ids;
-
-    /**
+     * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'ids'       => 'Ids',
         'requestId' => 'RequestId',
     ];
 
@@ -29,9 +25,6 @@ class ModifyActiveOperationTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->ids) {
-            $res['Ids'] = $this->ids;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,14 +35,11 @@ class ModifyActiveOperationTasksResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ModifyActiveOperationTasksResponseBody
+     * @return FlushInstanceForDBResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Ids'])) {
-            $model->ids = $map['Ids'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

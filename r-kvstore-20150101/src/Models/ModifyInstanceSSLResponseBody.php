@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSSLResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyInstanceSSL**.
+     *
+     * @example AD7E16AA-6B23-43BF-979C-07D957FB****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 32184****
+     *
      * @var string
      */
     public $taskId;

@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class RenewAdditionalBandwidthRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Default value: true. Valid values:
+     *
+     *   **true**: enables automatic payment.
+     *   **false**: disables automatic payment. If automatic payment is disabled, you must perform the following steps to complete the payment in the ApsaraDB for Redis console: In the top navigation bar, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, click **Orders**. On the **Orders** page, find the order and complete the payment.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The ID of the coupon.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The validity period of the bandwidth that you purchase. Unit: days. Valid values: **1**, **2**, **3**, **7**, **14**, **30**, **60**, **90**, **180**, **365**, **730**, **1095**, and **1825**.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $orderTimeLength;
@@ -54,6 +73,10 @@ class RenewAdditionalBandwidthRequest extends Model
     public $securityToken;
 
     /**
+     * @description The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+     *
+     * @example SDK
+     *
      * @var string
      */
     public $sourceBiz;

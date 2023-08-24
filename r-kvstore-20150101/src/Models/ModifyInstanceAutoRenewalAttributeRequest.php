@@ -9,16 +9,34 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAutoRenewalAttributeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Valid values:
+     *
+     *   **true**: enables auto-renewal.
+     *   **false**: disables auto-renewal.
+     *
+     * > The default value is **false**.
+     * @example true
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The ID of the instance. Separate multiple instance IDs with commas (,).
+     *
+     * > You can specify up to 30 instance IDs.
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The auto-renewal period. Valid values: **1** to **12**. Unit: months. When the instance is about to expire, the instance is automatically renewed based on the number of months specified by this parameter.
+     *
+     * > This parameter is available and required only if the **AutoRenew** parameter is set to **true**.
+     * @example 3
+     *
      * @var string
      */
     public $duration;

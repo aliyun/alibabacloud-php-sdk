@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceConfigRequest extends Model
 {
     /**
+     * @example {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

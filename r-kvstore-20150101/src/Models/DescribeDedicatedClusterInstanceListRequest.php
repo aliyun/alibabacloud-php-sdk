@@ -9,36 +9,80 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedClusterInstanceListRequest extends Model
 {
     /**
+     * @description The ID of the dedicated cluster. You can view the dedicated cluster ID on the Dedicated Clusters page in the ApsaraDB for MyBase console.
+     *
+     * > Separate multiple IDs with commas (,).
+     * @example dhg-5f2v98840ioq****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the host in the dedicated cluster. You can call the [DescribeDedicatedHosts](~~200944~~) operation to query the host ID.
+     *
+     * > Separate multiple IDs with commas (,).
+     * @example ch-t4n664a9mal4c****
+     *
      * @var string
      */
     public $dedicatedHostName;
 
     /**
+     * @description The database engine of the instance. Set the value to **Redis**.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The database engine version of the instance. Set the value to **5.0**.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > The instance must be created by using a dedicated cluster. For more information, see [What is ApsaraDB for MyBase?](~~141455~~)
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **0**: Internet
+     *   **1**: classic network
+     *   **2**: Virtual Private Cloud (VPC)
+     *
+     * @example 2
+     *
      * @var string
      */
     public $instanceNetType;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     *   **0**: The instance is being created.
+     *   **1**: The instance is running.
+     *   **3**: The instance is being deleted.
+     *   **5**: The configurations of the instance are being changed.
+     *   **6**: The instance is being migrated.
+     *   **7**: The instance is being restored from a backup.
+     *   **8**: A master-replica switchover is in progress.
+     *   **9**: Expired data of the instance is being deleted.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $instanceStatus;
@@ -54,16 +98,28 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: **30**.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -84,6 +140,10 @@ class DescribeDedicatedClusterInstanceListRequest extends Model
     public $securityToken;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeZones](~~94527~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

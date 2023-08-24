@@ -9,35 +9,68 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSSLResponseBody extends Model
 {
     /**
+     * @description The common name of the SSL certificate, which is the domain name for which you want to apply for the SSL certificate. The default value is the internal endpoint of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @description Download URL for CA certificate.
+     *
+     * @example https://apsaradb-public.oss-ap-sout****-1.aliy****.com/ApsaraDB-CA-Chain.zip
+     *
+     * @var string
+     */
+    public $certDownloadURL;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 02260F96-913E-4655-9BA5-A3651CAF****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **Enable**: SSL encryption is enabled.
+     *   **Disable**: SSL encryption is disabled.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $SSLEnabled;
 
     /**
+     * @description The expiration time of the SSL certificate.
+     *
+     * @example 2020-08-05T09:05:53Z
+     *
      * @var string
      */
     public $SSLExpiredTime;
     protected $_name = [
-        'certCommonName' => 'CertCommonName',
-        'instanceId'     => 'InstanceId',
-        'requestId'      => 'RequestId',
-        'SSLEnabled'     => 'SSLEnabled',
-        'SSLExpiredTime' => 'SSLExpiredTime',
+        'certCommonName'  => 'CertCommonName',
+        'certDownloadURL' => 'CertDownloadURL',
+        'instanceId'      => 'InstanceId',
+        'requestId'       => 'RequestId',
+        'SSLEnabled'      => 'SSLEnabled',
+        'SSLExpiredTime'  => 'SSLExpiredTime',
     ];
 
     public function validate()
@@ -49,6 +82,9 @@ class DescribeInstanceSSLResponseBody extends Model
         $res = [];
         if (null !== $this->certCommonName) {
             $res['CertCommonName'] = $this->certCommonName;
+        }
+        if (null !== $this->certDownloadURL) {
+            $res['CertDownloadURL'] = $this->certDownloadURL;
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
@@ -76,6 +112,9 @@ class DescribeInstanceSSLResponseBody extends Model
         $model = new self();
         if (isset($map['CertCommonName'])) {
             $model->certCommonName = $map['CertCommonName'];
+        }
+        if (isset($map['CertDownloadURL'])) {
+            $model->certDownloadURL = $map['CertDownloadURL'];
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];

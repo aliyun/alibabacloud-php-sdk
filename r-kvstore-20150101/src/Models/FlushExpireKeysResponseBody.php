@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class FlushExpireKeysResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. Set the value to **FlushExpireKeys**.
+     *
+     * @example 82E30AB7-E3A4-46AC-88A0-3E4DCDC5****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 21986****
+     *
      * @var string
      */
     public $taskId;

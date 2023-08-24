@@ -11,11 +11,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogicInstanceTopologyResponseBody extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeLogicInstanceTopology**.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The bandwidth throttling of the node. Unit: MB/s.
+     *
      * @var redisProxyList
      */
     public $redisProxyList;
@@ -26,6 +32,10 @@ class DescribeLogicInstanceTopologyResponseBody extends Model
     public $redisShardList;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 794120D1-E0CF-4713-BAE4-EBAEA04506AF
+     *
      * @var string
      */
     public $requestId;

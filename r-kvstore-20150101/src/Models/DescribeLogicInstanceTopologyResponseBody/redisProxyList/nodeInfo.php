@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 96
+     *
      * @var string
      */
     public $bandwidth;
 
     /**
+     * @description The detailed proxy information, including information about proxy nodes.
+     *
+     * @example 5120
+     *
      * @var string
      */
     public $capacity;
 
     /**
+     * @description The ID of the instance whose topology information you want to query.
+     *
+     * @example 320000
+     *
      * @var string
      */
     public $connection;
 
     /**
+     * @description Queries the logical topology of an ApsaraDB for Redis instance.
+     *
+     * @example r-bp10noxlhcoim2****-proxy-3#542****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example proxy
+     *
      * @var string
      */
     public $nodeType;

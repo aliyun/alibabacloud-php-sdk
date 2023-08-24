@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorItemsResponseBody extends Model
 {
     /**
+     * @description The unit of the metric.
+     *
      * @var monitorItems
      */
     public $monitorItems;
 
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeMonitorItems**.
+     *
+     * @example 8BEB2618-9517-43F3-A233-E0B34512****
+     *
      * @var string
      */
     public $requestId;

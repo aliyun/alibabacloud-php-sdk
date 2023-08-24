@@ -9,101 +9,222 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
+     * @description The architecture of the instance. Valid values:
+     *
+     *   **cluster**: cluster architecture
+     *   **standard**: standard architecture
+     *   **rwsplit**: read/write splitting architecture
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $architectureType;
 
     /**
+     * @description The storage capacity of the instance. Unit: MB.
+     *
+     * @example 4096
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The internal endpoint of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionDomain;
 
     /**
+     * @description The time when the instance was created.
+     *
+     * @example 2018-11-07T08:49:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The time when the subscription instance expires.
+     *
+     * @example 2022-06-13T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The database engine version of the instance. Valid values: **2.8**, **4.0**, and **5.0**.
+     *
+     * @example 4.0
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @description The ID of the distributed instance.
+     *
+     * > This parameter is returned only when the instance is a child instance of a distributed instance.
+     * @example gr-bp14rkqrhac****
+     *
      * @var string
      */
     public $globalInstanceId;
 
     /**
+     * @description The instance type of the instance.
+     *
+     * @example redis.logic.sharding.2g.2db.0rodb.4proxy.default
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example apitest
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The state of the instance. Valid values:
+     *
+     *   **Normal**: The instance is normal.
+     *   **Creating**: The instance is being created.
+     *   **Changing**: The configurations of the instance are being changed.
+     *   **Inactive**: The instance is disabled.
+     *   **Flushing**: The instance is being released.
+     *   **Released**: The instance is released.
+     *   **Transforming**: The billing method of the instance is being changed.
+     *   **Unavailable**: The instance is unavailable.
+     *   **Error**: The instance failed to be created.
+     *   **Migrating**: The instance is being migrated.
+     *   **BackupRecovering**: The instance is being restored from a backup.
+     *   **MinorVersionUpgrading**: The minor version of the instance is being updated.
+     *   **NetworkModifying**: The network type of the instance is being changed.
+     *   **SSLModifying**: The SSL certificate of the instance is being changed.
+     *   **MajorVersionUpgrading**: The major version of the instance is being upgraded. The instance remains accessible during the upgrade.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The category of the instance. Valid values:
+     *
+     *   **Tair**
+     *   **Redis**
+     *   **Memcache**
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **CLASSIC**: classic network
+     *   **VPC**: VPC
+     *
+     * @example CLASSIC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The private IP address of the instance.
+     *
+     * > This parameter is not returned when the instance is deployed in the classic network.
+     * @example 172.16.49.***
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs.
+     *
+     * @example rg-acfmyiu4ekp****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Instance\"s secondary zone id.
+     * > This parameter is only returned when the instance has a secondary zone ID.
+     * @example cn-hangzhou-g
+     *
+     * @var string
+     */
+    public $secondaryZoneId;
+
+    /**
+     * @description The ID of the vSwitch to which the instance is connected.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
@@ -125,6 +246,7 @@ class instances extends Model
         'privateIp'        => 'PrivateIp',
         'regionId'         => 'RegionId',
         'resourceGroupId'  => 'ResourceGroupId',
+        'secondaryZoneId'  => 'SecondaryZoneId',
         'vSwitchId'        => 'VSwitchId',
         'vpcId'            => 'VpcId',
         'zoneId'           => 'ZoneId',
@@ -187,6 +309,9 @@ class instances extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->secondaryZoneId) {
+            $res['SecondaryZoneId'] = $this->secondaryZoneId;
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
@@ -259,6 +384,9 @@ class instances extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecondaryZoneId'])) {
+            $model->secondaryZoneId = $map['SecondaryZoneId'];
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];

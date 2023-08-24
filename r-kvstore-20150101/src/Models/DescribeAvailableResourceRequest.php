@@ -9,21 +9,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableResourceRequest extends Model
 {
     /**
+     * @description The display language of the response. Default value: zh-CN. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US**: English
+     *
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;
 
     /**
+     * @description The category of the instance. Valid values:
+     *
+     *   **Redis**
+     *   **Memcache**
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * > The default value is **PrePaid**.
+     * @example PrePaid
+     *
      * @var string
      */
     public $instanceChargeType;
 
     /**
+     * @description The ID of the instance.
+     *
+     * > This parameter is available and required only if the **OrderType** parameter is set to **UPGRADE** or **DOWNGRADE**.
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -31,9 +58,27 @@ class DescribeAvailableResourceRequest extends Model
     /**
      * @var string
      */
+    public $instanceScene;
+
+    /**
+     * @description The ID of the data node for which you want to query available resources that can be created. You can call the [DescribeLogicInstanceTopology](~~94665~~) operation to query the ID of the data node. Remove the number sign (`#`) and the content that follows the number sign. For example, retain only r-bp10noxlhcoim2\*\*\*\*-db-0.
+     *
+     * > Before you specify this parameter, you must set the **InstanceId** parameter to the ID of an instance that uses the cluster or read/write splitting architecture.
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
+     * @var string
+     */
     public $nodeId;
 
     /**
+     * @description The type of the order. Default value: BUY. Valid values:
+     *
+     *   **BUY**: orders that are newly created
+     *   **UPGRADE**: orders that are used to upgrade instances
+     *   **DOWNGRADE**: orders that are used to downgrade instances
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -49,16 +94,35 @@ class DescribeAvailableResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The instance series. Valid values:
+     *
+     *   **Local**: ApsaraDB for Redis Community Edition instance that uses local disks or ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses local disks
+     *   **Tair_rdb**: ApsaraDB for Redis Enhanced Edition (Tair) DRAM-based instance that uses cloud disks
+     *   **Tair_scm**: ApsaraDB for Redis Enhanced Edition (Tair) persistent memory-optimized instance
+     *   **Tair_essd**: ApsaraDB for Redis Enhanced Edition (Tair) ESSD-based instance
+     *   **OnECS**: ApsaraDB for Redis Community Edition instance that uses cloud disks
+     *
+     * @example Local
+     *
      * @var string
      */
     public $productType;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
+     *
+     * > You can also query the IDs of resource groups in the Resource Management console. For more information, see [View basic information about a resource group](~~151181~~).
+     * @example rg-acfmyiu4e******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -79,6 +143,10 @@ class DescribeAvailableResourceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeZones](~~94527~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;
@@ -87,6 +155,7 @@ class DescribeAvailableResourceRequest extends Model
         'engine'               => 'Engine',
         'instanceChargeType'   => 'InstanceChargeType',
         'instanceId'           => 'InstanceId',
+        'instanceScene'        => 'InstanceScene',
         'nodeId'               => 'NodeId',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
@@ -118,6 +187,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->instanceScene) {
+            $res['InstanceScene'] = $this->instanceScene;
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
@@ -175,6 +247,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InstanceScene'])) {
+            $model->instanceScene = $map['InstanceScene'];
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];

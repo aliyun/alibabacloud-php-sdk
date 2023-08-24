@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The diaplay language of the **LocalName** parameter value. Valid values:
+     *
+     *   **zh-CN**: Chinese
+     *   **en-US**: English
+     *
+     * > The default value is **zh-CN**.
+     * @example zh-CN
+     *
      * @var string
      */
     public $acceptLanguage;

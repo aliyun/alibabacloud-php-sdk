@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountPasswordRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **ResetAccountPassword**.
+     *
+     * @example demoaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The name of the account. You can call the [DescribeAccounts](~~95802~~) operation to obtain the name of the account.
+     *
+     * @example uWonno_221****
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

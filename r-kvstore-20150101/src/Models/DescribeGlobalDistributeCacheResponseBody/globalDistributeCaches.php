@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class globalDistributeCaches extends Model
 {
     /**
+     * @description The state of the distributed instance. Valid values:
+     *
+     *   **Normal**: The instance is normal.
+     *   **Changing**: The configurations of the instance are being changed.
+     *   **Creating**: The instance is being created.
+     *
+     * @example gr-bp14rkqrhac****
+     *
      * @var string
      */
     public $globalInstanceId;
 
     /**
+     * @description The ID of the distributed instance.
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the request.
+     *
      * @var subInstances[]
      */
     public $subInstances;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDistributeCacheRequest extends Model
 {
     /**
+     * @description Details of the child instances.
+     *
+     * @example gr-bp14rkqrhac****
+     *
      * @var string
      */
     public $globalInstanceId;
@@ -24,11 +28,19 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public $ownerId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $pageSize;
@@ -49,6 +61,10 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the distributed instance.
+     *
+     * @example gr-bp1zcjlobkyrq****
+     *
      * @var string
      */
     public $subInstanceId;

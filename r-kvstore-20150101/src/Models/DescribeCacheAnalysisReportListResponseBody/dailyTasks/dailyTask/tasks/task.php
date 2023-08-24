@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @example 2019-08-01T19:08:49Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The ID of the child node in the cluster instance.
+     *
+     * @example success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 156465****
+     *
      * @var string
      */
     public $taskId;

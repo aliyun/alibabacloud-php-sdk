@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example Append
+     *
      * @var string
      */
     public $modifyMode;
@@ -39,16 +45,30 @@ class ModifySecurityIpsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example hidden
+     *
      * @var string
      */
     public $securityIpGroupAttribute;
 
     /**
+     * @description The method of modification. Valid values:
+     *
+     *   **Cover**: overwrites the whitelist.
+     *   **Append**: appends data to the whitelist.
+     *   **Delete**: deletes the whitelist.
+     *
+     * @example default
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifySecurityIps**.
+     *
+     * @example 100.64.***.0/24,10.101.11.***
+     *
      * @var string
      */
     public $securityIps;

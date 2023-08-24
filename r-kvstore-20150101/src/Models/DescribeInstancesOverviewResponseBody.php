@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancesOverviewResponseBody extends Model
 {
     /**
+     * @description An array of instances.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 1E83311F-0EE4-4922-A3BF-730B312B****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of instances.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

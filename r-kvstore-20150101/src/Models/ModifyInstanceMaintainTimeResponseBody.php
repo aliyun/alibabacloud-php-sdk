@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMaintainTimeResponseBody extends Model
 {
     /**
+     * @example 8D0C0AFC-E9CD-47A4-8395-5C31BF9B3E76
+     *
      * @var string
      */
     public $requestId;

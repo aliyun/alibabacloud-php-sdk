@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksRequest extends Model
 {
     /**
+     * @description The progress of the backup task in percentage.
+     *
+     * @example 1162****
+     *
      * @var string
      */
     public $backupJobId;
 
     /**
+     * @description The details of the backup tasks.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The operation that you want to perform. The operation that you want to perform. Set the value to **DescribeBackupTasks**.
+     *
+     * @example Manual
+     *
      * @var string
      */
     public $jobMode;

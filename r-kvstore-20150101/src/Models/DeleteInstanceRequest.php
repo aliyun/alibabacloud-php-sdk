@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteInstanceRequest extends Model
 {
     /**
+     * @example gr-bp14rkqrhac****
+     *
      * @var string
      */
     public $globalInstanceId;
 
     /**
+     * @description The ID of the distributed instance to which the instance belongs. This parameter is applicable to only China site (aliyun.com).
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

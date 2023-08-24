@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class SwitchNetworkResponseBody extends Model
 {
     /**
+     * @description Switches the network type of an ApsaraDB for Redis instance from classic network to Virtual Private Cloud (VPC).
+     *
+     * @example F0997EE8-F4C2-4503-9168-85177ED78C70
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Specifies whether to retain the original endpoint for the classic network after you switch the instance from classic network to VPC. Valid values:
+     *
+     *   **True**: retains the original endpoint.
+     *   **False**: does not retain the original endpoint. This is the default value.
+     *
+     * >  This parameter can be used only when the network type of the instance is classic network.
+     * @example 578678678
+     *
      * @var string
      */
     public $taskId;

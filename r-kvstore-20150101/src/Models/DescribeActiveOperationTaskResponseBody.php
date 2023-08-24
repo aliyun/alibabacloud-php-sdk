@@ -4,32 +4,51 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
-use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTasksResponseBody\items;
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeActiveOperationTaskResponseBody\items;
 use AlibabaCloud\Tea\Model;
 
-class DescribeActiveOperationTasksResponseBody extends Model
+class DescribeActiveOperationTaskResponseBody extends Model
 {
     /**
+     * @description The time when the system performs the switchover operation. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of the page to return. It must be an integer that is greater than **0** and less than or equal to the maximum value supported by the integer data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The time when the O\&M task was executed. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     *
+     * @example 2E1FF0CC-F42A-4B6F-A1F4-A17B1451****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the region to which pending events belong. You can call the [DescribeRegions](~~61012~~) operation to query the region IDs.
+     *
+     * >  A value of **all** indicates all region IDs.
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;
@@ -76,7 +95,7 @@ class DescribeActiveOperationTasksResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeActiveOperationTasksResponseBody
+     * @return DescribeActiveOperationTaskResponseBody
      */
     public static function fromMap($map = [])
     {

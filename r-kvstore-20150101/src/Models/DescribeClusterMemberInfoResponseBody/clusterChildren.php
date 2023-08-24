@@ -9,76 +9,143 @@ use AlibabaCloud\Tea\Model;
 class clusterChildren extends Model
 {
     /**
+     * @description The maximum bandwidth of the node. Unit: MB/s.
+     *
+     * > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+     * @example 96
+     *
      * @var int
      */
     public $bandWidth;
 
     /**
+     * @description The retention period of binlogs.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $binlogRetentionDays;
 
     /**
+     * @description The type of workload. The return value is **ALIYUN**.
+     *
+     * @example ALIYUN
+     *
      * @var string
      */
     public $bizType;
 
     /**
+     * @description The maximum memory capacity per data node. Unit: MB.
+     *
+     * > This parameter is returned only if the return value of **Service** is **redis**, which indicates a data node.
+     * @example 1024
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The specifications of the data node. For more information, see [Community Edition instances that use cloud disks](~~164477~~).
+     *
+     * @example redis.shard.small.ce
+     *
      * @var string
      */
     public $classCode;
 
     /**
+     * @description The maximum number of connections supported by the data node.
+     *
+     * @example 20000
+     *
      * @var int
      */
     public $connections;
 
     /**
+     * @description The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
+     *
+     * > This parameter is returned only if the instance is created in a dedicated cluster.
+     * @example 100
+     *
      * @var int
      */
     public $currentBandWidth;
 
     /**
+     * @description The storage capacity of the [enhanced SSD (ESSD)](~~122389~~) that is used by the data node. Unit: MB.
+     *
+     * > The ESSD is used only to store system operating data, such as Persistent Memory (PMEM). It is not used as a medium to write and read data.
+     * @example 4096
+     *
      * @var int
      */
     public $diskSizeMB;
 
     /**
+     * @description The ID of the replica set in the node.
+     *
+     * @example 501791111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The name of the data node.
+     *
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of replica nodes.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $replicaSize;
 
     /**
+     * @description The name of the resource group to which the node belongs.
+     *
+     * @example GLOBAL_ZHANGJIAKOU_A
+     *
      * @var string
      */
     public $resourceGroupName;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **redis**: data node
+     *   **redis_cs**: config server
+     *
+     * @example redis
+     *
      * @var string
      */
     public $service;
 
     /**
+     * @description The major version of the node.
+     *
+     * @example 5.0
+     *
      * @var string
      */
     public $serviceVersion;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example 2****_176498472570****
+     *
      * @var string
      */
     public $userId;

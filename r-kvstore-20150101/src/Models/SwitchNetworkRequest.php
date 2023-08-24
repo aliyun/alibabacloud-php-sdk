@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SwitchNetworkRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **SwitchNetwork**.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $classicExpiredDays;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -39,6 +47,10 @@ class SwitchNetworkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example True
+     *
      * @var string
      */
     public $retainClassic;
@@ -49,16 +61,33 @@ class SwitchNetworkRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query VPC IDs.
+     *
+     * >
+     *   The VPC and the ApsaraDB for Redis instance must be deployed in the same region.
+     *   After you set this parameter, you must also set the **VSwitchId** parameter.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $targetNetworkType;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the vSwitch that belongs to the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query vSwitch IDs.
+     *
+     * >  The vSwitch and the ApsaraDB for Redis instance must belong to the same zone.
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $vpcId;

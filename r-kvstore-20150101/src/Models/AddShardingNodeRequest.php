@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class AddShardingNodeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable automatic payment. Valid values:
+     *
+     *   **true**: enables automatic payment. Make sure that you have sufficient balance within your account.
+     *   **false**: disables automatic payment. In this case, you must manually renew the instance in the console before the instance expires. For more information, see [Renewal](~~26352~~).
+     *
+     * > The default value is **true**.
+     * @example false
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description The business information. This is an additional parameter.
+     *
+     * @example 000000000
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The ID of the coupon.
+     *
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @var bool
+     */
+    public $forceTrans;
+
+    /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -37,11 +62,6 @@ class AddShardingNodeRequest extends Model
      * @var int
      */
     public $ownerId;
-
-    /**
-     * @var int
-     */
-    public $readOnlyCount;
 
     /**
      * @var string
@@ -59,16 +79,23 @@ class AddShardingNodeRequest extends Model
     public $securityToken;
 
     /**
-     * @var string
-     */
-    public $shardClass;
-
-    /**
+     * @description The number of data shards that you want to add. Default value: **1**.
+     *
+     * >
+     *
+     *   A cluster instance must contain 2 to 256 data shards. You can add a maximum of 64 data shards at a time.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $shardCount;
 
     /**
+     * @description The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+     *
+     * @example SDK
+     *
      * @var string
      */
     public $sourceBiz;
@@ -76,14 +103,13 @@ class AddShardingNodeRequest extends Model
         'autoPay'              => 'AutoPay',
         'businessInfo'         => 'BusinessInfo',
         'couponNo'             => 'CouponNo',
+        'forceTrans'           => 'ForceTrans',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'readOnlyCount'        => 'ReadOnlyCount',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
-        'shardClass'           => 'ShardClass',
         'shardCount'           => 'ShardCount',
         'sourceBiz'            => 'SourceBiz',
     ];
@@ -104,6 +130,9 @@ class AddShardingNodeRequest extends Model
         if (null !== $this->couponNo) {
             $res['CouponNo'] = $this->couponNo;
         }
+        if (null !== $this->forceTrans) {
+            $res['ForceTrans'] = $this->forceTrans;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -113,9 +142,6 @@ class AddShardingNodeRequest extends Model
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->readOnlyCount) {
-            $res['ReadOnlyCount'] = $this->readOnlyCount;
-        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -124,9 +150,6 @@ class AddShardingNodeRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
-        }
-        if (null !== $this->shardClass) {
-            $res['ShardClass'] = $this->shardClass;
         }
         if (null !== $this->shardCount) {
             $res['ShardCount'] = $this->shardCount;
@@ -155,6 +178,9 @@ class AddShardingNodeRequest extends Model
         if (isset($map['CouponNo'])) {
             $model->couponNo = $map['CouponNo'];
         }
+        if (isset($map['ForceTrans'])) {
+            $model->forceTrans = $map['ForceTrans'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -164,9 +190,6 @@ class AddShardingNodeRequest extends Model
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['ReadOnlyCount'])) {
-            $model->readOnlyCount = $map['ReadOnlyCount'];
-        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
@@ -175,9 +198,6 @@ class AddShardingNodeRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
-        }
-        if (isset($map['ShardClass'])) {
-            $model->shardClass = $map['ShardClass'];
         }
         if (isset($map['ShardCount'])) {
             $model->shardCount = $map['ShardCount'];

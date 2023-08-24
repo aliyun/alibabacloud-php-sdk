@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class availableResource extends Model
 {
     /**
+     * @description The memory size of the instance. Unit: MB.
+     *
+     * @example 16384
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The code of the instance type. If you want to view the code of an instance type, you can search for the code of the instance type in Help Center.
+     *
+     * @example redis.amber.logic.sharding.2g.8db.0rodb.24proxy.multithread
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The description of the instance type.
+     *
+     * @example 16 GB cluster instance with 8 nodes (1,920,000 queries per second and 240,000 connections)
+     *
      * @var string
      */
     public $instanceClassRemark;

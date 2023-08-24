@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditRecordsRequest extends Model
 {
     /**
+     * @description The username of the account. If you do not specify this parameter, this call applies to all accounts of the instance.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The name of the database in the instance. If you do not specify this parameter, all databases are queried. Valid values: 0 to 255. 0 specifies the database 0.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * > We recommend that you specify a time range of 10 minutes or less because audit logs contain a great number of entries. Do not specify a time range that is longer than one day.
+     * @example 2019-03-25T12:10:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The IP address of the client. If you do not specify this parameter, this call applies to all clients.
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the node in the instance. You can set this parameter to query the data of a specified node.
+     *
+     * >
+     *
+     *   This parameter is available only for read/write splitting or cluster instances of ApsaraDB for Redis.
+     *
+     *   You can call the [DescribeLogicInstanceTopology](~~94665~~) operation to query node IDs.
+     *
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;
@@ -49,16 +80,29 @@ class DescribeAuditRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The keyword based on which the audit logs are queried. You can specify a command as a keyword to query logs. By default, all commands are queried.
+     *
+     * > You can specify only a single keyword in each call.
+     * @example maxclients
+     *
      * @var string
      */
     public $queryKeywords;
@@ -79,6 +123,10 @@ class DescribeAuditRecordsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * @example 2019-03-24T12:10:00Z
+     *
      * @var string
      */
     public $startTime;

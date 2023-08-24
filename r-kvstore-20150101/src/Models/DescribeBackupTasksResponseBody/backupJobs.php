@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class backupJobs extends Model
 {
     /**
+     * @description The ID of the backup task.
+     *
+     * @example 8491111
+     *
      * @var int
      */
     public $backupJobID;
 
     /**
+     * @description The beginning time when the backup task started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and displayed in UTC.
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupProgressStatus;
 
     /**
+     * @description Manual
+     *
+     * @example Manual
+     *
      * @var string
      */
     public $jobMode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**: automatic backup
+     *   **Manual**: manual backup
+     *
+     * @example 0
+     *
      * @var string
      */
     public $process;
 
     /**
+     * @description 1162****
+     *
+     * @example 2021-01-05T19:24:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example NormalBackupTask
+     *
      * @var string
      */
     public $taskAction;

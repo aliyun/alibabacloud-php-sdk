@@ -9,21 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportRequest extends Model
 {
     /**
+     * @description The maximum number of entries returned per page.
+     *
+     * @example BigKey
+     *
      * @var string
      */
     public $analysisType;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 2019-08-05Z
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+     *
+     * >  Default value: **30**.
+     * @example -bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example -bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;
@@ -39,11 +54,17 @@ class DescribeCacheAnalysisReportRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumbers;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

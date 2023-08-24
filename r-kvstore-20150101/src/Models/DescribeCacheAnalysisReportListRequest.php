@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportListRequest extends Model
 {
     /**
+     * @description The ID of the child node in the cluster instance.
+     *
+     * >  If this parameter is not specified, the analysis results of all child nodes in the instance are returned.
+     * @example 7
+     *
      * @var int
      */
     public $days;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description 7
+     *
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;
@@ -34,11 +47,19 @@ class DescribeCacheAnalysisReportListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumbers;
 
     /**
+     * @description r-bp1zxszhcgatnx****-db-0
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

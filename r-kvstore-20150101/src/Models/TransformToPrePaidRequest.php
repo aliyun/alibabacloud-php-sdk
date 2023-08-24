@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class TransformToPrePaidRequest extends Model
 {
     /**
+     * @description true
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;
 
     /**
+     * @description r-bp1zxszhcgatnx****
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -29,6 +37,10 @@ class TransformToPrePaidRequest extends Model
     public $ownerId;
 
     /**
+     * @description The subscription duration of the instance. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $period;

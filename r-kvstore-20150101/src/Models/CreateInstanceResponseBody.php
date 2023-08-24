@@ -9,111 +9,208 @@ use AlibabaCloud\Tea\Model;
 class CreateInstanceResponseBody extends Model
 {
     /**
+     * @description The maximum bandwidth of the instance. Unit: MB/s.
+     *
+     * @example 32
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The storage capacity of the instance. Unit: MB.
+     *
+     * @example 16384
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The configurations of the instance.
+     *
+     * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The internal endpoint of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionDomain;
 
     /**
+     * @description The maximum number of connections supported by the instance.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $connections;
 
     /**
+     * @description The time when the subscription expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
+     * @example 2019-01-18T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The GUID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     * @example apitest
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The state of the instance. The return value is Creating.
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The network type of the instance. Valid values:
+     *
+     *   **CLASSIC**: classic network
+     *   **VPC**: VPC
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $networkType;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **STAND_ALONE**: standalone
+     *   **MASTER_SLAVE**: master-replica
+     *
+     * @example MASTER_SLAVE
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2084452111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The port number that is used to connect to the instance.
+     *
+     * @example 6379
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The private IP address of the instance.
+     *
+     * @example 172.16.0.10
+     *
      * @var string
      */
     public $privateIpAddr;
 
     /**
+     * @description The expected maximum queries per second (QPS).
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $QPS;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hongkong
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5DEA3CC9-F81D-4387-8E97-CEA40F09****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The username that is used to connect to the instance. By default, ApsaraDB for Redis provides a username that is named after the instance ID.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $userName;
 
     /**
+     * @description The ID of the vSwitch to which the instance is connected.
+     *
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-bp1nme44gek34slfc****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

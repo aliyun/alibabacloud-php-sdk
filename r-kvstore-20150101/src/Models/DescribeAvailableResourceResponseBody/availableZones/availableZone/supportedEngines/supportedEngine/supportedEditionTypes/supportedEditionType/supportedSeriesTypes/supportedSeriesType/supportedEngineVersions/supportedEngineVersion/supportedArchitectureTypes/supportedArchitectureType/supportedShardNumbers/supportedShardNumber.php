@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedShardNumber extends Model
 {
     /**
+     * @description The number of shards.
+     *
+     * @example 8
+     *
      * @var string
      */
     public $shardNumber;
 
     /**
+     * @description The available node types.
+     *
      * @var supportedNodeTypes
      */
     public $supportedNodeTypes;

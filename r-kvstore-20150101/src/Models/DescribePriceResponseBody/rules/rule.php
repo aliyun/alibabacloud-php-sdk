@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @example test
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 1111111111
+     *
      * @var int
      */
     public $ruleDescId;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $title;

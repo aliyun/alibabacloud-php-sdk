@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class supportedEditionType extends Model
 {
     /**
+     * @description The edition of the instance. Valid values:
+     *
+     *   **Community**: Community Edition
+     *   **Enterprise**: Enhanced Edition (Tair)
+     *
+     * @example Enterprise
+     *
      * @var string
      */
     public $editionType;
 
     /**
+     * @description The available instance series.
+     *
      * @var supportedSeriesTypes
      */
     public $supportedSeriesTypes;

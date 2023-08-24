@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceNetExpireTimeResponseBody extends Model
 {
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description Details of the extension period for which the classic network endpoint of the instance is retained.
+     *
      * @var netInfoItems
      */
     public $netInfoItems;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9C4AF387-1EA3-4C84-8013-3F6B973EDDF5
+     *
      * @var string
      */
     public $requestId;

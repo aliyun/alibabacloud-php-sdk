@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags from the instance. Default value: false. Valid values:
+     *
+     *   **true**: removes all tags from the instance.
+     *   **false**: does not remove all tags from the instance.
+     *
+     * > If you specify both this parameter and the **TagKey.N** parameter, this parameter does not take effect.
+     * @example false
+     *
      * @var bool
      */
     public $all;
@@ -24,11 +32,19 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the instances.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,11 +60,19 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The list of tag keys.
+     *
+     * @example demokey
+     *
      * @var string[]
      */
     public $tagKey;

@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
+     * @description The check code that indicates the valid values of the parameter.
+     *
+     * @example [0|1]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description Indicates whether the instance must be restarted for the modifications to take effect. Valid values:
+     *
+     *   **True**: The instance must be restarted for the modifications to take effect.
+     *   **False**: The instance does not need to be restarted for the modifications to take effect. Modifications immediately take effect.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceRestart;
 
     /**
+     * @description Indicates whether the parameter can be reset. Valid values:
+     *
+     *   **False**: The parameter cannot be reset.
+     *   **True**: The parameter can be reset.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $modifiableStatus;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example Check all keys passed in the KEYS array map to the same slot.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example script_check_enable
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $parameterValue;

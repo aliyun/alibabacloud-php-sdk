@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description The username of the account. You can call the [DescribeAccounts](~~95802~~) operation to query the username of the account.
+     *
+     * @example demoaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The instance ID.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

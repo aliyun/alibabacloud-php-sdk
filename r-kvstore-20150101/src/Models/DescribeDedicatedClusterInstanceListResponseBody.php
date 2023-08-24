@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedClusterInstanceListResponseBody extends Model
 {
     /**
+     * @description Details of the instances.
+     *
      * @var instances[]
      */
     public $instances;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 712CCF2A-16BD-411B-93F7-E978BEF2****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCount;

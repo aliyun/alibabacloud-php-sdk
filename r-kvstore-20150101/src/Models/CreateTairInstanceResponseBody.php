@@ -9,76 +9,142 @@ use AlibabaCloud\Tea\Model;
 class CreateTairInstanceResponseBody extends Model
 {
     /**
+     * @description The maximum bandwidth of the instance. Unit: MB/s.
+     *
+     * @example 96
+     *
      * @var int
      */
     public $bandwidth;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PrePaid**: subscription
+     *   **PostPaid**: pay-as-you-go
+     *
+     * @example PrePaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The detailed configurations of the instance. The value is a JSON string. For more information about the parameter description, see [Modify the parameters of an ApsaraDB for Redis instance](~~43885~~).
+     *
+     * @example {\"EvictionPolicy\":\"volatile-lru\",\"hash-max-ziplist-entries\":512,\"zset-max-ziplist-entries\":128,\"list-max-ziplist-entries\":512,\"list-max-ziplist-value\":64,\"zset-max-ziplist-value\":64,\"set-max-intset-entries\":512,\"hash-max-ziplist-value\":64}
+     *
      * @var string
      */
     public $config;
 
     /**
+     * @description The internal endpoint of the instance.
+     *
+     * @example r-bp13ac3d047b****.tairpena.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionDomain;
 
     /**
+     * @description The maximum number of connections supported by the instance.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $connections;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp13ac3d047b****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The name of the instance.
+     *
+     **
+     *
+     * This parameter is returned only if the **InstanceName** parameter is specified in the request.
+     * @example redistest
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The state of the instance. The return value is **Creating**.
+     *
+     * @example Creating
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2084452111111
+     *
      * @var int
      */
     public $orderId;
 
     /**
+     * @description The port number that is used to connect to the instance.
+     *
+     * @example 6379
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The maximum number of read and write operations that can be processed by the instance per second. The value is a theoretical value.
+     *
+     * @example 100000
+     *
      * @var int
      */
     public $QPS;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 12123216-4B00-4378-BE4B-08005BFC****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 10****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The zone ID of the instance.
+     *
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $zoneId;

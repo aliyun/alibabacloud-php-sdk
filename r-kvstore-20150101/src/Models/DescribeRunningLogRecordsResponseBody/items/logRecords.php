@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class logRecords extends Model
 {
     /**
+     * @description The maximum number of entries returned on each page.
+     *
+     * @example CONFIG REWRITE executed with success.
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The time range cannot exceed one day. We recommend that you specify 1 hour. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
+     * @example 2018-12-03T07:07:30Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;

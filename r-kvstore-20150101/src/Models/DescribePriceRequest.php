@@ -9,56 +9,109 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
+     * @description The coupon code. Default value: youhuiquan_promotion_option_id_for_blank. This value indicates that no coupon code is available.
+     *
+     * @example 000000000000
+     *
      * @var string
      */
     public $businessInfo;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     *
+     * @example 1024
+     *
      * @var int
      */
     public $capacity;
 
     /**
+     * @description The actual price of the order.
+     *
+     * @example PostPaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description Specify the instance type. You must set InstanceClass or Capacity to specify the instance type. We recommend that you use InstanceClass to specify the instance type.
+     *
+     * To view the instance type, perform the following steps:
+     *
+     * 1\. In the [Overview](~~26350~~) topic, click the link in the **Reference** column corresponding to the instance type that you want to view.
+     *
+     * 2\. In the instance type table of the page that appears, find the code corresponding to the instance type in the **InstanceClass** column.
+     * @example youhuiquan_promotion_option_id_for_blank
+     *
      * @var string
      */
     public $couponNo;
 
     /**
+     * @description The node type. Set the value to MASTER_SLAVE. This value indicates that the node type is master-replica.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceUpgrade;
 
     /**
+     * @description Specifies whether to forcefully change the configurations of the instance. Default value: true. Valid values:
+     *
+     *   **false**: The system forcefully changes the configurations.
+     *   **true**: The system does not forcefully change the configurations.
+     *
+     * >  Default value: **true**.
+     * @example redis.master.small.default
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @description The subscription period. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The storage capacity of the instance. Unit: MB. You must set **InstanceClass** or **Capacity** to specify the instance type. We recommend that you use **InstanceClass** to specify the instance type.
+     *
+     * @example Instances=[{"RegionId": "cn-hangzhou","ZoneId": "cn-hangzhou-b","InstanceClass": "redis.master.small.default","Period": "1","Quantity": "1","Capacity": "4096"}]
+     *
      * @var string
      */
     public $instances;
 
     /**
+     * @description The discount amount of the order.
+     *
+     * @example MASTER_SLAVE
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @description Indicates whether the coupon was selected.
+     *
+     * @example true
+     *
      * @var string
      */
     public $orderParamOut;
 
     /**
+     * @description The service fees of the order.
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -74,16 +127,32 @@ class DescribePriceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The extended information such as the promotional event ID and business information.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
+     *
+     * @example 1
+     *
      * @var int
      */
     public $quantity;
 
     /**
+     * @description The billing method of the instance. Valid values:
+     *
+     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid**: subscription
+     *
+     * >  Default value: **PostPaid**.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -104,6 +173,10 @@ class DescribePriceRequest extends Model
     public $securityToken;
 
     /**
+     * @description The description of the coupon.
+     *
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

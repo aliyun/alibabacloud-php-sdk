@@ -4,41 +4,56 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupsResponseBody\accessDeniedDetail;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupsResponseBody\backups;
 use AlibabaCloud\Tea\Model;
 
 class DescribeBackupsResponseBody extends Model
 {
     /**
+     * @var accessDeniedDetail
+     */
+    public $accessDeniedDetail;
+
+    /**
      * @var backups
      */
     public $backups;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 963C20F0-7CE1-4591-AAF3-6F3CD1CE****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $totalCount;
     protected $_name = [
-        'backups'    => 'Backups',
-        'pageNumber' => 'PageNumber',
-        'pageSize'   => 'PageSize',
-        'requestId'  => 'RequestId',
-        'totalCount' => 'TotalCount',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'backups'            => 'Backups',
+        'pageNumber'         => 'PageNumber',
+        'pageSize'           => 'PageSize',
+        'requestId'          => 'RequestId',
+        'totalCount'         => 'TotalCount',
     ];
 
     public function validate()
@@ -48,6 +63,9 @@ class DescribeBackupsResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toMap() : null;
+        }
         if (null !== $this->backups) {
             $res['Backups'] = null !== $this->backups ? $this->backups->toMap() : null;
         }
@@ -75,6 +93,9 @@ class DescribeBackupsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
         if (isset($map['Backups'])) {
             $model->backups = backups::fromMap($map['Backups']);
         }

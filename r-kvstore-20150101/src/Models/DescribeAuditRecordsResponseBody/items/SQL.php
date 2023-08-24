@@ -9,46 +9,83 @@ use AlibabaCloud\Tea\Model;
 class SQL extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The database name.
+     *
+     * @example demo
+     *
      * @var string
      */
     public $databaseName;
 
     /**
+     * @description The time when the command was run.
+     *
+     * @example 2019-03-25T03:22:08Z
+     *
      * @var string
      */
     public $executeTime;
 
     /**
+     * @description The IP address of the client.
+     *
+     * @example 127.0.0.1
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The IP address of the instance.
+     *
+     * @example 192.16.100.***
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The ID of the node.
+     *
+     * > A specific node ID is returned only if the instance uses the cluster or read/write splitting architecture.
+     * @example r-bp1zxszhcgatnx****-db-0
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The command that was run.
+     *
+     * @example CONFIG GET maxmemory
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The type of the command.
+     *
+     * @example non_read_write
+     *
      * @var string
      */
     public $SQLType;
 
     /**
+     * @description The amount of time consumed to run the command.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $totalExecutionTimes;

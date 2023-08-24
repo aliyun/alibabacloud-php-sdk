@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeRequest extends Model
 {
     /**
+     * @description The new password for the default account. The default account is named after the instance ID. Default account example: r-bp10noxlhcoim2****.
+     *
+     * >  The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The release protection state of the instance. Valid values:
+     *
+     *   **true**: The release protection is enabled.
+     *   **false**: The release protection is disabled.
+     *
+     * >  This parameter is available only for pay-as-you-go instances.
+     * @example newinstancename
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @description The operation that you want to perform. Set the value to **ModifyInstanceAttribute**.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $instanceReleaseProtection;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example uW8+nsrp
+     *
      * @var string
      */
     public $newPassword;

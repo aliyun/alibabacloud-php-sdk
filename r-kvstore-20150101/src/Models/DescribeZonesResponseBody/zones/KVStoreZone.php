@@ -14,21 +14,29 @@ class KVStoreZone extends Model
     public $disabled;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $isRds;
 
     /**
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $switchNetwork;
 
     /**
+     * @example cn-huhehaote-b
+     *
      * @var string
      */
     public $zoneId;

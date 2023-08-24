@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class KVStoreMonitorItem extends Model
 {
     /**
+     * @description DescribeMonitorItems
+     *
+     * @example select
+     *
      * @var string
      */
     public $monitorKey;
 
     /**
+     * @description Queries the metrics of an ApsaraDB for Redis instance.
+     *
+     * @example Counts/s
+     *
      * @var string
      */
     public $unit;

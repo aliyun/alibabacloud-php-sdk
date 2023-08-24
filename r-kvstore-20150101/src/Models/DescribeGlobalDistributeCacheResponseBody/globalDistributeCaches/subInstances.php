@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class subInstances extends Model
 {
     /**
+     * @example gr-bp14rkqrhac****
+     *
      * @var string
      */
     public $globalInstanceId;
 
     /**
+     * @example redis.amber.logic.sharding.2g.2db.0rodb.6proxy.multithread
+     *
      * @var string
      */
     public $instanceClass;
 
     /**
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceID;
 
     /**
+     * @example Normal
+     *
      * @var string
      */
     public $instanceStatus;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

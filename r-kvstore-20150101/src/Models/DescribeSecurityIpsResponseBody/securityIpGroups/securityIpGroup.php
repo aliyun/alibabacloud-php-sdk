@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class securityIpGroup extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeSecurityIps**.
+     *
+     * @example hidden
+     *
      * @var string
      */
     public $securityIpGroupAttribute;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $securityIpGroupName;
 
     /**
+     * @example 100.100.202.***\/24,10.10.10.***
+     *
      * @var string
      */
     public $securityIpList;

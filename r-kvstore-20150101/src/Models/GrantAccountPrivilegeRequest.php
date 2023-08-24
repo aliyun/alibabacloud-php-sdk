@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GrantAccountPrivilegeRequest extends Model
 {
     /**
+     * @description GrantAccountPrivilege
+     *
+     * @example demoaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example RoleReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @description Modifies the permissions of an account for an ApsaraDB for Redis instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

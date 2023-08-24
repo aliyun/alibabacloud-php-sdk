@@ -4,29 +4,53 @@
 
 namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
+use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupTasksResponseBody\accessDeniedDetail;
 use AlibabaCloud\SDK\Rkvstore\V20150101\Models\DescribeBackupTasksResponseBody\backupJobs;
 use AlibabaCloud\Tea\Model;
 
 class DescribeBackupTasksResponseBody extends Model
 {
     /**
+     * @var accessDeniedDetail
+     */
+    public $accessDeniedDetail;
+
+    /**
+     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     *
      * @var backupJobs[]
      */
     public $backupJobs;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The status of the backup task. Valid values:
+     *
+     *   **NoStart**: The backup task is not started.
+     *   **Preparing**: The backup task is being prepared.
+     *   **Waiting**: The backup task is pending.
+     *   **Uploading:** The system is uploading the backup file.
+     *   **Checking:** The system is checking the uploaded backup file.
+     *   **Finished**: The backup task is complete.
+     *
+     * @example BB73740C-23E2-4392-9DA4-2660C74C****
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'backupJobs' => 'BackupJobs',
-        'instanceId' => 'InstanceId',
-        'requestId'  => 'RequestId',
+        'accessDeniedDetail' => 'AccessDeniedDetail',
+        'backupJobs'         => 'BackupJobs',
+        'instanceId'         => 'InstanceId',
+        'requestId'          => 'RequestId',
     ];
 
     public function validate()
@@ -36,6 +60,9 @@ class DescribeBackupTasksResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->accessDeniedDetail) {
+            $res['AccessDeniedDetail'] = null !== $this->accessDeniedDetail ? $this->accessDeniedDetail->toMap() : null;
+        }
         if (null !== $this->backupJobs) {
             $res['BackupJobs'] = [];
             if (null !== $this->backupJobs && \is_array($this->backupJobs)) {
@@ -63,6 +90,9 @@ class DescribeBackupTasksResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AccessDeniedDetail'])) {
+            $model->accessDeniedDetail = accessDeniedDetail::fromMap($map['AccessDeniedDetail']);
+        }
         if (isset($map['BackupJobs'])) {
             if (!empty($map['BackupJobs'])) {
                 $model->backupJobs = [];

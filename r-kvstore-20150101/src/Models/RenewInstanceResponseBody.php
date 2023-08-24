@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RenewInstanceResponseBody extends Model
 {
     /**
+     * @description The end time of the order.
+     *
+     * @example 2019-02-19T00:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 111111111111111
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2222245-222A-4155-9349-E22222****
+     *
      * @var string
      */
     public $requestId;

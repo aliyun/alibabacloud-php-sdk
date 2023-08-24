@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResource extends Model
 {
     /**
+     * @description The resource ID, which is also the ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The resource type. The return value is **ALIYUN::KVSTORE::INSTANCE**. This value indicates an ApsaraDB for Redis instance.
+     *
+     * @example ALIYUN::KVSTORE::INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The keys of the tags.
+     *
+     * @example demokey
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The values of the tags.
+     *
+     * @example demovalue
+     *
      * @var string
      */
     public $tagValue;

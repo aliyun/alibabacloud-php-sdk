@@ -9,61 +9,111 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The number of the returned page.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $currentBandWidth;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **10**, **20**, and **50**. Default value: **10**.
+     *
+     * @example redis-5.0_0.3.10
+     *
      * @var string
      */
     public $currentMinorVersion;
 
     /**
+     * @example 30381****
+     *
      * @var string
      */
     public $custinsId;
 
     /**
+     * @description The node type. Valid values:
+     *
+     *   **db**: data node.
+     *   **proxy**: proxy node.
+     *   **normal**: regular node. This value is returned when the instance runs in the standard architecture.
+     *
+     * @example 96
+     *
      * @var int
      */
     public $defaultBandWidth;
 
     /**
+     * @description Indicates whether the minor version is the latest version. Valid values:
+     *
+     *   **0**: The minor version is not the latest version.
+     *   **1**: The minor version is the latest version.
+     *
+     * >  To update the minor version, call the [ModifyInstanceMinorVersion](~~129381~~) operation.
+     * @example r-t4nlenc2p04uvb****
+     *
      * @var string
      */
     public $insName;
 
     /**
+     * @description Details about each node in an ApsaraDB for Redis instance.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $insType;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $isLatestVersion;
 
     /**
+     * @description DescribeRoleZoneInfo
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isOpenBandWidthService;
 
     /**
+     * @example 10065****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example normal
+     *
      * @var string
      */
     public $nodeType;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description Queries information about the type, minor version, and bandwidth of specific nodes in an ApsaraDB for Redis instance, and zones where the nodes are deployed.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;

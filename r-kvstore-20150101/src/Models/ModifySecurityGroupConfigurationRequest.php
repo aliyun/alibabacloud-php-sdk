@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupConfigurationRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **ModifySecurityGroupConfiguration**.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $DBInstanceId;
@@ -34,6 +38,10 @@ class ModifySecurityGroupConfigurationRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the security group that you want to manage. You can specify up to 10 security groups. Separate multiple security group IDs with commas (,).
+     *
+     * @example sg-bpcfmyiu4ekp****
+     *
      * @var string
      */
     public $securityGroupId;

@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeActiveOperationTasksResponse extends Model
+class ModifyActiveOperationTaskResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeActiveOperationTasksResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeActiveOperationTasksResponseBody
+     * @var ModifyActiveOperationTaskResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeActiveOperationTasksResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeActiveOperationTasksResponse
+     * @return ModifyActiveOperationTaskResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeActiveOperationTasksResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeActiveOperationTasksResponseBody::fromMap($map['body']);
+            $model->body = ModifyActiveOperationTaskResponseBody::fromMap($map['body']);
         }
 
         return $model;

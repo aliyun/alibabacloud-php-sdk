@@ -9,21 +9,41 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
+     * @description The current endpoint of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
+     *
      * @var string
      */
     public $currentConnectionString;
 
     /**
+     * @description The ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **Private**: internal network
+     *   **Public**: Internet
+     *
+     * @example Public
+     *
      * @var string
      */
     public $IPType;
 
     /**
+     * @description The prefix of the new endpoint. Specify the endpoint in the `<prefix>.redis.rds.aliyuncs.com` format. The prefix can contain lowercase letters and digits, and must start with a lowercase letter. The prefix can be 8 to 40 characters in length.
+     *
+     * > You must specify one of the **NewConnectionString** and **Port** parameters.
+     * @example standardredis
+     *
      * @var string
      */
     public $newConnectionString;
@@ -39,6 +59,11 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $ownerId;
 
     /**
+     * @description The port number that is used to connect to the instance. Valid values: **1024** to **65535**.
+     *
+     * > You must specify one of the **NewConnectionString** and **Port** parameters.
+     * @example 6379
+     *
      * @var string
      */
     public $port;

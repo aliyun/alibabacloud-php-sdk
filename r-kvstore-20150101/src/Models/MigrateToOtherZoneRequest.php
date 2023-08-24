@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class MigrateToOtherZoneRequest extends Model
 {
     /**
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example Immediately
+     *
      * @var string
      */
     public $effectiveTime;
@@ -39,6 +43,8 @@ class MigrateToOtherZoneRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example cn-hangzhou-h
+     *
      * @var string
      */
     public $secondaryZoneId;
@@ -49,11 +55,15 @@ class MigrateToOtherZoneRequest extends Model
     public $securityToken;
 
     /**
+     * @example vsw-bp1e7clcw529l773d****
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

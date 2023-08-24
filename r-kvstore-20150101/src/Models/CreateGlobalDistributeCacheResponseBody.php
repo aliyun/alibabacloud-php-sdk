@@ -9,17 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalDistributeCacheResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $globalInstanceId;
-
-    /**
+     * @description The ID of the request.
+     *
+     * @example E681E498-5A0D-44F2-B1A7-912DC3******
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'globalInstanceId' => 'GlobalInstanceId',
-        'requestId'        => 'RequestId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,9 +27,6 @@ class CreateGlobalDistributeCacheResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->globalInstanceId) {
-            $res['GlobalInstanceId'] = $this->globalInstanceId;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -47,9 +42,6 @@ class CreateGlobalDistributeCacheResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['GlobalInstanceId'])) {
-            $model->globalInstanceId = $map['GlobalInstanceId'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -9,16 +9,35 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceTDERequest extends Model
 {
     /**
+     * @description The ID of the custom key. You can call the [DescribeEncryptionKeyList](~~302339~~) operation to query the key ID.
+     *
+     * >
+     *
+     *   If you do not specify this parameter, [Key Management Service (KMS)](~~28935~~) automatically generates a key.
+     *
+     *   To create a custom key, you can call the [CreateKey](~~28947~~) operation of the KMS API.
+     *
+     * @example ad463061-992d-4195-8a94-ed63********
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description The encryption algorithm. Default value: AES-CTR-256.
+     *
+     * > This parameter is available only if the **TDEStatus** parameter is set to **Enabled**.
+     * @example AES-CTR-256
+     *
      * @var string
      */
     public $encryptionName;
 
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
@@ -44,6 +63,16 @@ class ModifyInstanceTDERequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the Resource Access Management (RAM) role that you want to attach to your ApsaraDB for Redis instance. The ARN must be in the format of `acs:ram::$accountID:role/$roleName`. After the role is attached, your ApsaraDB for Redis instance can use KMS.
+     *
+     * >
+     *
+     *   `$accountID`: the ID of the Alibaba Cloud account. To view the account ID, log on to the Alibaba Cloud console, move the pointer over your profile picture in the upper-right corner of the page, and then click **Security Settings**.
+     *
+     *   `$roleName`: the name of the RAM role. Replace $roleName with **AliyunRdsInstanceEncryptionDefaultRole**.
+     *
+     * @example acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+     *
      * @var string
      */
     public $roleArn;
@@ -54,6 +83,11 @@ class ModifyInstanceTDERequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to enable TDE. Set the value to **Enabled**.
+     *
+     * > TDE cannot be disabled after it is enabled. Before you enable it, evaluate whether this feature affects your business. For more information, see [Enable TDE](~~265913~~).
+     * @example Enabled
+     *
      * @var string
      */
     public $TDEStatus;

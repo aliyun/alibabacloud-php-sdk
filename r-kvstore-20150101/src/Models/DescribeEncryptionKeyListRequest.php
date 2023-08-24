@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeEncryptionKeyListRequest extends Model
 {
     /**
+     * @description The operation that you want to perform. Set the value to **DescribeEncryptionKeyList**.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

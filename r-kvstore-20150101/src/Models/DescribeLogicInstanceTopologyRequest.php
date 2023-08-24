@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogicInstanceTopologyRequest extends Model
 {
     /**
+     * @description The storage capacity of the node. Unit: MB.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

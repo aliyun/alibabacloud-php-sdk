@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveSubInstanceRequest extends Model
 {
     /**
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

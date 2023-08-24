@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class TransformToPrePaidResponseBody extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Default value: false. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no. In this case, you can renew your instance in the ApsaraDB for Redis console. For more information, see [Manually renew an instance](~~26352~~).
+     *
+     * @example 2019-01-18T16:00:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The operation that you want to perform. Set the value to **TransformToPrePaid**.
+     *
+     * @example 111111111111111
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 426F1356-B6EF-4DAD-A1C3-DE53B9DAF586
+     *
      * @var string
      */
     public $requestId;

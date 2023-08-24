@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsResponseBody extends Model
 {
     /**
+     * @example AAAF99B1-69ED-4E80-8CD5-272C09E4****
+     *
      * @var string
      */
     public $requestId;

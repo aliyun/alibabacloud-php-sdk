@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngine extends Model
 {
     /**
+     * @description The database engine of the instance.
+     *
+     * @example Redis
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The available instance editions.
+     *
      * @var supportedEditionTypes
      */
     public $supportedEditionTypes;

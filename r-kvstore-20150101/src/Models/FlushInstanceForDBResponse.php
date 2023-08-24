@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Rkvstore\V20150101\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ModifyNodeSpecResponse extends Model
+class FlushInstanceForDBResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class ModifyNodeSpecResponse extends Model
     public $statusCode;
 
     /**
-     * @var ModifyNodeSpecResponseBody
+     * @var FlushInstanceForDBResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class ModifyNodeSpecResponse extends Model
     /**
      * @param array $map
      *
-     * @return ModifyNodeSpecResponse
+     * @return FlushInstanceForDBResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class ModifyNodeSpecResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = ModifyNodeSpecResponseBody::fromMap($map['body']);
+            $model->body = FlushInstanceForDBResponseBody::fromMap($map['body']);
         }
 
         return $model;

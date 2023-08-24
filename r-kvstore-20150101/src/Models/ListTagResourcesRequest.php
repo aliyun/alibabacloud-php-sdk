@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The token used to start the next query to retrieve more results.
+     *
+     * > This parameter is not required in the first query. If not all results are returned in one query, you can specify the **NextToken** value returned for the query to perform the next query.
+     * @example 212db86sca4384811e0b5e8707ec2****
+     *
      * @var string
      */
     public $nextToken;
@@ -25,11 +30,20 @@ class ListTagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the instances.
+     *
+     * > *   You must specify this parameter or the **Tag** parameter.
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string[]
      */
     public $resourceId;
@@ -45,11 +59,17 @@ class ListTagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The resource type. Set the value to **INSTANCE**.
+     *
+     * @example INSTANCE
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tags of the instance. You must specify this parameter or the **ResourceId** parameter.
+     *
      * @var tag[]
      */
     public $tag;

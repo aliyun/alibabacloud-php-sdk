@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @example 11611111
+     *
      * @var int
      */
     public $backupId;
 
     /**
+     * @example 2019-03-14T18:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $needAof;
@@ -39,11 +47,15 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -64,6 +76,8 @@ class DescribeBackupsRequest extends Model
     public $securityToken;
 
     /**
+     * @example 2019-03-11T10:00Z
+     *
      * @var string
      */
     public $startTime;

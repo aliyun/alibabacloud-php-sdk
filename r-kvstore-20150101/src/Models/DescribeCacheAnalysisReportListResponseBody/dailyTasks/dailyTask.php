@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class dailyTask extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
+     * @example 2019-08-01Z
+     *
      * @var string
      */
     public $date;
 
     /**
+     * @description Details about the offline key analysis tasks.
+     *
      * @var tasks
      */
     public $tasks;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupRequest extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example r-bp1zxszhcgatnx****
+     *
      * @var string
      */
     public $instanceId;

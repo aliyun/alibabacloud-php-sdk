@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class supportedNodeType extends Model
 {
     /**
+     * @description The available instance types.
+     *
      * @var availableResources
      */
     public $availableResources;
 
     /**
+     * @description The node type of the instance. Valid values:
+     *
+     *   **single**: standalone
+     *   **double**: master-replica
+     *
+     * @example double
+     *
      * @var string
      */
     public $supportedNodeType;
