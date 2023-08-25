@@ -24,6 +24,10 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CancelFavoritePublicMediaResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAuditResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAvatarTrainingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateAvatarTrainingJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateDNADBRequest;
@@ -46,8 +50,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\CreateUploadStreamResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DecryptKMSDataKeyResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAvatarTrainingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCategoryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DeleteDNADBRequest;
@@ -131,13 +139,25 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribePlayQosListShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\DescribeQueryConfigsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DetectAudioForCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\DetectAudioForCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GenerateKMSDataKeyResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCategoriesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetContentAnalyzeConfigResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomizedVoiceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDefaultStorageLocationResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetDemonstrationForCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\GetDemonstrationForCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDynamicImageJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetDynamicImageJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetEditingProjectMaterialsRequest;
@@ -199,6 +219,14 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\GetWorkflowTaskResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListAllPublicMediaTagsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarTrainingJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListAvatarTrainingJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoiceJobsRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoiceJobsResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoicesRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomizedVoicesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListCustomTemplatesResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\ListDNADBRequest;
@@ -291,8 +319,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitASRJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAudioProduceJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarTrainingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitAvatarVideoJobResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitCustomizedVoiceJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitDNAJobShrinkRequest;
@@ -340,8 +372,12 @@ use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitSyncMediaInfoJobShrinkRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\SubmitTranscodeJobShrinkRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateAvatarTrainingJobResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCategoryRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCategoryResponse;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomizedVoiceRequest;
+use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomizedVoiceResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomTemplateRequest;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateCustomTemplateResponse;
 use AlibabaCloud\SDK\ICE\V20201109\Models\UpdateEditingProjectRequest;
@@ -908,6 +944,67 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param CreateAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAvatarTrainingJobResponse
+     */
+    public function createAvatarTrainingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->avatarDescription)) {
+            $query['AvatarDescription'] = $request->avatarDescription;
+        }
+        if (!Utils::isUnset($request->avatarName)) {
+            $query['AvatarName'] = $request->avatarName;
+        }
+        if (!Utils::isUnset($request->avatarType)) {
+            $query['AvatarType'] = $request->avatarType;
+        }
+        if (!Utils::isUnset($request->portrait)) {
+            $query['Portrait'] = $request->portrait;
+        }
+        if (!Utils::isUnset($request->thumbnail)) {
+            $query['Thumbnail'] = $request->thumbnail;
+        }
+        if (!Utils::isUnset($request->transparent)) {
+            $query['Transparent'] = $request->transparent;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAvatarTrainingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAvatarTrainingJobRequest $request
+     *
+     * @return CreateAvatarTrainingJobResponse
+     */
+    public function createAvatarTrainingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAvatarTrainingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateCustomTemplateRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -957,6 +1054,61 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCustomTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateCustomizedVoiceJobResponse
+     */
+    public function createCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->gender)) {
+            $query['Gender'] = $request->gender;
+        }
+        if (!Utils::isUnset($request->scenario)) {
+            $query['Scenario'] = $request->scenario;
+        }
+        if (!Utils::isUnset($request->voiceDesc)) {
+            $query['VoiceDesc'] = $request->voiceDesc;
+        }
+        if (!Utils::isUnset($request->voiceId)) {
+            $query['VoiceId'] = $request->voiceId;
+        }
+        if (!Utils::isUnset($request->voiceName)) {
+            $query['VoiceName'] = $request->voiceName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCustomizedVoiceJobRequest $request
+     *
+     * @return CreateCustomizedVoiceJobResponse
+     */
+    public function createCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCustomizedVoiceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -1456,6 +1608,49 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DeleteAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DeleteAvatarTrainingJobResponse
+     */
+    public function deleteAvatarTrainingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAvatarTrainingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteAvatarTrainingJobRequest $request
+     *
+     * @return DeleteAvatarTrainingJobResponse
+     */
+    public function deleteAvatarTrainingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAvatarTrainingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteCategoryRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1539,6 +1734,49 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCustomTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DeleteCustomizedVoiceJobResponse
+     */
+    public function deleteCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCustomizedVoiceJobRequest $request
+     *
+     * @return DeleteCustomizedVoiceJobResponse
+     */
+    public function deleteCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCustomizedVoiceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3555,6 +3793,55 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param DetectAudioForCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                          $runtime
+     *
+     * @return DetectAudioForCustomizedVoiceJobResponse
+     */
+    public function detectAudioForCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->audioRecordId)) {
+            $query['AudioRecordId'] = $request->audioRecordId;
+        }
+        if (!Utils::isUnset($request->recordUrl)) {
+            $query['RecordUrl'] = $request->recordUrl;
+        }
+        if (!Utils::isUnset($request->voiceId)) {
+            $query['VoiceId'] = $request->voiceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetectAudioForCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetectAudioForCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetectAudioForCustomizedVoiceJobRequest $request
+     *
+     * @return DetectAudioForCustomizedVoiceJobResponse
+     */
+    public function detectAudioForCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detectAudioForCustomizedVoiceJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return GenerateKMSDataKeyResponse
@@ -3585,6 +3872,92 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->generateKMSDataKeyWithOptions($runtime);
+    }
+
+    /**
+     * @param GetAvatarRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetAvatarResponse
+     */
+    public function getAvatarWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->avatarId)) {
+            $query['AvatarId'] = $request->avatarId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAvatar',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAvatarRequest $request
+     *
+     * @return GetAvatarResponse
+     */
+    public function getAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAvatarWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetAvatarTrainingJobRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetAvatarTrainingJobResponse
+     */
+    public function getAvatarTrainingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetAvatarTrainingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetAvatarTrainingJobRequest $request
+     *
+     * @return GetAvatarTrainingJobResponse
+     */
+    public function getAvatarTrainingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAvatarTrainingJobWithOptions($request, $runtime);
     }
 
     /**
@@ -3725,6 +4098,92 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param GetCustomizedVoiceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetCustomizedVoiceResponse
+     */
+    public function getCustomizedVoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->voiceId)) {
+            $query['VoiceId'] = $request->voiceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomizedVoice',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCustomizedVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCustomizedVoiceRequest $request
+     *
+     * @return GetCustomizedVoiceResponse
+     */
+    public function getCustomizedVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomizedVoiceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetCustomizedVoiceJobResponse
+     */
+    public function getCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetCustomizedVoiceJobRequest $request
+     *
+     * @return GetCustomizedVoiceJobResponse
+     */
+    public function getCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getCustomizedVoiceJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RuntimeOptions $runtime
      *
      * @return GetDefaultStorageLocationResponse
@@ -3755,6 +4214,49 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getDefaultStorageLocationWithOptions($runtime);
+    }
+
+    /**
+     * @param GetDemonstrationForCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                               $runtime
+     *
+     * @return GetDemonstrationForCustomizedVoiceJobResponse
+     */
+    public function getDemonstrationForCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->scenario)) {
+            $query['Scenario'] = $request->scenario;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDemonstrationForCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDemonstrationForCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDemonstrationForCustomizedVoiceJobRequest $request
+     *
+     * @return GetDemonstrationForCustomizedVoiceJobResponse
+     */
+    public function getDemonstrationForCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDemonstrationForCustomizedVoiceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -5108,6 +5610,104 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param ListAvatarTrainingJobsRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAvatarTrainingJobsResponse
+     */
+    public function listAvatarTrainingJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvatarTrainingJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAvatarTrainingJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAvatarTrainingJobsRequest $request
+     *
+     * @return ListAvatarTrainingJobsResponse
+     */
+    public function listAvatarTrainingJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAvatarTrainingJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAvatarsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListAvatarsResponse
+     */
+    public function listAvatarsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->avatarType)) {
+            $query['AvatarType'] = $request->avatarType;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAvatars',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAvatarsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAvatarsRequest $request
+     *
+     * @return ListAvatarsResponse
+     */
+    public function listAvatars($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAvatarsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListCustomTemplatesRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -5166,6 +5766,98 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listCustomTemplatesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomizedVoiceJobsRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCustomizedVoiceJobsResponse
+     */
+    public function listCustomizedVoiceJobsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomizedVoiceJobs',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomizedVoiceJobsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomizedVoiceJobsRequest $request
+     *
+     * @return ListCustomizedVoiceJobsResponse
+     */
+    public function listCustomizedVoiceJobs($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomizedVoiceJobsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCustomizedVoicesRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListCustomizedVoicesResponse
+     */
+    public function listCustomizedVoicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCustomizedVoices',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCustomizedVoicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCustomizedVoicesRequest $request
+     *
+     * @return ListCustomizedVoicesResponse
+     */
+    public function listCustomizedVoices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCustomizedVoicesWithOptions($request, $runtime);
     }
 
     /**
@@ -6917,6 +7609,9 @@ class ICE extends OpenApiClient
         if (!Utils::isUnset($request->pageSize)) {
             $query['PageSize'] = $request->pageSize;
         }
+        if (!Utils::isUnset($request->scrollToken)) {
+            $query['ScrollToken'] = $request->scrollToken;
+        }
         if (!Utils::isUnset($request->sortBy)) {
             $query['SortBy'] = $request->sortBy;
         }
@@ -7584,6 +8279,49 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param SubmitAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return SubmitAvatarTrainingJobResponse
+     */
+    public function submitAvatarTrainingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitAvatarTrainingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitAvatarTrainingJobRequest $request
+     *
+     * @return SubmitAvatarTrainingJobResponse
+     */
+    public function submitAvatarTrainingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitAvatarTrainingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param SubmitAvatarVideoJobRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -7639,6 +8377,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->submitAvatarVideoJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitCustomizedVoiceJobRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return SubmitCustomizedVoiceJobResponse
+     */
+    public function submitCustomizedVoiceJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->demoAudioMediaURL)) {
+            $query['DemoAudioMediaURL'] = $request->demoAudioMediaURL;
+        }
+        if (!Utils::isUnset($request->voiceId)) {
+            $query['VoiceId'] = $request->voiceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitCustomizedVoiceJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitCustomizedVoiceJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitCustomizedVoiceJobRequest $request
+     *
+     * @return SubmitCustomizedVoiceJobResponse
+     */
+    public function submitCustomizedVoiceJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitCustomizedVoiceJobWithOptions($request, $runtime);
     }
 
     /**
@@ -8830,6 +9614,67 @@ class ICE extends OpenApiClient
     }
 
     /**
+     * @param UpdateAvatarTrainingJobRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAvatarTrainingJobResponse
+     */
+    public function updateAvatarTrainingJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->avatarDescription)) {
+            $query['AvatarDescription'] = $request->avatarDescription;
+        }
+        if (!Utils::isUnset($request->avatarName)) {
+            $query['AvatarName'] = $request->avatarName;
+        }
+        if (!Utils::isUnset($request->jobId)) {
+            $query['JobId'] = $request->jobId;
+        }
+        if (!Utils::isUnset($request->portrait)) {
+            $query['Portrait'] = $request->portrait;
+        }
+        if (!Utils::isUnset($request->thumbnail)) {
+            $query['Thumbnail'] = $request->thumbnail;
+        }
+        if (!Utils::isUnset($request->transparent)) {
+            $query['Transparent'] = $request->transparent;
+        }
+        if (!Utils::isUnset($request->video)) {
+            $query['Video'] = $request->video;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAvatarTrainingJob',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAvatarTrainingJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAvatarTrainingJobRequest $request
+     *
+     * @return UpdateAvatarTrainingJobResponse
+     */
+    public function updateAvatarTrainingJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAvatarTrainingJobWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateCategoryRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -8922,6 +9767,52 @@ class ICE extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateCustomTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCustomizedVoiceRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateCustomizedVoiceResponse
+     */
+    public function updateCustomizedVoiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->demoAudioMediaId)) {
+            $query['DemoAudioMediaId'] = $request->demoAudioMediaId;
+        }
+        if (!Utils::isUnset($request->voiceId)) {
+            $query['VoiceId'] = $request->voiceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCustomizedVoice',
+            'version'     => '2020-11-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCustomizedVoiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCustomizedVoiceRequest $request
+     *
+     * @return UpdateCustomizedVoiceResponse
+     */
+    public function updateCustomizedVoice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCustomizedVoiceWithOptions($request, $runtime);
     }
 
     /**

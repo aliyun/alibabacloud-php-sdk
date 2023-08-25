@@ -35,17 +35,23 @@ class SearchMediaRequest extends Model
     public $pageSize;
 
     /**
+     * @var string
+     */
+    public $scrollToken;
+
+    /**
      * @example utcCreate:Desc, utcModified:Desc
      *
      * @var string
      */
     public $sortBy;
     protected $_name = [
-        'entityId' => 'EntityId',
-        'match'    => 'Match',
-        'pageNo'   => 'PageNo',
-        'pageSize' => 'PageSize',
-        'sortBy'   => 'SortBy',
+        'entityId'    => 'EntityId',
+        'match'       => 'Match',
+        'pageNo'      => 'PageNo',
+        'pageSize'    => 'PageSize',
+        'scrollToken' => 'ScrollToken',
+        'sortBy'      => 'SortBy',
     ];
 
     public function validate()
@@ -66,6 +72,9 @@ class SearchMediaRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->scrollToken) {
+            $res['ScrollToken'] = $this->scrollToken;
         }
         if (null !== $this->sortBy) {
             $res['SortBy'] = $this->sortBy;
@@ -93,6 +102,9 @@ class SearchMediaRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['ScrollToken'])) {
+            $model->scrollToken = $map['ScrollToken'];
         }
         if (isset($map['SortBy'])) {
             $model->sortBy = $map['SortBy'];

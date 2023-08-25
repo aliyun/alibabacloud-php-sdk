@@ -29,6 +29,11 @@ class SearchMediaResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $scrollToken;
+
+    /**
      * @example True
      *
      * @var string
@@ -45,6 +50,7 @@ class SearchMediaResponseBody extends Model
         'code'          => 'Code',
         'mediaInfoList' => 'MediaInfoList',
         'requestId'     => 'RequestId',
+        'scrollToken'   => 'ScrollToken',
         'success'       => 'Success',
         'total'         => 'Total',
     ];
@@ -70,6 +76,9 @@ class SearchMediaResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->scrollToken) {
+            $res['ScrollToken'] = $this->scrollToken;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -103,6 +112,9 @@ class SearchMediaResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ScrollToken'])) {
+            $model->scrollToken = $map['ScrollToken'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];
