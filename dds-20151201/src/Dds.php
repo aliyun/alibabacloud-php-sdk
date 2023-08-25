@@ -7008,6 +7008,9 @@ class Dds extends OpenApiClient
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
         }
+        if (!Utils::isUnset($request->pricingCycle)) {
+            $query['PricingCycle'] = $request->pricingCycle;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }

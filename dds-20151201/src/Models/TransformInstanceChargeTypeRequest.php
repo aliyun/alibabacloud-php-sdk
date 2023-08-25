@@ -93,6 +93,13 @@ class TransformInstanceChargeTypeRequest extends Model
     public $period;
 
     /**
+     * @example Month
+     *
+     * @var string
+     */
+    public $pricingCycle;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -116,6 +123,7 @@ class TransformInstanceChargeTypeRequest extends Model
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'period'               => 'Period',
+        'pricingCycle'         => 'PricingCycle',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
@@ -154,6 +162,9 @@ class TransformInstanceChargeTypeRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->pricingCycle) {
+            $res['PricingCycle'] = $this->pricingCycle;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -202,6 +213,9 @@ class TransformInstanceChargeTypeRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['PricingCycle'])) {
+            $model->pricingCycle = $map['PricingCycle'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
