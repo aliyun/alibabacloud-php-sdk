@@ -11,36 +11,69 @@ use AlibabaCloud\Tea\Model;
 class UpdateAnycastEipAddressAssociationsRequest extends Model
 {
     /**
+     * @description The ID of the Anycast EIP.
+     *
+     * @example aeip-bp1ix34fralt4ykf3****
+     *
      * @var string
      */
     public $anycastId;
 
     /**
+     * @description The association mode. Valid values:
+     *
+     *   **Default**: the default mode. In this mode, cloud resources to be associated are set as default origin servers.
+     *   **Normal**: the standard mode. In this mode, cloud resources to be associated are set as standard origin servers.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $associationMode;
 
     /**
+     * @description The ID of the cloud resource with which you want to associate the Anycast EIP.
+     *
+     * @example lb-d7oxbixhxv1uupnon****
+     *
      * @var string
      */
     public $bindInstanceId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * >  If you do not set this parameter, the system automatically uses **RequestId** as **ClientToken**. **RequestId** may be different for each API request.
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description Specifies whether to only precheck the request. Valid values:
+     *
+     *   **true**: prechecks the request without updating the association information. The system checks the required parameters, request syntax, and limits. If the request fails to pass the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false** (default): sends the API request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
 
     /**
+     * @description The access areas and access points to be added.
+     *
      * @var popLocationAddList[]
      */
     public $popLocationAddList;
 
     /**
+     * @description The access areas and access points to be deleted.
+     *
      * @var popLocationDeleteList[]
      */
     public $popLocationDeleteList;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class popLocationDeleteList extends Model
 {
     /**
+     * @description The access points in the access areas to be deleted.
+     *
+     * >  If the access point in the access area is associated with a default origin server, you cannot delete the access point in the access area.
+     * @example ap-south-1-pop
+     *
      * @var string
      */
     public $popLocation;

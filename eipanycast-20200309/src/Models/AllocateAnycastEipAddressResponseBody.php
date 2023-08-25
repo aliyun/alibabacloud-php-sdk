@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class AllocateAnycastEipAddressResponseBody extends Model
 {
     /**
+     * @description The ID of the Anycast EIP.
+     *
+     * @example aeip-bp1ix34fralt4ykf3****
+     *
      * @var string
      */
     public $anycastId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 1422000****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example FBDB18D8-E91E-4978-8D6C-6E2E3EE10133
+     *
      * @var string
      */
     public $requestId;

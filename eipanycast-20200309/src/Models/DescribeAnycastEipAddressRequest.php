@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnycastEipAddressRequest extends Model
 {
     /**
+     * @description The ID of the Anycast EIP.
+     *
+     * >  You must specify at least one of **Ip** and **AnycastId**.
+     * @example aeip-bp1ix34fralt4ykf3****
+     *
      * @var string
      */
     public $anycastId;
 
     /**
+     * @description The ID of the cloud resource with which the Anycast EIP is associated.
+     *
+     * @example lb-2zebb08phyczzawe****
+     *
      * @var string
      */
     public $bindInstanceId;
 
     /**
+     * @description The IP address of the Anycast EIP.
+     *
+     * >  You must specify at least one of **Ip** and **AnycastId**.
+     * @example 139.95.XX.XX
+     *
      * @var string
      */
     public $ip;

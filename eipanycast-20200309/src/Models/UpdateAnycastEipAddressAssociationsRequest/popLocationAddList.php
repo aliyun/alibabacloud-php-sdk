@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class popLocationAddList extends Model
 {
     /**
+     * @description The access points in the access areas to be added.
+     *
+     * You can call the [DescribeAnycastPopLocations](~~171938~~) operation to query the access points in supported access areas.
+     * @example us-west-1-pop
+     *
      * @var string
      */
     public $popLocation;

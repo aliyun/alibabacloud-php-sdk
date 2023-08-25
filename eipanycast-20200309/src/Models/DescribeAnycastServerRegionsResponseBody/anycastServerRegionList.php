@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class anycastServerRegionList extends Model
 {
     /**
+     * @description The ID of the region.
+     *
+     * @example eu-west-1
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region.
+     *
+     * @example eu-west-1-gb33-a01
+     *
      * @var string
      */
     public $regionName;

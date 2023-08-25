@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class popLocations extends Model
 {
     /**
+     * @description The information about the access points in associated access areas when you associate an Anycast EIP with a cloud resource.
+     *
+     * You can call the [DescribeAnycastPopLocations](~~171938~~) operation to query information about access points in supported access areas.
+     * @example us-west-1-pop
+     *
      * @var string
      */
     public $popLocation;

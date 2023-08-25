@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class ListAnycastEipAddressesResponseBody extends Model
 {
     /**
+     * @description The list of Anycast EIPs.
+     *
      * @var anycastList[]
      */
     public $anycastList;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If **NextToken** is not empty, the value of NextToken can be used in the next request to retrieve a new page of results.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of entries returned.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnycastServerRegionsRequest extends Model
 {
     /**
+     * @description The access area from which you use the Anycast EIP to communicate with the Internet.
+     *
+     * Set the value to **international**, which specifies the regions outside the Chinese mainland.
+     * @example international
+     *
      * @var string
      */
     public $serviceLocation;

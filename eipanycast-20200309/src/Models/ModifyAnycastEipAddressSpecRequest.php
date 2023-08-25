@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyAnycastEipAddressSpecRequest extends Model
 {
     /**
+     * @description The ID of the Anycast EIP.
+     *
+     * @example aeip-bp1ix34fralt4ykf3****
+     *
      * @var string
      */
     public $anycastId;
 
     /**
+     * @description The maximum bandwidth of the Anycast EIP. Unit: Mbit/s.
+     *
+     * Valid values: **200** to **1000**.
+     * @example 200
+     *
      * @var string
      */
     public $bandwidth;

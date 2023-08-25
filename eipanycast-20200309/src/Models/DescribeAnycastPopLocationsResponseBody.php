@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeAnycastPopLocationsResponseBody extends Model
 {
     /**
+     * @description The list of access points in the specified access area.
+     *
      * @var anycastPopLocationList[]
      */
     public $anycastPopLocationList;
 
     /**
+     * @description The number of access points.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $count;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     *
      * @var string
      */
     public $requestId;

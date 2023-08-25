@@ -18,14 +18,20 @@ use AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastServerRegionsReq
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\DescribeAnycastServerRegionsResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ListAnycastEipAddressesRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ListAnycastEipAddressesResponse;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ListTagResourcesRequest;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ModifyAnycastEipAddressAttributeRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ModifyAnycastEipAddressAttributeResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ModifyAnycastEipAddressSpecRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ModifyAnycastEipAddressSpecResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ReleaseAnycastEipAddressRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\ReleaseAnycastEipAddressResponse;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\TagResourcesRequest;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UnassociateAnycastEipAddressRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UnassociateAnycastEipAddressResponse;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UntagResourcesRequest;
+use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UpdateAnycastEipAddressAssociationsRequest;
 use AlibabaCloud\SDK\Eipanycast\V20200309\Models\UpdateAnycastEipAddressAssociationsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -94,6 +100,9 @@ class Eipanycast extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->serviceLocation)) {
             $query['ServiceLocation'] = $request->serviceLocation;
@@ -370,11 +379,17 @@ class Eipanycast extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->serviceLocation)) {
             $query['ServiceLocation'] = $request->serviceLocation;
         }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -404,6 +419,61 @@ class Eipanycast extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listAnycastEipAddressesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListTagResources',
+            'version'     => '2020-03-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListTagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListTagResourcesRequest $request
+     *
+     * @return ListTagResourcesResponse
+     */
+    public function listTagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listTagResourcesWithOptions($request, $runtime);
     }
 
     /**
@@ -548,6 +618,55 @@ class Eipanycast extends OpenApiClient
     }
 
     /**
+     * @param TagResourcesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'TagResources',
+            'version'     => '2020-03-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return TagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param TagResourcesRequest $request
+     *
+     * @return TagResourcesResponse
+     */
+    public function tagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->tagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UnassociateAnycastEipAddressRequest $request
      * @param RuntimeOptions                      $runtime
      *
@@ -606,6 +725,55 @@ class Eipanycast extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unassociateAnycastEipAddressWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResourcesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->tagKey)) {
+            $query['TagKey'] = $request->tagKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UntagResources',
+            'version'     => '2020-03-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UntagResourcesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UntagResourcesRequest $request
+     *
+     * @return UntagResourcesResponse
+     */
+    public function untagResources($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->untagResourcesWithOptions($request, $runtime);
     }
 
     /**

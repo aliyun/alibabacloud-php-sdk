@@ -10,41 +10,86 @@ use AlibabaCloud\Tea\Model;
 class anycastEipBindInfoList extends Model
 {
     /**
+     * @description The association mode. Valid values:
+     *
+     *   **Default**: the default mode. In this mode, associated cloud resources are set as default origin servers.
+     *   **Normal**: the standard mode. In this mode, associated cloud resources are set as standard origin servers.
+     *
+     * @example Default
+     *
      * @var string
      */
     public $associationMode;
 
     /**
+     * @description The ID of the cloud resource with which the Anycast EIP is associated.
+     *
+     * @example lb-2zebb08phyczzawe****
+     *
      * @var string
      */
     public $bindInstanceId;
 
     /**
+     * @description The ID of the region in which the cloud resource is deployed.
+     *
+     * @example us-west-1
+     *
      * @var string
      */
     public $bindInstanceRegionId;
 
     /**
+     * @description The type of cloud resource with which the Anycast EIP is associated. Valid values:
+     *
+     *   **SlbInstance**: an internal-facing Server Load Balancer (SLB) instance that is deployed in a virtual private cloud (VPC)
+     *   **NetworkInterface**: an elastic network interface (ENI)
+     *
+     * @example SlbInstance
+     *
      * @var string
      */
     public $bindInstanceType;
 
     /**
+     * @description The time when the Anycast EIP was associated.
+     *
+     * The time follows the ISO8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     * @example 2021-04-23T02:37:38Z
+     *
      * @var string
      */
     public $bindTime;
 
     /**
+     * @description The information about the access points in associated access areas when you associate an Anycast EIP with a cloud resource.
+     *
+     * If this is your first time associating an Anycast EIP with a cloud resource, the system returns information about access points in all access areas.
      * @var popLocations[]
      */
     public $popLocations;
 
     /**
+     * @description The secondary private IP address of the associated ENI.
+     *
+     * This parameter is valid only when **BindInstanceType** is set to **NetworkInterface**.
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $privateIpAddress;
 
     /**
+     * @description The status of the cloud resource. Valid values:
+     *
+     *   **BINDING**
+     *   **BINDED**
+     *   **UNBINDING**
+     *   **DELETED**
+     *   **MODIFYING**
+     *
+     * @example BINDING
+     *
      * @var string
      */
     public $status;

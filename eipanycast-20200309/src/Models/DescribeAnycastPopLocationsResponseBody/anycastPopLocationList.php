@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class anycastPopLocationList extends Model
 {
     /**
+     * @description The ID of the region where the access point is deployed.
+     *
+     * @example us-west-1-pop
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The name of the region where the access point is deployed.
+     *
+     * @example us-west-1-pop
+     *
      * @var string
      */
     public $regionName;

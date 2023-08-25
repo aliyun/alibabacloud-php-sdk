@@ -6,18 +6,32 @@ namespace AlibabaCloud\SDK\Eipanycast\V20200309\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ReleaseAnycastEipAddressResponseBody extends Model
+class UntagResourcesResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example FBDB18D8-E91E-4978-8D6C-6E2E3EE10133
+     * @example C46FF5A8-C5F0-4024-8262-B16B639225A0
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     **true**
+     *
+     **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -30,6 +44,9 @@ class ReleaseAnycastEipAddressResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
+        }
 
         return $res;
     }
@@ -37,13 +54,16 @@ class ReleaseAnycastEipAddressResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return ReleaseAnycastEipAddressResponseBody
+     * @return UntagResourcesResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

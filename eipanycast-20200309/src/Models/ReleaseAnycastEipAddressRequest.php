@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ReleaseAnycastEipAddressRequest extends Model
 {
     /**
+     * @description The ID of the Anycast EIP to be released.
+     *
+     * @example aeip-bp1ix34fralt4ykf3****
+     *
      * @var string
      */
     public $anycastId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value. Make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @example 02fb3da4-130e-11e9-8e44-001****
+     *
      * @var string
      */
     public $clientToken;
