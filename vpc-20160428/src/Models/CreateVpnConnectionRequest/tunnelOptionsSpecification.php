@@ -12,10 +12,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptionsSpecification extends Model
 {
     /**
-     * @description 隧道关联的用户网关ID。
+     * @description The ID of the customer gateway associated with the tunnel.
      *
-     * > - 在VPN网关实例支持创建双隧道模式的IPsec-VPN连接的场景下，本参数必填。
-     * - 如果当前VPN网关实例支持创建双隧道模式的IPsec-VPN连接，您必须同时为IPsec-VPN连接添加主隧道和备隧道的配置（即配置**TunnelOptionsSpecification**数组下的参数）。一个IPsec-VPN连接仅支持添加主备两条隧道。
+     * > - This parameter is required if the VPN gateway supports the dual-tunnel mode.
+     * > - If the VPN gateway supports the dual-tunnel mode, you need to configure the active tunnel and standby tunnel by specifying the parameters in the **TunnelOptionsSpecification** array. Each IPsec-VPN connection supports only one active tunnel and one standby tunnel.
      * @example cgw-p0wy363lucf1uyae8****
      *
      * @var string
@@ -23,11 +23,10 @@ class tunnelOptionsSpecification extends Model
     public $customerGatewayId;
 
     /**
-     * @description 是否为隧道开启DPD（对等体存活检测）功能。取值：
+     * @description Specifies whether to enable the DPD feature for the tunnel. Valid values:
      *
-     * - **true**（默认值）：开启DPD功能。IPsec发起端会发送DPD报文用来检测对端的设备是否存活，如果在设定时间内未收到正确回应则认为对端已经断线，IPsec将删除ISAKMP SA和相应的IPsec SA，安全隧道同样也会被删除。
-     *
-     * - **false**：不开启DPD功能，IPsec发起端不会发送DPD探测报文。
+     * - **true** (default): The initiator of the IPsec-VPN connection sends DPD packets to verify the existence and availability of the peer. If no feedback is received from the peer within a specified period of time, the connection fails. ISAKMP SAs and IPsec SAs are deleted. The IPsec tunnel is also deleted.
+     * - **false**
      * @example true
      *
      * @var bool
@@ -35,11 +34,11 @@ class tunnelOptionsSpecification extends Model
     public $enableDpd;
 
     /**
-     * @description 是否为隧道开启NAT穿越功能。取值：
+     * @description Specifies whether to enable NAT traversal for the tunnel. Valid values:
      *
-     * - **true**（默认值）：开启NAT穿越功能。开启后，IKE协商过程会删除对UDP端口号的验证过程，同时实现对隧道中NAT网关设备的发现功能。
+     * - **true** (default): After NAT traversal is enabled, the verification process for the peer UDP port is deleted from IKE negotiations. In addition, the NAT gateway in the tunnel can be found.
      *
-     * - **false**：不开启NAT穿越功能。
+     * - **false**: no
      * @example true
      *
      * @var bool
@@ -47,9 +46,9 @@ class tunnelOptionsSpecification extends Model
     public $enableNatTraversal;
 
     /**
-     * @description 如果当前VPN网关实例为国密型VPN网关，您需要为隧道配置对端的CA证书。
+     * @description If the VPN gateway is of the SM type, you need to configure a CA certificate for the peer gateway device.
      *
-     * - 对于普通型VPN网关，此项需要为空。
+     * - You can ignore this parameter when a standard VPN gateway is used to create the IPsec-VPN connection.
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -57,10 +56,10 @@ class tunnelOptionsSpecification extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description 隧道的角色。取值：
+     * @description The tunnel role. Valid values:
      *
-     * - **master**：表示当前隧道为主隧道。
-     * - **slave**：表示当前隧道为备隧道。
+     * - **master**
+     * - **slave**
      * @example master
      *
      * @var string
@@ -68,21 +67,21 @@ class tunnelOptionsSpecification extends Model
     public $role;
 
     /**
-     * @description 为隧道添加BGP配置。
+     * @description The BGP configurations.
      *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
-     * @description 第一阶段协商的配置信息。
+     * @description The configuration of Phase 1 negotiations.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description 第二阶段协商的配置信息。
+     * @description The configuration of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */

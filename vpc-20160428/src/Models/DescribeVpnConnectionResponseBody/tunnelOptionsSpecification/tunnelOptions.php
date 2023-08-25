@@ -63,8 +63,8 @@ class tunnelOptions extends Model
     /**
      * @description The tunnel role. Valid values:
      *
-     * - **false**
-     * - **true**
+     * - **master**
+     * - **slave**
      * @example master
      *
      * @var string

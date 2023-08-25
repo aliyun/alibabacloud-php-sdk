@@ -101,7 +101,7 @@ class CreateVpnConnectionRequest extends Model
     public $enableNatTraversal;
 
     /**
-     * @description 是否为隧道开启BGP功能。取值：**true**或**false**（默认值）。
+     * @description Specifies whether to enable the BGP feature for the tunnel. Valid values: **true** and **false**. Default value: **false**.
      *
      * @example true
      *
@@ -255,9 +255,8 @@ class CreateVpnConnectionRequest extends Model
     public $tags;
 
     /**
-     * @description 配置隧道。
+     * @description TunnelOptionsSpecification parameters are supported by dual-tunnel IPsec-VPN gateways. You can modify both the active and standby tunnels of the IPsec-VPN connection.
      *
-     * 如果当前VPN网关实例支持创建双隧道模式的IPsec-VPN连接，您必须同时为IPsec-VPN连接添加主隧道和备隧道的配置（即配置**TunnelOptionsSpecification**数组下的参数）。一个IPsec-VPN连接下仅支持添加主备两条隧道。
      * @var tunnelOptionsSpecification[]
      */
     public $tunnelOptionsSpecification;

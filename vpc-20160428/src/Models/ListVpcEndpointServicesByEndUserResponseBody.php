@@ -45,11 +45,17 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
      * @var services[]
      */
     public $services;
+
+    /**
+     * @var string
+     */
+    public $totalCount;
     protected $_name = [
         'maxResults' => 'MaxResults',
         'nextToken'  => 'NextToken',
         'requestId'  => 'RequestId',
         'services'   => 'Services',
+        'totalCount' => 'TotalCount',
     ];
 
     public function validate()
@@ -76,6 +82,9 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
                     $res['Services'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->totalCount) {
+            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -106,6 +115,9 @@ class ListVpcEndpointServicesByEndUserResponseBody extends Model
                     $model->services[$n++] = null !== $item ? services::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['TotalCount'])) {
+            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

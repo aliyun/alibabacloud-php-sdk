@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tunnelIpsecConfig extends Model
 {
     /**
-     * @description IPsec阶段认证算法。
+     * @description The authentication algorithm in the IPsec phase.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class tunnelIpsecConfig extends Model
     public $ipsecAuthAlg;
 
     /**
-     * @description IPsec阶段加密算法。
+     * @description The encryption algorithm in the IPsec phase.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class tunnelIpsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
-     * @description IPsec阶段生存时间。单位：秒。
+     * @description The lifetime in the IPsec phase. Unit: seconds.
      *
      * @example 86400
      *
@@ -36,7 +36,7 @@ class tunnelIpsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description IPsec阶段DH分组。
+     * @description The DH group in the IPsec phase.
      *
      * @example group2
      *

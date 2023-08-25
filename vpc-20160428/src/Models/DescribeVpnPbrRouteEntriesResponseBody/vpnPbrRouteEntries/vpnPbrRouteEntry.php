@@ -28,6 +28,11 @@ class vpnPbrRouteEntry extends Model
     public $nextHop;
 
     /**
+     * @description The ID of the tunnel associated with the next hop of the policy-based route.
+     *
+     * This parameter is returned only if the VPN gateway supports the dual-tunnel mode.
+     * @example tun-opsqc4d97wni2****
+     *
      * @var string
      */
     public $nextHopTunnelId;
@@ -84,9 +89,10 @@ class vpnPbrRouteEntry extends Model
     /**
      * @description The weight of the policy-based route. Valid values:
      *
-     *   **100**: The IPsec-VPN connection associated with the policy-based route serves as an active connection.
-     *   **0**: The IPsec-VPN connection associated with the policy-based route serves as a standby connection.
-     *
+     * - For a VPN gateway that supports the dual-tunnel mode, the default weight is **100**.
+     * - For a VPN gateway that supports the single-tunnel mode, the weight specifies the priority of the policy-based route.
+     * - **100**: a high priority. If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the active connection.
+     * - **0**: a low priority. If multiple policy-based routes with the same source CIDR block and destination CIDR block exist, the IPsec-VPN connection associated with the policy-based route is the standby connection.
      * @example 0
      *
      * @var int

@@ -11,12 +11,16 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @description The CA certificate.
      *
+     * @example CA certificate
+     *
      * @var string
      */
     public $caCert;
 
     /**
      * @description The client certificate.
+     *
+     * @example Client certificate
      *
      * @var string
      */
@@ -25,12 +29,16 @@ class DescribeSslVpnClientCertResponseBody extends Model
     /**
      * @description The client configuration.
      *
+     * @example Client configuration
+     *
      * @var string
      */
     public $clientConfig;
 
     /**
      * @description The client key.
+     *
+     * @example The key of the client
      *
      * @var string
      */

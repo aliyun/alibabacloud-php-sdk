@@ -39,6 +39,8 @@ class DescribeVpnGatewayResponseBody extends Model
      *
      **POSTPAY**: pay-as-you-go
      *
+     * @example China site (aliyun.com): Prepay. International site (alibabacloud.com): POSTPAY.
+     *
      * @var string
      */
     public $chargeType;
@@ -63,9 +65,8 @@ class DescribeVpnGatewayResponseBody extends Model
     public $description;
 
     /**
-     * @description 系统为VPN网关实例分配的用于创建IPsec-VPN连接的第二个IP地址。
-     *
-     * 仅支持创建双隧道模式IPsec-VPN连接的VPN网关实例会返回当前参数。
+     * @description The second IP address assigned by the system to create an IPsec-VPN connection.
+     * This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
      * @example 47.91.XX.XX
      *
      * @var string
@@ -73,9 +74,9 @@ class DescribeVpnGatewayResponseBody extends Model
     public $disasterRecoveryInternetIp;
 
     /**
-     * @description VPN网关实例关联的第二个交换机ID。
+     * @description The ID of the second vSwitch associated with the VPN gateway.
      *
-     * 仅支持创建双隧道模式IPsec-VPN连接的VPN网关实例会返回当前参数。
+     * This parameter is returned only when the VPN gateway supports the dual-tunnel mode.
      * @example vsw-p0w95ql6tmr2ludkt****
      *
      * @var string
@@ -105,8 +106,8 @@ class DescribeVpnGatewayResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The public IP address of the VPN gateway.
-     *
+     * @description - If the VPN gateway supports IPsec-VPN connections in single-tunnel mode, the address is the IP address of the VPN gateway and can be used to create an IPsec-VPN connection or an SSL-VPN connection.
+     * If the VPN gateway supports IPsec-VPN connections in dual-tunnel mode, the system assigns two IP addresses to the VPN gateway to create two encrypted tunnels.
      * @example 47.22.XX.XX
      *
      * @var string
@@ -194,9 +195,9 @@ class DescribeVpnGatewayResponseBody extends Model
     public $sslVpn;
 
     /**
-     * @description SSL-VPN连接的IP地址。
+     * @description The IP address of the SSL-VPN connection.
      *
-     * 仅支持创建双隧道模式IPsec-VPN连接的公网网络类型的VPN网关实例开启SSL-VPN功能后，才会返回当前参数。
+     * This parameter is returned only when the VPN gateway is a public VPN gateway and supports only the single-tunnel mode. In addition, the VPN gateway must have the SSL-VPN feature enabled.
      * @example 47.74.XX.XX
      *
      * @var string
@@ -244,6 +245,8 @@ class DescribeVpnGatewayResponseBody extends Model
      *   **description**
      *
      *   **VpnVersion**
+     *
+     * @example {\"VpnEnableBgp\":\"true\",\"VisuallySsl\":\"true\",\"PbrPriority\":\"true\",\"VpnNewImage\":\"true\",\"description\":\"forwarding1.3.7\",\"VpnVersion\":\"v1.2.4\"}
      *
      * @var string
      */

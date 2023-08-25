@@ -110,6 +110,10 @@ class vpnConnection extends Model
     public $enableNatTraversal;
 
     /**
+     * @description The BGP status of the tunnel. Valid values:
+     *
+     * - **false**
+     * - **true**
      * @example true
      *
      * @var bool
@@ -259,9 +263,9 @@ class vpnConnection extends Model
     public $transitRouterName;
 
     /**
-     * @description IPsec连接的隧道配置信息。
+     * @description The tunnel configuration of the IPsec-VPN connection.
      *
-     * 仅查询双隧道模式的IPsec连接会返回**TunnelOptionsSpecification**数组下的参数。
+     * Parameters in **TunnelOptionsSpecification** are returned only if you query IPsec-VPN connections in dual-tunnel mode.
      * @var tunnelOptionsSpecification
      */
     public $tunnelOptionsSpecification;

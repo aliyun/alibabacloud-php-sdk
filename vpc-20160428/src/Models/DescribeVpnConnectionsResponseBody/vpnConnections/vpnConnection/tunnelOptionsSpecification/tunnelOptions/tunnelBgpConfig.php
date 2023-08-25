@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
-     * @description BGP的协商状态。
+     * @description The negotiation status of BGP. Valid values:
      *
-     * - **success**：正常。
-     * - **false**：异常。
+     * - **success**
+     * - **false**
      * @example success
      *
      * @var string
@@ -20,7 +20,7 @@ class tunnelBgpConfig extends Model
     public $bgpStatus;
 
     /**
-     * @description 隧道本端（阿里云侧）的自治系统号。
+     * @description The ASN on the Alibaba Cloud side.
      *
      * @example 65530
      *
@@ -29,7 +29,7 @@ class tunnelBgpConfig extends Model
     public $localAsn;
 
     /**
-     * @description 隧道本端（阿里云侧）的BGP地址。
+     * @description The BGP IP address on the Alibaba Cloud side.
      *
      * @example 169.254.10.1
      *
@@ -38,7 +38,7 @@ class tunnelBgpConfig extends Model
     public $localBgpIp;
 
     /**
-     * @description 隧道对端的自治系统号。
+     * @description The peer ASN.
      *
      * @example 65531
      *
@@ -47,7 +47,7 @@ class tunnelBgpConfig extends Model
     public $peerAsn;
 
     /**
-     * @description 隧道对端的BGP地址。
+     * @description The peer BGP IP address.
      *
      * @example 169.254.10.2
      *
@@ -56,7 +56,7 @@ class tunnelBgpConfig extends Model
     public $peerBgpIp;
 
     /**
-     * @description 隧道的BGP网段。
+     * @description The BGP CIDR block of the tunnel.
      *
      * @example 169.254.10.0/30
      *

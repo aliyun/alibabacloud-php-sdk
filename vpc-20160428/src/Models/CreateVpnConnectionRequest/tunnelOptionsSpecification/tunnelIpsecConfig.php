@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tunnelIpsecConfig extends Model
 {
     /**
-     * @description 第二阶段协商的认证算法。
+     * @description The authentication algorithm that was used in Phase 2 negotiations.
      *
-     * <props="intl"><ph>取值：**md5**、**sha1**、**sha256**、**sha384**、**sha512**。默认值：**md5**。</ph></props>
+     * <props="intl"><ph>Valid values: **md5**, **sha1**, **sha256**, **sha384**, **sha512**. Default value: **md5**. </ph></props>
      *
      * <props="china"><ph>如果VPN网关实例类型为普通型，则取值：**md5**、**sha1**、**sha256**、**sha384**、**sha512**。默认值：**md5**。</ph></props>
      *
@@ -23,9 +23,9 @@ class tunnelIpsecConfig extends Model
     public $ipsecAuthAlg;
 
     /**
-     * @description 第二阶段协商的加密算法。
+     * @description The encryption algorithm that is used in Phase 2 negotiations.
      *
-     * <props="intl"><ph>取值：**aes**、**aes192**、**aes256**、**des**或**3des**。默认值：**aes**。 </ph></props>
+     * <props="intl"><ph>Valid values: **aes**, **aes192**, **aes256**, **des**, **3des**. Default value: **aes**. </ph></props>
      *
      * <props="china"><ph>如果VPN网关实例类型为普通型，则取值为**aes**、**aes192**、**aes256**、**des**或**3des**。默认值：**aes**。</ph></props>
      *
@@ -37,9 +37,9 @@ class tunnelIpsecConfig extends Model
     public $ipsecEncAlg;
 
     /**
-     * @description 第二阶段协商出的SA的生存周期。单位：秒。
+     * @description The SA lifetime that is determined by Phase 2 negotiations. Unit: seconds.
      *
-     * 取值范围：**0**~**86400**。默认值：**86400**。
+     * Valid values: **0** to **86400**. Default value: **86400**.
      * @example 86400
      *
      * @var int
@@ -47,9 +47,9 @@ class tunnelIpsecConfig extends Model
     public $ipsecLifetime;
 
     /**
-     * @description 第二阶段协商使用的Diffie-Hellman密钥交换算法。默认值：**group2**。
+     * @description The Diffie-Hellman key exchange algorithm that is used in Phase 2 negotiations. Default value: **group2**.
      *
-     * 取值：**disabled**、**group1**、**group2**、**group5**、**group14**。
+     * Valid values: **disabled**, **group1**, **group2**, **group5**, and **group14**.
      * @example group2
      *
      * @var string

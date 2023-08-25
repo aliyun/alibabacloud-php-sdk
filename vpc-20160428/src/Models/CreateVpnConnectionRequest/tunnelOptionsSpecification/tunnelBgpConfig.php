@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class tunnelBgpConfig extends Model
 {
     /**
-     * @description 隧道本端（阿里云侧）的自治系统号。自治系统号取值范围：**1**~**4294967295**。默认值：**45104**。
+     * @description The autonomous system number (ASN) on the Alibaba Cloud side. Valid values: **1** to **4294967295**. Default value: **45104**.
      *
-     * > - 当您为IPsec连接开启BGP功能后（即指定**EnableTunnelsBgp**参数的值为**true**）需要配置该参数。
-     * - 建议您使用自治系统号的私有号码与阿里云建立BGP连接。自治系统号的私有号码范围请自行查阅文档。
+     * > - After you enable BGP for the IPsec-VPN connection, you need to set **EnableTunnelsBgp** to true.
+     * > - We recommend that you use a private ASN to establish a connection with Alibaba Cloud over BGP. Refer to the relevant documentation for the private ASN range.
      * @example 65530
      *
      * @var int
@@ -20,7 +20,7 @@ class tunnelBgpConfig extends Model
     public $localAsn;
 
     /**
-     * @description 隧道本端（阿里云侧）的BGP地址。该地址为BGP网段内的一个IP地址。
+     * @description The BGP address on the Alibaba Cloud side. The address is an IP address that falls within the BGP CIDR block.
      *
      * @example 169.254.10.1
      *
@@ -29,9 +29,9 @@ class tunnelBgpConfig extends Model
     public $localBgpIp;
 
     /**
-     * @description 隧道的BGP网段。该网段需是一个在169.254.0.0/16内的掩码长度为30的网段。
+     * @description The BGP CIDR block of the tunnel. The CIDR block must belong to 169.254.0.0/16. The subnet mask of the CIDR block must be 30 bits in length.
      *
-     * >在一个VPN网关实例下，每个隧道的BGP网段需保持唯一。
+     * >The BGP CIDR block of each tunnel on a VPN gateway must be unique.
      * @example 169.254.10.0/30
      *
      * @var string

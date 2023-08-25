@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class tunnelOptions extends Model
 {
     /**
-     * @description 隧道关联的用户网关ID。
+     * @description The ID of the customer gateway associated with the tunnel.
      *
      * @example cgw-p0wy363lucf1uyae8****
      *
@@ -21,9 +21,10 @@ class tunnelOptions extends Model
     public $customerGatewayId;
 
     /**
-     * @description 隧道是否已开启DPD（对等体存活检测）功能。
-     * - **false**：未开启。
-     * - **true**：已开启。
+     * @description Indicates whether DPD is enabled for the tunnel. Valid values:
+     *
+     * - **false**
+     * - **true**
      * @example true
      *
      * @var string
@@ -31,10 +32,10 @@ class tunnelOptions extends Model
     public $enableDpd;
 
     /**
-     * @description 隧道是否已开启NAT穿越功能。
+     * @description Indicates whether NAT traversal is enabled for the tunnel. Valid values:
      *
-     * - **false**：未开启。
-     * - **true**：已开启。
+     * - **false**
+     * - **true**
      * @example true
      *
      * @var string
@@ -42,7 +43,7 @@ class tunnelOptions extends Model
     public $enableNatTraversal;
 
     /**
-     * @description 隧道的IP地址。
+     * @description The tunnel IP address.
      *
      * @example 47.21.XX.XX
      *
@@ -51,9 +52,9 @@ class tunnelOptions extends Model
     public $internetIp;
 
     /**
-     * @description 隧道对端的CA证书。
+     * @description The CA certificate of the tunnel peer.
      *
-     * 仅VPN网关实例的类型为国密型时才会返回当前参数。
+     * This parameter is returned only if the VPN gateway is of the ShangMi (SM) type.
      * @example -----BEGIN CERTIFICATE----- MIIB7zCCAZW**** -----END CERTIFICATE-----
      *
      * @var string
@@ -61,10 +62,10 @@ class tunnelOptions extends Model
     public $remoteCaCertificate;
 
     /**
-     * @description 隧道的角色。
+     * @description The tunnel role. Valid values:
      *
-     * - **master**：表示当前隧道为主隧道。
-     * - **slave**：表示当前隧道为备隧道。
+     * - **master**
+     * - **slave**
      * @example master
      *
      * @var string
@@ -72,18 +73,10 @@ class tunnelOptions extends Model
     public $role;
 
     /**
-     * @description IPsec连接与转发路由器实例的绑定状态。
-     *
-     * - **active**：IPsec连接已与VPN网关实例绑定，状态正常。
-     * - **init**：IPsec连接未绑定任何资源，IPsec连接初始化。
-     * - **attaching**：IPsec连接与转发路由器实例绑定中。
-     * - **attached**：IPsec连接已与转发路由器实例绑定。
-     * - **detaching**：IPsec连接与转发路由器实例解绑中。
-     * - **financialLocked**：欠费锁定。
-     * - **provisioning**：资源准备中。
-     * - **updating**：更新中。
-     * - **upgrading**：升级中。
-     * - **deleted**：已删除。
+     * @description The tunnel status. Valid values:
+     * - **active**
+     * - **updating**
+     * - **deleting**
      * @example active
      *
      * @var string
@@ -91,15 +84,13 @@ class tunnelOptions extends Model
     public $state;
 
     /**
-     * @description IPsec连接的状态。
+     * @description The status of the IPsec-VPN connection. Valid values:
      *
-     * - **ike_sa_not_established**：第一阶段协商失败。
+     *   **ike_sa_not_established**: Phase 1 negotiations failed.
+     *   **ike_sa_established**: Phase 1 negotiations were successful.
+     *   **ipsec_sa_not_established**: Phase 2 negotiations failed.
+     *   **ipsec_sa_established**: Phase 2 negotiations were successful.
      *
-     * - **ike_sa_established**：第一阶段协商成功。
-     *
-     * - **ipsec_sa_not_established**：第二阶段协商失败。
-     *
-     * - **ipsec_sa_established**：第二阶段协商成功。
      * @example ipsec_sa_established
      *
      * @var string
@@ -107,14 +98,14 @@ class tunnelOptions extends Model
     public $status;
 
     /**
-     * @description 隧道的BGP配置信息。
+     * @description The BGP configuration.
      *
      * @var tunnelBgpConfig
      */
     public $tunnelBgpConfig;
 
     /**
-     * @description 隧道ID。
+     * @description The tunnel ID.
      *
      * @example tun-opsqc4d97wni27****
      *
@@ -123,21 +114,21 @@ class tunnelOptions extends Model
     public $tunnelId;
 
     /**
-     * @description 第一阶段协商的配置。
+     * @description The configuration of Phase 1 negotiations.
      *
      * @var tunnelIkeConfig
      */
     public $tunnelIkeConfig;
 
     /**
-     * @description 第二阶段协商的配置。
+     * @description The configuration of Phase 2 negotiations.
      *
      * @var tunnelIpsecConfig
      */
     public $tunnelIpsecConfig;
 
     /**
-     * @description 隧道部署的可用区。
+     * @description The zone of the tunnel.
      *
      * @example ap-southeast-5a
      *

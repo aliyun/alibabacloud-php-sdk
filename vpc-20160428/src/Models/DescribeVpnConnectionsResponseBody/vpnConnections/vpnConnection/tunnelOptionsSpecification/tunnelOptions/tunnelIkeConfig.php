@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tunnelIkeConfig extends Model
 {
     /**
-     * @description IKE阶段认证算法。
+     * @description The authentication algorithm in the IKE phase.
      *
      * @example sha1
      *
@@ -18,7 +18,7 @@ class tunnelIkeConfig extends Model
     public $ikeAuthAlg;
 
     /**
-     * @description IKE阶段加密算法。
+     * @description The encryption algorithm in the IKE phase.
      *
      * @example aes
      *
@@ -27,7 +27,7 @@ class tunnelIkeConfig extends Model
     public $ikeEncAlg;
 
     /**
-     * @description IKE阶段生存时间。单位：秒。
+     * @description The lifetime in the IKE phase. Unit: seconds.
      *
      * @example 86400
      *
@@ -36,10 +36,10 @@ class tunnelIkeConfig extends Model
     public $ikeLifetime;
 
     /**
-     * @description IKE协商模式。
+     * @description The IKE negotiation mode.
      *
-     * - **main**：主模式，协商过程安全性高。
-     * - **aggressive**：野蛮模式，协商快速且协商成功率高。
+     * - **main**: This mode offers higher security during negotiations.
+     * - **aggressive**: This mode is faster and has a higher success rate.
      * @example main
      *
      * @var string
@@ -47,7 +47,7 @@ class tunnelIkeConfig extends Model
     public $ikeMode;
 
     /**
-     * @description IKE阶段DH分组。
+     * @description The DH group in the IKE phase.
      *
      * @example group2
      *
@@ -56,7 +56,7 @@ class tunnelIkeConfig extends Model
     public $ikePfs;
 
     /**
-     * @description IKE协议版本。
+     * @description The IKE version.
      *
      * @example ikev1
      *
@@ -65,7 +65,7 @@ class tunnelIkeConfig extends Model
     public $ikeVersion;
 
     /**
-     * @description 隧道本端（阿里云侧）的标识。
+     * @description The identifier on the Alibaba Cloud side.
      *
      * @example 47.21.XX.XX
      *
@@ -74,7 +74,7 @@ class tunnelIkeConfig extends Model
     public $localId;
 
     /**
-     * @description 预共享密钥。
+     * @description The pre-shared key.
      *
      * @example 123456****
      *
@@ -83,7 +83,7 @@ class tunnelIkeConfig extends Model
     public $psk;
 
     /**
-     * @description 隧道对端的标识。
+     * @description The peer identifier.
      *
      * @example 47.42.XX.XX
      *
