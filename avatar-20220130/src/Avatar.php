@@ -32,6 +32,9 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryRunningInstanceShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoShrinkRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandShrinkRequest;
@@ -684,6 +687,78 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryTimedResetOperateStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryVideoTaskInfoRequest $tmpReq
+     * @param RuntimeOptions            $runtime
+     *
+     * @return QueryVideoTaskInfoResponse
+     */
+    public function queryVideoTaskInfoWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryVideoTaskInfoShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->app)) {
+            $request->appShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->app, 'App', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->appShrink)) {
+            $query['App'] = $request->appShrink;
+        }
+        if (!Utils::isUnset($request->orderById)) {
+            $query['OrderById'] = $request->orderById;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $query['Status'] = $request->status;
+        }
+        if (!Utils::isUnset($request->taskUuid)) {
+            $query['TaskUuid'] = $request->taskUuid;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        if (!Utils::isUnset($request->title)) {
+            $query['Title'] = $request->title;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryVideoTaskInfo',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryVideoTaskInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryVideoTaskInfoRequest $request
+     *
+     * @return QueryVideoTaskInfoResponse
+     */
+    public function queryVideoTaskInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryVideoTaskInfoWithOptions($request, $runtime);
     }
 
     /**

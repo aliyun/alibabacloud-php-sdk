@@ -2,7 +2,7 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Avatar\V20220130\Models\GetVideoTaskInfoResponseBody\data;
+namespace AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoResponseBody\data\list_;
 
 use AlibabaCloud\Tea\Model;
 
@@ -14,7 +14,7 @@ class taskResult extends Model
     public $alphaUrl;
 
     /**
-     * @example 20002
+     * @example 10001001
      *
      * @var string
      */
@@ -38,6 +38,8 @@ class taskResult extends Model
     public $subtitlesUrl;
 
     /**
+     * @example 1111
+     *
      * @var int
      */
     public $videoDuration;
@@ -50,8 +52,6 @@ class taskResult extends Model
     public $videoUrl;
 
     /**
-     * @description 字粒度的时间戳文件，特定任务支持
-     *
      * @example xxx/xxx/xxx.ass
      *
      * @var string

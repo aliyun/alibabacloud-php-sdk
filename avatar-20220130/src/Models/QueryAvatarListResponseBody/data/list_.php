@@ -43,6 +43,11 @@ class list_ extends Model
     /**
      * @var string
      */
+    public $makeStage;
+
+    /**
+     * @var string
+     */
     public $makeStatus;
 
     /**
@@ -74,6 +79,7 @@ class list_ extends Model
         'description'          => 'Description',
         'image'                => 'Image',
         'makeFailReason'       => 'MakeFailReason',
+        'makeStage'            => 'MakeStage',
         'makeStatus'           => 'MakeStatus',
         'modelType'            => 'ModelType',
         'name'                 => 'Name',
@@ -102,6 +108,9 @@ class list_ extends Model
         }
         if (null !== $this->makeFailReason) {
             $res['MakeFailReason'] = $this->makeFailReason;
+        }
+        if (null !== $this->makeStage) {
+            $res['MakeStage'] = $this->makeStage;
         }
         if (null !== $this->makeStatus) {
             $res['MakeStatus'] = $this->makeStatus;
@@ -144,6 +153,9 @@ class list_ extends Model
         }
         if (isset($map['MakeFailReason'])) {
             $model->makeFailReason = $map['MakeFailReason'];
+        }
+        if (isset($map['MakeStage'])) {
+            $model->makeStage = $map['MakeStage'];
         }
         if (isset($map['MakeStatus'])) {
             $model->makeStatus = $map['MakeStatus'];

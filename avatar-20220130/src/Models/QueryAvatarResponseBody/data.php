@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var mixed[]
+     */
+    public $allLocateImages;
+
+    /**
      * @example 0
      *
      * @var string
@@ -32,6 +37,11 @@ class data extends Model
      * @var string
      */
     public $makeFailReason;
+
+    /**
+     * @var string
+     */
+    public $makeStage;
 
     /**
      * @var string
@@ -62,10 +72,12 @@ class data extends Model
      */
     public $supportedResolutions;
     protected $_name = [
+        'allLocateImages'      => 'AllLocateImages',
         'avatarType'           => 'AvatarType',
         'description'          => 'Description',
         'image'                => 'Image',
         'makeFailReason'       => 'MakeFailReason',
+        'makeStage'            => 'MakeStage',
         'makeStatus'           => 'MakeStatus',
         'modelType'            => 'ModelType',
         'name'                 => 'Name',
@@ -80,6 +92,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->allLocateImages) {
+            $res['AllLocateImages'] = $this->allLocateImages;
+        }
         if (null !== $this->avatarType) {
             $res['AvatarType'] = $this->avatarType;
         }
@@ -91,6 +106,9 @@ class data extends Model
         }
         if (null !== $this->makeFailReason) {
             $res['MakeFailReason'] = $this->makeFailReason;
+        }
+        if (null !== $this->makeStage) {
+            $res['MakeStage'] = $this->makeStage;
         }
         if (null !== $this->makeStatus) {
             $res['MakeStatus'] = $this->makeStatus;
@@ -119,6 +137,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AllLocateImages'])) {
+            $model->allLocateImages = $map['AllLocateImages'];
+        }
         if (isset($map['AvatarType'])) {
             $model->avatarType = $map['AvatarType'];
         }
@@ -130,6 +151,9 @@ class data extends Model
         }
         if (isset($map['MakeFailReason'])) {
             $model->makeFailReason = $map['MakeFailReason'];
+        }
+        if (isset($map['MakeStage'])) {
+            $model->makeStage = $map['MakeStage'];
         }
         if (isset($map['MakeStatus'])) {
             $model->makeStatus = $map['MakeStatus'];
