@@ -504,6 +504,9 @@ class Adb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->backupSetId)) {
+            $query['BackupSetId'] = $request->backupSetId;
+        }
         if (!Utils::isUnset($request->computeResource)) {
             $query['ComputeResource'] = $request->computeResource;
         }
@@ -530,6 +533,15 @@ class Adb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->restoreToTime)) {
+            $query['RestoreToTime'] = $request->restoreToTime;
+        }
+        if (!Utils::isUnset($request->restoreType)) {
+            $query['RestoreType'] = $request->restoreType;
+        }
+        if (!Utils::isUnset($request->sourceDbClusterId)) {
+            $query['SourceDbClusterId'] = $request->sourceDbClusterId;
         }
         if (!Utils::isUnset($request->storageResource)) {
             $query['StorageResource'] = $request->storageResource;

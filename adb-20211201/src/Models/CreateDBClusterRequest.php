@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateDBClusterRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $backupSetId;
+
+    /**
      * @description The reserved computing resources. Unit: ACUs. Valid values: 0 to 4096. The value must be in increments of 16 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
      *
      * >  You must specify a value with the unit for this parameter.
@@ -102,6 +107,21 @@ class CreateDBClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $restoreToTime;
+
+    /**
+     * @var string
+     */
+    public $restoreType;
+
+    /**
+     * @var string
+     */
+    public $sourceDbClusterId;
+
+    /**
      * @description The reserved storage resources. Unit: AnalyticDB Compute Units (ACUs). Valid values: 0 to 2064. The value must be in increments of 24 ACUs. Each ACU is equivalent to 1 core and 4 GB memory.
      *
      * >  You must specify a value with the unit for this parameter.
@@ -157,6 +177,7 @@ class CreateDBClusterRequest extends Model
      */
     public $zoneId;
     protected $_name = [
+        'backupSetId'               => 'BackupSetId',
         'computeResource'           => 'ComputeResource',
         'DBClusterDescription'      => 'DBClusterDescription',
         'DBClusterNetworkType'      => 'DBClusterNetworkType',
@@ -166,6 +187,9 @@ class CreateDBClusterRequest extends Model
         'period'                    => 'Period',
         'regionId'                  => 'RegionId',
         'resourceGroupId'           => 'ResourceGroupId',
+        'restoreToTime'             => 'RestoreToTime',
+        'restoreType'               => 'RestoreType',
+        'sourceDbClusterId'         => 'SourceDbClusterId',
         'storageResource'           => 'StorageResource',
         'tag'                       => 'Tag',
         'usedTime'                  => 'UsedTime',
@@ -181,6 +205,9 @@ class CreateDBClusterRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->backupSetId) {
+            $res['BackupSetId'] = $this->backupSetId;
+        }
         if (null !== $this->computeResource) {
             $res['ComputeResource'] = $this->computeResource;
         }
@@ -207,6 +234,15 @@ class CreateDBClusterRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->restoreToTime) {
+            $res['RestoreToTime'] = $this->restoreToTime;
+        }
+        if (null !== $this->restoreType) {
+            $res['RestoreType'] = $this->restoreType;
+        }
+        if (null !== $this->sourceDbClusterId) {
+            $res['SourceDbClusterId'] = $this->sourceDbClusterId;
         }
         if (null !== $this->storageResource) {
             $res['StorageResource'] = $this->storageResource;
@@ -244,6 +280,9 @@ class CreateDBClusterRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BackupSetId'])) {
+            $model->backupSetId = $map['BackupSetId'];
+        }
         if (isset($map['ComputeResource'])) {
             $model->computeResource = $map['ComputeResource'];
         }
@@ -270,6 +309,15 @@ class CreateDBClusterRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['RestoreToTime'])) {
+            $model->restoreToTime = $map['RestoreToTime'];
+        }
+        if (isset($map['RestoreType'])) {
+            $model->restoreType = $map['RestoreType'];
+        }
+        if (isset($map['SourceDbClusterId'])) {
+            $model->sourceDbClusterId = $map['SourceDbClusterId'];
         }
         if (isset($map['StorageResource'])) {
             $model->storageResource = $map['StorageResource'];

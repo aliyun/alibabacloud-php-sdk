@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetSparkAppLogResponseBody extends Model
 {
     /**
-     * @description The content of the log.
+     * @description The queried log.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description Details of the logs.
+     * @description The request ID.
      *
      * @example C3A9594F-1D40-4472-A96C-8FB8AA20D38C
      *

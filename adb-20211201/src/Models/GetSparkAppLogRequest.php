@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetSparkAppLogRequest extends Model
 {
     /**
-     * @description The number of log entries to return. Valid values: 1 to 500. Default value: 300.
+     * @description The Spark application ID.
      *
+     * > You can call the [ListSparkApps](~~~~) operation to query the Spark application ID.
      * @example s202206061441hz22a35ab000****
      *
      * @var string
@@ -18,7 +19,7 @@ class GetSparkAppLogRequest extends Model
     public $appId;
 
     /**
-     * @description The ID of the request.
+     * @description The number of log entries to return. Valid values: 1 to 500. Default value: 300.
      *
      * @example 20
      *
