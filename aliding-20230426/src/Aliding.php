@@ -21,6 +21,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateSheetShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceDocHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceDocRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceDocResponse;
@@ -31,6 +36,11 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\CreateWorkspaceShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceDocMembersHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceDocMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\DeleteWorkspaceDocMembersResponse;
@@ -51,6 +61,21 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeResponse;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeShrinkHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\InsertRowsBeforeShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\QueryOrgTodoTasksShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskExecutorStatusShrinkRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskRequest;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskResponse;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskShrinkHeaders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateTodoTaskShrinkRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceDocMembersHeaders;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceDocMembersRequest;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\UpdateWorkspaceDocMembersResponse;
@@ -317,6 +342,125 @@ class Aliding extends OpenApiClient
     }
 
     /**
+     * @param CreateTodoTaskRequest $tmpReq
+     * @param CreateTodoTaskHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateTodoTaskResponse
+     */
+    public function createTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateTodoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new CreateTodoTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->contentFieldList)) {
+            $request->contentFieldListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->contentFieldList, 'contentFieldList', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->detailUrl)) {
+            $request->detailUrlShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->detailUrl, 'detailUrl', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->executorIds)) {
+            $request->executorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'executorIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->notifyConfigs)) {
+            $request->notifyConfigsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->notifyConfigs, 'notifyConfigs', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->participantIds)) {
+            $request->participantIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->participantIds, 'participantIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->operatorId)) {
+            $query['operatorId'] = $request->operatorId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->contentFieldListShrink)) {
+            $body['contentFieldList'] = $request->contentFieldListShrink;
+        }
+        if (!Utils::isUnset($request->creatorId)) {
+            $body['creatorId'] = $request->creatorId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->detailUrlShrink)) {
+            $body['detailUrl'] = $request->detailUrlShrink;
+        }
+        if (!Utils::isUnset($request->dueTime)) {
+            $body['dueTime'] = $request->dueTime;
+        }
+        if (!Utils::isUnset($request->executorIdsShrink)) {
+            $body['executorIds'] = $request->executorIdsShrink;
+        }
+        if (!Utils::isUnset($request->isOnlyShowExecutor)) {
+            $body['isOnlyShowExecutor'] = $request->isOnlyShowExecutor;
+        }
+        if (!Utils::isUnset($request->notifyConfigsShrink)) {
+            $body['notifyConfigs'] = $request->notifyConfigsShrink;
+        }
+        if (!Utils::isUnset($request->participantIdsShrink)) {
+            $body['participantIds'] = $request->participantIdsShrink;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->sourceId)) {
+            $body['sourceId'] = $request->sourceId;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['subject'] = $request->subject;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateTodoTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/createTodoTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateTodoTaskRequest $request
+     *
+     * @return CreateTodoTaskResponse
+     */
+    public function createTodoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new CreateTodoTaskHeaders([]);
+
+        return $this->createTodoTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param CreateWorkspaceRequest $tmpReq
      * @param CreateWorkspaceHeaders $tmpHeader
      * @param RuntimeOptions         $runtime
@@ -464,6 +608,75 @@ class Aliding extends OpenApiClient
         $headers = new CreateWorkspaceDocHeaders([]);
 
         return $this->createWorkspaceDocWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param DeleteTodoTaskRequest $tmpReq
+     * @param DeleteTodoTaskHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DeleteTodoTaskResponse
+     */
+    public function deleteTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteTodoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new DeleteTodoTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['operatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteTodoTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/deleteTodoTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteTodoTaskRequest $request
+     *
+     * @return DeleteTodoTaskResponse
+     */
+    public function deleteTodoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new DeleteTodoTaskHeaders([]);
+
+        return $this->deleteTodoTaskWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -752,6 +965,240 @@ class Aliding extends OpenApiClient
         $headers = new InsertRowsBeforeHeaders([]);
 
         return $this->insertRowsBeforeWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param QueryOrgTodoTasksRequest $tmpReq
+     * @param QueryOrgTodoTasksHeaders $tmpHeader
+     * @param RuntimeOptions           $runtime
+     *
+     * @return QueryOrgTodoTasksResponse
+     */
+    public function queryOrgTodoTasksWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new QueryOrgTodoTasksShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new QueryOrgTodoTasksShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->isDone)) {
+            $body['isDone'] = $request->isDone;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $body['nextToken'] = $request->nextToken;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryOrgTodoTasks',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/queryOrgTodoTasks',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryOrgTodoTasksResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryOrgTodoTasksRequest $request
+     *
+     * @return QueryOrgTodoTasksResponse
+     */
+    public function queryOrgTodoTasks($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new QueryOrgTodoTasksHeaders([]);
+
+        return $this->queryOrgTodoTasksWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateTodoTaskRequest $tmpReq
+     * @param UpdateTodoTaskHeaders $tmpHeader
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateTodoTaskResponse
+     */
+    public function updateTodoTaskWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTodoTaskShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new UpdateTodoTaskShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->executorIds)) {
+            $request->executorIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorIds, 'executorIds', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->participantIds)) {
+            $request->participantIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->participantIds, 'participantIds', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->done)) {
+            $body['done'] = $request->done;
+        }
+        if (!Utils::isUnset($request->dueTime)) {
+            $body['dueTime'] = $request->dueTime;
+        }
+        if (!Utils::isUnset($request->executorIdsShrink)) {
+            $body['executorIds'] = $request->executorIdsShrink;
+        }
+        if (!Utils::isUnset($request->participantIdsShrink)) {
+            $body['participantIds'] = $request->participantIdsShrink;
+        }
+        if (!Utils::isUnset($request->subject)) {
+            $body['subject'] = $request->subject;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTodoTask',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/updateTodoTask',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTodoTaskResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTodoTaskRequest $request
+     *
+     * @return UpdateTodoTaskResponse
+     */
+    public function updateTodoTask($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateTodoTaskHeaders([]);
+
+        return $this->updateTodoTaskWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateTodoTaskExecutorStatusRequest $tmpReq
+     * @param UpdateTodoTaskExecutorStatusHeaders $tmpHeader
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateTodoTaskExecutorStatusResponse
+     */
+    public function updateTodoTaskExecutorStatusWithOptions($tmpReq, $tmpHeader, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateTodoTaskExecutorStatusShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        $headers = new UpdateTodoTaskExecutorStatusShrinkHeaders([]);
+        OpenApiUtilClient::convert($tmpHeader, $headers);
+        if (!Utils::isUnset($tmpHeader->accountContext)) {
+            $headers->accountContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpHeader->accountContext, 'AccountContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->tenantContext)) {
+            $request->tenantContextShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tenantContext, 'TenantContext', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->executorStatusList)) {
+            $request->executorStatusListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->executorStatusList, 'executorStatusList', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->tenantContextShrink)) {
+            $body['TenantContext'] = $request->tenantContextShrink;
+        }
+        if (!Utils::isUnset($request->executorStatusListShrink)) {
+            $body['executorStatusList'] = $request->executorStatusListShrink;
+        }
+        if (!Utils::isUnset($request->operatorId)) {
+            $body['operatorId'] = $request->operatorId;
+        }
+        if (!Utils::isUnset($request->taskId)) {
+            $body['taskId'] = $request->taskId;
+        }
+        $realHeaders = [];
+        if (!Utils::isUnset($headers->commonHeaders)) {
+            $realHeaders = $headers->commonHeaders;
+        }
+        if (!Utils::isUnset($headers->accountContextShrink)) {
+            $realHeaders['AccountContext'] = Utils::toJSONString($headers->accountContextShrink);
+        }
+        $req = new OpenApiRequest([
+            'headers' => $realHeaders,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateTodoTaskExecutorStatus',
+            'version'     => '2023-04-26',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/dingtalk/v1/task/updateTodoTaskExecutorStatus',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateTodoTaskExecutorStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateTodoTaskExecutorStatusRequest $request
+     *
+     * @return UpdateTodoTaskExecutorStatusResponse
+     */
+    public function updateTodoTaskExecutorStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = new UpdateTodoTaskExecutorStatusHeaders([]);
+
+        return $this->updateTodoTaskExecutorStatusWithOptions($request, $headers, $runtime);
     }
 
     /**
