@@ -9,11 +9,15 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddGroupMemberResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AddStoryFilesResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AssignRoleRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\AssignRoleResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\AuthorizeShrinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\BatchRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\BatchResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CancelAssignRoleRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\CancelAssignRoleResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CancelShareLinkRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\CancelShareLinkResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ClearRecyclebinRequest;
@@ -158,8 +162,6 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\ListUserRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\ListUserResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\MoveFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\MoveFileResponse;
-use AlibabaCloud\SDK\Pds\V20220301\Models\ParseKeywordsRequest;
-use AlibabaCloud\SDK\Pds\V20220301\Models\ParseKeywordsResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveFaceGroupFileResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\RemoveGroupMemberRequest;
@@ -192,6 +194,8 @@ use AlibabaCloud\SDK\Pds\V20220301\Models\TokenRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TokenResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TrashFileRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\TrashFileResponse;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UnLinkAcountRequest;
+use AlibabaCloud\SDK\Pds\V20220301\Models\UnLinkAcountResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDomainRequest;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDomainResponse;
 use AlibabaCloud\SDK\Pds\V20220301\Models\UpdateDriveRequest;
@@ -233,19 +237,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                $domainId
      * @param AddGroupMemberRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
      * @return AddGroupMemberResponse
      */
-    public function addGroupMemberWithOptions($domainId, $request, $headers, $runtime)
+    public function addGroupMemberWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap              = [];
-        $hostMap['domain_id'] = $domainId;
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->groupId)) {
             $body['group_id'] = $request->groupId;
         }
@@ -256,7 +257,6 @@ class Pds extends OpenApiClient
             $body['member_type'] = $request->memberType;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -276,17 +276,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                $domainId
      * @param AddGroupMemberRequest $request
      *
      * @return AddGroupMemberResponse
      */
-    public function addGroupMember($domainId, $request)
+    public function addGroupMember($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->addGroupMemberWithOptions($domainId, $request, $headers, $runtime);
+        return $this->addGroupMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -339,6 +338,61 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->addStoryFilesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param AssignRoleRequest $request
+     * @param string[]          $headers
+     * @param RuntimeOptions    $runtime
+     *
+     * @return AssignRoleResponse
+     */
+    public function assignRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identity)) {
+            $body['identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->manageResourceId)) {
+            $body['manage_resource_id'] = $request->manageResourceId;
+        }
+        if (!Utils::isUnset($request->manageResourceType)) {
+            $body['manage_resource_type'] = $request->manageResourceType;
+        }
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AssignRole',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/role/assign',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return AssignRoleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param AssignRoleRequest $request
+     *
+     * @return AssignRoleResponse
+     */
+    public function assignRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->assignRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -457,6 +511,61 @@ class Pds extends OpenApiClient
         $headers = [];
 
         return $this->batchWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CancelAssignRoleRequest $request
+     * @param string[]                $headers
+     * @param RuntimeOptions          $runtime
+     *
+     * @return CancelAssignRoleResponse
+     */
+    public function cancelAssignRoleWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->identity)) {
+            $body['identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->manageResourceId)) {
+            $body['manage_resource_id'] = $request->manageResourceId;
+        }
+        if (!Utils::isUnset($request->manageResourceType)) {
+            $body['manage_resource_type'] = $request->manageResourceType;
+        }
+        if (!Utils::isUnset($request->roleId)) {
+            $body['role_id'] = $request->roleId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CancelAssignRole',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/role/cancel_assign',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return CancelAssignRoleResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CancelAssignRoleRequest $request
+     *
+     * @return CancelAssignRoleResponse
+     */
+    public function cancelAssignRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->cancelAssignRoleWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1112,6 +1221,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->fileIdList)) {
             $body['file_id_list'] = $request->fileIdList;
+        }
+        if (!Utils::isUnset($request->officeEditable)) {
+            $body['office_editable'] = $request->officeEditable;
         }
         if (!Utils::isUnset($request->previewLimit)) {
             $body['preview_limit'] = $request->previewLimit;
@@ -1806,28 +1918,28 @@ class Pds extends OpenApiClient
     public function downloadFileWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $body = [];
+        $query = [];
         if (!Utils::isUnset($request->driveId)) {
-            $body['drive_id'] = $request->driveId;
+            $query['drive_id'] = $request->driveId;
         }
         if (!Utils::isUnset($request->fileId)) {
-            $body['file_id'] = $request->fileId;
+            $query['file_id'] = $request->fileId;
         }
         if (!Utils::isUnset($request->imageThumbnailProcess)) {
-            $body['image_thumbnail_process'] = $request->imageThumbnailProcess;
+            $query['image_thumbnail_process'] = $request->imageThumbnailProcess;
         }
         if (!Utils::isUnset($request->officeThumbnailProcess)) {
-            $body['office_thumbnail_process'] = $request->officeThumbnailProcess;
+            $query['office_thumbnail_process'] = $request->officeThumbnailProcess;
         }
         if (!Utils::isUnset($request->shareId)) {
-            $body['share_id'] = $request->shareId;
+            $query['share_id'] = $request->shareId;
         }
         if (!Utils::isUnset($request->videoThumbnailProcess)) {
-            $body['video_thumbnail_process'] = $request->videoThumbnailProcess;
+            $query['video_thumbnail_process'] = $request->videoThumbnailProcess;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
             'action'      => 'DownloadFile',
@@ -1838,7 +1950,7 @@ class Pds extends OpenApiClient
             'authType'    => 'AK',
             'style'       => 'ROA',
             'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
+            'bodyType'    => 'binary',
         ]);
 
         return DownloadFileResponse::fromMap($this->execute($params, $req, $runtime));
@@ -3381,19 +3493,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                $domainId
      * @param ListAssignmentRequest $request
      * @param string[]              $headers
      * @param RuntimeOptions        $runtime
      *
      * @return ListAssignmentResponse
      */
-    public function listAssignmentWithOptions($domainId, $request, $headers, $runtime)
+    public function listAssignmentWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap              = [];
-        $hostMap['domain_id'] = $domainId;
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->limit)) {
             $body['limit'] = $request->limit;
         }
@@ -3407,7 +3516,6 @@ class Pds extends OpenApiClient
             $body['marker'] = $request->marker;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3427,17 +3535,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                $domainId
      * @param ListAssignmentRequest $request
      *
      * @return ListAssignmentResponse
      */
-    public function listAssignment($domainId, $request)
+    public function listAssignment($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listAssignmentWithOptions($domainId, $request, $headers, $runtime);
+        return $this->listAssignmentWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3625,6 +3732,9 @@ class Pds extends OpenApiClient
         if (!Utils::isUnset($request->remarks)) {
             $body['remarks'] = $request->remarks;
         }
+        if (!Utils::isUnset($request->returnTotalCount)) {
+            $body['return_total_count'] = $request->returnTotalCount;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -3786,19 +3896,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                 $domainId
      * @param ListGroupMemberRequest $request
      * @param string[]               $headers
      * @param RuntimeOptions         $runtime
      *
      * @return ListGroupMemberResponse
      */
-    public function listGroupMemberWithOptions($domainId, $request, $headers, $runtime)
+    public function listGroupMemberWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap              = [];
-        $hostMap['domain_id'] = $domainId;
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->groupId)) {
             $body['group_id'] = $request->groupId;
         }
@@ -3812,7 +3919,6 @@ class Pds extends OpenApiClient
             $body['member_type'] = $request->memberType;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3832,17 +3938,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                 $domainId
      * @param ListGroupMemberRequest $request
      *
      * @return ListGroupMemberResponse
      */
-    public function listGroupMember($domainId, $request)
+    public function listGroupMember($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listGroupMemberWithOptions($domainId, $request, $headers, $runtime);
+        return $this->listGroupMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -3947,19 +4052,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                  $domainId
      * @param ListMyGroupDriveRequest $request
      * @param string[]                $headers
      * @param RuntimeOptions          $runtime
      *
      * @return ListMyGroupDriveResponse
      */
-    public function listMyGroupDriveWithOptions($domainId, $request, $headers, $runtime)
+    public function listMyGroupDriveWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap              = [];
-        $hostMap['domain_id'] = $domainId;
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->limit)) {
             $body['limit'] = $request->limit;
         }
@@ -3967,7 +4069,6 @@ class Pds extends OpenApiClient
             $body['marker'] = $request->marker;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -3987,17 +4088,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                  $domainId
      * @param ListMyGroupDriveRequest $request
      *
      * @return ListMyGroupDriveResponse
      */
-    public function listMyGroupDrive($domainId, $request)
+    public function listMyGroupDrive($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listMyGroupDriveWithOptions($domainId, $request, $headers, $runtime);
+        return $this->listMyGroupDriveWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -4441,52 +4541,6 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param ParseKeywordsRequest $request
-     * @param string[]             $headers
-     * @param RuntimeOptions       $runtime
-     *
-     * @return ParseKeywordsResponse
-     */
-    public function parseKeywordsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $body = [];
-        if (!Utils::isUnset($request->keywords)) {
-            $body['keywords'] = $request->keywords;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($body),
-        ]);
-        $params = new Params([
-            'action'      => 'ParseKeywords',
-            'version'     => '2022-03-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/v2/image/parse_keywords',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ParseKeywordsResponse::fromMap($this->execute($params, $req, $runtime));
-    }
-
-    /**
-     * @param ParseKeywordsRequest $request
-     *
-     * @return ParseKeywordsResponse
-     */
-    public function parseKeywords($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->parseKeywordsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
      * @param RemoveFaceGroupFileRequest $request
      * @param string[]                   $headers
      * @param RuntimeOptions             $runtime
@@ -4539,19 +4593,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                   $domainId
      * @param RemoveGroupMemberRequest $request
      * @param string[]                 $headers
      * @param RuntimeOptions           $runtime
      *
      * @return RemoveGroupMemberResponse
      */
-    public function removeGroupMemberWithOptions($domainId, $request, $headers, $runtime)
+    public function removeGroupMemberWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
-        $hostMap              = [];
-        $hostMap['domain_id'] = $domainId;
-        $body                 = [];
+        $body = [];
         if (!Utils::isUnset($request->groupId)) {
             $body['group_id'] = $request->groupId;
         }
@@ -4562,7 +4613,6 @@ class Pds extends OpenApiClient
             $body['member_type'] = $request->memberType;
         }
         $req = new OpenApiRequest([
-            'hostMap' => $hostMap,
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
@@ -4582,17 +4632,16 @@ class Pds extends OpenApiClient
     }
 
     /**
-     * @param string                   $domainId
      * @param RemoveGroupMemberRequest $request
      *
      * @return RemoveGroupMemberResponse
      */
-    public function removeGroupMember($domainId, $request)
+    public function removeGroupMember($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->removeGroupMemberWithOptions($domainId, $request, $headers, $runtime);
+        return $this->removeGroupMemberWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -5441,6 +5490,61 @@ class Pds extends OpenApiClient
     }
 
     /**
+     * @param UnLinkAcountRequest $request
+     * @param string[]            $headers
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UnLinkAcountResponse
+     */
+    public function unLinkAcountWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->extra)) {
+            $body['extra'] = $request->extra;
+        }
+        if (!Utils::isUnset($request->identity)) {
+            $body['identity'] = $request->identity;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->userId)) {
+            $body['user_id'] = $request->userId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UnLinkAcount',
+            'version'     => '2022-03-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/v2/account/unlink',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnLinkAcountResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnLinkAcountRequest $request
+     *
+     * @return UnLinkAcountResponse
+     */
+    public function unLinkAcount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->unLinkAcountWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param UpdateDomainRequest $request
      * @param string[]            $headers
      * @param RuntimeOptions      $runtime
@@ -5465,6 +5569,9 @@ class Pds extends OpenApiClient
         }
         if (!Utils::isUnset($request->initDriveSize)) {
             $body['init_drive_size'] = $request->initDriveSize;
+        }
+        if (!Utils::isUnset($request->publishedAppAccessStrategy)) {
+            $body['published_app_access_strategy'] = $request->publishedAppAccessStrategy;
         }
         if (!Utils::isUnset($request->sizeQuota)) {
             $body['size_quota'] = $request->sizeQuota;

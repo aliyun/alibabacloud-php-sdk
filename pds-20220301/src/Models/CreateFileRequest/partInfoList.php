@@ -9,12 +9,18 @@ use AlibabaCloud\Tea\Model;
 class partInfoList extends Model
 {
     /**
+     * @var string
+     */
+    public $contentMd5;
+
+    /**
      * @example 1
      *
      * @var int
      */
     public $partNumber;
     protected $_name = [
+        'contentMd5' => 'content_md5',
         'partNumber' => 'part_number',
     ];
 
@@ -25,6 +31,9 @@ class partInfoList extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->contentMd5) {
+            $res['content_md5'] = $this->contentMd5;
+        }
         if (null !== $this->partNumber) {
             $res['part_number'] = $this->partNumber;
         }
@@ -40,6 +49,9 @@ class partInfoList extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['content_md5'])) {
+            $model->contentMd5 = $map['content_md5'];
+        }
         if (isset($map['part_number'])) {
             $model->partNumber = $map['part_number'];
         }

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
-use AlibabaCloud\SDK\Pds\V20220301\Models\File\investigationInfo;
+use AlibabaCloud\SDK\Pds\V20220301\Models\ViewFile\investigationInfo;
 use AlibabaCloud\Tea\Model;
 
-class File extends Model
+class ViewFile extends Model
 {
     /**
      * @var string
@@ -60,6 +60,11 @@ class File extends Model
     public $driveId;
 
     /**
+     * @var mixed[]
+     */
+    public $fields;
+
+    /**
      * @var string
      */
     public $fileExtension;
@@ -70,6 +75,11 @@ class File extends Model
     public $fileId;
 
     /**
+     * @var string
+     */
+    public $fileRevisionId;
+
+    /**
      * @var bool
      */
     public $hidden;
@@ -78,6 +88,11 @@ class File extends Model
      * @var investigationInfo
      */
     public $investigationInfo;
+
+    /**
+     * @var int
+     */
+    public $joinedAt;
 
     /**
      * @var string[]
@@ -155,9 +170,9 @@ class File extends Model
     public $uploadId;
 
     /**
-     * @var string[]
+     * @var string
      */
-    public $userTags;
+    public $viewId;
     protected $_name = [
         'category'          => 'category',
         'contentHash'       => 'content_hash',
@@ -169,10 +184,13 @@ class File extends Model
         'domainId'          => 'domain_id',
         'downloadUrl'       => 'download_url',
         'driveId'           => 'drive_id',
+        'fields'            => 'fields',
         'fileExtension'     => 'file_extension',
         'fileId'            => 'file_id',
+        'fileRevisionId'    => 'file_revision_id',
         'hidden'            => 'hidden',
         'investigationInfo' => 'investigation_info',
+        'joinedAt'          => 'joined_at',
         'labels'            => 'labels',
         'localCreatedAt'    => 'local_created_at',
         'localModifiedAt'   => 'local_modified_at',
@@ -188,7 +206,7 @@ class File extends Model
         'type'              => 'type',
         'updatedAt'         => 'updated_at',
         'uploadId'          => 'upload_id',
-        'userTags'          => 'user_tags',
+        'viewId'            => 'view_id',
     ];
 
     public function validate()
@@ -228,17 +246,26 @@ class File extends Model
         if (null !== $this->driveId) {
             $res['drive_id'] = $this->driveId;
         }
+        if (null !== $this->fields) {
+            $res['fields'] = $this->fields;
+        }
         if (null !== $this->fileExtension) {
             $res['file_extension'] = $this->fileExtension;
         }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
         }
+        if (null !== $this->fileRevisionId) {
+            $res['file_revision_id'] = $this->fileRevisionId;
+        }
         if (null !== $this->hidden) {
             $res['hidden'] = $this->hidden;
         }
         if (null !== $this->investigationInfo) {
             $res['investigation_info'] = null !== $this->investigationInfo ? $this->investigationInfo->toMap() : null;
+        }
+        if (null !== $this->joinedAt) {
+            $res['joined_at'] = $this->joinedAt;
         }
         if (null !== $this->labels) {
             $res['labels'] = $this->labels;
@@ -285,8 +312,8 @@ class File extends Model
         if (null !== $this->uploadId) {
             $res['upload_id'] = $this->uploadId;
         }
-        if (null !== $this->userTags) {
-            $res['user_tags'] = $this->userTags;
+        if (null !== $this->viewId) {
+            $res['view_id'] = $this->viewId;
         }
 
         return $res;
@@ -295,7 +322,7 @@ class File extends Model
     /**
      * @param array $map
      *
-     * @return File
+     * @return ViewFile
      */
     public static function fromMap($map = [])
     {
@@ -330,17 +357,26 @@ class File extends Model
         if (isset($map['drive_id'])) {
             $model->driveId = $map['drive_id'];
         }
+        if (isset($map['fields'])) {
+            $model->fields = $map['fields'];
+        }
         if (isset($map['file_extension'])) {
             $model->fileExtension = $map['file_extension'];
         }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
         }
+        if (isset($map['file_revision_id'])) {
+            $model->fileRevisionId = $map['file_revision_id'];
+        }
         if (isset($map['hidden'])) {
             $model->hidden = $map['hidden'];
         }
         if (isset($map['investigation_info'])) {
             $model->investigationInfo = investigationInfo::fromMap($map['investigation_info']);
+        }
+        if (isset($map['joined_at'])) {
+            $model->joinedAt = $map['joined_at'];
         }
         if (isset($map['labels'])) {
             if (!empty($map['labels'])) {
@@ -389,8 +425,8 @@ class File extends Model
         if (isset($map['upload_id'])) {
             $model->uploadId = $map['upload_id'];
         }
-        if (isset($map['user_tags'])) {
-            $model->userTags = $map['user_tags'];
+        if (isset($map['view_id'])) {
+            $model->viewId = $map['view_id'];
         }
 
         return $model;

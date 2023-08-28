@@ -63,6 +63,11 @@ class CreateShareLinkRequest extends Model
     public $fileIdList;
 
     /**
+     * @var bool
+     */
+    public $officeEditable;
+
+    /**
      * @example 100
      *
      * @var int
@@ -110,6 +115,7 @@ class CreateShareLinkRequest extends Model
         'driveId'         => 'drive_id',
         'expiration'      => 'expiration',
         'fileIdList'      => 'file_id_list',
+        'officeEditable'  => 'office_editable',
         'previewLimit'    => 'preview_limit',
         'saveLimit'       => 'save_limit',
         'shareAllFiles'   => 'share_all_files',
@@ -148,6 +154,9 @@ class CreateShareLinkRequest extends Model
         }
         if (null !== $this->fileIdList) {
             $res['file_id_list'] = $this->fileIdList;
+        }
+        if (null !== $this->officeEditable) {
+            $res['office_editable'] = $this->officeEditable;
         }
         if (null !== $this->previewLimit) {
             $res['preview_limit'] = $this->previewLimit;
@@ -204,6 +213,9 @@ class CreateShareLinkRequest extends Model
             if (!empty($map['file_id_list'])) {
                 $model->fileIdList = $map['file_id_list'];
             }
+        }
+        if (isset($map['office_editable'])) {
+            $model->officeEditable = $map['office_editable'];
         }
         if (isset($map['preview_limit'])) {
             $model->previewLimit = $map['preview_limit'];

@@ -2,18 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Pds\V20220301\Models;
+namespace AlibabaCloud\SDK\Pds\V20220301\Models\AudioPreviewPlayInfo;
 
 use AlibabaCloud\Tea\Model;
 
-class ParseKeywordsRequest extends Model
+class meta extends Model
 {
     /**
-     * @var string
+     * @var float
      */
-    public $keywords;
+    public $duration;
     protected $_name = [
-        'keywords' => 'keywords',
+        'duration' => 'duration',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class ParseKeywordsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->keywords) {
-            $res['keywords'] = $this->keywords;
+        if (null !== $this->duration) {
+            $res['duration'] = $this->duration;
         }
 
         return $res;
@@ -33,13 +33,13 @@ class ParseKeywordsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ParseKeywordsRequest
+     * @return meta
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['keywords'])) {
-            $model->keywords = $map['keywords'];
+        if (isset($map['duration'])) {
+            $model->duration = $map['duration'];
         }
 
         return $model;

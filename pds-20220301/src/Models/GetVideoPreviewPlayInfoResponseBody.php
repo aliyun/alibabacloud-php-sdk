@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetVideoPreviewPlayInfoResponseBody extends Model
 {
     /**
+     * @var string
+     */
+    public $code;
+
+    /**
      * @example bj1
      *
      * @var string
@@ -30,6 +35,11 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
     public $fileId;
 
     /**
+     * @var string
+     */
+    public $message;
+
+    /**
      * @example 7JQX1FswpQ8
      *
      * @var string
@@ -41,9 +51,11 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
      */
     public $videoPreviewPlayInfo;
     protected $_name = [
+        'code'                 => 'code',
         'domainId'             => 'domain_id',
         'driveId'              => 'drive_id',
         'fileId'               => 'file_id',
+        'message'              => 'message',
         'shareId'              => 'share_id',
         'videoPreviewPlayInfo' => 'video_preview_play_info',
     ];
@@ -55,6 +67,9 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->code) {
+            $res['code'] = $this->code;
+        }
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
         }
@@ -63,6 +78,9 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
         }
         if (null !== $this->fileId) {
             $res['file_id'] = $this->fileId;
+        }
+        if (null !== $this->message) {
+            $res['message'] = $this->message;
         }
         if (null !== $this->shareId) {
             $res['share_id'] = $this->shareId;
@@ -82,6 +100,9 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['code'])) {
+            $model->code = $map['code'];
+        }
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
         }
@@ -90,6 +111,9 @@ class GetVideoPreviewPlayInfoResponseBody extends Model
         }
         if (isset($map['file_id'])) {
             $model->fileId = $map['file_id'];
+        }
+        if (isset($map['message'])) {
+            $model->message = $map['message'];
         }
         if (isset($map['share_id'])) {
             $model->shareId = $map['share_id'];

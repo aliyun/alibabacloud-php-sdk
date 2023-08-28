@@ -33,11 +33,17 @@ class ListFacegroupsRequest extends Model
      * @var string
      */
     public $remarks;
+
+    /**
+     * @var bool
+     */
+    public $returnTotalCount;
     protected $_name = [
-        'driveId' => 'drive_id',
-        'limit'   => 'limit',
-        'marker'  => 'marker',
-        'remarks' => 'remarks',
+        'driveId'          => 'drive_id',
+        'limit'            => 'limit',
+        'marker'           => 'marker',
+        'remarks'          => 'remarks',
+        'returnTotalCount' => 'return_total_count',
     ];
 
     public function validate()
@@ -58,6 +64,9 @@ class ListFacegroupsRequest extends Model
         }
         if (null !== $this->remarks) {
             $res['remarks'] = $this->remarks;
+        }
+        if (null !== $this->returnTotalCount) {
+            $res['return_total_count'] = $this->returnTotalCount;
         }
 
         return $res;
@@ -82,6 +91,9 @@ class ListFacegroupsRequest extends Model
         }
         if (isset($map['remarks'])) {
             $model->remarks = $map['remarks'];
+        }
+        if (isset($map['return_total_count'])) {
+            $model->returnTotalCount = $map['return_total_count'];
         }
 
         return $model;

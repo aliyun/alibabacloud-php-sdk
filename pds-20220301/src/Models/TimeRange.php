@@ -2,22 +2,18 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Pds\V20220301\Models\ParseKeywordsResponseBody;
+namespace AlibabaCloud\SDK\Pds\V20220301\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class timeRange extends Model
+class TimeRange extends Model
 {
     /**
-     * @example 2019-08-20T06:51:27.292Z
-     *
      * @var string
      */
     public $end;
 
     /**
-     * @example 2019-08-20T06:51:27.292Z
-     *
      * @var string
      */
     public $start;
@@ -46,7 +42,7 @@ class timeRange extends Model
     /**
      * @param array $map
      *
-     * @return timeRange
+     * @return TimeRange
      */
     public static function fromMap($map = [])
     {

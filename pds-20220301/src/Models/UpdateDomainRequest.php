@@ -42,6 +42,11 @@ class UpdateDomainRequest extends Model
     public $initDriveSize;
 
     /**
+     * @var AppAccessStrategy
+     */
+    public $publishedAppAccessStrategy;
+
+    /**
      * @example 1099511627776
      *
      * @var int
@@ -55,13 +60,14 @@ class UpdateDomainRequest extends Model
      */
     public $userCountQuota;
     protected $_name = [
-        'description'     => 'description',
-        'domainId'        => 'domain_id',
-        'domainName'      => 'domain_name',
-        'initDriveEnable' => 'init_drive_enable',
-        'initDriveSize'   => 'init_drive_size',
-        'sizeQuota'       => 'size_quota',
-        'userCountQuota'  => 'user_count_quota',
+        'description'                => 'description',
+        'domainId'                   => 'domain_id',
+        'domainName'                 => 'domain_name',
+        'initDriveEnable'            => 'init_drive_enable',
+        'initDriveSize'              => 'init_drive_size',
+        'publishedAppAccessStrategy' => 'published_app_access_strategy',
+        'sizeQuota'                  => 'size_quota',
+        'userCountQuota'             => 'user_count_quota',
     ];
 
     public function validate()
@@ -85,6 +91,9 @@ class UpdateDomainRequest extends Model
         }
         if (null !== $this->initDriveSize) {
             $res['init_drive_size'] = $this->initDriveSize;
+        }
+        if (null !== $this->publishedAppAccessStrategy) {
+            $res['published_app_access_strategy'] = null !== $this->publishedAppAccessStrategy ? $this->publishedAppAccessStrategy->toMap() : null;
         }
         if (null !== $this->sizeQuota) {
             $res['size_quota'] = $this->sizeQuota;
@@ -118,6 +127,9 @@ class UpdateDomainRequest extends Model
         }
         if (isset($map['init_drive_size'])) {
             $model->initDriveSize = $map['init_drive_size'];
+        }
+        if (isset($map['published_app_access_strategy'])) {
+            $model->publishedAppAccessStrategy = AppAccessStrategy::fromMap($map['published_app_access_strategy']);
         }
         if (isset($map['size_quota'])) {
             $model->sizeQuota = $map['size_quota'];

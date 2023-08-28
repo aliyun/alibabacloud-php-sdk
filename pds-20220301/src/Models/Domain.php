@@ -44,6 +44,11 @@ class Domain extends Model
     public $parentDomainId;
 
     /**
+     * @var AppAccessStrategy
+     */
+    public $publishedAppAccessStrategy;
+
+    /**
      * @var int
      */
     public $sizeQuota;
@@ -73,19 +78,20 @@ class Domain extends Model
      */
     public $userCountQuota;
     protected $_name = [
-        'createdAt'       => 'created_at',
-        'description'     => 'description',
-        'domainId'        => 'domain_id',
-        'domainName'      => 'domain_name',
-        'initDriveEnable' => 'init_drive_enable',
-        'initDriveSize'   => 'init_drive_size',
-        'parentDomainId'  => 'parent_domain_id',
-        'sizeQuota'       => 'size_quota',
-        'sizeQuotaUsed'   => 'size_quota_used',
-        'status'          => 'status',
-        'updatedAt'       => 'updated_at',
-        'usedSize'        => 'used_size',
-        'userCountQuota'  => 'user_count_quota',
+        'createdAt'                  => 'created_at',
+        'description'                => 'description',
+        'domainId'                   => 'domain_id',
+        'domainName'                 => 'domain_name',
+        'initDriveEnable'            => 'init_drive_enable',
+        'initDriveSize'              => 'init_drive_size',
+        'parentDomainId'             => 'parent_domain_id',
+        'publishedAppAccessStrategy' => 'published_app_access_strategy',
+        'sizeQuota'                  => 'size_quota',
+        'sizeQuotaUsed'              => 'size_quota_used',
+        'status'                     => 'status',
+        'updatedAt'                  => 'updated_at',
+        'usedSize'                   => 'used_size',
+        'userCountQuota'             => 'user_count_quota',
     ];
 
     public function validate()
@@ -115,6 +121,9 @@ class Domain extends Model
         }
         if (null !== $this->parentDomainId) {
             $res['parent_domain_id'] = $this->parentDomainId;
+        }
+        if (null !== $this->publishedAppAccessStrategy) {
+            $res['published_app_access_strategy'] = null !== $this->publishedAppAccessStrategy ? $this->publishedAppAccessStrategy->toMap() : null;
         }
         if (null !== $this->sizeQuota) {
             $res['size_quota'] = $this->sizeQuota;
@@ -166,6 +175,9 @@ class Domain extends Model
         }
         if (isset($map['parent_domain_id'])) {
             $model->parentDomainId = $map['parent_domain_id'];
+        }
+        if (isset($map['published_app_access_strategy'])) {
+            $model->publishedAppAccessStrategy = AppAccessStrategy::fromMap($map['published_app_access_strategy']);
         }
         if (isset($map['size_quota'])) {
             $model->sizeQuota = $map['size_quota'];

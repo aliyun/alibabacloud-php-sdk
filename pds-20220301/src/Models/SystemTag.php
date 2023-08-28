@@ -37,13 +37,6 @@ class SystemTag extends Model
     public $parentName;
 
     /**
-     * @example 一起打篮球
-     *
-     * @var string
-     */
-    public $source;
-
-    /**
      * @example 3
      *
      * @var int
@@ -54,7 +47,6 @@ class SystemTag extends Model
         'confidence'   => 'confidence',
         'name'         => 'name',
         'parentName'   => 'parent_name',
-        'source'       => 'source',
         'tagLevel'     => 'tag_level',
     ];
 
@@ -76,9 +68,6 @@ class SystemTag extends Model
         }
         if (null !== $this->parentName) {
             $res['parent_name'] = $this->parentName;
-        }
-        if (null !== $this->source) {
-            $res['source'] = $this->source;
         }
         if (null !== $this->tagLevel) {
             $res['tag_level'] = $this->tagLevel;
@@ -106,9 +95,6 @@ class SystemTag extends Model
         }
         if (isset($map['parent_name'])) {
             $model->parentName = $map['parent_name'];
-        }
-        if (isset($map['source'])) {
-            $model->source = $map['source'];
         }
         if (isset($map['tag_level'])) {
             $model->tagLevel = $map['tag_level'];

@@ -19,9 +19,15 @@ class ListFacegroupsResponseBody extends Model
      * @var string
      */
     public $nextMarker;
+
+    /**
+     * @var int
+     */
+    public $totalCount;
     protected $_name = [
         'items'      => 'items',
         'nextMarker' => 'next_marker',
+        'totalCount' => 'total_count',
     ];
 
     public function validate()
@@ -42,6 +48,9 @@ class ListFacegroupsResponseBody extends Model
         }
         if (null !== $this->nextMarker) {
             $res['next_marker'] = $this->nextMarker;
+        }
+        if (null !== $this->totalCount) {
+            $res['total_count'] = $this->totalCount;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class ListFacegroupsResponseBody extends Model
         }
         if (isset($map['next_marker'])) {
             $model->nextMarker = $map['next_marker'];
+        }
+        if (isset($map['total_count'])) {
+            $model->totalCount = $map['total_count'];
         }
 
         return $model;
