@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightModifyOrderDetailV2ResponseBody\module\travelerInfoDTOS\changeFee;
 use AlibabaCloud\Tea\Model;
 
 class travelerInfoDTOS extends Model
@@ -28,6 +29,11 @@ class travelerInfoDTOS extends Model
      * @var int
      */
     public $certType;
+
+    /**
+     * @var changeFee
+     */
+    public $changeFee;
 
     /**
      * @example 1
@@ -82,6 +88,7 @@ class travelerInfoDTOS extends Model
         'birthDate'       => 'birth_date',
         'certNo'          => 'cert_no',
         'certType'        => 'cert_type',
+        'changeFee'       => 'change_fee',
         'gender'          => 'gender',
         'originTicketNos' => 'origin_ticket_nos',
         'passengerId'     => 'passenger_id',
@@ -107,6 +114,9 @@ class travelerInfoDTOS extends Model
         }
         if (null !== $this->certType) {
             $res['cert_type'] = $this->certType;
+        }
+        if (null !== $this->changeFee) {
+            $res['change_fee'] = null !== $this->changeFee ? $this->changeFee->toMap() : null;
         }
         if (null !== $this->gender) {
             $res['gender'] = $this->gender;
@@ -152,6 +162,9 @@ class travelerInfoDTOS extends Model
         }
         if (isset($map['cert_type'])) {
             $model->certType = $map['cert_type'];
+        }
+        if (isset($map['change_fee'])) {
+            $model->changeFee = changeFee::fromMap($map['change_fee']);
         }
         if (isset($map['gender'])) {
             $model->gender = $map['gender'];
