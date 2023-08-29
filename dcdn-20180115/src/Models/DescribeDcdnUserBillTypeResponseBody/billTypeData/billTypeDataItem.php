@@ -30,7 +30,7 @@ class billTypeDataItem extends Model
     public $billType;
 
     /**
-     * @description The billing cycle.
+     * @description The metering cycle.
      *
      * @example month
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDcdnWafGroupRequest extends Model
 {
     /**
+     * @description The ID of the custom WAF rule group.
+     *
      * @example 30000110
      *
      * @var int
@@ -16,6 +18,8 @@ class ModifyDcdnWafGroupRequest extends Model
     public $id;
 
     /**
+     * @description The name of the custom WAF rule group.
+     *
      * @example test
      *
      * @var string
@@ -23,6 +27,8 @@ class ModifyDcdnWafGroupRequest extends Model
     public $name;
 
     /**
+     * @description The incremental modification of the rules in the custom WAF rule group. The value is a string in the JSON format.
+     *
      * @example {\"All\":false,\"Op\":\"del\",\"List\":\"900109\"}
      *
      * @var string

@@ -62,6 +62,11 @@ class pageData extends Model
     public $domainStatus;
 
     /**
+     * @var string
+     */
+    public $functionType;
+
+    /**
      * @description The time when the accelerated domain name was added to Dynamic Content Delivery Network (DCDN).
      *
      * @example 2015-10-28T11:05:50Z
@@ -110,12 +115,11 @@ class pageData extends Model
     public $sandbox;
 
     /**
-     * @description The moderation scenario. Valid values:
-     *
-     *   **apiscene**: Api scene acceleration.
-     *   **webservicescene**: Web scene acceleration.
-     *   **staticscene**: Video and graphic scene acceleration.
-     *
+     * @description 场景。支持：
+     * - **apiscene**：API加速。
+     * - **webservicescene**：网站业务加速。
+     * - **staticscene**：视频、图文类加速。
+     * - **（空）**：没有场景。
      * @example apiscene
      *
      * @var string
@@ -134,6 +138,7 @@ class pageData extends Model
         'domainId'        => 'DomainId',
         'domainName'      => 'DomainName',
         'domainStatus'    => 'DomainStatus',
+        'functionType'    => 'FunctionType',
         'gmtCreated'      => 'GmtCreated',
         'gmtModified'     => 'GmtModified',
         'resourceGroupId' => 'ResourceGroupId',
@@ -164,6 +169,9 @@ class pageData extends Model
         }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
+        }
+        if (null !== $this->functionType) {
+            $res['FunctionType'] = $this->functionType;
         }
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
@@ -212,6 +220,9 @@ class pageData extends Model
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
+        }
+        if (isset($map['FunctionType'])) {
+            $model->functionType = $map['FunctionType'];
         }
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];

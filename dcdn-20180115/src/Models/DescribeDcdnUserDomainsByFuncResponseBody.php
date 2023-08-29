@@ -17,7 +17,7 @@ class DescribeDcdnUserDomainsByFuncResponseBody extends Model
     public $domains;
 
     /**
-     * @description The number of the returned page.
+     * @description The page number of the page returned.
      *
      * @example 1
      *

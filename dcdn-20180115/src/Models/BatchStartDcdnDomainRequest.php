@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BatchStartDcdnDomainRequest extends Model
 {
     /**
-     * @description The accelerated domain name. Separate multiple accelerated domain names with commas (,).
+     * @description The accelerated domain name. You can specify multiple accelerated domain names and separate them with commas (,).
      *
      * @example example.com
      *

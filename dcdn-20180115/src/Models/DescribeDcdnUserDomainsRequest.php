@@ -136,6 +136,11 @@ class DescribeDcdnUserDomainsRequest extends Model
      * @var tag[]
      */
     public $tag;
+
+    /**
+     * @var string
+     */
+    public $webSiteType;
     protected $_name = [
         'changeEndTime'    => 'ChangeEndTime',
         'changeStartTime'  => 'ChangeStartTime',
@@ -150,6 +155,7 @@ class DescribeDcdnUserDomainsRequest extends Model
         'resourceGroupId'  => 'ResourceGroupId',
         'securityToken'    => 'SecurityToken',
         'tag'              => 'Tag',
+        'webSiteType'      => 'WebSiteType',
     ];
 
     public function validate()
@@ -203,6 +209,9 @@ class DescribeDcdnUserDomainsRequest extends Model
                     $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->webSiteType) {
+            $res['WebSiteType'] = $this->webSiteType;
         }
 
         return $res;
@@ -260,6 +269,9 @@ class DescribeDcdnUserDomainsRequest extends Model
                     $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['WebSiteType'])) {
+            $model->webSiteType = $map['WebSiteType'];
         }
 
         return $model;

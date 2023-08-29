@@ -53,6 +53,11 @@ class domainDetail extends Model
     public $domainStatus;
 
     /**
+     * @var string
+     */
+    public $functionType;
+
+    /**
      * @description The time when the domain name was added.
      *
      * @example 2017-11-27T06:51:26Z
@@ -129,6 +134,7 @@ class domainDetail extends Model
         'description'     => 'Description',
         'domainName'      => 'DomainName',
         'domainStatus'    => 'DomainStatus',
+        'functionType'    => 'FunctionType',
         'gmtCreated'      => 'GmtCreated',
         'gmtModified'     => 'GmtModified',
         'resourceGroupId' => 'ResourceGroupId',
@@ -157,6 +163,9 @@ class domainDetail extends Model
         }
         if (null !== $this->domainStatus) {
             $res['DomainStatus'] = $this->domainStatus;
+        }
+        if (null !== $this->functionType) {
+            $res['FunctionType'] = $this->functionType;
         }
         if (null !== $this->gmtCreated) {
             $res['GmtCreated'] = $this->gmtCreated;
@@ -205,6 +214,9 @@ class domainDetail extends Model
         }
         if (isset($map['DomainStatus'])) {
             $model->domainStatus = $map['DomainStatus'];
+        }
+        if (isset($map['FunctionType'])) {
+            $model->functionType = $map['FunctionType'];
         }
         if (isset($map['GmtCreated'])) {
             $model->gmtCreated = $map['GmtCreated'];

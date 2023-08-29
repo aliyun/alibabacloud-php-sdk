@@ -17,7 +17,7 @@ class DescribeDcdnUserBillTypeResponseBody extends Model
     public $billTypeData;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C370DAF1-C838-4288-A1A0-9A87633D248E
      *

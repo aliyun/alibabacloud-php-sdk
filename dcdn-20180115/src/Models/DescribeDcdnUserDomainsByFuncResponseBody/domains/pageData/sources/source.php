@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class source extends Model
 {
     /**
-     * @description The address of the origin server.
+     * @description The origin server address.
      *
      * @example image.developer.aliyundoc.com
      *

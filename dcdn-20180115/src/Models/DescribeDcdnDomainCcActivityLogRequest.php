@@ -29,7 +29,7 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $endTime;
 
     /**
-     * @description The page number of the returned page. Default value: **1**.
+     * @description The page number of the page returned. Default value: **1**.
      *
      * @example 1
      *
@@ -47,13 +47,13 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The name of the rule.
+     * @description The name of the defense rule.
      *
      *   default_normal in normal mode
      *   default_attack in emergency mode
      *   A custom rule name in custom mode. Example: test2.
      *
-     * If you leave this parameter empty, all events that triggered rate limiting are queried.
+     * If you leave this parameter empty, events that triggered rate limiting based on all rules are queried.
      * @example test2
      *
      * @var string
@@ -71,7 +71,7 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The object that triggered rate limiting.
+     * @description The trigger of rate limiting by which you want to query data.
      *
      * If you leave this parameter empty, all events that triggered rate limiting are queried.
      * @example IP
@@ -83,7 +83,7 @@ class DescribeDcdnDomainCcActivityLogRequest extends Model
     /**
      * @description The value of the object that triggered rate limiting.
      *
-     * If you leave this parameter empty, all events that triggered rate limiting are queried.
+     * If you leave this parameter empty, events that triggered rate limiting based on all rules are queried.
      * @example 10.10.10.10
      *
      * @var string

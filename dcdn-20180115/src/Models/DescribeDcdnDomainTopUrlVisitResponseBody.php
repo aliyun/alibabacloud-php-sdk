@@ -30,7 +30,7 @@ class DescribeDcdnDomainTopUrlVisitResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 64D28B53-5902-409B-94F6-FD46680144FE
      *

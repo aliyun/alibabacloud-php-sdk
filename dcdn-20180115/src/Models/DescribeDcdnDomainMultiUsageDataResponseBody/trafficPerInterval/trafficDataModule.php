@@ -36,7 +36,7 @@ class trafficDataModule extends Model
     public $domain;
 
     /**
-     * @description The timestamp of the returned data.
+     * @description The timestamp of the data returned.
      *
      * @example 2017-12-10T20:00:00Z
      *

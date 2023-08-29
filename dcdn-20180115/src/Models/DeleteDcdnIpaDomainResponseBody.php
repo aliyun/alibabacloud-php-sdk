@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteDcdnIpaDomainResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 94E3559F-7B6A-4A5E-AFFD-44E2A208A249
      *

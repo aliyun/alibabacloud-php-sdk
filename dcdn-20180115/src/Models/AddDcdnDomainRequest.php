@@ -31,6 +31,11 @@ class AddDcdnDomainRequest extends Model
     /**
      * @var string
      */
+    public $functionType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -98,6 +103,7 @@ class AddDcdnDomainRequest extends Model
     protected $_name = [
         'checkUrl'        => 'CheckUrl',
         'domainName'      => 'DomainName',
+        'functionType'    => 'FunctionType',
         'ownerAccount'    => 'OwnerAccount',
         'ownerId'         => 'OwnerId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -121,6 +127,9 @@ class AddDcdnDomainRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->functionType) {
+            $res['FunctionType'] = $this->functionType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -172,6 +181,9 @@ class AddDcdnDomainRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['FunctionType'])) {
+            $model->functionType = $map['FunctionType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

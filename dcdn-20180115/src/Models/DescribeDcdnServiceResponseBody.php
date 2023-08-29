@@ -19,15 +19,15 @@ class DescribeDcdnServiceResponseBody extends Model
     public $changingAffectTime;
 
     /**
-     * @description The new metering method for DCDN. Valid values:
+     * @description The new metering method for the renewed secure DCDN. Valid values:
      *
-     *   **PayByTraffic**: pay-by-data-transfer
-     *   **PayByBandwidth**: pay-by-bandwidth
-     *   **PayByBandwidth95**: pay-by-95th percentile bandwidth
-     *   **PayByBandwidth_monthavg**: pay-by-monthly average bandwidth
-     *   **PayByBandwidth_month4th**: pay-by-fourth peak bandwidth per month
-     *   **PayByBandwidth_monthday95avg**: pay-by-monthly average 95th percentile bandwidth
-     *   **PayByBandwidth_nighthalf95**: pay-by-95th percentile bandwidth (50% off during nighttime)
+     *   **PayByTraffic**: pay by data transfer
+     *   **PayByBandwidth**: pay by bandwidth
+     *   **PayByBandwidth95**: pay by 95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: pay by monthly average bandwidth
+     *   **PayByBandwidth_month4th**: pay by fourth peak bandwidth per month
+     *   **PayByBandwidth_monthday95avg**: pay by monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: pay by 95th percentile bandwidth (50% off during nighttime)
      *
      * @example PayByBandwidth
      *
@@ -47,13 +47,13 @@ class DescribeDcdnServiceResponseBody extends Model
     /**
      * @description The current metering method. Valid values:
      *
-     *   **PayByTraffic**: pay-by-data-transfer
-     *   **PayByBandwidth**: pay-by-bandwidth
-     *   **PayByBandwidth95**: pay-by-95th percentile bandwidth
-     *   **PayByBandwidth_monthavg**: pay-by-monthly average bandwidth
-     *   **PayByBandwidth_month4th**: pay-by-fourth peak bandwidth per month
-     *   **PayByBandwidth_monthday95avg**: pay-by-monthly average 95th percentile bandwidth
-     *   **PayByBandwidth_nighthalf95**: pay-by-95th percentile bandwidth (50% off during nighttime)
+     *   **PayByTraffic**: pay by data transfer
+     *   **PayByBandwidth**: pay by bandwidth
+     *   **PayByBandwidth95**: pay by 95th percentile bandwidth
+     *   **PayByBandwidth_monthavg**: pay by monthly average bandwidth
+     *   **PayByBandwidth_month4th**: pay by fourth peak bandwidth per month
+     *   **PayByBandwidth_monthday95avg**: pay by monthly average 95th percentile bandwidth
+     *   **PayByBandwidth_nighthalf95**: pay by 95th percentile bandwidth (50% off during nighttime)
      *
      * @example PayByTraffic
      *
@@ -71,14 +71,14 @@ class DescribeDcdnServiceResponseBody extends Model
     public $openingTime;
 
     /**
-     * @description The lock status of secure DCDN.
+     * @description The lock status of DCDN.
      *
      * @var operationLocks
      */
     public $operationLocks;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EF2AEBC2-EDBD-41CF-BF64-7E095D42D6EF
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnUserDomainsByFuncRequest extends Model
 {
     /**
-     * @description The accelerated domain name.
+     * @description The accelerated domain name whose ICP filing status you want to update.
      *
      * @example example.com
      *
@@ -18,7 +18,7 @@ class DescribeDcdnUserDomainsByFuncRequest extends Model
     public $domainName;
 
     /**
-     * @description Specifies whether the feature that is specified by the FuncId parameter is enabled. Valid values:
+     * @description Specifies whether the feature that is specified by the FuncId parameter is enabled.
      *
      *   **config**: enabled
      *   **unconfig**: not enabled

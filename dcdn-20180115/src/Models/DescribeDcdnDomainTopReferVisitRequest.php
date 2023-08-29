@@ -18,7 +18,7 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description The method that is used to arrange the returned application information. Valid values:
+     * @description The sorting order. Valid values:
      *
      *   **traf**: by network traffic
      *   **pv**: by the number of visits
@@ -31,9 +31,9 @@ class DescribeDcdnDomainTopReferVisitRequest extends Model
     public $sortBy;
 
     /**
-     * @description The start of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
      *
-     * If you leave this parameter empty, data collected in the last 24 hours is queried.
+     * If you do not set this parameter, data collected within the last 24 hours is queried.
      * @example 2018-10-03T16:00:00Z
      *
      * @var string

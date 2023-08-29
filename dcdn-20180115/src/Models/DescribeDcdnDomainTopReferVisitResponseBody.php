@@ -19,7 +19,7 @@ class DescribeDcdnDomainTopReferVisitResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 95994621-8382-464B-8762-C708E73568D1
      *

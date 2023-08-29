@@ -62,7 +62,7 @@ class tasks extends Model
     public $process;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The task status. Valid values:
      *
      *   **Complete**: The task is complete.
      *   **Pending**: The task is pending.

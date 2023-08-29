@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnRefreshTaskByIdResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E0C2EF95-B1EC-4C93-855E-2059A7DA2B7B
      *

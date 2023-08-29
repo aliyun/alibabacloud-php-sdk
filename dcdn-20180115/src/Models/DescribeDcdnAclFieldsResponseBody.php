@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnAclFieldsResponseBody extends Model
 {
     /**
-     * @description Details about the rules.
+     * @description The details about the rules.
      *
      * @var content[]
      */
     public $content;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 30A3A25A-86B3-4C1D-BAA8-12B8607A5CFD
      *

@@ -18,7 +18,7 @@ class DescribeDcdnSubListResponseBody extends Model
     public $content;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3250A51D-C11D-46BA-B6B3-95348EEDE652
      *

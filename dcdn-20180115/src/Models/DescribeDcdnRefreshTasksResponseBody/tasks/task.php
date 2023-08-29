@@ -44,6 +44,7 @@ class task extends Model
      *
      *   **file**: URL-based refresh
      *   **path**: directory-based refresh
+     *   **regex**: regular expression-based refresh
      *   **preload**: URL-based prefetch
      *
      * @example file
@@ -62,7 +63,7 @@ class task extends Model
     public $process;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The status of the auxiliary media asset.
      *
      *   **Complete**: The task is complete.
      *   **Refreshing**: The task is in progress.
@@ -75,7 +76,7 @@ class task extends Model
     public $status;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example 123
      *

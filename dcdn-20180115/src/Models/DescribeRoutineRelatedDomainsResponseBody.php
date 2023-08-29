@@ -6,17 +6,23 @@ namespace AlibabaCloud\SDK\Dcdn\V20180115\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DeleteDcdnKvNamespaceResponseBody extends Model
+class DescribeRoutineRelatedDomainsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
-     * @example D61E4801-EAFF-4A63-AAE1-FBF6CE1CFD1C
+     * @example "Domains": [
+     * ]
+     * @var mixed[]
+     */
+    public $content;
+
+    /**
+     * @example FC0E34AC-0239-44A7-AB0E-800DE522C8DA
      *
      * @var string
      */
     public $requestId;
     protected $_name = [
+        'content'   => 'Content',
         'requestId' => 'RequestId',
     ];
 
@@ -27,6 +33,9 @@ class DeleteDcdnKvNamespaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->content) {
+            $res['Content'] = $this->content;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -37,11 +46,14 @@ class DeleteDcdnKvNamespaceResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DeleteDcdnKvNamespaceResponseBody
+     * @return DescribeRoutineRelatedDomainsResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Content'])) {
+            $model->content = $map['Content'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }

@@ -45,7 +45,7 @@ class topDomain extends Model
     public $rank;
 
     /**
-     * @description The number of visits to the URL.
+     * @description The number of visits.
      *
      * @example 3
      *
@@ -54,7 +54,7 @@ class topDomain extends Model
     public $totalAccess;
 
     /**
-     * @description The total volume of traffic.
+     * @description The total amount of network traffic.
      *
      * @example 123
      *

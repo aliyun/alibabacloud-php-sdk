@@ -28,7 +28,7 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $domainName;
 
     /**
-     * @description The end of the time range during which data was queried.
+     * @description The end of the time range that was queried.
      *
      * @example 2015-11-30T00:00:00Z
      *
@@ -37,7 +37,7 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E9D3257A-1B7C-414C-90C1-8D07AC47BCAC
      *
@@ -46,7 +46,7 @@ class DescribeDcdnDomainUvDataResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start of the time range during which data was queried.
+     * @description The beginning of the time range that was queried.
      *
      * @example 2015-11-29T00:00:00Z
      *

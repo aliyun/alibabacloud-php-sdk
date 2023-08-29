@@ -21,7 +21,7 @@ class ModifyDCdnDomainSchdmByPropertyRequest extends Model
      * @description The region where the acceleration service is deployed. Valid values:
      *
      *   **domestic**: Chinese mainland
-     *   **overseas**: outside the Chinese mainland
+     *   **overseas**: global (excluding mainland China)
      *   **global**: global
      *
      * @example {"coverage":"overseas"}

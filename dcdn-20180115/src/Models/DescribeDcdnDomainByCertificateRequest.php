@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeDcdnDomainByCertificateRequest extends Model
 {
     /**
+     * @description Specifies whether the domain name list to return match the SSL certificate.
+     *
+     * - **true**: The domain name list match the SSL certificate.
+     * - **false**: The domain name list do not match the SSL certificate.
+     * @example true
+     *
      * @var bool
      */
     public $exact;

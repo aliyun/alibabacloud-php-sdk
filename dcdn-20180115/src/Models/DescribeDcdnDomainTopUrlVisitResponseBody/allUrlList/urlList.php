@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class urlList extends Model
 {
     /**
-     * @description The amount of network traffic. Unit: bytes.
+     * @description The amount of network traffic. (Unit: bytes)
      *
      * @example 460486880
      *
@@ -36,7 +36,7 @@ class urlList extends Model
     public $urlDetail;
 
     /**
-     * @description The number of visits to the URL.
+     * @description The number of visits.
      *
      * @example 161673
      *
@@ -45,7 +45,7 @@ class urlList extends Model
     public $visitData;
 
     /**
-     * @description The proportion of visits to the URL.
+     * @description The proportion of visits.
      *
      * @example 0.35
      *

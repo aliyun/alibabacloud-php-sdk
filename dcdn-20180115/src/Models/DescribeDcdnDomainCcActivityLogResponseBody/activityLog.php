@@ -18,7 +18,7 @@ class activityLog extends Model
     public $action;
 
     /**
-     * @description The accelerated domain name.
+     * @description The accelerated domain name whose ICP filing status you want to update.
      *
      * @example example.com
      *
@@ -36,7 +36,7 @@ class activityLog extends Model
     public $ruleName;
 
     /**
-     * @description The timestamp of the returned data.
+     * @description The timestamp of the data returned.
      *
      * @example 2015-12-10T20:00:00Z
      *
@@ -45,7 +45,7 @@ class activityLog extends Model
     public $timeStamp;
 
     /**
-     * @description The object that triggered rate limiting.
+     * @description The object that triggered the blocking event.
      *
      * @example IP
      *
@@ -63,7 +63,7 @@ class activityLog extends Model
     public $ttl;
 
     /**
-     * @description The value of the object that triggered rate limiting.
+     * @description The value of the trigger for rate limiting.
      *
      * @example 10.10.10.10
      *

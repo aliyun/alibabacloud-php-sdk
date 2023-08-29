@@ -11,7 +11,7 @@ class DescribeRoutineSpecResponseBody extends Model
     /**
      * @description The specification of the CPU time slice. Valid values: 5 ms, 50 ms, and 100 ms.
      *
-     * @example 5ms、50ms、100ms
+     * @example 5ms, 50ms, 100ms
      *
      * @var mixed[]
      */

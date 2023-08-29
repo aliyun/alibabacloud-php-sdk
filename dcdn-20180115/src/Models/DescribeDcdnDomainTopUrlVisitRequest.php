@@ -18,7 +18,7 @@ class DescribeDcdnDomainTopUrlVisitRequest extends Model
     public $domainName;
 
     /**
-     * @description The sorting method. Valid values:
+     * @description The sorting order. Valid values:
      *
      *   **traf**: by network traffic
      *   **pv**: by the number of visits

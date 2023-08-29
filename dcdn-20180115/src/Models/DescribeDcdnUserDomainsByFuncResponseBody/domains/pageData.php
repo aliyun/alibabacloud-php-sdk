@@ -89,7 +89,7 @@ class pageData extends Model
     public $sandbox;
 
     /**
-     * @description The information about the origin server.
+     * @description The information about the origin servers.
      *
      * @var sources
      */
@@ -98,8 +98,8 @@ class pageData extends Model
     /**
      * @description Indicates whether HTTPS is enabled. Valid values:
      *
-     *   **on**
-     *   **off**
+     *   **on**: HTTPS is enabled.
+     *   **off**: HTTPS is disabled.
      *
      * @example on
      *
