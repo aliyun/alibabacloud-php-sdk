@@ -10,23 +10,27 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsResponseBody extends Model
 {
     /**
+     * @var flows[]
+     */
+    public $flows;
+
+    /**
+     * @example flow_nextxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example testRequestId
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var flows[]
-     */
-    public $flows;
     protected $_name = [
+        'flows'     => 'Flows',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'flows'     => 'Flows',
     ];
 
     public function validate()
@@ -36,12 +40,6 @@ class ListFlowsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->flows) {
             $res['Flows'] = [];
             if (null !== $this->flows && \is_array($this->flows)) {
@@ -50,6 +48,12 @@ class ListFlowsResponseBody extends Model
                     $res['Flows'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +67,6 @@ class ListFlowsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Flows'])) {
             if (!empty($map['Flows'])) {
                 $model->flows = [];
@@ -77,6 +75,12 @@ class ListFlowsResponseBody extends Model
                     $model->flows[$n++] = null !== $item ? flows::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

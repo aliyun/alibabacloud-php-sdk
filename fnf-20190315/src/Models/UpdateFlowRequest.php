@@ -9,47 +9,53 @@ use AlibabaCloud\Tea\Model;
 class UpdateFlowRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
+     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n  - type: pass\n    name: mypass
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @example test definition
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example flow
+     *
      * @var string
      */
-    public $type;
+    public $name;
 
     /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example acs:ram::${accountID}:${role}
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @example FDL
+     *
      * @var string
      */
-    public $externalStorageLocation;
+    public $type;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'name'                    => 'Name',
-        'definition'              => 'Definition',
-        'description'             => 'Description',
-        'type'                    => 'Type',
-        'roleArn'                 => 'RoleArn',
-        'externalStorageLocation' => 'ExternalStorageLocation',
+        'definition'  => 'Definition',
+        'description' => 'Description',
+        'name'        => 'Name',
+        'requestId'   => 'RequestId',
+        'roleArn'     => 'RoleArn',
+        'type'        => 'Type',
     ];
 
     public function validate()
@@ -59,26 +65,23 @@ class UpdateFlowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-        if (null !== $this->externalStorageLocation) {
-            $res['ExternalStorageLocation'] = $this->externalStorageLocation;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,26 +95,23 @@ class UpdateFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
-        if (isset($map['ExternalStorageLocation'])) {
-            $model->externalStorageLocation = $map['ExternalStorageLocation'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

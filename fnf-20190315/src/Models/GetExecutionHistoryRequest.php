@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionHistoryRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $flowName;
-
-    /**
+     * @example exec
+     *
      * @var string
      */
     public $executionName;
 
     /**
+     * @example flow
+     *
+     * @var string
+     */
+    public $flowName;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @example flow_xxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @example testRequestId
+     *
+     * @var string
      */
-    public $limit;
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'flowName'      => 'FlowName',
         'executionName' => 'ExecutionName',
-        'nextToken'     => 'NextToken',
+        'flowName'      => 'FlowName',
         'limit'         => 'Limit',
+        'nextToken'     => 'NextToken',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -47,20 +57,20 @@ class GetExecutionHistoryRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->executionName) {
+            $res['ExecutionName'] = $this->executionName;
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
-        if (null !== $this->executionName) {
-            $res['ExecutionName'] = $this->executionName;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,20 +84,20 @@ class GetExecutionHistoryRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ExecutionName'])) {
+            $model->executionName = $map['ExecutionName'];
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
-        if (isset($map['ExecutionName'])) {
-            $model->executionName = $map['ExecutionName'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

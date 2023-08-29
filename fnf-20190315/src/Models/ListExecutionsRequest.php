@@ -9,53 +9,69 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionsRequest extends Model
 {
     /**
+     * @example run
+     *
      * @var string
      */
-    public $requestId;
+    public $executionNamePrefix;
 
     /**
+     * @example flow
+     *
      * @var string
      */
     public $flowName;
 
     /**
-     * @var string
-     */
-    public $nextToken;
-
-    /**
+     * @example 1
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example flow_xxx
+     *
      * @var string
      */
-    public $status;
+    public $nextToken;
 
     /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example 2020-12-02T02:39:20.402Z
+     *
      * @var string
      */
     public $startedTimeBegin;
 
     /**
+     * @example 2020-12-02T02:23:54.817Z
+     *
      * @var string
      */
     public $startedTimeEnd;
 
     /**
+     * @example Succeeded
+     *
      * @var string
      */
-    public $executionNamePrefix;
+    public $status;
     protected $_name = [
-        'requestId'           => 'RequestId',
+        'executionNamePrefix' => 'ExecutionNamePrefix',
         'flowName'            => 'FlowName',
-        'nextToken'           => 'NextToken',
         'limit'               => 'Limit',
-        'status'              => 'Status',
+        'nextToken'           => 'NextToken',
+        'requestId'           => 'RequestId',
         'startedTimeBegin'    => 'StartedTimeBegin',
         'startedTimeEnd'      => 'StartedTimeEnd',
-        'executionNamePrefix' => 'ExecutionNamePrefix',
+        'status'              => 'Status',
     ];
 
     public function validate()
@@ -65,20 +81,20 @@ class ListExecutionsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->executionNamePrefix) {
+            $res['ExecutionNamePrefix'] = $this->executionNamePrefix;
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
         if (null !== $this->limit) {
             $res['Limit'] = $this->limit;
         }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startedTimeBegin) {
             $res['StartedTimeBegin'] = $this->startedTimeBegin;
@@ -86,8 +102,8 @@ class ListExecutionsRequest extends Model
         if (null !== $this->startedTimeEnd) {
             $res['StartedTimeEnd'] = $this->startedTimeEnd;
         }
-        if (null !== $this->executionNamePrefix) {
-            $res['ExecutionNamePrefix'] = $this->executionNamePrefix;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
 
         return $res;
@@ -101,20 +117,20 @@ class ListExecutionsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['ExecutionNamePrefix'])) {
+            $model->executionNamePrefix = $map['ExecutionNamePrefix'];
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
         if (isset($map['Limit'])) {
             $model->limit = $map['Limit'];
         }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartedTimeBegin'])) {
             $model->startedTimeBegin = $map['StartedTimeBegin'];
@@ -122,8 +138,8 @@ class ListExecutionsRequest extends Model
         if (isset($map['StartedTimeEnd'])) {
             $model->startedTimeEnd = $map['StartedTimeEnd'];
         }
-        if (isset($map['ExecutionNamePrefix'])) {
-            $model->executionNamePrefix = $map['ExecutionNamePrefix'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
 
         return $model;

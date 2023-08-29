@@ -10,23 +10,27 @@ use AlibabaCloud\Tea\Model;
 class GetExecutionHistoryResponseBody extends Model
 {
     /**
+     * @var events[]
+     */
+    public $events;
+
+    /**
+     * @example 3
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example testRequestId
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var events[]
-     */
-    public $events;
     protected $_name = [
+        'events'    => 'Events',
         'nextToken' => 'NextToken',
         'requestId' => 'RequestId',
-        'events'    => 'Events',
     ];
 
     public function validate()
@@ -36,12 +40,6 @@ class GetExecutionHistoryResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->nextToken) {
-            $res['NextToken'] = $this->nextToken;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->events) {
             $res['Events'] = [];
             if (null !== $this->events && \is_array($this->events)) {
@@ -50,6 +48,12 @@ class GetExecutionHistoryResponseBody extends Model
                     $res['Events'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -63,12 +67,6 @@ class GetExecutionHistoryResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['NextToken'])) {
-            $model->nextToken = $map['NextToken'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Events'])) {
             if (!empty($map['Events'])) {
                 $model->events = [];
@@ -77,6 +75,12 @@ class GetExecutionHistoryResponseBody extends Model
                     $model->events[$n++] = null !== $item ? events::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

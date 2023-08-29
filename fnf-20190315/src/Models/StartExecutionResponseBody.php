@@ -9,71 +9,77 @@ use AlibabaCloud\Tea\Model;
 class StartExecutionResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $status;
-
-    /**
-     * @var string
-     */
-    public $input;
-
-    /**
-     * @var string
-     */
-    public $stoppedTime;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $flowName;
-
-    /**
-     * @var string
-     */
-    public $output;
-
-    /**
-     * @var string
-     */
-    public $externalOutputUri;
-
-    /**
-     * @var string
-     */
-    public $startedTime;
-
-    /**
-     * @var string
-     */
-    public $externalInputUri;
-
-    /**
+     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
+     *
      * @var string
      */
     public $flowDefinition;
 
     /**
+     * @example flow
+     *
+     * @var string
+     */
+    public $flowName;
+
+    /**
+     * @example {"key":"value"}
+     *
+     * @var string
+     */
+    public $input;
+
+    /**
+     * @example exec1
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @example {"key":"value"}
+     *
+     * @var string
+     */
+    public $output;
+
+    /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example 2019-01-01T01:01:01.001Z
+     *
+     * @var string
+     */
+    public $startedTime;
+
+    /**
+     * @example Succeeded
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @example 2019-01-01T01:01:01.001Z
+     *
+     * @var string
+     */
+    public $stoppedTime;
     protected $_name = [
-        'status'            => 'Status',
-        'input'             => 'Input',
-        'stoppedTime'       => 'StoppedTime',
-        'requestId'         => 'RequestId',
-        'flowName'          => 'FlowName',
-        'output'            => 'Output',
-        'externalOutputUri' => 'ExternalOutputUri',
-        'startedTime'       => 'StartedTime',
-        'externalInputUri'  => 'ExternalInputUri',
-        'flowDefinition'    => 'FlowDefinition',
-        'name'              => 'Name',
+        'flowDefinition' => 'FlowDefinition',
+        'flowName'       => 'FlowName',
+        'input'          => 'Input',
+        'name'           => 'Name',
+        'output'         => 'Output',
+        'requestId'      => 'RequestId',
+        'startedTime'    => 'StartedTime',
+        'status'         => 'Status',
+        'stoppedTime'    => 'StoppedTime',
     ];
 
     public function validate()
@@ -83,38 +89,32 @@ class StartExecutionResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
-        if (null !== $this->input) {
-            $res['Input'] = $this->input;
-        }
-        if (null !== $this->stoppedTime) {
-            $res['StoppedTime'] = $this->stoppedTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->flowDefinition) {
+            $res['FlowDefinition'] = $this->flowDefinition;
         }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
         }
+        if (null !== $this->input) {
+            $res['Input'] = $this->input;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->output) {
             $res['Output'] = $this->output;
         }
-        if (null !== $this->externalOutputUri) {
-            $res['ExternalOutputUri'] = $this->externalOutputUri;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->startedTime) {
             $res['StartedTime'] = $this->startedTime;
         }
-        if (null !== $this->externalInputUri) {
-            $res['ExternalInputUri'] = $this->externalInputUri;
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
         }
-        if (null !== $this->flowDefinition) {
-            $res['FlowDefinition'] = $this->flowDefinition;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->stoppedTime) {
+            $res['StoppedTime'] = $this->stoppedTime;
         }
 
         return $res;
@@ -128,38 +128,32 @@ class StartExecutionResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
-        if (isset($map['Input'])) {
-            $model->input = $map['Input'];
-        }
-        if (isset($map['StoppedTime'])) {
-            $model->stoppedTime = $map['StoppedTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['FlowDefinition'])) {
+            $model->flowDefinition = $map['FlowDefinition'];
         }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
         }
+        if (isset($map['Input'])) {
+            $model->input = $map['Input'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Output'])) {
             $model->output = $map['Output'];
         }
-        if (isset($map['ExternalOutputUri'])) {
-            $model->externalOutputUri = $map['ExternalOutputUri'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['StartedTime'])) {
             $model->startedTime = $map['StartedTime'];
         }
-        if (isset($map['ExternalInputUri'])) {
-            $model->externalInputUri = $map['ExternalInputUri'];
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
         }
-        if (isset($map['FlowDefinition'])) {
-            $model->flowDefinition = $map['FlowDefinition'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['StoppedTime'])) {
+            $model->stoppedTime = $map['StoppedTime'];
         }
 
         return $model;

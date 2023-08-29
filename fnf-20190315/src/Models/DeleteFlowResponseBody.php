@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowResponseBody extends Model
 {
     /**
+     * @example testRequestId
+     *
      * @var string
      */
     public $requestId;

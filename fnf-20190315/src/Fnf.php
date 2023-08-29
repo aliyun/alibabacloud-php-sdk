@@ -43,6 +43,7 @@ use AlibabaCloud\SDK\Fnf\V20190315\Models\UpdateScheduleResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Fnf extends OpenApiClient
@@ -93,11 +94,49 @@ class Fnf extends OpenApiClient
     public function createFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->definition)) {
+            $body['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->executionMode)) {
+            $body['ExecutionMode'] = $request->executionMode;
+        }
+        if (!Utils::isUnset($request->externalStorageLocation)) {
+            $body['ExternalStorageLocation'] = $request->externalStorageLocation;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $body['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlow',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateFlowResponse::fromMap($this->doRPCRequest('CreateFlow', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -121,11 +160,46 @@ class Fnf extends OpenApiClient
     public function createScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cronExpression)) {
+            $body['CronExpression'] = $request->cronExpression;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $body['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->payload)) {
+            $body['Payload'] = $request->payload;
+        }
+        if (!Utils::isUnset($request->scheduleName)) {
+            $body['ScheduleName'] = $request->scheduleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSchedule',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return CreateScheduleResponse::fromMap($this->doRPCRequest('CreateSchedule', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return CreateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -151,10 +225,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlow',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteFlowResponse::fromMap($this->doRPCRequest('DeleteFlow', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -180,10 +265,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteSchedule',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DeleteScheduleResponse::fromMap($this->doRPCRequest('DeleteSchedule', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DeleteScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -209,10 +305,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeExecution',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeExecutionResponse::fromMap($this->doRPCRequest('DescribeExecution', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -238,10 +345,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeFlow',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeFlowResponse::fromMap($this->doRPCRequest('DescribeFlow', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -267,10 +385,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeSchedule',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeScheduleResponse::fromMap($this->doRPCRequest('DescribeSchedule', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return DescribeScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -296,10 +425,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetExecutionHistory',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return GetExecutionHistoryResponse::fromMap($this->doRPCRequest('GetExecutionHistory', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return GetExecutionHistoryResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -325,10 +465,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExecutions',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListExecutionsResponse::fromMap($this->doRPCRequest('ListExecutions', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListExecutionsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -354,10 +505,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlows',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListFlowsResponse::fromMap($this->doRPCRequest('ListFlows', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListFlowsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -383,10 +545,21 @@ class Fnf extends OpenApiClient
         Utils::validateModel($request);
         $query = OpenApiUtilClient::query(Utils::toMap($request));
         $req   = new OpenApiRequest([
-            'query' => $query,
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSchedules',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ListSchedulesResponse::fromMap($this->doRPCRequest('ListSchedules', '2019-03-15', 'HTTPS', 'GET', 'AK', 'json', $req, $runtime));
+        return ListSchedulesResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -410,11 +583,37 @@ class Fnf extends OpenApiClient
     public function reportTaskFailedWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->taskToken)) {
+            $query['TaskToken'] = $request->taskToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cause)) {
+            $body['Cause'] = $request->cause;
+        }
+        if (!Utils::isUnset($request->error)) {
+            $body['Error'] = $request->error;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportTaskFailed',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportTaskFailedResponse::fromMap($this->doRPCRequest('ReportTaskFailed', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportTaskFailedResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -438,11 +637,34 @@ class Fnf extends OpenApiClient
     public function reportTaskSucceededWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        if (!Utils::isUnset($request->taskToken)) {
+            $query['TaskToken'] = $request->taskToken;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->output)) {
+            $body['Output'] = $request->output;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ReportTaskSucceeded',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ReportTaskSucceededResponse::fromMap($this->doRPCRequest('ReportTaskSucceeded', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ReportTaskSucceededResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -466,11 +688,40 @@ class Fnf extends OpenApiClient
     public function startExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->callbackFnFTaskToken)) {
+            $body['CallbackFnFTaskToken'] = $request->callbackFnFTaskToken;
+        }
+        if (!Utils::isUnset($request->executionName)) {
+            $body['ExecutionName'] = $request->executionName;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->input)) {
+            $body['Input'] = $request->input;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StartExecution',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StartExecutionResponse::fromMap($this->doRPCRequest('StartExecution', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StartExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -494,11 +745,40 @@ class Fnf extends OpenApiClient
     public function stopExecutionWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cause)) {
+            $body['Cause'] = $request->cause;
+        }
+        if (!Utils::isUnset($request->error)) {
+            $body['Error'] = $request->error;
+        }
+        if (!Utils::isUnset($request->executionName)) {
+            $body['ExecutionName'] = $request->executionName;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'StopExecution',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return StopExecutionResponse::fromMap($this->doRPCRequest('StopExecution', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return StopExecutionResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -522,11 +802,43 @@ class Fnf extends OpenApiClient
     public function updateFlowWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->definition)) {
+            $body['Definition'] = $request->definition;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->roleArn)) {
+            $body['RoleArn'] = $request->roleArn;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $body['Type'] = $request->type;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFlow',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateFlowResponse::fromMap($this->doRPCRequest('UpdateFlow', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateFlowResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -550,11 +862,46 @@ class Fnf extends OpenApiClient
     public function updateScheduleWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->requestId)) {
+            $query['RequestId'] = $request->requestId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->cronExpression)) {
+            $body['CronExpression'] = $request->cronExpression;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $body['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->flowName)) {
+            $body['FlowName'] = $request->flowName;
+        }
+        if (!Utils::isUnset($request->payload)) {
+            $body['Payload'] = $request->payload;
+        }
+        if (!Utils::isUnset($request->scheduleName)) {
+            $body['ScheduleName'] = $request->scheduleName;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateSchedule',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return UpdateScheduleResponse::fromMap($this->doRPCRequest('UpdateSchedule', '2019-03-15', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return UpdateScheduleResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

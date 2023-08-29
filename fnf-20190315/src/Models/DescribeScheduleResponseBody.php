@@ -9,57 +9,75 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduleResponseBody extends Model
 {
     /**
-     * @var string
-     */
-    public $description;
-
-    /**
+     * @example 2020-01-01T01:01:01.001Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $lastModifiedTime;
-
-    /**
-     * @var bool
-     */
-    public $enable;
-
-    /**
-     * @var string
-     */
-    public $payload;
-
-    /**
+     * @example 0 * * * * *
+     *
      * @var string
      */
     public $cronExpression;
 
     /**
+     * @example test description
+     *
+     * @var string
+     */
+    public $description;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $enable;
+
+    /**
+     * @example 2020-01-01T01:01:01.001Z
+     *
+     * @var string
+     */
+    public $lastModifiedTime;
+
+    /**
+     * @example {"key": "value"}
+     *
+     * @var string
+     */
+    public $payload;
+
+    /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example testScheduleId
+     *
      * @var string
      */
     public $scheduleId;
 
     /**
+     * @example testScheduleName
+     *
      * @var string
      */
     public $scheduleName;
     protected $_name = [
-        'description'      => 'Description',
         'createdTime'      => 'CreatedTime',
-        'requestId'        => 'RequestId',
-        'lastModifiedTime' => 'LastModifiedTime',
-        'enable'           => 'Enable',
-        'payload'          => 'Payload',
         'cronExpression'   => 'CronExpression',
+        'description'      => 'Description',
+        'enable'           => 'Enable',
+        'lastModifiedTime' => 'LastModifiedTime',
+        'payload'          => 'Payload',
+        'requestId'        => 'RequestId',
         'scheduleId'       => 'ScheduleId',
         'scheduleName'     => 'ScheduleName',
     ];
@@ -71,26 +89,26 @@ class DescribeScheduleResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
         }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->cronExpression) {
+            $res['CronExpression'] = $this->cronExpression;
         }
-        if (null !== $this->lastModifiedTime) {
-            $res['LastModifiedTime'] = $this->lastModifiedTime;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
         }
+        if (null !== $this->lastModifiedTime) {
+            $res['LastModifiedTime'] = $this->lastModifiedTime;
+        }
         if (null !== $this->payload) {
             $res['Payload'] = $this->payload;
         }
-        if (null !== $this->cronExpression) {
-            $res['CronExpression'] = $this->cronExpression;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->scheduleId) {
             $res['ScheduleId'] = $this->scheduleId;
@@ -110,26 +128,26 @@ class DescribeScheduleResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
         }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['CronExpression'])) {
+            $model->cronExpression = $map['CronExpression'];
         }
-        if (isset($map['LastModifiedTime'])) {
-            $model->lastModifiedTime = $map['LastModifiedTime'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
         }
+        if (isset($map['LastModifiedTime'])) {
+            $model->lastModifiedTime = $map['LastModifiedTime'];
+        }
         if (isset($map['Payload'])) {
             $model->payload = $map['Payload'];
         }
-        if (isset($map['CronExpression'])) {
-            $model->cronExpression = $map['CronExpression'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ScheduleId'])) {
             $model->scheduleId = $map['ScheduleId'];

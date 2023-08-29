@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ReportTaskFailedRequest extends Model
 {
     /**
+     * @example emptyString
+     *
      * @var string
      */
-    public $requestId;
+    public $cause;
 
     /**
-     * @var string
-     */
-    public $taskToken;
-
-    /**
+     * @example nill
+     *
      * @var string
      */
     public $error;
 
     /**
+     * @example testRequestId
+     *
      * @var string
      */
-    public $cause;
+    public $requestId;
+
+    /**
+     * @example emptyString
+     *
+     * @var string
+     */
+    public $taskToken;
     protected $_name = [
+        'cause'     => 'Cause',
+        'error'     => 'Error',
         'requestId' => 'RequestId',
         'taskToken' => 'TaskToken',
-        'error'     => 'Error',
-        'cause'     => 'Cause',
     ];
 
     public function validate()
@@ -41,17 +49,17 @@ class ReportTaskFailedRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cause) {
+            $res['Cause'] = $this->cause;
+        }
+        if (null !== $this->error) {
+            $res['Error'] = $this->error;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->taskToken) {
             $res['TaskToken'] = $this->taskToken;
-        }
-        if (null !== $this->error) {
-            $res['Error'] = $this->error;
-        }
-        if (null !== $this->cause) {
-            $res['Cause'] = $this->cause;
         }
 
         return $res;
@@ -65,17 +73,17 @@ class ReportTaskFailedRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Cause'])) {
+            $model->cause = $map['Cause'];
+        }
+        if (isset($map['Error'])) {
+            $model->error = $map['Error'];
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
         if (isset($map['TaskToken'])) {
             $model->taskToken = $map['TaskToken'];
-        }
-        if (isset($map['Error'])) {
-            $model->error = $map['Error'];
-        }
-        if (isset($map['Cause'])) {
-            $model->cause = $map['Cause'];
         }
 
         return $model;

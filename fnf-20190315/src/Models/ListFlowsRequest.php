@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ListFlowsRequest extends Model
 {
     /**
-     * @var string
+     * @example 1
+     *
+     * @var int
      */
-    public $requestId;
+    public $limit;
 
     /**
+     * @example flow_nextxxx
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @example testRequestId
+     *
+     * @var string
      */
-    public $limit;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
-        'nextToken' => 'NextToken',
         'limit'     => 'Limit',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -35,14 +41,14 @@ class ListFlowsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class ListFlowsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

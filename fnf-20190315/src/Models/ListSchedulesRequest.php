@@ -9,29 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ListSchedulesRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example testFlowName
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $limit;
+
+    /**
+     * @example testNextToken
+     *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @var int
+     * @example testRequestId
+     *
+     * @var string
      */
-    public $limit;
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'flowName'  => 'FlowName',
-        'nextToken' => 'NextToken',
         'limit'     => 'Limit',
+        'nextToken' => 'NextToken',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -41,17 +49,17 @@ class ListSchedulesRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
+        }
+        if (null !== $this->limit) {
+            $res['Limit'] = $this->limit;
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
         }
-        if (null !== $this->limit) {
-            $res['Limit'] = $this->limit;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -65,17 +73,17 @@ class ListSchedulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
+        }
+        if (isset($map['Limit'])) {
+            $model->limit = $map['Limit'];
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
         }
-        if (isset($map['Limit'])) {
-            $model->limit = $map['Limit'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

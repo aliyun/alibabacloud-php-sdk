@@ -9,17 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DeleteFlowRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example flow
+     *
      * @var string
      */
     public $name;
+
+    /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
         'name'      => 'Name',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -29,11 +33,11 @@ class DeleteFlowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -47,11 +51,11 @@ class DeleteFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

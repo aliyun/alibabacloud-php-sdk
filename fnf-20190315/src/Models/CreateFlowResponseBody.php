@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowResponseBody extends Model
 {
     /**
+     * @example 2019-01-01T01:01:01.001Z
+     *
      * @var string
      */
-    public $type;
+    public $createdTime;
 
     /**
+     * @example version: v1.0\ntype: flow\nname: test\nsteps:\n - type: pass\n name: mypass
+     *
+     * @var string
+     */
+    public $definition;
+
+    /**
+     * @example test flow
+     *
      * @var string
      */
     public $description;
@@ -21,53 +32,60 @@ class CreateFlowResponseBody extends Model
     /**
      * @var string
      */
-    public $createdTime;
+    public $executionMode;
 
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $definition;
-
-    /**
-     * @var string
-     */
-    public $lastModifiedTime;
-
-    /**
+     * @example e589e092-e2c0-4dee-b306-3574ddfdddf5****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 2019-01-01T01:01:01.001Z
+     *
      * @var string
      */
-    public $externalStorageLocation;
+    public $lastModifiedTime;
 
     /**
+     * @example flow
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example testRequestID
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example acs:ram:${region}:${accountID}:${role}
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @example FDL
+     *
      * @var string
      */
-    public $name;
+    public $type;
     protected $_name = [
-        'type'                    => 'Type',
-        'description'             => 'Description',
-        'createdTime'             => 'CreatedTime',
-        'requestId'               => 'RequestId',
-        'definition'              => 'Definition',
-        'lastModifiedTime'        => 'LastModifiedTime',
-        'id'                      => 'Id',
-        'externalStorageLocation' => 'ExternalStorageLocation',
-        'roleArn'                 => 'RoleArn',
-        'name'                    => 'Name',
+        'createdTime'      => 'CreatedTime',
+        'definition'       => 'Definition',
+        'description'      => 'Description',
+        'executionMode'    => 'ExecutionMode',
+        'id'               => 'Id',
+        'lastModifiedTime' => 'LastModifiedTime',
+        'name'             => 'Name',
+        'requestId'        => 'RequestId',
+        'roleArn'          => 'RoleArn',
+        'type'             => 'Type',
     ];
 
     public function validate()
@@ -77,35 +95,35 @@ class CreateFlowResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
-        }
-        if (null !== $this->description) {
-            $res['Description'] = $this->description;
-        }
         if (null !== $this->createdTime) {
             $res['CreatedTime'] = $this->createdTime;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
-        if (null !== $this->lastModifiedTime) {
-            $res['LastModifiedTime'] = $this->lastModifiedTime;
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
+        }
+        if (null !== $this->executionMode) {
+            $res['ExecutionMode'] = $this->executionMode;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
         }
-        if (null !== $this->externalStorageLocation) {
-            $res['ExternalStorageLocation'] = $this->externalStorageLocation;
+        if (null !== $this->lastModifiedTime) {
+            $res['LastModifiedTime'] = $this->lastModifiedTime;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -119,35 +137,35 @@ class CreateFlowResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
-        }
-        if (isset($map['Description'])) {
-            $model->description = $map['Description'];
-        }
         if (isset($map['CreatedTime'])) {
             $model->createdTime = $map['CreatedTime'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
-        if (isset($map['LastModifiedTime'])) {
-            $model->lastModifiedTime = $map['LastModifiedTime'];
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
+        }
+        if (isset($map['ExecutionMode'])) {
+            $model->executionMode = $map['ExecutionMode'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
         }
-        if (isset($map['ExternalStorageLocation'])) {
-            $model->externalStorageLocation = $map['ExternalStorageLocation'];
+        if (isset($map['LastModifiedTime'])) {
+            $model->lastModifiedTime = $map['LastModifiedTime'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

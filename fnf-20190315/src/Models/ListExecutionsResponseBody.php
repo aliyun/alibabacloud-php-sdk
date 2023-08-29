@@ -15,11 +15,15 @@ class ListExecutionsResponseBody extends Model
     public $executions;
 
     /**
+     * @example exec2
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example testRequestId
+     *
      * @var string
      */
     public $requestId;

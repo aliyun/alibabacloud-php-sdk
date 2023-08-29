@@ -9,21 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateFlowRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $name;
-
-    /**
+     * @example version:&nbsp;v1.0<br/>type:&nbsp;flow<br/>steps:<br/>&nbsp;-&nbsp;type:&nbsp;pass<br/>&nbsp;name:&nbsp;mypass
+     *
      * @var string
      */
     public $definition;
 
     /**
+     * @example test flow
+     *
      * @var string
      */
     public $description;
@@ -31,25 +25,51 @@ class CreateFlowRequest extends Model
     /**
      * @var string
      */
-    public $type;
+    public $executionMode;
 
     /**
+     * @example /path
+     *
+     * @var string
+     */
+    public $externalStorageLocation;
+
+    /**
+     * @example flow
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @example testRequestID
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example acs:ram:${region}:${accountID}:${role}
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @example FDL
+     *
      * @var string
      */
-    public $externalStorageLocation;
+    public $type;
     protected $_name = [
-        'requestId'               => 'RequestId',
-        'name'                    => 'Name',
         'definition'              => 'Definition',
         'description'             => 'Description',
-        'type'                    => 'Type',
-        'roleArn'                 => 'RoleArn',
+        'executionMode'           => 'ExecutionMode',
         'externalStorageLocation' => 'ExternalStorageLocation',
+        'name'                    => 'Name',
+        'requestId'               => 'RequestId',
+        'roleArn'                 => 'RoleArn',
+        'type'                    => 'Type',
     ];
 
     public function validate()
@@ -59,26 +79,29 @@ class CreateFlowRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->name) {
-            $res['Name'] = $this->name;
-        }
         if (null !== $this->definition) {
             $res['Definition'] = $this->definition;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->executionMode) {
+            $res['ExecutionMode'] = $this->executionMode;
+        }
+        if (null !== $this->externalStorageLocation) {
+            $res['ExternalStorageLocation'] = $this->externalStorageLocation;
+        }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->roleArn) {
             $res['RoleArn'] = $this->roleArn;
         }
-        if (null !== $this->externalStorageLocation) {
-            $res['ExternalStorageLocation'] = $this->externalStorageLocation;
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -92,26 +115,29 @@ class CreateFlowRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Name'])) {
-            $model->name = $map['Name'];
-        }
         if (isset($map['Definition'])) {
             $model->definition = $map['Definition'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['ExecutionMode'])) {
+            $model->executionMode = $map['ExecutionMode'];
+        }
+        if (isset($map['ExternalStorageLocation'])) {
+            $model->externalStorageLocation = $map['ExternalStorageLocation'];
+        }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['RoleArn'])) {
             $model->roleArn = $map['RoleArn'];
         }
-        if (isset($map['ExternalStorageLocation'])) {
-            $model->externalStorageLocation = $map['ExternalStorageLocation'];
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

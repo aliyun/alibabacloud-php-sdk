@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteScheduleResponseBody extends Model
 {
     /**
+     * @example testRequestId
+     *
      * @var string
      */
     public $requestId;

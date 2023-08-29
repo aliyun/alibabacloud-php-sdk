@@ -9,22 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduleRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
+     * @example testFlowName
+     *
      * @var string
      */
     public $flowName;
 
     /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example testScheduleName
+     *
      * @var string
      */
     public $scheduleName;
     protected $_name = [
-        'requestId'    => 'RequestId',
         'flowName'     => 'FlowName',
+        'requestId'    => 'RequestId',
         'scheduleName' => 'ScheduleName',
     ];
 
@@ -35,11 +41,11 @@ class DescribeScheduleRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
         if (null !== $this->flowName) {
             $res['FlowName'] = $this->flowName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->scheduleName) {
             $res['ScheduleName'] = $this->scheduleName;
@@ -56,11 +62,11 @@ class DescribeScheduleRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
         if (isset($map['FlowName'])) {
             $model->flowName = $map['FlowName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['ScheduleName'])) {
             $model->scheduleName = $map['ScheduleName'];

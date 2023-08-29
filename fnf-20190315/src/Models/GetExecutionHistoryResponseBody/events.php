@@ -9,41 +9,53 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
-     * @var string
-     */
-    public $type;
-
-    /**
-     * @var int
-     */
-    public $eventId;
-
-    /**
-     * @var string
-     */
-    public $time;
-
-    /**
-     * @var int
-     */
-    public $scheduleEventId;
-
-    /**
+     * @example {}
+     *
      * @var string
      */
     public $eventDetail;
 
     /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $eventId;
+
+    /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $scheduleEventId;
+
+    /**
+     * @example passStep
+     *
      * @var string
      */
     public $stepName;
+
+    /**
+     * @example 2019-01-01T01:01:01.001Z
+     *
+     * @var string
+     */
+    public $time;
+
+    /**
+     * @example TaskSucceeded
+     *
+     * @var string
+     */
+    public $type;
     protected $_name = [
-        'type'            => 'Type',
-        'eventId'         => 'EventId',
-        'time'            => 'Time',
-        'scheduleEventId' => 'ScheduleEventId',
         'eventDetail'     => 'EventDetail',
+        'eventId'         => 'EventId',
+        'scheduleEventId' => 'ScheduleEventId',
         'stepName'        => 'StepName',
+        'time'            => 'Time',
+        'type'            => 'Type',
     ];
 
     public function validate()
@@ -53,23 +65,23 @@ class events extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->type) {
-            $res['Type'] = $this->type;
+        if (null !== $this->eventDetail) {
+            $res['EventDetail'] = $this->eventDetail;
         }
         if (null !== $this->eventId) {
             $res['EventId'] = $this->eventId;
         }
-        if (null !== $this->time) {
-            $res['Time'] = $this->time;
-        }
         if (null !== $this->scheduleEventId) {
             $res['ScheduleEventId'] = $this->scheduleEventId;
         }
-        if (null !== $this->eventDetail) {
-            $res['EventDetail'] = $this->eventDetail;
-        }
         if (null !== $this->stepName) {
             $res['StepName'] = $this->stepName;
+        }
+        if (null !== $this->time) {
+            $res['Time'] = $this->time;
+        }
+        if (null !== $this->type) {
+            $res['Type'] = $this->type;
         }
 
         return $res;
@@ -83,23 +95,23 @@ class events extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Type'])) {
-            $model->type = $map['Type'];
+        if (isset($map['EventDetail'])) {
+            $model->eventDetail = $map['EventDetail'];
         }
         if (isset($map['EventId'])) {
             $model->eventId = $map['EventId'];
         }
-        if (isset($map['Time'])) {
-            $model->time = $map['Time'];
-        }
         if (isset($map['ScheduleEventId'])) {
             $model->scheduleEventId = $map['ScheduleEventId'];
         }
-        if (isset($map['EventDetail'])) {
-            $model->eventDetail = $map['EventDetail'];
-        }
         if (isset($map['StepName'])) {
             $model->stepName = $map['StepName'];
+        }
+        if (isset($map['Time'])) {
+            $model->time = $map['Time'];
+        }
+        if (isset($map['Type'])) {
+            $model->type = $map['Type'];
         }
 
         return $model;

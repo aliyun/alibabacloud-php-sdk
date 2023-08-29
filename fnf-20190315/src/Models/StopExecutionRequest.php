@@ -9,35 +9,45 @@ use AlibabaCloud\Tea\Model;
 class StopExecutionRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var string
-     */
-    public $flowName;
-
-    /**
-     * @var string
-     */
-    public $executionName;
-
-    /**
+     * @example for test
+     *
      * @var string
      */
     public $cause;
 
     /**
+     * @example nill
+     *
      * @var string
      */
     public $error;
+
+    /**
+     * @example exec
+     *
+     * @var string
+     */
+    public $executionName;
+
+    /**
+     * @example flow
+     *
+     * @var string
+     */
+    public $flowName;
+
+    /**
+     * @example testRequestId
+     *
+     * @var string
+     */
+    public $requestId;
     protected $_name = [
-        'requestId'     => 'RequestId',
-        'flowName'      => 'FlowName',
-        'executionName' => 'ExecutionName',
         'cause'         => 'Cause',
         'error'         => 'Error',
+        'executionName' => 'ExecutionName',
+        'flowName'      => 'FlowName',
+        'requestId'     => 'RequestId',
     ];
 
     public function validate()
@@ -47,20 +57,20 @@ class StopExecutionRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->flowName) {
-            $res['FlowName'] = $this->flowName;
-        }
-        if (null !== $this->executionName) {
-            $res['ExecutionName'] = $this->executionName;
-        }
         if (null !== $this->cause) {
             $res['Cause'] = $this->cause;
         }
         if (null !== $this->error) {
             $res['Error'] = $this->error;
+        }
+        if (null !== $this->executionName) {
+            $res['ExecutionName'] = $this->executionName;
+        }
+        if (null !== $this->flowName) {
+            $res['FlowName'] = $this->flowName;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -74,20 +84,20 @@ class StopExecutionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['FlowName'])) {
-            $model->flowName = $map['FlowName'];
-        }
-        if (isset($map['ExecutionName'])) {
-            $model->executionName = $map['ExecutionName'];
-        }
         if (isset($map['Cause'])) {
             $model->cause = $map['Cause'];
         }
         if (isset($map['Error'])) {
             $model->error = $map['Error'];
+        }
+        if (isset($map['ExecutionName'])) {
+            $model->executionName = $map['ExecutionName'];
+        }
+        if (isset($map['FlowName'])) {
+            $model->flowName = $map['FlowName'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;
