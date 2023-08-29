@@ -43,6 +43,13 @@ class travelerStandard extends Model
     public $hotelCitys;
 
     /**
+     * @example F
+     *
+     * @var string
+     */
+    public $internationalFlightCabins;
+
+    /**
      * @example 1
      *
      * @var int
@@ -70,15 +77,16 @@ class travelerStandard extends Model
      */
     public $userId;
     protected $_name = [
-        'businessDiscount'       => 'business_discount',
-        'economyDiscount'        => 'economy_discount',
-        'firstDiscount'          => 'first_discount',
-        'flightCabins'           => 'flight_cabins',
-        'hotelCitys'             => 'hotel_citys',
-        'premiumEconomyDiscount' => 'premium_economy_discount',
-        'reserveType'            => 'reserve_type',
-        'trainSeats'             => 'train_seats',
-        'userId'                 => 'user_id',
+        'businessDiscount'          => 'business_discount',
+        'economyDiscount'           => 'economy_discount',
+        'firstDiscount'             => 'first_discount',
+        'flightCabins'              => 'flight_cabins',
+        'hotelCitys'                => 'hotel_citys',
+        'internationalFlightCabins' => 'international_flight_cabins',
+        'premiumEconomyDiscount'    => 'premium_economy_discount',
+        'reserveType'               => 'reserve_type',
+        'trainSeats'                => 'train_seats',
+        'userId'                    => 'user_id',
     ];
 
     public function validate()
@@ -108,6 +116,9 @@ class travelerStandard extends Model
                     $res['hotel_citys'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->internationalFlightCabins) {
+            $res['international_flight_cabins'] = $this->internationalFlightCabins;
         }
         if (null !== $this->premiumEconomyDiscount) {
             $res['premium_economy_discount'] = $this->premiumEconomyDiscount;
@@ -153,6 +164,9 @@ class travelerStandard extends Model
                     $model->hotelCitys[$n++] = null !== $item ? hotelCitys::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['international_flight_cabins'])) {
+            $model->internationalFlightCabins = $map['international_flight_cabins'];
         }
         if (isset($map['premium_economy_discount'])) {
             $model->premiumEconomyDiscount = $map['premium_economy_discount'];
