@@ -78,8 +78,6 @@ class ApplyAddShrinkRequest extends Model
     public $hotelShareShrink;
 
     /**
-     * @example Y
-     *
      * @var string
      */
     public $internationalFlightCabins;

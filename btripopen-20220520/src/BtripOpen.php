@@ -760,10 +760,6 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($tmpReq->travelerStandard)) {
             $request->travelerStandardShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->travelerStandard, 'traveler_standard', 'json');
         }
-        $query = [];
-        if (!Utils::isUnset($request->internationalFlightCabins)) {
-            $query['international_flight_cabins'] = $request->internationalFlightCabins;
-        }
         $body = [];
         if (!Utils::isUnset($request->budget)) {
             $body['budget'] = $request->budget;
@@ -797,6 +793,9 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->hotelShareShrink)) {
             $body['hotel_share'] = $request->hotelShareShrink;
+        }
+        if (!Utils::isUnset($request->internationalFlightCabins)) {
+            $body['international_flight_cabins'] = $request->internationalFlightCabins;
         }
         if (!Utils::isUnset($request->itineraryListShrink)) {
             $body['itinerary_list'] = $request->itineraryListShrink;
@@ -870,7 +869,6 @@ class BtripOpen extends OpenApiClient
         }
         $req = new OpenApiRequest([
             'headers' => $realHeaders,
-            'query'   => OpenApiUtilClient::query($query),
             'body'    => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([

@@ -85,8 +85,6 @@ class ApplyAddRequest extends Model
     public $hotelShare;
 
     /**
-     * @example Y
-     *
      * @var string
      */
     public $internationalFlightCabins;
