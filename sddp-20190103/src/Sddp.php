@@ -48,6 +48,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailV2Reque
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectColumnDetailV2Response;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectsRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDataObjectsResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDocTypesRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeDocTypesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventDetailResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeEventsRequest;
@@ -72,6 +74,8 @@ use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRulesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeRulesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTablesRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTablesResponse;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTemplateAllRulesRequest;
+use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeTemplateAllRulesResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserStatusRequest;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DescribeUserStatusResponse;
 use AlibabaCloud\SDK\Sddp\V20190103\Models\DisableUserConfigRequest;
@@ -1466,8 +1470,17 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->domainId)) {
             $query['DomainId'] = $request->domainId;
         }
+        if (!Utils::isUnset($request->fileType)) {
+            $query['FileType'] = $request->fileType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
         if (!Utils::isUnset($request->lang)) {
             $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->modelIds)) {
+            $query['ModelIds'] = $request->modelIds;
         }
         if (!Utils::isUnset($request->modelTagIds)) {
             $query['ModelTagIds'] = $request->modelTagIds;
@@ -1521,6 +1534,49 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDataObjectsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDocTypesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeDocTypesResponse
+     */
+    public function describeDocTypesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDocTypes',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDocTypesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDocTypesRequest $request
+     *
+     * @return DescribeDocTypesResponse
+     */
+    public function describeDocTypes($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDocTypesWithOptions($request, $runtime);
     }
 
     /**
@@ -2230,6 +2286,9 @@ class Sddp extends OpenApiClient
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
         }
+        if (!Utils::isUnset($request->supportForm)) {
+            $query['SupportForm'] = $request->supportForm;
+        }
         if (!Utils::isUnset($request->warnLevel)) {
             $query['WarnLevel'] = $request->warnLevel;
         }
@@ -2345,6 +2404,52 @@ class Sddp extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTablesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeTemplateAllRulesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return DescribeTemplateAllRulesResponse
+     */
+    public function describeTemplateAllRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->lang)) {
+            $query['Lang'] = $request->lang;
+        }
+        if (!Utils::isUnset($request->templateId)) {
+            $query['TemplateId'] = $request->templateId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeTemplateAllRules',
+            'version'     => '2019-01-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeTemplateAllRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeTemplateAllRulesRequest $request
+     *
+     * @return DescribeTemplateAllRulesResponse
+     */
+    public function describeTemplateAllRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeTemplateAllRulesWithOptions($request, $runtime);
     }
 
     /**

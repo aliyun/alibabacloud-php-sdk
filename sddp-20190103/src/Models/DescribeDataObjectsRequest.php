@@ -23,11 +23,26 @@ class DescribeDataObjectsRequest extends Model
     public $domainId;
 
     /**
+     * @var int
+     */
+    public $fileType;
+
+    /**
+     * @var string
+     */
+    public $instanceId;
+
+    /**
      * @example zh_cn
      *
      * @var string
      */
     public $lang;
+
+    /**
+     * @var string
+     */
+    public $modelIds;
 
     /**
      * @example 101,102
@@ -87,7 +102,10 @@ class DescribeDataObjectsRequest extends Model
     protected $_name = [
         'currentPage'       => 'CurrentPage',
         'domainId'          => 'DomainId',
+        'fileType'          => 'FileType',
+        'instanceId'        => 'InstanceId',
         'lang'              => 'Lang',
+        'modelIds'          => 'ModelIds',
         'modelTagIds'       => 'ModelTagIds',
         'pageSize'          => 'PageSize',
         'parentCategoryIds' => 'ParentCategoryIds',
@@ -111,8 +129,17 @@ class DescribeDataObjectsRequest extends Model
         if (null !== $this->domainId) {
             $res['DomainId'] = $this->domainId;
         }
+        if (null !== $this->fileType) {
+            $res['FileType'] = $this->fileType;
+        }
+        if (null !== $this->instanceId) {
+            $res['InstanceId'] = $this->instanceId;
+        }
         if (null !== $this->lang) {
             $res['Lang'] = $this->lang;
+        }
+        if (null !== $this->modelIds) {
+            $res['ModelIds'] = $this->modelIds;
         }
         if (null !== $this->modelTagIds) {
             $res['ModelTagIds'] = $this->modelTagIds;
@@ -156,8 +183,17 @@ class DescribeDataObjectsRequest extends Model
         if (isset($map['DomainId'])) {
             $model->domainId = $map['DomainId'];
         }
+        if (isset($map['FileType'])) {
+            $model->fileType = $map['FileType'];
+        }
+        if (isset($map['InstanceId'])) {
+            $model->instanceId = $map['InstanceId'];
+        }
         if (isset($map['Lang'])) {
             $model->lang = $map['Lang'];
+        }
+        if (isset($map['ModelIds'])) {
+            $model->modelIds = $map['ModelIds'];
         }
         if (isset($map['ModelTagIds'])) {
             $model->modelTagIds = $map['ModelTagIds'];

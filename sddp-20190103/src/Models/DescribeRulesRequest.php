@@ -174,6 +174,20 @@ class DescribeRulesRequest extends Model
     public $status;
 
     /**
+     * @description The type of the data asset. Valid values:
+     *
+     *   **0**: all data assets
+     *   **1**: structured data asset
+     *   **2**: unstructured data asset
+     *
+     * > If you set the parameter to 1 or 2, rules that support all data assets and rules that support the queried data asset type are returned.
+     * @example 1
+     *
+     * @var int
+     */
+    public $supportForm;
+
+    /**
      * @description The severity level of the alert. Valid values:
      *
      *   **1**: low
@@ -201,6 +215,7 @@ class DescribeRulesRequest extends Model
         'riskLevelId'       => 'RiskLevelId',
         'ruleType'          => 'RuleType',
         'status'            => 'Status',
+        'supportForm'       => 'SupportForm',
         'warnLevel'         => 'WarnLevel',
     ];
 
@@ -255,6 +270,9 @@ class DescribeRulesRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->supportForm) {
+            $res['SupportForm'] = $this->supportForm;
         }
         if (null !== $this->warnLevel) {
             $res['WarnLevel'] = $this->warnLevel;
@@ -315,6 +333,9 @@ class DescribeRulesRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['SupportForm'])) {
+            $model->supportForm = $map['SupportForm'];
         }
         if (isset($map['WarnLevel'])) {
             $model->warnLevel = $map['WarnLevel'];
