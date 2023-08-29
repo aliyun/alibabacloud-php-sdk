@@ -4,10 +4,16 @@
 
 namespace AlibabaCloud\SDK\Cloudfw\V20171207\Models;
 
+use AlibabaCloud\SDK\Cloudfw\V20171207\Models\PutEnableFwSwitchResponseBody\abnormalResourceStatusList;
 use AlibabaCloud\Tea\Model;
 
 class PutEnableFwSwitchResponseBody extends Model
 {
+    /**
+     * @var abnormalResourceStatusList[]
+     */
+    public $abnormalResourceStatusList;
+
     /**
      * @description The ID of the request.
      *
@@ -17,7 +23,8 @@ class PutEnableFwSwitchResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'abnormalResourceStatusList' => 'AbnormalResourceStatusList',
+        'requestId'                  => 'RequestId',
     ];
 
     public function validate()
@@ -27,6 +34,15 @@ class PutEnableFwSwitchResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->abnormalResourceStatusList) {
+            $res['AbnormalResourceStatusList'] = [];
+            if (null !== $this->abnormalResourceStatusList && \is_array($this->abnormalResourceStatusList)) {
+                $n = 0;
+                foreach ($this->abnormalResourceStatusList as $item) {
+                    $res['AbnormalResourceStatusList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
@@ -42,6 +58,15 @@ class PutEnableFwSwitchResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AbnormalResourceStatusList'])) {
+            if (!empty($map['AbnormalResourceStatusList'])) {
+                $model->abnormalResourceStatusList = [];
+                $n                                 = 0;
+                foreach ($map['AbnormalResourceStatusList'] as $item) {
+                    $model->abnormalResourceStatusList[$n++] = null !== $item ? abnormalResourceStatusList::fromMap($item) : $item;
+                }
+            }
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
