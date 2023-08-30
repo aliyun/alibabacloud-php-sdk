@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class firewallRules extends Model
 {
     /**
+     * @description The firewall policy.
+     *
+     *   accept: Access is allowed.
+     *   drop: Access is refused.
+     *
+     * @example accept
+     *
      * @var string
      */
     public $policy;
@@ -42,8 +49,8 @@ class firewallRules extends Model
      * @description The transport layer protocol. Valid values:
      *
      *   TCP: the TCP protocol.
-     *   UDP: the UDP protocol.
-     *   TCP+UDP: the TCP and UDP protocols.
+     *   UDP: the UDP protocol
+     *   TCP+UDP: the TCP and UDP protocols
      *
      * @example TCP
      *
@@ -52,6 +59,10 @@ class firewallRules extends Model
     public $ruleProtocol;
 
     /**
+     * @description The IP address or CIDR block that is allowed by the firewall rule.
+     *
+     * @example 0.0.0.0/0
+     *
      * @var string
      */
     public $sourceCidrIp;

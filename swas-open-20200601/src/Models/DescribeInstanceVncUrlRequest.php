@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceVncUrlRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeInstanceVncUrlRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the simple application server.
+     *
      * @example 2ad1ae67295445f598017499dc****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeInstanceVncUrlRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the simple application server.
+     *
      * @example cn-hangzhou
      *
      * @var string

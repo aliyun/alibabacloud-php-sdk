@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesTrafficPackagesResponseBody extends Model
 {
     /**
-     * @description The details of the data transfer plans of the simple application servers.
+     * @description The data transfers that exceed the quota of the data transfer plan in the current month. Unit: bytes.
      *
      * @var instanceTrafficPackageUsages[]
      */
     public $instanceTrafficPackageUsages;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *

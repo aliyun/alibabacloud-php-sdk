@@ -21,7 +21,7 @@ class LoginInstanceRequest extends Model
      * @description The password that corresponds to the username.
      *
      *   For a Linux server, you do not need to enter a password.
-     *   For a Windows server, enter the password that you set. If you have not set a password for the simple application server, set a password. For more information, see [Reset the password](~~60055~~l).
+     *   For a Windows server, enter the password that you set. If you have not set a password for the simple application server, set a password. For more information, see [Reset the password](~~60055~~).
      *
      * @example Test****
      *
@@ -30,9 +30,8 @@ class LoginInstanceRequest extends Model
     public $password;
 
     /**
-     * @description The region ID of the simple application server.
+     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
      *
-     * You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

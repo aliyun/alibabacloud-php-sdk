@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AllocatePublicConnectionRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\AllocatePublicConnectionResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCommandRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCommandResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCustomImageRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateCustomImageResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateFirewallRuleRequest;
@@ -21,6 +23,8 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateInstancesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateSnapshotRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\CreateSnapshotResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCommandRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCommandResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCustomImageRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteCustomImageResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DeleteFirewallRuleRequest;
@@ -36,6 +40,10 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantStatusRespo
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudAssistantStatusShrinkRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudMonitorAgentStatusesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCloudMonitorAgentStatusesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandInvocationsRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandInvocationsResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandsRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeCommandsResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseErrorLogsRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseErrorLogsResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\DescribeDatabaseInstanceMetricDataRequest;
@@ -69,6 +77,9 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudAssistantResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudAssistantShrinkRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudMonitorAgentRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InstallCloudMonitorAgentResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InvokeCommandRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InvokeCommandResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\InvokeCommandShrinkRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListCustomImagesResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\ListDisksRequest;
@@ -135,6 +146,8 @@ use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstanceRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstanceResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstancesRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\StopInstancesResponse;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateCommandAttributeRequest;
+use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateCommandAttributeResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateDiskAttributeRequest;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateDiskAttributeResponse;
 use AlibabaCloud\SDK\SWASOPEN\V20200601\Models\UpdateInstanceAttributeRequest;
@@ -185,10 +198,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicConnectionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param AllocatePublicConnectionRequest $request AllocatePublicConnectionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AllocatePublicConnectionResponse
+     * @return AllocatePublicConnectionResponse AllocatePublicConnectionResponse
      */
     public function allocatePublicConnectionWithOptions($request, $runtime)
     {
@@ -222,9 +239,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param AllocatePublicConnectionRequest $request
+     * By default, no public endpoints are assigned to Simple Database Service instances. If you want to access the databases of a Simple Database Service instance over the Internet by using Simple Container Service or Data Management (DMS), you must apply for a public endpoint for the Simple Database Service instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param AllocatePublicConnectionRequest $request AllocatePublicConnectionRequest
      *
-     * @return AllocatePublicConnectionResponse
+     * @return AllocatePublicConnectionResponse AllocatePublicConnectionResponse
      */
     public function allocatePublicConnection($request)
     {
@@ -234,18 +255,81 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A custom image is created based on a snapshot of a simple application server. You can use custom images to create multiple simple application servers that have the same configurations. You can also share custom images with ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances.
-     *   * For more information about custom images, see [Overview of custom images](~~199375~~).
-     *   * You must create a system disk snapshot of a simple application server before you create a custom image of the simple application server. For more information, see [CreateSnapshot](~~190452~~).
-     *   * >  If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
-     *   * When you create a custom image, take note of the following items:
-     *   * *   The custom image and the corresponding simple application server reside in the same region.
-     *   * *   The maximum number of custom images that can be retained in an Alibaba Cloud account is triple of the number of simple application servers that you created. The value cannot be greater than 15.
+     * @param CreateCommandRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return CreateCommandResponse
+     */
+    public function createCommandWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandContent)) {
+            $query['CommandContent'] = $request->commandContent;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->enableParameter)) {
+            $query['EnableParameter'] = $request->enableParameter;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->workingDir)) {
+            $query['WorkingDir'] = $request->workingDir;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCommand',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCommandRequest $request
+     *
+     * @return CreateCommandResponse
+     */
+    public function createCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](~~199375~~).
+     *   * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](~~190452~~).
+     *   * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
+     *   * Before you create a custom image, take note of the following items:
+     *   * *   The custom image and the corresponding simple application server must reside in the same region.
+     *   * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
      *   * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
-     *   * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on the server are also released.
-     *   * *   If you reset a simple application sever, the disk data on the server is cleared. You must back up the data as needed.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
+     *   * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateCustomImageRequest $request CreateCustomImageRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -296,18 +380,17 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A custom image is created based on a snapshot of a simple application server. You can use custom images to create multiple simple application servers that have the same configurations. You can also share custom images with ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances.
-     *   * For more information about custom images, see [Overview of custom images](~~199375~~).
-     *   * You must create a system disk snapshot of a simple application server before you create a custom image of the simple application server. For more information, see [CreateSnapshot](~~190452~~).
-     *   * >  If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
-     *   * When you create a custom image, take note of the following items:
-     *   * *   The custom image and the corresponding simple application server reside in the same region.
-     *   * *   The maximum number of custom images that can be retained in an Alibaba Cloud account is triple of the number of simple application servers that you created. The value cannot be greater than 15.
+     * A custom image is created based on a snapshot of a simple application server. You can use a custom image to create multiple simple application servers that have the same configurations. You can also share custom images to ECS and use the shared images to create ECS instances or replace the OSs of existing ECS instances. For more information about custom images, see [Overview of custom images](~~199375~~).
+     *   * You must create a system disk snapshot of a simple application server before you create a custom image based on the snapshot. For more information, see [CreateSnapshot](~~190452~~).
+     *   * > If you need the data on the data disk of a simple application server when you create a custom image, create a snapshot for the data disk first.
+     *   * Before you create a custom image, take note of the following items:
+     *   * *   The custom image and the corresponding simple application server must reside in the same region.
+     *   * *   The maximum number of custom images that can be maintained in an Alibaba Cloud account is triple the number of simple application servers in the account. The value cannot be greater than 15.
      *   * *   You can directly create a custom image only based on the system disk snapshot of a simple application server. If you want a custom image to contain the data on the data disk of the simple application server, you must select a data disk snapshot when you create the custom image.
-     *   * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on the server are also released.
-     *   * *   If you reset a simple application sever, the disk data on the server is cleared. You must back up the data as needed.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * *   If a simple application server is released due to expiration or refunds, the custom images that are created based on a snapshot of the server are also released.
+     *   * *   If you reset a simple application server by changing the application system or OS of the server or replacing the image of the server, the disk data on the server is cleared. Back up the disk data as needed.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateCustomImageRequest $request CreateCustomImageRequest
      *
@@ -321,7 +404,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, Secure Shell (SSH) port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *   * ### QPS limits
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateFirewallRuleRequest $request CreateFirewallRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -369,7 +454,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, Secure Shell (SSH) port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *   * ### QPS limits
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateFirewallRuleRequest $request CreateFirewallRuleRequest
      *
@@ -383,10 +470,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param CreateFirewallRulesRequest $tmpReq
-     * @param RuntimeOptions             $runtime
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *   *
+     * @param CreateFirewallRulesRequest $tmpReq  CreateFirewallRulesRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateFirewallRulesResponse
+     * @return CreateFirewallRulesResponse CreateFirewallRulesResponse
      */
     public function createFirewallRulesWithOptions($tmpReq, $runtime)
     {
@@ -428,9 +517,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param CreateFirewallRulesRequest $request
+     * Firewalls serve to control network access to simple application servers and isolate security domains in the cloud. By default, SSH port 22, HTTP port 80, and HTTPS port 443 are enabled for simple application servers. Other ports are disabled. You can add firewall rules to enable more ports.
+     *   *
+     * @param CreateFirewallRulesRequest $request CreateFirewallRulesRequest
      *
-     * @return CreateFirewallRulesResponse
+     * @return CreateFirewallRulesResponse CreateFirewallRulesResponse
      */
     public function createFirewallRules($request)
     {
@@ -493,10 +584,10 @@ class SWASOPEN extends OpenApiClient
 
     /**
      * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
-     *   * *   A maximum of 20 simple application servers can be created within an Alibaba Cloud account.
+     *   * *   A maximum of 20 simple application servers can be maintained in an Alibaba Cloud account.
      *   * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -557,10 +648,10 @@ class SWASOPEN extends OpenApiClient
 
     /**
      * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
-     *   * *   A maximum of 20 simple application servers can be created within an Alibaba Cloud account.
+     *   * *   A maximum of 20 simple application servers can be maintained in an Alibaba Cloud account.
      *   * *   When you call this operation to create simple application servers, make sure that the balance in your account is sufficient to pay for the servers. If the balance in your account is insufficient, the servers cannot be created.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateInstancesRequest $request CreateInstancesRequest
      *
@@ -574,15 +665,15 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental instance releases, recover data after network attacks, and create custom images.
-     *   * >  You are not charged for creating snapshots for simple application servers.
-     *   * ## Precautions
-     *   * - You can create up to three snapshots for disks of each simple application server.
-     *   * - The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple of the number of simple application servers that are created. The value cannot be greater than 15.
-     *   * - If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
-     *   * - If you create a snapshot for a simple application server before you reset the server, the snapshot is retained after you reset the server but the snapshot cannot be used to roll back the disks of the server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
+     *   * > You are not charged for creating snapshots for disks of simple application servers.
+     *   * ### Precautions
+     *   * *   You can create up to three snapshots for disks of each simple application server.
+     *   * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
+     *   * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
+     *   * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -624,15 +715,15 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental instance releases, recover data after network attacks, and create custom images.
-     *   * >  You are not charged for creating snapshots for simple application servers.
-     *   * ## Precautions
-     *   * - You can create up to three snapshots for disks of each simple application server.
-     *   * - The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple of the number of simple application servers that are created. The value cannot be greater than 15.
-     *   * - If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
-     *   * - If you create a snapshot for a simple application server before you reset the server, the snapshot is retained after you reset the server but the snapshot cannot be used to roll back the disks of the server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * A snapshot is a point-in-time backup of a disk. Snapshots can be used to back up data, recover data after accidental operations on instances, recover data after network attacks, and create custom images.
+     *   * > You are not charged for creating snapshots for disks of simple application servers.
+     *   * ### Precautions
+     *   * *   You can create up to three snapshots for disks of each simple application server.
+     *   * *   The maximum number of snapshots that can be retained in an Alibaba Cloud account is triple the number of simple application servers that you maintain. The value cannot be greater than 15.
+     *   * *   If a simple application server is automatically released due to expiration, the snapshots created for the server are deleted.
+     *   * *   If you reset the simple application server after you create a snapshot for a server, the snapshot is retained but cannot be used to roll back the disks of the server.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param CreateSnapshotRequest $request CreateSnapshotRequest
      *
@@ -646,10 +737,56 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a custom image that you no longer need. After the custom image is deleted, the simple application servers that were created from the custom image cannot be reset by using the custom image.
-     *   * >  If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy custom images](~~199378~~).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * @param DeleteCommandRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DeleteCommandResponse
+     */
+    public function deleteCommandWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCommand',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCommandRequest $request
+     *
+     * @return DeleteCommandResponse
+     */
+    public function deleteCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCommandWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     *   * > If a custom image is shared to Elastic Compute Service (ECS), you must unshare the image before you can delete it. After you unshare the custom image, you cannot query the custom image by using the ECS console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](~~199378~~).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param DeleteCustomImageRequest $request DeleteCustomImageRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -688,10 +825,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a custom image that you no longer need. After the custom image is deleted, the simple application servers that were created from the custom image cannot be reset by using the custom image.
-     *   * >  If a custom image is shared, you must unshare the image before you can delete it. After a custom image is unshared, you cannot query the custom image by using the Elastic Compute Service (ECS) console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy custom images](~~199378~~).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can delete a custom image that you no longer need. After the custom image is deleted, you cannot use the custom image to reset the simple application servers that were created based on the custom image.
+     *   * > If a custom image is shared to Elastic Compute Service (ECS), you must unshare the image before you can delete it. After you unshare the custom image, you cannot query the custom image by using the ECS console or by calling ECS API operations. If you need to use the custom image in ECS, we recommend that you copy the image before you delete it. For more information, see [Copy a shared image of a simple application server in the ECS console](~~199378~~).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param DeleteCustomImageRequest $request DeleteCustomImageRequest
      *
@@ -706,8 +843,8 @@ class SWASOPEN extends OpenApiClient
 
     /**
      * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param DeleteFirewallRuleRequest $request DeleteFirewallRuleRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -750,8 +887,8 @@ class SWASOPEN extends OpenApiClient
 
     /**
      * After a firewall rule is deleted, your business deployed on the simple application server may become inaccessible. Before you delete a firewall rule, make sure that the firewall rule is no longer needed by the simple application server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param DeleteFirewallRuleRequest $request DeleteFirewallRuleRequest
      *
@@ -814,10 +951,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a snapshot that is no longer needed.
-     *   * >  If a custom image was created from the snapshot, delete the custom image before you delete the snapshot.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can delete a snapshot if you no longer need it.
+     *   * > If a custom image was created based on the snapshot, delete the custom image before you delete the snapshot.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -856,10 +993,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can delete a snapshot that is no longer needed.
-     *   * >  If a custom image was created from the snapshot, delete the custom image before you delete the snapshot.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can delete a snapshot if you no longer need it.
+     *   * > If a custom image was created based on the snapshot, delete the custom image before you delete the snapshot.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param DeleteSnapshotRequest $request DeleteSnapshotRequest
      *
@@ -922,7 +1059,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * By default, the Cloud Assistant client is installed on your simple application server. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the server.
+     * By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
      *   *
      * @param DescribeCloudAssistantStatusRequest $tmpReq  DescribeCloudAssistantStatusRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -969,7 +1106,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * By default, the Cloud Assistant client is installed on your simple application server. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the server.
+     * By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall the client. Otherwise, you cannot run commands on the servers.
      *   *
      * @param DescribeCloudAssistantStatusRequest $request DescribeCloudAssistantStatusRequest
      *
@@ -1032,10 +1169,141 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseErrorLogsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * @param DescribeCommandInvocationsRequest $request
+     * @param RuntimeOptions                    $runtime
      *
-     * @return DescribeDatabaseErrorLogsResponse
+     * @return DescribeCommandInvocationsResponse
+     */
+    public function describeCommandInvocationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->commandName)) {
+            $query['CommandName'] = $request->commandName;
+        }
+        if (!Utils::isUnset($request->commandType)) {
+            $query['CommandType'] = $request->commandType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->invocationStatus)) {
+            $query['InvocationStatus'] = $request->invocationStatus;
+        }
+        if (!Utils::isUnset($request->invokeId)) {
+            $query['InvokeId'] = $request->invokeId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCommandInvocations',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCommandInvocationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommandInvocationsRequest $request
+     *
+     * @return DescribeCommandInvocationsResponse
+     */
+    public function describeCommandInvocations($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommandInvocationsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeCommandsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return DescribeCommandsResponse
+     */
+    public function describeCommandsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->provider)) {
+            $query['Provider'] = $request->provider;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeCommands',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeCommandsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeCommandsRequest $request
+     *
+     * @return DescribeCommandsResponse
+     */
+    public function describeCommands($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeCommandsWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
+     *   * \\### QPS limit You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseErrorLogsRequest $request DescribeDatabaseErrorLogsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DescribeDatabaseErrorLogsResponse DescribeDatabaseErrorLogsResponse
      */
     public function describeDatabaseErrorLogsWithOptions($request, $runtime)
     {
@@ -1078,9 +1346,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseErrorLogsRequest $request
+     * You can call this operation to query the error logs of databases in a Simple Database Service instance and locate faults based on the error logs.
+     *   * \\### QPS limit You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseErrorLogsRequest $request DescribeDatabaseErrorLogsRequest
      *
-     * @return DescribeDatabaseErrorLogsResponse
+     * @return DescribeDatabaseErrorLogsResponse DescribeDatabaseErrorLogsResponse
      */
     public function describeDatabaseErrorLogs($request)
     {
@@ -1090,10 +1361,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseInstanceMetricDataRequest $request
-     * @param RuntimeOptions                            $runtime
+     * After you create a Simple Database Service instance, you can query the details about the vCPU, memory, disk size, storage IOPS (input/output operations per second), and total current connection number of the instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseInstanceMetricDataRequest $request DescribeDatabaseInstanceMetricDataRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDatabaseInstanceMetricDataResponse
+     * @return DescribeDatabaseInstanceMetricDataResponse DescribeDatabaseInstanceMetricDataResponse
      */
     public function describeDatabaseInstanceMetricDataWithOptions($request, $runtime)
     {
@@ -1133,9 +1408,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseInstanceMetricDataRequest $request
+     * After you create a Simple Database Service instance, you can query the details about the vCPU, memory, disk size, storage IOPS (input/output operations per second), and total current connection number of the instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseInstanceMetricDataRequest $request DescribeDatabaseInstanceMetricDataRequest
      *
-     * @return DescribeDatabaseInstanceMetricDataResponse
+     * @return DescribeDatabaseInstanceMetricDataResponse DescribeDatabaseInstanceMetricDataResponse
      */
     public function describeDatabaseInstanceMetricData($request)
     {
@@ -1145,10 +1424,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseInstanceParametersRequest $request
-     * @param RuntimeOptions                            $runtime
+     * You can call this operation to query the information about parameters of a Simple Database Service instance.
+     *   *
+     * @param DescribeDatabaseInstanceParametersRequest $request DescribeDatabaseInstanceParametersRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDatabaseInstanceParametersResponse
+     * @return DescribeDatabaseInstanceParametersResponse DescribeDatabaseInstanceParametersResponse
      */
     public function describeDatabaseInstanceParametersWithOptions($request, $runtime)
     {
@@ -1179,9 +1460,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseInstanceParametersRequest $request
+     * You can call this operation to query the information about parameters of a Simple Database Service instance.
+     *   *
+     * @param DescribeDatabaseInstanceParametersRequest $request DescribeDatabaseInstanceParametersRequest
      *
-     * @return DescribeDatabaseInstanceParametersResponse
+     * @return DescribeDatabaseInstanceParametersResponse DescribeDatabaseInstanceParametersResponse
      */
     public function describeDatabaseInstanceParameters($request)
     {
@@ -1191,10 +1474,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseInstancesRequest $request
-     * @param RuntimeOptions                   $runtime
+     * You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoint, internal endpoint, creation time, and expiration time of the instances.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseInstancesRequest $request DescribeDatabaseInstancesRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDatabaseInstancesResponse
+     * @return DescribeDatabaseInstancesResponse DescribeDatabaseInstancesResponse
      */
     public function describeDatabaseInstancesWithOptions($request, $runtime)
     {
@@ -1231,9 +1518,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseInstancesRequest $request
+     * You can call this operation to query the details of Simple Database Service instances in a region, including the IDs, names, plans, database versions, public endpoint, internal endpoint, creation time, and expiration time of the instances.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseInstancesRequest $request DescribeDatabaseInstancesRequest
      *
-     * @return DescribeDatabaseInstancesResponse
+     * @return DescribeDatabaseInstancesResponse DescribeDatabaseInstancesResponse
      */
     public function describeDatabaseInstances($request)
     {
@@ -1243,10 +1534,15 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseSlowLogRecordsRequest $request
-     * @param RuntimeOptions                        $runtime
+     * You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
+     *   * > Slow query log details are retained for 7 days.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseSlowLogRecordsRequest $request DescribeDatabaseSlowLogRecordsRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDatabaseSlowLogRecordsResponse
+     * @return DescribeDatabaseSlowLogRecordsResponse DescribeDatabaseSlowLogRecordsResponse
      */
     public function describeDatabaseSlowLogRecordsWithOptions($request, $runtime)
     {
@@ -1289,9 +1585,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param DescribeDatabaseSlowLogRecordsRequest $request
+     * You can query the slow query log details of a Simple Database Service instance and locate faults based on the log details.
+     *   * > Slow query log details are retained for 7 days.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param DescribeDatabaseSlowLogRecordsRequest $request DescribeDatabaseSlowLogRecordsRequest
      *
-     * @return DescribeDatabaseSlowLogRecordsResponse
+     * @return DescribeDatabaseSlowLogRecordsResponse DescribeDatabaseSlowLogRecordsResponse
      */
     public function describeDatabaseSlowLogRecords($request)
     {
@@ -1448,8 +1749,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query the execution information that is generated within the last two weeks. Up to 100,000 lines of execution information can be retained.
+     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
+     *   * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
      *   *
      * @param DescribeInvocationResultRequest $request DescribeInvocationResultRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -1488,8 +1789,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query the execution information that is generated within the last two weeks. Up to 100,000 lines of execution information can be retained.
+     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the execution result of a command.
+     *   * *   You can query the execution results that were generated within the last two weeks. A maximum of 100,000 entries of execution results can be retained.
      *   *
      * @param DescribeInvocationResultRequest $request DescribeInvocationResultRequest
      *
@@ -1503,8 +1804,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or deliver the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query the execution information that is generated within the last two weeks. Up to 100,000 lines of execution information can be retained.
+     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+     *   * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
      *   *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1549,8 +1850,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   After you run a command, the command may not succeed or deliver the expected results. You can call this operation to query the actual execution results.
-     *   * *   You can query the execution information that is generated within the last two weeks. Up to 100,000 lines of execution information can be retained.
+     * *   After you execute a command, the command may not succeed or return the expected results. You can call this operation to query the actual execution results.
+     *   * *   You can query the execution results that were generated within the last two weeks. Up to 100,000 entries of execution results can be retained.
      *   *
      * @param DescribeInvocationsRequest $request DescribeInvocationsRequest
      *
@@ -1793,7 +2094,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * To run commands, you must install the Cloud Assistant client on your simple application server. You can call the [DescribeCloudAssistantStatus](~~439512~~) operation to query whether the Cloud Assistant client is installed on your simple application server. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](~~190443~~) operation to restart the server to allow the installation to take effect.
+     * To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](~~439512~~) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](~~190443~~) operation to restart the servers to allow the client to take effect.
      *   *
      * @param InstallCloudAssistantRequest $tmpReq  InstallCloudAssistantRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1834,7 +2135,7 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * To run commands, you must install the Cloud Assistant client on your simple application server. You can call the [DescribeCloudAssistantStatus](~~439512~~) operation to query whether the Cloud Assistant client is installed on your simple application server. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](~~190443~~) operation to restart the server to allow the installation to take effect.
+     * To run commands on your simple application servers, you must install the Cloud Assistant client on your servers. You can call the [DescribeCloudAssistantStatus](~~439512~~) operation to check whether the Cloud Assistant client is installed on your simple application servers. If you have not installed the Cloud Assistant client, you can call the InstallCloudAssistant operation to install the client. Then, you can call the [RebootInstance](~~190443~~) operation to restart the servers to allow the client to take effect.
      *   *
      * @param InstallCloudAssistantRequest $request InstallCloudAssistantRequest
      *
@@ -1897,6 +2198,66 @@ class SWASOPEN extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->installCloudMonitorAgentWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InvokeCommandRequest $tmpReq
+     * @param RuntimeOptions       $runtime
+     *
+     * @return InvokeCommandResponse
+     */
+    public function invokeCommandWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new InvokeCommandShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->parameters)) {
+            $request->parametersShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->parameters, 'Parameters', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->instanceIds)) {
+            $query['InstanceIds'] = $request->instanceIds;
+        }
+        if (!Utils::isUnset($request->parametersShrink)) {
+            $query['Parameters'] = $request->parametersShrink;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->username)) {
+            $query['Username'] = $request->username;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InvokeCommand',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InvokeCommandResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InvokeCommandRequest $request
+     *
+     * @return InvokeCommandResponse
+     */
+    public function invokeCommand($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->invokeCommandWithOptions($request, $runtime);
     }
 
     /**
@@ -1964,8 +2325,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~347607~~).
      *   *
      * @param ListDisksRequest $request ListDisksRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -2013,8 +2375,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ## Usage notes
-     *   * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     * You can specify multiple request parameters such as `InstanceId` and `DiskIds`. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limit](~~347607~~).
      *   *
      * @param ListDisksRequest $request ListDisksRequest
      *
@@ -2028,9 +2391,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call the ListFirewallRules operation to query the firewall rule details of a specified simple application server, including the port range, firewall rule ID, and transport layer protocol.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListFirewallRulesRequest $request ListFirewallRulesRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -2072,9 +2435,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call the ListFirewallRules operation to query the firewall rule details of a specified simple application server, including the port range, firewall rule ID, and transport layer protocol.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can call the ListFirewallRules operation to query the firewall rule details of a simple application server, including the port range, firewall rule ID, and transport layer protocol.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListFirewallRulesRequest $request ListFirewallRulesRequest
      *
@@ -2088,9 +2451,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query details about one or more images in a specified region, including the IDs, names, and types of the images.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of your calls per second exceeds the limit, throttling is triggered. This may affect your business. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can query information about images in a region, including the IDs, names, and types of the images.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListImagesRequest $request ListImagesRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -2129,9 +2492,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query details about one or more images in a specified region, including the IDs, names, and types of the images.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of your calls per second exceeds the limit, throttling is triggered. This may affect your business. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can query information about images in a region, including the IDs, names, and types of the images.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListImagesRequest $request ListImagesRequest
      *
@@ -2145,11 +2508,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If the plans of your simple application server do not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans that can be upgraded for your simple application server. Then, you can call the [UpgradeInstance](~~190445~~) operation to upgrade the plans.
-     *   * >  We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the plans. For more information, see [CreateSnapshot](~~190452~~).
-     *   * For the precautions about plan upgrade, see [Upgrade configurations](~~61433~~).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans to which you can upgrade your simple application server. Then, you can call the [UpgradeInstance](~~190445~~) operation to upgrade the server.
+     *   * > We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the server. For more information, see [CreateSnapshot](~~190452~~).
+     *   * For the precautions about plan upgrade, see [Upgrade a simple application server](~~61433~~).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListInstancePlansModificationRequest $request ListInstancePlansModificationRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -2185,11 +2548,11 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If the plans of your simple application server do not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans that can be upgraded for your simple application server. Then, you can call the [UpgradeInstance](~~190445~~) operation to upgrade the plans.
-     *   * >  We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the plans. For more information, see [CreateSnapshot](~~190452~~).
-     *   * For the precautions about plan upgrade, see [Upgrade configurations](~~61433~~).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * If the plan of your simple application server does not meet your business requirements, you can call the ListInstancePlansModification operation to obtain a list of plans to which you can upgrade your simple application server. Then, you can call the [UpgradeInstance](~~190445~~) operation to upgrade the server.
+     *   * > We recommend that you create snapshots for the disks of your simple application server to back up data before you upgrade the server. For more information, see [CreateSnapshot](~~190452~~).
+     *   * For the precautions about plan upgrade, see [Upgrade a simple application server](~~61433~~).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListInstancePlansModificationRequest $request ListInstancePlansModificationRequest
      *
@@ -2255,9 +2618,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of one or more simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListInstancesRequest $request ListInstancesRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2308,9 +2671,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of one or more simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can call this operation to query the details of simple application servers in a specified region, including the names, public IP addresses, internal IP addresses, creation time, and expiration time of the servers.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListInstancesRequest $request ListInstancesRequest
      *
@@ -2324,14 +2687,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of data transfer plans for one or more simple application servers, including the data transfer quota, used data transfer quota, unused data transfer quota, and excess data transfers in the current month.
-     *   * Simple Application Server provides data transfer quotas in plans. The prices for data transfers within quotas are included in the plans. You are charged for data transfers that exceed the quotas. Take note of the following items:
-     *   * *   You are charged only for outbound data transfers from simple application servers over the Internet. You are not charged for inbound data transfers to simple application servers over the Internet.
-     *   * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet consume the data transfer quotas that are included in plans. If the quotas are exceeded, you are charged for the excess data transfers.
+     * You can query the details of data transfer plans of simple application servers, including the data transfer quota, used amount and unused amount of the data transfer quota, and excess data transfers beyond the quota in the current month.
+     *   * Simple Application Server provides data transfer quotas in plans. Plan prices include prices of data transfer quotas. You are charged for data transfers that exceed the quotas. Take note of the following items:
+     *   * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
+     *   * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
      *   * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
      *   * For more information, see [Quotas and billing of data transfers](~~86281~~).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListInstancesTrafficPackagesRequest $request ListInstancesTrafficPackagesRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2367,14 +2730,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of data transfer plans for one or more simple application servers, including the data transfer quota, used data transfer quota, unused data transfer quota, and excess data transfers in the current month.
-     *   * Simple Application Server provides data transfer quotas in plans. The prices for data transfers within quotas are included in the plans. You are charged for data transfers that exceed the quotas. Take note of the following items:
-     *   * *   You are charged only for outbound data transfers from simple application servers over the Internet. You are not charged for inbound data transfers to simple application servers over the Internet.
-     *   * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet consume the data transfer quotas that are included in plans. If the quotas are exceeded, you are charged for the excess data transfers.
+     * You can query the details of data transfer plans of simple application servers, including the data transfer quota, used amount and unused amount of the data transfer quota, and excess data transfers beyond the quota in the current month.
+     *   * Simple Application Server provides data transfer quotas in plans. Plan prices include prices of data transfer quotas. You are charged for data transfers that exceed the quotas. Take note of the following items:
+     *   * *   Only outbound data transfers of simple application servers over the Internet are calculated. Outbound data transfers include the data transfer quota and the excess data transfers beyond the quota. Inbound data transfers of simple application servers over the Internet are not calculated.
+     *   * *   Outbound data transfers from simple application servers to other Alibaba Cloud services over the Internet first consume data transfer quotas. If the quotas are exhausted, you are charged for excess data transfers.
      *   * *   You are not charged for data transfers between simple application servers within the same virtual private cloud (VPC).
      *   * For more information, see [Quotas and billing of data transfers](~~86281~~).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListInstancesTrafficPackagesRequest $request ListInstancesTrafficPackagesRequest
      *
@@ -2388,9 +2751,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of all plans provided by Simple Application Server in a specified region, including the IDs, prices, disk sizes, and disk categories of the plans.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListPlansRequest $request ListPlansRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -2423,9 +2786,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can query the details of all plans provided by Simple Application Server in a specified region, including the IDs, prices, disk sizes, and disk categories of the plans.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can query the details of all plans provided by Simple Application Server in a region, including the IDs, prices, disk sizes, and disk categories of the plans.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListPlansRequest $request ListPlansRequest
      *
@@ -2439,9 +2802,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * The query results include all the Alibaba Cloud regions where Simple Application Server is available on the International site (alibabacloud.com) and the China site (aliyun.com).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2466,9 +2829,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * The query results include all the Alibaba Cloud regions where Simple Application Server is available on the International site (alibabacloud.com) and the China site (aliyun.com).
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * The query results include all the Alibaba Cloud regions where Simple Application Server is supported on the international site (alibabacloud.com) and the China site (aliyun.com).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @return ListRegionsResponse ListRegionsResponse
      */
@@ -2480,9 +2843,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
-     *   * ### QPS limits
+     * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     *   * ### QPS limit
      *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
@@ -2534,9 +2896,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * You can configure multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Configured parameters have logical AND relations. Only the configured parameters are included in the filter conditions.
-     *   * ### QPS limits
+     * You can specify multiple request parameters such as `InstanceId`, `DiskId`, and `SnapshotIds` to query snapshots. Specified parameters have logical AND relations. Only the specified parameters are included in the filter conditions.
+     *   * ### QPS limit
      *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ListSnapshotsRequest $request ListSnapshotsRequest
@@ -2551,7 +2912,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
+     * ##
+     *   * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
      *   *
      * @param LoginInstanceRequest $request LoginInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -2593,7 +2955,8 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
+     * ##
+     *   * After you create a simple application server, you can log on to the simple application server to build environments and applications on the server.
      *   *
      * @param LoginInstanceRequest $request LoginInstanceRequest
      *
@@ -2607,10 +2970,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseInstanceDescriptionRequest $request
-     * @param RuntimeOptions                           $runtime
+     * You can call this operation to modify the description of a Simple Database Service instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ModifyDatabaseInstanceDescriptionRequest $request ModifyDatabaseInstanceDescriptionRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseInstanceDescriptionResponse
+     * @return ModifyDatabaseInstanceDescriptionResponse ModifyDatabaseInstanceDescriptionResponse
      */
     public function modifyDatabaseInstanceDescriptionWithOptions($request, $runtime)
     {
@@ -2647,9 +3014,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseInstanceDescriptionRequest $request
+     * You can call this operation to modify the description of a Simple Database Service instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ModifyDatabaseInstanceDescriptionRequest $request ModifyDatabaseInstanceDescriptionRequest
      *
-     * @return ModifyDatabaseInstanceDescriptionResponse
+     * @return ModifyDatabaseInstanceDescriptionResponse ModifyDatabaseInstanceDescriptionResponse
      */
     public function modifyDatabaseInstanceDescription($request)
     {
@@ -2659,10 +3030,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseInstanceParameterRequest $request
-     * @param RuntimeOptions                         $runtime
+     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ModifyDatabaseInstanceParameterRequest $request ModifyDatabaseInstanceParameterRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDatabaseInstanceParameterResponse
+     * @return ModifyDatabaseInstanceParameterResponse ModifyDatabaseInstanceParameterResponse
      */
     public function modifyDatabaseInstanceParameterWithOptions($request, $runtime)
     {
@@ -2702,9 +3077,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ModifyDatabaseInstanceParameterRequest $request
+     * After you create a Simple Database Service instance, you can view the parameters of the instance or modify the parameters of the instance based on your business requirements.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ModifyDatabaseInstanceParameterRequest $request ModifyDatabaseInstanceParameterRequest
      *
-     * @return ModifyDatabaseInstanceParameterResponse
+     * @return ModifyDatabaseInstanceParameterResponse ModifyDatabaseInstanceParameterResponse
      */
     public function modifyDatabaseInstanceParameter($request)
     {
@@ -2778,14 +3157,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can share a custom image to ECS. When the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image to ECS to transfer your business from Simple Application Server to ECS.
-     *   * >  The region in which the shared image resides in ECS is the same as the region in which the custom image resides in Simple Application Server.
-     *   * You can unshare a custom image based on your business requirements or when you want to delete the custom image.
-     *   * Take note of the following items:
+     * You can share a custom image with ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image with ECS to transfer your business from Simple Application Server to ECS.
+     *   * > The shared image in ECS resides in the same region as the custom image in Simple Application Server.
+     *   * You can unshare a custom image based on your business requirements or when you want to delete the custom image. Take note of the following items:
      *   * *   After you unshare a custom image, you cannot query or use the custom image in the ECS console or by calling ECS API operations.
-     *   * *   After you unshare a custom image, the system disks of the ECS instances that were created from the shared image cannot be re-initialized.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * *   After you unshare a custom image, you cannot re-initialize the disks of the ECS instances that were created based on the shared image.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ModifyImageShareStatusRequest $request ModifyImageShareStatusRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -2827,14 +3205,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can share a custom image to ECS. When the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image to ECS to transfer your business from Simple Application Server to ECS.
-     *   * >  The region in which the shared image resides in ECS is the same as the region in which the custom image resides in Simple Application Server.
-     *   * You can unshare a custom image based on your business requirements or when you want to delete the custom image.
-     *   * Take note of the following items:
+     * You can share a custom image with ECS. If the configurations of your simple application server cannot meet your business requirements, or you want to use ECS instances to deploy your business, you can share your custom image with ECS to transfer your business from Simple Application Server to ECS.
+     *   * > The shared image in ECS resides in the same region as the custom image in Simple Application Server.
+     *   * You can unshare a custom image based on your business requirements or when you want to delete the custom image. Take note of the following items:
      *   * *   After you unshare a custom image, you cannot query or use the custom image in the ECS console or by calling ECS API operations.
-     *   * *   After you unshare a custom image, the system disks of the ECS instances that were created from the shared image cannot be re-initialized.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * *   After you unshare a custom image, you cannot re-initialize the disks of the ECS instances that were created based on the shared image.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ModifyImageShareStatusRequest $request ModifyImageShareStatusRequest
      *
@@ -2900,10 +3277,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   You can restart simple application server instances that are only in the Running (Running) state.
-     *   * *   After you restart a simple application server, it enters the Starting (Starting) state.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * *   Only simple application servers that are in the Running state can be restarted.
+     *   * *   After you restart a simple application server, it enters the Starting state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2942,10 +3319,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   You can restart simple application server instances that are only in the Running (Running) state.
-     *   * *   After you restart a simple application server, it enters the Starting (Starting) state.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * *   Only simple application servers that are in the Running state can be restarted.
+     *   * *   After you restart a simple application server, it enters the Starting state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param RebootInstanceRequest $request RebootInstanceRequest
      *
@@ -3011,10 +3388,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicConnectionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ReleasePublicConnectionRequest $request ReleasePublicConnectionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReleasePublicConnectionResponse
+     * @return ReleasePublicConnectionResponse ReleasePublicConnectionResponse
      */
     public function releasePublicConnectionWithOptions($request, $runtime)
     {
@@ -3048,9 +3429,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ReleasePublicConnectionRequest $request
+     * If you no longer need to use a public endpoint to access a Simple Database Service instance, you can release the public endpoint.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ReleasePublicConnectionRequest $request ReleasePublicConnectionRequest
      *
-     * @return ReleasePublicConnectionResponse
+     * @return ReleasePublicConnectionResponse ReleasePublicConnectionResponse
      */
     public function releasePublicConnection($request)
     {
@@ -3062,8 +3447,8 @@ class SWASOPEN extends OpenApiClient
     /**
      * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
      *   * *   When you call this operation to renew a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be renewed.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3107,8 +3492,8 @@ class SWASOPEN extends OpenApiClient
     /**
      * *   Before you call this operation, we recommend that you understand the billing of Simple Application Server. For more information, see [Billable items](~~58623~~).
      *   * *   When you call this operation to renew a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be renewed.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param RenewInstanceRequest $request RenewInstanceRequest
      *
@@ -3122,10 +3507,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ResetDatabaseAccountPasswordRequest $request
-     * @param RuntimeOptions                      $runtime
+     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ResetDatabaseAccountPasswordRequest $request ResetDatabaseAccountPasswordRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetDatabaseAccountPasswordResponse
+     * @return ResetDatabaseAccountPasswordResponse ResetDatabaseAccountPasswordResponse
      */
     public function resetDatabaseAccountPasswordWithOptions($request, $runtime)
     {
@@ -3162,9 +3551,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param ResetDatabaseAccountPasswordRequest $request
+     * If the password of your Simple Database Service instance is not strong, you can call this operation to change the password of the administrator account of the instance. To ensure security of the instance, we recommend that you regularly change the password of the instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param ResetDatabaseAccountPasswordRequest $request ResetDatabaseAccountPasswordRequest
      *
-     * @return ResetDatabaseAccountPasswordResponse
+     * @return ResetDatabaseAccountPasswordResponse ResetDatabaseAccountPasswordResponse
      */
     public function resetDatabaseAccountPassword($request)
     {
@@ -3174,12 +3567,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to roll back a disk only when the associated simple application server is in the Stopped state.
+     * *   You can call this operation to roll back a disk only if the associated simple application server is in the Stopped state.
      *   * *   After a disk is rolled back, all data changes that are made from when the snapshot was created to when the disk is rolled back are lost. Back up disk data based on your needs before you roll back the disk.
-     *   * ## Precautions
-     *   * If you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting are retained but cannot be used to roll back the disks of the server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### Precautions
+     *   * After you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting operation are retained but cannot be used to roll back the disks of the server.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ResetDiskRequest $request ResetDiskRequest
      * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
@@ -3221,12 +3614,12 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation to roll back a disk only when the associated simple application server is in the Stopped state.
+     * *   You can call this operation to roll back a disk only if the associated simple application server is in the Stopped state.
      *   * *   After a disk is rolled back, all data changes that are made from when the snapshot was created to when the disk is rolled back are lost. Back up disk data based on your needs before you roll back the disk.
-     *   * ## Precautions
-     *   * If you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting are retained but cannot be used to roll back the disks of the server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### Precautions
+     *   * After you reset a simple application server, the disk data on the server is deleted. Snapshots created before the resetting operation are retained but cannot be used to roll back the disks of the server.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ResetDiskRequest $request ResetDiskRequest
      *
@@ -3240,26 +3633,29 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can reset a simple application server to re-install its applications or operating system and re-initialize the server. You can reset a simple application server by resetting the operating system or replacing the image.
+     * You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
      *   * You can use one of the following methods to reset a simple application server:
-     *   * *   Reset the operating system. You can re-install the operating system without the need to replace the image.
-     *   * *   Replace the image. You can replace the existing image on the simple application server by using another Alibaba Cloud image or a custom image. This effectively replaces the operating system.
-     *   * ## Precautions
-     *   * - If you reset a simple application sever, the disk data on the server is cleared. You must back up the data as needed.
-     *   * - After you reset a simple application server, the monitoring operations that are performed on the server may fail. You can use one of the following methods to install the CloudMonitor agent on the server:    - Connect to the server: For more information, see [Manually install plug-ins for Alibaba Cloud hosts](/help/en/cloudmonitor/latest/install-and-uninstall-the-cloudmonitor-agent-for-cpp).
-     *   *   - Use Command Assistant: For more information, see [Use Command Assistant](/help/en/simple-application-server/latest/cloud-assistant). You can obtain the commands that are used to install CloudMonitor from the "Common commands" section in the [Use Command Assistant](/help/en/simple-application-server/latest/cloud-assistant) topic.
-     *   * ## Limits
-     *   * - If a simple application server is reset, snapshots that are created before the server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
-     *   * - If a simple application server was created based on a custom image that contains data of a data disk, the server cannot be reset.
-     *   * - If you reset a simple application server by replacing the existing image with a custom image,   - The custom image must reside in the same region as the current server.
-     *   *   - The custom image cannot be created from the current server. If you want to recover the data on the server, you can use a snapshot that is created from the server to roll back the disks.
-     *   *   - If your simple application server resides in a region outside the Chinese mainland, you cannot switch the operating system of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. Similarly, you cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the operating system of simple application servers only between Windows Server operating systems or between Linux distributions.
-     *   *   - The following limits apply to the disks on the simple application server:     - If the custom image contains a system disk and data disks, but the simple application server is not attached with a data disk but attached only with a system disk, you cannot use the custom image to reset the simple application server.
-     *   *     - If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
-     *   *     - When the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of the server, you can upgrade the simple application server. For more information, see Upgrade configurations.
-     *   *     - If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * *   Reset the current system. You can re-install the operating system without replacing the image.
+     *   * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
+     *   * ### Precautions
+     *   * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
+     *   * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
+     *   *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](~~183482~~).
+     *   *     *   Use Command Assistant: For more information, see [Use Command Assistant](~~438681~~). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](~~438681~~) topic.
+     *   * ### Limits
+     *   * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
+     *   * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
+     *   * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
+     *   *     *   The custom image must reside in the same region as the current server.
+     *   *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
+     *   *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
+     *   *     *   The following limits apply to the disks attached to the simple application server:
+     *   *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
+     *   *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
+     *   *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
+     *   *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ResetSystemRequest $request ResetSystemRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3301,26 +3697,29 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can reset a simple application server to re-install its applications or operating system and re-initialize the server. You can reset a simple application server by resetting the operating system or replacing the image.
+     * You can reset a simple application server to re-install its application system or OS and re-initialize the server. You can reset a simple application server by resetting the current system or replacing the image.
      *   * You can use one of the following methods to reset a simple application server:
-     *   * *   Reset the operating system. You can re-install the operating system without the need to replace the image.
-     *   * *   Replace the image. You can replace the existing image on the simple application server by using another Alibaba Cloud image or a custom image. This effectively replaces the operating system.
-     *   * ## Precautions
-     *   * - If you reset a simple application sever, the disk data on the server is cleared. You must back up the data as needed.
-     *   * - After you reset a simple application server, the monitoring operations that are performed on the server may fail. You can use one of the following methods to install the CloudMonitor agent on the server:    - Connect to the server: For more information, see [Manually install plug-ins for Alibaba Cloud hosts](/help/en/cloudmonitor/latest/install-and-uninstall-the-cloudmonitor-agent-for-cpp).
-     *   *   - Use Command Assistant: For more information, see [Use Command Assistant](/help/en/simple-application-server/latest/cloud-assistant). You can obtain the commands that are used to install CloudMonitor from the "Common commands" section in the [Use Command Assistant](/help/en/simple-application-server/latest/cloud-assistant) topic.
-     *   * ## Limits
-     *   * - If a simple application server is reset, snapshots that are created before the server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
-     *   * - If a simple application server was created based on a custom image that contains data of a data disk, the server cannot be reset.
-     *   * - If you reset a simple application server by replacing the existing image with a custom image,   - The custom image must reside in the same region as the current server.
-     *   *   - The custom image cannot be created from the current server. If you want to recover the data on the server, you can use a snapshot that is created from the server to roll back the disks.
-     *   *   - If your simple application server resides in a region outside the Chinese mainland, you cannot switch the operating system of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. Similarly, you cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the operating system of simple application servers only between Windows Server operating systems or between Linux distributions.
-     *   *   - The following limits apply to the disks on the simple application server:     - If the custom image contains a system disk and data disks, but the simple application server is not attached with a data disk but attached only with a system disk, you cannot use the custom image to reset the simple application server.
-     *   *     - If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
-     *   *     - When the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of the server, you can upgrade the simple application server. For more information, see Upgrade configurations.
-     *   *     - If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * *   Reset the current system. You can re-install the operating system without replacing the image.
+     *   * *   Replace the image. You can select an Alibaba Cloud image or a custom image that is different from the existing image of the server to reinstall the OS of the server.
+     *   * ### Precautions
+     *   * *   After you reset a simple application server, the disk data on the server is cleared. Back up the data as needed.
+     *   * *   After you reset a simple application server, the monitoring operations that are performed on the server may fail. In this case, you can use one of the following methods to install the CloudMonitor agent on the server:
+     *   *     *   Connect to the server: For more information, see [Manually install the CloudMonitor agent for C++ on an ECS instance](~~183482~~).
+     *   *     *   Use Command Assistant: For more information, see [Use Command Assistant](~~438681~~). You can obtain the command that can be used to install CloudMonitor from the "Common commands" section of the [Use Command Assistant](~~438681~~) topic.
+     *   * ### Limits
+     *   * *   Snapshots that are created before a server is reset are retained, but the snapshots cannot be used to roll back the disks of the server.
+     *   * *   You cannot reset simple application servers that were created based on custom images that contain data of data disks.
+     *   * *   Before you reset a simple application server by replacing the existing image with a custom image, take note of the following items:
+     *   *     *   The custom image must reside in the same region as the current server.
+     *   *     *   The custom image cannot be created based on the current server. If you want to recover the data on the server, you can use a snapshot of the server to roll back the disks of the server.
+     *   *     *   If your simple application server resides outside the Chinese mainland, you cannot switch the OS of the server between Windows Server and Linux. You cannot use a Windows Server custom image to reset a Linux simple application server. You also cannot use a Linux custom image to reset a Windows Server simple application server. You can switch the OSs of simple application servers only between Windows Server OSs or between Linux distributions.
+     *   *     *   The following limits apply to the disks attached to the simple application server:
+     *   *         *   If the custom image contains a system disk and a data disk but only a system disk is attached to the simple application server and no data disk is attached, you cannot use the custom image to reset the simple application server.
+     *   *         *   If the system disk size of the custom image is greater than the system disk size of the simple application server, you cannot directly use the custom image to reset the simple application server.
+     *   *         *   Only if the system disk size of the simple application server is greater than or equal to the system disk size of the custom image, you can use the custom image to reset the simple application server. To increase the system disk size of your simple application server, you can upgrade the server. For more information, see Upgrade a simple application server.
+     *   *         *   If the data disk size of the custom image is greater than the data disk size of the simple application server, you cannot use the custom image to reset the simple application server.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param ResetSystemRequest $request ResetSystemRequest
      *
@@ -3334,10 +3733,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param RestartDatabaseInstanceRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param RestartDatabaseInstanceRequest $request RestartDatabaseInstanceRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return RestartDatabaseInstanceResponse
+     * @return RestartDatabaseInstanceResponse RestartDatabaseInstanceResponse
      */
     public function restartDatabaseInstanceWithOptions($request, $runtime)
     {
@@ -3371,9 +3774,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param RestartDatabaseInstanceRequest $request
+     * You can call this operation to restart a Simple Database Service instance that is in the Running state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param RestartDatabaseInstanceRequest $request RestartDatabaseInstanceRequest
      *
-     * @return RestartDatabaseInstanceResponse
+     * @return RestartDatabaseInstanceResponse RestartDatabaseInstanceResponse
      */
     public function restartDatabaseInstance($request)
     {
@@ -3383,10 +3790,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Command Assistant is a Simple Application Server-specific automated O\\&M tool. You can manage simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without logging on to the servers.
-     *   * When you use Command Assistant, the following conditions must be met:
+     * Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
+     *   * Before you use Command Assistant, take note of the following items:
      *   * *   The simple application server must be in the Running state.
-     *   * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you manually uninstall the client, you must reinstall it. For more information, see [Install the Cloud Assistant client](~~64921~~).
+     *   * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](~~64921~~).
      *   *
      * @param RunCommandRequest $tmpReq  RunCommandRequest
      * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
@@ -3454,10 +3861,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * Command Assistant is a Simple Application Server-specific automated O\\&M tool. You can manage simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without logging on to the servers.
-     *   * When you use Command Assistant, the following conditions must be met:
+     * Command Assistant is an automated O\\&M tool for Simple Application Server. You can maintain simple application servers by running shell, PowerShell, and batch commands in the Simple Application Server console without remotely logging on to the servers.
+     *   * Before you use Command Assistant, take note of the following items:
      *   * *   The simple application server must be in the Running state.
-     *   * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you manually uninstall the client, you must reinstall it. For more information, see [Install the Cloud Assistant client](~~64921~~).
+     *   * *   The Cloud Assistant client is installed on the server. By default, the Cloud Assistant client is installed on simple application servers. If you have manually uninstalled the client, you must reinstall it. For more information, see [Install the Cloud Assistant Agent](~~64921~~).
      *   *
      * @param RunCommandRequest $request RunCommandRequest
      *
@@ -3471,10 +3878,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StartDatabaseInstanceRequest $request
-     * @param RuntimeOptions               $runtime
+     * You can call this operation to start a Simple Database Service instance that is in the Stopped state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param StartDatabaseInstanceRequest $request StartDatabaseInstanceRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartDatabaseInstanceResponse
+     * @return StartDatabaseInstanceResponse StartDatabaseInstanceResponse
      */
     public function startDatabaseInstanceWithOptions($request, $runtime)
     {
@@ -3508,9 +3919,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StartDatabaseInstanceRequest $request
+     * You can call this operation to start a Simple Database Service instance that is in the Stopped state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param StartDatabaseInstanceRequest $request StartDatabaseInstanceRequest
      *
-     * @return StartDatabaseInstanceResponse
+     * @return StartDatabaseInstanceResponse StartDatabaseInstanceResponse
      */
     public function startDatabaseInstance($request)
     {
@@ -3520,9 +3935,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If your simple application server is in the Stopped state, you can call the StartInstance operation to start the server.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can call this operation to start a simple application server that is in the Stopped state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param StartInstanceRequest $request StartInstanceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -3561,9 +3976,9 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * If your simple application server is in the Stopped state, you can call the StartInstance operation to start the server.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can call this operation to start a simple application server that is in the Stopped state.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param StartInstanceRequest $request StartInstanceRequest
      *
@@ -3672,10 +4087,14 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StopDatabaseInstanceRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param StopDatabaseInstanceRequest $request StopDatabaseInstanceRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopDatabaseInstanceResponse
+     * @return StopDatabaseInstanceResponse StopDatabaseInstanceResponse
      */
     public function stopDatabaseInstanceWithOptions($request, $runtime)
     {
@@ -3709,9 +4128,13 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * @param StopDatabaseInstanceRequest $request
+     * You can call this operation to stop a Simple Database Service instance that is in the Running state. After the instance is stopped, you cannot log on to or access the instance.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
+     *   *
+     * @param StopDatabaseInstanceRequest $request StopDatabaseInstanceRequest
      *
-     * @return StopDatabaseInstanceResponse
+     * @return StopDatabaseInstanceResponse StopDatabaseInstanceResponse
      */
     public function stopDatabaseInstance($request)
     {
@@ -3721,10 +4144,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can stop simple application servers that are not used for the time being.
-     *   * >  The stopping of simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can stop a simple application server that you do not use for the time being.
+     *   * >  Stopping a simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param StopInstanceRequest $request StopInstanceRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -3763,10 +4186,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * You can stop simple application servers that are not used for the time being.
-     *   * >  The stopping of simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
-     *   * ## QPS limits
-     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you will experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](/help/en/simple-application-server/latest/qps-limit-1).
+     * You can stop a simple application server that you do not use for the time being.
+     *   * >  Stopping a simple application server may interrupt your business. We recommend that you perform the stop operation during off-peak hours.
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param StopInstanceRequest $request StopInstanceRequest
      *
@@ -3832,6 +4255,64 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
+     * @param UpdateCommandAttributeRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return UpdateCommandAttributeResponse
+     */
+    public function updateCommandAttributeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->commandId)) {
+            $query['CommandId'] = $request->commandId;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->workingDir)) {
+            $query['WorkingDir'] = $request->workingDir;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCommandAttribute',
+            'version'     => '2020-06-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCommandAttributeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCommandAttributeRequest $request
+     *
+     * @return UpdateCommandAttributeResponse
+     */
+    public function updateCommandAttribute($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCommandAttributeWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDiskAttributeRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -3884,9 +4365,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](~~190443~~) operation for the new password to take effect.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * ## Usage notes
+     *   * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](~~190443~~) operation to allow the new password to take effect.
+     *   * ### QPS limits
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -3931,9 +4413,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](~~190443~~) operation for the new password to take effect.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     * ## Usage notes
+     *   * After you change the password of a simple application server, you must restart the server by calling the [RebootInstance](~~190443~~) operation to allow the new password to take effect.
+     *   * ### QPS limits
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param UpdateInstanceAttributeRequest $request UpdateInstanceAttributeRequest
      *
@@ -3999,10 +4482,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   The plans of simple application servers can only be upgraded. For more information about plans, see [Billable items](~~58623~~).
+     * *   The plan of a simple application server cannot be downgraded, but can only be upgraded. For more information about plans, see [Billable items](~~58623~~).
      *   * *   When you call this operation to upgrade a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be upgraded.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param UpgradeInstanceRequest $request UpgradeInstanceRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -4044,10 +4527,10 @@ class SWASOPEN extends OpenApiClient
     }
 
     /**
-     * *   The plans of simple application servers can only be upgraded. For more information about plans, see [Billable items](~~58623~~).
+     * *   The plan of a simple application server cannot be downgraded, but can only be upgraded. For more information about plans, see [Billable items](~~58623~~).
      *   * *   When you call this operation to upgrade a server, make sure that the balance in your account is sufficient. If the balance in your account is insufficient, the server cannot be upgraded.
-     *   * ## QPS limits
-     *   * The queries per second (QPS) limit for a single user for the API operation is 10 calls per minute. If the number of calls to the API operation per minute exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation. For more information, see [QPS limit](/help/en/simple-application-server/latest/qps-limit-1).
+     *   * ### QPS limit
+     *   * You can call this API operation up to 10 times per minute per account. Requests that exceed this limit are dropped and you may experience service interruptions. We recommend that you take note of this limit when you call this operation. For more information, see [QPS limits](~~347607~~).
      *   *
      * @param UpgradeInstanceRequest $request UpgradeInstanceRequest
      *

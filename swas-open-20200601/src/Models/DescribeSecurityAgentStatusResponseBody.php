@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeSecurityAgentStatusResponseBody extends Model
 {
     /**
+     * @description The status of the Security Center agent. Valid values:
+     *
+     *   pause: The Security Center agent suspends protection for your server.
+     *   online: The Security Center agent is protecting your server.
+     *   offline: The Security Center agent does not protect your server.
+     *
      * @example online
      *
      * @var string
@@ -16,6 +22,8 @@ class DescribeSecurityAgentStatusResponseBody extends Model
     public $clientStatus;
 
     /**
+     * @description The request ID.
+     *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
      *
      * @var string

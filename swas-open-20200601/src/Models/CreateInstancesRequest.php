@@ -21,8 +21,8 @@ class CreateInstancesRequest extends Model
     /**
      * @description Specifies whether to enable auto-renewal. Valid values:
      *
-     *   true: enables auto-renewal.
-     *   false: does not enable auto-renewal.
+     *   true
+     *   false
      *
      * Default value: false.
      * @example false
@@ -32,7 +32,7 @@ class CreateInstancesRequest extends Model
     public $autoRenew;
 
     /**
-     * @description The auto-renewal period. This parameter is required only when you set `AutoRenew` to true. Unit: months Valid values: 1, 3, 6, 12, 24, and 36.
+     * @description The auto-renewal period. This parameter is required only when you set `AutoRenew` to true. Unit: months. Valid values: 1, 3, 6, 12, 24, and 36.
      *
      * @example 1
      *
@@ -41,7 +41,7 @@ class CreateInstancesRequest extends Model
     public $autoRenewPeriod;
 
     /**
-     * @description The billing method of the simple application server. Set the value to PrePaid, which indicates the subscription billing method. Only the subscription billing method is supported.
+     * @description The billing method of the simple application servers. Set the value to PrePaid, which indicates the subscription billing method.
      *
      * Default value: PrePaid.
      * @example PrePaid
@@ -51,7 +51,7 @@ class CreateInstancesRequest extends Model
     public $chargeType;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.**** For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -60,7 +60,7 @@ class CreateInstancesRequest extends Model
     public $clientToken;
 
     /**
-     * @description The size of the data disk. Unit: GB. Valid values: 0 to 16380. The value must be an integral multiple of 20.
+     * @description The size of the data disk that is attached to the server. Unit: GB. Valid values: 0 to 16380. The value must be an integral multiple of 20.
      *
      *   A value of 0 indicates that no data disk is attached.
      *   If the disk included in the specified plan is a standard SSD, the data disk must be 20 GB or larger in size.
@@ -73,7 +73,7 @@ class CreateInstancesRequest extends Model
     public $dataDiskSize;
 
     /**
-     * @description The ID of the image. You can call the [ListImages](~~189313~~) operation to query the available images in the specified region.
+     * @description The image ID. You can call the [ListImages](~~189313~~) operation to query the available images in the specified region.
      *
      * @example e2c9c365024a44369c9b955a998a****
      *
@@ -82,7 +82,7 @@ class CreateInstancesRequest extends Model
     public $imageId;
 
     /**
-     * @description The subscription period. Unit: months Valid values: 1, 3, 6, 12, 24, and 36.
+     * @description The subscription period of the servers. Unit: months. Valid values: 1, 3, 6, 12, 24, and 36.
      *
      * @example 1
      *
@@ -91,7 +91,7 @@ class CreateInstancesRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the plan. You can call the [ListPlans](~~189314~~) operation to query all the plans provided by Simple Application Server in the specified region.
+     * @description The plan ID. You can call the [ListPlans](~~189314~~) operation to query all plans provided by Simple Application Server in the specified region.
      *
      * @example swas.s1.c1m1s40b3t05
      *

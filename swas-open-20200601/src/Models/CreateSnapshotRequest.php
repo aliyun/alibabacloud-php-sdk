@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSnapshotRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The **ClientToken** value can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The value of **ClientToken** can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -18,7 +18,7 @@ class CreateSnapshotRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the disk.
+     * @description The disk ID.
      *
      * @example d-bp18kjxg9ebrhsgi****
      *
@@ -36,7 +36,7 @@ class CreateSnapshotRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the snapshot. The name must be 2 to 50 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
+     * @description The snapshot name. The name must be 2 to 50 characters in length. It must start with a letter but cannot start with `http://` or `https://`. The name can only contain letters, digits, colons (:), underscores (\_), periods (.), and hyphens (-).
      *
      * @example test-SnapshotName
      *

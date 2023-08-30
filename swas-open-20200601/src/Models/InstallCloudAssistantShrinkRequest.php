@@ -16,7 +16,7 @@ class InstallCloudAssistantShrinkRequest extends Model
     public $instanceIdsShrink;
 
     /**
-     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     * @description The region ID of the simple application servers. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

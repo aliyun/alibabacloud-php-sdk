@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeInvocationResultResponseBody extends Model
 {
     /**
-     * @description The information about the command running result.
+     * @description The execution results.
      *
      * @var invocationResult
      */
     public $invocationResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *

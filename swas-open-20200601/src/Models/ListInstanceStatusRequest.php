@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceStatusRequest extends Model
 {
     /**
+     * @description The IDs of the simple application servers. The value can be a JSON array that consists of up to 100 simple application server IDs. Separate multiple server IDs with commas (,).
+     *
      * @example ["2ad1ae67295445f598017499dc****", "2ad1ae67295445f598017123dc****"]
      *
      * @var string
@@ -16,6 +18,8 @@ class ListInstanceStatusRequest extends Model
     public $instanceIds;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class ListInstanceStatusRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -30,6 +36,8 @@ class ListInstanceStatusRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the simple application servers. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

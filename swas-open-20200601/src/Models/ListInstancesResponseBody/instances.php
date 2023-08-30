@@ -11,11 +11,11 @@ use AlibabaCloud\Tea\Model;
 class instances extends Model
 {
     /**
-     * @description The status of the simple application server. Valid values:
+     * @description The status of the server. Valid values:
      *
-     *   Normal
-     *   Expired
-     *   Overdue
+     *   Normal: The server is normal.
+     *   Expired: The server expires.
+     *   Overdue: The payment of the server is overdue.
      *
      * @example Normal
      *
@@ -33,11 +33,19 @@ class instances extends Model
     public $chargeType;
 
     /**
+     * @description Indicates whether the plan is a bundle plan.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $combination;
 
     /**
+     * @description The ID of the bundle plan.
+     *
+     * @example com-f6c9a22****45b5b8de68ad608af1ba
+     *
      * @var string
      */
     public $combinationInstanceId;
@@ -52,11 +60,11 @@ class instances extends Model
     public $creationTime;
 
     /**
-     * @description The DDoS protection status. Valid values:
+     * @description The DDoS protection status of the server. Valid values:
      *
-     *   Normal: Normal
-     *   BlackHole: Blackholing
-     *   Defense: Cleaning
+     *   Normal: The DDoS protection status of the server is normal.
+     *   BlackHole: The server is in blackhole filtering.
+     *   Defense: The server is being scrubbed.
      *
      * @example Normal
      *
@@ -65,12 +73,20 @@ class instances extends Model
     public $ddosStatus;
 
     /**
+     * @description The reason why the server is disabled. Valid values:
+     *
+     *   FINANCIAL: The server is locked due to overdue payments.
+     *   SECURITY: The server is locked due to security reasons.
+     *   EXPIRED: The server has expired.
+     *
+     * @example EXPIRED
+     *
      * @var string
      */
     public $disableReason;
 
     /**
-     * @description The time when the simple application server expires. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * @description The time when the server expires. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2021-05-08T16:00:00Z
      *
@@ -79,12 +95,14 @@ class instances extends Model
     public $expiredTime;
 
     /**
+     * @description The description of the image.
+     *
      * @var image
      */
     public $image;
 
     /**
-     * @description The ID of the image.
+     * @description The ID of an image.
      *
      * @example fe9c66133a9d4688872869726b52****
      *
@@ -111,7 +129,7 @@ class instances extends Model
     public $instanceId;
 
     /**
-     * @description The name of the simple application server.
+     * @description The name of the server.
      *
      * @example test-InstanceName
      *
@@ -120,7 +138,7 @@ class instances extends Model
     public $instanceName;
 
     /**
-     * @description The ID of the plan.
+     * @description The plan ID.
      *
      * @example swas.s2.c2m2s50b4t08
      *
@@ -129,7 +147,7 @@ class instances extends Model
     public $planId;
 
     /**
-     * @description The public IP address.
+     * @description The public IP address of the server.
      *
      * @example 42.1.XX.XX
      *
@@ -138,7 +156,7 @@ class instances extends Model
     public $publicIpAddress;
 
     /**
-     * @description The region ID of the simple application servers.
+     * @description The region ID of the servers.
      *
      * @example cn-hangzhou
      *
@@ -147,6 +165,8 @@ class instances extends Model
     public $regionId;
 
     /**
+     * @description The specifications of the resource.
+     *
      * @var resourceSpec
      */
     public $resourceSpec;
@@ -170,6 +190,10 @@ class instances extends Model
     public $status;
 
     /**
+     * @description The universally unique identifier (UUID) of the server.
+     *
+     * @example 41f30524-5df7-49c9-9c6e-32****489001
+     *
      * @var string
      */
     public $uuid;

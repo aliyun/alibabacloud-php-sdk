@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCustomImagesResponseBody extends Model
 {
     /**
+     * @description The queried custom images.
+     *
      * @var customImages[]
      */
     public $customImages;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var string
@@ -22,6 +26,8 @@ class ListCustomImagesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var string
@@ -29,6 +35,8 @@ class ListCustomImagesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCustomImagesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 4
      *
      * @var string

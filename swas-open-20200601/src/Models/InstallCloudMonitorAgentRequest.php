@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallCloudMonitorAgentRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +18,11 @@ class InstallCloudMonitorAgentRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to forcibly install the CloudMonitor agent. Valid values:
+     *
+     *   true (default value): forcibly installs the CloudMonitor agent.
+     *   false: does not forcibly install the CloudMonitor agent.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class InstallCloudMonitorAgentRequest extends Model
     public $force;
 
     /**
+     * @description The ID of the simple application server.
+     *
      * @example 9ae7106e68eb4402b0dcbd48a9de****
      *
      * @var string
@@ -30,6 +39,8 @@ class InstallCloudMonitorAgentRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

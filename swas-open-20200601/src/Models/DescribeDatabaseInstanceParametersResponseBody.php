@@ -11,11 +11,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseInstanceParametersResponseBody extends Model
 {
     /**
+     * @description The range of ParameterValue.
+     *
+     * > The value of CheckingCode varies based on the value of ParameterName.
      * @var configParameters[]
      */
     public $configParameters;
 
     /**
+     * @description The database engine that the instance runs. The value must be MySQL.
+     *
      * @example MySQL
      *
      * @var string
@@ -23,6 +28,11 @@ class DescribeDatabaseInstanceParametersResponseBody extends Model
     public $engine;
 
     /**
+     * @description The version of the database engine. Valid values:
+     *
+     *   5.7: MySQL 5.7.
+     *   8.0: MySQL 8.0.
+     *
      * @example 5.5
      *
      * @var string
@@ -30,6 +40,8 @@ class DescribeDatabaseInstanceParametersResponseBody extends Model
     public $engineVersion;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string
@@ -37,6 +49,9 @@ class DescribeDatabaseInstanceParametersResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The range of ParameterValue.
+     *
+     * > The value of CheckingCode varies based on the value of ParameterName.
      * @var runningParameters[]
      */
     public $runningParameters;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListImagesRequest extends Model
 {
     /**
-     * @description The IDs of the images. The value can be a JSON array that consists of up to 50 image IDs, in the format of `["xxx", "yyy", … "zzz"]`. Separate the image IDs with commas (,).
+     * @description The image IDs. The value can be a JSON array that consists of up to 50 image IDs. Format: `["xxx", "yyy", … "zzz"]`. Separate multiple image IDs with commas (,).
      *
      * @example ["fe9c66133a9d4688872869726b52****", "794c230fd3e64ea19f83f4d7a0ad****"]
      *
@@ -18,11 +18,11 @@ class ListImagesRequest extends Model
     public $imageIds;
 
     /**
-     * @description The type of the image. Valid values:
+     * @description The type of the images. Valid values:
      *
-     *   system
-     *   app
-     *   custom
+     *   system: OS images
+     *   app: application images
+     *   custom: custom images
      *
      * @example system
      *

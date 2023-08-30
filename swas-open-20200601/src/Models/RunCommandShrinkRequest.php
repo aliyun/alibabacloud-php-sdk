@@ -11,7 +11,7 @@ class RunCommandShrinkRequest extends Model
     /**
      * @description The content of the command. Take note of the following items:
      *
-     *   When `EnableParameter` is set to true, the custom parameter feature is enabled and you can configure custom parameters based on the following rules:
+     *   If you set `EnableParameter` to true, the custom parameter feature is enabled in the command content and you can configure custom parameters based on the following rules:
      *   Define custom parameters in the {{}} format. Within `{{}}`, the spaces and line feeds before and after the parameter names are ignored.
      *   The number of custom parameters cannot be greater than 20.
      *   A custom parameter name can contain only letters, digits, underscores (\_), and hyphens (-). The name is case-insensitive.
@@ -24,7 +24,7 @@ class RunCommandShrinkRequest extends Model
     public $commandContent;
 
     /**
-     * @description Specifies whether to include custom parameters in the command.
+     * @description Specifies whether to enable the custom parameter feature.
      *
      * Default value: false.
      * @example false
@@ -52,16 +52,16 @@ class RunCommandShrinkRequest extends Model
     public $name;
 
     /**
-     * @description The custom parameters in the key-value pair format that are to be passed in when the command includes custom parameters. For example, if the command content is `echo {{name}}`, you can set the `Parameters` parameter to the `{"name":"Jack"}` key-value pair. The `name` key of the custom parameter is automatically replaced with the paired Jack value to generate a new command. As a result, the `echo Jack` command is actually run.
+     * @description The custom parameters in the key-value pair format that are to be passed in when the command includes custom parameters. For example, if the command content is `echo {{name}}`, you can use `Parameters` to pass in the `{"name":"Jack"}` key-value pair. The `name` key of the custom parameter is automatically replaced with the paired Jack value to generate a new command. As a result, the `echo Jack` command is executed.
      *
      * Number of custom parameters ranges from 0 to 20. Take note of the following items:
      *
-     *   The key cannot be an empty string and can be up to 64 characters in length.
+     *   The key cannot be an empty string. It can be up to 64 characters in length.
      *   The value can be an empty string.
      *   After custom parameters and original command content are encoded in Base64, the command cannot exceed 16 KB in size.
-     *   The value of Parameters must be included in the custom parameters specified when you created the command. You can use empty strings to represent the parameters that are not passed in.
+     *   The custom parameter names that are specified by Parameters must be included in the custom parameter names that you specified when you created the command. You can use empty strings to represent the parameters that are not passed in.
      *
-     * This parameter is empty by default. You can leave this parameter empty to disable the custom parameter feature.
+     * This parameter is empty by default, which indicates to disable the custom parameter feature.
      * @example {"name":"Jack", "accessKey":"LTAIdyvdIqaRY****"}
      *
      * @var string
@@ -78,7 +78,7 @@ class RunCommandShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies the timeout period of the command on the server.
+     * @description The timeout period of the command on the server.
      *
      * Default value: 60.
      * @example 60
@@ -103,7 +103,7 @@ class RunCommandShrinkRequest extends Model
     /**
      * @description The name of the password to be used to run the command on a Windows server.
      *
-     * If you want to use a username other than the default "system" username to run the command on a Windows server, you must specify both the WindowsPasswordName and WorkingUser parameters. The password is hosted in plaintext in the parameter repository of Operation Orchestration Service (OOS) to reduce the risk of password leaks. Only the name of the password is passed in by using the WindowsPasswordName parameter.
+     * If you want to use a username other than the default "system" username to run the command on a Windows server, you must specify both the WindowsPasswordName and WorkingUser parameters. To mitigate the risk of password leaks, the password is stored in plaintext in Operation Orchestration Service (OOS) Parameter Store, and only the name of the password is passed in by using WindowsPasswordName.
      * @example axtSecretPassword
      *
      * @var string
@@ -123,9 +123,7 @@ class RunCommandShrinkRequest extends Model
     public $workingDir;
 
     /**
-     * @description A user of the server who runs the command. We recommend that you run the command as a regular user to reduce security risks.
-     *
-     * Default value:
+     * @description A user of the server who runs the command. We recommend that you run the command as a regular user to reduce security risks. Default values:
      *
      *   For Linux servers, the default value is root.
      *   For Windows servers, the default value is system.

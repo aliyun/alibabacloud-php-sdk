@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartTerminalSessionRequest extends Model
 {
     /**
+     * @description The ID of the simple application server.
+     *
      * @example ace0706b2ac4454d984295a94213****
      *
      * @var string
@@ -16,6 +18,8 @@ class StartTerminalSessionRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string

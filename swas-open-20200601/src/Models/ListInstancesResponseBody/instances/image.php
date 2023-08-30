@@ -9,31 +9,59 @@ use AlibabaCloud\Tea\Model;
 class image extends Model
 {
     /**
+     * @description The image provider.
+     *
+     * @example https://selfs****e.console.aliyun.com/ticket/createIndex
+     *
      * @var string
      */
     public $imageContact;
 
     /**
+     * @description The URL of the image icon.
+     *
+     * @example https://img.alicdn.com/imgextra/i3/O****1vdh9651ReKqWNMI2I_!!6000000002136****-24-24.svg
+     *
      * @var string
      */
     public $imageIconUrl;
 
     /**
+     * @description The image name.
+     *
+     * @example test-custom-1686536882356
+     *
      * @var string
      */
     public $imageName;
 
     /**
+     * @description The image type. Valid values:
+     *
+     *   system
+     *   app
+     *   custom
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageType;
 
     /**
+     * @description The image tag.
+     *
+     * @example V3.5
+     *
      * @var string
      */
     public $imageVersion;
 
     /**
+     * @description The OS.
+     *
+     * @example windows
+     *
      * @var string
      */
     public $osType;

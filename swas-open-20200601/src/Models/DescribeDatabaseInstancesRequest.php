@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseInstancesRequest extends Model
 {
     /**
+     * @description The IDs of the Simple Database Service instances. The value can be a JSON array that consists of up to 100 Simple Database Service instance IDs. Separate multiple instance IDs with commas (,).
+     *
      * @example ["swasdb-xxx******","swasdb-yyy******"]
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDatabaseInstancesRequest extends Model
     public $databaseInstanceIds;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -23,6 +28,9 @@ class DescribeDatabaseInstancesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -30,6 +38,8 @@ class DescribeDatabaseInstancesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the Simple Database Service instances.
+     *
      * @example cn-hangzhou
      *
      * @var string

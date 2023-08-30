@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListInstancePlansModificationResponseBody extends Model
 {
     /**
-     * @description Details about the plans.
+     * @description The operating system types supported by the plan.
      *
      * @var plans[]
      */
     public $plans;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *

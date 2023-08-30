@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListInstanceStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the simple application server.
+     *
      * @var instanceStatuses[]
      */
     public $instanceStatuses;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListInstanceStatusResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -29,6 +35,8 @@ class ListInstanceStatusResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string
@@ -36,6 +44,8 @@ class ListInstanceStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 54
      *
      * @var int

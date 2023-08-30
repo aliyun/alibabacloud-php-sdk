@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseInstancesResponseBody extends Model
 {
     /**
+     * @description The name of the super administrator account of the Simple Database Service instance.
+     *
      * @var databaseInstances[]
      */
     public $databaseInstances;
 
     /**
+     * @description The page number.
+     *
      * @example 10
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeDatabaseInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 1
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeDatabaseInstancesResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 20758A-585D-4A41-A9B2-28DA8F4****
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeDatabaseInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5
      *
      * @var int

@@ -18,11 +18,11 @@ class DescribeInvocationsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The status of the command. Valid values:
+     * @description The status of the command execution. Valid values:
      *
-     *   Running: The command is running.
-     *   Finished: The command finishes running.
-     *   Failed: The command failed to be run.
+     *   Running: The command is being executed.
+     *   Finished: The execution is complete.
+     *   Failed: The execution fails.
      *
      * @example Finished
      *
@@ -31,7 +31,7 @@ class DescribeInvocationsRequest extends Model
     public $invokeStatus;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -41,9 +41,9 @@ class DescribeInvocationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 10
      *
      * @var int

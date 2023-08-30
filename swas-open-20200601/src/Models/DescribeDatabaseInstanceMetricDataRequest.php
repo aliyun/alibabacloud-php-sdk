@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseInstanceMetricDataRequest extends Model
 {
     /**
+     * @description The ID of the Simple Database Service instance.
+     *
      * @example db-38263fa955774501a2ae1bdaed6f****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $databaseInstanceId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
+     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @example 2022-09-07T04:04Z
      *
      * @var string
@@ -23,6 +28,13 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The name of the metric. Valid values:
+     *
+     *   MySQL_MemCpuUsage: The CPU utilization and memory usage of the instance within the entire operating system.
+     *   MySQL_DetailedSpaceUsage: The total space usage, data space, log space, temporary space, and system space of the instance.
+     *   MySQL_Sessions : The total number of active connections.
+     *   MySQL_IOPS: The IOPS of the instance.
+     *
      * @example MySQL_MemCpuUsage
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $metricName;
 
     /**
+     * @description The region ID of the Simple Database Service instance. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +51,9 @@ class DescribeDatabaseInstanceMetricDataRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
+     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @example 2022-09-06T04:04Z
      *
      * @var string

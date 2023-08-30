@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorDataResponseBody extends Model
 {
     /**
+     * @description The monitoring data.
+     *
      * @example []
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeMonitorDataResponseBody extends Model
     public $datapoints;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6nOc1nj4M9UaAZ/I8db***
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeMonitorDataResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The interval at which the monitoring data is queried. Valid values: 60, 300, and 900. Unit: seconds.
+     *
+     ****
      * @example 60
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeMonitorDataResponseBody extends Model
     public $period;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string

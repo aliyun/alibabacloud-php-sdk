@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ListImagesResponseBody extends Model
 {
     /**
-     * @description Details of the images.
+     * @description The OS type of the image. Valid values:
+     *
+     *   Linux
+     *   Windows
      *
      * @var images[]
      */
     public $images;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F534F
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListDisksResponseBody extends Model
 {
     /**
-     * @description The region ID of the disks.
+     * @description Details about the disks.
      *
      * @var disks[]
      */

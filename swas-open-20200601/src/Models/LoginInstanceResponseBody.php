@@ -18,7 +18,7 @@ class LoginInstanceResponseBody extends Model
     public $redirectUrl;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C2DE174B-7196-5778-A00D-6EA2601B****
      *

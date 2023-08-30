@@ -18,6 +18,9 @@ class snapshots extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the simple application server.
+     *
+     * Note: This parameter has a value for system disk snapshots. This parameter is left empty for data disk snapshots.
      * @example 2ad1ae67295445f598017499dc****
      *
      * @var string
@@ -34,7 +37,7 @@ class snapshots extends Model
     public $progress;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the snapshots.
      *
      * @example cn-hangzhou
      *
@@ -52,6 +55,8 @@ class snapshots extends Model
     public $remark;
 
     /**
+     * @description The time when the last disk rollback was performed.
+     *
      * @example 2021-03-09T07:12:49Z
      *
      * @var string
@@ -59,7 +64,7 @@ class snapshots extends Model
     public $rollbackTime;
 
     /**
-     * @description The ID of the snapshot.
+     * @description The snapshot ID.
      *
      * @example s-bp16oazlsold4dks****
      *
@@ -77,7 +82,7 @@ class snapshots extends Model
     public $snapshotName;
 
     /**
-     * @description The ID of the source disk. This parameter has a value even after the source disk is released.
+     * @description The ID of the source disk based on which the snapshot is created. This parameter has a value even if the source disk is released.
      *
      * @example d-bp14wq0149cpp2xy****
      *
@@ -88,8 +93,8 @@ class snapshots extends Model
     /**
      * @description The type of the source disk. Valid values:
      *
-     *   System: system disk
-     *   data: data disk
+     *   system: system disk.
+     *   data: data disk.
      *
      * @example System
      *

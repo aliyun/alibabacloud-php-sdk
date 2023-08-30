@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customImages extends Model
 {
     /**
+     * @description The time when the snapshot was created. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-10-09T02:28:06Z
      *
      * @var string
@@ -16,6 +18,8 @@ class customImages extends Model
     public $creationTime;
 
     /**
+     * @description The ID of the data disk snapshot.
+     *
      * @example s-bp19rn9u8eqzlfb***
      *
      * @var string
@@ -23,16 +27,22 @@ class customImages extends Model
     public $dataSnapshotId;
 
     /**
+     * @description The name of the data disk snapshot.
+     *
      * @var string
      */
     public $dataSnapshotName;
 
     /**
+     * @description The description of the custom image.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the custom image.
+     *
      * @example m-bp1e79zktg26n2b***
      *
      * @var string
@@ -40,11 +50,17 @@ class customImages extends Model
     public $imageId;
 
     /**
+     * @description Indicates whether the custom image is shared with Elastic Compute Service (ECS).
+     *
+     * @example false
+     *
      * @var bool
      */
     public $inShare;
 
     /**
+     * @description The ID of the simple application server.
+     *
      * @example 2d06ee0520b44de1ae88d4be****
      *
      * @var string
@@ -52,6 +68,8 @@ class customImages extends Model
     public $instanceId;
 
     /**
+     * @description The name of the simple application server.
+     *
      * @example swas-asdf23***
      *
      * @var string
@@ -59,6 +77,8 @@ class customImages extends Model
     public $instanceName;
 
     /**
+     * @description The name of the custom image.
+     *
      * @example hua
      *
      * @var string
@@ -66,6 +86,8 @@ class customImages extends Model
     public $name;
 
     /**
+     * @description The region ID of the custom images.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -73,11 +95,17 @@ class customImages extends Model
     public $regionId;
 
     /**
+     * @description The status of the custom image.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the system disk snapshot.
+     *
      * @example s-bp1h173hj21puxb***
      *
      * @var string
@@ -85,6 +113,8 @@ class customImages extends Model
     public $systemSnapshotId;
 
     /**
+     * @description The name of the system disk snapshot.
+     *
      * @var string
      */
     public $systemSnapshotName;

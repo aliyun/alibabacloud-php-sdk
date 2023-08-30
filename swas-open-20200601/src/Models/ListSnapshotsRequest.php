@@ -37,7 +37,7 @@ class ListSnapshotsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Valid values: 1 to 100.
+     * @description The number of entries per page. Maximum value: 100.
      *
      * Default value: 10.
      * @example 10
@@ -65,7 +65,12 @@ class ListSnapshotsRequest extends Model
     public $snapshotIds;
 
     /**
-     * @example Data
+     * @description The type of the source disk. Valid values:
+     *
+     *   system: system disk.
+     *   data: data disk.
+     *
+     * @example System
      *
      * @var string
      */

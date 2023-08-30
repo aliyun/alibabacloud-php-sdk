@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AllocatePublicConnectionResponseBody extends Model
 {
     /**
+     * @description The public endpoint that is assigned to the Simple Database Service instance.
+     *
      * @example db-38263fa955774501a2ae1bdaed6f****.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -16,6 +18,8 @@ class AllocatePublicConnectionResponseBody extends Model
     public $publicConnection;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableFirewallRuleRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -16,6 +18,8 @@ class EnableFirewallRuleRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the simple application server.
+     *
      * @example 2ad1ae67295445f598017499dc****
      *
      * @var string
@@ -23,6 +27,8 @@ class EnableFirewallRuleRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region ID of the simple application server. You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,11 +36,15 @@ class EnableFirewallRuleRequest extends Model
     public $regionId;
 
     /**
+     * @description The remarks of the firewall rule.
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The ID of the firewall rule.
+     *
      * @example eeea34d9867b4d55a4ff8d5fcfbd****
      *
      * @var string
@@ -42,6 +52,8 @@ class EnableFirewallRuleRequest extends Model
     public $ruleId;
 
     /**
+     * @description The IP address or CIDR block that is allowed in the firewall policy.
+     *
      * @example 10.147.33.**
      *
      * @var string

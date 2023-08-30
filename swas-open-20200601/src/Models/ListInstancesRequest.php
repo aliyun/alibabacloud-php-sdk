@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
-     * @description The billing method of the simple application server. Set the value to PrePaid, which indicates the subscription billing method. Only the subscription billing method is supported.
+     * @description The billing method of the simple application servers. Set the value to PrePaid, which indicates the subscription billing method.
      *
      * Default value: PrePaid.
      * @example PrePaid
@@ -19,9 +19,9 @@ class ListInstancesRequest extends Model
     public $chargeType;
 
     /**
-     * @description The IDs of the simple application servers. The value can be a JSON array that consists of up to 100 simple application server IDs. Separate the server IDs with commas (,).
+     * @description The IDs of the simple application servers. The value can be a JSON array that consists of up to 100 simple application server IDs. Separate multiple server IDs with commas (,).
      *
-     * >  If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that each specified ID and its corresponding public IP address belong to the same simple application server. Otherwise, an empty result is returned.
+     * > If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that the specified IDs and the specified public IP addresses belong to the same simple application servers. Otherwise, an empty result is returned.
      * @example ["2ad1ae67295445f598017499dc****", "2ad1ae67295445f598017123dc****"]
      *
      * @var string
@@ -29,7 +29,7 @@ class ListInstancesRequest extends Model
     public $instanceIds;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -39,7 +39,7 @@ class ListInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 100.
+     * @description The number of entries per page. Maximum value: 100.
      *
      * Default value: 10.
      * @example 10
@@ -49,9 +49,9 @@ class ListInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The public IP addresses of the simple application servers. The value can be a JSON array that consists of up to 100 IP addresses. Separate the IP addresses with commas (,).
+     * @description The public IP addresses of the simple application servers. The value can be a JSON array that consists of up to 100 IP addresses. Separate multiple IP addresses with commas (,).
      *
-     * >  If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that each specified ID and its corresponding public IP address belong to the same simple application server. Otherwise, an empty result is returned.
+     * > If you specify both `InstanceIds` and `PublicIpAddresses`, make sure that the specified IDs and the specified public IP addresses belong to the same simple application servers. Otherwise, an empty result is returned.
      * @example ["42.1.**.**", "42.2.**.**"]
      *
      * @var string
@@ -68,6 +68,11 @@ class ListInstancesRequest extends Model
     public $regionId;
 
     /**
+     * @description 实例状态，可能值：
+     *
+     * - Disabled：不可用
+     * @example Running
+     *
      * @var string
      */
     public $status;

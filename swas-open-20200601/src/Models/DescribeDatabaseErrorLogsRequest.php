@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseErrorLogsRequest extends Model
 {
     /**
+     * @description The ID of the Simple Database Service instance.
+     *
      * @example db-38263fa955774501a2ae1bdaed6f****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDatabaseErrorLogsRequest extends Model
     public $databaseInstanceId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC. The end time must be later than the start time.
+     *
+     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @example 2022-09-08T04:04Z
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeDatabaseErrorLogsRequest extends Model
     public $endTime;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -30,6 +37,8 @@ class DescribeDatabaseErrorLogsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int
@@ -37,6 +46,9 @@ class DescribeDatabaseErrorLogsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the Simple Database Service instance.
+     *
+     * You can call the [ListRegions](~~189315~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +56,9 @@ class DescribeDatabaseErrorLogsRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
+     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @example 2022-09-07T04:04Z
      *
      * @var string

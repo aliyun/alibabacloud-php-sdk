@@ -10,11 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseErrorLogsResponseBody extends Model
 {
     /**
+     * @description The time when the error log entry was generated. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
+     * > The time displayed in the Simple Application Server console is in the format of UTC+8.
      * @var errorLogs[]
      */
     public $errorLogs;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +27,8 @@ class DescribeDatabaseErrorLogsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int
@@ -29,6 +36,8 @@ class DescribeDatabaseErrorLogsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string
@@ -36,6 +45,8 @@ class DescribeDatabaseErrorLogsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

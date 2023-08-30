@@ -16,7 +16,7 @@ class CreateInstancesResponseBody extends Model
     public $instanceIds;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 30637AD6-D977-4833-A54C-CC89483E1FEE
      *

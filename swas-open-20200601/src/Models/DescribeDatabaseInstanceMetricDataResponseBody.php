@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseInstanceMetricDataResponseBody extends Model
 {
     /**
+     * @description The data format. Valid values:
+     *
+     *   cpuusage\&memusage
+     *   active_session\&total_session
+     *   ins_size\&data_size\&log_size\&tmp_size\&other_size
+     *   io
+     *
      * @example cpuusage&memusage
      *
      * @var string
@@ -16,11 +23,22 @@ class DescribeDatabaseInstanceMetricDataResponseBody extends Model
     public $dataFormat;
 
     /**
+     * @description The monitoring data.
+     *
+     * @example [  {     \"date"\: " 2022-09-06T04:04:00Z",\"value\":\"0.77&3.69\"  } ]
+     *
      * @var string
      */
     public $metricData;
 
     /**
+     * @description The name of the metric. Valid values:
+     *
+     *   MySQL_MemCpuUsage: The CPU utilization and memory usage of the instance within the entire operating system.
+     *   MySQL_DetailedSpaceUsage: The total space usage, data space, log space, temporary space, and system space of the instance.
+     *   MySQL_Sessions : The total number of active connections.
+     *   MySQL_IOPS: The IOPS of the instance.
+     *
      * @example MySQL_MemCpuUsage
      *
      * @var string
@@ -28,6 +46,8 @@ class DescribeDatabaseInstanceMetricDataResponseBody extends Model
     public $metricName;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string
@@ -35,6 +55,12 @@ class DescribeDatabaseInstanceMetricDataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The unit of the monitoring metric.
+     *
+     *   %
+     *   int
+     *   MB
+     *
      * @example %
      *
      * @var string

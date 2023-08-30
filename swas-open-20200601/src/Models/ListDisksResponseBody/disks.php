@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class disks extends Model
 {
     /**
-     * @description The category of the disk. Valid values: Valid values:
+     * @description The category of the disk. Valid values:
      *
-     *   ESSD: enhanced SSD (ESSD) at performance level 0 (PL0)
-     *   SSD: standard SSD
+     *   ESSD: an enhanced SSD (ESSD) at performance level 0 (PL0).
+     *   SSD: a standard SSD.
      *
      * @example ESSD
      *
@@ -68,8 +68,8 @@ class disks extends Model
     /**
      * @description The type of the disk. Valid values:
      *
-     *   System: system disk
-     *   Data: data disk
+     *   System: system disk.
+     *   Data: data disk.
      *
      * @example System
      *
@@ -87,7 +87,7 @@ class disks extends Model
     public $instanceId;
 
     /**
-     * @description 轻量应用服务器名称。
+     * @description Name of the simple application server.
      *
      * @example myInstance
      *
@@ -96,7 +96,7 @@ class disks extends Model
     public $instanceName;
 
     /**
-     * @description The region ID of the server.
+     * @description The region ID of the disks.
      *
      * @example cn-hangzhou
      *
@@ -105,7 +105,7 @@ class disks extends Model
     public $regionId;
 
     /**
-     * @description 磁盘备注。
+     * @description Description about the disk.
      *
      * @example remark
      *

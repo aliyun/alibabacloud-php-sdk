@@ -18,7 +18,7 @@ class DescribeInvocationResultRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the command task. You can call the [DescribeInvocations](~~439368~~) operation to query the task IDs.
+     * @description The execution ID. You can call the [DescribeInvocations](~~439368~~) operation to query execution IDs.
      *
      * @example t-bj02prjhw1n****
      *

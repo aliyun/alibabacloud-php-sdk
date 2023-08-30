@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceKeyPairResponseBody extends Model
 {
     /**
+     * @description The fingerprint of the key pair.
+     *
      * @example 4f:70:62:e9:0c:72:f7:ee:74:ce:e3:bf:e0:82:**:**
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeInstanceKeyPairResponseBody extends Model
     public $fingerprint;
 
     /**
+     * @description The name of the key pair.
+     *
      * @example KeyPairName
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeInstanceKeyPairResponseBody extends Model
     public $keyPairName;
 
     /**
+     * @description The request ID.
+     *
      * @example 20758A-585D-4A41-A9B2-28DA8F4F****
      *
      * @var string

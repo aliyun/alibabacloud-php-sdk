@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @description The database engine that the instance runs.
+     *
      * @example MySQL
      *
      * @var string
@@ -17,6 +19,9 @@ class DescribeDatabaseSlowLogRecordsResponseBody extends Model
     public $engine;
 
     /**
+     * @description The page number.
+     *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -24,6 +29,9 @@ class DescribeDatabaseSlowLogRecordsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 30 to 100.
+     *
+     * Default value: 30.
      * @example 30
      *
      * @var int
@@ -31,6 +39,8 @@ class DescribeDatabaseSlowLogRecordsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The number of logical reads.
+     *
      * @example 200
      *
      * @var int
@@ -38,6 +48,8 @@ class DescribeDatabaseSlowLogRecordsResponseBody extends Model
     public $physicalIORead;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E****
      *
      * @var string
@@ -45,11 +57,15 @@ class DescribeDatabaseSlowLogRecordsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The database name.
+     *
      * @var slowLogs[]
      */
     public $slowLogs;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

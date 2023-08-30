@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeInstanceRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
      *
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
@@ -27,7 +27,7 @@ class UpgradeInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the new plan. You can call the [ListPlans](~~189314~~) operation to query plans provided by Simple Application Server.
+     * @description The ID of the new plan. You can call the [ListPlans](~~189314~~) operation to query the plans provided by Simple Application Server.
      *
      * @example swas.s2.c2m2s50b4t08
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstancePasswordsSettingResponseBody extends Model
 {
     /**
+     * @description Indicates whether a logon password is set for the simple application server.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +18,8 @@ class DescribeInstancePasswordsSettingResponseBody extends Model
     public $instancePasswordSetting;
 
     /**
+     * @description The request ID.
+     *
      * @example 20758A-585D-4A41-A9B2-28DA8F4****
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeInstancePasswordsSettingResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether a VNC connection password is set.
+     *
      * @example true
      *
      * @var bool

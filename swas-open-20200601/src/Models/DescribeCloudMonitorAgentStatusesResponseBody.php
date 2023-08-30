@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudMonitorAgentStatusesResponseBody extends Model
 {
     /**
+     * @description Indicates whether the Cloud Monitor agent was automatically installed on the simple application server. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @var instanceStatusList[]
      */
     public $instanceStatusList;
 
     /**
+     * @description The request ID.
+     *
      * @example 30637AD6-D977-4833-A54C-CC89483E1FEE
      *
      * @var string

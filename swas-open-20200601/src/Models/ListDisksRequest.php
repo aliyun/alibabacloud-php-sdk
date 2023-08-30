@@ -18,10 +18,13 @@ class ListDisksRequest extends Model
     public $diskIds;
 
     /**
-     * @description 磁盘类型。可能值：
+     * @description The type of the disk. Valid values:
      *
-     * 默认全量查询
-     * @example system
+     *   System: system disk.
+     *   Data: data disk.
+     *
+     * By default, system disks and data disks are both queried.
+     * @example System
      *
      * @var string
      */
@@ -57,7 +60,7 @@ class ListDisksRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the simple application server.
+     * @description The region ID of the disks.
      *
      * @example cn-hangzhou
      *

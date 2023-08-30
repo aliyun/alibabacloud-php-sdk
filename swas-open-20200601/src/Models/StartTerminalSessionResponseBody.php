@@ -18,6 +18,8 @@ class StartTerminalSessionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The security token included in the WebSocket request header. The system uses this token to authenticate the request.
+     *
      * @example token-xxxaaz
      *
      * @var string
@@ -25,6 +27,8 @@ class StartTerminalSessionResponseBody extends Model
     public $securityToken;
 
     /**
+     * @description The session ID.
+     *
      * @example ffb90b6e-b18a-4a33-88cf-86fb88****
      *
      * @var string
@@ -32,6 +36,8 @@ class StartTerminalSessionResponseBody extends Model
     public $sessionId;
 
     /**
+     * @description The URL of the WebSocket session that is used to connect to the server. The URL contains the session ID (`SessionId`) and the authentication token (`SecurityToken`).
+     *
      * @example wss://xxxx
      *
      * @var string

@@ -37,7 +37,7 @@ class ListSnapshotsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The region ID of the simple application server.
+     * @description Details about the snapshots.
      *
      * @var snapshots[]
      */

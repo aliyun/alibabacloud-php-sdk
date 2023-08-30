@@ -16,7 +16,7 @@ class DescribeCloudAssistantStatusShrinkRequest extends Model
     public $instanceIdsShrink;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * Default value: 1.
      * @example 1
@@ -26,7 +26,7 @@ class DescribeCloudAssistantStatusShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * Default value: 10.
      * @example 10
@@ -36,7 +36,7 @@ class DescribeCloudAssistantStatusShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the simple application server.
+     * @description The region ID of the simple application servers.
      *
      * @example cn-hangzhou
      *
