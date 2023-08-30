@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody;
 
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors\applications;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors\connectorClients;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponseBody\connectors\upgradeTime;
 use AlibabaCloud\Tea\Model;
 
@@ -14,6 +15,11 @@ class connectors extends Model
      * @var applications[]
      */
     public $applications;
+
+    /**
+     * @var connectorClients[]
+     */
+    public $connectorClients;
 
     /**
      * @description ConnectorID。
@@ -64,14 +70,15 @@ class connectors extends Model
      */
     public $upgradeTime;
     protected $_name = [
-        'applications' => 'Applications',
-        'connectorId'  => 'ConnectorId',
-        'createTime'   => 'CreateTime',
-        'name'         => 'Name',
-        'regionId'     => 'RegionId',
-        'status'       => 'Status',
-        'switchStatus' => 'SwitchStatus',
-        'upgradeTime'  => 'UpgradeTime',
+        'applications'     => 'Applications',
+        'connectorClients' => 'ConnectorClients',
+        'connectorId'      => 'ConnectorId',
+        'createTime'       => 'CreateTime',
+        'name'             => 'Name',
+        'regionId'         => 'RegionId',
+        'status'           => 'Status',
+        'switchStatus'     => 'SwitchStatus',
+        'upgradeTime'      => 'UpgradeTime',
     ];
 
     public function validate()
@@ -87,6 +94,15 @@ class connectors extends Model
                 $n = 0;
                 foreach ($this->applications as $item) {
                     $res['Applications'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->connectorClients) {
+            $res['ConnectorClients'] = [];
+            if (null !== $this->connectorClients && \is_array($this->connectorClients)) {
+                $n = 0;
+                foreach ($this->connectorClients as $item) {
+                    $res['ConnectorClients'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -129,6 +145,15 @@ class connectors extends Model
                 $n                   = 0;
                 foreach ($map['Applications'] as $item) {
                     $model->applications[$n++] = null !== $item ? applications::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ConnectorClients'])) {
+            if (!empty($map['ConnectorClients'])) {
+                $model->connectorClients = [];
+                $n                       = 0;
+                foreach ($map['ConnectorClients'] as $item) {
+                    $model->connectorClients[$n++] = null !== $item ? connectorClients::fromMap($item) : $item;
                 }
             }
         }

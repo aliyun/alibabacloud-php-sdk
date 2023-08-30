@@ -21,6 +21,11 @@ class ListPrivateAccessApplicationsRequest extends Model
     public $applicationIds;
 
     /**
+     * @var string
+     */
+    public $connectorId;
+
+    /**
      * @example 1
      *
      * @var int
@@ -64,6 +69,7 @@ class ListPrivateAccessApplicationsRequest extends Model
     protected $_name = [
         'address'        => 'Address',
         'applicationIds' => 'ApplicationIds',
+        'connectorId'    => 'ConnectorId',
         'currentPage'    => 'CurrentPage',
         'name'           => 'Name',
         'pageSize'       => 'PageSize',
@@ -84,6 +90,9 @@ class ListPrivateAccessApplicationsRequest extends Model
         }
         if (null !== $this->applicationIds) {
             $res['ApplicationIds'] = $this->applicationIds;
+        }
+        if (null !== $this->connectorId) {
+            $res['ConnectorId'] = $this->connectorId;
         }
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
@@ -122,6 +131,9 @@ class ListPrivateAccessApplicationsRequest extends Model
             if (!empty($map['ApplicationIds'])) {
                 $model->applicationIds = $map['ApplicationIds'];
             }
+        }
+        if (isset($map['ConnectorId'])) {
+            $model->connectorId = $map['ConnectorId'];
         }
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];

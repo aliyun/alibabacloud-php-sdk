@@ -22,6 +22,11 @@ class application extends Model
     public $applicationId;
 
     /**
+     * @var string[]
+     */
+    public $connectorIds;
+
+    /**
      * @example 2022-08-30 16:50:32
      *
      * @var string
@@ -71,6 +76,7 @@ class application extends Model
     protected $_name = [
         'addresses'     => 'Addresses',
         'applicationId' => 'ApplicationId',
+        'connectorIds'  => 'ConnectorIds',
         'createTime'    => 'CreateTime',
         'description'   => 'Description',
         'name'          => 'Name',
@@ -93,6 +99,9 @@ class application extends Model
         }
         if (null !== $this->applicationId) {
             $res['ApplicationId'] = $this->applicationId;
+        }
+        if (null !== $this->connectorIds) {
+            $res['ConnectorIds'] = $this->connectorIds;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -143,6 +152,11 @@ class application extends Model
         }
         if (isset($map['ApplicationId'])) {
             $model->applicationId = $map['ApplicationId'];
+        }
+        if (isset($map['ConnectorIds'])) {
+            if (!empty($map['ConnectorIds'])) {
+                $model->connectorIds = $map['ConnectorIds'];
+            }
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
