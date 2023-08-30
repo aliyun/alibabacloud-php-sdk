@@ -197,6 +197,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnFullDomainsBlockIPHistory
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnFullDomainsBlockIPHistoryResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnHttpsDomainListResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainCidrRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainCidrResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainConfigsResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DescribeDcdnIpaDomainDetailRequest;
@@ -6220,6 +6222,49 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeDcdnIpInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeDcdnIpaDomainCidrRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DescribeDcdnIpaDomainCidrResponse
+     */
+    public function describeDcdnIpaDomainCidrWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainName)) {
+            $query['DomainName'] = $request->domainName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDcdnIpaDomainCidr',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDcdnIpaDomainCidrResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDcdnIpaDomainCidrRequest $request
+     *
+     * @return DescribeDcdnIpaDomainCidrResponse
+     */
+    public function describeDcdnIpaDomainCidr($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDcdnIpaDomainCidrWithOptions($request, $runtime);
     }
 
     /**
