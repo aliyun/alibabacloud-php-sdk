@@ -12,15 +12,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description The number of instances that you want to purchase. Valid values: **1** to **30**.
+     * @description The order information.
      *
-     * >  Default value: **1**.
      * @var order
      */
     public $order;
 
     /**
-     * @description Details about coupons.
+     * @description The parameters of the order. This parameter is returned when OrderParamOut is set to `true`.
      *
      * @example String
      *
@@ -29,7 +28,7 @@ class DescribePriceResponseBody extends Model
     public $orderParams;
 
     /**
-     * @description A JSON string that contains multiple instances. For more information, see [Description of the Instances parameter in the DescribePrice API operation](~~161811~~).
+     * @description The ID of the request.
      *
      * @example 3A40BE4E-1890-4972-889C-FEFA37663635
      *
@@ -38,11 +37,15 @@ class DescribePriceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Details about promotion rules.
+     *
      * @var rules
      */
     public $rules;
 
     /**
+     * @description Details about rules that match the coupon.
+     *
      * @var subOrders
      */
     public $subOrders;

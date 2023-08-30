@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class FlushInstanceForDBRequest extends Model
 {
     /**
+     * @description The index number of the database. Valid values: 0 to 255.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class FlushInstanceForDBRequest extends Model
     public $dbIndex;
 
     /**
+     * @description The instance ID. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

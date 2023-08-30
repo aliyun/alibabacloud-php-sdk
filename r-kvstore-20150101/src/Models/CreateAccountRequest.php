@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
+     * @description The description of the account.
+     *
+     *   The description must start with a letter, and cannot start with `http://` or `https://`.
+     *   The description can contain letters, digits, underscores (\_), and hyphens (-).
+     *   The description must be 2 to 256 characters in length.
+     *
      * @example testaccount
      *
      * @var string
@@ -16,6 +22,12 @@ class CreateAccountRequest extends Model
     public $accountDescription;
 
     /**
+     * @description The name of the account. The name must meet the following requirements:
+     *
+     *   The name can contain lowercase letters, digits, and hyphens (-), and must start with a lowercase letter.
+     *   The name can be up to 100 characters in length.
+     *   The name cannot be one of the reserved words in the [Reserved words for Redis account names](~~92665~~#title-84o-mok-b6h) section.
+     *
      * @example demoaccount
      *
      * @var string
@@ -23,6 +35,8 @@ class CreateAccountRequest extends Model
     public $accountName;
 
     /**
+     * @description The password of the account. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
+     *
      * @example uWonno21****
      *
      * @var string
@@ -30,6 +44,11 @@ class CreateAccountRequest extends Model
     public $accountPassword;
 
     /**
+     * @description The permissions of the account. Valid values:
+     *
+     *   **RoleReadOnly**: The account has read-only permissions.
+     *   **RoleReadWrite**: The account has read and write permissions.
+     *
      * @example RoleReadOnly
      *
      * @var string
@@ -37,6 +56,8 @@ class CreateAccountRequest extends Model
     public $accountPrivilege;
 
     /**
+     * @description The type of the account. Set the value to **Normal**, which indicates that the account is a standard account.
+     *
      * @example Normal
      *
      * @var string
@@ -44,6 +65,8 @@ class CreateAccountRequest extends Model
     public $accountType;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -18,6 +18,12 @@ class ModifySecurityIpsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The method that is used to modify the whitelist. Valid values:
+     *
+     *   **Cover**: overwrites the original whitelist.
+     *   **Append**: appends data to the whitelist.
+     *   **Delete**: deletes the whitelist.
+     *
      * @example Append
      *
      * @var string
@@ -45,6 +51,8 @@ class ModifySecurityIpsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description By default, this parameter is left empty. The attribute of the whitelist. The console does not display the whitelist whose value of this parameter is **hidden**.
+     *
      * @example hidden
      *
      * @var string
@@ -52,11 +60,7 @@ class ModifySecurityIpsRequest extends Model
     public $securityIpGroupAttribute;
 
     /**
-     * @description The method of modification. Valid values:
-     *
-     *   **Cover**: overwrites the whitelist.
-     *   **Append**: appends data to the whitelist.
-     *   **Delete**: deletes the whitelist.
+     * @description The name of the whitelist.
      *
      * @example default
      *
@@ -65,7 +69,7 @@ class ModifySecurityIpsRequest extends Model
     public $securityIpGroupName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifySecurityIps**.
+     * @description The IP addresses in the whitelist. Up to 1,000 IP addresses can be specified in a whitelist. Separate multiple IP addresses with a comma (,). Specify an IP address in the 0.0.0.0/0, 10.23.12.24, or 10.23.12.24/24 format. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix of an IP address. The prefix length ranges from 1 to 32.
      *
      * @example 100.64.***.0/24,10.101.11.***
      *

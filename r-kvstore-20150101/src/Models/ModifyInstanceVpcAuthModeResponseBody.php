@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVpcAuthModeResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
      *
      * @var string

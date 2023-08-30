@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyAuditLogConfigRequest extends Model
 {
     /**
+     * @description Specifies whether to enable the audit log feature. Default value: true. Valid values:
+     *
+     *   **true**: enables the audit log feature.
+     *   **false**: disables the audit log feature.
+     *
+     * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
      * @example true
      *
      * @var bool
@@ -16,7 +22,7 @@ class ModifyAuditLogConfigRequest extends Model
     public $dbAudit;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -45,6 +51,10 @@ class ModifyAuditLogConfigRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The retention period of audit logs. Valid values: **1** to **365**. Unit: days.
+     *
+     * > *   This parameter is required only if the **DbAudit** parameter is set to **true**.
+     * > *   The value of this parameter takes effect for all ApsaraDB for Redis instances in the current region.
      * @example 10
      *
      * @var int

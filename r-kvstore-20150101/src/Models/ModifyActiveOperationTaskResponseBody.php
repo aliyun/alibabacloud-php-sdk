@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTaskResponseBody extends Model
 {
     /**
-     * @description The scheduled switchover time to be specified. Specify the time in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The ID of the O\&M task. IDs are separated by commas (,).
      *
-     * >  The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](~~197387~~) operation. The **Deadline** parameter in the response indicates the latest operation time.
      * @example 11111,22222
      *
      * @var string
@@ -19,7 +18,7 @@ class ModifyActiveOperationTaskResponseBody extends Model
     public $ids;
 
     /**
-     * @description Modifies the scheduled switchover time of an operations and maintenance (O&M) task.
+     * @description The ID of the request.
      *
      * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
      *

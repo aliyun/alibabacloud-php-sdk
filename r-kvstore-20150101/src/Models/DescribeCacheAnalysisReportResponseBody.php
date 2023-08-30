@@ -9,16 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportResponseBody extends Model
 {
     /**
+     * @description Details of the large keys.
+     *
      * @var mixed[][]
      */
     public $bigKeys;
 
     /**
+     * @description Details of the hotkeys.
+     *
+     * > This parameter is not returned because ApsaraDB for Redis does not support hotkey analytics.
      * @var mixed[][]
      */
     public $hotKeys;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -26,6 +33,8 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on the current page.
+     *
      * @example 30
      *
      * @var int
@@ -33,6 +42,8 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public $pageRecordCount;
 
     /**
+     * @description The maximum number of entries returned per page.
+     *
      * @example 30
      *
      * @var int
@@ -40,6 +51,8 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A057C066-C3F5-4CC9-9FE4-A8D8B0DC****
      *
      * @var string
@@ -47,6 +60,8 @@ class DescribeCacheAnalysisReportResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 160
      *
      * @var int

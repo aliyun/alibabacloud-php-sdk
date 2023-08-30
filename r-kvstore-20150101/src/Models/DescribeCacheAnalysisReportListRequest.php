@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportListRequest extends Model
 {
     /**
-     * @description The ID of the child node in the cluster instance.
+     * @description The time range to query. Default value: 7. Unit: days.
      *
-     * >  If this parameter is not specified, the analysis results of all child nodes in the instance are returned.
+     * > If daily automatic analysis has not started and manual analysis is not performed, no records are returned.
      * @example 7
      *
      * @var int
@@ -28,8 +28,9 @@ class DescribeCacheAnalysisReportListRequest extends Model
     public $instanceId;
 
     /**
-     * @description 7
+     * @description The ID of the child node in the cluster instance.
      *
+     * > If this parameter is not specified, the analysis results of all child nodes in the instance are returned.
      * @example r-bp1zxszhcgatnx****-db-0
      *
      * @var string
@@ -47,7 +48,7 @@ class DescribeCacheAnalysisReportListRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the instance.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -56,8 +57,9 @@ class DescribeCacheAnalysisReportListRequest extends Model
     public $pageNumbers;
 
     /**
-     * @description r-bp1zxszhcgatnx****-db-0
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
      *
+     * > The default value is **30**.
      * @example 30
      *
      * @var int

@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceAttributeRequest extends Model
 {
     /**
-     * @description The new password for the default account. The default account is named after the instance ID. Default account example: r-bp10noxlhcoim2****.
+     * @description The ID of the instance.
      *
-     * >  The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. Special characters include `! @ # $ % ^ & * ( ) _ + - =`
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -19,12 +18,8 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The release protection state of the instance. Valid values:
+     * @description The new name of the instance. The name must be 2 to 80 characters in length. The name must start with a letter and cannot contain spaces and the following special characters: `@ / : = " < > { [ ] }`
      *
-     *   **true**: The release protection is enabled.
-     *   **false**: The release protection is disabled.
-     *
-     * >  This parameter is available only for pay-as-you-go instances.
      * @example newinstancename
      *
      * @var string
@@ -32,8 +27,12 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyInstanceAttribute**.
+     * @description [The release protection state of the instance.](~~165005~~) Valid values:
      *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
+     * > This parameter is available only for pay-as-you-go instances.
      * @example true
      *
      * @var bool
@@ -41,8 +40,9 @@ class ModifyInstanceAttributeRequest extends Model
     public $instanceReleaseProtection;
 
     /**
-     * @description The ID of the request.
+     * @description The new password for the default account. The default account is named after the instance ID. Example: r-bp10noxlhcoim2\*\*\*\*.
      *
+     * > The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
      * @example uW8+nsrp
      *
      * @var string

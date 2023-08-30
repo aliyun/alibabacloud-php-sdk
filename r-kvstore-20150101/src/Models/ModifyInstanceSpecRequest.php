@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceSpecRequest extends Model
 {
     /**
+     * @description Specifies whether to enable auto-renewal. Default value: true. Valid values:
+     *
+     *   **true**: enables auto-renewal.
+     *   **false**: disables auto-renewal. If you set this parameter to **false**, the instance must be manually renewed before it expires. For more information, see [Renew an instance](~~26352~~).
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class ModifyInstanceSpecRequest extends Model
     public $autoPay;
 
     /**
+     * @description The ID of the promotional event or business information.
+     *
      * @example 000000001
      *
      * @var string
@@ -23,6 +30,8 @@ class ModifyInstanceSpecRequest extends Model
     public $businessInfo;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -30,6 +39,8 @@ class ModifyInstanceSpecRequest extends Model
     public $clientToken;
 
     /**
+     * @description The coupon code. Default value: `youhuiquan_promotion_option_id_for_blank`.
+     *
      * @example youhuiquan_promotion_option_id_for_blank
      *
      * @var string
@@ -37,6 +48,11 @@ class ModifyInstanceSpecRequest extends Model
     public $couponNo;
 
     /**
+     * @description The time when to change the configurations. Default value: Immediately. Valid values:
+     *
+     *   **Immediately**: The configurations are immediately changed.
+     *   **MaintainTime**: The configurations are changed within the maintenance window. You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to change the maintenance window.
+     *
      * @example Immediately
      *
      * @var string
@@ -44,11 +60,18 @@ class ModifyInstanceSpecRequest extends Model
     public $effectiveTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $forceTrans;
 
     /**
+     * @description Specifies whether to forcefully change the configurations of the instance. Default value: true. Valid values:
+     *
+     *   **false**: The system does not forcefully change the configurations.
+     *   **true**: The system forcefully changes the configurations.
+     *
      * @example true
      *
      * @var bool
@@ -56,6 +79,9 @@ class ModifyInstanceSpecRequest extends Model
     public $forceUpgrade;
 
     /**
+     * @description The new instance type. You can call the [DescribeAvailableResource](~~120580~~) operation to query the instance types available for configuration change within the zone to which the instance belongs.
+     *
+     * >  For more information about the instance types, see [Overview](~~26350~~).
      * @example redis.master.small.default
      *
      * @var string
@@ -63,7 +89,7 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceClass;
 
     /**
-     * @description ModifyInstanceSpec
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -72,6 +98,8 @@ class ModifyInstanceSpecRequest extends Model
     public $instanceId;
 
     /**
+     * @description The major version to which you want to upgrade. When you change the configurations of an instance, you can upgrade the major version of the instance by setting this parameter. Valid values: **4.0** and **5.0**.
+     *
      * @example 5.0
      *
      * @var string
@@ -79,6 +107,13 @@ class ModifyInstanceSpecRequest extends Model
     public $majorVersion;
 
     /**
+     * @description The change type. This parameter is required when you change the configurations of a subscription instance. Default value: UPGRADE. Valid values:
+     *
+     *   **UPGRADE**: upgrades the configurations of a subscription instance.
+     *   **DOWNGRADE**: downgrades the configurations of a subscription instance.
+     *
+     * > *   To downgrade a subscription instance, you must set this parameter to **DOWNGRADE**.
+     * > *   If the price of an instance increases after its configurations are changed, the instance is upgraded. If the price decreases, the instance is downgraded. For example, the price of an 8 GB read/write splitting instance with five read replicas is higher than that of a 16 GB cluster instance. If you want to change a 16 GB cluster instance to an 8 GB read/write splitting instance with five read replicas, you must upgrade the instance.
      * @example DOWNGRADE
      *
      * @var string
@@ -96,6 +131,8 @@ class ModifyInstanceSpecRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of read-only nodes. This parameter is available only for read/write splitting instances that use cloud disks. Valid values: 1 to 5.
+     *
      * @example 5
      *
      * @var int
@@ -103,7 +140,7 @@ class ModifyInstanceSpecRequest extends Model
     public $readOnlyCount;
 
     /**
-     * @description Changes the configurations of an ApsaraDB for Redis instance.
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -127,6 +164,8 @@ class ModifyInstanceSpecRequest extends Model
     public $securityToken;
 
     /**
+     * @description The number of shards. This parameter is available only for cluster instances that use cloud disks.
+     *
      * @example 8
      *
      * @var int
@@ -134,6 +173,8 @@ class ModifyInstanceSpecRequest extends Model
     public $shardCount;
 
     /**
+     * @description The source of the operation. This parameter is used only for internal maintenance. You do not need to specify this parameter.
+     *
      * @example SDK
      *
      * @var string

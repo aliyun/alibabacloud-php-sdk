@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeAuditLogConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     * @description Indicates whether the audit log feature is enabled. Valid values:
      *
+     *   **true**: enabled
+     *   **false**: disabled
+     *
+     * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance.
      * @example true
      *
      * @var string
@@ -27,12 +31,8 @@ class DescribeAuditLogConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the audit log feature is enabled. Valid values:
+     * @description The retention period of audit logs. Unit: days.
      *
-     *   **true**: The audit log feature is enabled.
-     *   **false**: The audit log feature is disabled.
-     *
-     * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance.
      * @example 5
      *
      * @var string

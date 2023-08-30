@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
+     * @description The name of the rule.
+     *
      * @example test
      *
      * @var string
@@ -16,6 +18,8 @@ class rule extends Model
     public $name;
 
     /**
+     * @description The ID of the rule.
+     *
      * @example 1111111111
      *
      * @var int
@@ -23,6 +27,8 @@ class rule extends Model
     public $ruleDescId;
 
     /**
+     * @description The title of the rule.
+     *
      * @example test
      *
      * @var string

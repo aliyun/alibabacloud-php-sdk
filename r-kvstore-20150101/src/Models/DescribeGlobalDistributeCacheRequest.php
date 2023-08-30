@@ -28,7 +28,7 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public $ownerId;
 
     /**
-     * @description The total number of entries returned.
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeGlobalDistributeCacheRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the region.
+     * @description The number of entries to return on each page.
      *
      * @example 20
      *

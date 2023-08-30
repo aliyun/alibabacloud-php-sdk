@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogicInstanceTopologyRequest extends Model
 {
     /**
-     * @description The storage capacity of the node. Unit: MB.
+     * @description The ID of the instance whose topology information you want to query.
      *
      * @example r-bp1zxszhcgatnx****
      *

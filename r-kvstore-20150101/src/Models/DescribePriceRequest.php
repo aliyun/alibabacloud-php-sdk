@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceRequest extends Model
 {
     /**
-     * @description The coupon code. Default value: youhuiquan_promotion_option_id_for_blank. This value indicates that no coupon code is available.
+     * @description The extended information such as the promotional event ID and business information.
      *
      * @example 000000000000
      *
@@ -18,7 +18,7 @@ class DescribePriceRequest extends Model
     public $businessInfo;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
+     * @description The storage capacity of the instance. Unit: MB. You must specify one of the **InstanceClass** and **Capacity** parameters to specify the instance type. We recommend that you use **InstanceClass** to specify the instance type.
      *
      * @example 1024
      *
@@ -27,8 +27,12 @@ class DescribePriceRequest extends Model
     public $capacity;
 
     /**
-     * @description The actual price of the order.
+     * @description The billing method of the instance. Valid values:
      *
+     *   **PostPaid**: pay-as-you-go
+     *   **PrePaid**: subscription.
+     *
+     * > The default value is **PostPaid**.
      * @example PostPaid
      *
      * @var string
@@ -36,13 +40,8 @@ class DescribePriceRequest extends Model
     public $chargeType;
 
     /**
-     * @description Specify the instance type. You must set InstanceClass or Capacity to specify the instance type. We recommend that you use InstanceClass to specify the instance type.
+     * @description The coupon code. Default value: youhuiquan_promotion_option_id_for_blank. This value indicates that no coupon code is available.
      *
-     * To view the instance type, perform the following steps:
-     *
-     * 1\. In the [Overview](~~26350~~) topic, click the link in the **Reference** column corresponding to the instance type that you want to view.
-     *
-     * 2\. In the instance type table of the page that appears, find the code corresponding to the instance type in the **InstanceClass** column.
      * @example youhuiquan_promotion_option_id_for_blank
      *
      * @var string
@@ -50,8 +49,12 @@ class DescribePriceRequest extends Model
     public $couponNo;
 
     /**
-     * @description The node type. Set the value to MASTER_SLAVE. This value indicates that the node type is master-replica.
+     * @description Specifies whether to forcefully change the configurations of the instance. Valid values:
      *
+     *   **false**: forcefully changes the configurations.
+     *   **true**: does not forcefully change the configurations.
+     *
+     * > The default value is **true**.
      * @example true
      *
      * @var bool
@@ -59,12 +62,12 @@ class DescribePriceRequest extends Model
     public $forceUpgrade;
 
     /**
-     * @description Specifies whether to forcefully change the configurations of the instance. Default value: true. Valid values:
+     * @description The instance type of the instance. You must specify one of the InstanceClass and Capacity parameters to specify the instance type. We recommend that you use InstanceClass to specify the instance type.
      *
-     *   **false**: The system forcefully changes the configurations.
-     *   **true**: The system does not forcefully change the configurations.
+     * To query the instance type, perform the following steps:
      *
-     * >  Default value: **true**.
+     * 1.  In the [Overview](~~26350~~) topic, click the link in the **Reference** column corresponding to the instance type that you want to view.
+     * 2.  In the instance type table of the page that appears, find the instance type in the **InstanceClass** column.
      * @example redis.master.small.default
      *
      * @var string
@@ -72,7 +75,7 @@ class DescribePriceRequest extends Model
     public $instanceClass;
 
     /**
-     * @description The subscription period. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -81,7 +84,7 @@ class DescribePriceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The storage capacity of the instance. Unit: MB. You must set **InstanceClass** or **Capacity** to specify the instance type. We recommend that you use **InstanceClass** to specify the instance type.
+     * @description A JSON string that contains multiple instances. For more information, see [Description of the Instances parameter in the DescribePrice API operation](~~161811~~).
      *
      * @example Instances=[{"RegionId": "cn-hangzhou","ZoneId": "cn-hangzhou-b","InstanceClass": "redis.master.small.default","Period": "1","Quantity": "1","Capacity": "4096"}]
      *
@@ -90,7 +93,7 @@ class DescribePriceRequest extends Model
     public $instances;
 
     /**
-     * @description The discount amount of the order.
+     * @description The node type. Set the value to MASTER_SLAVE. This value indicates that the node type is master-replica.
      *
      * @example MASTER_SLAVE
      *
@@ -99,8 +102,12 @@ class DescribePriceRequest extends Model
     public $nodeType;
 
     /**
-     * @description Indicates whether the coupon was selected.
+     * @description Specifies whether to return parameters related to the order. Valid values:
      *
+     *   **false**: does not return parameters related to the order.
+     *   **true**: returns parameters related to the order.
+     *
+     * > The default value is **false**.
      * @example true
      *
      * @var string
@@ -108,7 +115,12 @@ class DescribePriceRequest extends Model
     public $orderParamOut;
 
     /**
-     * @description The service fees of the order.
+     * @description The order type. Valid values:
+     *
+     *   **BUY**: The order is used to purchase instances.
+     *   **UPGRADE**: The order is used to change the configurations of instances.
+     *   **RENEW**: The order is used to renew instances.
+     *   **CONVERT**: The order is used to change the billing methods of instances.
      *
      * @example BUY
      *
@@ -127,7 +139,7 @@ class DescribePriceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The extended information such as the promotional event ID and business information.
+     * @description The subscription duration. Unit: months. Valid values: **1**, 2, 3, 4, 5, 6, 7, 8, **9**, **12**, **24**, and **36**.
      *
      * @example 3
      *
@@ -136,8 +148,9 @@ class DescribePriceRequest extends Model
     public $period;
 
     /**
-     * @description The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
+     * @description The number of instances that you want to purchase. Valid values: **1** to **30**.
      *
+     * > The default value is **1**.
      * @example 1
      *
      * @var int
@@ -145,12 +158,8 @@ class DescribePriceRequest extends Model
     public $quantity;
 
     /**
-     * @description The billing method of the instance. Valid values:
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~61012~~) operation to query the most recent region list.
      *
-     *   **PostPaid**: pay-as-you-go
-     *   **PrePaid**: subscription
-     *
-     * >  Default value: **PostPaid**.
      * @example cn-hangzhou
      *
      * @var string
@@ -173,7 +182,7 @@ class DescribePriceRequest extends Model
     public $securityToken;
 
     /**
-     * @description The description of the coupon.
+     * @description The zone ID of the instance. You can call the [DescribeZones](~~94527~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-e
      *

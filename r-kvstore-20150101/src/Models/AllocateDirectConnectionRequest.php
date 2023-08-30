@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AllocateDirectConnectionRequest extends Model
 {
     /**
-     * @description The prefix of the private endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix can be 8 to 40 characters in length.
+     * @description The prefix of the private endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix must be 8 to 40 characters in length.
      *
      * @example redisdirect123
      *
@@ -18,7 +18,7 @@ class AllocateDirectConnectionRequest extends Model
     public $connectionString;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -37,6 +37,8 @@ class AllocateDirectConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The port number of the instance. Valid values: **1024** to **65535**. Default value: **6379**.
+     *
      * @example 6379
      *
      * @var string

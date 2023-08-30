@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class subOrder extends Model
 {
     /**
+     * @description The discount amount of the order.
+     *
      * @example 0.21
      *
      * @var string
@@ -17,6 +19,8 @@ class subOrder extends Model
     public $discountAmount;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1xxxxxxxxxxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class subOrder extends Model
     public $instanceId;
 
     /**
+     * @description The original price of the order.
+     *
      * @example 0.21
      *
      * @var string
@@ -31,11 +37,15 @@ class subOrder extends Model
     public $originalAmount;
 
     /**
+     * @description Details about promotion rule IDs.
+     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
+     * @description The transaction price of the order.
+     *
      * @example 10
      *
      * @var string

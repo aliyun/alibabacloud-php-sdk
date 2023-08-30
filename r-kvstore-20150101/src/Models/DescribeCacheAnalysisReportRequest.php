@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCacheAnalysisReportRequest extends Model
 {
     /**
-     * @description The maximum number of entries returned per page.
+     * @description The type of analytics. Set the value to **BigKey**.
      *
      * @example BigKey
      *
@@ -18,7 +18,7 @@ class DescribeCacheAnalysisReportRequest extends Model
     public $analysisType;
 
     /**
-     * @description The page number of the returned page.
+     * @description The date to query. You can query the report for one day each time. Specify the date in the *yyyy-MM-dd*Z format. The time must be in UTC.
      *
      * @example 2019-08-05Z
      *
@@ -27,9 +27,8 @@ class DescribeCacheAnalysisReportRequest extends Model
     public $date;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
+     * @description The ID of the instance.
      *
-     * >  Default value: **30**.
      * @example -bp1zxszhcgatnx****
      *
      * @var string
@@ -37,6 +36,9 @@ class DescribeCacheAnalysisReportRequest extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the child node in the cluster instance.
+     *
+     * > If this parameter is not specified, the analytics results of all child nodes in the instance are returned.
      * @example -bp1zxszhcgatnx****-db-0
      *
      * @var string
@@ -54,6 +56,9 @@ class DescribeCacheAnalysisReportRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return.
+     *
+     * > If the parameter value exceeds the maximum number of the returned pages, an empty large key list is returned.
      * @example 1
      *
      * @var int
@@ -61,8 +66,9 @@ class DescribeCacheAnalysisReportRequest extends Model
     public $pageNumbers;
 
     /**
-     * @description The ID of the request.
+     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**.
      *
+     * > The default value is **30**.
      * @example 30
      *
      * @var int

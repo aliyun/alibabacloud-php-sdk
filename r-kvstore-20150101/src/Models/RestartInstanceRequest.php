@@ -9,7 +9,17 @@ use AlibabaCloud\Tea\Model;
 class RestartInstanceRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The time when you want to restart the instance. Default value: Immediately. Valid values:
+     *
+     *   **Immediately**: immediately restarts the instance.
+     *   **MaintainTime**: restarts the instance during the maintenance window.
+     *
+     * Enumeration values:
+     *
+     *   0
+     *   1
+     *   Immediately
+     *   MaintainTime
      *
      * @example Immediately
      *
@@ -52,6 +62,12 @@ class RestartInstanceRequest extends Model
     public $securityToken;
 
     /**
+     * @description Specifies whether to update the instance to the latest minor version when the instance is restarted. Valid values:
+     *
+     *   **true**: updates the minor version.
+     *   **false**: does not update the minor version.
+     *
+     * > The default value is **true**.
      * @example true
      *
      * @var bool

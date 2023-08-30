@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceConfigRequest extends Model
 {
     /**
+     * @description The configuration parameters of the instance in the JSON format.
+     *
+     * > For more information, see [Supported parameters](~~259681~~).
      * @example {"maxmemory-policy":"volatile-lru","zset-max-ziplist-entries":128,"zset-max-ziplist-value":64,"hash-max-ziplist-entries":512,"set-max-intset-entries":512}
      *
      * @var string
@@ -16,6 +19,8 @@ class ModifyInstanceConfigRequest extends Model
     public $config;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

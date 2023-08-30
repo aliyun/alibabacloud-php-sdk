@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceSSLResponseBody extends Model
 {
     /**
-     * @description The common name of the SSL certificate, which is the domain name for which you want to apply for the SSL certificate. The default value is the internal endpoint of the instance.
+     * @description The common name of the CA certificate. The default value is the internal endpoint of the instance.
      *
      * @example r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class DescribeInstanceSSLResponseBody extends Model
     public $certCommonName;
 
     /**
-     * @description Download URL for CA certificate.
+     * @description The download URL of the CA certificate.
      *
      * @example https://apsaradb-public.oss-ap-sout****-1.aliy****.com/ApsaraDB-CA-Chain.zip
      *
@@ -45,7 +45,7 @@ class DescribeInstanceSSLResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether SSL encryption is enabled. Valid values:
+     * @description The status of the TLS (SSL) encryption feature. Valid values:
      *
      *   **Enable**: SSL encryption is enabled.
      *   **Disable**: SSL encryption is disabled.
@@ -57,7 +57,7 @@ class DescribeInstanceSSLResponseBody extends Model
     public $SSLEnabled;
 
     /**
-     * @description The expiration time of the SSL certificate.
+     * @description The time when the CA certificate expires.
      *
      * @example 2020-08-05T09:05:53Z
      *

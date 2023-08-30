@@ -40,7 +40,7 @@ class DescribeParameterTemplatesResponseBody extends Model
     public $parameterCount;
 
     /**
-     * @description Redis
+     * @description Details of the returned parameters.
      *
      * @var parameters
      */

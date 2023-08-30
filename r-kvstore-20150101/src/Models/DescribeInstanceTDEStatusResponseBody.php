@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTDEStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 5D622714-AEDD-4609-9167-F5DDD3D1****
      *
      * @var string
@@ -16,7 +18,10 @@ class DescribeInstanceTDEStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeInstanceTDEStatus**.
+     * @description Indicates whether TDE is enabled. Valid values:
+     *
+     *   **Enabled**: TDE is enabled.
+     *   **Disable**: TDE is disabled.
      *
      * @example Enabled
      *

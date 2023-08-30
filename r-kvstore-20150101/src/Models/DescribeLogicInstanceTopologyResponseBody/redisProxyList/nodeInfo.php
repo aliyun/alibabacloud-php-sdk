@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The bandwidth throttling of the node. Unit: MB/s.
      *
      * @example 96
      *
@@ -18,7 +18,7 @@ class nodeInfo extends Model
     public $bandwidth;
 
     /**
-     * @description The detailed proxy information, including information about proxy nodes.
+     * @description The storage capacity of the node. Unit: MB.
      *
      * @example 5120
      *
@@ -27,7 +27,7 @@ class nodeInfo extends Model
     public $capacity;
 
     /**
-     * @description The ID of the instance whose topology information you want to query.
+     * @description The maximum number of connections.
      *
      * @example 320000
      *
@@ -36,7 +36,7 @@ class nodeInfo extends Model
     public $connection;
 
     /**
-     * @description Queries the logical topology of an ApsaraDB for Redis instance.
+     * @description The ID of the node.
      *
      * @example r-bp10noxlhcoim2****-proxy-3#542****
      *
@@ -45,7 +45,10 @@ class nodeInfo extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the node.
+     * @description The node type. Valid values:
+     *
+     *   **proxy**: proxy node
+     *   **db**: data node
      *
      * @example proxy
      *

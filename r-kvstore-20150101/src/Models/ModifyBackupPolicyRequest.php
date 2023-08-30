@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description Enables or disables the data flashback feature for the instance. Valid values:
+     *
+     *   **1**: enables the data flashback feature. Before you can use data flashback, you must make sure that AOF persistence is enabled for the instance (`appendonly` set to `yes`).
+     *   **0** (default): disables the data flashback feature.
+     *
+     * > This parameter is available only for Tair DRAM-based and persistent memory-optimized instances. For more information, see [Data flashback](~~443784~~).
      * @example 1
      *
      * @var int
@@ -16,6 +22,8 @@ class ModifyBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -33,6 +41,17 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The days of the week to back up data. Valid values:
+     *
+     *   **Monday**: every Monday
+     *   **Tuesday**: every Tuesday
+     *   **Wednesday**: every Wednesday
+     *   **Thursday**: every Thursday
+     *   **Friday**: every Friday
+     *   **Saturday**: every Saturday
+     *   **Sunday**: every Sunday
+     *
+     * >  Separate multiple options with commas (,).
      * @example Tuesday
      *
      * @var string
@@ -40,6 +59,9 @@ class ModifyBackupPolicyRequest extends Model
     public $preferredBackupPeriod;
 
     /**
+     * @description The time range to back up data. Specify the time in the ISO 8601 standard in the *HH:mm*Z-*HH:mm*Z format. The time must be in UTC.
+     *
+     * >  The beginning and end of the time range must be on the hour. The duration must be an hour.
      * @example 07:00Z-08:00Z
      *
      * @var string

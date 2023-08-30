@@ -16,11 +16,15 @@ class DescribeBackupsResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
+     * @description Details of the backup files.
+     *
      * @var backups
      */
     public $backups;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -28,6 +32,8 @@ class DescribeBackupsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned on each page.
+     *
      * @example 30
      *
      * @var int
@@ -35,6 +41,8 @@ class DescribeBackupsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 963C20F0-7CE1-4591-AAF3-6F3CD1CE****
      *
      * @var string
@@ -42,6 +50,8 @@ class DescribeBackupsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of backup files that were returned.
+     *
      * @example 5
      *
      * @var int

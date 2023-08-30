@@ -61,11 +61,12 @@ class SwitchNetworkRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the VPC to which you want to switch. You can call the [DescribeVpcs](~~35739~~) operation to query VPC IDs.
+     * @description The network type to which you want to switch. Set the value to **VPC**.
      *
-     * >
-     *   The VPC and the ApsaraDB for Redis instance must be deployed in the same region.
-     *   After you set this parameter, you must also set the **VSwitchId** parameter.
+     * Valid values:
+     *
+     *   CLASSIC
+     *   VPC
      *
      * @example VPC
      *

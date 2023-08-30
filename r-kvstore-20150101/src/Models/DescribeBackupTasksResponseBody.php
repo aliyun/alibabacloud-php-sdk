@@ -16,7 +16,7 @@ class DescribeBackupTasksResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
+     * @description The details of the backup tasks.
      *
      * @var backupJobs[]
      */

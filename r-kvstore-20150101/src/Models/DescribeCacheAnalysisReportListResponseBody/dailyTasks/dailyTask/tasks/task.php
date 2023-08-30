@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The ID of the child node in the cluster instance.
+     *
      * @example r-bp1zxszhcgatnx****-db-0
      *
      * @var string
@@ -16,6 +18,8 @@ class task extends Model
     public $nodeId;
 
     /**
+     * @description The start time of the offline key analytics task.
+     *
      * @example 2019-08-01T19:08:49Z
      *
      * @var string
@@ -23,7 +27,10 @@ class task extends Model
     public $startTime;
 
     /**
-     * @description The ID of the child node in the cluster instance.
+     * @description The state of the offline key analytics task. Valid values:
+     *
+     *   **success**
+     *   **running**
      *
      * @example success
      *
@@ -32,6 +39,8 @@ class task extends Model
     public $status;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 156465****
      *
      * @var string

@@ -17,6 +17,8 @@ class DescribeZonesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The queried zones.
+     *
      * @var zones
      */
     public $zones;

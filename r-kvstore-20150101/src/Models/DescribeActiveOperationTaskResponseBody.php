@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskResponseBody extends Model
 {
     /**
-     * @description The time when the system performs the switchover operation. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     * @description The O\&M tasks of the instance.
      *
      * @var items[]
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHistoryTasksRequest extends Model
 {
     /**
+     * @description The minimum execution duration of a task. This parameter is used to filter tasks whose execution duration is longer than the minimum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeHistoryTasksRequest extends Model
     public $fromExecTime;
 
     /**
+     * @description The beginning of the time range to query. Only tasks that have a start time later than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The start time can be up to 30 days earlier than the current time. If you set this parameter to a time more than 30 days earlier than the current time, this time is automatically converted to a time that is exactly 30 days earlier than the current time.
+     *
      * @example 2022-01-02T11:31:03Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeHistoryTasksRequest extends Model
     public $fromStartTime;
 
     /**
+     * @description The instance ID. Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs. This parameter is empty by default, which indicates that you can specify an unlimited number of instance IDs.
+     *
      * @example r-uf62br2491p5l****
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeHistoryTasksRequest extends Model
     public $instanceId;
 
     /**
+     * @description Set the value to Instance.
+     *
      * @example Instance
      *
      * @var string
@@ -37,6 +45,8 @@ class DescribeHistoryTasksRequest extends Model
     public $instanceType;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class DescribeHistoryTasksRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: 10 to 100. Default value: 10.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +63,8 @@ class DescribeHistoryTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the pending task. You can call the [DescribeRegions](https://next.api.aliyun.com/document/R-kvstore/2015-01-01/DescribeRegions) operation to query the most recent region list.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -73,6 +87,17 @@ class DescribeHistoryTasksRequest extends Model
     public $securityToken;
 
     /**
+     * @description The task status. Valid values:
+     *
+     *   Scheduled
+     *   Running
+     *   Succeed
+     *   Failed
+     *   Cancelling
+     *   Canceled
+     *   Waiting
+     *
+     * Separate multiple states with commas (,). This parameter is empty by default, which indicates that tasks in all states are queried.
      * @example Scheduled
      *
      * @var string
@@ -80,6 +105,8 @@ class DescribeHistoryTasksRequest extends Model
     public $status;
 
     /**
+     * @description The task ID. Separate multiple task IDs with commas (,). You can specify up to 30 task IDs. This parameter is empty by default, which indicates that you can specify an unlimited number of task IDs.
+     *
      * @example t-83br18hloy3faf****
      *
      * @var string
@@ -87,6 +114,8 @@ class DescribeHistoryTasksRequest extends Model
     public $taskId;
 
     /**
+     * @description The task type. Separate multiple task types with commas (,). You can specify up to 30 task types. This parameter is empty by default, which indicates that you can specify an unlimited number of task types.
+     *
      * @example ModifyInsSpec
      *
      * @var string
@@ -94,6 +123,8 @@ class DescribeHistoryTasksRequest extends Model
     public $taskType;
 
     /**
+     * @description The maximum execution duration of a task. This parameter is used to filter tasks whose execution duration is shorter than or equal to the maximum execution duration. Unit: seconds. The default value is 0, which indicates that no limit is imposed.
+     *
      * @example 0
      *
      * @var int
@@ -101,6 +132,8 @@ class DescribeHistoryTasksRequest extends Model
     public $toExecTime;
 
     /**
+     * @description The end of the time range to query. Only tasks that have a start time earlier than or equal to the time specified by this parameter are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
+     *
      * @example 2022-03-02T11:31:03Z
      *
      * @var string

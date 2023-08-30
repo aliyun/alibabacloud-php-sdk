@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description Specifies whether to remove all tags from the instance. Default value: false. Valid values:
+     * @description Specifies whether to remove all tags from the instance. Valid values:
      *
      *   **true**: removes all tags from the instance.
-     *   **false**: does not remove all tags from the instance.
+     *   **false** (default): does not remove all tags from the instance.
      *
      * > If you specify both this parameter and the **TagKey.N** parameter, this parameter does not take effect.
      * @example false

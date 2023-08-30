@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class templateRecord extends Model
 {
     /**
-     * @description The number of parameters that are supported by the instance.
+     * @description The check code that indicates the valid values of the parameter.
      *
      * @example [yes|no]
      *
@@ -18,7 +18,10 @@ class templateRecord extends Model
     public $checkingCode;
 
     /**
-     * @description DescribeParameterTemplates
+     * @description Indicates whether the parameter can be reset. Valid values:
+     *
+     *   **true**: The parameter can be reset.
+     *   **false**: The parameter cannot be reset.
      *
      * @example true
      *
@@ -27,7 +30,10 @@ class templateRecord extends Model
     public $forceModify;
 
     /**
-     * @description Queries the parameters and default values of an ApsaraDB for Redis instance that runs a specific major version in a specific architecture.
+     * @description Indicates whether a restart of the instance is required after the parameter is reset. Valid values:
+     *
+     *   **true**: After the parameter is reset, you must restart the instance to make the new value of the parameter take effect.
+     *   **false**: After the parameter is reset, the new value of the parameter immediately takes effect. You do not need to restart the instance.
      *
      * @example false
      *
@@ -36,12 +42,14 @@ class templateRecord extends Model
     public $forceRestart;
 
     /**
+     * @description The description of the parameter.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
-     * @description 5.0
+     * @description The name of the parameter. For more information about the parameters and the parameter settings, see [Parameters](~~259681~~).
      *
      * @example appendonly
      *
@@ -50,9 +58,8 @@ class templateRecord extends Model
     public $parameterName;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
+     * @description The default value of the parameter.
      *
-     * >  You can also query the ID of a resource group in the Resource Management console. For more information, see [View the basic information of a resource group](~~151181~~).
      * @example yes
      *
      * @var string

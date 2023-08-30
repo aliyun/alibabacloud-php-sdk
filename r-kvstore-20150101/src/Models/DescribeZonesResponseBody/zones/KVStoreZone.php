@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class KVStoreZone extends Model
 {
     /**
+     * @description Indicates whether ApsaraDB for Redis instances can be created in the current zone. Valid values:
+     *
+     *   **true**: ApsaraDB for Redis instances cannot be created in the current zone.
+     *   **false**: ApsaraDB for Redis instances can be created in the current zone.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $disabled;
 
     /**
+     * @description Indicates whether the zone is managed by ApsaraDB RDS. The return value of this parameter is **true** in ApsaraDB for Redis.
+     *
      * @example true
      *
      * @var bool
@@ -21,6 +30,8 @@ class KVStoreZone extends Model
     public $isRds;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-huhehaote
      *
      * @var string
@@ -28,6 +39,11 @@ class KVStoreZone extends Model
     public $regionId;
 
     /**
+     * @description Indicates whether the network type of the instance can be changed from the classic network to Virtual Private Cloud (VPC). Valid values:
+     *
+     *   **true**: The network type of the instance can be changed from the classic network to VPC.
+     *   **false**: The network type of the instance cannot be changed from the classic network to VPC.
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +51,8 @@ class KVStoreZone extends Model
     public $switchNetwork;
 
     /**
+     * @description The ID of the zone within the specified region.
+     *
      * @example cn-huhehaote-b
      *
      * @var string
@@ -42,6 +60,8 @@ class KVStoreZone extends Model
     public $zoneId;
 
     /**
+     * @description The name of the zone within the specified region.
+     *
      * @var string
      */
     public $zoneName;

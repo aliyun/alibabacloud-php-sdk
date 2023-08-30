@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEncryptionKeyListRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeEncryptionKeyList**.
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *

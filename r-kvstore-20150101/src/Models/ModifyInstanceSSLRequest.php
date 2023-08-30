@@ -38,7 +38,11 @@ class ModifyInstanceSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to enable TLS (SSL) encryption. Valid values:
+     *
+     *   **Disable**: disables SSL encryption.
+     *   **Enable**: enables SSL encryption.
+     *   **Update**: updates the SSL certificate.
      *
      * @example Enable
      *

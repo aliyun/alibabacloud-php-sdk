@@ -22,7 +22,7 @@ class DescribeIntranetAttributeResponseBody extends Model
     public $autoRenewal;
 
     /**
-     * @description The time when the extra internal bandwidth that you purchased expires. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The expiration time of the purchased bandwidth. The time follows the ISO 8601 standard in the *yyyy-MM-dd* T *HH:mm:ss* Z format.
      *
      * > If no extra internal bandwidth is purchased, this parameter is not returned.
      * @example 2021-03-06T16:00:00Z
@@ -32,6 +32,8 @@ class DescribeIntranetAttributeResponseBody extends Model
     public $bandwidthExpireTime;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $bandwidthPrePaid;
@@ -47,8 +49,12 @@ class DescribeIntranetAttributeResponseBody extends Model
     public $expireTime;
 
     /**
-     * @description Does the instance have unexpired prepaid bandwidth package, value:
-     * - false
+     * @description Specifies whether the instance has unexpired bandwidth plans. Valid values:
+     *
+     *   **true**: The instance has unexpired bandwidth plans.
+     *   **false**: The instance does not have unexpired bandwidth plans.
+     *
+     * > If no extra internal bandwidth is purchased, this parameter is not returned.
      * @example true
      *
      * @var bool

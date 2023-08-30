@@ -56,6 +56,8 @@ class DescribeAvailableResourceRequest extends Model
     public $instanceId;
 
     /**
+     * @example professional
+     *
      * @var string
      */
     public $instanceScene;

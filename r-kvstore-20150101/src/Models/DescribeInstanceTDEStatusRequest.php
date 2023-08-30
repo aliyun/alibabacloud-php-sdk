@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceTDEStatusRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the ApsaraDB for Redis instance. You can call the [DescribeInstances](~~60933~~) operation to query instance IDs.
      *
      * @example r-bp1zxszhcgatnx****
      *

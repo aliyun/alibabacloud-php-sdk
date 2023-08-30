@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @description The ID of the backup file.
+     *
      * @example 11611111
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeBackupsRequest extends Model
     public $backupId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+     *
      * @example 2019-03-14T18:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeBackupsRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the instance whose backup files you want to query.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -30,6 +36,12 @@ class DescribeBackupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description Specifies whether to enable append-only files (AOFs) persistence. Valid values:
+     *
+     *   **0**: no
+     *   **1**: yes
+     *
+     * >  The default value is **0**.
      * @example 1
      *
      * @var string
@@ -47,6 +59,8 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -54,6 +68,8 @@ class DescribeBackupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 30, 50, 100, 200, and 300.
+     *
      * @example 30
      *
      * @var int
@@ -76,6 +92,8 @@ class DescribeBackupsRequest extends Model
     public $securityToken;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     *
      * @example 2019-03-11T10:00Z
      *
      * @var string

@@ -233,6 +233,11 @@ class CreateInstanceRequest extends Model
     public $ownerId;
 
     /**
+     * @var string
+     */
+    public $paramGroupId;
+
+    /**
      * @description The password that is used to connect to the instance. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and specific special characters. These special characters include `! @ # $ % ^ & * ( ) _ + - =`
      *
      * @example Pass!123456
@@ -416,6 +421,7 @@ class CreateInstanceRequest extends Model
         'nodeType'               => 'NodeType',
         'ownerAccount'           => 'OwnerAccount',
         'ownerId'                => 'OwnerId',
+        'paramGroupId'           => 'ParamGroupId',
         'password'               => 'Password',
         'period'                 => 'Period',
         'port'                   => 'Port',
@@ -512,6 +518,9 @@ class CreateInstanceRequest extends Model
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->paramGroupId) {
+            $res['ParamGroupId'] = $this->paramGroupId;
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
@@ -656,6 +665,9 @@ class CreateInstanceRequest extends Model
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ParamGroupId'])) {
+            $model->paramGroupId = $map['ParamGroupId'];
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateCacheAnalysisTaskRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeInstances](~~60933~~) operation to query the ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string

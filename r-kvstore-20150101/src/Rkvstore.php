@@ -346,6 +346,9 @@ class Rkvstore extends OpenApiClient
         if (!Utils::isUnset($request->sourceBiz)) {
             $query['SourceBiz'] = $request->sourceBiz;
         }
+        if (!Utils::isUnset($request->vSwitchId)) {
+            $query['VSwitchId'] = $request->vSwitchId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -379,7 +382,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance.
+     * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](~~146901~~).
+     *   * To call this operation, the instance must meet the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis cluster instance.
+     *   * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
+     *   * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](~~61005~~) operation to change the network type to VPC.
+     *   * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](~~96194~~) operation to disable it.
+     *   * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](~~183151~~).
      *   *
      * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -433,7 +442,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance.
+     * In direct connection mode, you can use private endpoints to bypass proxy nodes and connect to ApsaraDB for Redis instances from clients in the same manner as you connect to native Redis clusters. The direct connection mode can reduce communication overheads and accelerate the response speed. For more information, see [Enable the direct connection mode](~~146901~~).
+     *   * To call this operation, the instance must meet the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis cluster instance.
+     *   * *   The instance is a Community Edition instance that runs Redis 4.0 or 5.0, or an Enhanced Edition instance (Tair) that runs Redis 5.0.
+     *   * *   The instance is deployed in a virtual private cloud (VPC). If the instance is deployed in the classic network, call the [SwitchNetwork](~~61005~~) operation to change the network type to VPC.
+     *   * *   SSL encryption is disabled for the instance. If SSL encryption is enabled, you can call the [ModifyInstanceSSL](~~96194~~) operation to disable it.
+     *   * *   The vSwitch to which the instance is connected has sufficient IP addresses to be allocated. For more information, see [Obtain the number of available IP addresses in the vSwitch to which an ApsaraDB for Redis instance is connected](~~183151~~).
      *   *
      * @param AllocateDirectConnectionRequest $request AllocateDirectConnectionRequest
      *
@@ -515,7 +530,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **CheckCloudResourceAuthorized**.
+     * *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](~~265913~~).
+     *   * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](~~302337~~) operation to enable TDE.
      *   *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -566,7 +582,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **CheckCloudResourceAuthorized**.
+     * *   For information about Transparent Data Encryption (TDE) and the usage notes of TDE, see [Enable TDE](~~265913~~).
+     *   * *   If the ApsaraDB for Redis instance is authorized to use KMS, you can call the [ModifyInstanceTDE](~~302337~~) operation to enable TDE.
      *   *
      * @param CheckCloudResourceAuthorizedRequest $request CheckCloudResourceAuthorizedRequest
      *
@@ -580,7 +597,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The name of the account.
+     * >
+     *   * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
+     *   * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
+     *   * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
+     *   * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](~~92665~~).
      *   *
      * @param CreateAccountRequest $request CreateAccountRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -643,7 +664,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The name of the account.
+     * >
+     *   * *   This operation is supported only for ApsaraDB for Redis instances that run Redis 4.0 or later.
+     *   * *   The ApsaraDB for Redis instance for which you want to call this operation must be in the running state.
+     *   * *   You can create up to 18 accounts for an ApsaraDB for Redis instance.
+     *   * You can also create an account in the ApsaraDB for Redis console. For more information, see [Manage database accounts](~~92665~~).
      *   *
      * @param CreateAccountRequest $request CreateAccountRequest
      *
@@ -657,7 +682,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the backup job.
+     * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](~~43886~~).
      *   *
      * @param CreateBackupRequest $request CreateBackupRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -705,7 +730,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the backup job.
+     * You can also back up an instance in the ApsaraDB for Redis console. For more information, see [Backup and recovery](~~43886~~).
      *   *
      * @param CreateBackupRequest $request CreateBackupRequest
      *
@@ -719,7 +744,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **CreateCacheAnalysisTask**.
+     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The instance is a Community Edition instance or an Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
+     *   * This feature is unavailable for cloud disk-based cluster instances. For more information, see [Comparison between ApsaraDB for Redis instances that use local disks and those that use cloud disks](~~188068~~).
+     *   * *   The instance is of the latest minor version. For more information about whether you must update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
+     *   * After you call this operation, you can call the [DescribeCacheAnalysisReport](~~128808~~) operation to view the analytic results.
      *   *
      * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -767,7 +798,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **CreateCacheAnalysisTask**.
+     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The instance is a Community Edition instance or an Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
+     *   * This feature is unavailable for cloud disk-based cluster instances. For more information, see [Comparison between ApsaraDB for Redis instances that use local disks and those that use cloud disks](~~188068~~).
+     *   * *   The instance is of the latest minor version. For more information about whether you must update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~)
+     *   * After you call this operation, you can call the [DescribeCacheAnalysisReport](~~128808~~) operation to view the analytic results.
      *   *
      * @param CreateCacheAnalysisTaskRequest $request CreateCacheAnalysisTaskRequest
      *
@@ -1000,6 +1037,9 @@ class Rkvstore extends OpenApiClient
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->paramGroupId)) {
+            $query['ParamGroupId'] = $request->paramGroupId;
         }
         if (!Utils::isUnset($request->password)) {
             $query['Password'] = $request->password;
@@ -1712,10 +1752,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
-     *   * Before you call this API operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-     *   * *   The instance is an instance of the ApsaraDB for Redis Community Edition or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair). For more information, see [Performance-enhanced instances](~~126164~~).
-     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
+     * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
+     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
+     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest minor version.
      *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
      *   *
      * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
@@ -1767,10 +1807,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * >  You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
-     *   * Before you call this API operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
-     *   * *   The instance is an instance of the ApsaraDB for Redis Community Edition or a performance-enhanced instance of the ApsaraDB for Redis Enhanced Edition (Tair). For more information, see [Performance-enhanced instances](~~126164~~).
-     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
+     * > You can call the [ModifyAuditLogConfig](~~130206~~) operation to enable or disable the audit log feature for an ApsaraDB for Redis instance. For more information, see [Enable the new audit log feature](~~102015~~).
+     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
+     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest minor version.
      *   * *   The audit log feature is enabled for the instance. For more information, see [ModifyAuditLogConfig](~~130206~~).
      *   *
      * @param DescribeAuditLogConfigRequest $request DescribeAuditLogConfigRequest
@@ -2092,10 +2132,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
-     * @param RuntimeOptions         $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeBackups\\&type=RPC\\&version=2015-01-01).
+     *   *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackupsWithOptions($request, $runtime)
     {
@@ -2156,9 +2199,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param DescribeBackupsRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=R-kvstore\\&api=DescribeBackups\\&type=RPC\\&version=2015-01-01).
+     *   *
+     * @param DescribeBackupsRequest $request DescribeBackupsRequest
      *
-     * @return DescribeBackupsResponse
+     * @return DescribeBackupsResponse DescribeBackupsResponse
      */
     public function describeBackups($request)
     {
@@ -2168,7 +2214,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The number of entries returned on the current page.
+     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
      *   *
      * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -2231,7 +2280,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The number of entries returned on the current page.
+     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
      *   *
      * @param DescribeCacheAnalysisReportRequest $request DescribeCacheAnalysisReportRequest
      *
@@ -2245,7 +2297,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **DescribeCacheAnalysisReportList**.
+     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
      *   *
      * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
      * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
@@ -2305,7 +2360,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **DescribeCacheAnalysisReportList**.
+     * > ApsaraDB for Redis has optimized the cache analytics feature to improve user experience. This API operation is phased out. You can use the new API operation for cache analytics. For more information, see [API operations for cache analytics are upgraded](~~186019~~).
+     *   * Before you call this operation, make sure that the instance meets the following requirements:
+     *   * *   The engine version of the instance is Redis 4.0 or later.
+     *   * *   The instance uses the latest minor version. For more information about how to check whether to update the minor version of an instance, see [How do I check whether the minor version of an ApsaraDB for Redis instance is the latest?](~~129203~~).
      *   *
      * @param DescribeCacheAnalysisReportListRequest $request DescribeCacheAnalysisReportListRequest
      *
@@ -2604,7 +2662,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * *   You can specify a custom key when you call the [ModifyInstanceTDE](~~302337~~) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](~~28947~~) operation of Key Management Service (KMS).
+     *   * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
      *   *
      * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -2652,7 +2711,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * *   You can specify a custom key when you call the [ModifyInstanceTDE](~~302337~~) operation to enable Transparent Data Encryption (TDE). You can call the DescribeEncryptionKeyList operation to query the custom keys that are in use. To create a custom key, you can call the [CreateKey](~~28947~~) operation of Key Management Service (KMS).
+     *   * *   For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
      *   *
      * @param DescribeEncryptionKeyListRequest $request DescribeEncryptionKeyListRequest
      *
@@ -3252,7 +3312,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
+     *   * >  You can call the [ModifyInstanceTDE](~~302337~~) to enable or disable TDE.
      *   *
      * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -3300,7 +3361,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * For more information about TDE and the usage notes of TDE, see [Enable TDE](~~265913~~).
+     *   * >  You can call the [ModifyInstanceTDE](~~302337~~) to enable or disable TDE.
      *   *
      * @param DescribeInstanceTDEStatusRequest $request DescribeInstanceTDEStatusRequest
      *
@@ -3606,7 +3668,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The maximum number of connections.
+     * This parameter is supported only for cluster and read/write splitting instances.
      *   *
      * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
      * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
@@ -3654,7 +3716,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The maximum number of connections.
+     * This parameter is supported only for cluster and read/write splitting instances.
      *   *
      * @param DescribeLogicInstanceTopologyRequest $request DescribeLogicInstanceTopologyRequest
      *
@@ -4835,10 +4897,13 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushInstanceForDBRequest $request
-     * @param RuntimeOptions            $runtime
+     * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](~~38688~~)
+     *   * >  This operation is available only for cloud-native instances that use cloud disks.
+     *   *
+     * @param FlushInstanceForDBRequest $request FlushInstanceForDBRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return FlushInstanceForDBResponse
+     * @return FlushInstanceForDBResponse FlushInstanceForDBResponse
      */
     public function flushInstanceForDBWithOptions($request, $runtime)
     {
@@ -4884,9 +4949,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param FlushInstanceForDBRequest $request
+     * Each ApsaraDB for Redis or Tair instance can contain up to 256 databases. Each database does not have a separate memory usage limit. The memory capacity that a database can use is subject to the total memory limit of the instance. You can execute the `SELECT` statement to switch between databases. For more information, see [What is the size of each database on an ApsaraDB for Redis instance, and how can I choose databases?](~~38688~~)
+     *   * >  This operation is available only for cloud-native instances that use cloud disks.
+     *   *
+     * @param FlushInstanceForDBRequest $request FlushInstanceForDBRequest
      *
-     * @return FlushInstanceForDBResponse
+     * @return FlushInstanceForDBResponse FlushInstanceForDBResponse
      */
     public function flushInstanceForDB($request)
     {
@@ -5306,7 +5374,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 11111,22222.
+     * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](~~187022~~).
      *   *
      * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -5357,7 +5425,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * 11111,22222.
+     * You can receive notifications for ApsaraDB for Redis events such as instance migration and version upgrade by text message, phone call, email, internal message, or by using the ApsaraDB for Redis console. You can also change the scheduled switchover time of a task in the ApsaraDB for Redis console. For more information, see [Query or manage pending events](~~187022~~).
      *   *
      * @param ModifyActiveOperationTaskRequest $request ModifyActiveOperationTaskRequest
      *
@@ -5371,10 +5439,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Specifies whether to enable the audit log feature. Default value: true. Valid values:
-     *   * *   **true**: enables the audit log feature.
-     *   * *   **false**: disables the audit log feature.
-     *   * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of the audit log feature.
+     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
+     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
      *   *
      * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -5428,10 +5496,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * Specifies whether to enable the audit log feature. Default value: true. Valid values:
-     *   * *   **true**: enables the audit log feature.
-     *   * *   **false**: disables the audit log feature.
-     *   * > If the instance uses the [cluster architecture](~~52228~~) or [read/write splitting architecture](~~62870~~), the audit log feature is enabled or disabled for both the data nodes and proxy nodes. You cannot separately enable the audit log feature for the data nodes or proxy nodes.
+     * Before you call this operation, make sure that you understand the billing methods and [pricing](~~54532~~) of the audit log feature.
+     *   * Before you call this operation, make sure that the ApsaraDB for Redis instance meets the following requirements:
+     *   * *   The instance is an ApsaraDB for Redis Community Edition instance or ApsaraDB for Redis Enhanced Edition (Tair) [DRAM-based instance](~~126164~~).
+     *   * *   The engine version of the instance is Redis 4.0 or later, and the latest minor version is used. You can call the [DescribeEngineVersion](~~95268~~) operation to check whether the instance uses the latest major version and minor version.
      *   *
      * @param ModifyAuditLogConfigRequest $request ModifyAuditLogConfigRequest
      *
@@ -5586,7 +5654,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * uW8+nsrp.
+     * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](~~43874~~).
      *   *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -5643,7 +5711,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * uW8+nsrp.
+     * You can also modify the information of an instance in the ApsaraDB for Redis console. For more information, see [Change or reset the password](~~43874~~).
      *   *
      * @param ModifyInstanceAttributeRequest $request ModifyInstanceAttributeRequest
      *
@@ -5786,10 +5854,12 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMaintainTimeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](~~55252~~).
+     *   *
+     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTimeWithOptions($request, $runtime)
     {
@@ -5838,9 +5908,11 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * @param ModifyInstanceMaintainTimeRequest $request
+     * You can also modify the maintenance window of an instance in the ApsaraDB for Redis console. For more information, see [Set a maintenance window](~~55252~~).
+     *   *
+     * @param ModifyInstanceMaintainTimeRequest $request ModifyInstanceMaintainTimeRequest
      *
-     * @return ModifyInstanceMaintainTimeResponse
+     * @return ModifyInstanceMaintainTimeResponse ModifyInstanceMaintainTimeResponse
      */
     public function modifyInstanceMaintainTime($request)
     {
@@ -5850,7 +5922,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](~~101764~~).
      *   *
      * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -5904,7 +5976,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * r-bp1zxszhcgatnx****.
+     * For more information about how to perform the corresponding operation in the console, see [Upgrade the major version](~~101764~~).
      *   *
      * @param ModifyInstanceMajorVersionRequest $request ModifyInstanceMajorVersionRequest
      *
@@ -5918,7 +5990,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance.
+     * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](~~56450~~).
+     *   * >
+     *   * *   Before you call this operation, you can call the [DescribeEngineVersion](~~95268~~) operation to query the minor version of the current instance.
+     *   * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
      *   *
      * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -5972,7 +6047,10 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the instance.
+     * The procedure to update the minor version of an instance varies based on types of ApsaraDB for Redis instances. For more information, see [Upgrade the minor version](~~56450~~).
+     *   * >
+     *   * *   Before you call this operation, you can call the [DescribeEngineVersion](~~95268~~) operation to query the minor version of the current instance.
+     *   * *   When you switch your workloads over from the original instance to a new instance or from the master node to the replica node in the original instance, you may experience disconnections that last a few seconds. The original instance stays in the read-only state within 60 seconds until all data is synchronized. We recommend that you upgrade the original instance during off-peak hours and make sure that your application is configured to automatically reconnect to the original instance.
      *   *
      * @param ModifyInstanceMinorVersionRequest $request ModifyInstanceMinorVersionRequest
      *
@@ -6191,7 +6269,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the promotional event or business information.
+     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](~~26353~~).
      *   *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -6281,7 +6359,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the promotional event or business information.
+     * >  For more information about the procedure, impacts, limits, and fees of this operation, see [Change the configurations of an instance](~~26353~~).
      *   *
      * @param ModifyInstanceSpecRequest $request ModifyInstanceSpecRequest
      *
@@ -6369,7 +6447,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+     *   * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](~~85168~~).
      *   *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
@@ -6420,7 +6499,8 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * When the password-free access feature is enabled, Elastic Compute Service (ECS) instances in the same virtual private cloud (VPC) can connect to the ApsaraDB for Redis instance without a password. You can also use the username and password to connect to the ApsaraDB for Redis instance.
+     *   * > The ApsaraDB for Redis instance is deployed in a VPC. For more information, see [Enable password-free access](~~85168~~).
      *   *
      * @param ModifyInstanceVpcAuthModeRequest $request ModifyInstanceVpcAuthModeRequest
      *
@@ -6574,7 +6654,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter are added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
      *   *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
@@ -6625,7 +6705,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The ID of the request.
+     * > After you call this operation, the security groups that are added to the whitelists of the ApsaraDB for Redis instance are deleted, and the security group specified by the **SecurityGroupId** parameter are added to the whitelists. For more information about how to reset security groups in the ApsaraDB for Redis console, see [Add security groups](~~148267~~).
      *   *
      * @param ModifySecurityGroupConfigurationRequest $request ModifySecurityGroupConfigurationRequest
      *
@@ -6639,7 +6719,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The IP addresses in the whitelist group. Up to 1,000 IP addresses can be specified in each whitelist. Separate multiple IP addresses with a comma (,). You can add 0.0.0.0/0, IP addresses such as 10.23.12.24, and Classless Inter-Domain Routing (CIDR) blocks such as 10.23.12.24/24 to the whitelist group. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix in the IP addresses. The prefix length ranges from 1 to 32.
+     * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](~~56464~~).
      *   *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -6699,7 +6779,7 @@ class Rkvstore extends OpenApiClient
     }
 
     /**
-     * The IP addresses in the whitelist group. Up to 1,000 IP addresses can be specified in each whitelist. Separate multiple IP addresses with a comma (,). You can add 0.0.0.0/0, IP addresses such as 10.23.12.24, and Classless Inter-Domain Routing (CIDR) blocks such as 10.23.12.24/24 to the whitelist group. In CIDR block 10.23.12.24/24, /24 specifies the length of the prefix in the IP addresses. The prefix length ranges from 1 to 32.
+     * You can also modify the whitelists of an instance in the ApsaraDB for Redis console. For more information, see [Configure a whitelist for an instance](~~56464~~).
      *   *
      * @param ModifySecurityIpsRequest $request ModifySecurityIpsRequest
      *

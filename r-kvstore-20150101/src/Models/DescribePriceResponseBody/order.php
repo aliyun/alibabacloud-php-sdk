@@ -11,19 +11,14 @@ use AlibabaCloud\Tea\Model;
 class order extends Model
 {
     /**
-     * @description Queries the fees that you must pay when you create, upgrade, or renew an ApsaraDB for Redis instance.
+     * @description Details about coupons.
      *
      * @var coupons
      */
     public $coupons;
 
     /**
-     * @description The order type. Valid values:
-     *
-     *   **BUY**
-     *   **UPGRADE**
-     *   **RENEW**
-     *   **CONVERT**
+     * @description The currency used for payment. A value of CNY is used when the order was generated on the China site (aliyun.com), and a value of USD is used when the order was generated on the international site (alibabacloud.com).
      *
      * @example CNY
      *
@@ -32,7 +27,7 @@ class order extends Model
     public $currency;
 
     /**
-     * @description The order information.
+     * @description The discount amount of the order.
      *
      * @example 0.21
      *
@@ -41,7 +36,7 @@ class order extends Model
     public $discountAmount;
 
     /**
-     * @description The name of the coupon.
+     * @description The service fees of the order.
      *
      * @example 0.1
      *
@@ -50,7 +45,7 @@ class order extends Model
     public $handlingFeeAmount;
 
     /**
-     * @description The coupon number.
+     * @description The original price of the order.
      *
      * @example 0.21
      *
@@ -59,12 +54,14 @@ class order extends Model
     public $originalAmount;
 
     /**
+     * @description Details about promotion rule IDs.
+     *
      * @var ruleIds
      */
     public $ruleIds;
 
     /**
-     * @description The ID of the request.
+     * @description The transaction price of the order.
      *
      * @example 10
      *

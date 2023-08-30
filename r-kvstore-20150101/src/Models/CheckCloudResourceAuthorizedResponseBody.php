@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedResponseBody extends Model
 {
     /**
-     * @description CheckCloudResourceAuthorized
+     * @description Indicates whether the instance is authorized to use KMS. Valid values:
+     *
+     *   **0**: The instance is authorized to use KMS.
+     *   **1**: The instance is not authorized to use KMS.
+     *   **2**: KMS is not activated. For more information, see [Activate KMS](~~153781~~).
      *
      * @example 1
      *
@@ -18,6 +22,8 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
     public $authorizationState;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A501A191-BD70-5E50-98A9-C2A486A82****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description The databases that are backed up. Default value: **all**, which indicates that all databases are backed up.
+     *
      * @example all
      *
      * @var string
@@ -16,6 +18,8 @@ class backup extends Model
     public $backupDBNames;
 
     /**
+     * @description The public download URL of the backup file.
+     *
      * @example https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
      *
      * @var string
@@ -23,6 +27,8 @@ class backup extends Model
     public $backupDownloadURL;
 
     /**
+     * @description The end time of the backup.
+     *
      * @example 2019-03-14T05:31:13Z
      *
      * @var string
@@ -30,6 +36,8 @@ class backup extends Model
     public $backupEndTime;
 
     /**
+     * @description The ID of the backup file.
+     *
      * @example 165*****50
      *
      * @var int
@@ -37,6 +45,9 @@ class backup extends Model
     public $backupId;
 
     /**
+     * @description The internal download URL of the backup file.
+     *
+     * >  You can download the backup file by using this URL from the Elastic Compute Service (ECS) instance that is connected to the ApsaraDB for Redis instance. The ECS instance and ApsaraDB for Redis instance must reside in the classic network or the same virtual private cloud (VPC) within the same region.
      * @example https://rdsbak-hk45-v2.oss-cn-hongkong.aliyuncs.com/********
      *
      * @var string
@@ -44,6 +55,8 @@ class backup extends Model
     public $backupIntranetDownloadURL;
 
     /**
+     * @description The ID of the backup task.
+     *
      * @example 24340
      *
      * @var int
@@ -51,6 +64,11 @@ class backup extends Model
     public $backupJobID;
 
     /**
+     * @description The backup method. Valid values:
+     *
+     *   **Logical**
+     *   **Physical**
+     *
      * @example Physical
      *
      * @var string
@@ -58,6 +76,11 @@ class backup extends Model
     public $backupMethod;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
      * @example Automated
      *
      * @var string
@@ -65,6 +88,8 @@ class backup extends Model
     public $backupMode;
 
     /**
+     * @description The size of the backup file.
+     *
      * @example 1024
      *
      * @var int
@@ -72,6 +97,8 @@ class backup extends Model
     public $backupSize;
 
     /**
+     * @description The start time of the backup.
+     *
      * @example 2019-03-14T05:28:50Z
      *
      * @var string
@@ -79,6 +106,11 @@ class backup extends Model
     public $backupStartTime;
 
     /**
+     * @description The state of the backup task. Valid values:
+     *
+     *   **Success**: The task is successful.
+     *   **Failed**: The task failed.
+     *
      * @example Success
      *
      * @var string
@@ -86,6 +118,11 @@ class backup extends Model
     public $backupStatus;
 
     /**
+     * @description The backup type of the backup file. Valid values:
+     *
+     *   **FullBackup**
+     *   **IncrementalBackup**
+     *
      * @example FullBackup
      *
      * @var string
@@ -93,6 +130,8 @@ class backup extends Model
     public $backupType;
 
     /**
+     * @description The major engine version of the instance.
+     *
      * @example 4.0
      *
      * @var string
@@ -100,6 +139,9 @@ class backup extends Model
     public $engineVersion;
 
     /**
+     * @description The node ID.
+     *
+     * >  If a standard instance is used, the instance ID is returned.
      * @example r-bp10noxlhcoim2****-db-1
      *
      * @var string

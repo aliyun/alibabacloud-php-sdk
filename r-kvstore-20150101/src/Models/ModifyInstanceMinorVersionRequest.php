@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMinorVersionRequest extends Model
 {
     /**
-     * @description The minor version to which you want to update. Default value: **latest_version**.
+     * @description The time when the minor version is updated. Valid values:
      *
+     *   **Immediately**: The minor version is immediately updated.
+     *   **MaintainTime**: The minor version is updated within the maintenance window.
+     *
+     * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example Immediately
      *
      * @var string
@@ -18,7 +22,7 @@ class ModifyInstanceMinorVersionRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -27,7 +31,7 @@ class ModifyInstanceMinorVersionRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyInstanceMinorVersion**.
+     * @description The minor version to which you want to update. Default value: **latest_version**.
      *
      * @example latest_version
      *

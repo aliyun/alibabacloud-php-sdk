@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountResponseBody extends Model
 {
     /**
+     * @description The name of the account.
+     *
      * @example demoaccount
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateAccountResponseBody extends Model
     public $acountName;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example r-bp1zxszhcgatnx****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreateAccountResponseBody extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ABAF95F6-35C1-4177-AF3A-70969EBD****
      *
      * @var string

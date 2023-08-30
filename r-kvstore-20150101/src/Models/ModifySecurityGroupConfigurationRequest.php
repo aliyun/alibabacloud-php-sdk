@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityGroupConfigurationRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ModifySecurityGroupConfiguration**.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *

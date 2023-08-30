@@ -28,7 +28,7 @@ class DescribeRoleZoneInfoRequest extends Model
     public $ownerId;
 
     /**
-     * @description The minor version of the node.
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeRoleZoneInfoRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeRoleZoneInfo**.
+     * @description The number of entries to return on each page. Valid values: **10**, **20**, and **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -46,11 +46,15 @@ class DescribeRoleZoneInfoRequest extends Model
     public $pageSize;
 
     /**
-     * @description The current bandwidth of the node, which consists of the default bandwidth and the increased bandwidth. Unit: MB/s.
+     * @description The type of the node to query. Default value: 1. Valid values:
      *
-     * >
-     *   You can call the [EnableAdditionalBandwidth](~~206173~~) operation to specify the increased bandwidth.
-     *   You can also use this parameter to calculate the increased bandwidth. For example, if the default bandwidth of the node is 96 MB/s and the returned value of this parameter is 100, the increased bandwidth is 4 MB/s.
+     *   **0**: proxy node
+     *
+     **
+     *
+     **Note**This parameter is supported only for cluster and read/write splitting instances.
+     *
+     *   **1**: data node
      *
      * @example 0
      *

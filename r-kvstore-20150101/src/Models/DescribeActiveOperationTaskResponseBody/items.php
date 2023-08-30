@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the O\&M task was created. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-07-15 23:59:59
      *
      * @var string
@@ -16,7 +18,7 @@ class items extends Model
     public $createdTime;
 
     /**
-     * @description Queries the information about operations and maintenance (O&M) tasks for an ApsaraDB for Redis instance.
+     * @description The engine type of the instance. The return value is **Redis**.
      *
      * @example redis
      *
@@ -25,7 +27,7 @@ class items extends Model
     public $dbType;
 
     /**
-     * @description The time when the O\&M task was modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     * @description The deadline before which the time to perform the O\&M task can be modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19 23:59:59
      *
@@ -34,6 +36,8 @@ class items extends Model
     public $deadline;
 
     /**
+     * @description The ID of the O\&M task.
+     *
      * @example 114111
      *
      * @var int
@@ -41,7 +45,7 @@ class items extends Model
     public $id;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the ApsaraDB for Redis instance.
      *
      * @example r-bp1lgal1sdvxrz****
      *
@@ -50,7 +54,7 @@ class items extends Model
     public $insName;
 
     /**
-     * @description The maximum number of entries that were returned per page.
+     * @description The time when the O\&M task was modified. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19 14:00:00
      *
@@ -59,12 +63,7 @@ class items extends Model
     public $modifiedTime;
 
     /**
-     * @description The type of the task. Valid values:
-     *
-     *   **rds_apsaradb_ha**: switchover between a master node and a replica node.
-     *   **rds_apsaradb_transfer**: instance migration task.
-     *   **rds_apsaradb_upgrade**: minor version upgrade.
-     *   **all**: all task types.
+     * @description The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
      *
      * @example 14:00:00
      *
@@ -73,6 +72,8 @@ class items extends Model
     public $prepareInterval;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hanghzou
      *
      * @var string
@@ -80,7 +81,7 @@ class items extends Model
     public $region;
 
     /**
-     * @description The page number of the returned page.
+     * @description The time when the O\&M task was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2018-07-19 10:00:00
      *
@@ -89,7 +90,14 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The required preparation period between the task start time and the switchover time. The time is displayed in the *HH:mm:ss* format.
+     * @description The state of the O\&M task. Valid values:
+     *
+     *   **2**: The task is waiting for users to specify a switchover time.
+     *   **3**: The task is waiting to be performed.
+     *   **4**: The task is being performed. If the task is in this state, the [ModifyActiveOperationTask](~~197384~~) operation cannot be called to modify the scheduled switchover time.
+     *   **5**: The task is performed.
+     *   **6**: The task fails.
+     *   **7**: The task is canceled.
      *
      * @example 5
      *
@@ -98,6 +106,8 @@ class items extends Model
     public $status;
 
     /**
+     * @description The time when the switchover operation was performed. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-07-19 14:00:00
      *
      * @var string
@@ -105,7 +115,12 @@ class items extends Model
     public $switchTime;
 
     /**
-     * @description The number of entries to return on each page. Specify a value greater than **10**. Default value: **30**.
+     * @description The type of the task. Valid values:
+     *
+     *   **rds_apsaradb_ha**: primary/secondary switchover
+     *   **rds_apsaradb_transfer**: instance migration
+     *   **rds_apsaradb_upgrade**: minor version update
+     *   **all**: all types
      *
      * @example rds_apsaradb_upgrade
      *

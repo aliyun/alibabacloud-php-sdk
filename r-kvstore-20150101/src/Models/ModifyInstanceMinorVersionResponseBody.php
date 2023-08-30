@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMinorVersionResponseBody extends Model
 {
     /**
-     * @description Upgrades the minor version of an ApsaraDB for Redis instance.
+     * @description The ID of the request.
      *
      * @example 28761557-0B33-41DF-AEEB-322DFF96****
      *

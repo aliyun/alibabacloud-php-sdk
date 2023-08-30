@@ -99,6 +99,11 @@ class AddShardingNodeRequest extends Model
      * @var string
      */
     public $sourceBiz;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
     protected $_name = [
         'autoPay'              => 'AutoPay',
         'businessInfo'         => 'BusinessInfo',
@@ -112,6 +117,7 @@ class AddShardingNodeRequest extends Model
         'securityToken'        => 'SecurityToken',
         'shardCount'           => 'ShardCount',
         'sourceBiz'            => 'SourceBiz',
+        'vSwitchId'            => 'VSwitchId',
     ];
 
     public function validate()
@@ -156,6 +162,9 @@ class AddShardingNodeRequest extends Model
         }
         if (null !== $this->sourceBiz) {
             $res['SourceBiz'] = $this->sourceBiz;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
         }
 
         return $res;
@@ -204,6 +213,9 @@ class AddShardingNodeRequest extends Model
         }
         if (isset($map['SourceBiz'])) {
             $model->sourceBiz = $map['SourceBiz'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
         }
 
         return $model;

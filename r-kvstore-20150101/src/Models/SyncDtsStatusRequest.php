@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SyncDtsStatusRequest extends Model
 {
     /**
-     * @description Disables configuration change for the instance. Valid values:
-     *
-     *   **0**: no
-     *   **1**: yes. If you attempt to modify the configurations of the instance, the system sends a prompt about the restriction.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -55,7 +52,10 @@ class SyncDtsStatusRequest extends Model
     public $securityToken;
 
     /**
-     * @description cn-hangzhou
+     * @description Disables configuration changes for the instance. Valid values:
+     *
+     *   **0**: does not disable configuration changes.
+     *   **1**: disables configuration changes. In this case, if you attempt to modify the configurations of the instance, the system informs you that the operation cannot be performed.
      *
      * @example 0
      *
@@ -64,8 +64,9 @@ class SyncDtsStatusRequest extends Model
     public $status;
 
     /**
-     * @description Disables the configuration change of an ApsaraDB for Redis instance before you use Data Transmission Service (DTS) to migrate or synchronize data of the instance. This prevents migration and synchronization task failures due to the configuration change.
+     * @description The ID of the DTS instance. You can view the ID in the [DTS console](https://dts.console.aliyun.com/).
      *
+     * > An ApsaraDB for Redis instance may be involved in multiple data migration or synchronization tasks. If you want to cancel the restriction on the instance, you can specify this parameter to prevent repeated operation calls.
      * @example dtss0611o8vv90****
      *
      * @var string

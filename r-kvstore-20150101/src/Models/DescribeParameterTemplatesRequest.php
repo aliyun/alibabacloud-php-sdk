@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterTemplatesRequest extends Model
 {
     /**
-     * @description Indicates whether the parameter can be reconfigured. Valid values:
+     * @description The architecture of the instance. For more information, see [Overview](~~86132~~). Valid values:
      *
-     *   **true**: The parameter can be reconfigured.
-     *   **false**: The parameter cannot be reconfigured.
+     *   **logic**: The instance is a cluster or read/write splitting instance.
+     *   **normal**: The instance is a standard master-replica instance.
      *
      * @example logic
      *

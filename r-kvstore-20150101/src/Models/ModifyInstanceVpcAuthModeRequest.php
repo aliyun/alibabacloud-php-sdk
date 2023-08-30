@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceVpcAuthModeRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyInstanceVpcAuthMode**.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -43,12 +43,12 @@ class ModifyInstanceVpcAuthModeRequest extends Model
     public $securityToken;
 
     /**
-     * @description Specifies whether to enable password authentication for access in the VPC. Valid values:
+     * @description Specifies whether to disable password-free access. Valid values:
      *
-     *   **Open**: enables password authentication.
-     *   **Close**: disables password authentication.
+     *   **Open**: disables password-free access.
+     *   **Close**: enables password-free access.
      *
-     * >  Default value: **Open**.
+     * > The default value is **Open**.
      * @example Close
      *
      * @var string

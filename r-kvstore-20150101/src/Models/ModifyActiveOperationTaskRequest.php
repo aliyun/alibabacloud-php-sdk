@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationTaskRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the O\&M task. Separate multiple IDs with commas (,).
      *
+     * > You can call the [DescribeActiveOperationTask](~~197387~~) operation to query the ID of an O\&M task.
      * @example 11111,22222
      *
      * @var string
@@ -43,8 +44,9 @@ class ModifyActiveOperationTaskRequest extends Model
     public $securityToken;
 
     /**
-     * @description The operation that you want to perform. Set the value to: **ModifyActiveOperationTask**.
+     * @description The scheduled switchover time to be specified. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      *
+     * > The time cannot be later than the latest operation time. You can call the [DescribeActiveOperationTask](~~197387~~) operation to obtain the latest operation time, which is the value of the **Deadline** parameter in the response.
      * @example 2019-10-17T18:50:00Z
      *
      * @var string

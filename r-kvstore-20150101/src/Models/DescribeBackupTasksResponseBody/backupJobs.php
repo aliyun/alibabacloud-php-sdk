@@ -18,7 +18,14 @@ class backupJobs extends Model
     public $backupJobID;
 
     /**
-     * @description The beginning time when the backup task started. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format and displayed in UTC.
+     * @description The state of the backup task. Valid values:
+     *
+     *   **NoStart**: The backup task is not started.
+     *   **Preparing**: The backup task is being prepared.
+     *   **Waiting**: The backup task is pending.
+     *   **Uploading**: The system is uploading the backup file.
+     *   **Checking**: The system is checking the uploaded backup file.
+     *   **Finished**: The backup task is completed.
      *
      * @example Automated
      *
@@ -27,7 +34,10 @@ class backupJobs extends Model
     public $backupProgressStatus;
 
     /**
-     * @description Manual
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**: automatic backup
+     *   **Manual**: manual backup
      *
      * @example Manual
      *
@@ -36,7 +46,7 @@ class backupJobs extends Model
     public $jobMode;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the data node.
      *
      * @example ****
      *
@@ -45,10 +55,7 @@ class backupJobs extends Model
     public $nodeId;
 
     /**
-     * @description The backup mode. Valid values:
-     *
-     *   **Automated**: automatic backup
-     *   **Manual**: manual backup
+     * @description The progress of the backup task in percentage.
      *
      * @example 0
      *
@@ -57,7 +64,7 @@ class backupJobs extends Model
     public $process;
 
     /**
-     * @description 1162****
+     * @description The start time of the backup task. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
      * @example 2021-01-05T19:24:00Z
      *
@@ -66,6 +73,11 @@ class backupJobs extends Model
     public $startTime;
 
     /**
+     * @description The type of the backup task. Valid values:
+     *
+     *   **TempBackupTask**: The backup task was manually performed.
+     *   **NormalBackupTask**: The backup task was automatically performed.
+     *
      * @example NormalBackupTask
      *
      * @var string

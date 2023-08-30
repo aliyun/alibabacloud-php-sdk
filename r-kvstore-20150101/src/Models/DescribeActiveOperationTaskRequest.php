@@ -28,7 +28,7 @@ class DescribeActiveOperationTaskRequest extends Model
     public $ownerId;
 
     /**
-     * @description The deadline before which the time to execute the O\&M task can be modified. The time in UTC is displayed in the *yyyy-MM-dd*T*HH:mm:ss*Z format.
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
      *
      * @example 1
      *
@@ -37,7 +37,7 @@ class DescribeActiveOperationTaskRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeActiveOperationTask**.
+     * @description The number of entries to return on each page. Specify a value greater than **10**. Default value: **30**.
      *
      * @example 30
      *

@@ -9,8 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyInstanceMajorVersionRequest extends Model
 {
     /**
-     * @description The major version to which you want to upgrade the instance. Valid values: **4.0** and **5.0**.
+     * @description The time when the major version is upgraded. Valid values:
      *
+     *   **Immediately**: immediately upgrades the major version. This is the default value.
+     *   **MaintainTime**: upgrades the major version in the maintenance window.
+     *
+     * >  You can call the [ModifyInstanceMaintainTime](~~61000~~) operation to modify the maintenance window of an ApsaraDB for Redis instance.
      * @example Immediately
      *
      * @var string
@@ -18,7 +22,7 @@ class ModifyInstanceMajorVersionRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the instance.
      *
      * @example r-bp1zxszhcgatnx****
      *
@@ -27,7 +31,7 @@ class ModifyInstanceMajorVersionRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyInstanceMajorVersion**.
+     * @description The major version to which you want to upgrade the instance. Valid values: **4.0** and **5.0**.
      *
      * @example 5.0
      *

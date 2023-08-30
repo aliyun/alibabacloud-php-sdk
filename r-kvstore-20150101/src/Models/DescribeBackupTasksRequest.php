@@ -27,8 +27,12 @@ class DescribeBackupTasksRequest extends Model
     public $instanceId;
 
     /**
-     * @description The operation that you want to perform. The operation that you want to perform. Set the value to **DescribeBackupTasks**.
+     * @description The backup mode. Valid values:
      *
+     *   **Automated**: automatic backup. You can call the [DescribeBackupPolicy](~~61078~~) operation to query the automatic backup policy.
+     *   **Manual**: manual backup.
+     *
+     * > By default, the information about backup tasks in both modes is returned.
      * @example Manual
      *
      * @var string

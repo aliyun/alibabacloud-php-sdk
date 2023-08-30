@@ -63,7 +63,7 @@ class logRecords extends Model
     public $elapsedTime;
 
     /**
-     * @description The start time when the slow query statement was executed. The time is displayed in the yyyy-MM-ddTHH:mm:ssZ format.
+     * @description The start time when the slow query statement was executed. The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format.
      *
      * @example 2019-03-20T09:18:41Z
      *
@@ -81,7 +81,7 @@ class logRecords extends Model
     public $IPAddress;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example r-bp1zxszhcgatnx****-db-0
      *

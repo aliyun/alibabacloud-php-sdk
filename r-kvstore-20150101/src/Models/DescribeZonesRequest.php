@@ -26,6 +26,10 @@ class DescribeZonesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-huhehaote
+     *
      * @var string
      */
     public $regionId;
