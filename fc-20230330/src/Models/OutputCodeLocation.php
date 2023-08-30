@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OutputCodeLocation extends Model
 {
     /**
+     * @example https://xyz.oss-cn-shanghai.aliyuncs.com/xxx/xxx/xxx
+     *
      * @var string
      */
     public $location;
 
     /**
+     * @example OSS
+     *
      * @var string
      */
     public $repositoryType;

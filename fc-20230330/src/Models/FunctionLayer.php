@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class FunctionLayer extends Model
 {
     /**
+     * @example acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example 421
+     *
      * @var int
      */
     public $size;

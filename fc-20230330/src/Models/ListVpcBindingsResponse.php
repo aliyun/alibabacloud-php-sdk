@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TagResourceResponse extends Model
+class ListVpcBindingsResponse extends Model
 {
     /**
      * @var string[]
@@ -17,6 +17,11 @@ class TagResourceResponse extends Model
      * @var int
      */
     public $statusCode;
+
+    /**
+     * @var ListVpcBindingsOutput
+     */
+    public $body;
     protected $_name = [
         'headers'    => 'headers',
         'statusCode' => 'statusCode',
@@ -26,6 +31,7 @@ class TagResourceResponse extends Model
     {
         Model::validateRequired('headers', $this->headers, true);
         Model::validateRequired('statusCode', $this->statusCode, true);
+        Model::validateRequired('body', $this->body, true);
     }
 
     public function toMap()
@@ -37,6 +43,9 @@ class TagResourceResponse extends Model
         if (null !== $this->statusCode) {
             $res['statusCode'] = $this->statusCode;
         }
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
 
         return $res;
     }
@@ -44,7 +53,7 @@ class TagResourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return TagResourceResponse
+     * @return ListVpcBindingsResponse
      */
     public static function fromMap($map = [])
     {
@@ -54,6 +63,9 @@ class TagResourceResponse extends Model
         }
         if (isset($map['statusCode'])) {
             $model->statusCode = $map['statusCode'];
+        }
+        if (isset($map['body'])) {
+            $model->body = ListVpcBindingsOutput::fromMap($map['body']);
         }
 
         return $model;

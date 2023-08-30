@@ -14,6 +14,8 @@ class UpdateFunctionInput extends Model
     public $code;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $cpu;
@@ -34,11 +36,15 @@ class UpdateFunctionInput extends Model
     public $customRuntimeConfig;
 
     /**
+     * @example my function
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $diskSize;
@@ -54,11 +60,15 @@ class UpdateFunctionInput extends Model
     public $gpuConfig;
 
     /**
+     * @example index.handler
+     *
      * @var string
      */
     public $handler;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceConcurrency;
@@ -69,6 +79,8 @@ class UpdateFunctionInput extends Model
     public $instanceLifecycleConfig;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $internetAccess;
@@ -84,6 +96,8 @@ class UpdateFunctionInput extends Model
     public $logConfig;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $memorySize;
@@ -99,6 +113,8 @@ class UpdateFunctionInput extends Model
     public $ossMountConfig;
 
     /**
+     * @example acs:ram::188077086902****:role/fc-test
+     *
      * @var string
      */
     public $role;
@@ -109,6 +125,8 @@ class UpdateFunctionInput extends Model
     public $runtime;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeout;
@@ -117,11 +135,6 @@ class UpdateFunctionInput extends Model
      * @var TracingConfig
      */
     public $tracingConfig;
-
-    /**
-     * @var VPCBinding
-     */
-    public $vpcBinding;
 
     /**
      * @var VPCConfig
@@ -150,7 +163,6 @@ class UpdateFunctionInput extends Model
         'runtime'                 => 'runtime',
         'timeout'                 => 'timeout',
         'tracingConfig'           => 'tracingConfig',
-        'vpcBinding'              => 'vpcBinding',
         'vpcConfig'               => 'vpcConfig',
     ];
 
@@ -226,9 +238,6 @@ class UpdateFunctionInput extends Model
         }
         if (null !== $this->tracingConfig) {
             $res['tracingConfig'] = null !== $this->tracingConfig ? $this->tracingConfig->toMap() : null;
-        }
-        if (null !== $this->vpcBinding) {
-            $res['vpcBinding'] = null !== $this->vpcBinding ? $this->vpcBinding->toMap() : null;
         }
         if (null !== $this->vpcConfig) {
             $res['vpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
@@ -312,9 +321,6 @@ class UpdateFunctionInput extends Model
         }
         if (isset($map['tracingConfig'])) {
             $model->tracingConfig = TracingConfig::fromMap($map['tracingConfig']);
-        }
-        if (isset($map['vpcBinding'])) {
-            $model->vpcBinding = VPCBinding::fromMap($map['vpcBinding']);
         }
         if (isset($map['vpcConfig'])) {
             $model->vpcConfig = VPCConfig::fromMap($map['vpcConfig']);

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EqualRule extends Model
 {
     /**
+     * @example /old
+     *
      * @var string
      */
     public $match;
 
     /**
+     * @example /new
+     *
      * @var string
      */
     public $replacement;

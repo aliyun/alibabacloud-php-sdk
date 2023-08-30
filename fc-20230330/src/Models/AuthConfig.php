@@ -6,24 +6,24 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class WildcardRule extends Model
+class AuthConfig extends Model
 {
     /**
-     * @example /api/*
+     * @example {}
      *
      * @var string
      */
-    public $match;
+    public $authInfo;
 
     /**
-     * @example /$1
+     * @example anonymous, function, jwt
      *
      * @var string
      */
-    public $replacement;
+    public $authType;
     protected $_name = [
-        'match'       => 'match',
-        'replacement' => 'replacement',
+        'authInfo' => 'authInfo',
+        'authType' => 'authType',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class WildcardRule extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->match) {
-            $res['match'] = $this->match;
+        if (null !== $this->authInfo) {
+            $res['authInfo'] = $this->authInfo;
         }
-        if (null !== $this->replacement) {
-            $res['replacement'] = $this->replacement;
+        if (null !== $this->authType) {
+            $res['authType'] = $this->authType;
         }
 
         return $res;
@@ -46,16 +46,16 @@ class WildcardRule extends Model
     /**
      * @param array $map
      *
-     * @return WildcardRule
+     * @return AuthConfig
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['match'])) {
-            $model->match = $map['match'];
+        if (isset($map['authInfo'])) {
+            $model->authInfo = $map['authInfo'];
         }
-        if (isset($map['replacement'])) {
-            $model->replacement = $map['replacement'];
+        if (isset($map['authType'])) {
+            $model->authType = $map['authType'];
         }
 
         return $model;

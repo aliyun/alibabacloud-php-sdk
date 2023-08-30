@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class TagResourceResponse extends Model
+class DeleteVpcBindingResponse extends Model
 {
     /**
      * @var string[]
@@ -44,7 +44,7 @@ class TagResourceResponse extends Model
     /**
      * @param array $map
      *
-     * @return TagResourceResponse
+     * @return DeleteVpcBindingResponse
      */
     public static function fromMap($map = [])
     {

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class TargetTrackingPolicy extends Model
 {
     /**
+     * @example 2024-03-10T10:10:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $maxCapacity;
 
     /**
+     * @example 0.6
+     *
      * @var float
      */
     public $metricTarget;
 
     /**
+     * @example CPUUtilization
+     *
      * @var string
      */
     public $metricType;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $minCapacity;
 
     /**
+     * @example test_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example 2023-03-10T10:10:10Z
+     *
      * @var string
      */
     public $startTime;

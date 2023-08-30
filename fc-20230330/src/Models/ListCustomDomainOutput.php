@@ -14,6 +14,8 @@ class ListCustomDomainOutput extends Model
     public $customDomains;
 
     /**
+     * @example next_domain_name
+     *
      * @var string
      */
     public $nextToken;

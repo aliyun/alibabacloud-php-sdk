@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProvisionConfigsOutput extends Model
 {
     /**
+     * @example next_token
+     *
      * @var string
      */
     public $nextToken;

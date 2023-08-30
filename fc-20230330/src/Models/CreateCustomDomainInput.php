@@ -9,16 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CreateCustomDomainInput extends Model
 {
     /**
+     * @var AuthConfig
+     */
+    public $authConfig;
+
+    /**
      * @var CertConfig
      */
     public $certConfig;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
@@ -38,6 +47,7 @@ class CreateCustomDomainInput extends Model
      */
     public $wafConfig;
     protected $_name = [
+        'authConfig'  => 'authConfig',
         'certConfig'  => 'certConfig',
         'domainName'  => 'domainName',
         'protocol'    => 'protocol',
@@ -53,6 +63,9 @@ class CreateCustomDomainInput extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->authConfig) {
+            $res['authConfig'] = null !== $this->authConfig ? $this->authConfig->toMap() : null;
+        }
         if (null !== $this->certConfig) {
             $res['certConfig'] = null !== $this->certConfig ? $this->certConfig->toMap() : null;
         }
@@ -83,6 +96,9 @@ class CreateCustomDomainInput extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['authConfig'])) {
+            $model->authConfig = AuthConfig::fromMap($map['authConfig']);
+        }
         if (isset($map['certConfig'])) {
             $model->certConfig = CertConfig::fromMap($map['certConfig']);
         }

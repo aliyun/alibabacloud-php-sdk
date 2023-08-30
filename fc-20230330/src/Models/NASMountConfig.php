@@ -14,11 +14,15 @@ class NASMountConfig extends Model
     public $enableTLS;
 
     /**
+     * @example /home/test
+     *
      * @var string
      */
     public $mountDir;
 
     /**
+     * @example ***-uni85.cn-hangzhou.nas.com:/
+     *
      * @var string
      */
     public $serverAddr;

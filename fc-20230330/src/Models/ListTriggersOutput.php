@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersOutput extends Model
 {
     /**
+     * @example next_token
+     *
      * @var string
      */
     public $nextToken;

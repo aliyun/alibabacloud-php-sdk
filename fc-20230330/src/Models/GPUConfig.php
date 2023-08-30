@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GPUConfig extends Model
 {
     /**
+     * @example 2048
+     *
      * @var int
      */
     public $gpuMemorySize;
 
     /**
+     * @example fc.gpu.ampere.1
+     *
      * @var string
      */
     public $gpuType;

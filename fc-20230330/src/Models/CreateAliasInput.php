@@ -14,16 +14,22 @@ class CreateAliasInput extends Model
     public $additionalVersionWeight;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example my alias
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $versionId;

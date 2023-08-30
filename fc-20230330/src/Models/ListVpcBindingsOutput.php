@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class PublishVersionInput extends Model
+class ListVpcBindingsOutput extends Model
 {
     /**
-     * @example my version
-     *
-     * @var string
+     * @var string[]
      */
-    public $description;
+    public $vpcIds;
     protected $_name = [
-        'description' => 'description',
+        'vpcIds' => 'vpcIds',
     ];
 
     public function validate()
@@ -25,8 +23,8 @@ class PublishVersionInput extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->description) {
-            $res['description'] = $this->description;
+        if (null !== $this->vpcIds) {
+            $res['vpcIds'] = $this->vpcIds;
         }
 
         return $res;
@@ -35,13 +33,15 @@ class PublishVersionInput extends Model
     /**
      * @param array $map
      *
-     * @return PublishVersionInput
+     * @return ListVpcBindingsOutput
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['description'])) {
-            $model->description = $map['description'];
+        if (isset($map['vpcIds'])) {
+            if (!empty($map['vpcIds'])) {
+                $model->vpcIds = $map['vpcIds'];
+            }
         }
 
         return $model;

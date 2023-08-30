@@ -14,11 +14,15 @@ class TLSConfig extends Model
     public $cipherSuites;
 
     /**
+     * @example TLSv1.3
+     *
      * @var string
      */
     public $maxVersion;
 
     /**
+     * @example TLSv1.0
+     *
      * @var string
      */
     public $minVersion;

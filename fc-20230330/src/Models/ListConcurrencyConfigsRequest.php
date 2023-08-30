@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListConcurrencyConfigsRequest extends Model
 {
     /**
+     * @example my-func
+     *
      * @var string
      */
     public $functionName;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;

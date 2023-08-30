@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class Function_ extends Model
 {
     /**
+     * @example 2825179536350****
+     *
      * @var string
      */
     public $codeChecksum;
 
     /**
+     * @example 412
+     *
      * @var int
      */
     public $codeSize;
 
     /**
+     * @example 1
+     *
      * @var float
      */
     public $cpu;
 
     /**
+     * @example 2023-04-01T08:15:27Z
+     *
      * @var string
      */
     public $createdTime;
@@ -44,11 +52,15 @@ class Function_ extends Model
     public $customRuntimeConfig;
 
     /**
+     * @example my function
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $diskSize;
@@ -59,16 +71,22 @@ class Function_ extends Model
     public $environmentVariables;
 
     /**
+     * @example acs:fc:cn-shanghai:123:functions/functionName
+     *
      * @var string
      */
     public $functionArn;
 
     /**
+     * @example aa715851-1c20-4b89-a8fb-***
+     *
      * @var string
      */
     public $functionId;
 
     /**
+     * @example my-function-1
+     *
      * @var string
      */
     public $functionName;
@@ -79,11 +97,15 @@ class Function_ extends Model
     public $gpuConfig;
 
     /**
+     * @example index.handler
+     *
      * @var string
      */
     public $handler;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $instanceConcurrency;
@@ -94,11 +116,15 @@ class Function_ extends Model
     public $instanceLifecycleConfig;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $internetAccess;
 
     /**
+     * @example 2023-05-01T08:15:27Z
+     *
      * @var string
      */
     public $lastModifiedTime;
@@ -114,6 +140,8 @@ class Function_ extends Model
     public $logConfig;
 
     /**
+     * @example 512
+     *
      * @var int
      */
     public $memorySize;
@@ -129,16 +157,22 @@ class Function_ extends Model
     public $ossMountConfig;
 
     /**
+     * @example acs:ram::188077086902****:role/fc-test
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @example python3.10
+     *
      * @var string
      */
     public $runtime;
 
     /**
+     * @example 60
+     *
      * @var int
      */
     public $timeout;
@@ -147,11 +181,6 @@ class Function_ extends Model
      * @var TracingConfig
      */
     public $tracingConfig;
-
-    /**
-     * @var VPCBinding
-     */
-    public $vpcBinding;
 
     /**
      * @var VPCConfig
@@ -186,7 +215,6 @@ class Function_ extends Model
         'runtime'                 => 'runtime',
         'timeout'                 => 'timeout',
         'tracingConfig'           => 'tracingConfig',
-        'vpcBinding'              => 'vpcBinding',
         'vpcConfig'               => 'vpcConfig',
     ];
 
@@ -286,9 +314,6 @@ class Function_ extends Model
         }
         if (null !== $this->tracingConfig) {
             $res['tracingConfig'] = null !== $this->tracingConfig ? $this->tracingConfig->toMap() : null;
-        }
-        if (null !== $this->vpcBinding) {
-            $res['vpcBinding'] = null !== $this->vpcBinding ? $this->vpcBinding->toMap() : null;
         }
         if (null !== $this->vpcConfig) {
             $res['vpcConfig'] = null !== $this->vpcConfig ? $this->vpcConfig->toMap() : null;
@@ -394,9 +419,6 @@ class Function_ extends Model
         }
         if (isset($map['tracingConfig'])) {
             $model->tracingConfig = TracingConfig::fromMap($map['tracingConfig']);
-        }
-        if (isset($map['vpcBinding'])) {
-            $model->vpcBinding = VPCBinding::fromMap($map['vpcBinding']);
         }
         if (isset($map['vpcConfig'])) {
             $model->vpcConfig = VPCConfig::fromMap($map['vpcConfig']);

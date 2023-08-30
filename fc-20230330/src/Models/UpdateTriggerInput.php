@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateTriggerInput extends Model
 {
     /**
+     * @example trigger for test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example acs:ram::1234567890:role/fc-test
+     *
      * @var string
      */
     public $invocationRole;
 
     /**
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @example {"events":["oss:ObjectCreated:*"],"filter":{"key":{"prefix":"/prefix","suffix":".zip"}}}
+     *
      * @var string
      */
     public $triggerConfig;

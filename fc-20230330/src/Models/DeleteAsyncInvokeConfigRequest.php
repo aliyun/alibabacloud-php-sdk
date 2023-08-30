@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAsyncInvokeConfigRequest extends Model
 {
     /**
+     * @example LATEST, prod, 1
+     *
      * @var string
      */
     public $qualifier;

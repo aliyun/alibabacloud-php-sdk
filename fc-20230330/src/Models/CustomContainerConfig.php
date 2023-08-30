@@ -14,14 +14,18 @@ class CustomContainerConfig extends Model
     public $accelerationInfo;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $accelerationType;
 
     /**
+     * @example cri-xxxxxxxxxx
+     *
      * @var string
      */
-    public $acrInstanceID;
+    public $acrInstanceId;
 
     /**
      * @var string[]
@@ -39,18 +43,22 @@ class CustomContainerConfig extends Model
     public $healthCheckConfig;
 
     /**
+     * @example registry-vpc.cn-hangzhou.aliyuncs.com/fc-demo/helloworld:v1beta1
+     *
      * @var string
      */
     public $image;
 
     /**
+     * @example 9000
+     *
      * @var int
      */
     public $port;
     protected $_name = [
         'accelerationInfo'  => 'accelerationInfo',
         'accelerationType'  => 'accelerationType',
-        'acrInstanceID'     => 'acrInstanceID',
+        'acrInstanceId'     => 'acrInstanceId',
         'command'           => 'command',
         'entrypoint'        => 'entrypoint',
         'healthCheckConfig' => 'healthCheckConfig',
@@ -71,8 +79,8 @@ class CustomContainerConfig extends Model
         if (null !== $this->accelerationType) {
             $res['accelerationType'] = $this->accelerationType;
         }
-        if (null !== $this->acrInstanceID) {
-            $res['acrInstanceID'] = $this->acrInstanceID;
+        if (null !== $this->acrInstanceId) {
+            $res['acrInstanceId'] = $this->acrInstanceId;
         }
         if (null !== $this->command) {
             $res['command'] = $this->command;
@@ -107,8 +115,8 @@ class CustomContainerConfig extends Model
         if (isset($map['accelerationType'])) {
             $model->accelerationType = $map['accelerationType'];
         }
-        if (isset($map['acrInstanceID'])) {
-            $model->acrInstanceID = $map['acrInstanceID'];
+        if (isset($map['acrInstanceId'])) {
+            $model->acrInstanceId = $map['acrInstanceId'];
         }
         if (isset($map['command'])) {
             if (!empty($map['command'])) {

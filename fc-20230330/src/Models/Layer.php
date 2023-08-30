@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Layer extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $acl;
@@ -19,11 +21,15 @@ class Layer extends Model
     public $code;
 
     /**
+     * @example 2825179536350****
+     *
      * @var string
      */
     public $codeChecksum;
 
     /**
+     * @example 421
+     *
      * @var int
      */
     public $codeSize;
@@ -34,31 +40,43 @@ class Layer extends Model
     public $compatibleRuntime;
 
     /**
+     * @example 2023-03-30T11:08:00Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example My first layer
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example MyLayer
+     *
      * @var string
      */
     public $layerName;
 
     /**
+     * @example acs:fc:cn-beijing:186824xxxxxx:layers/fc_layer/versions/1
+     *
      * @var string
      */
     public $layerVersionArn;
 
     /**
+     * @example Apache
+     *
      * @var string
      */
     public $license;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $version;

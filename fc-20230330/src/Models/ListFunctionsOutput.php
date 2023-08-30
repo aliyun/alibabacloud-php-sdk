@@ -14,6 +14,8 @@ class ListFunctionsOutput extends Model
     public $functions;
 
     /**
+     * @example next_function_name
+     *
      * @var string
      */
     public $nextToken;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class InstanceInfo extends Model
 {
     /**
+     * @example 1ef6b6ff-7f7b-485e-ab49-501ac681****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example LATEST
+     *
      * @var string
      */
     public $versionId;

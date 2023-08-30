@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionsRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example my-func
+     *
      * @var string
      */
     public $prefix;

@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateTriggerInput extends Model
 {
     /**
+     * @example trigger for test
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example acs:ram::1234567890:role/fc-test
+     *
      * @var string
      */
     public $invocationRole;
 
     /**
+     * @example LATEST
+     *
      * @var string
      */
     public $qualifier;
 
     /**
+     * @example acs:oss:cn-shanghai:12345:mybucket
+     *
      * @var string
      */
     public $sourceArn;
 
     /**
+     * @example {"events":["oss:ObjectCreated:*"],"filter":{"key":{"prefix":"/prefix","suffix":".zip"}}}
+     *
      * @var string
      */
     public $triggerConfig;
 
     /**
+     * @example oss_create_object_demo
+     *
      * @var string
      */
     public $triggerName;
 
     /**
+     * @example oss
+     *
      * @var string
      */
     public $triggerType;

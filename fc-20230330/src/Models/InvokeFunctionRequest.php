@@ -15,6 +15,8 @@ class InvokeFunctionRequest extends Model
     public $body;
 
     /**
+     * @example LATEST, prod, 1
+     *
      * @var string
      */
     public $qualifier;

@@ -6,14 +6,14 @@ namespace AlibabaCloud\SDK\FC\V20230330\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class VPCBinding extends Model
+class CreateVpcBindingRequest extends Model
 {
     /**
-     * @var string[]
+     * @var CreateVpcBindingInput
      */
-    public $vpcIds;
+    public $body;
     protected $_name = [
-        'vpcIds' => 'vpcIds',
+        'body' => 'body',
     ];
 
     public function validate()
@@ -23,8 +23,8 @@ class VPCBinding extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->vpcIds) {
-            $res['vpcIds'] = $this->vpcIds;
+        if (null !== $this->body) {
+            $res['body'] = null !== $this->body ? $this->body->toMap() : null;
         }
 
         return $res;
@@ -33,15 +33,13 @@ class VPCBinding extends Model
     /**
      * @param array $map
      *
-     * @return VPCBinding
+     * @return CreateVpcBindingRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['vpcIds'])) {
-            if (!empty($map['vpcIds'])) {
-                $model->vpcIds = $map['vpcIds'];
-            }
+        if (isset($map['body'])) {
+            $model->body = CreateVpcBindingInput::fromMap($map['body']);
         }
 
         return $model;

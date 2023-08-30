@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class LifecycleHook extends Model
 {
     /**
+     * @example index.initializer
+     *
      * @var string
      */
     public $handler;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $timeout;

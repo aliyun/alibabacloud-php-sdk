@@ -14,26 +14,36 @@ class Alias extends Model
     public $additionalVersionWeight;
 
     /**
+     * @example prod
+     *
      * @var string
      */
     public $aliasName;
 
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example alias for pre env
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $versionId;

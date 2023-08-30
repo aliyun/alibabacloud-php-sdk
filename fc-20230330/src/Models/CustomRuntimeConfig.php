@@ -24,6 +24,8 @@ class CustomRuntimeConfig extends Model
     public $healthCheckConfig;
 
     /**
+     * @example 9000
+     *
      * @var int
      */
     public $port;

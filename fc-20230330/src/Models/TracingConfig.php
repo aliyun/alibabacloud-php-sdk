@@ -14,6 +14,8 @@ class TracingConfig extends Model
     public $params;
 
     /**
+     * @example Jaeger
+     *
      * @var string
      */
     public $type;

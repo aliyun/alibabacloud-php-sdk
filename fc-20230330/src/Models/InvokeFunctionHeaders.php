@@ -11,11 +11,15 @@ class InvokeFunctionHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @example Sync, Async
+     *
      * @var string
      */
     public $xFcInvocationType;
 
     /**
+     * @example None, Tail
+     *
      * @var string
      */
     public $xFcLogType;

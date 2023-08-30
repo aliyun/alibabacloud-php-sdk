@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteProvisionConfigRequest extends Model
 {
     /**
+     * @example LATEST, prod
+     *
      * @var string
      */
     public $qualifier;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesRequest extends Model
 {
     /**
+     * @example LATEST, prod, 1
+     *
      * @var string
      */
     public $qualifier;

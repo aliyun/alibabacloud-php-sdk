@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class InputCodeLocation extends Model
 {
     /**
+     * @example 2825179536350****
+     *
      * @var string
      */
     public $checksum;
 
     /**
+     * @example demo-bucket
+     *
      * @var string
      */
     public $ossBucketName;
 
     /**
+     * @example demo-object
+     *
      * @var string
      */
     public $ossObjectName;
 
     /**
+     * @example UEsDBAoAAAAAANF
+     *
      * @var string
      */
     public $zipFile;

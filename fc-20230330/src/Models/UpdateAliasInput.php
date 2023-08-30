@@ -14,11 +14,15 @@ class UpdateAliasInput extends Model
     public $additionalVersionWeight;
 
     /**
+     * @example my alias
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $versionId;

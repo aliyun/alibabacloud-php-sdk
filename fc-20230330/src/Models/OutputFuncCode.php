@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class OutputFuncCode extends Model
 {
     /**
+     * @example 1234567890
+     *
      * @var string
      */
     public $checksum;
 
     /**
+     * @example http://func-code.oss-cn-shanghai.aliyuncs.com/1a2b3c4d5e6f
+     *
      * @var string
      */
     public $url;

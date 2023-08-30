@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Resource extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:****:functions/demo
+     *
      * @var string
      */
     public $resourceArn;

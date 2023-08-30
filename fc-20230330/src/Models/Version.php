@@ -9,35 +9,37 @@ use AlibabaCloud\Tea\Model;
 class Version extends Model
 {
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example my version
+     *
      * @var string
      */
     public $description;
 
     /**
-     * @var string
-     */
-    public $functionVersionArn;
-
-    /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $versionId;
     protected $_name = [
-        'createdTime'        => 'createdTime',
-        'description'        => 'description',
-        'functionVersionArn' => 'functionVersionArn',
-        'lastModifiedTime'   => 'lastModifiedTime',
-        'versionId'          => 'versionId',
+        'createdTime'      => 'createdTime',
+        'description'      => 'description',
+        'lastModifiedTime' => 'lastModifiedTime',
+        'versionId'        => 'versionId',
     ];
 
     public function validate()
@@ -52,9 +54,6 @@ class Version extends Model
         }
         if (null !== $this->description) {
             $res['description'] = $this->description;
-        }
-        if (null !== $this->functionVersionArn) {
-            $res['functionVersionArn'] = $this->functionVersionArn;
         }
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
@@ -79,9 +78,6 @@ class Version extends Model
         }
         if (isset($map['description'])) {
             $model->description = $map['description'];
-        }
-        if (isset($map['functionVersionArn'])) {
-            $model->functionVersionArn = $map['functionVersionArn'];
         }
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];

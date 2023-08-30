@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListTaggedResourcesRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;

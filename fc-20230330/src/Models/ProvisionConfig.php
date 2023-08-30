@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ProvisionConfig extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alwaysAllocateCPU;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $current;
 
     /**
+     * @example image not found
+     *
      * @var string
      */
     public $currentError;
 
     /**
+     * @example acs:fc:cn-shanghai:124:functions/myFunction
+     *
      * @var string
      */
     public $functionArn;
@@ -34,6 +42,8 @@ class ProvisionConfig extends Model
     public $scheduledActions;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $target;

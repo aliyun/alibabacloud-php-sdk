@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutProvisionConfigInput extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $alwaysAllocateCPU;
@@ -19,6 +21,8 @@ class PutProvisionConfigInput extends Model
     public $scheduledActions;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $target;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class PutLayerACLRequest extends Model
 {
     /**
+     * @example false, true
+     *
      * @var string
      */
     public $public;

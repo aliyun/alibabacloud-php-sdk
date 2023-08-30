@@ -14,6 +14,8 @@ class ListLayersOutput extends Model
     public $layers;
 
     /**
+     * @example next-layer-name
+     *
      * @var string
      */
     public $nextToken;

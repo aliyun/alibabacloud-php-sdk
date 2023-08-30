@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetFunctionRequest extends Model
 {
     /**
+     * @example LATEST, prod, 1
+     *
      * @var string
      */
     public $qualifier;

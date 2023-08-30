@@ -14,6 +14,8 @@ class ListConcurrencyConfigsOutput extends Model
     public $configs;
 
     /**
+     * @example next_token
+     *
      * @var string
      */
     public $nextToken;

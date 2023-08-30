@@ -14,6 +14,8 @@ class ListAsyncInvokeConfigOutput extends Model
     public $configs;
 
     /**
+     * @example 8bj81uI8n****
+     *
      * @var string
      */
     public $nextToken;

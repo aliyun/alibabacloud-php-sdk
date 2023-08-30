@@ -14,6 +14,8 @@ class ListLayerVersionOutput extends Model
     public $layers;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $nextVersion;

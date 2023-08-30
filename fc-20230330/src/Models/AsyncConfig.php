@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AsyncConfig extends Model
 {
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $createdTime;
@@ -19,37 +21,39 @@ class AsyncConfig extends Model
     public $destinationConfig;
 
     /**
+     * @example acs:fc:cn-shanghai:1234/functions/my-func
+     *
      * @var string
      */
-    public $functionName;
+    public $functionArn;
 
     /**
+     * @example 2006-01-02T15:04:05Z07:00
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example 3600
+     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxAsyncRetryAttempts;
-
-    /**
-     * @var string
-     */
-    public $qualifier;
     protected $_name = [
         'createdTime'               => 'createdTime',
         'destinationConfig'         => 'destinationConfig',
-        'functionName'              => 'functionName',
+        'functionArn'               => 'functionArn',
         'lastModifiedTime'          => 'lastModifiedTime',
         'maxAsyncEventAgeInSeconds' => 'maxAsyncEventAgeInSeconds',
         'maxAsyncRetryAttempts'     => 'maxAsyncRetryAttempts',
-        'qualifier'                 => 'qualifier',
     ];
 
     public function validate()
@@ -65,8 +69,8 @@ class AsyncConfig extends Model
         if (null !== $this->destinationConfig) {
             $res['destinationConfig'] = null !== $this->destinationConfig ? $this->destinationConfig->toMap() : null;
         }
-        if (null !== $this->functionName) {
-            $res['functionName'] = $this->functionName;
+        if (null !== $this->functionArn) {
+            $res['functionArn'] = $this->functionArn;
         }
         if (null !== $this->lastModifiedTime) {
             $res['lastModifiedTime'] = $this->lastModifiedTime;
@@ -76,9 +80,6 @@ class AsyncConfig extends Model
         }
         if (null !== $this->maxAsyncRetryAttempts) {
             $res['maxAsyncRetryAttempts'] = $this->maxAsyncRetryAttempts;
-        }
-        if (null !== $this->qualifier) {
-            $res['qualifier'] = $this->qualifier;
         }
 
         return $res;
@@ -98,8 +99,8 @@ class AsyncConfig extends Model
         if (isset($map['destinationConfig'])) {
             $model->destinationConfig = DestinationConfig::fromMap($map['destinationConfig']);
         }
-        if (isset($map['functionName'])) {
-            $model->functionName = $map['functionName'];
+        if (isset($map['functionArn'])) {
+            $model->functionArn = $map['functionArn'];
         }
         if (isset($map['lastModifiedTime'])) {
             $model->lastModifiedTime = $map['lastModifiedTime'];
@@ -109,9 +110,6 @@ class AsyncConfig extends Model
         }
         if (isset($map['maxAsyncRetryAttempts'])) {
             $model->maxAsyncRetryAttempts = $map['maxAsyncRetryAttempts'];
-        }
-        if (isset($map['qualifier'])) {
-            $model->qualifier = $map['qualifier'];
         }
 
         return $model;

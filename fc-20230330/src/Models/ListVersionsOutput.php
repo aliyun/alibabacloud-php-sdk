@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListVersionsOutput extends Model
 {
     /**
+     * @example FORWARD
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example 3
+     *
      * @var string
      */
     public $nextToken;

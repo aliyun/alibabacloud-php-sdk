@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class HTTPTrigger extends Model
 {
     /**
+     * @example https://svc-func-xxxxxxxx.cn-hangzhou.fcapp.run
+     *
      * @var string
      */
     public $urlInternet;
 
     /**
+     * @example https://svc-func-xxxxxxxx.cn-hangzhou-vpc.fcapp.run
+     *
      * @var string
      */
     public $urlIntranet;

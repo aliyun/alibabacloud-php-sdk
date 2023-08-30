@@ -9,23 +9,29 @@ use AlibabaCloud\Tea\Model;
 class Error extends Model
 {
     /**
+     * @example FunctionNotFound
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example function not found
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1-64e70cf1-5cbef92ea8fc8c42899cf5d1
+     *
      * @var string
      */
     public $requestId;
     protected $_name = [
-        'code'      => 'code',
-        'message'   => 'message',
-        'requestId' => 'requestId',
+        'code'      => 'Code',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -36,13 +42,13 @@ class Error extends Model
     {
         $res = [];
         if (null !== $this->code) {
-            $res['code'] = $this->code;
+            $res['Code'] = $this->code;
         }
         if (null !== $this->message) {
-            $res['message'] = $this->message;
+            $res['Message'] = $this->message;
         }
         if (null !== $this->requestId) {
-            $res['requestId'] = $this->requestId;
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -56,14 +62,14 @@ class Error extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['code'])) {
-            $model->code = $map['code'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['message'])) {
-            $model->message = $map['message'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
-        if (isset($map['requestId'])) {
-            $model->requestId = $map['requestId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

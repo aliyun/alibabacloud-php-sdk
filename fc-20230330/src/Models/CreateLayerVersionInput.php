@@ -19,11 +19,15 @@ class CreateLayerVersionInput extends Model
     public $compatibleRuntime;
 
     /**
+     * @example my first layer
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example Apache
+     *
      * @var string
      */
     public $license;

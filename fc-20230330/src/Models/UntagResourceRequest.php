@@ -14,11 +14,15 @@ class UntagResourceRequest extends Model
     public $all;
 
     /**
+     * @example acs:fc:cn-shanghai:1234/functions/my-func
+     *
      * @var string
      */
     public $arn;
 
     /**
+     * @example tag1, tag2
+     *
      * @var string
      */
     public $tagKeys;

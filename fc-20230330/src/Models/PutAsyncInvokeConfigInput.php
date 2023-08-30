@@ -14,11 +14,15 @@ class PutAsyncInvokeConfigInput extends Model
     public $destinationConfig;
 
     /**
+     * @example 300
+     *
      * @var int
      */
     public $maxAsyncEventAgeInSeconds;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $maxAsyncRetryAttempts;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ListLayerVersionsRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $startVersion;

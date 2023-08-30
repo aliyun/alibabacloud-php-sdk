@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTagsOutput extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:****:functions/demo
+     *
      * @var string
      */
     public $resourceArn;

@@ -14,6 +14,8 @@ class ListAliasesOutput extends Model
     public $aliases;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $nextToken;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetResourceTagsRequest extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:1234/functions/my-func
+     *
      * @var string
      */
     public $arn;

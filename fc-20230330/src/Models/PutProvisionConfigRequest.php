@@ -14,6 +14,8 @@ class PutProvisionConfigRequest extends Model
     public $body;
 
     /**
+     * @example LATEST, prod
+     *
      * @var string
      */
     public $qualifier;

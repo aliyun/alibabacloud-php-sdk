@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ConcurrencyConfig extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:123:functions/demo
+     *
      * @var string
      */
     public $functionArn;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $reservedConcurrency;

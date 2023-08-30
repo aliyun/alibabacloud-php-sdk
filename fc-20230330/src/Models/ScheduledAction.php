@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ScheduledAction extends Model
 {
     /**
+     * @example 2024-03-10T10:10:10Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example test_1
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example cron(0 0 22 * * *)
+     *
      * @var string
      */
     public $scheduleExpression;
 
     /**
+     * @example 2023-03-10T10:10:10Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @example 50
+     *
      * @var int
      */
     public $target;

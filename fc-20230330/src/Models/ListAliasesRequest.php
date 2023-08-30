@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListAliasesRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example my-alias
+     *
      * @var string
      */
     public $prefix;

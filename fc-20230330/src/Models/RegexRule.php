@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class RegexRule extends Model
 {
     /**
+     * @example ^/api/.+?/(.*)
+     *
      * @var string
      */
     public $match;
 
     /**
+     * @example /api/v2/$1
+     *
      * @var string
      */
     public $replacement;

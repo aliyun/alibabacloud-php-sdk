@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListFunctionVersionsRequest extends Model
 {
     /**
+     * @example BACKWARD, FORWARD
+     *
      * @var string
      */
     public $direction;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;

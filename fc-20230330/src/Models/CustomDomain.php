@@ -14,9 +14,16 @@ class CustomDomain extends Model
     public $accountId;
 
     /**
+     * @example 2023-03-30
+     *
      * @var string
      */
     public $apiVersion;
+
+    /**
+     * @var AuthConfig
+     */
+    public $authConfig;
 
     /**
      * @var CertConfig
@@ -24,21 +31,29 @@ class CustomDomain extends Model
     public $certConfig;
 
     /**
+     * @example 2023-03-30T08:02:19Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2023-03-30T08:02:19Z
+     *
      * @var string
      */
     public $lastModifiedTime;
 
     /**
+     * @example HTTP
+     *
      * @var string
      */
     public $protocol;
@@ -49,6 +64,8 @@ class CustomDomain extends Model
     public $routeConfig;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $subdomainCount;
@@ -65,6 +82,7 @@ class CustomDomain extends Model
     protected $_name = [
         'accountId'        => 'accountId',
         'apiVersion'       => 'apiVersion',
+        'authConfig'       => 'authConfig',
         'certConfig'       => 'certConfig',
         'createdTime'      => 'createdTime',
         'domainName'       => 'domainName',
@@ -88,6 +106,9 @@ class CustomDomain extends Model
         }
         if (null !== $this->apiVersion) {
             $res['apiVersion'] = $this->apiVersion;
+        }
+        if (null !== $this->authConfig) {
+            $res['authConfig'] = null !== $this->authConfig ? $this->authConfig->toMap() : null;
         }
         if (null !== $this->certConfig) {
             $res['certConfig'] = null !== $this->certConfig ? $this->certConfig->toMap() : null;
@@ -133,6 +154,9 @@ class CustomDomain extends Model
         }
         if (isset($map['apiVersion'])) {
             $model->apiVersion = $map['apiVersion'];
+        }
+        if (isset($map['authConfig'])) {
+            $model->authConfig = AuthConfig::fromMap($map['authConfig']);
         }
         if (isset($map['certConfig'])) {
             $model->certConfig = CertConfig::fromMap($map['certConfig']);

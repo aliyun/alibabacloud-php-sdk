@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CertConfig extends Model
 {
     /**
+     * @example my-cert
+     *
      * @var string
      */
     public $certName;
 
     /**
+     * @example PEM format
+     *
      * @var string
      */
     public $certificate;
 
     /**
+     * @example PEM format
+     *
      * @var string
      */
     public $privateKey;

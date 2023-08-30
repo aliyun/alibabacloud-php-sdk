@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class Destination extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:xxx:functions/f1
+     *
      * @var string
      */
     public $destination;

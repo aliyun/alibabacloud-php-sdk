@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ListTriggersRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example my-trigger
+     *
      * @var string
      */
     public $prefix;

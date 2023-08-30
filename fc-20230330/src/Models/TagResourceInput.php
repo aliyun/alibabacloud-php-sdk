@@ -9,23 +9,19 @@ use AlibabaCloud\Tea\Model;
 class TagResourceInput extends Model
 {
     /**
+     * @example acs:fc:cn-shanghai:xxx:functions/f1
+     *
      * @var string
      */
     public $resourceArn;
-
-    /**
-     * @var string
-     */
-    public $resourceType;
 
     /**
      * @var string[]
      */
     public $tags;
     protected $_name = [
-        'resourceArn'  => 'resourceArn',
-        'resourceType' => 'resourceType',
-        'tags'         => 'tags',
+        'resourceArn' => 'resourceArn',
+        'tags'        => 'tags',
     ];
 
     public function validate()
@@ -37,9 +33,6 @@ class TagResourceInput extends Model
         $res = [];
         if (null !== $this->resourceArn) {
             $res['resourceArn'] = $this->resourceArn;
-        }
-        if (null !== $this->resourceType) {
-            $res['resourceType'] = $this->resourceType;
         }
         if (null !== $this->tags) {
             $res['tags'] = $this->tags;
@@ -58,9 +51,6 @@ class TagResourceInput extends Model
         $model = new self();
         if (isset($map['resourceArn'])) {
             $model->resourceArn = $map['resourceArn'];
-        }
-        if (isset($map['resourceType'])) {
-            $model->resourceType = $map['resourceType'];
         }
         if (isset($map['tags'])) {
             $model->tags = $map['tags'];

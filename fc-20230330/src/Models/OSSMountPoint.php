@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class OSSMountPoint extends Model
 {
     /**
+     * @example my-bucket
+     *
      * @var string
      */
     public $bucketName;
 
     /**
+     * @example /my-dir
+     *
      * @var string
      */
     public $bucketPath;
 
     /**
+     * @example http://oss-cn-shanghai.aliyuncs.com
+     *
      * @var string
      */
     public $endpoint;
 
     /**
+     * @example /mnt/dir
+     *
      * @var string
      */
     public $mountDir;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $readOnly;

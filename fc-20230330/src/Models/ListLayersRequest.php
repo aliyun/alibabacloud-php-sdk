@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ListLayersRequest extends Model
 {
     /**
+     * @example 10
+     *
      * @var int
      */
     public $limit;
 
     /**
+     * @example MTIzNCNhYmM=
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example false, true
+     *
      * @var string
      */
     public $official;
 
     /**
+     * @example my-layer
+     *
      * @var string
      */
     public $prefix;
 
     /**
+     * @example false, true
+     *
      * @var string
      */
     public $public;

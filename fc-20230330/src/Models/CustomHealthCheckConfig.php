@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class CustomHealthCheckConfig extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $failureThreshold;
 
     /**
+     * @example /ready
+     *
      * @var string
      */
     public $httpGetUrl;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $initialDelaySeconds;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $periodSeconds;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $successThreshold;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $timeoutSeconds;

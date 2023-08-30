@@ -9,19 +9,11 @@ use AlibabaCloud\Tea\Model;
 class PathConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $accountId;
-
-    /**
+     * @example myFunction
+     *
      * @var string
      */
     public $functionName;
-
-    /**
-     * @var InnerRewriteConfig
-     */
-    public $innerRewriteConfig;
 
     /**
      * @var string[]
@@ -29,11 +21,15 @@ class PathConfig extends Model
     public $methods;
 
     /**
+     * @example /api/*
+     *
      * @var string
      */
     public $path;
 
     /**
+     * @example myAlias
+     *
      * @var string
      */
     public $qualifier;
@@ -42,20 +38,12 @@ class PathConfig extends Model
      * @var RewriteConfig
      */
     public $rewriteConfig;
-
-    /**
-     * @var string
-     */
-    public $serviceName;
     protected $_name = [
-        'accountId'          => 'accountId',
-        'functionName'       => 'functionName',
-        'innerRewriteConfig' => 'innerRewriteConfig',
-        'methods'            => 'methods',
-        'path'               => 'path',
-        'qualifier'          => 'qualifier',
-        'rewriteConfig'      => 'rewriteConfig',
-        'serviceName'        => 'serviceName',
+        'functionName'  => 'functionName',
+        'methods'       => 'methods',
+        'path'          => 'path',
+        'qualifier'     => 'qualifier',
+        'rewriteConfig' => 'rewriteConfig',
     ];
 
     public function validate()
@@ -65,14 +53,8 @@ class PathConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->accountId) {
-            $res['accountId'] = $this->accountId;
-        }
         if (null !== $this->functionName) {
             $res['functionName'] = $this->functionName;
-        }
-        if (null !== $this->innerRewriteConfig) {
-            $res['innerRewriteConfig'] = null !== $this->innerRewriteConfig ? $this->innerRewriteConfig->toMap() : null;
         }
         if (null !== $this->methods) {
             $res['methods'] = $this->methods;
@@ -86,9 +68,6 @@ class PathConfig extends Model
         if (null !== $this->rewriteConfig) {
             $res['rewriteConfig'] = null !== $this->rewriteConfig ? $this->rewriteConfig->toMap() : null;
         }
-        if (null !== $this->serviceName) {
-            $res['serviceName'] = $this->serviceName;
-        }
 
         return $res;
     }
@@ -101,14 +80,8 @@ class PathConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['accountId'])) {
-            $model->accountId = $map['accountId'];
-        }
         if (isset($map['functionName'])) {
             $model->functionName = $map['functionName'];
-        }
-        if (isset($map['innerRewriteConfig'])) {
-            $model->innerRewriteConfig = InnerRewriteConfig::fromMap($map['innerRewriteConfig']);
         }
         if (isset($map['methods'])) {
             if (!empty($map['methods'])) {
@@ -123,9 +96,6 @@ class PathConfig extends Model
         }
         if (isset($map['rewriteConfig'])) {
             $model->rewriteConfig = RewriteConfig::fromMap($map['rewriteConfig']);
-        }
-        if (isset($map['serviceName'])) {
-            $model->serviceName = $map['serviceName'];
         }
 
         return $model;
