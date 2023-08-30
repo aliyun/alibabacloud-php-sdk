@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteTraceAppResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -16,13 +20,17 @@ class DeleteTraceAppResponseBody extends Model
     /**
      * @description The response in JSON format, including the HTTP status code, error code, response message, and trace ID.
      *
-     * @example {\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"data\\\":true,\\\"errorCode\\\":\\\"Application deleted.\\\",\\\"message\\\":\\\"Application deleted.\\\",\\\"success\\\":true,\\\"traceId\\\":\\\"0bc0594d15954826692915817e****\\\"}\",\"errorCode\":\"Application deleted.\",\"message\":\"Application deleted.\",\"success\":true,\"traceId\":\"0ab2646915954826692568137d****\"}
+     * @example "{\\"code\\":200,\\"data\\":\\"{\\\\\"code\\\\\":200,\\\\\"data\\\\\":true,\\\\\"errorCode\\\\\":\\\\\"The application is deleted\\\\\",\\\\\"message\\\\\":\\\\\"The application is deleted\\\\\",\\\\\"success\\\\\":true,\\\\\"traceId\\\\\":\\\\\"0bc0594d15954826692915817e\*\*\*\*\\\\\"}\\",\\"errorCode\\":\\"The application is deleted\\",\\"message\\":\\"The application is deleted\\",\\"success\\":true,\\"traceId\\":\\"0ab2646915954826692568137d\*\*\*\*\\"}
      *
      * @var string
      */
     public $data;
 
     /**
+     * @description The returned message.
+     *
+     * @example Internal error. Please try again. Contact the DingTalk service account if the issue                              persists after multiple retries.
+     *
      * @var string
      */
     public $message;
@@ -37,6 +45,11 @@ class DeleteTraceAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     * false: The request failed.
+     * @example true
+     *
      * @var bool
      */
     public $success;

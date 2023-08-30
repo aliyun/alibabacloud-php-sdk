@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class deleteReason extends Model
 {
     /**
+     * @description Reasons Ids.
+     *
      * @var reasonIds[]
      */
     public $reasonIds;
 
     /**
+     * @description Additional remarks when none of the reasons for removal provided are met.
+     *
+     * @example The business scenario cannot be satisfied.
+     *
      * @var string
      */
     public $remark;

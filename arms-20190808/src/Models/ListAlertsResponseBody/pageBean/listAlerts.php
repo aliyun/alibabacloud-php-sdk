@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class listAlerts extends Model
 {
     /**
+     * @description The list of activities.
+     *
      * @var activities[]
      */
     public $activities;
 
     /**
+     * @description The list of events.
+     *
      * @var alertEvents[]
      */
     public $alertEvents;
 
     /**
+     * @description The alert ID.
+     *
      * @example 2279
      *
      * @var int
@@ -28,13 +34,17 @@ class listAlerts extends Model
     public $alertId;
 
     /**
-     * @example 测试触发的告警
+     * @description The name of the alert rule.
+     *
+     * @example Test alert
      *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The time when the alert was created.
+     *
      * @example 2022-01-18 00:21:35
      *
      * @var string
@@ -42,6 +52,8 @@ class listAlerts extends Model
     public $createTime;
 
     /**
+     * @description The ID of the notification policy.
+     *
      * @example 12345
      *
      * @var float
@@ -49,13 +61,17 @@ class listAlerts extends Model
     public $dispatchRuleId;
 
     /**
-     * @example 某某通知策略
+     * @description The name of the notification policy.
+     *
+     * @example DingTalk Notification
      *
      * @var string
      */
     public $dispatchRuleName;
 
     /**
+     * @description The severity level of the alert. Valid values: P6, P5, P4, P3, P2, and P1. The preceding values are listed in ascending order of severity.
+     *
      * @example P6
      *
      * @var string
@@ -63,11 +79,19 @@ class listAlerts extends Model
     public $severity;
 
     /**
+     * @description The Alert solution.
+     *
      * @var string
      */
     public $solution;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   0: The alert is pending.
+     *   1: The alert is being handled.
+     *   2: The alert is handled.
+     *
      * @example 0
      *
      * @var int

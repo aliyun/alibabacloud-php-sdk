@@ -9,13 +9,17 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsRequest extends Model
 {
     /**
-     * @example 测试触发的告警
+     * @description The name of the alert rule.
+     *
+     * @example Test alert
      *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The ID of the notification policy.
+     *
      * @example 12345
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAlertsRequest extends Model
     public $dispatchRuleId;
 
     /**
+     * @description The end time of the alert sending history that you want to query. Specify the time in the `YYYY-MM-DD HH:mm:ss` format.
+     *
      * @example 2021-12-22 23:59:59
      *
      * @var string
@@ -30,6 +36,28 @@ class ListAlertsRequest extends Model
     public $endTime;
 
     /**
+     * @description The integration type.
+     *
+     *   ARMS
+     *   CLOUD_MONITOR
+     *   MSE
+     *   ARMS_CLOUD_DIALTEST
+     *   PROMETHEUS
+     *   LOG_SERVICE
+     *   CUSTOM
+     *   ARMS_PROMETHEUS
+     *   ARMS_APP_MON
+     *   ARMS_FRONT_MON
+     *   ARMS_CUSTOM
+     *   XTRACE
+     *   GRAFANA
+     *   ZABBIX
+     *   SKYWALKING
+     *   EVENT_BRIDGE
+     *   NAGIOS
+     *   OPENFALCON
+     *   ARMS_INSIGHTS
+     *
      * @example ARMS_APP_MON
      *
      * @var string
@@ -37,6 +65,8 @@ class ListAlertsRequest extends Model
     public $integrationType;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -44,11 +74,17 @@ class ListAlertsRequest extends Model
     public $page;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The severity level of the alert. Valid values: P6, P5, P4, P3, P2, and P1. The preceding values are listed in ascending order of severity.
+     *
      * @example P6
      *
      * @var string
@@ -56,6 +92,11 @@ class ListAlertsRequest extends Model
     public $severity;
 
     /**
+     * @description Specifies whether to query the activities that correspond to alerts. Valid values:
+     *
+     *   `false` (default value): The activities are not queried.
+     *   `true`: The activities in the last three days are queried.
+     *
      * @example true
      *
      * @var bool
@@ -63,6 +104,11 @@ class ListAlertsRequest extends Model
     public $showActivities;
 
     /**
+     * @description Specifies whether to query the events that correspond to alerts. Valid values:
+     *
+     *   `false` (default value): The events are not queried.
+     *   `true`: The events are queried.
+     *
      * @example true
      *
      * @var bool
@@ -70,6 +116,8 @@ class ListAlertsRequest extends Model
     public $showEvents;
 
     /**
+     * @description The number of alerts to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -77,6 +125,8 @@ class ListAlertsRequest extends Model
     public $size;
 
     /**
+     * @description The start time of the alert sending history that you want to query. Specify the time in the `YYYY-MM-DD HH:mm:ss` format.
+     *
      * @example 2021-12-10 00:00:00
      *
      * @var string
@@ -84,6 +134,12 @@ class ListAlertsRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   0: The alert is pending.
+     *   1: The alert is being handled.
+     *   2: The alert is handled.
+     *
      * @example 2
      *
      * @var int

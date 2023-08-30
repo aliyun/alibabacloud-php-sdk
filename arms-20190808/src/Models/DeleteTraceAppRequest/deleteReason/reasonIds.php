@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class reasonIds extends Model
 {
     /**
+     * @description The ID of the reason for deletion.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description A description of the reason for removal.
+     *
+     * @example The function is not perfect, and the root cause of the problem cannot be located.
+     *
      * @var string
      */
     public $name;

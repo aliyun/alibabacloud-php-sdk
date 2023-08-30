@@ -47,6 +47,8 @@ class armsScenarios extends Model
     /**
      * @description The name of the business monitoring job.
      *
+     * @example k8s_deployment_css-guns-vip-main-prod_silence
+     *
      * @var string
      */
     public $name;

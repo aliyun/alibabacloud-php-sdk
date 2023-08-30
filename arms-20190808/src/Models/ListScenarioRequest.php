@@ -20,6 +20,8 @@ class ListScenarioRequest extends Model
     /**
      * @description The name of the business monitoring job.
      *
+     * @example pro-content
+     *
      * @var string
      */
     public $name;

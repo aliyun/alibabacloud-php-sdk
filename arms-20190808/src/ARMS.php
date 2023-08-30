@@ -287,6 +287,8 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenVClusterRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenVClusterResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenXtraceDefaultSLRRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\OpenXtraceDefaultSLRResponse;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppMetadataRequest;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryAppMetadataResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryMetricByPageRequest;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryMetricByPageResponse;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\QueryPromInstallStatusRequest;
@@ -7685,6 +7687,46 @@ class ARMS extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->openXtraceDefaultSLRWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryAppMetadataRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QueryAppMetadataResponse
+     */
+    public function queryAppMetadataWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryAppMetadata',
+            'version'     => '2019-08-08',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryAppMetadataResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryAppMetadataRequest $request
+     *
+     * @return QueryAppMetadataResponse
+     */
+    public function queryAppMetadata($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryAppMetadataWithOptions($request, $runtime);
     }
 
     /**

@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class alertEvents extends Model
 {
     /**
+     * @description The name of the event.
+     *
+     * @example Test-triggered alert
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The annotations.
+     *
      * @example { "_aliyun_arms_alert_value":"4.0" "_aliyun_arms_alert_traceId":"ac10c43116421327442277073d5461-105075299"}
      *
      * @var string
@@ -21,11 +27,17 @@ class alertEvents extends Model
     public $annotations;
 
     /**
+     * @description The description of the event.
+     *
+     * @example Host monitoring. Host IP address: 10.76.XX.XX. Average memory usage of the host in the last 1 minute ≥ 1.0%. Current value: 84.7454%.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The time when the event ended.
+     *
      * @example 2022-01-19 17:10:31
      *
      * @var string
@@ -33,6 +45,8 @@ class alertEvents extends Model
     public $endTime;
 
     /**
+     * @description The URL of the event.
+     *
      * @example http://arms.console.aliyun.com
      *
      * @var string
@@ -40,6 +54,8 @@ class alertEvents extends Model
     public $generatorURL;
 
     /**
+     * @description The name of the integration that corresponds to the alert event.
+     *
      * @example ARMS
      *
      * @var string
@@ -47,6 +63,28 @@ class alertEvents extends Model
     public $integrationName;
 
     /**
+     * @description The type of the integration that corresponds to the alert event. Valid values:
+     *
+     *   ARMS
+     *   CLOUD_MONITOR
+     *   MSE
+     *   ARMS_CLOUD_DIALTEST
+     *   PROMETHEUS
+     *   LOG_SERVICE
+     *   CUSTOM
+     *   ARMS_PROMETHEUS
+     *   ARMS_APP_MON
+     *   ARMS_FRONT_MON
+     *   ARMS_CUSTOM
+     *   XTRACE
+     *   GRAFANA
+     *   ZABBIX
+     *   SKYWALKING
+     *   EVENT_BRIDGE
+     *   NAGIOS
+     *   OPENFALCON
+     *   ARMS_INSIGHTS
+     *
      * @example ARMS_APP_MON
      *
      * @var string
@@ -54,6 +92,8 @@ class alertEvents extends Model
     public $integrationType;
 
     /**
+     * @description The tags.
+     *
      * @example { "severity":"warning" "_aliyun_arms_alert_level":"ERROR" "_aliyun_arms_entropy":"0.30170457417889235"}
      *
      * @var string
@@ -61,6 +101,8 @@ class alertEvents extends Model
     public $labels;
 
     /**
+     * @description The time when the event was created.
+     *
      * @example 2022-01-19 17:05:42
      *
      * @var string
@@ -68,6 +110,13 @@ class alertEvents extends Model
     public $receiveTime;
 
     /**
+     * @description The severity level of the event. Valid values:
+     *
+     *   critical
+     *   error
+     *   warning
+     *   info
+     *
      * @example warning
      *
      * @var string
@@ -75,6 +124,8 @@ class alertEvents extends Model
     public $severity;
 
     /**
+     * @description The time when the event started.
+     *
      * @example 2022-01-18 00:14:00
      *
      * @var string
@@ -82,6 +133,12 @@ class alertEvents extends Model
     public $startTime;
 
     /**
+     * @description The status of the event. Valid values:
+     *
+     *   Active: The event is not cleared.
+     *   Silenced: The event is silenced.
+     *   Resolved: The event is cleared.
+     *
      * @example Active
      *
      * @var string

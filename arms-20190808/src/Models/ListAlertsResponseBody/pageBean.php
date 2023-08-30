@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The alerts for which the alert sending history is queried.
+     *
      * @var listAlerts[]
      */
     public $listAlerts;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pageBean extends Model
     public $page;
 
     /**
+     * @description The number of alerts returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class pageBean extends Model
     public $size;
 
     /**
+     * @description The total number of queried alerts.
+     *
      * @example 1
      *
      * @var int

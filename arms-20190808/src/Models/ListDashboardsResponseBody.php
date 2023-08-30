@@ -17,6 +17,11 @@ class ListDashboardsResponseBody extends Model
     public $dashboardVos;
 
     /**
+     * @var string
+     */
+    public $prometheusServiceOpened;
+
+    /**
      * @description The request ID.
      *
      * @example 2A0CEDF1-06FE-44AC-8E21-21A5BE65****
@@ -25,8 +30,9 @@ class ListDashboardsResponseBody extends Model
      */
     public $requestId;
     protected $_name = [
-        'dashboardVos' => 'DashboardVos',
-        'requestId'    => 'RequestId',
+        'dashboardVos'            => 'DashboardVos',
+        'prometheusServiceOpened' => 'PrometheusServiceOpened',
+        'requestId'               => 'RequestId',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class ListDashboardsResponseBody extends Model
                     $res['DashboardVos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->prometheusServiceOpened) {
+            $res['PrometheusServiceOpened'] = $this->prometheusServiceOpened;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -68,6 +77,9 @@ class ListDashboardsResponseBody extends Model
                     $model->dashboardVos[$n++] = null !== $item ? dashboardVos::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['PrometheusServiceOpened'])) {
+            $model->prometheusServiceOpened = $map['PrometheusServiceOpened'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

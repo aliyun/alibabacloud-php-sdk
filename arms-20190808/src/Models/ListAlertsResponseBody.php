@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAlertsResponseBody extends Model
 {
     /**
+     * @description The information about the array object.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The request ID.
+     *
      * @example 2FC13182-B9AF-4E6B-BE51-72669B7C****
      *
      * @var string

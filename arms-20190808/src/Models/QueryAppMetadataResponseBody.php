@@ -6,11 +6,9 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class SaveTraceAppConfigResponseBody extends Model
+class QueryAppMetadataResponseBody extends Model
 {
     /**
-     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
-     *
      * @example 200
      *
      * @var int
@@ -18,49 +16,38 @@ class SaveTraceAppConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the call was successful.
+     * @example {\"408d5533\": \"SELECT * FROM user_base_info\"}
      *
-     * @example success
-     *
-     * @var string
+     * @var mixed[]
      */
     public $data;
 
     /**
-     * @description The returned message.
+     * @example 200
      *
-     * @example message
-     *
-     * @var string
+     * @var int
      */
-    public $message;
+    public $httpStatusCode;
 
     /**
-     * @description The ID of the request.
-     *
-     * @example 78901766-3806-4E96-8E47-CFEF59E4****
+     * @example 51877BAC-330C-5845-BDFD-C7859AD33FB7
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`
-     *   `false`
-     *
-     * @example true
+     * @example True
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'      => 'Code',
-        'data'      => 'Data',
-        'message'   => 'Message',
-        'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'code'           => 'Code',
+        'data'           => 'Data',
+        'httpStatusCode' => 'HttpStatusCode',
+        'requestId'      => 'RequestId',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -76,8 +63,8 @@ class SaveTraceAppConfigResponseBody extends Model
         if (null !== $this->data) {
             $res['Data'] = $this->data;
         }
-        if (null !== $this->message) {
-            $res['Message'] = $this->message;
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -92,7 +79,7 @@ class SaveTraceAppConfigResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return SaveTraceAppConfigResponseBody
+     * @return QueryAppMetadataResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -103,8 +90,8 @@ class SaveTraceAppConfigResponseBody extends Model
         if (isset($map['Data'])) {
             $model->data = $map['Data'];
         }
-        if (isset($map['Message'])) {
-            $model->message = $map['Message'];
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
