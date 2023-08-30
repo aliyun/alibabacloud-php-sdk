@@ -19,7 +19,7 @@ class UpdatePluginConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The plug-in configuration.
+     * @description The plug-in configuration. Configurations of WebAssembly plug-ins are in the YAML format, and configurations of Lua plug-ins are in the Lua code.
      *
      * @example \# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *

@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListenersRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The data structure.
      *
      * @example zh
      *
@@ -21,7 +18,7 @@ class GetServiceListenersRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the MSE instance to which the service belongs.
+     * @description The ID of the instance to which the service belongs.
      *
      * > You must specify InstanceId or ClusterId.
      * @example mse-09k1q11****
@@ -31,9 +28,8 @@ class GetServiceListenersRequest extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster to which the service belongs.
+     * @description A reserved parameter.
      *
-     * > The cluster is a concept for Nacos services and does not refer to a Microservices Engine (MSE) instance.
      * @example DEFAULT
      *
      * @var string
@@ -41,7 +37,7 @@ class GetServiceListenersRequest extends Model
     public $clusterName;
 
     /**
-     * @description The group to which the service belongs.
+     * @description The namespace to which the service belongs.
      *
      * @example WEB_GROUP
      *
@@ -50,8 +46,9 @@ class GetServiceListenersRequest extends Model
     public $groupName;
 
     /**
-     * @description A reserved parameter.
+     * @description The ID of the MSE instance to which the service belongs.
      *
+     * > You must specify InstanceId or ClusterId.
      * @example none
      *
      * @var string
@@ -59,9 +56,8 @@ class GetServiceListenersRequest extends Model
     public $hasIpCount;
 
     /**
-     * @description The ID of the instance to which the service belongs.
+     * @description The number of the page to return.
      *
-     * > You must specify InstanceId or ClusterId.
      * @example mse_prepaid_public_cn-tl32odtt20j
      *
      * @var string
@@ -69,8 +65,9 @@ class GetServiceListenersRequest extends Model
     public $instanceId;
 
     /**
-     * @description The namespace to which the service belongs.
+     * @description The name of the cluster to which the service belongs.
      *
+     * > The cluster is a concept for Nacos services and is not equivalent to a Microservices Engine (MSE) instance.
      * @example ddaf8f12-****-b1c1-86e7c72e266b
      *
      * @var string
@@ -78,7 +75,7 @@ class GetServiceListenersRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The number of the page to return.
+     * @description The number of entries to return on each page.
      *
      * @example 1
      *
@@ -87,7 +84,7 @@ class GetServiceListenersRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The ID of the region.
      *
      * @example 10
      *
@@ -96,7 +93,7 @@ class GetServiceListenersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID.
+     * @description The extended request parameters in the JSON format.
      *
      * @example cn-hangzhou
      *
@@ -105,7 +102,10 @@ class GetServiceListenersRequest extends Model
     public $regionId;
 
     /**
-     * @description The extended request parameters in the JSON format.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example {}
      *
@@ -114,7 +114,7 @@ class GetServiceListenersRequest extends Model
     public $requestPars;
 
     /**
-     * @description The name of the service whose listeners you want to query.
+     * @description The group to which the service belongs.
      *
      * @example zeekr-orderboss
      *

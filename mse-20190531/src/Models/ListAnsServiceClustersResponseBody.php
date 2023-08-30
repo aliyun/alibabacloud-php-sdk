@@ -26,6 +26,11 @@ class ListAnsServiceClustersResponseBody extends Model
     public $errorCode;
 
     /**
+     * @var string
+     */
+    public $httpCode;
+
+    /**
      * @description The message returned.
      *
      * @example The request was successfully processed.
@@ -57,6 +62,7 @@ class ListAnsServiceClustersResponseBody extends Model
     protected $_name = [
         'data'      => 'Data',
         'errorCode' => 'ErrorCode',
+        'httpCode'  => 'HttpCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -74,6 +80,9 @@ class ListAnsServiceClustersResponseBody extends Model
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
+        }
+        if (null !== $this->httpCode) {
+            $res['HttpCode'] = $this->httpCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -101,6 +110,9 @@ class ListAnsServiceClustersResponseBody extends Model
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
+        }
+        if (isset($map['HttpCode'])) {
+            $model->httpCode = $map['HttpCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

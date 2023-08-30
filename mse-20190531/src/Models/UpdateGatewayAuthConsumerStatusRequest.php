@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayAuthConsumerStatusRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class UpdateGatewayAuthConsumerStatusRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The status of the consumer. Valid values:
+     *
+     *   true: The consumer is enabled.
+     *   false: The consumer is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +33,8 @@ class UpdateGatewayAuthConsumerStatusRequest extends Model
     public $consumerStatus;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-685f661467b54f48b7b7a76605ce****
      *
      * @var string
@@ -30,6 +42,8 @@ class UpdateGatewayAuthConsumerStatusRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The consumer ID.
+     *
      * @example 1
      *
      * @var int

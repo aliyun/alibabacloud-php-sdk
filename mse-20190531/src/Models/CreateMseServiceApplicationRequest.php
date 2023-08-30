@@ -11,8 +11,8 @@ class CreateMseServiceApplicationRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   zh: Chinese
-     *   en: English
+     *   zh: Chinese.
+     *   en: English.
      *
      * @example zh
      *
@@ -50,8 +50,8 @@ class CreateMseServiceApplicationRequest extends Model
     /**
      * @description The edition of the MSE instance that you want to purchase.
      *
-     *   mse_pro: Professional Edition
-     *   mse_dev: Developer Edition
+     *   mse_pro: Professional Edition.
+     *   mse_dev: Developer Edition.
      *
      * @example mse_pro
      *

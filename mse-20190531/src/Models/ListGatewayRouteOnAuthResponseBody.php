@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteOnAuthResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var int
@@ -17,11 +19,15 @@ class ListGatewayRouteOnAuthResponseBody extends Model
     public $code;
 
     /**
+     * @description The details of the data.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -29,11 +35,17 @@ class ListGatewayRouteOnAuthResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 58E06A0A-BD2C-47A0-99C2-B100F353****
      *
      * @var string
@@ -41,6 +53,11 @@ class ListGatewayRouteOnAuthResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool

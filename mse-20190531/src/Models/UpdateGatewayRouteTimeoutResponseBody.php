@@ -45,7 +45,7 @@ class UpdateGatewayRouteTimeoutResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 5359729E-A059-5942-98AF-E981E89C99FA
      *

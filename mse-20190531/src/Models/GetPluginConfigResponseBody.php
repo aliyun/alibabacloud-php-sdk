@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetPluginConfigResponseBody extends Model
 {
     /**
-     * @description Code.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -80,7 +80,7 @@ class GetPluginConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description Indicates whether the request is successful.
      *
      * @example true
      *

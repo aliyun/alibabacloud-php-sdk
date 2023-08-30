@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayResponseBody\data\elasticPolicy;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayResponseBody\data\logConfigDetails;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayResponseBody\data\xtraceDetails;
 use AlibabaCloud\Tea\Model;
@@ -18,6 +19,26 @@ class data extends Model
      * @var string
      */
     public $chargeType;
+
+    /**
+     * @var bool
+     */
+    public $elastic;
+
+    /**
+     * @var elasticPolicy
+     */
+    public $elasticPolicy;
+
+    /**
+     * @var int
+     */
+    public $elasticReplica;
+
+    /**
+     * @var string
+     */
+    public $elasticType;
 
     /**
      * @description The time when the gateway expires.
@@ -171,6 +192,11 @@ class data extends Model
     public $statusDesc;
 
     /**
+     * @var int
+     */
+    public $totalReplica;
+
+    /**
      * @description The ID of the VPC.
      *
      * @example vpc-bp1328cm01m6uel42b5zb
@@ -205,6 +231,10 @@ class data extends Model
     public $xtraceDetails;
     protected $_name = [
         'chargeType'       => 'ChargeType',
+        'elastic'          => 'Elastic',
+        'elasticPolicy'    => 'ElasticPolicy',
+        'elasticReplica'   => 'ElasticReplica',
+        'elasticType'      => 'ElasticType',
         'endDate'          => 'EndDate',
         'gatewayUniqueId'  => 'GatewayUniqueId',
         'gmtCreate'        => 'GmtCreate',
@@ -222,6 +252,7 @@ class data extends Model
         'spec'             => 'Spec',
         'status'           => 'Status',
         'statusDesc'       => 'StatusDesc',
+        'totalReplica'     => 'TotalReplica',
         'vpc'              => 'Vpc',
         'vswitch'          => 'Vswitch',
         'vswitch2'         => 'Vswitch2',
@@ -237,6 +268,18 @@ class data extends Model
         $res = [];
         if (null !== $this->chargeType) {
             $res['ChargeType'] = $this->chargeType;
+        }
+        if (null !== $this->elastic) {
+            $res['Elastic'] = $this->elastic;
+        }
+        if (null !== $this->elasticPolicy) {
+            $res['ElasticPolicy'] = null !== $this->elasticPolicy ? $this->elasticPolicy->toMap() : null;
+        }
+        if (null !== $this->elasticReplica) {
+            $res['ElasticReplica'] = $this->elasticReplica;
+        }
+        if (null !== $this->elasticType) {
+            $res['ElasticType'] = $this->elasticType;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -289,6 +332,9 @@ class data extends Model
         if (null !== $this->statusDesc) {
             $res['StatusDesc'] = $this->statusDesc;
         }
+        if (null !== $this->totalReplica) {
+            $res['TotalReplica'] = $this->totalReplica;
+        }
         if (null !== $this->vpc) {
             $res['Vpc'] = $this->vpc;
         }
@@ -315,6 +361,18 @@ class data extends Model
         $model = new self();
         if (isset($map['ChargeType'])) {
             $model->chargeType = $map['ChargeType'];
+        }
+        if (isset($map['Elastic'])) {
+            $model->elastic = $map['Elastic'];
+        }
+        if (isset($map['ElasticPolicy'])) {
+            $model->elasticPolicy = elasticPolicy::fromMap($map['ElasticPolicy']);
+        }
+        if (isset($map['ElasticReplica'])) {
+            $model->elasticReplica = $map['ElasticReplica'];
+        }
+        if (isset($map['ElasticType'])) {
+            $model->elasticType = $map['ElasticType'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
@@ -366,6 +424,9 @@ class data extends Model
         }
         if (isset($map['StatusDesc'])) {
             $model->statusDesc = $map['StatusDesc'];
+        }
+        if (isset($map['TotalReplica'])) {
+            $model->totalReplica = $map['TotalReplica'];
         }
         if (isset($map['Vpc'])) {
             $model->vpc = $map['Vpc'];

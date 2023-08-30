@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosConfigResponseBody extends Model
 {
     /**
-     * @description The status code returned.
-     *
      * @example 200
      *
      * @var string
@@ -18,8 +16,6 @@ class DeleteNacosConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The error code returned if the request failed.
-     *
      * @example mse-100-000
      *
      * @var string
@@ -27,7 +23,7 @@ class DeleteNacosConfigResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code
+     * @description > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
      *
      * @example 202
      *
@@ -36,16 +32,12 @@ class DeleteNacosConfigResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The message returned.
-     *
-     * @example The request is successfully processed.
-     *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Deletes a Nacos configuration.
      *
      * @example 4FEFC13F-EB50-51E1-97D8-C5CBA8CD1B84
      *
@@ -54,11 +46,6 @@ class DeleteNacosConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
-     *
      * @example true
      *
      * @var bool

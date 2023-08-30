@@ -30,27 +30,23 @@ class DeleteSwimmingLaneGroupRequest extends Model
     public $groupId;
 
     /**
+     * @example example-app
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
      * @example default
      *
      * @var string
      */
     public $namespace;
-
-    /**
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @var string
-     */
-    public $name;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'groupId'        => 'GroupId',
+        'name'           => 'Name',
         'namespace'      => 'Namespace',
-        'region'         => 'Region',
-        'name'           => 'name',
     ];
 
     public function validate()
@@ -66,14 +62,11 @@ class DeleteSwimmingLaneGroupRequest extends Model
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
+        if (null !== $this->name) {
+            $res['Name'] = $this->name;
+        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
-        }
-        if (null !== $this->region) {
-            $res['Region'] = $this->region;
-        }
-        if (null !== $this->name) {
-            $res['name'] = $this->name;
         }
 
         return $res;
@@ -93,14 +86,11 @@ class DeleteSwimmingLaneGroupRequest extends Model
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
+        if (isset($map['Name'])) {
+            $model->name = $map['Name'];
+        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
-        }
-        if (isset($map['Region'])) {
-            $model->region = $map['Region'];
-        }
-        if (isset($map['name'])) {
-            $model->name = $map['name'];
         }
 
         return $model;

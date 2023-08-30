@@ -30,7 +30,7 @@ class ListZkTrackRequest extends Model
     public $endTs;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example mse-cn-0ju2yq****
      *

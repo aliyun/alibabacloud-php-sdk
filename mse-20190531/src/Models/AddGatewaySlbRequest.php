@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbRequest\VServiceList;
 use AlibabaCloud\Tea\Model;
 
 class AddGatewaySlbRequest extends Model
@@ -94,6 +95,11 @@ class AddGatewaySlbRequest extends Model
      * @var string
      */
     public $VServerGroupId;
+
+    /**
+     * @var VServiceList[]
+     */
+    public $VServiceList;
     protected $_name = [
         'acceptLanguage'      => 'AcceptLanguage',
         'gatewayUniqueId'     => 'GatewayUniqueId',
@@ -104,6 +110,7 @@ class AddGatewaySlbRequest extends Model
         'slbId'               => 'SlbId',
         'type'                => 'Type',
         'VServerGroupId'      => 'VServerGroupId',
+        'VServiceList'        => 'VServiceList',
     ];
 
     public function validate()
@@ -139,6 +146,15 @@ class AddGatewaySlbRequest extends Model
         }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
+        }
+        if (null !== $this->VServiceList) {
+            $res['VServiceList'] = [];
+            if (null !== $this->VServiceList && \is_array($this->VServiceList)) {
+                $n = 0;
+                foreach ($this->VServiceList as $item) {
+                    $res['VServiceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -178,6 +194,15 @@ class AddGatewaySlbRequest extends Model
         }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
+        }
+        if (isset($map['VServiceList'])) {
+            if (!empty($map['VServiceList'])) {
+                $model->VServiceList = [];
+                $n                   = 0;
+                foreach ($map['VServiceList'] as $item) {
+                    $model->VServiceList[$n++] = null !== $item ? VServiceList::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

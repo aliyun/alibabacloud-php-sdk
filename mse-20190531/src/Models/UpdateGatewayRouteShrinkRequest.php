@@ -46,7 +46,7 @@ class UpdateGatewayRouteShrinkRequest extends Model
     public $domainIdListJSON;
 
     /**
-     * @description Specifies whether to enable Web Application Firewall (WAF).
+     * @description Specifies whether to activate Web Application Firewall (WAF).
      *
      * @example false
      *

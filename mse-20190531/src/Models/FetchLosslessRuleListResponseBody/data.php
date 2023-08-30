@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The data returned.
+     * @description The returned data.
      *
      * @var results[]
      */

@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBod
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\cors;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\directResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\fallbackServices;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\flowMirror;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\headerOp;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\HTTPRewrite;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetGatewayRouteDetailResponseBody\data\redirect;
@@ -126,6 +127,11 @@ class data extends Model
     public $fallbackServices;
 
     /**
+     * @var flowMirror
+     */
+    public $flowMirror;
+
+    /**
      * @description The ID of the gateway.
      *
      * @example 1
@@ -194,6 +200,9 @@ class data extends Model
     public $name;
 
     /**
+     * @example {
+     * "CORS": "{\"allowMethods\":\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\",\"allowHeaders\":\"*\",\"exposeHeaders\":\"*\",\"unitNum\":12,\"allowCredentials\":true,\"status\":\"off\",\"allowOrigins\":\"*\",\"timeUnit\":\"h\"}",
+     * }
      * @var string
      */
     public $policies;
@@ -238,7 +247,7 @@ class data extends Model
     public $routePredicates;
 
     /**
-     * @description The information about services.
+     * @description The services.
      *
      * @var routeServices[]
      */
@@ -289,6 +298,7 @@ class data extends Model
         'enableWaf'          => 'EnableWaf',
         'fallback'           => 'Fallback',
         'fallbackServices'   => 'FallbackServices',
+        'flowMirror'         => 'FlowMirror',
         'gatewayId'          => 'GatewayId',
         'gatewayUniqueId'    => 'GatewayUniqueId',
         'gmtCreate'          => 'GmtCreate',
@@ -360,6 +370,9 @@ class data extends Model
                     $res['FallbackServices'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->flowMirror) {
+            $res['FlowMirror'] = null !== $this->flowMirror ? $this->flowMirror->toMap() : null;
         }
         if (null !== $this->gatewayId) {
             $res['GatewayId'] = $this->gatewayId;
@@ -481,6 +494,9 @@ class data extends Model
                     $model->fallbackServices[$n++] = null !== $item ? fallbackServices::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['FlowMirror'])) {
+            $model->flowMirror = flowMirror::fromMap($map['FlowMirror']);
         }
         if (isset($map['GatewayId'])) {
             $model->gatewayId = $map['GatewayId'];

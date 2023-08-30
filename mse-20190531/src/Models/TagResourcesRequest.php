@@ -22,7 +22,7 @@ class TagResourcesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

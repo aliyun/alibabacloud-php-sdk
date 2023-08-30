@@ -39,18 +39,28 @@ class DeleteGatewaySlbRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The ID of the associated record.
+     * @description The ID of the association record.
      *
      * @example 395
      *
      * @var string
      */
     public $id;
+
+    /**
+     * @description The ID of the SLB instance that needs to be deleted.
+     *
+     * @example lb-uf6duug6s13x4abc8****
+     *
+     * @var string
+     */
+    public $slbId;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'deleteSlb'       => 'DeleteSlb',
         'gatewayUniqueId' => 'GatewayUniqueId',
         'id'              => 'Id',
+        'slbId'           => 'SlbId',
     ];
 
     public function validate()
@@ -71,6 +81,9 @@ class DeleteGatewaySlbRequest extends Model
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
+        }
+        if (null !== $this->slbId) {
+            $res['SlbId'] = $this->slbId;
         }
 
         return $res;
@@ -95,6 +108,9 @@ class DeleteGatewaySlbRequest extends Model
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
+        }
+        if (isset($map['SlbId'])) {
+            $model->slbId = $map['SlbId'];
         }
 
         return $model;

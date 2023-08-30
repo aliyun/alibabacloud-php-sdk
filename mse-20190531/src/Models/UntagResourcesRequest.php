@@ -34,7 +34,7 @@ class UntagResourcesRequest extends Model
     public $all;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -50,7 +50,7 @@ class UntagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resources. Valid values:
+     * @description The type of the resource. Valid values:
      *
      *   CLUSTER: MSE instance
      *   GATEWAY: cloud-native gateway

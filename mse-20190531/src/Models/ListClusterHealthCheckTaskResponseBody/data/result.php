@@ -28,7 +28,7 @@ class result extends Model
     public $chargeType;
 
     /**
-     * @description The type of the instance.
+     * @description The type of the cluster.
      *
      * @example Nacos-Ans
      *
@@ -152,7 +152,7 @@ class result extends Model
     public $type;
 
     /**
-     * @description The time of the last modification.
+     * @description The last update time.
      *
      * @example 2022-11-12 15:07:55
      *

@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayAuthConsumerResourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -17,6 +22,8 @@ class UpdateGatewayAuthConsumerResourceRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The gateway authentication consumer ID.
+     *
      * @example 2
      *
      * @var int
@@ -24,7 +31,7 @@ class UpdateGatewayAuthConsumerResourceRequest extends Model
     public $consumerId;
 
     /**
-     * @description UpdateGatewayAuthConsumerResource
+     * @description The unique ID of the gateway.
      *
      * @example gw-3f97e2989c344f35ab3fd62b19f1****
      *
@@ -33,6 +40,8 @@ class UpdateGatewayAuthConsumerResourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The gateway authentication consumer ID.
+     *
      * @var resourceList[]
      */
     public $resourceList;

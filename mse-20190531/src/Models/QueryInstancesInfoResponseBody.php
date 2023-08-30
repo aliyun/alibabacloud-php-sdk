@@ -26,7 +26,7 @@ class QueryInstancesInfoResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 202
      *
@@ -35,7 +35,7 @@ class QueryInstancesInfoResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The message returned.
+     * @description The message that is returned.
      *
      *   If the request is successful, a success message is returned.
      *   If the request fails, an error message is returned.

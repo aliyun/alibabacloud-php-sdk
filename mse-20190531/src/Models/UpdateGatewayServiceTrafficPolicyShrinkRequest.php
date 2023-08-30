@@ -11,8 +11,8 @@ class UpdateGatewayServiceTrafficPolicyShrinkRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   **zh-CN**: Chinese. This is the default value.
-     *   **en-US**: English
+     *   **zh-CN**: Chinese
+     *   **en-US**: English.
      *
      * @example zh
      *
@@ -30,7 +30,7 @@ class UpdateGatewayServiceTrafficPolicyShrinkRequest extends Model
     public $gatewayId;
 
     /**
-     * @description The traffic policy of the service.
+     * @description The traffic policy of the gateway.
      *
      * @var string
      */

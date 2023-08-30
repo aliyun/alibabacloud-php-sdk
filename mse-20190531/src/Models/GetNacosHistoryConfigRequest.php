@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetNacosHistoryConfigRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The data structure.
      *
      * @example zh
      *
@@ -21,7 +18,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the data.
+     * @description The name of the group.
      *
      * @example msg-center.main.yaml
      *
@@ -30,7 +27,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $dataId;
 
     /**
-     * @description The group.
+     * @description The ID of the namespace.
      *
      * @example DEFAULT_GROUP
      *
@@ -39,7 +36,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $group;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the data.
      *
      * @example mse_prepaid_public_cn-st220g9ka02
      *
@@ -48,7 +45,7 @@ class GetNacosHistoryConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the namespace.
+     * @description The version ID of the configuration.
      *
      * @example 6cf708a5-****-89f2-3ba62c5ee9ba
      *
@@ -57,7 +54,10 @@ class GetNacosHistoryConfigRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The version ID of the configuration.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example 40****
      *

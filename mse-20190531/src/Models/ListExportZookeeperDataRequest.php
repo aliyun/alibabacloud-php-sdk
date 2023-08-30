@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListExportZookeeperDataRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListExportZookeeperDataRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example mse-cn-7pp2d1****
      *
      * @var string
@@ -23,6 +30,8 @@ class ListExportZookeeperDataRequest extends Model
     public $instanceId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 0
      *
      * @var int
@@ -30,6 +39,8 @@ class ListExportZookeeperDataRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int

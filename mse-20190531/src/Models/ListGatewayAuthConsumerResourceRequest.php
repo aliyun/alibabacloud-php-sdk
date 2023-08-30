@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayAuthConsumerResourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the consumer.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +30,8 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     public $consumerId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-3f97e2989c344f35ab3fd62b19f1****
      *
      * @var string
@@ -30,6 +39,8 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +48,8 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var string
@@ -44,6 +57,11 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     public $pageSize;
 
     /**
+     * @description The resource authorization status. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +69,8 @@ class ListGatewayAuthConsumerResourceRequest extends Model
     public $resourceStatus;
 
     /**
+     * @description The name of the route.
+     *
      * @example test
      *
      * @var string

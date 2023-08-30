@@ -11,8 +11,8 @@ class UpdateServiceSourceShrinkRequest extends Model
     /**
      * @description The language of the response. Valid values:
      *
-     *   zh: Chinese
-     *   en: English
+     *   zh: Chinese.
+     *   en: English.
      *
      * @example zh
      *
@@ -84,10 +84,10 @@ class UpdateServiceSourceShrinkRequest extends Model
     /**
      * @description The service source. Valid values:
      *
-     *   K8S: ACK cluster
-     *   MSE: Nacos instance
+     *   K8s: ACK cluster.
+     *   MSE: Nacos instance.
      *
-     * @example K8S
+     * @example K8s
      *
      * @var string
      */
@@ -96,10 +96,10 @@ class UpdateServiceSourceShrinkRequest extends Model
     /**
      * @description The type of the service source. Valid values:
      *
-     *   K8S: ACK cluster
-     *   NACOS: Nacos instance
+     *   K8s: ACK cluster.
+     *   NACOS: Nacos instance.
      *
-     * @example K8S
+     * @example K8s
      *
      * @var string
      */

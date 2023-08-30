@@ -18,7 +18,7 @@ class AddGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
+     * @description The response data.
      *
      * @example 555
      *
@@ -27,6 +27,14 @@ class AddGatewayRouteResponseBody extends Model
     public $data;
 
     /**
+     * @description The error code that is returned.
+     *
+     *   InvalidParameter: The parameter is invalid. For example, the parameter is incomplete or the parameter format is invalid.
+     *   IllegalRequest: The request is invalid. Unauthorized access to data initiated by parameters is identified.
+     *   NoPermission: You are not authorized to perform this operation.
+     *   NotFound: The resource does not exist and error 404 is returned.
+     *   InternalError: An internal error occurred.
+     *
      * @example InvalidParameter
      *
      * @var string

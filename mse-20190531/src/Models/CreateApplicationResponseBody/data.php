@@ -63,6 +63,10 @@ class data extends Model
     public $licenseKey;
 
     /**
+     * @description MSE命名空间名字。
+     *
+     * @example prod
+     *
      * @var string
      */
     public $namespace;
@@ -116,6 +120,10 @@ class data extends Model
     public $userId;
 
     /**
+     * @description 版本号。
+     *
+     * @example 1.0.0
+     *
      * @var string
      */
     public $version;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The unique ID of the gateway.
+     * @description code
      *
      * @example gw-5017305290e14cebbrvec4a5****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class UpdateGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @example 337
      *

@@ -54,9 +54,9 @@ class DeleteNacosInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The error message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

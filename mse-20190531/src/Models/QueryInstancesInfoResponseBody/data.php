@@ -18,7 +18,7 @@ class data extends Model
     public $clientPort;
 
     /**
-     * @description The creation time of the TIMESTAMP type.
+     * @description The creation time. The value of this parameter is a timestamp.
      *
      * @example 2022-12-15T02:02:15Z
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $ip;
 
     /**
-     * @description The name of the pod.
+     * @description The pod name.
      *
      * @example mse-xxxxx-xxxxx-reg-center-0-1
      *
@@ -88,6 +88,11 @@ class data extends Model
      * @var string
      */
     public $zone;
+
+    /**
+     * @var bool
+     */
+    public $zoneDistributed;
     protected $_name = [
         'clientPort'        => 'ClientPort',
         'creationTimestamp' => 'CreationTimestamp',
@@ -98,6 +103,7 @@ class data extends Model
         'role'              => 'Role',
         'singleTunnelVip'   => 'SingleTunnelVip',
         'zone'              => 'Zone',
+        'zoneDistributed'   => 'ZoneDistributed',
     ];
 
     public function validate()
@@ -133,6 +139,9 @@ class data extends Model
         }
         if (null !== $this->zone) {
             $res['Zone'] = $this->zone;
+        }
+        if (null !== $this->zoneDistributed) {
+            $res['ZoneDistributed'] = $this->zoneDistributed;
         }
 
         return $res;
@@ -172,6 +181,9 @@ class data extends Model
         }
         if (isset($map['Zone'])) {
             $model->zone = $map['Zone'];
+        }
+        if (isset($map['ZoneDistributed'])) {
+            $model->zoneDistributed = $map['ZoneDistributed'];
         }
 
         return $model;

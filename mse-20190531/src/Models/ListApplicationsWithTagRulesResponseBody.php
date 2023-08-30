@@ -10,15 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationsWithTagRulesResponseBody extends Model
 {
     /**
-     * @description The HTTP status code that is returned.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $code;
-
-    /**
      * @description The details of the data.
      *
      * @var data
@@ -67,7 +58,6 @@ class ListApplicationsWithTagRulesResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
         'data'           => 'Data',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
@@ -82,9 +72,6 @@ class ListApplicationsWithTagRulesResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
@@ -112,9 +99,6 @@ class ListApplicationsWithTagRulesResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }

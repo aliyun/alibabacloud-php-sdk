@@ -10,15 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
 {
     /**
-     * @description The status code. The value 200 is returned if the request is successful.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $code;
-
-    /**
      * @description The details of the data.
      *
      * @example {}
@@ -28,31 +19,13 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
     public $data;
 
     /**
-     * @description The dynamic part in the error message.
-     *
-     * @example The specified parameter is invalid.
-     *
-     * @var string
-     */
-    public $dynamicMessage;
-
-    /**
-     * @description The error code returned if the request failed.
+     * @description The error code.
      *
      * @example mse-100-000
      *
      * @var string
      */
     public $errorCode;
-
-    /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $httpStatusCode;
 
     /**
      * @description The message returned.
@@ -82,14 +55,11 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
-        'dynamicMessage' => 'DynamicMessage',
-        'errorCode'      => 'ErrorCode',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -99,20 +69,11 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->dynamicMessage) {
-            $res['DynamicMessage'] = $this->dynamicMessage;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -135,20 +96,11 @@ class CreateOrUpdateSwimmingLaneGroupResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-        if (isset($map['DynamicMessage'])) {
-            $model->dynamicMessage = $map['DynamicMessage'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

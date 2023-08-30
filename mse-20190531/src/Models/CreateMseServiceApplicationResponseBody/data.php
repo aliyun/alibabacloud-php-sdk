@@ -81,7 +81,7 @@ class data extends Model
     public $source;
 
     /**
-     * @description The status. Valid values: 1: available; 2: deleted
+     * @description The status. Valid values: 1: available; 2: deleted.
      *
      * @example 1
      *

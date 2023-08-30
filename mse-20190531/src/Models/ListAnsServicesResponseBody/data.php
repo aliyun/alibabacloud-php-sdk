@@ -52,12 +52,18 @@ class data extends Model
      * @var string
      */
     public $name;
+
+    /**
+     * @var string
+     */
+    public $source;
     protected $_name = [
         'clusterCount'         => 'ClusterCount',
         'groupName'            => 'GroupName',
         'healthyInstanceCount' => 'HealthyInstanceCount',
         'ipCount'              => 'IpCount',
         'name'                 => 'Name',
+        'source'               => 'Source',
     ];
 
     public function validate()
@@ -81,6 +87,9 @@ class data extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -108,6 +117,9 @@ class data extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

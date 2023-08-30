@@ -27,7 +27,7 @@ class CreateNacosConfigResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 202
      *
@@ -36,9 +36,9 @@ class CreateNacosConfigResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The message returned.
+     * @description The error message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

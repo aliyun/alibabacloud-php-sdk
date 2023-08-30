@@ -85,15 +85,6 @@ class ListAnsServiceClustersRequest extends Model
     public $pageSize;
 
     /**
-     * @description The extended request parameters in the JSON format.
-     *
-     * @example {}
-     *
-     * @var string
-     */
-    public $requestPars;
-
-    /**
      * @description The name of the service.
      *
      * @example nacos.test.3
@@ -110,7 +101,6 @@ class ListAnsServiceClustersRequest extends Model
         'namespaceId'    => 'NamespaceId',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
-        'requestPars'    => 'RequestPars',
         'serviceName'    => 'ServiceName',
     ];
 
@@ -144,9 +134,6 @@ class ListAnsServiceClustersRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
-        }
-        if (null !== $this->requestPars) {
-            $res['RequestPars'] = $this->requestPars;
         }
         if (null !== $this->serviceName) {
             $res['ServiceName'] = $this->serviceName;
@@ -186,9 +173,6 @@ class ListAnsServiceClustersRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
-        }
-        if (isset($map['RequestPars'])) {
-            $model->requestPars = $map['RequestPars'];
         }
         if (isset($map['ServiceName'])) {
             $model->serviceName = $map['ServiceName'];

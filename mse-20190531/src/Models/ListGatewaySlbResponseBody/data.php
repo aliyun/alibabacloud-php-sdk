@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewaySlbResponseBody\data\VServiceList;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
@@ -81,7 +82,7 @@ class data extends Model
     public $httpsVServerGroupId;
 
     /**
-     * @description ID
+     * @description The ID.
      *
      * @example ID
      *
@@ -99,7 +100,7 @@ class data extends Model
     public $serviceWeight;
 
     /**
-     * @description SLB ID
+     * @description The ID of the SLB instance.
      *
      * @example lb-bp1kmnli3hdpreptw2ah3
      *
@@ -108,7 +109,7 @@ class data extends Model
     public $slbId;
 
     /**
-     * @description SLB IP
+     * @description The IP address of the SLB instance.
      *
      * @example 121.199.XX.XX
      *
@@ -151,6 +152,16 @@ class data extends Model
      * @var string
      */
     public $VServerGroupId;
+
+    /**
+     * @var VServiceList[]
+     */
+    public $VServiceList;
+
+    /**
+     * @var string
+     */
+    public $vsMetaInfo;
     protected $_name = [
         'editEnable'          => 'EditEnable',
         'gatewayId'           => 'GatewayId',
@@ -168,6 +179,8 @@ class data extends Model
         'statusDesc'          => 'StatusDesc',
         'type'                => 'Type',
         'VServerGroupId'      => 'VServerGroupId',
+        'VServiceList'        => 'VServiceList',
+        'vsMetaInfo'          => 'VsMetaInfo',
     ];
 
     public function validate()
@@ -224,6 +237,18 @@ class data extends Model
         }
         if (null !== $this->VServerGroupId) {
             $res['VServerGroupId'] = $this->VServerGroupId;
+        }
+        if (null !== $this->VServiceList) {
+            $res['VServiceList'] = [];
+            if (null !== $this->VServiceList && \is_array($this->VServiceList)) {
+                $n = 0;
+                foreach ($this->VServiceList as $item) {
+                    $res['VServiceList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->vsMetaInfo) {
+            $res['VsMetaInfo'] = $this->vsMetaInfo;
         }
 
         return $res;
@@ -284,6 +309,18 @@ class data extends Model
         }
         if (isset($map['VServerGroupId'])) {
             $model->VServerGroupId = $map['VServerGroupId'];
+        }
+        if (isset($map['VServiceList'])) {
+            if (!empty($map['VServiceList'])) {
+                $model->VServiceList = [];
+                $n                   = 0;
+                foreach ($map['VServiceList'] as $item) {
+                    $model->VServiceList[$n++] = null !== $item ? VServiceList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['VsMetaInfo'])) {
+            $model->vsMetaInfo = $map['VsMetaInfo'];
         }
 
         return $model;

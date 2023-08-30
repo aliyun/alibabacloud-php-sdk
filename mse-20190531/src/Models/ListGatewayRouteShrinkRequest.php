@@ -21,7 +21,7 @@ class ListGatewayRouteShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to enable sorting. This parameter is taken offline and is unavailable.
+     * @description Specifies whether to enable sorting. This parameter is unavailable.
      *
      * @example false
      *

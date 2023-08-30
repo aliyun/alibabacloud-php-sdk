@@ -9,11 +9,10 @@ use AlibabaCloud\Tea\Model;
 class FetchLosslessRuleListRequest extends Model
 {
     /**
-     * @description The language of the response. In compliance with [RFC 7231](https://tools.ietf.org/html/rfc7231), the backend service must return a response based on the language used by the user.
+     * @description The language of the response. Valid values:
      *
-     *   By default, this parameter is left empty.
-     *   zh-CN: Chinese
-     *   en-US: English
+     *   zh: Chinese
+     *   en: English
      *
      * @example zh-CN
      *
@@ -49,7 +48,7 @@ class FetchLosslessRuleListRequest extends Model
     public $namespace;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number.
      *
      * @example 1
      *
@@ -58,7 +57,7 @@ class FetchLosslessRuleListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10
+     * @description The number of entries per page.
      *
      * @example 10
      *

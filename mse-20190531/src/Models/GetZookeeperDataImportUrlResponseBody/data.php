@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The maximum size of a file that can be uploaded each time. Unit: MB.
+     * @description code
      *
      * @example 250000
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $maxSize;
 
     /**
-     * @description The URL that is used to upload the configuration file.
+     * @description The maximum size of a file that can be uploaded each time. Unit: MB.
      *
      * @example http://xxxxxxxxx
      *

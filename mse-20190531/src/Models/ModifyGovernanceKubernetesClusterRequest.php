@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterRequest\namespaceInfos;
 use AlibabaCloud\Tea\Model;
 
 class ModifyGovernanceKubernetesClusterRequest extends Model
@@ -30,11 +31,7 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
     public $clusterId;
 
     /**
-     * @description The information about the namespaces of the cluster.
-     *
-     * @example [{"Name":"default","Tags":{"mse-enable":"disabled","kubernetes.io/metadata.name":"default"}},{"Name":"test2","Tags":{"test2":"test2","kubernetes.io/metadata.name":"test2"}}]
-     *
-     * @var string
+     * @var namespaceInfos[]
      */
     public $namespaceInfos;
 
@@ -67,7 +64,13 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
             $res['ClusterId'] = $this->clusterId;
         }
         if (null !== $this->namespaceInfos) {
-            $res['NamespaceInfos'] = $this->namespaceInfos;
+            $res['NamespaceInfos'] = [];
+            if (null !== $this->namespaceInfos && \is_array($this->namespaceInfos)) {
+                $n = 0;
+                foreach ($this->namespaceInfos as $item) {
+                    $res['NamespaceInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -91,7 +94,13 @@ class ModifyGovernanceKubernetesClusterRequest extends Model
             $model->clusterId = $map['ClusterId'];
         }
         if (isset($map['NamespaceInfos'])) {
-            $model->namespaceInfos = $map['NamespaceInfos'];
+            if (!empty($map['NamespaceInfos'])) {
+                $model->namespaceInfos = [];
+                $n                     = 0;
+                foreach ($map['NamespaceInfos'] as $item) {
+                    $model->namespaceInfos[$n++] = null !== $item ? namespaceInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

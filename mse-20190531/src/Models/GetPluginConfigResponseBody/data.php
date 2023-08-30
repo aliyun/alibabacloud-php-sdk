@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The category of the plug-in.
+     * @description The category of the plug-in. Valid values:
      *
      * 5: traffic observation
      * @example 0
@@ -72,7 +72,7 @@ class data extends Model
     public $name;
 
     /**
-     * @description The execution stage of the plug-in.
+     * @description The execution stage of the plug-in. Valid values:
      *
      * 3: statistics stage
      * @example 0
@@ -127,7 +127,7 @@ class data extends Model
     public $readmeEn;
 
     /**
-     * @description Indicates whether the plug-in is enabled.
+     * @description Indicates whether the plug-in is enabled. Valid values:
      *
      * 1: enabled
      * @example 1
@@ -169,7 +169,7 @@ class data extends Model
     public $versionJson;
 
     /**
-     * @description The WebAssembly language.
+     * @description The WebAssembly language. Valid values:
      *
      * 4: Zig
      * @example 0

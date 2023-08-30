@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class conditions extends Model
 {
     /**
+     * @example PRE
+     *
      * @var string
      */
     public $cond;
 
     /**
+     * @example name
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @example header
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @example xiaoming
+     *
      * @var string
      */
     public $value;

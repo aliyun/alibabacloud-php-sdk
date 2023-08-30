@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The ID of cluster.
      *
      * @example abcdef123456789
      *
@@ -18,7 +18,7 @@ class result extends Model
     public $clusterId;
 
     /**
-     * @description The name of the instance.
+     * @description The name of the cluster.
      *
      * @example example-cluster
      *
@@ -27,7 +27,7 @@ class result extends Model
     public $clusterName;
 
     /**
-     * @description The Kubernetes version of the instance.
+     * @description The version of the cluster.
      *
      * @example 1.22
      *

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The content of the task.
+     * @description The content of a task.
      *
      * @var mixed[]
      */
     public $contentMap;
 
     /**
-     * @description The time when the task was created.
+     * @description The creation time.
      *
      * @example 1631001140913
      *
@@ -55,7 +55,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example mse-cn-st21ri2****
      *
@@ -73,12 +73,12 @@ class data extends Model
     public $kubeoneTaskIds;
 
     /**
-     * @description The task status. Valid values:
+     * @description The status of the task. Valid values:
      *
-     *   CREATE: The task is being created.
-     *   RUNNING: The task is being executed.
+     *   CREATE: The object is being created.
+     *   RUNNING: The task is running.
      *   FINISH: The task is completed.
-     *   FAILED: The task failed.
+     *   FAILED: The task fails.
      *   EXPIRE: The task has expired.
      *
      * @example FINISH
@@ -88,7 +88,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The last modification time.
+     * @description The last update time.
      *
      * @example 1632979237663
      *

@@ -28,7 +28,7 @@ class AddGatewayRouteRequest extends Model
     /**
      * @description The destination service type.
      *
-     * :
+     * Enumeration values:
      *
      *   VersionOriented
      *
@@ -133,6 +133,8 @@ class AddGatewayRouteRequest extends Model
     public $name;
 
     /**
+     * @description The routing policy in a JSON string.
+     *
      * @example {"CORS":"{\"allowMethods\":\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\",\"allowHeaders\":\"*\",\"exposeHeaders\":\"*\",\"unitNum\":12,\"allowCredentials\":true,\"status\":\"off\",\"allowOrigins\":\"*\",\"timeUnit\":\"h\"}","Timeout":"{\"unitNum\":10,\"timeUnit\":\"s\",\"status\":\"off\"}","Retry":"{\"attempts\":2,\"retryOn\":[\"5xx\"],\"status\":\"off\"}","HTTPRewrite":"{\"pathType\":\"EQUAL\",\"path\":\"/o\",\"status\":\"off\"}","Waf":"{\"enabled\":false}","HeaderOp":"{\"status\":\"off\",\"headerOpItems\":[{\"directionType\":\"Request\",\"opType\":\"Add\",\"key\":\"kkk\",\"value\":\"ll\"}]}"}
      *
      * @var string
@@ -163,6 +165,9 @@ class AddGatewayRouteRequest extends Model
     public $routeOrder;
 
     /**
+     * @description The route type. Valid values:
+     *
+     * Op: Manage routes.
      * @example Op
      *
      * @var string

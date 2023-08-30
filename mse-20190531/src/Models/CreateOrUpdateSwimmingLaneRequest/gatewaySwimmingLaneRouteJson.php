@@ -15,11 +15,15 @@ class gatewaySwimmingLaneRouteJson extends Model
     public $conditions;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $gatewayId;
 
     /**
+     * @example gw-84efde2ee1464260bdb17a5b****
+     *
      * @var string
      */
     public $gatewayUniqueId;

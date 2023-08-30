@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ingressOptionsRequest extends Model
 {
     /**
-     * @description Specifies whether to enable Ingress.
+     * @description The group to which the service belongs.
      *
      * @example true
      *
@@ -18,7 +18,11 @@ class ingressOptionsRequest extends Model
     public $enableIngress;
 
     /**
-     * @description Specifies whether to update the Ingress status.
+     * @description The language of the response. Valid values:
+     *
+     *   zh-CN: Chinese. This is the default value.
+     *   en-US: English.
+     *   ja: Japanese.
      *
      * @example true
      *
@@ -27,7 +31,7 @@ class ingressOptionsRequest extends Model
     public $enableStatus;
 
     /**
-     * @description Specifies whether to monitor Ingress classes.
+     * @description An array of service root paths.
      *
      * @example com.test.xxx
      *
@@ -36,7 +40,7 @@ class ingressOptionsRequest extends Model
     public $ingressClass;
 
     /**
-     * @description The namespace whose resources you want to monitor.
+     * @description The root path of the service.
      *
      * @example default
      *

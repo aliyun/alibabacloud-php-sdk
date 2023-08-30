@@ -28,6 +28,8 @@ class result extends Model
     public $appName;
 
     /**
+     * @description 应用所属的MSE命名空间。
+     *
      * @example default
      *
      * @var string

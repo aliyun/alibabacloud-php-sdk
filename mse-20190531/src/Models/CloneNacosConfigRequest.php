@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CloneNacosConfigRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The HTTP status code returned.
      *
      * @example zh
      *
@@ -21,7 +18,7 @@ class CloneNacosConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The IDs of configurations.
+     * @description The data structure.
      *
      * @example 253661,253662
      *
@@ -30,7 +27,7 @@ class CloneNacosConfigRequest extends Model
     public $ids;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the destination namespace.
      *
      * @example mse_prepaid_public_cn-i7m25igg403
      *
@@ -39,7 +36,11 @@ class CloneNacosConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the source namespace.
+     * @description The policy used when a write conflict occurs.
+     *
+     *   ABORT
+     *   SKIP
+     *   OVERWRITE
      *
      * @example be821963-6d48-4ea5-9910-6057d****
      *
@@ -48,11 +49,10 @@ class CloneNacosConfigRequest extends Model
     public $originNamespaceId;
 
     /**
-     * @description The policy used when a write conflict occurs.
+     * @description The language of the response. Valid values:
      *
-     *   ABORT
-     *   SKIP
-     *   OVERWRITE
+     *   zh: Chinese
+     *   en: English
      *
      * @example OVERWRITE
      *
@@ -61,7 +61,7 @@ class CloneNacosConfigRequest extends Model
     public $policy;
 
     /**
-     * @description The ID of the destination namespace.
+     * @description The IDs of configurations.
      *
      * @example 08be4b5d-2d1c-4e6e-aa85-83b9****
      *

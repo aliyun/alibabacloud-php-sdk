@@ -10,61 +10,28 @@ use AlibabaCloud\Tea\Model;
 class entryRules extends Model
 {
     /**
-     * @description The common parameters in the JSON format.
-     *
-     * @example ""
+     * @example AND
      *
      * @var string
      */
     public $condition;
 
     /**
-     * @description Specifies whether to enable the rule. Valid values:
-     *
-     *   `true`: enables the rule.
-     *   `false`: disables the rule.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $enable;
-
-    /**
-     * @description The path.
-     *
-     * @example /test
-     *
-     * @var string
-     */
-    public $path;
-
-    /**
-     * @description The list of paths.
-     *
      * @var string[]
      */
     public $paths;
 
     /**
-     * @description The priority. A smaller value of this parameter indicates a higher priority.
-     *
-     * @example 1
-     *
      * @var int
      */
     public $priority;
 
     /**
-     * @description The information about the rule for the REST method.
-     *
      * @var restItems[]
      */
     public $restItems;
     protected $_name = [
         'condition' => 'Condition',
-        'enable'    => 'Enable',
-        'path'      => 'Path',
         'paths'     => 'Paths',
         'priority'  => 'Priority',
         'restItems' => 'RestItems',
@@ -79,12 +46,6 @@ class entryRules extends Model
         $res = [];
         if (null !== $this->condition) {
             $res['Condition'] = $this->condition;
-        }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
-        }
-        if (null !== $this->path) {
-            $res['Path'] = $this->path;
         }
         if (null !== $this->paths) {
             $res['Paths'] = $this->paths;
@@ -115,12 +76,6 @@ class entryRules extends Model
         $model = new self();
         if (isset($map['Condition'])) {
             $model->condition = $map['Condition'];
-        }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
-        }
-        if (isset($map['Path'])) {
-            $model->path = $map['Path'];
         }
         if (isset($map['Paths'])) {
             if (!empty($map['Paths'])) {

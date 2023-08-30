@@ -21,7 +21,7 @@ class ListClusterHealthCheckTaskRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example mse_prepaid_public_cn-7pp2o4wfx01
      *

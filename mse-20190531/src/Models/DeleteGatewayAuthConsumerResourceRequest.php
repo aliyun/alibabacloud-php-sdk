@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayAuthConsumerResourceRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteGatewayAuthConsumerResourceRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The consumer ID.
+     *
      * @example 2
      *
      * @var int
@@ -23,6 +30,8 @@ class DeleteGatewayAuthConsumerResourceRequest extends Model
     public $consumerId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-ubuwqygbq4783gqb2y3f87q****
      *
      * @var string
@@ -30,6 +39,8 @@ class DeleteGatewayAuthConsumerResourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The IDs of the authorized resources that you want to delete.
+     *
      * @example 1,2,3,4
      *
      * @var string

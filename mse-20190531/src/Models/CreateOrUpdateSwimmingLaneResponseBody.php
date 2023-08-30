@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateOrUpdateSwimmingLaneResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class CreateOrUpdateSwimmingLaneResponseBody extends Model
@@ -22,18 +23,9 @@ class CreateOrUpdateSwimmingLaneResponseBody extends Model
      *
      * @example {}
      *
-     * @var mixed
+     * @var data
      */
     public $data;
-
-    /**
-     * @description The dynamic part in the error message.
-     *
-     * @example The specified parameter is invalid.
-     *
-     * @var string
-     */
-    public $dynamicMessage;
 
     /**
      * @description The error code returned if the request failed.
@@ -85,7 +77,6 @@ class CreateOrUpdateSwimmingLaneResponseBody extends Model
     protected $_name = [
         'code'           => 'Code',
         'data'           => 'Data',
-        'dynamicMessage' => 'DynamicMessage',
         'errorCode'      => 'ErrorCode',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
@@ -104,10 +95,7 @@ class CreateOrUpdateSwimmingLaneResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->dynamicMessage) {
-            $res['DynamicMessage'] = $this->dynamicMessage;
+            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
@@ -140,10 +128,7 @@ class CreateOrUpdateSwimmingLaneResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['DynamicMessage'])) {
-            $model->dynamicMessage = $map['DynamicMessage'];
+            $model->data = data::fromMap($map['Data']);
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];

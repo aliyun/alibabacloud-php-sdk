@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class skipData extends Model
 {
     /**
-     * @description The ID of the data.
+     * @description The ID of the group.
      *
      * @example test.yaml
      *
@@ -18,7 +18,7 @@ class skipData extends Model
     public $dataId;
 
     /**
-     * @description The ID of the group.
+     * @description The information about configurations that are failed to be imported.
      *
      * @example public
      *

@@ -37,10 +37,10 @@ class data extends Model
     public $clusterName;
 
     /**
-     * @description Indicates whether RAM authorization of a configuration center is enabled. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authentication of a configuration center is enabled. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
      * @example true
      *
@@ -49,10 +49,10 @@ class data extends Model
     public $configAuthEnabled;
 
     /**
-     * @description Indicates whether RAM authorization is supported by a configuration center of the instance. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authentication is supported by a configuration center of the instance. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: supported
-     *   `false`: not supported
+     *   `true`: supported.
+     *   `false`: not supported.
      *
      * @example true
      *
@@ -61,7 +61,7 @@ class data extends Model
     public $configAuthSupported;
 
     /**
-     * @description The maximum size of a configuration. Unit: KB.
+     * @description The maximum size of contents in a configuration. Unit: KB.
      *
      * @example 100
      *
@@ -72,8 +72,8 @@ class data extends Model
     /**
      * @description Indicates whether configuration encryption of a configuration center is enabled by the instance. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
      * @example true
      *
@@ -84,8 +84,8 @@ class data extends Model
     /**
      * @description Indicates whether configuration encryption of a configuration center is supported by the instance. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: supported
-     *   `false`: not supported
+     *   `true`: supported.
+     *   `false`: not supported.
      *
      * @example true
      *
@@ -137,8 +137,8 @@ class data extends Model
     /**
      * @description Indicates whether Mesh Configuration Protocol (MCP) is enabled. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
      * @example true
      *
@@ -149,8 +149,8 @@ class data extends Model
     /**
      * @description Indicates whether MCP is supported. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: supported
-     *   `false`: not supported
+     *   `true`: supported.
+     *   `false`: not supported.
      *
      * @example true
      *
@@ -193,10 +193,10 @@ class data extends Model
     public $nacosRunningEnv;
 
     /**
-     * @description Indicates whether RAM authorization of a registry is enabled. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authentication of a registry is enabled. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
      * @example false
      *
@@ -205,10 +205,10 @@ class data extends Model
     public $namingAuthEnabled;
 
     /**
-     * @description Indicates whether RAM authorization of services is supported by the instance. This parameter is valid for Nacos instances. Valid values:
+     * @description Indicates whether RAM authentication of services is supported by the instance. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: supported
-     *   `false`: not supported
+     *   `true`: supported.
+     *   `false`: not supported.
      *
      * @example true
      *
@@ -219,8 +219,8 @@ class data extends Model
     /**
      * @description Indicates whether service creation is supported for the instance. This parameter is valid for Nacos instances. Valid values:
      *
-     *   `true`: supported
-     *   `false`: not supported
+     *   `true`: supported.
+     *   `false`: not supported.
      *
      * @example true
      *
@@ -231,8 +231,8 @@ class data extends Model
     /**
      * @description Indicates whether super permissions are enabled. This parameter is valid for ZooKeeper instances. Valid values:
      *
-     *   `true`: enabled
-     *   `false`: disabled
+     *   `true`: enabled.
+     *   `false`: disabled.
      *
      * @example true
      *
@@ -241,7 +241,7 @@ class data extends Model
     public $openSuperAcl;
 
     /**
-     * @description The user password. This parameter is valid only if OpenSuperAcl is set to true.
+     * @description The password that corresponds to the username. This parameter is valid only if OpenSuperAcl is set to true.
      *
      * @example password
      *
@@ -280,6 +280,11 @@ class data extends Model
     public $syncLimit;
 
     /**
+     * @var bool
+     */
+    public $TLSEnabled;
+
+    /**
      * @description The time unit of the engine. This parameter is valid for ZooKeeper instances. Default value: 2000. Unit: milliseconds.
      *
      * @example 2000
@@ -289,7 +294,7 @@ class data extends Model
     public $tickTime;
 
     /**
-     * @description The username. This parameter is valid only if OpenSuperAcl is set to true.
+     * @description The username of the user. This parameter is valid only if OpenSuperAcl is set to true.
      *
      * @example name
      *
@@ -324,6 +329,7 @@ class data extends Model
         'restartFlag'                  => 'RestartFlag',
         'snapshotCount'                => 'SnapshotCount',
         'syncLimit'                    => 'SyncLimit',
+        'TLSEnabled'                   => 'TLSEnabled',
         'tickTime'                     => 'TickTime',
         'userName'                     => 'UserName',
     ];
@@ -415,6 +421,9 @@ class data extends Model
         }
         if (null !== $this->syncLimit) {
             $res['SyncLimit'] = $this->syncLimit;
+        }
+        if (null !== $this->TLSEnabled) {
+            $res['TLSEnabled'] = $this->TLSEnabled;
         }
         if (null !== $this->tickTime) {
             $res['TickTime'] = $this->tickTime;
@@ -514,6 +523,9 @@ class data extends Model
         }
         if (isset($map['SyncLimit'])) {
             $model->syncLimit = $map['SyncLimit'];
+        }
+        if (isset($map['TLSEnabled'])) {
+            $model->TLSEnabled = $map['TLSEnabled'];
         }
         if (isset($map['TickTime'])) {
             $model->tickTime = $map['TickTime'];

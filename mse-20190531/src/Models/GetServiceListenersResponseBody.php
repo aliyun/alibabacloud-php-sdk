@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetServiceListenersResponseBody extends Model
 {
     /**
-     * @description The returned data.
+     * @description The details of the data.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The HTTP status code returned.
      *
      * @example mse-100-000
      *
@@ -26,7 +26,7 @@ class GetServiceListenersResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description errorCode=500
      *
      * @example 202
      *
@@ -35,10 +35,7 @@ class GetServiceListenersResponseBody extends Model
     public $httpCode;
 
     /**
-     * @description The message returned.
-     *
-     *   If the request is successful, a success message is returned.
-     *   If the request fails, an error message is returned.
+     * @description The ID of the request.
      *
      * @example success
      *
@@ -47,7 +44,7 @@ class GetServiceListenersResponseBody extends Model
     public $message;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of listeners that are queried.
      *
      * @example 1
      *
@@ -56,7 +53,10 @@ class GetServiceListenersResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example 10
      *
@@ -65,7 +65,7 @@ class GetServiceListenersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The error code returned if the request failed.
      *
      * @example 54973C90-F379-4372-9AA5-053A3F7****
      *
@@ -74,10 +74,10 @@ class GetServiceListenersResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
+     * @description The message returned.
      *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     *   If the request is successful, a success message is returned.
+     *   If the request fails, an error message is returned.
      *
      * @example true
      *
@@ -86,7 +86,7 @@ class GetServiceListenersResponseBody extends Model
     public $success;
 
     /**
-     * @description The number of listeners that are queried.
+     * @description The number of entries returned per page.
      *
      * @example 2
      *

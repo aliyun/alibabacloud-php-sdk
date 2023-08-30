@@ -45,7 +45,7 @@ class UpdateGatewayRouteHeaderOpResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 7C8CB294-BED8-5F32-A416-7517725E8F27
      *

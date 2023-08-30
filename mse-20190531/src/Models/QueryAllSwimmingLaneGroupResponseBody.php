@@ -55,7 +55,7 @@ class QueryAllSwimmingLaneGroupResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      *   If the request is successful, a success message is returned.
      *   If the request fails, an error message is returned.

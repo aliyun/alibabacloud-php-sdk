@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class resourceList extends Model
 {
     /**
+     * @description The route ID.
+     *
      * @example 7816
      *
      * @var int
@@ -16,6 +18,8 @@ class resourceList extends Model
     public $routeId;
 
     /**
+     * @description The name of the route.
+     *
      * @example helo
      *
      * @var string

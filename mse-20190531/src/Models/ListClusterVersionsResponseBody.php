@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListClusterVersionsResponseBody extends Model
 {
     /**
-     * @description The response code returned.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -55,7 +55,7 @@ class ListClusterVersionsResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

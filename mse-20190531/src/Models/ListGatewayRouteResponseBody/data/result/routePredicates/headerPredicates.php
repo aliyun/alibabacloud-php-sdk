@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class headerPredicates extends Model
 {
     /**
-     * @description Header KEY
+     * @description The header key.
      *
      * @example userid
      *

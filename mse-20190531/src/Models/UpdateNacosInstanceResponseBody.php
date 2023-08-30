@@ -36,7 +36,7 @@ class UpdateNacosInstanceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example The request is successfully processed.
      *

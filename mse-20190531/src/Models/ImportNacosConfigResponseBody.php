@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ImportNacosConfigResponseBody extends Model
 {
     /**
-     * @description The code returned.
+     * @description The error message returned.
      *
      * @example 1
      *
@@ -19,16 +19,15 @@ class ImportNacosConfigResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the data.
+     * @description The number of configurations that are imported.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace **%s** in the **ErrMessage** parameter.
+     * @description The details of the data.
      *
-     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -36,7 +35,7 @@ class ImportNacosConfigResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The code returned.
      *
      * @example mse-100-100
      *
@@ -45,7 +44,7 @@ class ImportNacosConfigResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The ID of the request.
      *
      * @example 200
      *
@@ -54,16 +53,20 @@ class ImportNacosConfigResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The request is successfully processed.
      *
-     * @example The request is successfully processed.
+     * @example The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
      *
+     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example AF21683A-29C7-4853-AC0F-B5ADEE4****
      *
@@ -72,10 +75,7 @@ class ImportNacosConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     * @description The error code that is returned.
      *
      * @example true
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The code returned.
      *
      * @example 200
      *
@@ -19,7 +19,7 @@ class ListGatewayRouteResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description The data returned.
      *
      * @var data
      */
@@ -35,7 +35,7 @@ class ListGatewayRouteResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned.
+     * @description The error message returned if the request failed.
      *
      * @example You are not authorized to perform this operation.
      *

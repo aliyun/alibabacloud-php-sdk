@@ -21,7 +21,7 @@ class CreateEngineNamespaceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example mse-98s****
      *

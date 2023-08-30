@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetPluginsResponseBody extends Model
 {
     /**
-     * @description Code.
+     * @description The error code returned if the request failed.
      *
      * @example 200
      *
@@ -19,14 +19,14 @@ class GetPluginsResponseBody extends Model
     public $code;
 
     /**
-     * @description The data entries returned.
+     * @description The information about the plug-in.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The dynamic part in the error message.
+     * @description The dynamic error message.
      *
      * @example code
      *
@@ -35,7 +35,7 @@ class GetPluginsResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The dynamic error message.
+     * @description The data entries returned.
      *
      * @example message
      *
@@ -44,7 +44,7 @@ class GetPluginsResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The HTTP status code returned.
      *
      * @example 500
      *
@@ -53,7 +53,7 @@ class GetPluginsResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The message returned.
      *
      * @example 200
      *
@@ -62,7 +62,7 @@ class GetPluginsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The dynamic part in the error message.
      *
      * @example success
      *
@@ -71,7 +71,7 @@ class GetPluginsResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the request was successful.
      *
      * @example 03A3E2F4-6804-5663-9D5D-2EC47A1*****
      *
@@ -80,7 +80,7 @@ class GetPluginsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @description The returned code.
      *
      * @example true
      *

@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListConfigTrackRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The data structure.
      *
      * @example zh
      *
@@ -21,7 +18,7 @@ class ListConfigTrackRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the configuration.
+     * @description The name of the configuration group.
      *
      * @example ballot
      *
@@ -30,7 +27,7 @@ class ListConfigTrackRequest extends Model
     public $dataId;
 
     /**
-     * @description The end timestamp. Unit: seconds.
+     * @description The number of entries to return on each page.
      *
      * @example 1657178373
      *
@@ -39,7 +36,7 @@ class ListConfigTrackRequest extends Model
     public $endTs;
 
     /**
-     * @description The name of the configuration group.
+     * @description The ID of the namespace.
      *
      * @example DEFAULT_GROUP
      *
@@ -48,7 +45,7 @@ class ListConfigTrackRequest extends Model
     public $group;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the configuration.
      *
      * @example mse_prepaid_public_cn-i7m2ne****
      *
@@ -57,7 +54,10 @@ class ListConfigTrackRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP address of the listener.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example 192.168.22.2
      *
@@ -66,7 +66,7 @@ class ListConfigTrackRequest extends Model
     public $ip;
 
     /**
-     * @description The ID of the namespace.
+     * @description The start timestamp. Unit: seconds.
      *
      * @example f3a510e2-df52-4fad-9815-42d8bc40****
      *
@@ -75,7 +75,10 @@ class ListConfigTrackRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The number of the page to return.
+     * @description Specifies whether to enable reverse ordering. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example 1
      *
@@ -84,7 +87,7 @@ class ListConfigTrackRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of the page to return.
      *
      * @example 10
      *
@@ -93,7 +96,7 @@ class ListConfigTrackRequest extends Model
     public $pageSize;
 
     /**
-     * @description The extended request parameters in the JSON format.
+     * @description The ID of the instance.
      *
      * @example {}
      *
@@ -102,10 +105,7 @@ class ListConfigTrackRequest extends Model
     public $requestPars;
 
     /**
-     * @description Specifies whether entries are sorted in reverse chronological order.
-     *
-     *   true
-     *   false
+     * @description The IP address of the listener.
      *
      * @example true
      *
@@ -114,7 +114,7 @@ class ListConfigTrackRequest extends Model
     public $reverse;
 
     /**
-     * @description The start timestamp. Unit: seconds.
+     * @description The end timestamp. Unit: seconds.
      *
      * @example 1671010148
      *

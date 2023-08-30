@@ -33,7 +33,7 @@ class ExportZookeeperDataRequest extends Model
     public $exportType;
 
     /**
-     * @description The instance ID.
+     * @description The ID of the instance.
      *
      * @example mse-cn-78v1l83****
      *

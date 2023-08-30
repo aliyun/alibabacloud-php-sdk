@@ -45,7 +45,7 @@ class UpdateGatewayRouteRetryResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 9297B27D-D932-5E9F-93B9-99D6C5F3A879
      *

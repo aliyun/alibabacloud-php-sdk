@@ -19,18 +19,22 @@ class FetchLosslessRuleListResponseBody extends Model
     public $code;
 
     /**
-     * @description The response.
+     * @description The returned result.
      *
      * @var data
      */
     public $data;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;

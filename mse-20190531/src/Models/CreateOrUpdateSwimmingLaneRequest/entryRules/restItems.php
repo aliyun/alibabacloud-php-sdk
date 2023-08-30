@@ -9,89 +9,51 @@ use AlibabaCloud\Tea\Model;
 class restItems extends Model
 {
     /**
-     * @description The expression. =, >, <, >=, <=
-     *
-     * @example =
-     *
      * @var string
      */
     public $cond;
 
     /**
-     * @description The base value used for the rawvalue operator.
-     *
-     * @example .params[0]
-     *
      * @var string
      */
     public $datum;
 
     /**
-     * @description The divisor used for the mod operator.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $divisor;
 
     /**
-     * @description The name of the rule. This parameter corresponds to the key of the Type parameter.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $name;
 
     /**
-     * @description The list of names.
-     *
      * @var string[]
      */
     public $nameList;
 
     /**
-     * @description The operator type. Valid values: mod, list, rawvalue, and rate.
-     *
-     * @example mod
-     *
      * @var string
      */
     public $operator;
 
     /**
-     * @description The rate.
-     *
-     * @example 10
-     *
      * @var int
      */
     public $rate;
 
     /**
-     * @description The remainder used for the mod operator.
-     *
-     * @example 3
-     *
      * @var int
      */
     public $remainder;
 
     /**
-     * @description The type of the rule. Valid values: cookie, param, and header.
-     *
-     * @example header
-     *
      * @var string
      */
     public $type;
 
     /**
-     * @description The content of the rule.
-     *
-     * @example ""
-     *
      * @var string
      */
     public $value;

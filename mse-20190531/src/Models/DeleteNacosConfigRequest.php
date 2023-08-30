@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteNacosConfigRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The status code returned.
      *
      * @example zh
      *
@@ -21,10 +18,7 @@ class DeleteNacosConfigRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to perform a beta release. Valid values:
-     *
-     *   `true`: yes
-     *   `false`: no
+     * @description The error code returned if the request failed.
      *
      * @example true
      *
@@ -33,7 +27,7 @@ class DeleteNacosConfigRequest extends Model
     public $beta;
 
     /**
-     * @description The ID of the configuration.
+     * @description The ID of the request.
      *
      * @example user-ds.yml
      *
@@ -42,7 +36,7 @@ class DeleteNacosConfigRequest extends Model
     public $dataId;
 
     /**
-     * @description The type of the group.
+     * @description The message returned.
      *
      * @example HALVIE_MICRO_GROUP
      *
@@ -51,7 +45,7 @@ class DeleteNacosConfigRequest extends Model
     public $group;
 
     /**
-     * @description The ID of the instance
+     * @description The HTTP status code.
      *
      * @example mse_prepaid_public_cn-tl32epfyu18
      *
@@ -60,7 +54,7 @@ class DeleteNacosConfigRequest extends Model
     public $instanceId;
 
     /**
-     * @description The ID of the namespace.
+     * @description The request is successfully processed.
      *
      * @example 0e9d849b-****-8435da6c21ad
      *

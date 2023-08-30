@@ -30,7 +30,7 @@ class ListClusterVersionsRequest extends Model
     public $clusterType;
 
     /**
-     * @description Valid values:
+     * @description The instance edition. Valid values:
      *
      *   `mse_dev`: Developer Edition.
      *   `mse_pro`: Professional Edition. This is the default value.

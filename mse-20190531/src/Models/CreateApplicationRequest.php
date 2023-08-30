@@ -39,6 +39,8 @@ class CreateApplicationRequest extends Model
     public $language;
 
     /**
+     * @description MSE命名空间名字。
+     *
      * @example prod
      *
      * @var string
@@ -55,7 +57,7 @@ class CreateApplicationRequest extends Model
     public $region;
 
     /**
-     * @description Specifies whether to enable the Sentinel-compatible mode.
+     * @description Specifies whether to start the switch.
      *
      * @example true
      *
@@ -73,7 +75,7 @@ class CreateApplicationRequest extends Model
     public $source;
 
     /**
-     * @description Specifies whether to enable switching.
+     * @description The name of the Microservices Engine (MSE) namespace.
      *
      * @example true
      *

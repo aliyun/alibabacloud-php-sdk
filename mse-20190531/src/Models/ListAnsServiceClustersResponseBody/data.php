@@ -4,11 +4,17 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersResponseBody;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersResponseBody\data\appDetail;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServiceClustersResponseBody\data\clusters;
 use AlibabaCloud\Tea\Model;
 
 class data extends Model
 {
+    /**
+     * @var appDetail
+     */
+    public $appDetail;
+
     /**
      * @description The information about the clusters.
      *
@@ -72,7 +78,15 @@ class data extends Model
      * @var string
      */
     public $selectorType;
+
+    /**
+     * @example console
+     *
+     * @var string
+     */
+    public $source;
     protected $_name = [
+        'appDetail'        => 'AppDetail',
         'clusters'         => 'Clusters',
         'ephemeral'        => 'Ephemeral',
         'groupName'        => 'GroupName',
@@ -80,6 +94,7 @@ class data extends Model
         'name'             => 'Name',
         'protectThreshold' => 'ProtectThreshold',
         'selectorType'     => 'SelectorType',
+        'source'           => 'Source',
     ];
 
     public function validate()
@@ -89,6 +104,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appDetail) {
+            $res['AppDetail'] = null !== $this->appDetail ? $this->appDetail->toMap() : null;
+        }
         if (null !== $this->clusters) {
             $res['Clusters'] = [];
             if (null !== $this->clusters && \is_array($this->clusters)) {
@@ -116,6 +134,9 @@ class data extends Model
         if (null !== $this->selectorType) {
             $res['SelectorType'] = $this->selectorType;
         }
+        if (null !== $this->source) {
+            $res['Source'] = $this->source;
+        }
 
         return $res;
     }
@@ -128,6 +149,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppDetail'])) {
+            $model->appDetail = appDetail::fromMap($map['AppDetail']);
+        }
         if (isset($map['Clusters'])) {
             if (!empty($map['Clusters'])) {
                 $model->clusters = [];
@@ -154,6 +178,9 @@ class data extends Model
         }
         if (isset($map['SelectorType'])) {
             $model->selectorType = $map['SelectorType'];
+        }
+        if (isset($map['Source'])) {
+            $model->source = $map['Source'];
         }
 
         return $model;

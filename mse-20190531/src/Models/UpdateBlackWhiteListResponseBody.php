@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateBlackWhiteListResponseBody extends Model
 {
     /**
-     * @description The status code returned.
+     * @description The return value.
      *
      * @example 200
      *

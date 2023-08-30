@@ -36,7 +36,7 @@ class CreateNacosServiceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example success
      *

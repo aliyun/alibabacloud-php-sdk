@@ -102,7 +102,7 @@ class CreateNacosConfigRequest extends Model
     public $tags;
 
     /**
-     * @description The format of the configuration. Supported formats include TEXT, JSON, and XML.
+     * @description The configuration format such as text, JSON, or XML.
      *
      * @example text
      *

@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Mse\V20190531;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthPolicyRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthPolicyResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddAuthResourceShrinkRequest;
@@ -22,8 +24,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRouteShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayServiceVersionRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayServiceVersionResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewaySlbShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMigrationTaskRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMigrationTaskResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddMockRuleRequest;
@@ -43,10 +47,14 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateCircuitBreakerRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\CreateFlowRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateMseServiceApplicationResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateNacosConfigRequest;
@@ -64,10 +72,16 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateZnodeResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteAuthResourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteCircuitBreakerRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteCircuitBreakerRulesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteCircuitBreakerRulesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteFlowRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteFlowRulesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteFlowRulesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\DeleteGatewayAuthConsumerResourceResponse;
@@ -142,6 +156,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetImportFileUrlRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetImportFileUrlResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetKubernetesSourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetKubernetesSourceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetLosslessRuleByAppRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetLosslessRuleByAppResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetMseFeatureSwitchRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetMseFeatureSwitchResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetMseSourceRequest;
@@ -158,8 +174,12 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetPluginsRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetPluginsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListenersRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListenersResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListPageRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListPageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceMethodPageRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetServiceMethodPageResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetTagsBySwimmingLaneGroupIdRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetTagsBySwimmingLaneGroupIdResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetZookeeperDataImportUrlRequest;
@@ -179,8 +199,15 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAnsServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagsRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagsResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListAppBySwimmingLaneGroupTagsShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListAuthPolicyRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListAuthPolicyResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListCircuitBreakerRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListCircuitBreakerRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterConnectionTypesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListClusterHealthCheckTaskRequest;
@@ -201,6 +228,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListEurekaServicesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListExportZookeeperDataResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListFlowRulesRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListFlowRulesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayAuthConsumerResourceResponse;
@@ -250,6 +279,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListZnodeChildrenResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyGovernanceKubernetesClusterShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyLosslessRuleRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ModifyLosslessRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\OfflineGatewayRouteRequest;
@@ -294,6 +324,10 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QuerySwimmingLaneByIdResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryZnodeDetailRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\QueryZnodeDetailResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveApplicationRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveApplicationResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveAuthPolicyRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\RemoveAuthPolicyResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RestartClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\RetryClusterRequest;
@@ -306,8 +340,12 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateAclRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateAclResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateAuthPolicyRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateAuthPolicyResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateBlackWhiteListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateBlackWhiteListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateCircuitBreakerRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateCircuitBreakerRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateClusterSpecRequest;
@@ -316,6 +354,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateEngineNamespaceResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateFlowRuleRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateFlowRuleResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayAuthConsumerResourceResponse;
@@ -424,6 +464,79 @@ class Mse extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddAuthPolicyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AddAuthPolicyResponse
+     */
+    public function addAuthPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->authRule)) {
+            $query['AuthRule'] = $request->authRule;
+        }
+        if (!Utils::isUnset($request->authType)) {
+            $query['AuthType'] = $request->authType;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->k8sNamespace)) {
+            $query['K8sNamespace'] = $request->k8sNamespace;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AddAuthPolicy',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddAuthPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddAuthPolicyRequest $request
+     *
+     * @return AddAuthPolicyResponse
+     */
+    public function addAuthPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addAuthPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -566,17 +679,25 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewayRequest $request
+     * @param AddGatewayRequest $tmpReq
      * @param RuntimeOptions    $runtime
      *
      * @return AddGatewayResponse
      */
-    public function addGatewayWithOptions($request, $runtime)
+    public function addGatewayWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new AddGatewayShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->zoneInfo)) {
+            $request->zoneInfoShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->zoneInfo, 'ZoneInfo', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
         if (!Utils::isUnset($request->enableHardwareAcceleration)) {
             $query['EnableHardwareAcceleration'] = $request->enableHardwareAcceleration;
@@ -628,6 +749,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->xtraceRatio)) {
             $query['XtraceRatio'] = $request->xtraceRatio;
+        }
+        if (!Utils::isUnset($request->zoneInfoShrink)) {
+            $query['ZoneInfo'] = $request->zoneInfoShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -966,14 +1090,19 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param AddGatewaySlbRequest $request
+     * @param AddGatewaySlbRequest $tmpReq
      * @param RuntimeOptions       $runtime
      *
      * @return AddGatewaySlbResponse
      */
-    public function addGatewaySlbWithOptions($request, $runtime)
+    public function addGatewaySlbWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new AddGatewaySlbShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->VServiceList)) {
+            $request->VServiceListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->VServiceList, 'VServiceList', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -1001,6 +1130,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->VServerGroupId)) {
             $query['VServerGroupId'] = $request->VServerGroupId;
+        }
+        if (!Utils::isUnset($request->VServiceListShrink)) {
+            $query['VServiceList'] = $request->VServiceListShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -1446,9 +1578,6 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->rules)) {
             $query['Rules'] = $request->rules;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1480,7 +1609,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * mse-200-105.
      *   *
      * @param CloneNacosConfigRequest $request CloneNacosConfigRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -1528,7 +1657,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * mse-200-105.
      *   *
      * @param CloneNacosConfigRequest $request CloneNacosConfigRequest
      *
@@ -1606,6 +1735,91 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param CreateCircuitBreakerRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateCircuitBreakerRuleResponse
+     */
+    public function createCircuitBreakerRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->halfOpenBaseAmountPerStep)) {
+            $query['HalfOpenBaseAmountPerStep'] = $request->halfOpenBaseAmountPerStep;
+        }
+        if (!Utils::isUnset($request->halfOpenRecoveryStepNum)) {
+            $query['HalfOpenRecoveryStepNum'] = $request->halfOpenRecoveryStepNum;
+        }
+        if (!Utils::isUnset($request->maxAllowedRtMs)) {
+            $query['MaxAllowedRtMs'] = $request->maxAllowedRtMs;
+        }
+        if (!Utils::isUnset($request->minRequestAmount)) {
+            $query['MinRequestAmount'] = $request->minRequestAmount;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->retryTimeoutMs)) {
+            $query['RetryTimeoutMs'] = $request->retryTimeoutMs;
+        }
+        if (!Utils::isUnset($request->statIntervalMs)) {
+            $query['StatIntervalMs'] = $request->statIntervalMs;
+        }
+        if (!Utils::isUnset($request->strategy)) {
+            $query['Strategy'] = $request->strategy;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateCircuitBreakerRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateCircuitBreakerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateCircuitBreakerRuleRequest $request
+     *
+     * @return CreateCircuitBreakerRuleResponse
+     */
+    public function createCircuitBreakerRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createCircuitBreakerRuleWithOptions($request, $runtime);
+    }
+
+    /**
      * Before you call this API operation, you must make sure that you fully understand the billing methods and pricing of MSE.
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
@@ -1619,6 +1833,9 @@ class Mse extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->chargeType)) {
+            $query['ChargeType'] = $request->chargeType;
         }
         if (!Utils::isUnset($request->clusterSpecification)) {
             $query['ClusterSpecification'] = $request->clusterSpecification;
@@ -1634,6 +1851,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->diskType)) {
             $query['DiskType'] = $request->diskType;
+        }
+        if (!Utils::isUnset($request->eipEnabled)) {
+            $query['EipEnabled'] = $request->eipEnabled;
         }
         if (!Utils::isUnset($request->instanceCount)) {
             $query['InstanceCount'] = $request->instanceCount;
@@ -1664,6 +1884,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->securityGroupType)) {
+            $query['SecurityGroupType'] = $request->securityGroupType;
         }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
@@ -1765,6 +1988,76 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createEngineNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateFlowRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return CreateFlowRuleResponse
+     */
+    public function createFlowRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->controlBehavior)) {
+            $query['ControlBehavior'] = $request->controlBehavior;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->maxQueueingTimeMs)) {
+            $query['MaxQueueingTimeMs'] = $request->maxQueueingTimeMs;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateFlowRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateFlowRuleRequest $request
+     *
+     * @return CreateFlowRuleResponse
+     */
+    public function createFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createFlowRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -1920,7 +2213,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * mse-200-105.
      *   *
      * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -1988,7 +2281,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * mse-200-105.
      *   *
      * @param CreateNacosInstanceRequest $request CreateNacosInstanceRequest
      *
@@ -2096,26 +2389,14 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->entryRule)) {
             $query['EntryRule'] = $request->entryRule;
         }
-        if (!Utils::isUnset($request->entryRules)) {
-            $query['EntryRules'] = $request->entryRules;
-        }
         if (!Utils::isUnset($request->gatewaySwimmingLaneRouteJsonShrink)) {
             $query['GatewaySwimmingLaneRouteJson'] = $request->gatewaySwimmingLaneRouteJsonShrink;
-        }
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $query['GmtCreate'] = $request->gmtCreate;
-        }
-        if (!Utils::isUnset($request->gmtModified)) {
-            $query['GmtModified'] = $request->gmtModified;
         }
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->licenseKey)) {
-            $query['LicenseKey'] = $request->licenseKey;
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
@@ -2126,20 +2407,16 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        if (!Utils::isUnset($request->status)) {
-            $query['Status'] = $request->status;
-        }
         if (!Utils::isUnset($request->tag)) {
             $query['Tag'] = $request->tag;
         }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
+        $body = [];
+        if (!Utils::isUnset($request->entryRules)) {
+            $body['EntryRules'] = $request->entryRules;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateOrUpdateSwimmingLane',
@@ -2187,23 +2464,11 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->dbGrayEnable)) {
             $query['DbGrayEnable'] = $request->dbGrayEnable;
         }
-        if (!Utils::isUnset($request->enable)) {
-            $query['Enable'] = $request->enable;
-        }
         if (!Utils::isUnset($request->entryApp)) {
             $query['EntryApp'] = $request->entryApp;
         }
-        if (!Utils::isUnset($request->gmtCreate)) {
-            $query['GmtCreate'] = $request->gmtCreate;
-        }
-        if (!Utils::isUnset($request->gmtModified)) {
-            $query['GmtModified'] = $request->gmtModified;
-        }
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
-        }
-        if (!Utils::isUnset($request->licenseKey)) {
-            $query['LicenseKey'] = $request->licenseKey;
         }
         if (!Utils::isUnset($request->messageQueueFilterSide)) {
             $query['MessageQueueFilterSide'] = $request->messageQueueFilterSide;
@@ -2223,14 +2488,8 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
         if (!Utils::isUnset($request->status)) {
             $query['Status'] = $request->status;
-        }
-        if (!Utils::isUnset($request->userId)) {
-            $query['UserId'] = $request->userId;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2364,6 +2623,63 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param DeleteCircuitBreakerRulesRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return DeleteCircuitBreakerRulesResponse
+     */
+    public function deleteCircuitBreakerRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteCircuitBreakerRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteCircuitBreakerRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteCircuitBreakerRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteCircuitBreakerRulesRequest $request
+     *
+     * @return DeleteCircuitBreakerRulesResponse
+     */
+    public function deleteCircuitBreakerRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteCircuitBreakerRulesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteClusterRequest $request
      * @param RuntimeOptions       $runtime
      *
@@ -2459,6 +2775,63 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteEngineNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteFlowRulesRequest $tmpReq
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteFlowRulesResponse
+     */
+    public function deleteFlowRulesWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new DeleteFlowRulesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->ids)) {
+            $request->idsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->ids, 'Ids', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->idsShrink)) {
+            $query['Ids'] = $request->idsShrink;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteFlowRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteFlowRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteFlowRulesRequest $request
+     *
+     * @return DeleteFlowRulesResponse
+     */
+    public function deleteFlowRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteFlowRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -2835,6 +3208,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->id)) {
             $query['Id'] = $request->id;
         }
+        if (!Utils::isUnset($request->slbId)) {
+            $query['SlbId'] = $request->slbId;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2915,12 +3291,10 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
-     * @param DeleteNacosConfigRequest $request DeleteNacosConfigRequest
-     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
+     * @param DeleteNacosConfigRequest $request
+     * @param RuntimeOptions           $runtime
      *
-     * @return DeleteNacosConfigResponse DeleteNacosConfigResponse
+     * @return DeleteNacosConfigResponse
      */
     public function deleteNacosConfigWithOptions($request, $runtime)
     {
@@ -2963,11 +3337,9 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
-     *   *
-     * @param DeleteNacosConfigRequest $request DeleteNacosConfigRequest
+     * @param DeleteNacosConfigRequest $request
      *
-     * @return DeleteNacosConfigResponse DeleteNacosConfigResponse
+     * @return DeleteNacosConfigResponse
      */
     public function deleteNacosConfig($request)
     {
@@ -3374,14 +3746,11 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->groupId)) {
             $query['GroupId'] = $request->groupId;
         }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
         if (!Utils::isUnset($request->namespace_)) {
             $query['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->name)) {
-            $query['name'] = $request->name;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3485,6 +3854,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->dataId)) {
             $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->dataIds)) {
+            $query['DataIds'] = $request->dataIds;
         }
         if (!Utils::isUnset($request->group)) {
             $query['Group'] = $request->group;
@@ -3783,10 +4155,14 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationListWithMetircsRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
+     *   *
+     * Deprecated
      *
-     * @return GetApplicationListWithMetircsResponse
+     * @param GetApplicationListWithMetircsRequest $request GetApplicationListWithMetircsRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetApplicationListWithMetircsResponse GetApplicationListWithMetircsResponse
      */
     public function getApplicationListWithMetircsWithOptions($request, $runtime)
     {
@@ -3835,9 +4211,13 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param GetApplicationListWithMetircsRequest $request
+     * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
+     *   *
+     * Deprecated
      *
-     * @return GetApplicationListWithMetircsResponse
+     * @param GetApplicationListWithMetircsRequest $request GetApplicationListWithMetircsRequest
+     *
+     * @return GetApplicationListWithMetircsResponse GetApplicationListWithMetircsResponse
      */
     public function getApplicationListWithMetircs($request)
     {
@@ -4340,7 +4720,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n.
      *   *
      * @param GetImportFileUrlRequest $request GetImportFileUrlRequest
      * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
@@ -4382,7 +4762,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+     * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).\\n.
      *   *
      * @param GetImportFileUrlRequest $request GetImportFileUrlRequest
      *
@@ -4410,6 +4790,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->gatewayUniqueId)) {
             $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->isAll)) {
+            $query['IsAll'] = $request->isAll;
         }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
@@ -4442,6 +4825,69 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getKubernetesSourceWithOptions($request, $runtime);
+    }
+
+    /**
+     * You can call this operation to query the rules for graceful start and shutdown of an application.
+     *   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+     *   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+     *   *
+     * @param GetLosslessRuleByAppRequest $request GetLosslessRuleByAppRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetLosslessRuleByAppResponse GetLosslessRuleByAppResponse
+     */
+    public function getLosslessRuleByAppWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetLosslessRuleByApp',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLosslessRuleByAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * You can call this operation to query the rules for graceful start and shutdown of an application.
+     *   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
+     *   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+     *   *
+     * @param GetLosslessRuleByAppRequest $request GetLosslessRuleByAppRequest
+     *
+     * @return GetLosslessRuleByAppResponse GetLosslessRuleByAppResponse
+     */
+    public function getLosslessRuleByApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getLosslessRuleByAppWithOptions($request, $runtime);
     }
 
     /**
@@ -4661,7 +5107,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call the GetOverview operation to query overview information about service governance.
+     * You can call this operation to query overview information about service governance.
      *   *
      * @param GetOverviewRequest $request GetOverviewRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -4700,7 +5146,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * You can call the GetOverview operation to query overview information about service governance.
+     * You can call this operation to query overview information about service governance.
      *   *
      * @param GetOverviewRequest $request GetOverviewRequest
      *
@@ -4876,6 +5322,73 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param GetServiceListPageRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return GetServiceListPageResponse
+     */
+    public function getServiceListPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceListPage',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceListPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceListPageRequest $request
+     *
+     * @return GetServiceListPageResponse
+     */
+    public function getServiceListPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceListPageWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetServiceListenersRequest $request
      * @param RuntimeOptions             $runtime
      *
@@ -4949,6 +5462,88 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getServiceListenersWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetServiceMethodPageRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return GetServiceMethodPageResponse
+     */
+    public function getServiceMethodPageWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->methodController)) {
+            $query['MethodController'] = $request->methodController;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->serviceGroup)) {
+            $query['ServiceGroup'] = $request->serviceGroup;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->serviceType)) {
+            $query['ServiceType'] = $request->serviceType;
+        }
+        if (!Utils::isUnset($request->serviceVersion)) {
+            $query['ServiceVersion'] = $request->serviceVersion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetServiceMethodPage',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetServiceMethodPageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetServiceMethodPageRequest $request
+     *
+     * @return GetServiceMethodPageResponse
+     */
+    public function getServiceMethodPage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getServiceMethodPageWithOptions($request, $runtime);
     }
 
     /**
@@ -5175,8 +5770,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+     * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
      *   *
      * @param ImportZookeeperDataRequest $request ImportZookeeperDataRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -5224,8 +5818,7 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * **
-     *   * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
+     * **Danger** This operation clears existing data. Exercise caution when you call this API operation.
      *   *
      * @param ImportZookeeperDataRequest $request ImportZookeeperDataRequest
      *
@@ -5293,8 +5886,35 @@ class Mse extends OpenApiClient
     public function listAnsServiceClustersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5302,7 +5922,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5337,8 +5957,44 @@ class Mse extends OpenApiClient
     public function listAnsServicesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->clusterName)) {
+            $query['ClusterName'] = $request->clusterName;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->hasIpCount)) {
+            $query['HasIpCount'] = $request->hasIpCount;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->serviceName)) {
+            $query['ServiceName'] = $request->serviceName;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5346,7 +6002,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5371,10 +6027,14 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAppBySwimmingLaneGroupTagRequest $request
-     * @param RuntimeOptions                       $runtime
+     * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
+     *   *
+     * Deprecated
      *
-     * @return ListAppBySwimmingLaneGroupTagResponse
+     * @param ListAppBySwimmingLaneGroupTagRequest $request ListAppBySwimmingLaneGroupTagRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ListAppBySwimmingLaneGroupTagResponse ListAppBySwimmingLaneGroupTagResponse
      */
     public function listAppBySwimmingLaneGroupTagWithOptions($request, $runtime)
     {
@@ -5411,15 +6071,76 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ListAppBySwimmingLaneGroupTagRequest $request
+     * @deprecated : ListAppBySwimmingLaneGroupTag is deprecated, please use mse::2019-05-31::ListAppBySwimmingLaneGroupTags instead.
+     *   *
+     * Deprecated
      *
-     * @return ListAppBySwimmingLaneGroupTagResponse
+     * @param ListAppBySwimmingLaneGroupTagRequest $request ListAppBySwimmingLaneGroupTagRequest
+     *
+     * @return ListAppBySwimmingLaneGroupTagResponse ListAppBySwimmingLaneGroupTagResponse
      */
     public function listAppBySwimmingLaneGroupTag($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->listAppBySwimmingLaneGroupTagWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAppBySwimmingLaneGroupTagsRequest $tmpReq
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return ListAppBySwimmingLaneGroupTagsResponse
+     */
+    public function listAppBySwimmingLaneGroupTagsWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new ListAppBySwimmingLaneGroupTagsShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->tags)) {
+            $request->tagsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->tags, 'Tags', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->groupId)) {
+            $query['GroupId'] = $request->groupId;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->tagsShrink)) {
+            $query['Tags'] = $request->tagsShrink;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAppBySwimmingLaneGroupTags',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAppBySwimmingLaneGroupTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAppBySwimmingLaneGroupTagsRequest $request
+     *
+     * @return ListAppBySwimmingLaneGroupTagsResponse
+     */
+    public function listAppBySwimmingLaneGroupTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAppBySwimmingLaneGroupTagsWithOptions($request, $runtime);
     }
 
     /**
@@ -5460,6 +6181,137 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsWithTagRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAuthPolicyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListAuthPolicyResponse
+     */
+    public function listAuthPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAuthPolicy',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAuthPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAuthPolicyRequest $request
+     *
+     * @return ListAuthPolicyResponse
+     */
+    public function listAuthPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAuthPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListCircuitBreakerRulesRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return ListCircuitBreakerRulesResponse
+     */
+    public function listCircuitBreakerRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceSearchKey)) {
+            $query['ResourceSearchKey'] = $request->resourceSearchKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListCircuitBreakerRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListCircuitBreakerRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListCircuitBreakerRulesRequest $request
+     *
+     * @return ListCircuitBreakerRulesResponse
+     */
+    public function listCircuitBreakerRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listCircuitBreakerRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -5673,8 +6525,32 @@ class Mse extends OpenApiClient
     public function listClustersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterAliasName)) {
+            $query['ClusterAliasName'] = $request->clusterAliasName;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5682,7 +6558,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5713,8 +6589,44 @@ class Mse extends OpenApiClient
     public function listConfigTrackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->dataId)) {
+            $query['DataId'] = $request->dataId;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->group)) {
+            $query['Group'] = $request->group;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ip)) {
+            $query['Ip'] = $request->ip;
+        }
+        if (!Utils::isUnset($request->namespaceId)) {
+            $query['NamespaceId'] = $request->namespaceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5722,7 +6634,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5753,8 +6665,14 @@ class Mse extends OpenApiClient
     public function listEngineNamespacesWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -5762,7 +6680,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -5914,6 +6832,70 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listExportZookeeperDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListFlowRulesRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return ListFlowRulesResponse
+     */
+    public function listFlowRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageIndex)) {
+            $query['PageIndex'] = $request->pageIndex;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->resource)) {
+            $query['Resource'] = $request->resource;
+        }
+        if (!Utils::isUnset($request->resourceSearchKey)) {
+            $query['ResourceSearchKey'] = $request->resourceSearchKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListFlowRules',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListFlowRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListFlowRulesRequest $request
+     *
+     * @return ListFlowRulesResponse
+     */
+    public function listFlowRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listFlowRulesWithOptions($request, $runtime);
     }
 
     /**
@@ -7026,8 +8008,38 @@ class Mse extends OpenApiClient
     public function listZkTrackWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->endTs)) {
+            $query['EndTs'] = $request->endTs;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->pageNum)) {
+            $query['PageNum'] = $request->pageNum;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->reverse)) {
+            $query['Reverse'] = $request->reverse;
+        }
+        if (!Utils::isUnset($request->sessionId)) {
+            $query['SessionId'] = $request->sessionId;
+        }
+        if (!Utils::isUnset($request->startTs)) {
+            $query['StartTs'] = $request->startTs;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7035,7 +8047,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -7066,8 +8078,17 @@ class Mse extends OpenApiClient
     public function listZnodeChildrenWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->path)) {
+            $query['Path'] = $request->path;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7075,7 +8096,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -7098,14 +8119,19 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ModifyGovernanceKubernetesClusterRequest $request
+     * @param ModifyGovernanceKubernetesClusterRequest $tmpReq
      * @param RuntimeOptions                           $runtime
      *
      * @return ModifyGovernanceKubernetesClusterResponse
      */
-    public function modifyGovernanceKubernetesClusterWithOptions($request, $runtime)
+    public function modifyGovernanceKubernetesClusterWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ModifyGovernanceKubernetesClusterShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->namespaceInfos)) {
+            $request->namespaceInfosShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->namespaceInfos, 'NamespaceInfos', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -7113,14 +8139,16 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->clusterId)) {
             $query['ClusterId'] = $request->clusterId;
         }
-        if (!Utils::isUnset($request->namespaceInfos)) {
-            $query['NamespaceInfos'] = $request->namespaceInfos;
-        }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        $body = [];
+        if (!Utils::isUnset($request->namespaceInfosShrink)) {
+            $body['NamespaceInfos'] = $request->namespaceInfosShrink;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'ModifyGovernanceKubernetesCluster',
@@ -7788,8 +8816,26 @@ class Mse extends OpenApiClient
     public function queryConfigWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->clusterId)) {
+            $query['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->configType)) {
+            $query['ConfigType'] = $request->configType;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->needRunningConf)) {
+            $query['NeedRunningConf'] = $request->needRunningConf;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -7797,7 +8843,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -8012,8 +9058,29 @@ class Mse extends OpenApiClient
     public function queryMonitorWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
-        $query = OpenApiUtilClient::query(Utils::toMap($request));
-        $req   = new OpenApiRequest([
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->monitorType)) {
+            $query['MonitorType'] = $request->monitorType;
+        }
+        if (!Utils::isUnset($request->requestPars)) {
+            $query['RequestPars'] = $request->requestPars;
+        }
+        if (!Utils::isUnset($request->startTime)) {
+            $query['StartTime'] = $request->startTime;
+        }
+        if (!Utils::isUnset($request->step)) {
+            $query['Step'] = $request->step;
+        }
+        $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
@@ -8021,7 +9088,7 @@ class Mse extends OpenApiClient
             'version'     => '2019-05-31',
             'protocol'    => 'HTTPS',
             'pathname'    => '/',
-            'method'      => 'GET',
+            'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'RPC',
             'reqBodyType' => 'formData',
@@ -8219,6 +9286,107 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryZnodeDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveApplicationRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return RemoveApplicationResponse
+     */
+    public function removeApplicationWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveApplication',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveApplicationResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveApplicationRequest $request
+     *
+     * @return RemoveApplicationResponse
+     */
+    public function removeApplication($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeApplicationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RemoveAuthPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RemoveAuthPolicyResponse
+     */
+    public function removeAuthPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $query['PolicyId'] = $request->policyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RemoveAuthPolicy',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RemoveAuthPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RemoveAuthPolicyRequest $request
+     *
+     * @return RemoveAuthPolicyResponse
+     */
+    public function removeAuthPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->removeAuthPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -8540,6 +9708,76 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param UpdateAuthPolicyRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return UpdateAuthPolicyResponse
+     */
+    public function updateAuthPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->authRule)) {
+            $query['AuthRule'] = $request->authRule;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->k8sNamespace)) {
+            $query['K8sNamespace'] = $request->k8sNamespace;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->source)) {
+            $query['Source'] = $request->source;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAuthPolicy',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAuthPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAuthPolicyRequest $request
+     *
+     * @return UpdateAuthPolicyResponse
+     */
+    public function updateAuthPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAuthPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateBlackWhiteListRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -8610,6 +9848,88 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateBlackWhiteListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateCircuitBreakerRuleRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateCircuitBreakerRuleResponse
+     */
+    public function updateCircuitBreakerRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->halfOpenBaseAmountPerStep)) {
+            $query['HalfOpenBaseAmountPerStep'] = $request->halfOpenBaseAmountPerStep;
+        }
+        if (!Utils::isUnset($request->halfOpenRecoveryStepNum)) {
+            $query['HalfOpenRecoveryStepNum'] = $request->halfOpenRecoveryStepNum;
+        }
+        if (!Utils::isUnset($request->maxAllowedRtMs)) {
+            $query['MaxAllowedRtMs'] = $request->maxAllowedRtMs;
+        }
+        if (!Utils::isUnset($request->minRequestAmount)) {
+            $query['MinRequestAmount'] = $request->minRequestAmount;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->retryTimeoutMs)) {
+            $query['RetryTimeoutMs'] = $request->retryTimeoutMs;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->statIntervalMs)) {
+            $query['StatIntervalMs'] = $request->statIntervalMs;
+        }
+        if (!Utils::isUnset($request->strategy)) {
+            $query['Strategy'] = $request->strategy;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateCircuitBreakerRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateCircuitBreakerRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateCircuitBreakerRuleRequest $request
+     *
+     * @return UpdateCircuitBreakerRuleResponse
+     */
+    public function updateCircuitBreakerRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateCircuitBreakerRuleWithOptions($request, $runtime);
     }
 
     /**
@@ -8799,6 +10119,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->syncLimit)) {
             $query['SyncLimit'] = $request->syncLimit;
         }
+        if (!Utils::isUnset($request->TLSEnabled)) {
+            $query['TLSEnabled'] = $request->TLSEnabled;
+        }
         if (!Utils::isUnset($request->tickTime)) {
             $query['TickTime'] = $request->tickTime;
         }
@@ -8899,6 +10222,73 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateEngineNamespaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateFlowRuleRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return UpdateFlowRuleResponse
+     */
+    public function updateFlowRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->controlBehavior)) {
+            $query['ControlBehavior'] = $request->controlBehavior;
+        }
+        if (!Utils::isUnset($request->enable)) {
+            $query['Enable'] = $request->enable;
+        }
+        if (!Utils::isUnset($request->maxQueueingTimeMs)) {
+            $query['MaxQueueingTimeMs'] = $request->maxQueueingTimeMs;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->ruleId)) {
+            $query['RuleId'] = $request->ruleId;
+        }
+        if (!Utils::isUnset($request->threshold)) {
+            $query['Threshold'] = $request->threshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateFlowRule',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateFlowRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateFlowRuleRequest $request
+     *
+     * @return UpdateFlowRuleResponse
+     */
+    public function updateFlowRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateFlowRuleWithOptions($request, $runtime);
     }
 
     /**

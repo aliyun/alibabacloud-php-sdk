@@ -54,15 +54,6 @@ class result extends Model
     public $language;
 
     /**
-     * @description The license key in use.
-     *
-     * @example diyh1rln1u@*****7ad938167
-     *
-     * @var string
-     */
-    public $licenseKey;
-
-    /**
      * @var string
      */
     public $namespace;
@@ -95,6 +86,11 @@ class result extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $tagCount;
+
+    /**
      * @description The ID of the user.
      *
      * @example 1234567890
@@ -108,11 +104,11 @@ class result extends Model
         'extraInfo'       => 'ExtraInfo',
         'instancesNumber' => 'InstancesNumber',
         'language'        => 'Language',
-        'licenseKey'      => 'LicenseKey',
         'namespace'       => 'Namespace',
         'regionId'        => 'RegionId',
         'source'          => 'Source',
         'status'          => 'Status',
+        'tagCount'        => 'TagCount',
         'userId'          => 'UserId',
     ];
 
@@ -138,9 +134,6 @@ class result extends Model
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-        if (null !== $this->licenseKey) {
-            $res['LicenseKey'] = $this->licenseKey;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -152,6 +145,9 @@ class result extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tagCount) {
+            $res['TagCount'] = $this->tagCount;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -183,9 +179,6 @@ class result extends Model
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-        if (isset($map['LicenseKey'])) {
-            $model->licenseKey = $map['LicenseKey'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
@@ -197,6 +190,9 @@ class result extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['TagCount'])) {
+            $model->tagCount = $map['TagCount'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

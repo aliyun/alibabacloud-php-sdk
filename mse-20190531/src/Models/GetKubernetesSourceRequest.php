@@ -30,6 +30,11 @@ class GetKubernetesSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @var bool
+     */
+    public $isAll;
+
+    /**
      * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-bp1t50e045b5g7i3p****
@@ -40,6 +45,7 @@ class GetKubernetesSourceRequest extends Model
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
         'gatewayUniqueId' => 'GatewayUniqueId',
+        'isAll'           => 'IsAll',
         'vpcId'           => 'VpcId',
     ];
 
@@ -55,6 +61,9 @@ class GetKubernetesSourceRequest extends Model
         }
         if (null !== $this->gatewayUniqueId) {
             $res['GatewayUniqueId'] = $this->gatewayUniqueId;
+        }
+        if (null !== $this->isAll) {
+            $res['IsAll'] = $this->isAll;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
@@ -76,6 +85,9 @@ class GetKubernetesSourceRequest extends Model
         }
         if (isset($map['GatewayUniqueId'])) {
             $model->gatewayUniqueId = $map['GatewayUniqueId'];
+        }
+        if (isset($map['IsAll'])) {
+            $model->isAll = $map['IsAll'];
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

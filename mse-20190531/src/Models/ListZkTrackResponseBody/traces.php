@@ -30,7 +30,7 @@ class traces extends Model
     public $dataType;
 
     /**
-     * @description The type of the event. For tracks of the Notify type:
+     * @description The type of the event. Valid values: For tracks of the Notify type:
      *
      *   NodeCreated
      *   NodeDeleted

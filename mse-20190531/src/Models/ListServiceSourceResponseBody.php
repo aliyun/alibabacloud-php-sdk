@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListServiceSourceResponseBody extends Model
 {
     /**
-     * @description The response code returned.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class ListServiceSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message returned if the request failed.
+     * @description The error message returned.
      *
      * @example You are not authorized to perform this operation.
      *

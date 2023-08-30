@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class failData extends Model
 {
     /**
-     * @description The ID of the data.
+     * @description mse-200-105
      *
      * @example test2.yaml
      *
@@ -18,7 +18,7 @@ class failData extends Model
     public $dataId;
 
     /**
-     * @description The ID of the group.
+     * @description duplicatedClusterAliasName
      *
      * @example test
      *

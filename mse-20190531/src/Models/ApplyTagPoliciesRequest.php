@@ -80,15 +80,6 @@ class ApplyTagPoliciesRequest extends Model
      * @var string
      */
     public $rules;
-
-    /**
-     * @description The service source.
-     *
-     * @example edasmsc
-     *
-     * @var string
-     */
-    public $source;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
@@ -98,7 +89,6 @@ class ApplyTagPoliciesRequest extends Model
         'namespaceId'    => 'NamespaceId',
         'region'         => 'Region',
         'rules'          => 'Rules',
-        'source'         => 'Source',
     ];
 
     public function validate()
@@ -131,9 +121,6 @@ class ApplyTagPoliciesRequest extends Model
         }
         if (null !== $this->rules) {
             $res['Rules'] = $this->rules;
-        }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
         }
 
         return $res;
@@ -170,9 +157,6 @@ class ApplyTagPoliciesRequest extends Model
         }
         if (isset($map['Rules'])) {
             $model->rules = $map['Rules'];
-        }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
         }
 
         return $model;

@@ -9,33 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteSwimmingLaneResponseBody extends Model
 {
     /**
-     * @description The status code. A value of 200 is returned if the request is successful.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $code;
-
-    /**
-     * @description The details of the data.
-     *
-     * @example {}
-     *
-     * @var mixed
-     */
-    public $data;
-
-    /**
-     * @description The dynamic part in the error message.
-     *
-     * @example The specified parameter is invalid.
-     *
-     * @var string
-     */
-    public $dynamicMessage;
-
-    /**
      * @description The error code returned if the request failed.
      *
      * @example mse-100-000
@@ -45,18 +18,9 @@ class DeleteSwimmingLaneResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The error message returned.
      *
-     * @example 200
-     *
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @description The message returned.
-     *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */
@@ -83,14 +47,10 @@ class DeleteSwimmingLaneResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
-        'dynamicMessage' => 'DynamicMessage',
-        'errorCode'      => 'ErrorCode',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -100,20 +60,8 @@ class DeleteSwimmingLaneResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->dynamicMessage) {
-            $res['DynamicMessage'] = $this->dynamicMessage;
-        }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -136,20 +84,8 @@ class DeleteSwimmingLaneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['DynamicMessage'])) {
-            $model->dynamicMessage = $map['DynamicMessage'];
-        }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

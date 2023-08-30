@@ -21,7 +21,7 @@ class GetOverviewRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The time range for the query. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
+     * @description The query time. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
      *
      * @example 1
      *

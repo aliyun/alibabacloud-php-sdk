@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The status of the consumer. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -17,11 +22,20 @@ class data extends Model
     public $consumerStatus;
 
     /**
+     * @description The description.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The encryption type. Valid values:
+     *
+     *   RSA
+     *   OCT
+     *
      * @example RSA
      *
      * @var string
@@ -29,6 +43,8 @@ class data extends Model
     public $encodeType;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-7ea3da97b96543e19f6c597cd4a9****
      *
      * @var string
@@ -36,6 +52,8 @@ class data extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The creation time.
+     *
      * @example 2031-03-30 02:35:12
      *
      * @var string
@@ -43,6 +61,8 @@ class data extends Model
     public $gmtCreate;
 
     /**
+     * @description The update time.
+     *
      * @example 2023-02-01 14:17:57
      *
      * @var string
@@ -50,6 +70,8 @@ class data extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the consumer.
+     *
      * @example 12
      *
      * @var int
@@ -57,6 +79,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The JWT public key. The JSON format is supported.
+     *
      * @example {
      * }
      * @var string
@@ -64,6 +88,8 @@ class data extends Model
     public $jwks;
 
     /**
+     * @description The name of the key used for JWT-based identity authentication.
+     *
      * @example iss
      *
      * @var string
@@ -71,6 +97,8 @@ class data extends Model
     public $keyName;
 
     /**
+     * @description The value of the key used for JWT-based identity authentication.
+     *
      * @example abcd
      *
      * @var string
@@ -78,6 +106,8 @@ class data extends Model
     public $keyValue;
 
     /**
+     * @description The name of the consumer.
+     *
      * @example test
      *
      * @var string
@@ -85,6 +115,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description The creator.
+     *
      * @example 123
      *
      * @var string
@@ -92,11 +124,15 @@ class data extends Model
     public $primaryUser;
 
     /**
+     * @description The resource list.
+     *
      * @var resourceList[]
      */
     public $resourceList;
 
     /**
+     * @description The names of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+     *
      * @example Authorization
      *
      * @var string
@@ -104,6 +140,8 @@ class data extends Model
     public $tokenName;
 
     /**
+     * @description Specifies whether to enable pass-through.
+     *
      * @example true
      *
      * @var bool
@@ -111,6 +149,8 @@ class data extends Model
     public $tokenPass;
 
     /**
+     * @description The positions of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+     *
      * @example HEADER
      *
      * @var string
@@ -118,6 +158,8 @@ class data extends Model
     public $tokenPosition;
 
     /**
+     * @description The prefixes of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+     *
      * @example Bearer
      *
      * @var string
@@ -125,6 +167,10 @@ class data extends Model
     public $tokenPrefix;
 
     /**
+     * @description The authentication type. Valid values:
+     *
+     *   JWT
+     *
      * @example JWT
      *
      * @var string

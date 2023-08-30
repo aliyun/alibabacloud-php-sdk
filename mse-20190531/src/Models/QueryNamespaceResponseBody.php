@@ -15,13 +15,13 @@ class QueryNamespaceResponseBody extends Model
     public $data;
 
     /**
-     * @description HttpStatusCode
+     * @description 错误码。
      *
-     * @example 200
+     * @example Success
      *
-     * @var int
+     * @var string
      */
-    public $httpStatusCode;
+    public $errorCode;
 
     /**
      * @var string
@@ -42,11 +42,11 @@ class QueryNamespaceResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'data'           => 'Data',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -65,8 +65,8 @@ class QueryNamespaceResponseBody extends Model
                 }
             }
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -98,8 +98,8 @@ class QueryNamespaceResponseBody extends Model
                 }
             }
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

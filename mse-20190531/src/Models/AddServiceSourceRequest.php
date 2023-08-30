@@ -10,11 +10,7 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSourceRequest extends Model
 {
     /**
-     * @description The language in which the returned information is displayed. Valid values:
-     *
-     *   zh-CN: Chinese. This is the default value.
-     *   en-US: English.
-     *   ja: Japanese.
+     * @description The return value.
      *
      * @example zh-CN
      *
@@ -23,7 +19,7 @@ class AddServiceSourceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The address.
+     * @description Specifies whether to monitor Ingress classes.
      *
      * @example c9ad2a0717032427e920754e25b49e3b5
      *
@@ -32,7 +28,7 @@ class AddServiceSourceRequest extends Model
     public $address;
 
     /**
-     * @description The unique ID of the gateway.
+     * @description Specifies whether to update the Ingress status.
      *
      * @example gw-c70622ff52fe49beb29bea9a6f52****
      *
@@ -41,26 +37,21 @@ class AddServiceSourceRequest extends Model
     public $gatewayUniqueId;
 
     /**
-     * @description The list of service groups.
+     * @description The data structure.
      *
      * @var string[]
      */
     public $groupList;
 
     /**
-     * @description The configurations of Ingress resources.
+     * @description The list of service groups.
      *
      * @var ingressOptionsRequest
      */
     public $ingressOptionsRequest;
 
     /**
-     * @description The name.
-     *
-     * > The parameter definition varies based on the source type.
-     *
-     *   If Type is set to K8S, this parameter specifies the name of the Kubernetes cluster.
-     *   If Type is set to NACOS, this parameter specifies the ID of the instance.
+     * @description The namespace whose resources you want to monitor.
      *
      * @example istio
      *
@@ -69,31 +60,25 @@ class AddServiceSourceRequest extends Model
     public $name;
 
     /**
-     * @description An array of service root paths.
+     * @description The HTTP status code returned.
      *
      * @var string[]
      */
     public $pathList;
 
     /**
-     * @description The service source. Valid values:
+     * @description Specifies whether to enable Ingress.
      *
-     *   K8S: Kubernetes cluster
-     *   MSE: Nacos instance
-     *
-     * @example K8S,MSE
+     * @example K8s,MSE
      *
      * @var string
      */
     public $source;
 
     /**
-     * @description The type of the service source. Valid values:
+     * @description The unique ID of the gateway.
      *
-     *   K8S: Kubernetes cluster
-     *   NACOS: Nacos instance
-     *
-     * @example K8S,NACOS
+     * @example The Ingress configuration.
      *
      * @var string
      */

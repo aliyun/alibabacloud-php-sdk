@@ -37,14 +37,14 @@ class ListEngineNamespacesResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the returned page.
      *
      * @example 1
      *

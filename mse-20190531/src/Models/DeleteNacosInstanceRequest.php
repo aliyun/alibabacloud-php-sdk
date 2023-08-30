@@ -21,7 +21,7 @@ class DeleteNacosInstanceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The alias of the instance.
+     * @description The alias of the cluster.
      *
      * @example DEFAULT
      *
@@ -30,9 +30,9 @@ class DeleteNacosInstanceRequest extends Model
     public $clusterName;
 
     /**
-     * @description Specifies whether the instance is marked as a temporary node. Valid values:
+     * @description Specifies whether the node is an ephemeral node. Valid values:
      *
-     *   `true`: monitors the task status.
+     *   `true`: yes
      *   `false`: no
      *
      * @example false
@@ -51,7 +51,7 @@ class DeleteNacosInstanceRequest extends Model
     public $groupName;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the Nacos instance.
      *
      * @example mse-cn-st21v5****
      *

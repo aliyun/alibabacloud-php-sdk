@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ingressOptions extends Model
 {
     /**
-     * @description Indicates whether Ingress is enabled.
+     * @description Indicates whether Ingresses are enabled.
      *
      * @example true
      *

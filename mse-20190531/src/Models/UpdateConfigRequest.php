@@ -83,6 +83,8 @@ class UpdateConfigRequest extends Model
     public $configType;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $eurekaSupported;
@@ -226,6 +228,13 @@ class UpdateConfigRequest extends Model
     public $syncLimit;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $TLSEnabled;
+
+    /**
      * @description The time unit. This parameter is valid for ZooKeeper instances. Default value: 2000. Unit: milliseconds.
      *
      * @example 2000
@@ -266,6 +275,7 @@ class UpdateConfigRequest extends Model
         'requestPars'              => 'RequestPars',
         'snapshotCount'            => 'SnapshotCount',
         'syncLimit'                => 'SyncLimit',
+        'TLSEnabled'               => 'TLSEnabled',
         'tickTime'                 => 'TickTime',
         'userName'                 => 'UserName',
     ];
@@ -342,6 +352,9 @@ class UpdateConfigRequest extends Model
         }
         if (null !== $this->syncLimit) {
             $res['SyncLimit'] = $this->syncLimit;
+        }
+        if (null !== $this->TLSEnabled) {
+            $res['TLSEnabled'] = $this->TLSEnabled;
         }
         if (null !== $this->tickTime) {
             $res['TickTime'] = $this->tickTime;
@@ -426,6 +439,9 @@ class UpdateConfigRequest extends Model
         }
         if (isset($map['SyncLimit'])) {
             $model->syncLimit = $map['SyncLimit'];
+        }
+        if (isset($map['TLSEnabled'])) {
+            $model->TLSEnabled = $map['TLSEnabled'];
         }
         if (isset($map['TickTime'])) {
             $model->tickTime = $map['TickTime'];

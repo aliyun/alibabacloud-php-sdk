@@ -57,7 +57,7 @@ class riskList extends Model
     public $noticeFeature;
 
     /**
-     * @description The ID of the user to which the instance belongs.
+     * @description The ID of the user to which the cluster belongs.
      *
      * @example 123456
      *

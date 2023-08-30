@@ -30,7 +30,7 @@ class QueryClusterInfoRequest extends Model
     public $aclSwitch;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the instance.
      *
      * @example mse-09k1q11****
      *
@@ -57,7 +57,7 @@ class QueryClusterInfoRequest extends Model
     public $orderId;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *

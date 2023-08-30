@@ -45,7 +45,7 @@ class UpdateGatewayRouteCORSResponseBody extends Model
     public $message;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
      *
      * @example 41BE990E-44E4-5ED3-AEEB-A276941B1854
      *

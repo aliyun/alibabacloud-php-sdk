@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class QueryMonitorResponseBody extends Model
 {
     /**
-     * @description The details of the data.
+     * @description The data structure.
      *
      * @example 6
      *
@@ -19,7 +19,7 @@ class QueryMonitorResponseBody extends Model
     public $data;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The name of the pod.
      *
      * @example mse-100-000
      *
@@ -28,16 +28,19 @@ class QueryMonitorResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The message returned.
+     * @description The interval between data points. Unit: seconds.
      *
-     * @example The request was successfully processed.
+     * @example The ID of the instance.
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example ADDD8AB7-8D1C-4697-A83E-410D2607****
      *
@@ -46,11 +49,6 @@ class QueryMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
-     *
      * @example true
      *
      * @var bool

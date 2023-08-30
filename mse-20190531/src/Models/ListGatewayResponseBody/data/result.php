@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\elasticPolicy;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\initConfig;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\internetSlb;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ListGatewayResponseBody\data\result\slb;
@@ -55,6 +56,31 @@ class result extends Model
      * @var string
      */
     public $currentVersion;
+
+    /**
+     * @var bool
+     */
+    public $elastic;
+
+    /**
+     * @var string
+     */
+    public $elasticInstanceId;
+
+    /**
+     * @var elasticPolicy
+     */
+    public $elasticPolicy;
+
+    /**
+     * @var int
+     */
+    public $elasticReplica;
+
+    /**
+     * @var string
+     */
+    public $elasticType;
 
     /**
      * @description The time when the subscription gateway expires.
@@ -289,6 +315,11 @@ class result extends Model
     public $tag;
 
     /**
+     * @var int
+     */
+    public $totalReplica;
+
+    /**
      * @description Indicates whether the gateway can be updated.
      *
      * @example false
@@ -296,6 +327,11 @@ class result extends Model
      * @var bool
      */
     public $upgrade;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
 
     /**
      * @description The ID of the secondary vSwitch.
@@ -306,38 +342,45 @@ class result extends Model
      */
     public $vswitch2;
     protected $_name = [
-        'ahasOn'          => 'AhasOn',
-        'appVersion'      => 'AppVersion',
-        'armsOn'          => 'ArmsOn',
-        'chargeType'      => 'ChargeType',
-        'currentVersion'  => 'CurrentVersion',
-        'endDate'         => 'EndDate',
-        'gatewayType'     => 'GatewayType',
-        'gatewayUniqueId' => 'GatewayUniqueId',
-        'gatewayVersion'  => 'GatewayVersion',
-        'gmtCreate'       => 'GmtCreate',
-        'gmtModified'     => 'GmtModified',
-        'id'              => 'Id',
-        'initConfig'      => 'InitConfig',
-        'instanceId'      => 'InstanceId',
-        'internetSlb'     => 'InternetSlb',
-        'latestVersion'   => 'LatestVersion',
-        'mseTag'          => 'MseTag',
-        'mustUpgrade'     => 'MustUpgrade',
-        'name'            => 'Name',
-        'primaryUser'     => 'PrimaryUser',
-        'region'          => 'Region',
-        'replica'         => 'Replica',
-        'resourceGroupId' => 'ResourceGroupId',
-        'rollBack'        => 'RollBack',
-        'slb'             => 'Slb',
-        'spec'            => 'Spec',
-        'status'          => 'Status',
-        'statusDesc'      => 'StatusDesc',
-        'supportWasm'     => 'SupportWasm',
-        'tag'             => 'Tag',
-        'upgrade'         => 'Upgrade',
-        'vswitch2'        => 'Vswitch2',
+        'ahasOn'            => 'AhasOn',
+        'appVersion'        => 'AppVersion',
+        'armsOn'            => 'ArmsOn',
+        'chargeType'        => 'ChargeType',
+        'currentVersion'    => 'CurrentVersion',
+        'elastic'           => 'Elastic',
+        'elasticInstanceId' => 'ElasticInstanceId',
+        'elasticPolicy'     => 'ElasticPolicy',
+        'elasticReplica'    => 'ElasticReplica',
+        'elasticType'       => 'ElasticType',
+        'endDate'           => 'EndDate',
+        'gatewayType'       => 'GatewayType',
+        'gatewayUniqueId'   => 'GatewayUniqueId',
+        'gatewayVersion'    => 'GatewayVersion',
+        'gmtCreate'         => 'GmtCreate',
+        'gmtModified'       => 'GmtModified',
+        'id'                => 'Id',
+        'initConfig'        => 'InitConfig',
+        'instanceId'        => 'InstanceId',
+        'internetSlb'       => 'InternetSlb',
+        'latestVersion'     => 'LatestVersion',
+        'mseTag'            => 'MseTag',
+        'mustUpgrade'       => 'MustUpgrade',
+        'name'              => 'Name',
+        'primaryUser'       => 'PrimaryUser',
+        'region'            => 'Region',
+        'replica'           => 'Replica',
+        'resourceGroupId'   => 'ResourceGroupId',
+        'rollBack'          => 'RollBack',
+        'slb'               => 'Slb',
+        'spec'              => 'Spec',
+        'status'            => 'Status',
+        'statusDesc'        => 'StatusDesc',
+        'supportWasm'       => 'SupportWasm',
+        'tag'               => 'Tag',
+        'totalReplica'      => 'TotalReplica',
+        'upgrade'           => 'Upgrade',
+        'vpcId'             => 'VpcId',
+        'vswitch2'          => 'Vswitch2',
     ];
 
     public function validate()
@@ -361,6 +404,21 @@ class result extends Model
         }
         if (null !== $this->currentVersion) {
             $res['CurrentVersion'] = $this->currentVersion;
+        }
+        if (null !== $this->elastic) {
+            $res['Elastic'] = $this->elastic;
+        }
+        if (null !== $this->elasticInstanceId) {
+            $res['ElasticInstanceId'] = $this->elasticInstanceId;
+        }
+        if (null !== $this->elasticPolicy) {
+            $res['ElasticPolicy'] = null !== $this->elasticPolicy ? $this->elasticPolicy->toMap() : null;
+        }
+        if (null !== $this->elasticReplica) {
+            $res['ElasticReplica'] = $this->elasticReplica;
+        }
+        if (null !== $this->elasticType) {
+            $res['ElasticType'] = $this->elasticType;
         }
         if (null !== $this->endDate) {
             $res['EndDate'] = $this->endDate;
@@ -449,8 +507,14 @@ class result extends Model
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
         }
+        if (null !== $this->totalReplica) {
+            $res['TotalReplica'] = $this->totalReplica;
+        }
         if (null !== $this->upgrade) {
             $res['Upgrade'] = $this->upgrade;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
         if (null !== $this->vswitch2) {
             $res['Vswitch2'] = $this->vswitch2;
@@ -481,6 +545,21 @@ class result extends Model
         }
         if (isset($map['CurrentVersion'])) {
             $model->currentVersion = $map['CurrentVersion'];
+        }
+        if (isset($map['Elastic'])) {
+            $model->elastic = $map['Elastic'];
+        }
+        if (isset($map['ElasticInstanceId'])) {
+            $model->elasticInstanceId = $map['ElasticInstanceId'];
+        }
+        if (isset($map['ElasticPolicy'])) {
+            $model->elasticPolicy = elasticPolicy::fromMap($map['ElasticPolicy']);
+        }
+        if (isset($map['ElasticReplica'])) {
+            $model->elasticReplica = $map['ElasticReplica'];
+        }
+        if (isset($map['ElasticType'])) {
+            $model->elasticType = $map['ElasticType'];
         }
         if (isset($map['EndDate'])) {
             $model->endDate = $map['EndDate'];
@@ -569,8 +648,14 @@ class result extends Model
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
         }
+        if (isset($map['TotalReplica'])) {
+            $model->totalReplica = $map['TotalReplica'];
+        }
         if (isset($map['Upgrade'])) {
             $model->upgrade = $map['Upgrade'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
         if (isset($map['Vswitch2'])) {
             $model->vswitch2 = $map['Vswitch2'];

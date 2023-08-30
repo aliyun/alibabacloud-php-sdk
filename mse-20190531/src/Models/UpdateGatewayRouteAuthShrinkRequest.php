@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayRouteAuthShrinkRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,11 +21,15 @@ class UpdateGatewayRouteAuthShrinkRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The authentication configurations.
+     *
      * @var string
      */
     public $authJSONShrink;
 
     /**
+     * @description The gateway ID.
+     *
      * @example 102
      *
      * @var int
@@ -28,6 +37,8 @@ class UpdateGatewayRouteAuthShrinkRequest extends Model
     public $gatewayId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-0adf3ad751284cc69fcf9669fba*****
      *
      * @var string
@@ -35,6 +46,8 @@ class UpdateGatewayRouteAuthShrinkRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The route ID.
+     *
      * @example 109
      *
      * @var int

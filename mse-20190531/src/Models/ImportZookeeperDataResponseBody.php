@@ -27,7 +27,7 @@ class ImportZookeeperDataResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 202
      *
@@ -38,7 +38,7 @@ class ImportZookeeperDataResponseBody extends Model
     /**
      * @description The message returned.
      *
-     * @example The request is successfully processed.
+     * @example The request was successfully processed.
      *
      * @var string
      */

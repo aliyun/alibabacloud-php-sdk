@@ -45,7 +45,7 @@ class data extends Model
     public $namespaceShowName;
 
     /**
-     * @description The quotas.
+     * @description The quota.
      *
      * @example 200
      *

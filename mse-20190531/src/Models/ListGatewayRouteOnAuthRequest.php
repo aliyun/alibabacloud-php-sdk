@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayRouteOnAuthRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListGatewayRouteOnAuthRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-c9bc5afd61014165bd58f621b491****
      *
      * @var string
@@ -23,6 +30,10 @@ class ListGatewayRouteOnAuthRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The authentication method. Valid values:
+     *
+     *   JWT
+     *
      * @example JWT
      *
      * @var string

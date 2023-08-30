@@ -21,7 +21,7 @@ class ModifyLosslessRuleRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to align the lifecycle of the application in the Kubernetes cluster with that of the microservice.
+     * @description The ID of the region.
      *
      * @example true
      *
@@ -39,7 +39,7 @@ class ModifyLosslessRuleRequest extends Model
     public $appId;
 
     /**
-     * @description The name of the application.
+     * @description The microservice namespace to which the rule applies.
      *
      * @example wx-work-api
      *
@@ -48,7 +48,10 @@ class ModifyLosslessRuleRequest extends Model
     public $appName;
 
     /**
-     * @description The registration latency.
+     * @description Specifies whether to enable graceful start. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
      *
      * @example 1
      *
@@ -57,10 +60,7 @@ class ModifyLosslessRuleRequest extends Model
     public $delayTime;
 
     /**
-     * @description Specifies whether to enable the alert rule. Valid values:
-     *
-     *   `true`: enables the rule.
-     *   `false`: disables the rule.
+     * @description The prefetching duration.
      *
      * @example false
      *
@@ -69,7 +69,7 @@ class ModifyLosslessRuleRequest extends Model
     public $enable;
 
     /**
-     * @description The slope of the prefetching curve.
+     * @description The registration latency.
      *
      * @example 1
      *
@@ -105,7 +105,7 @@ class ModifyLosslessRuleRequest extends Model
     public $notice;
 
     /**
-     * @description The ID of the region.
+     * @description The slope of the prefetching curve.
      *
      * @example cn-beijing
      *
@@ -114,7 +114,7 @@ class ModifyLosslessRuleRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to associate with service prefetching.
+     * @description Specifies whether to complete service registration before readiness probe.
      *
      * @example true
      *
@@ -123,7 +123,7 @@ class ModifyLosslessRuleRequest extends Model
     public $related;
 
     /**
-     * @description The prefetching duration.
+     * @description Specifies whether to complete service prefetching before readiness probe.
      *
      * @example 60
      *

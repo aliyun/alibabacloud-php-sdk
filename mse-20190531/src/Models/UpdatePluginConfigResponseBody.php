@@ -36,7 +36,7 @@ class UpdatePluginConfigResponseBody extends Model
     public $dynamicMessage;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description The error code that is returned.
      *
      * @example 500
      *

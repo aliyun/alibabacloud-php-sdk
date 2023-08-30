@@ -21,7 +21,7 @@ class UpdateImageRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the destination cluster.
      *
      * @example mse-8e8e9060
      *

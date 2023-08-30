@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupResponseBody extends Model
 {
     /**
-     * @description The response code returned.
+     * @description The status code returned.
      *
      * @example 200
      *
@@ -26,7 +26,7 @@ class ListSecurityGroupResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -35,7 +35,7 @@ class ListSecurityGroupResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The returned message.
+     * @description The message returned.
      *
      * @example success
      *

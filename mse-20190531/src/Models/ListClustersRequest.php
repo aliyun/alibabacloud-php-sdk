@@ -67,7 +67,7 @@ class ListClustersRequest extends Model
     public $requestPars;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information about resource groups, see the topic "View basic information of a resource group."
+     * @description The ID of the resource group. For more information about resource groups, see the topic "View basic information of a resource group."
      *
      * @example rg-acfmxbzafebvvfa
      *

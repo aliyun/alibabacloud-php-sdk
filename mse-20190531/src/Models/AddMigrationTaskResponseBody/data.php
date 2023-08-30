@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The type of the instance.
+     * @description The type of the instance. Valid values:
      *
      *   Nacos-Ans
      *   ZooKeeper
@@ -31,7 +31,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description The source instance node address.
+     * @description The endpoint of the source instance node.
      *
      * @example 192.168.1.1:8848
      *
@@ -49,7 +49,7 @@ class data extends Model
     public $originInstanceName;
 
     /**
-     * @description The list of namespaces. This parameter is optional if the source instance is a Nacos instance.
+     * @description The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
      *
      * @example namesapceId1,namesapceId2
      *

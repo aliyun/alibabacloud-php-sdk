@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListGatewayAuthConsumerRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,11 @@ class ListGatewayAuthConsumerRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The status of the consumer. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +33,8 @@ class ListGatewayAuthConsumerRequest extends Model
     public $consumerStatus;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-0fe488252dc44d55a9dd57875193****
      *
      * @var string
@@ -30,6 +42,8 @@ class ListGatewayAuthConsumerRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The name of the consumer.
+     *
      * @example test
      *
      * @var string
@@ -37,6 +51,8 @@ class ListGatewayAuthConsumerRequest extends Model
     public $name;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var string
@@ -44,6 +60,8 @@ class ListGatewayAuthConsumerRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var string
@@ -51,6 +69,10 @@ class ListGatewayAuthConsumerRequest extends Model
     public $pageSize;
 
     /**
+     * @description The authentication type. Valid values:
+     *
+     *   JWT
+     *
      * @example JWT
      *
      * @var string

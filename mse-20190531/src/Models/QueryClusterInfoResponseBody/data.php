@@ -136,6 +136,21 @@ class data extends Model
     public $diskType;
 
     /**
+     * @var string
+     */
+    public $eipInstanceId;
+
+    /**
+     * @var string
+     */
+    public $endDate;
+
+    /**
+     * @var string[]
+     */
+    public $expectZones;
+
+    /**
      * @description The status of the instance.
      *
      * @example INIT_SUCCESS
@@ -172,7 +187,7 @@ class data extends Model
     public $instanceCount;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example mse-cn-st21ri2****
      *
@@ -206,7 +221,7 @@ class data extends Model
     public $internetDomain;
 
     /**
-     * @description The instance port that is accessible over the Internet.
+     * @description The instance ports that are accessible over the Internet.
      *
      * @example 8848,6443,9848,8761
      *
@@ -233,7 +248,7 @@ class data extends Model
     public $intranetDomain;
 
     /**
-     * @description The instance port that is accessible over an internal network.
+     * @description The instance ports that are accessible over an internal network.
      *
      * @example 8848,6443,9848,8761
      *
@@ -269,7 +284,7 @@ class data extends Model
     public $netType;
 
     /**
-     * @description The billing method. Valid values:
+     * @description The billing method.
      *
      * @example Pay-as-you-go
      *
@@ -287,13 +302,23 @@ class data extends Model
     public $pubNetworkFlow;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @var string
+     */
+    public $securityGroupType;
 
     /**
      * @description The tag.
@@ -334,6 +359,9 @@ class data extends Model
         'createTime'           => 'CreateTime',
         'diskCapacity'         => 'DiskCapacity',
         'diskType'             => 'DiskType',
+        'eipInstanceId'        => 'EipInstanceId',
+        'endDate'              => 'EndDate',
+        'expectZones'          => 'ExpectZones',
         'healthStatus'         => 'HealthStatus',
         'initCostTime'         => 'InitCostTime',
         'initStatus'           => 'InitStatus',
@@ -352,6 +380,8 @@ class data extends Model
         'payInfo'              => 'PayInfo',
         'pubNetworkFlow'       => 'PubNetworkFlow',
         'regionId'             => 'RegionId',
+        'securityGroupId'      => 'SecurityGroupId',
+        'securityGroupType'    => 'SecurityGroupType',
         'tags'                 => 'Tags',
         'vSwitchId'            => 'VSwitchId',
         'vpcId'                => 'VpcId',
@@ -405,6 +435,15 @@ class data extends Model
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->eipInstanceId) {
+            $res['EipInstanceId'] = $this->eipInstanceId;
+        }
+        if (null !== $this->endDate) {
+            $res['EndDate'] = $this->endDate;
+        }
+        if (null !== $this->expectZones) {
+            $res['ExpectZones'] = $this->expectZones;
         }
         if (null !== $this->healthStatus) {
             $res['HealthStatus'] = $this->healthStatus;
@@ -465,6 +504,12 @@ class data extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->securityGroupType) {
+            $res['SecurityGroupType'] = $this->securityGroupType;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -529,6 +574,17 @@ class data extends Model
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
         }
+        if (isset($map['EipInstanceId'])) {
+            $model->eipInstanceId = $map['EipInstanceId'];
+        }
+        if (isset($map['EndDate'])) {
+            $model->endDate = $map['EndDate'];
+        }
+        if (isset($map['ExpectZones'])) {
+            if (!empty($map['ExpectZones'])) {
+                $model->expectZones = $map['ExpectZones'];
+            }
+        }
         if (isset($map['HealthStatus'])) {
             $model->healthStatus = $map['HealthStatus'];
         }
@@ -588,6 +644,12 @@ class data extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['SecurityGroupType'])) {
+            $model->securityGroupType = $map['SecurityGroupType'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

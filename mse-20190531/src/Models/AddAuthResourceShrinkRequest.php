@@ -53,6 +53,8 @@ class AddAuthResourceShrinkRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $ignoreCase;

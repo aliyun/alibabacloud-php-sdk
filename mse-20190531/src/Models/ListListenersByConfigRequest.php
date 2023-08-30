@@ -30,7 +30,7 @@ class ListListenersByConfigRequest extends Model
     public $dataId;
 
     /**
-     * @description The group.
+     * @description The name of the group.
      *
      * @example prod
      *

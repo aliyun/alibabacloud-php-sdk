@@ -22,6 +22,13 @@ class CreateClusterRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @example POSTPAY
+     *
+     * @var string
+     */
+    public $chargeType;
+
+    /**
      * @description The engine specifications. Valid values:
      *
      * \[Professional Edition]
@@ -91,9 +98,16 @@ class CreateClusterRequest extends Model
      *
      * @example alicloud-disk-ssd
      *
+     * @deprecated
+     *
      * @var string
      */
     public $diskType;
+
+    /**
+     * @var bool
+     */
+    public $eipEnabled;
 
     /**
      * @description The number of nodes in the instance. Valid values: 1 to 9.
@@ -153,6 +167,8 @@ class CreateClusterRequest extends Model
      *
      * @example slb.s1.small
      *
+     * @deprecated
+     *
      * @var string
      */
     public $privateSlbSpecification;
@@ -173,6 +189,8 @@ class CreateClusterRequest extends Model
      *   `slb.s3.medium`
      *
      * @example slb.s1.small
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -212,6 +230,11 @@ class CreateClusterRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @var string
+     */
+    public $securityGroupType;
+
+    /**
      * @description The list of the tags that you want to add.
      *
      * @var tag[]
@@ -237,11 +260,13 @@ class CreateClusterRequest extends Model
     public $vpcId;
     protected $_name = [
         'acceptLanguage'          => 'AcceptLanguage',
+        'chargeType'              => 'ChargeType',
         'clusterSpecification'    => 'ClusterSpecification',
         'clusterType'             => 'ClusterType',
         'clusterVersion'          => 'ClusterVersion',
         'connectionType'          => 'ConnectionType',
         'diskType'                => 'DiskType',
+        'eipEnabled'              => 'EipEnabled',
         'instanceCount'           => 'InstanceCount',
         'instanceName'            => 'InstanceName',
         'mseVersion'              => 'MseVersion',
@@ -252,6 +277,7 @@ class CreateClusterRequest extends Model
         'region'                  => 'Region',
         'requestPars'             => 'RequestPars',
         'resourceGroupId'         => 'ResourceGroupId',
+        'securityGroupType'       => 'SecurityGroupType',
         'tag'                     => 'Tag',
         'vSwitchId'               => 'VSwitchId',
         'vpcId'                   => 'VpcId',
@@ -267,6 +293,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
         }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
+        }
         if (null !== $this->clusterSpecification) {
             $res['ClusterSpecification'] = $this->clusterSpecification;
         }
@@ -281,6 +310,9 @@ class CreateClusterRequest extends Model
         }
         if (null !== $this->diskType) {
             $res['DiskType'] = $this->diskType;
+        }
+        if (null !== $this->eipEnabled) {
+            $res['EipEnabled'] = $this->eipEnabled;
         }
         if (null !== $this->instanceCount) {
             $res['InstanceCount'] = $this->instanceCount;
@@ -312,6 +344,9 @@ class CreateClusterRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->securityGroupType) {
+            $res['SecurityGroupType'] = $this->securityGroupType;
+        }
         if (null !== $this->tag) {
             $res['Tag'] = [];
             if (null !== $this->tag && \is_array($this->tag)) {
@@ -342,6 +377,9 @@ class CreateClusterRequest extends Model
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
         }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
+        }
         if (isset($map['ClusterSpecification'])) {
             $model->clusterSpecification = $map['ClusterSpecification'];
         }
@@ -356,6 +394,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['DiskType'])) {
             $model->diskType = $map['DiskType'];
+        }
+        if (isset($map['EipEnabled'])) {
+            $model->eipEnabled = $map['EipEnabled'];
         }
         if (isset($map['InstanceCount'])) {
             $model->instanceCount = $map['InstanceCount'];
@@ -386,6 +427,9 @@ class CreateClusterRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['SecurityGroupType'])) {
+            $model->securityGroupType = $map['SecurityGroupType'];
         }
         if (isset($map['Tag'])) {
             if (!empty($map['Tag'])) {

@@ -36,7 +36,7 @@ class filterParams extends Model
     public $name;
 
     /**
-     * @description The namespace.
+     * @description The namespace to which the service belongs.
      *
      * @example public
      *
@@ -60,7 +60,7 @@ class filterParams extends Model
     public $serviceProtocol;
 
     /**
-     * @description The source type.
+     * @description The type of the source.
      *
      * @example MSE
      *

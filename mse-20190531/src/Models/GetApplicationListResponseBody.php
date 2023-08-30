@@ -10,15 +10,6 @@ use AlibabaCloud\Tea\Model;
 class GetApplicationListResponseBody extends Model
 {
     /**
-     * @description The status code returned.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $code;
-
-    /**
      * @description The data structure.
      *
      * @var data
@@ -26,13 +17,9 @@ class GetApplicationListResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
-     *
-     * @example 403
-     *
-     * @var int
+     * @var string
      */
-    public $httpStatusCode;
+    public $errorCode;
 
     /**
      * @description The message returned.
@@ -64,12 +51,11 @@ class GetApplicationListResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -79,14 +65,11 @@ class GetApplicationListResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
         }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -109,14 +92,11 @@ class GetApplicationListResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
         }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

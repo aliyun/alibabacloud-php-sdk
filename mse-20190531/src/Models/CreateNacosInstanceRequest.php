@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateNacosInstanceRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The HTTP status code returned.
      *
      * @example zh
      *
@@ -21,7 +18,7 @@ class CreateNacosInstanceRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The name of the Nacos instance.
+     * @description The port number of the Nacos instance.
      *
      * @example DEFAULT
      *
@@ -30,7 +27,10 @@ class CreateNacosInstanceRequest extends Model
     public $clusterName;
 
     /**
-     * @description Specifies whether to enable the service for the instance.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example true
      *
@@ -39,7 +39,7 @@ class CreateNacosInstanceRequest extends Model
     public $enabled;
 
     /**
-     * @description Specifies whether to mark the instance as a temporary node.
+     * @description Specifies whether to enable the service for the instance.
      *
      * @example false
      *
@@ -48,7 +48,7 @@ class CreateNacosInstanceRequest extends Model
     public $ephemeral;
 
     /**
-     * @description The name of the group.
+     * @description The name of the Nacos instance.
      *
      * @example DEFAULT_GROUP
      *
@@ -57,7 +57,7 @@ class CreateNacosInstanceRequest extends Model
     public $groupName;
 
     /**
-     * @description The ID of the instance.
+     * @description The name of the group.
      *
      * @example mse-cn-123456
      *
@@ -66,7 +66,7 @@ class CreateNacosInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The IP address of the Nacos instance.
+     * @description Specifies whether to mark the instance as a temporary node.
      *
      * @example 1.2.xx.xx
      *
@@ -75,7 +75,7 @@ class CreateNacosInstanceRequest extends Model
     public $ip;
 
     /**
-     * @description The metadata of the instance.
+     * @description The data structure.
      *
      * @example {\"grayversion\":\"1.0\",\"preserved.register.source\":\"SPRING_CLOUD\",\"management.context-path\":\"\"}
      *
@@ -84,7 +84,7 @@ class CreateNacosInstanceRequest extends Model
     public $metadata;
 
     /**
-     * @description The ID of the namespace.
+     * @description The IP address of the Nacos instance.
      *
      * @example 9e78a671-4b9b-4dd4-99c1-0b9da87****
      *
@@ -93,7 +93,7 @@ class CreateNacosInstanceRequest extends Model
     public $namespaceId;
 
     /**
-     * @description The port of the Nacos instance.
+     * @description The weight. Valid values: 0 to 10000. The value must be an integer. A larger value indicates a higher frequency at which the instance is accessed.
      *
      * @example 12281
      *
@@ -102,7 +102,7 @@ class CreateNacosInstanceRequest extends Model
     public $port;
 
     /**
-     * @description The name of the service.
+     * @description The ID of the namespace.
      *
      * @example hello_service
      *
@@ -111,7 +111,7 @@ class CreateNacosInstanceRequest extends Model
     public $serviceName;
 
     /**
-     * @description The weight. Valid values: 0 to 10000. The value must be an integer. A larger value indicates a higher frequency at which the instance is accessed.
+     * @description The node metadata of the instance.
      *
      * @example 1
      *

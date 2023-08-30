@@ -27,7 +27,7 @@ class OfflineGatewayRouteResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
+     * @description The HTTP status code.
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class OfflineGatewayRouteResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The error message.
+     * @description The message returned.
      *
      * @example The request is successfully processed.
      *

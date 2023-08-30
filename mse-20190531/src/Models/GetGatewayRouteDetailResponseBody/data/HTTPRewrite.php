@@ -45,7 +45,7 @@ class HTTPRewrite extends Model
     public $pattern;
 
     /**
-     * @description The status.
+     * @description The status of the policy.
      *
      * @example off
      *

@@ -65,7 +65,7 @@ class result extends Model
     public $domainId;
 
     /**
-     * @description The IDs of domains.
+     * @description The domain IDs.
      *
      * @var int[]
      */
@@ -81,7 +81,7 @@ class result extends Model
     public $domainName;
 
     /**
-     * @description The names of domains.
+     * @description The domain names.
      *
      * @var string[]
      */
@@ -106,7 +106,7 @@ class result extends Model
     public $fallback;
 
     /**
-     * @description The information of the Fallback service.
+     * @description The information about the Fallback service.
      *
      * @var fallbackServices[]
      */
@@ -199,7 +199,7 @@ class result extends Model
     public $routePredicates;
 
     /**
-     * @description The services.
+     * @description The information about services.
      *
      * @var routeServices[]
      */

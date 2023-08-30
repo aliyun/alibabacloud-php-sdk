@@ -18,7 +18,7 @@ class UpdateImageResponseBody extends Model
     public $errorCode;
 
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example success
      *

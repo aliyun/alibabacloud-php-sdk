@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddServiceSourceResponseBody extends Model
 {
     /**
-     * @description The return value.
+     * @description duplicatedClusterAliasName
      *
      * @example 200
      *
@@ -18,7 +18,7 @@ class AddServiceSourceResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
+     * @description mse-100-007
      *
      * @example 63
      *
@@ -27,7 +27,7 @@ class AddServiceSourceResponseBody extends Model
     public $data;
 
     /**
-     * @description The HTTP status code returned.
+     * @description code
      *
      * @example 200
      *
@@ -36,7 +36,7 @@ class AddServiceSourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description mse-200-105
      *
      * @example You are not authorized to perform this operation. Action: mse:AddServiceSource, Resource: acs:mse:cn-hangzhou:1105471854403716:instance/gw-082c943a8c304e48a37a7a29a5ddeda7
      *
@@ -45,7 +45,7 @@ class AddServiceSourceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The response data.
      *
      * @example D0DB055C-51F2-5BB2-82A6-CD8A3C6EE6BA
      *
@@ -54,10 +54,7 @@ class AddServiceSourceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   true: The request was successful.
-     *   false: The request failed.
+     * @description duplicated cluster alias name
      *
      * @example true
      *

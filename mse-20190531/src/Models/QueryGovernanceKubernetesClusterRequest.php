@@ -39,7 +39,7 @@ class QueryGovernanceKubernetesClusterRequest extends Model
     public $clusterName;
 
     /**
-     * @description The page number of the page to return.
+     * @description The number of the page to return.
      *
      * @example 1
      *

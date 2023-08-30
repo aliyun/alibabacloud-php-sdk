@@ -81,7 +81,7 @@ class data extends Model
     public $endDate;
 
     /**
-     * @description The initial status of the instance.
+     * @description The initialization status of the instance.
      *
      * @example RESTART_SUCCESS
      *
@@ -90,7 +90,7 @@ class data extends Model
     public $initStatus;
 
     /**
-     * @description The number of instances.
+     * @description The number of instance nodes.
      *
      * @example 2
      *
@@ -99,7 +99,7 @@ class data extends Model
     public $instanceCount;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance
      *
      * @example mse-cn-st21ri2****
      *
@@ -108,7 +108,7 @@ class data extends Model
     public $instanceId;
 
     /**
-     * @description The public IP address of the instance.
+     * @description The public IP address.
      *
      * @example 47.98.XX.XX
      *
@@ -126,7 +126,7 @@ class data extends Model
     public $internetDomain;
 
     /**
-     * @description The internal IP address of the instance.
+     * @description The internal IP address.
      *
      * @example 192.168.XX.XX
      *
@@ -176,6 +176,11 @@ class data extends Model
      * @var string
      */
     public $versionCode;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'appVersion'       => 'AppVersion',
         'canUpdate'        => 'CanUpdate',
@@ -196,6 +201,7 @@ class data extends Model
         'resourceGroupId'  => 'ResourceGroupId',
         'tags'             => 'Tags',
         'versionCode'      => 'VersionCode',
+        'vpcId'            => 'VpcId',
     ];
 
     public function validate()
@@ -261,6 +267,9 @@ class data extends Model
         }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -330,6 +339,9 @@ class data extends Model
         }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

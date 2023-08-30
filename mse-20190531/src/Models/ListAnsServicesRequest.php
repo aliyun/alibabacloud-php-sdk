@@ -21,7 +21,7 @@ class ListAnsServicesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the cluster.
      *
      * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
      * @example mse-09k1q11****
@@ -29,6 +29,13 @@ class ListAnsServicesRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @description 查询服务下某个集群的实例列表是所需要的参数
+     *
+     * @var string
+     */
+    public $clusterName;
 
     /**
      * @description The name of the contact group.
@@ -77,13 +84,18 @@ class ListAnsServicesRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $regionId;
 
     /**
      * @description The extended request parameters in the JSON format.
@@ -105,12 +117,14 @@ class ListAnsServicesRequest extends Model
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'clusterId'      => 'ClusterId',
+        'clusterName'    => 'ClusterName',
         'groupName'      => 'GroupName',
         'hasIpCount'     => 'HasIpCount',
         'instanceId'     => 'InstanceId',
         'namespaceId'    => 'NamespaceId',
         'pageNum'        => 'PageNum',
         'pageSize'       => 'PageSize',
+        'regionId'       => 'RegionId',
         'requestPars'    => 'RequestPars',
         'serviceName'    => 'ServiceName',
     ];
@@ -127,6 +141,9 @@ class ListAnsServicesRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->clusterName) {
+            $res['ClusterName'] = $this->clusterName;
         }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
@@ -145,6 +162,9 @@ class ListAnsServicesRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionId) {
+            $res['RegionId'] = $this->regionId;
         }
         if (null !== $this->requestPars) {
             $res['RequestPars'] = $this->requestPars;
@@ -170,6 +190,9 @@ class ListAnsServicesRequest extends Model
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
         }
+        if (isset($map['ClusterName'])) {
+            $model->clusterName = $map['ClusterName'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
@@ -187,6 +210,9 @@ class ListAnsServicesRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionId'])) {
+            $model->regionId = $map['RegionId'];
         }
         if (isset($map['RequestPars'])) {
             $model->requestPars = $map['RequestPars'];

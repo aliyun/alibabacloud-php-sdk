@@ -4,36 +4,19 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\QueryAllSwimmingLaneResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
 class QueryAllSwimmingLaneResponseBody extends Model
 {
     /**
-     * @description The status code. A value of 200 is returned if the request is successful.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $code;
-
-    /**
      * @description The details of the data.
      *
      * @example [{id:100,name:"test"}]
      *
-     * @var mixed
+     * @var data[]
      */
     public $data;
-
-    /**
-     * @description The dynamic part in the error message.
-     *
-     * @example The specified parameter is invalid.
-     *
-     * @var string
-     */
-    public $dynamicMessage;
 
     /**
      * @description The error code returned if the request failed.
@@ -43,15 +26,6 @@ class QueryAllSwimmingLaneResponseBody extends Model
      * @var string
      */
     public $errorCode;
-
-    /**
-     * @description The HTTP status code returned.
-     *
-     * @example 200
-     *
-     * @var int
-     */
-    public $httpStatusCode;
 
     /**
      * @description The message returned.
@@ -83,14 +57,11 @@ class QueryAllSwimmingLaneResponseBody extends Model
      */
     public $success;
     protected $_name = [
-        'code'           => 'Code',
-        'data'           => 'Data',
-        'dynamicMessage' => 'DynamicMessage',
-        'errorCode'      => 'ErrorCode',
-        'httpStatusCode' => 'HttpStatusCode',
-        'message'        => 'Message',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
+        'data'      => 'Data',
+        'errorCode' => 'ErrorCode',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -100,20 +71,17 @@ class QueryAllSwimmingLaneResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
         if (null !== $this->data) {
-            $res['Data'] = $this->data;
-        }
-        if (null !== $this->dynamicMessage) {
-            $res['DynamicMessage'] = $this->dynamicMessage;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->errorCode) {
             $res['ErrorCode'] = $this->errorCode;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -136,20 +104,17 @@ class QueryAllSwimmingLaneResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
         if (isset($map['Data'])) {
-            $model->data = $map['Data'];
-        }
-        if (isset($map['DynamicMessage'])) {
-            $model->dynamicMessage = $map['DynamicMessage'];
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ErrorCode'])) {
             $model->errorCode = $map['ErrorCode'];
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

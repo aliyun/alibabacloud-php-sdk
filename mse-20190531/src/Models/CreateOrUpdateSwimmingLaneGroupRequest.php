@@ -39,15 +39,6 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $dbGrayEnable;
 
     /**
-     * @description Specifies whether to enable a lane group.
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $enable;
-
-    /**
      * @description The ingress application.
      *
      * @example Ingress
@@ -57,40 +48,13 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $entryApp;
 
     /**
-     * @description The creation time.
-     *
-     * @example 2021-12-20T03:22:07.000+0000
-     *
-     * @var string
-     */
-    public $gmtCreate;
-
-    /**
-     * @description The update time.
-     *
-     * @example 2022-02-24T07:18:24.962+0000
-     *
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
-     * @description The ID of the primary key. The primary key is auto-increment.
+     * @description The ID of the lane group. A value of -1 is used to create a lane group. A value greater than 0 is used to modify the specified lane group.
      *
      * @example 120
      *
      * @var int
      */
     public $id;
-
-    /**
-     * @description The license key in use.
-     *
-     * @example 9wnrf04a0j@****
-     *
-     * @var string
-     */
-    public $licenseKey;
 
     /**
      * @description The side for message filtering when the canary release for messaging feature is enabled.
@@ -120,6 +84,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $name;
 
     /**
+     * @description The name of the Microservices Engine (MSE) namespace.
+     *
      * @example default
      *
      * @var string
@@ -127,6 +93,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $namespace;
 
     /**
+     * @description Specifies whether to record request details.
+     *
      * @var bool
      */
     public $recordCanaryDetail;
@@ -141,15 +109,6 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
     public $region;
 
     /**
-     * @description The service source. Valid value: edasmsc.
-     *
-     * @example edasmsc
-     *
-     * @var string
-     */
-    public $source;
-
-    /**
      * @description The status of the lane group. The value 0 specifies that the lane group is disabled. The value 1 specifies that the lane group is enabled.
      *
      * @example 0
@@ -157,34 +116,19 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
      * @var int
      */
     public $status;
-
-    /**
-     * @description The Alibaba Cloud account. The value is a number, such as 136246\*\*\*\*\*\*809. You can leave this parameter empty.
-     *
-     * @example ""
-     *
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'acceptLanguage'         => 'AcceptLanguage',
         'appIds'                 => 'AppIds',
         'dbGrayEnable'           => 'DbGrayEnable',
-        'enable'                 => 'Enable',
         'entryApp'               => 'EntryApp',
-        'gmtCreate'              => 'GmtCreate',
-        'gmtModified'            => 'GmtModified',
         'id'                     => 'Id',
-        'licenseKey'             => 'LicenseKey',
         'messageQueueFilterSide' => 'MessageQueueFilterSide',
         'messageQueueGrayEnable' => 'MessageQueueGrayEnable',
         'name'                   => 'Name',
         'namespace'              => 'Namespace',
         'recordCanaryDetail'     => 'RecordCanaryDetail',
         'region'                 => 'Region',
-        'source'                 => 'Source',
         'status'                 => 'Status',
-        'userId'                 => 'UserId',
     ];
 
     public function validate()
@@ -203,23 +147,11 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         if (null !== $this->dbGrayEnable) {
             $res['DbGrayEnable'] = $this->dbGrayEnable;
         }
-        if (null !== $this->enable) {
-            $res['Enable'] = $this->enable;
-        }
         if (null !== $this->entryApp) {
             $res['EntryApp'] = $this->entryApp;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->licenseKey) {
-            $res['LicenseKey'] = $this->licenseKey;
         }
         if (null !== $this->messageQueueFilterSide) {
             $res['MessageQueueFilterSide'] = $this->messageQueueFilterSide;
@@ -239,14 +171,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -269,23 +195,11 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         if (isset($map['DbGrayEnable'])) {
             $model->dbGrayEnable = $map['DbGrayEnable'];
         }
-        if (isset($map['Enable'])) {
-            $model->enable = $map['Enable'];
-        }
         if (isset($map['EntryApp'])) {
             $model->entryApp = $map['EntryApp'];
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['LicenseKey'])) {
-            $model->licenseKey = $map['LicenseKey'];
         }
         if (isset($map['MessageQueueFilterSide'])) {
             $model->messageQueueFilterSide = $map['MessageQueueFilterSide'];
@@ -305,14 +219,8 @@ class CreateOrUpdateSwimmingLaneGroupRequest extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

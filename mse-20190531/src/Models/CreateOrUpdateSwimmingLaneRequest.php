@@ -14,7 +14,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
      * @description The language of the response. Valid values:****
      *
      *   **zh-CN**: Chinese
-     *   **en-US**: English.
+     *   **en-US**: English
      *
      * > Default value: **zh-CN**.
      * @example zh
@@ -24,7 +24,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to enable a lane.
+     * @description Specifies whether to enable the lane.
      *
      * @example true
      *
@@ -33,7 +33,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $enable;
 
     /**
-     * @description Specifies whether to set a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
+     * @description Specifies whether to configure a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
      *
      * @example false
      *
@@ -51,8 +51,6 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $entryRule;
 
     /**
-     * @description The lane.
-     *
      * @var entryRules[]
      */
     public $entryRules;
@@ -63,26 +61,12 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $gatewaySwimmingLaneRouteJson;
 
     /**
-     * @description The creation time.
+     * @description The language of the response. Valid values:****
      *
-     * @example ""
+     *   **zh-CN**: Chinese
+     *   **en-US**: English
      *
-     * @var string
-     */
-    public $gmtCreate;
-
-    /**
-     * @description The update time.
-     *
-     * @example ""
-     *
-     * @var string
-     */
-    public $gmtModified;
-
-    /**
-     * @description The group to which the lane belongs.
-     *
+     * > Default value: **zh-CN**.
      * @example 115
      *
      * @var int
@@ -99,16 +83,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $id;
 
     /**
-     * @description The license key in use.
-     *
-     * @example 9wnrf04a0j@****
-     *
-     * @var string
-     */
-    public $licenseKey;
-
-    /**
-     * @description The name of the lane.
+     * @description The name of the MSE namespace.
      *
      * @example Test lane
      *
@@ -124,7 +99,7 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $namespace;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-beijing
      *
@@ -133,38 +108,13 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
     public $regionId;
 
     /**
-     * @description The service source. Valid value: edasmsc.
-     *
-     * @example edasmsc
-     *
-     * @var string
-     */
-    public $source;
-
-    /**
-     * @description The value 0 indicates that the lane is disabled.
-     *
-     * @example 1
-     *
-     * @var int
-     */
-    public $status;
-
-    /**
-     * @description The tag.
+     * @description The ID of the primary key. The value -1 specifies a request that is used to create a lane. A value greater than 0 specifies a request that is used to modify a lane.
      *
      * @example gray
      *
      * @var string
      */
     public $tag;
-
-    /**
-     * @description The Alibaba Cloud account. The format is a number, such as 136246975637\*\*\*\*. You can leave this parameter empty.
-     *
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'acceptLanguage'               => 'AcceptLanguage',
         'enable'                       => 'Enable',
@@ -172,18 +122,12 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         'entryRule'                    => 'EntryRule',
         'entryRules'                   => 'EntryRules',
         'gatewaySwimmingLaneRouteJson' => 'GatewaySwimmingLaneRouteJson',
-        'gmtCreate'                    => 'GmtCreate',
-        'gmtModified'                  => 'GmtModified',
         'groupId'                      => 'GroupId',
         'id'                           => 'Id',
-        'licenseKey'                   => 'LicenseKey',
         'name'                         => 'Name',
         'namespace'                    => 'Namespace',
         'regionId'                     => 'RegionId',
-        'source'                       => 'Source',
-        'status'                       => 'Status',
         'tag'                          => 'Tag',
-        'userId'                       => 'UserId',
     ];
 
     public function validate()
@@ -217,20 +161,11 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         if (null !== $this->gatewaySwimmingLaneRouteJson) {
             $res['GatewaySwimmingLaneRouteJson'] = null !== $this->gatewaySwimmingLaneRouteJson ? $this->gatewaySwimmingLaneRouteJson->toMap() : null;
         }
-        if (null !== $this->gmtCreate) {
-            $res['GmtCreate'] = $this->gmtCreate;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
-        }
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
-        }
-        if (null !== $this->licenseKey) {
-            $res['LicenseKey'] = $this->licenseKey;
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
@@ -241,17 +176,8 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->source) {
-            $res['Source'] = $this->source;
-        }
-        if (null !== $this->status) {
-            $res['Status'] = $this->status;
-        }
         if (null !== $this->tag) {
             $res['Tag'] = $this->tag;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -289,20 +215,11 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         if (isset($map['GatewaySwimmingLaneRouteJson'])) {
             $model->gatewaySwimmingLaneRouteJson = gatewaySwimmingLaneRouteJson::fromMap($map['GatewaySwimmingLaneRouteJson']);
         }
-        if (isset($map['GmtCreate'])) {
-            $model->gmtCreate = $map['GmtCreate'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
-        }
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
-        }
-        if (isset($map['LicenseKey'])) {
-            $model->licenseKey = $map['LicenseKey'];
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
@@ -313,17 +230,8 @@ class CreateOrUpdateSwimmingLaneRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['Source'])) {
-            $model->source = $map['Source'];
-        }
-        if (isset($map['Status'])) {
-            $model->status = $map['Status'];
-        }
         if (isset($map['Tag'])) {
             $model->tag = $map['Tag'];
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

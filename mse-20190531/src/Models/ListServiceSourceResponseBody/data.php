@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the Container Service for Kubernetes (ACK) cluster or the endpoint of the Microservices Engine (MSE) registry.
+     * @description The ID of the Container Service for Kubernetes (ACK) cluster or the endpoint of the Microservices Engine (MSE) instance.
      *
      * @example ***
      *
@@ -80,7 +80,7 @@ class data extends Model
     public $id;
 
     /**
-     * @description Indicates whether Ingress is supported for applications.
+     * @description The information about the support for Ingresses by applications.
      *
      * @var ingressOptions
      */

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class authResourceHeaderList extends Model
 {
     /**
+     * @example Access-Control-Allow-Origin
+     *
      * @var string
      */
     public $headerKey;
 
     /**
+     * @example EQUAL
+     *
      * @var string
      */
     public $headerMethod;
 
     /**
+     * @example *
+     *
      * @var string
      */
     public $headerValue;

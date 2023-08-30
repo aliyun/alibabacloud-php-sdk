@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateGatewayAuthConsumerRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,11 +21,20 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The description of the consumer.
+     *
+     * @example Description
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The encryption type. Valid values:
+     *
+     *   RSA
+     *   OCT
+     *
      * @example RSA
      *
      * @var string
@@ -28,6 +42,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $encodeType;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-90392d768a3847a7b804c505254d****
      *
      * @var string
@@ -35,6 +51,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the consumer.
+     *
      * @example 63
      *
      * @var int
@@ -42,6 +60,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $id;
 
     /**
+     * @description The JWT public key. The JSON format is supported.
+     *
      * @example {"keys":[{"e":"AQAB","kid":"DHFbpoIUqrY8t2zpA2qXfCmr5VO5ZEr4RzHU_-envvQ","kty":"RSA","n":"xAE7eB6qugXyCAG3yhh7pkDkT65pHymX-P7KfIupjf59vsdo91bSP9C8H07pSAGQO1MV_xFj9VswgsCg4R6otmg5PV2He95lZdHtOcU5DXIg_pbhLdKXbi66GlVeK6ABZOUW3WYtnNHD-91gVuoeJT_DwtGGcp4ignkgXfkiEm4sw-4sfb4qdt5oLbyVpmW6x9cfa7vs2WTfURiCrBoUqgBo_-4WTiULmmHSGZHOjzwa8WtrtOQGsAFjIbno85jp6MnGGGZPYZbDAa_b3y5u-YpW7ypZrvD8BgtKVjgtQgZhLAGezMt0ua3DRrWnKqTZ0BJ_EyxOGuHJrLsn00fnMQ"}]}
      *
      * @var string
@@ -49,6 +69,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $jwks;
 
     /**
+     * @description The name of the key used for JWT-based identity authentication.
+     *
      * @example iss
      *
      * @var string
@@ -56,6 +78,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $keyName;
 
     /**
+     * @description The value of the key used for JWT-based identity authentication.
+     *
      * @example abcd
      *
      * @var string
@@ -63,6 +87,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $keyValue;
 
     /**
+     * @description The names of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+     *
      * @example Authorization
      *
      * @var string
@@ -70,6 +96,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $tokenName;
 
     /**
+     * @description Specifies whether to enable pass-through.
+     *
      * @example true
      *
      * @var bool
@@ -77,6 +105,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $tokenPass;
 
     /**
+     * @description The positions of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+     *
      * @example HEADER
      *
      * @var string
@@ -84,6 +114,8 @@ class UpdateGatewayAuthConsumerRequest extends Model
     public $tokenPosition;
 
     /**
+     * @description The prefixes of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+     *
      * @example Bearer
      *
      * @var string

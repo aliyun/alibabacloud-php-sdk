@@ -44,6 +44,11 @@ class ExportNacosConfigRequest extends Model
     public $dataId;
 
     /**
+     * @var string
+     */
+    public $dataIds;
+
+    /**
      * @description The name of the configuration group.
      *
      * @example TIMEDTASK_COMMON_GROUP
@@ -83,6 +88,7 @@ class ExportNacosConfigRequest extends Model
         'acceptLanguage' => 'AcceptLanguage',
         'appName'        => 'AppName',
         'dataId'         => 'DataId',
+        'dataIds'        => 'DataIds',
         'group'          => 'Group',
         'ids'            => 'Ids',
         'instanceId'     => 'InstanceId',
@@ -104,6 +110,9 @@ class ExportNacosConfigRequest extends Model
         }
         if (null !== $this->dataId) {
             $res['DataId'] = $this->dataId;
+        }
+        if (null !== $this->dataIds) {
+            $res['DataIds'] = $this->dataIds;
         }
         if (null !== $this->group) {
             $res['Group'] = $this->group;
@@ -137,6 +146,9 @@ class ExportNacosConfigRequest extends Model
         }
         if (isset($map['DataId'])) {
             $model->dataId = $map['DataId'];
+        }
+        if (isset($map['DataIds'])) {
+            $model->dataIds = $map['DataIds'];
         }
         if (isset($map['Group'])) {
             $model->group = $map['Group'];

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class results extends Model
 {
     /**
-     * @description Indicates whether delayed registration is enabled.
+     * @description Indicates whether service registration is complete before readiness probe.
      *
      * @example true
      *
@@ -45,7 +45,7 @@ class results extends Model
     public $count;
 
     /**
-     * @description The registration latency.
+     * @description The registration latency. Unit: seconds.
      *
      * @example 60
      *
@@ -54,10 +54,10 @@ class results extends Model
     public $delayTime;
 
     /**
-     * @description The status. Valid values:
+     * @description Indicates whether graceful start is enabled. Valid values:
      *
-     *   `true`: enabled.
-     *   `false`: disabled.
+     *   `true`: enabled
+     *   `false`: disabled
      *
      * @example true
      *
@@ -75,7 +75,7 @@ class results extends Model
     public $funcType;
 
     /**
-     * @description Indicates whether the graceful start and shutdown feature is enabled.
+     * @description Indicates whether online and offline processing details are displayed.
      *
      * @example false
      *
@@ -93,7 +93,7 @@ class results extends Model
     public $notice;
 
     /**
-     * @description Indicates whether service prefetching is associated.
+     * @description Indicates whether service prefetching is complete before readiness probe.
      *
      * @example false
      *
@@ -102,7 +102,7 @@ class results extends Model
     public $related;
 
     /**
-     * @description The prefetching duration.
+     * @description The prefetching duration. Unit: seconds.
      *
      * @example 60
      *

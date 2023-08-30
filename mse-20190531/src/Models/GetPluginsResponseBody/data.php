@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The type of the plug-in. Valid values:
+     * @description The name of the plug-in.
      *
-     * 5: traffic observation
      * @example 0
      *
      * @var int
@@ -19,16 +18,22 @@ class data extends Model
     public $category;
 
     /**
-     * @description The information about the plug-in configuration used for checking.
+     * @description \# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
      *
-     * @example \# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+     * @example The WebAssembly language. Valid values:
+     *
+     *   0: C++
+     *   1: TinyGo
+     *   2: Rust
+     *   3: AssemblyScript
+     *   4: Zig
      *
      * @var string
      */
     public $configCheck;
 
     /**
-     * @description The ID of the plug-in.
+     * @description The ID of the creator.
      *
      * @example 1
      *
@@ -47,7 +52,7 @@ class data extends Model
     public $mode;
 
     /**
-     * @description The name of the plug-in.
+     * @description The version of the plug-in.
      *
      * @example key-auth
      *
@@ -61,12 +66,7 @@ class data extends Model
     public $newVersionPublishingFlag;
 
     /**
-     * @description The execution stage of the plug-in.
-     *
-     *   0: default stage
-     *   1: authorization stage
-     *   2: authentication stage
-     *   3: statistics stage
+     * @description The execution priority of the plug-in. A larger value indicates a higher priority.
      *
      * @example 1
      *
@@ -75,8 +75,9 @@ class data extends Model
     public $phase;
 
     /**
-     * @description The ID of the creator.
+     * @description The type of the plug-in. Valid values:
      *
+     * 5: traffic observation
      * @example 123
      *
      * @var string
@@ -84,7 +85,7 @@ class data extends Model
     public $primaryUser;
 
     /**
-     * @description The execution priority of the plug-in. A larger value indicates a higher priority.
+     * @description The information about the plug-in configuration used for checking.
      *
      * @example 1
      *
@@ -93,7 +94,7 @@ class data extends Model
     public $priority;
 
     /**
-     * @description The publish status.
+     * @description The URL of the Object Storage Service (OSS) bucket that stores the WebAssembly plug-in.
      *
      * @example 1
      *
@@ -102,11 +103,6 @@ class data extends Model
     public $publishState;
 
     /**
-     * @description Indicates whether the plug-in is enabled.
-     *
-     *   0: disabled
-     *   1: enabled
-     *
      * @example 1
      *
      * @var string
@@ -114,16 +110,21 @@ class data extends Model
     public $status;
 
     /**
-     * @description The summary of the plug-in.
+     * @description This is a plug-in.
      *
-     * @example This is a plug-in.
+     * @example The execution stage of the plug-in.
+     *
+     *   0: default stage
+     *   1: authorization stage
+     *   2: authentication stage
+     *   3: statistics stage
      *
      * @var string
      */
     public $summary;
 
     /**
-     * @description The version of the plug-in.
+     * @description The summary of the plug-in.
      *
      * @example v1
      *
@@ -132,7 +133,10 @@ class data extends Model
     public $version;
 
     /**
-     * @description The URL of the Object Storage Service (OSS) bucket that stores the WebAssembly plug-in.
+     * @description Indicates whether the plug-in is enabled.
+     *
+     *   0: disabled
+     *   1: enabled
      *
      * @example https://mse-shared-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/cfg/import/1917515******\/gw-0adf3ad751284cc69fcf9669fba*****\/2022/11/02/4d390496-2c17-4b42-a479-f9068ba****\/16673573***5.wasm
      *
@@ -141,13 +145,7 @@ class data extends Model
     public $wasmFile;
 
     /**
-     * @description The WebAssembly language. Valid values:
-     *
-     *   0: C++
-     *   1: TinyGo
-     *   2: Rust
-     *   3: AssemblyScript
-     *   4: Zig
+     * @description The publish status.
      *
      * @example 0
      *

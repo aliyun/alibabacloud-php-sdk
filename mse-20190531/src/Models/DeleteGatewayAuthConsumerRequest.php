@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayAuthConsumerRequest extends Model
 {
     /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class DeleteGatewayAuthConsumerRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-c70622ff52fe49beb29bea9a6f52****
      *
      * @var string
@@ -23,6 +30,8 @@ class DeleteGatewayAuthConsumerRequest extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The ID of the consumer on which the gateway performs authentication operations.
+     *
      * @example 33ff74b6-d21e-4f9b-91a8-bc1ea4ef****
      *
      * @var int

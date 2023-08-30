@@ -29,6 +29,13 @@ class result extends Model
     public $appName;
 
     /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $appType;
+
+    /**
      * @description The current metrics.
      *
      * @var curMetrics[]
@@ -70,15 +77,8 @@ class result extends Model
     public $language;
 
     /**
-     * @description The license key in use.
+     * @example default
      *
-     * @example diyh1rln1u@8d97eb7ad938167
-     *
-     * @var string
-     */
-    public $licenseKey;
-
-    /**
      * @var string
      */
     public $namespace;
@@ -111,35 +111,31 @@ class result extends Model
     public $status;
 
     /**
+     * @var int
+     */
+    public $tagCount;
+
+    /**
      * @description The tags.
      *
      * @var string[]
      */
     public $tags;
-
-    /**
-     * @description The ID of the user.
-     *
-     * @example 1234567890
-     *
-     * @var string
-     */
-    public $userId;
     protected $_name = [
         'appId'           => 'AppId',
         'appName'         => 'AppName',
+        'appType'         => 'AppType',
         'curMetrics'      => 'CurMetrics',
         'curMetricsFm'    => 'CurMetricsFm',
         'extraInfo'       => 'ExtraInfo',
         'instancesNumber' => 'InstancesNumber',
         'language'        => 'Language',
-        'licenseKey'      => 'LicenseKey',
         'namespace'       => 'Namespace',
         'regionId'        => 'RegionId',
         'source'          => 'Source',
         'status'          => 'Status',
+        'tagCount'        => 'TagCount',
         'tags'            => 'Tags',
-        'userId'          => 'UserId',
     ];
 
     public function validate()
@@ -154,6 +150,9 @@ class result extends Model
         }
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
+        }
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
         }
         if (null !== $this->curMetrics) {
             $res['CurMetrics'] = [];
@@ -176,9 +175,6 @@ class result extends Model
         if (null !== $this->language) {
             $res['Language'] = $this->language;
         }
-        if (null !== $this->licenseKey) {
-            $res['LicenseKey'] = $this->licenseKey;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -191,11 +187,11 @@ class result extends Model
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
+        if (null !== $this->tagCount) {
+            $res['TagCount'] = $this->tagCount;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
-        }
-        if (null !== $this->userId) {
-            $res['UserId'] = $this->userId;
         }
 
         return $res;
@@ -214,6 +210,9 @@ class result extends Model
         }
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
+        }
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
         }
         if (isset($map['CurMetrics'])) {
             if (!empty($map['CurMetrics'])) {
@@ -236,9 +235,6 @@ class result extends Model
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
         }
-        if (isset($map['LicenseKey'])) {
-            $model->licenseKey = $map['LicenseKey'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
@@ -251,13 +247,13 @@ class result extends Model
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
+        if (isset($map['TagCount'])) {
+            $model->tagCount = $map['TagCount'];
+        }
         if (isset($map['Tags'])) {
             if (!empty($map['Tags'])) {
                 $model->tags = $map['Tags'];
             }
-        }
-        if (isset($map['UserId'])) {
-            $model->userId = $map['UserId'];
         }
 
         return $model;

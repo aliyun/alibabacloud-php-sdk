@@ -32,8 +32,8 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description Specifies whether to disable this service. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: yes.
+     *   `false`: no.
      *
      * @example true
      *
@@ -44,8 +44,8 @@ class UpdateNacosInstanceRequest extends Model
     /**
      * @description Specifies whether the node is a non-persistent node. Valid values:
      *
-     *   `true`: yes
-     *   `false`: no
+     *   `true`: yes.
+     *   `false`: no.
      *
      * @example false
      *

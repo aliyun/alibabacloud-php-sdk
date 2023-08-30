@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteNamespaceResponseBody extends Model
 {
     /**
+     * @description 错误码。
+     *
+     * @example NO_PERMISSION
+     *
+     * @var string
+     */
+    public $errorCode;
+
+    /**
      * @example 200
      *
      * @var int
@@ -34,6 +43,7 @@ class DeleteNamespaceResponseBody extends Model
      */
     public $success;
     protected $_name = [
+        'errorCode'      => 'ErrorCode',
         'httpStatusCode' => 'HttpStatusCode',
         'message'        => 'Message',
         'requestId'      => 'RequestId',
@@ -47,6 +57,9 @@ class DeleteNamespaceResponseBody extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->errorCode) {
+            $res['ErrorCode'] = $this->errorCode;
+        }
         if (null !== $this->httpStatusCode) {
             $res['HttpStatusCode'] = $this->httpStatusCode;
         }
@@ -71,6 +84,9 @@ class DeleteNamespaceResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ErrorCode'])) {
+            $model->errorCode = $map['ErrorCode'];
+        }
         if (isset($map['HttpStatusCode'])) {
             $model->httpStatusCode = $map['HttpStatusCode'];
         }

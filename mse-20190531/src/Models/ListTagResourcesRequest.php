@@ -22,7 +22,7 @@ class ListTagResourcesRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The token that is required for the next query.
+     * @description The token used to start the next query.
      *
      * @example AAAAAV3MpHK1AP0pfERHZN5pu6kywps2Ezza3n8HAAzCCqsi
      *
@@ -31,7 +31,7 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The region ID.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -47,7 +47,7 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resources. Valid values:
+     * @description The type of the resource. Valid values:
      *
      *   CLUSTER: MSE instance
      *   GATEWAY: cloud-native gateway
@@ -59,7 +59,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags. You can specify a maximum of 20 tags.
+     * @description The list of tags. A maximum number of 20 tags are supported.
      *
      * @var tag[]
      */

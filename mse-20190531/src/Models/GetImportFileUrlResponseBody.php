@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetImportFileUrlResponseBody extends Model
 {
     /**
-     * @description The response code returned.
+     * @description The error code returned if the request failed.
      *
      * @example 200
      *
@@ -26,9 +26,8 @@ class GetImportFileUrlResponseBody extends Model
     public $data;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     * @description The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.\n\n>  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      *
-     * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -73,9 +72,8 @@ class GetImportFileUrlResponseBody extends Model
 
     /**
      * @description Indicates whether the request was successful. Valid values:
-     *
      *   `true`: The request was successful.
-     *   `false`: The request failed.
+     *  `false`: The request failed.
      *
      * @example true
      *

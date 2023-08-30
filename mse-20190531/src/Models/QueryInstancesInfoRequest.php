@@ -48,7 +48,7 @@ class QueryInstancesInfoRequest extends Model
     public $orderId;
 
     /**
-     * @description The ID of the region where the instance is deployed.
+     * @description The ID of the region where the instance resides.
      *
      * @example cn-hangzhou
      *

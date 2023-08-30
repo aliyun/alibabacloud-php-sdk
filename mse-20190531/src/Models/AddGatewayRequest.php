@@ -5,15 +5,13 @@
 namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRequest\tag;
+use AlibabaCloud\SDK\Mse\V20190531\Models\AddGatewayRequest\zoneInfo;
 use AlibabaCloud\Tea\Model;
 
 class AddGatewayRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The data structure.
      *
      * @example zh
      *
@@ -22,22 +20,13 @@ class AddGatewayRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description Specifies whether to enable hardware acceleration.
+     * @description 付费类型。
      *
-     * @example false
+     * @example POSTPAY
      *
-     * @var bool
+     * @var string
      */
-    public $enableHardwareAcceleration;
-
-    /**
-     * @description Specifies whether to activate Log Service.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $enableSls;
+    public $chargeType;
 
     /**
      * @description Specifies whether to activate Tracing Analysis.
@@ -46,10 +35,28 @@ class AddGatewayRequest extends Model
      *
      * @var bool
      */
+    public $enableHardwareAcceleration;
+
+    /**
+     * @description The tag of the gateway.
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $enableSls;
+
+    /**
+     * @description The sampling rate of Tracing Analysis. Valid values: \[1,100].
+     *
+     * @example false
+     *
+     * @var bool
+     */
     public $enableXtrace;
 
     /**
-     * @description Specifies whether to use an advanced security group.
+     * @description Specifies whether to enable hardware acceleration.
      *
      * @example false
      *
@@ -58,14 +65,7 @@ class AddGatewayRequest extends Model
     public $enterpriseSecurityGroup;
 
     /**
-     * @description The specifications of the Internet-facing SLB instance. Valid values:
-     *
-     *   slb.s1.small
-     *   slb.s2.small
-     *   slb.s2.medium
-     *   slb.s3.small
-     *   slb.s3.medium
-     *   slb.s3.large
+     * @description The ID of the secondary vSwitch.
      *
      * @example slb.s2.small
      *
@@ -74,45 +74,13 @@ class AddGatewayRequest extends Model
     public $internetSlbSpec;
 
     /**
-     * @description The name of the gateway.
+     * @description The ID of the region.
      *
      * @example test-ceshi
      *
      * @var string
      */
     public $name;
-
-    /**
-     * @description The ID of the region.
-     *
-     * @example cn-hangzhou
-     *
-     * @var string
-     */
-    public $region;
-
-    /**
-     * @description The number of nodes.
-     *
-     * @example 2
-     *
-     * @var int
-     */
-    public $replica;
-
-    /**
-     * @var string
-     */
-    public $requestPars;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-acfm34x43l*****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @description The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
@@ -124,11 +92,73 @@ class AddGatewayRequest extends Model
      *   slb.s3.medium
      *   slb.s3.large
      *
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @description The specifications of the Internet-facing SLB instance. Valid values:
+     *
+     *   slb.s1.small
+     *   slb.s2.small
+     *   slb.s2.medium
+     *   slb.s3.small
+     *   slb.s3.medium
+     *   slb.s3.large
+     *
+     * @example 2
+     *
+     * @var int
+     */
+    public $replica;
+
+    /**
+     * @description 扩展字段。
+     *
+     * @example {}
+     *
+     * @var string
+     */
+    public $requestPars;
+
+    /**
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
+     *
+     * @example rg-acfm34x43l*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
      * @example slb.s2.small
      *
      * @var string
      */
     public $slbSpec;
+
+    /**
+     * @description The number of nodes.
+     *
+     * @example MSE_GTW_2_4_200_c
+     *
+     * @var string
+     */
+    public $spec;
+
+    /**
+     * @description The tag object.
+     *
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @description The node specifications. Valid values:
@@ -138,22 +168,6 @@ class AddGatewayRequest extends Model
      *   MSE_GTW\_4\_8\_200\_c(4C8G)
      *   MSE_GTW\_8\_16\_200\_c(8C16G)
      *
-     * @example MSE_GTW_2_4_200_c
-     *
-     * @var string
-     */
-    public $spec;
-
-    /**
-     * @description The tag of the gateway.
-     *
-     * @var tag[]
-     */
-    public $tag;
-
-    /**
-     * @description The ID of the primary vSwitch.
-     *
      * @example vsw-bp1q8th57frl5khj2li43
      *
      * @var string
@@ -161,7 +175,7 @@ class AddGatewayRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the secondary vSwitch.
+     * @description Specifies whether to use an advanced security group.
      *
      * @example vsw-wz9bu6o5vsvitt5mrxo6s
      *
@@ -170,7 +184,7 @@ class AddGatewayRequest extends Model
     public $vSwitchId2;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The ID of the primary vSwitch.
      *
      * @example vpc-bp15mncnrtm83uauxd1xb
      *
@@ -179,15 +193,23 @@ class AddGatewayRequest extends Model
     public $vpc;
 
     /**
-     * @description The sampling rate of Tracing Analysis. Valid values: \[1,100].
+     * @description Specifies whether to activate Log Service.
      *
      * @example 10
      *
      * @var string
      */
     public $xtraceRatio;
+
+    /**
+     * @description 可用区信息。
+     *
+     * @var zoneInfo[]
+     */
+    public $zoneInfo;
     protected $_name = [
         'acceptLanguage'             => 'AcceptLanguage',
+        'chargeType'                 => 'ChargeType',
         'enableHardwareAcceleration' => 'EnableHardwareAcceleration',
         'enableSls'                  => 'EnableSls',
         'enableXtrace'               => 'EnableXtrace',
@@ -205,6 +227,7 @@ class AddGatewayRequest extends Model
         'vSwitchId2'                 => 'VSwitchId2',
         'vpc'                        => 'Vpc',
         'xtraceRatio'                => 'XtraceRatio',
+        'zoneInfo'                   => 'ZoneInfo',
     ];
 
     public function validate()
@@ -216,6 +239,9 @@ class AddGatewayRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->chargeType) {
+            $res['ChargeType'] = $this->chargeType;
         }
         if (null !== $this->enableHardwareAcceleration) {
             $res['EnableHardwareAcceleration'] = $this->enableHardwareAcceleration;
@@ -274,6 +300,15 @@ class AddGatewayRequest extends Model
         if (null !== $this->xtraceRatio) {
             $res['XtraceRatio'] = $this->xtraceRatio;
         }
+        if (null !== $this->zoneInfo) {
+            $res['ZoneInfo'] = [];
+            if (null !== $this->zoneInfo && \is_array($this->zoneInfo)) {
+                $n = 0;
+                foreach ($this->zoneInfo as $item) {
+                    $res['ZoneInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -288,6 +323,9 @@ class AddGatewayRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['ChargeType'])) {
+            $model->chargeType = $map['ChargeType'];
         }
         if (isset($map['EnableHardwareAcceleration'])) {
             $model->enableHardwareAcceleration = $map['EnableHardwareAcceleration'];
@@ -345,6 +383,15 @@ class AddGatewayRequest extends Model
         }
         if (isset($map['XtraceRatio'])) {
             $model->xtraceRatio = $map['XtraceRatio'];
+        }
+        if (isset($map['ZoneInfo'])) {
+            if (!empty($map['ZoneInfo'])) {
+                $model->zoneInfo = [];
+                $n               = 0;
+                foreach ($map['ZoneInfo'] as $item) {
+                    $model->zoneInfo[$n++] = null !== $item ? zoneInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

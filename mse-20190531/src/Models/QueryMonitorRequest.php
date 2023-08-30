@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class QueryMonitorRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description The timestamp when the monitoring starts.
      *
      * @example zh
      *
@@ -21,7 +18,7 @@ class QueryMonitorRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The timestamp when the monitoring ends.
+     * @description system error
      *
      * @example 1666678376
      *
@@ -30,7 +27,10 @@ class QueryMonitorRequest extends Model
     public $endTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example mse-cn-****
      *
@@ -39,34 +39,7 @@ class QueryMonitorRequest extends Model
     public $instanceId;
 
     /**
-     * @description The metric type. The following metric types are supported:
-     *
-     * \[Basic system metrics]
-     *
-     *   cpuUsage
-     *   memoryUsage
-     *   diskUsage
-     *   gcCount
-     *   gcTime
-     *
-     * \[Nacos registry]
-     *
-     *   serviceCount
-     *   writeCostTime
-     *   readCostTime
-     *   TPS regCenterTps
-     *   QPS regCenterQps
-     *
-     * \[Nacos configuration center]
-     *
-     *   publish
-     *   getConfig
-     *
-     * \[zookeeper]
-     *
-     *   TPS zk_TpsCount
-     *   QPS zk_QpsCount
-     *   zookeeper_AvgRequestLatency
+     * @description mse-100-001
      *
      * @example regCenterQps
      *
@@ -75,7 +48,7 @@ class QueryMonitorRequest extends Model
     public $monitorType;
 
     /**
-     * @description The extended request parameters in the JSON format.
+     * @description cluster not found
      *
      * @example {}
      *
@@ -84,7 +57,7 @@ class QueryMonitorRequest extends Model
     public $requestPars;
 
     /**
-     * @description The timestamp when the monitoring starts.
+     * @description systemError
      *
      * @example 1666678376
      *
@@ -93,7 +66,7 @@ class QueryMonitorRequest extends Model
     public $startTime;
 
     /**
-     * @description The interval between data points. Unit: seconds.
+     * @description The extended request parameters in the JSON format.
      *
      * @example 7
      *

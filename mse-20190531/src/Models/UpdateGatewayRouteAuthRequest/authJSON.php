@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class authJSON extends Model
 {
     /**
+     * @description The authentication type. If an empty string is passed, no authentication type is available. Valid values:
+     *
+     *   JWT
+     *
      * @example JWT
      *
      * @var string

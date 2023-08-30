@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteGatewayAuthConsumerResourceResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +18,11 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $code;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $data;
 
     /**
+     * @description The dynamic part in the error message.
+     *
      * @example code
      *
      * @var string
@@ -30,6 +39,9 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $dynamicCode;
 
     /**
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
+     *
+     * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
      * @example The specified parameter is invalid.
      *
      * @var string
@@ -37,6 +49,8 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $dynamicMessage;
 
     /**
+     * @description The error code returned.
+     *
      * @example NoPermission
      *
      * @var string
@@ -44,6 +58,8 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $errorCode;
 
     /**
+     * @description The HTTP status code.
+     *
      * @example 200
      *
      * @var int
@@ -51,11 +67,17 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The returned message.
+     *
+     * @example The request is successfully processed.
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 3369AD10-F1A6-4E6F-B99E-20F51826****
      *
      * @var string
@@ -63,6 +85,11 @@ class DeleteGatewayAuthConsumerResourceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`
+     *   `false`
+     *
      * @example true
      *
      * @var bool

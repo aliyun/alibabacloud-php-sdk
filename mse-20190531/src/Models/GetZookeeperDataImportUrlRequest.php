@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetZookeeperDataImportUrlRequest extends Model
 {
     /**
-     * @description The language of the response. Valid values:
-     *
-     *   zh: Chinese
-     *   en: English
+     * @description RestResult
      *
      * @example zh
      *
@@ -21,7 +18,10 @@ class GetZookeeperDataImportUrlRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @description The type of the file.
+     * @description The language of the response. Valid values:
+     *
+     *   zh: Chinese
+     *   en: English
      *
      * @example zip
      *
@@ -30,7 +30,7 @@ class GetZookeeperDataImportUrlRequest extends Model
     public $contentType;
 
     /**
-     * @description The ID of the instance.
+     * @description The type of the file.
      *
      * @example mse_prepaid_public_cn-zvp2xzzkk06
      *

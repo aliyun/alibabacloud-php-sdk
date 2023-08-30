@@ -10,7 +10,10 @@ use AlibabaCloud\Tea\Model;
 class PullServicesResponseBody extends Model
 {
     /**
-     * @description The response code returned.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   `true`: The request was successful.
+     *   `false`: The request failed.
      *
      * @example 200
      *
@@ -19,14 +22,14 @@ class PullServicesResponseBody extends Model
     public $code;
 
     /**
-     * @description The data entries returned.
+     * @description The data structure.
      *
      * @var data[]
      */
     public $data;
 
     /**
-     * @description The HTTP status code.
+     * @description The message returned.
      *
      * @example 200
      *
@@ -35,7 +38,7 @@ class PullServicesResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The message returned.
+     * @description The status code returned.
      *
      * @example You are not authorized to perform this operation. Action: mse:PullServices, Resource: acs:mse:cn-shenzhen:1228932054837788:*
      *
@@ -44,7 +47,7 @@ class PullServicesResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code returned.
      *
      * @example EC0A99B9-8BA3-5FE3-8FE7-D7C719CF7BD2
      *
@@ -53,10 +56,7 @@ class PullServicesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful. Valid values:
-     *
-     *   `true`: The request was successful.
-     *   `false`: The request failed.
+     * @description The returned data.
      *
      * @example true
      *

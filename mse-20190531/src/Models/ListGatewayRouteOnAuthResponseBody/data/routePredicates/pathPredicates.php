@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class pathPredicates extends Model
 {
     /**
+     * @description The path.
+     *
      * @example /api
      *
      * @var string
@@ -16,6 +18,8 @@ class pathPredicates extends Model
     public $path;
 
     /**
+     * @description The matching type.
+     *
      * @example PRE
      *
      * @var string

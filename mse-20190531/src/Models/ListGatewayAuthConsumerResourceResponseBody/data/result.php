@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the consumer.
+     *
      * @example 2
      *
      * @var int
@@ -16,6 +18,8 @@ class result extends Model
     public $consumerId;
 
     /**
+     * @description The unique ID of the gateway.
+     *
      * @example gw-5017305290e14centbrveca****
      *
      * @var string
@@ -23,6 +27,8 @@ class result extends Model
     public $gatewayUniqueId;
 
     /**
+     * @description The creation time.
+     *
      * @example 2022-01-07 18:07:57
      *
      * @var string
@@ -30,6 +36,8 @@ class result extends Model
     public $gmtCreate;
 
     /**
+     * @description The modification time.
+     *
      * @example 2022-01-07 18:07:57
      *
      * @var string
@@ -37,6 +45,8 @@ class result extends Model
     public $gmtModified;
 
     /**
+     * @description The ID of the authorized resource for the consumer.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,11 @@ class result extends Model
     public $id;
 
     /**
+     * @description The resource authorization status. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +66,8 @@ class result extends Model
     public $resourceStatus;
 
     /**
+     * @description The ID of the route.
+     *
      * @example 3091
      *
      * @var int
@@ -58,6 +75,8 @@ class result extends Model
     public $routeId;
 
     /**
+     * @description The name of the route.
+     *
      * @example test
      *
      * @var string

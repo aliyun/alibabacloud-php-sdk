@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The details of the task.
+     *
      * @example {}
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $contentMap;
 
     /**
+     * @description The time when the task was created.
+     *
      * @example 1631001140913
      *
      * @var int
@@ -23,6 +27,11 @@ class data extends Model
     public $createTime;
 
     /**
+     * @description The type of the object that is exported. Valid values:
+     *
+     *   transactionLog: transaction logs
+     *   snapshot: snapshots
+     *
      * @example snapshot
      *
      * @var string
@@ -30,6 +39,8 @@ class data extends Model
     public $exportType;
 
     /**
+     * @description The extension information that is in the JSON format. The extension information facilitates addition of parameters.
+     *
      * @example {}
      *
      * @var string
@@ -37,6 +48,8 @@ class data extends Model
     public $extend;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +57,8 @@ class data extends Model
     public $id;
 
     /**
+     * @description The ID of the instance
+     *
      * @example mse-cn-st21ri2****
      *
      * @var string
@@ -51,6 +66,8 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the associated task at the underlying layer. This parameter is used only to troubleshoot failures.
+     *
      * @example 10
      *
      * @var string
@@ -58,6 +75,14 @@ class data extends Model
     public $kubeoneTaskIds;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   CREATE: The task is being created.
+     *   RUNNING: The task is being executed.
+     *   FINISH: The task is completed.
+     *   FAILED: The task failed.
+     *   EXPIRE: The task has expired.
+     *
      * @example FINISH
      *
      * @var string
@@ -65,6 +90,8 @@ class data extends Model
     public $status;
 
     /**
+     * @description The time when the task was updated.
+     *
      * @example 1632979237663
      *
      * @var int

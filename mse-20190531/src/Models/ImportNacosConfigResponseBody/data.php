@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The information about configurations that are failed to be imported.
+     * @description The data structure.
      *
      * @var failData[]
      */
     public $failData;
 
     /**
-     * @description The number of configurations that are skipped.
+     * @description The information about skipped configurations.
      *
      * @example 10
      *
@@ -27,14 +27,14 @@ class data extends Model
     public $skipCount;
 
     /**
-     * @description The information about skipped configurations.
+     * @description The data structure.
      *
      * @var skipData[]
      */
     public $skipData;
 
     /**
-     * @description The number of configurations that are imported.
+     * @description The number of configurations that are skipped.
      *
      * @example 100
      *

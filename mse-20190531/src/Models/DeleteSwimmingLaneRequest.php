@@ -30,6 +30,8 @@ class DeleteSwimmingLaneRequest extends Model
     public $laneId;
 
     /**
+     * @description MSE命名空间名字
+     *
      * @example default
      *
      * @var string
