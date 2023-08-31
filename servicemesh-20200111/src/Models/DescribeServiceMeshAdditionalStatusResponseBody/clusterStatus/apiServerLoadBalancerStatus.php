@@ -45,7 +45,7 @@ class apiServerLoadBalancerStatus extends Model
     public $reused;
 
     /**
-     * @description The check result of the number of the backend servers of the SLB instance created for exposing Istio Pilot. Valid values:
+     * @description The check result of the number of backend servers of the SLB instance created for exposing the API server. Valid values:
      *
      *   `too_much`: An excessive number of backend servers are created.
      *   `num_exact`: A proper number of backend servers are created.

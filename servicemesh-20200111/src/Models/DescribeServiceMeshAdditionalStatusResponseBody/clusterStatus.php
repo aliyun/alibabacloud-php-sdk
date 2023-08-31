@@ -61,6 +61,8 @@ class clusterStatus extends Model
     public $auditProjectStatus;
 
     /**
+     * @description The check results of the SLB instance that is created for exposing Istio Pilot and used during canary release.
+     *
      * @var canaryPilotLoadBalancerStatus
      */
     public $canaryPilotLoadBalancerStatus;
@@ -96,6 +98,16 @@ class clusterStatus extends Model
     public $pilotLoadBalancerStatus;
 
     /**
+     * @description The status of the RAM OAuth application that is integrated with Mesh Topology. Valid values:
+     *
+     *   `exist`: The RAM OAuth application exists.
+     *   `reused`: The RAM OAuth application is reused.
+     *   `not_exist`: The RAM OAuth application does not exist.
+     *   `failed`: The check fails.
+     *   `time_out`: The check times out.
+     *
+     * @example reused
+     *
      * @var string
      */
     public $RAMApplicationStatus;

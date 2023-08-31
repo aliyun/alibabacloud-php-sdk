@@ -149,6 +149,7 @@ class CreateServiceMeshRequest extends Model
 
     /**
      * @description The billing method of the SLB instance. Valid values:
+     *
      *   `PayOnDemand`: pay-as-you-go.
      *   `PrePay`: subscription.
      *
@@ -606,7 +607,7 @@ class CreateServiceMeshRequest extends Model
     public $openAgentPolicy;
 
     /**
-     * @description The subscription period of the SLB instance. Unit: month. This parameter is valid only if the ChargeType parameter is set to PrePay. For example, if the subscription period is one year, set this parameter to 12.
+     * @description The auto-renewal period of the SLB instance. This parameter is valid only if `ChargeType` is set to `PrePaid`. The value of this parameter indicates the purchased month of the SLB instance when the subscription billing method is used. For example, if the subscription period is one year, set this parameter to 12.
      *
      * @example 3
      *

@@ -30,7 +30,7 @@ class HTTPAdvancedOptions extends Model
     public $fault;
 
     /**
-     * @description The HTTP redirect rule.
+     * @description The HTTP redirection rule.
      *
      * @var HTTPRedirect
      */

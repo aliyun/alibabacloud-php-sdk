@@ -155,6 +155,8 @@ use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMGatewayResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMNamespaceFromGuestClusterRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateASMNamespaceFromGuestClusterResponse;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogConfigRequest;
+use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateControlPlaneLogConfigResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesRequest;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesResponse;
 use AlibabaCloud\SDK\Servicemesh\V20200111\Models\UpdateIstioGatewayRoutesShrinkRequest;
@@ -4013,6 +4015,58 @@ class Servicemesh extends OpenApiClient
     }
 
     /**
+     * @param UpdateControlPlaneLogConfigRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateControlPlaneLogConfigResponse
+     */
+    public function updateControlPlaneLogConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->enabled)) {
+            $body['Enabled'] = $request->enabled;
+        }
+        if (!Utils::isUnset($request->logTTLInDay)) {
+            $body['LogTTLInDay'] = $request->logTTLInDay;
+        }
+        if (!Utils::isUnset($request->project)) {
+            $body['Project'] = $request->project;
+        }
+        if (!Utils::isUnset($request->serviceMeshId)) {
+            $body['ServiceMeshId'] = $request->serviceMeshId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateControlPlaneLogConfig',
+            'version'     => '2020-01-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateControlPlaneLogConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateControlPlaneLogConfigRequest $request
+     *
+     * @return UpdateControlPlaneLogConfigResponse
+     */
+    public function updateControlPlaneLogConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateControlPlaneLogConfigWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateIstioGatewayRoutesRequest $tmpReq
      * @param RuntimeOptions                  $runtime
      *
@@ -4263,6 +4317,13 @@ class Servicemesh extends OpenApiClient
     public function updateMeshFeatureWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessLogGatewayEnabled)) {
+            $query['AccessLogGatewayEnabled'] = $request->accessLogGatewayEnabled;
+        }
+        if (!Utils::isUnset($request->accessLogSidecarEnabled)) {
+            $query['AccessLogSidecarEnabled'] = $request->accessLogSidecarEnabled;
+        }
         $body = [];
         if (!Utils::isUnset($request->accessLogEnabled)) {
             $body['AccessLogEnabled'] = $request->accessLogEnabled;
@@ -4556,7 +4617,8 @@ class Servicemesh extends OpenApiClient
             $body['WebAssemblyFilterEnabled'] = $request->webAssemblyFilterEnabled;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UpdateMeshFeature',
@@ -4597,6 +4659,9 @@ class Servicemesh extends OpenApiClient
         $body = [];
         if (!Utils::isUnset($request->concurrency)) {
             $body['Concurrency'] = $request->concurrency;
+        }
+        if (!Utils::isUnset($request->enableCoreDump)) {
+            $body['EnableCoreDump'] = $request->enableCoreDump;
         }
         if (!Utils::isUnset($request->excludeIPRanges)) {
             $body['ExcludeIPRanges'] = $request->excludeIPRanges;
@@ -4640,6 +4705,9 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->preStop)) {
             $body['PreStop'] = $request->preStop;
         }
+        if (!Utils::isUnset($request->privileged)) {
+            $body['Privileged'] = $request->privileged;
+        }
         if (!Utils::isUnset($request->proxyInitAckSloCPUResourceLimit)) {
             $body['ProxyInitAckSloCPUResourceLimit'] = $request->proxyInitAckSloCPUResourceLimit;
         }
@@ -4669,6 +4737,15 @@ class Servicemesh extends OpenApiClient
         }
         if (!Utils::isUnset($request->proxyStatsMatcher)) {
             $body['ProxyStatsMatcher'] = $request->proxyStatsMatcher;
+        }
+        if (!Utils::isUnset($request->readinessFailureThreshold)) {
+            $body['ReadinessFailureThreshold'] = $request->readinessFailureThreshold;
+        }
+        if (!Utils::isUnset($request->readinessInitialDelaySeconds)) {
+            $body['ReadinessInitialDelaySeconds'] = $request->readinessInitialDelaySeconds;
+        }
+        if (!Utils::isUnset($request->readinessPeriodSeconds)) {
+            $body['ReadinessPeriodSeconds'] = $request->readinessPeriodSeconds;
         }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;

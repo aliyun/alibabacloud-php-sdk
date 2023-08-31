@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class gatewayRoute extends Model
 {
     /**
+     * @description The requested domain names.
+     *
      * @var string[]
      */
     public $domains;
@@ -31,7 +33,7 @@ class gatewayRoute extends Model
     public $matchRequest;
 
     /**
-     * @description The name of the namespace.
+     * @description The namespace.
      *
      * @example default
      *
@@ -40,6 +42,10 @@ class gatewayRoute extends Model
     public $namespace;
 
     /**
+     * @description A JSON string. This parameter corresponds to the three routing types in virtual services and provides configuration entries for advanced features. The value of this parameter overwrites the configurations in RouteName, RouteType, MatchRequest, and HTTPAdvancedOptions.
+     *
+     * @example {
+     * }
      * @var mixed
      */
     public $rawVSRoute;

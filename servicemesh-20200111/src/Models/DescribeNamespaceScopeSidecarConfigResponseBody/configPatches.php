@@ -26,6 +26,11 @@ class configPatches extends Model
     public $concurrency;
 
     /**
+     * @var bool
+     */
+    public $enableCoreDump;
+
+    /**
      * @description The inbound ports to be excluded from redirection to the sidecar proxy in the ASM instance.
      *
      * @example 82
@@ -132,6 +137,11 @@ class configPatches extends Model
     public $logLevel;
 
     /**
+     * @var bool
+     */
+    public $privileged;
+
+    /**
      * @var string[]
      */
     public $proxyMetadata;
@@ -142,6 +152,21 @@ class configPatches extends Model
      * @var proxyStatsMatcher
      */
     public $proxyStatsMatcher;
+
+    /**
+     * @var int
+     */
+    public $readinessFailureThreshold;
+
+    /**
+     * @var int
+     */
+    public $readinessInitialDelaySeconds;
+
+    /**
+     * @var int
+     */
+    public $readinessPeriodSeconds;
 
     /**
      * @var sidecarProxyAckSloResource
@@ -198,6 +223,7 @@ class configPatches extends Model
     public $tracing;
     protected $_name = [
         'concurrency'                     => 'Concurrency',
+        'enableCoreDump'                  => 'EnableCoreDump',
         'excludeInboundPorts'             => 'ExcludeInboundPorts',
         'excludeOutboundIPRanges'         => 'ExcludeOutboundIPRanges',
         'excludeOutboundPorts'            => 'ExcludeOutboundPorts',
@@ -209,8 +235,12 @@ class configPatches extends Model
         'istioDNSProxyEnabled'            => 'IstioDNSProxyEnabled',
         'lifecycleStr'                    => 'LifecycleStr',
         'logLevel'                        => 'LogLevel',
+        'privileged'                      => 'Privileged',
         'proxyMetadata'                   => 'ProxyMetadata',
         'proxyStatsMatcher'               => 'ProxyStatsMatcher',
+        'readinessFailureThreshold'       => 'ReadinessFailureThreshold',
+        'readinessInitialDelaySeconds'    => 'ReadinessInitialDelaySeconds',
+        'readinessPeriodSeconds'          => 'ReadinessPeriodSeconds',
         'sidecarProxyAckSloResource'      => 'SidecarProxyAckSloResource',
         'sidecarProxyInitAckSloResource'  => 'SidecarProxyInitAckSloResource',
         'sidecarProxyInitResourceLimit'   => 'SidecarProxyInitResourceLimit',
@@ -230,6 +260,9 @@ class configPatches extends Model
         $res = [];
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
+        }
+        if (null !== $this->enableCoreDump) {
+            $res['EnableCoreDump'] = $this->enableCoreDump;
         }
         if (null !== $this->excludeInboundPorts) {
             $res['ExcludeInboundPorts'] = $this->excludeInboundPorts;
@@ -264,11 +297,23 @@ class configPatches extends Model
         if (null !== $this->logLevel) {
             $res['LogLevel'] = $this->logLevel;
         }
+        if (null !== $this->privileged) {
+            $res['Privileged'] = $this->privileged;
+        }
         if (null !== $this->proxyMetadata) {
             $res['ProxyMetadata'] = $this->proxyMetadata;
         }
         if (null !== $this->proxyStatsMatcher) {
             $res['ProxyStatsMatcher'] = null !== $this->proxyStatsMatcher ? $this->proxyStatsMatcher->toMap() : null;
+        }
+        if (null !== $this->readinessFailureThreshold) {
+            $res['ReadinessFailureThreshold'] = $this->readinessFailureThreshold;
+        }
+        if (null !== $this->readinessInitialDelaySeconds) {
+            $res['ReadinessInitialDelaySeconds'] = $this->readinessInitialDelaySeconds;
+        }
+        if (null !== $this->readinessPeriodSeconds) {
+            $res['ReadinessPeriodSeconds'] = $this->readinessPeriodSeconds;
         }
         if (null !== $this->sidecarProxyAckSloResource) {
             $res['SidecarProxyAckSloResource'] = null !== $this->sidecarProxyAckSloResource ? $this->sidecarProxyAckSloResource->toMap() : null;
@@ -309,6 +354,9 @@ class configPatches extends Model
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
+        if (isset($map['EnableCoreDump'])) {
+            $model->enableCoreDump = $map['EnableCoreDump'];
+        }
         if (isset($map['ExcludeInboundPorts'])) {
             $model->excludeInboundPorts = $map['ExcludeInboundPorts'];
         }
@@ -342,11 +390,23 @@ class configPatches extends Model
         if (isset($map['LogLevel'])) {
             $model->logLevel = $map['LogLevel'];
         }
+        if (isset($map['Privileged'])) {
+            $model->privileged = $map['Privileged'];
+        }
         if (isset($map['ProxyMetadata'])) {
             $model->proxyMetadata = $map['ProxyMetadata'];
         }
         if (isset($map['ProxyStatsMatcher'])) {
             $model->proxyStatsMatcher = proxyStatsMatcher::fromMap($map['ProxyStatsMatcher']);
+        }
+        if (isset($map['ReadinessFailureThreshold'])) {
+            $model->readinessFailureThreshold = $map['ReadinessFailureThreshold'];
+        }
+        if (isset($map['ReadinessInitialDelaySeconds'])) {
+            $model->readinessInitialDelaySeconds = $map['ReadinessInitialDelaySeconds'];
+        }
+        if (isset($map['ReadinessPeriodSeconds'])) {
+            $model->readinessPeriodSeconds = $map['ReadinessPeriodSeconds'];
         }
         if (isset($map['SidecarProxyAckSloResource'])) {
             $model->sidecarProxyAckSloResource = sidecarProxyAckSloResource::fromMap($map['SidecarProxyAckSloResource']);

@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddVMIntoServiceMeshResponseBody extends Model
+class UpdateControlPlaneLogConfigResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4b2c0fe0-6705-4614-8521-6b9d289163c8
+     * @example 488F046B-63D2-5D96-9A70-E00C3685D49F
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class AddVMIntoServiceMeshResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddVMIntoServiceMeshResponseBody
+     * @return UpdateControlPlaneLogConfigResponseBody
      */
     public static function fromMap($map = [])
     {

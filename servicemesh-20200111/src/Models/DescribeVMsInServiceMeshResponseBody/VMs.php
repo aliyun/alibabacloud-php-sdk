@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class VMs extends Model
 {
     /**
-     * @description Indicates whether the VM has labels.
+     * @description Indicates whether the ECS instance has labels.
      *
      * @example true
      *
@@ -18,7 +18,7 @@ class VMs extends Model
     public $hasTag;
 
     /**
-     * @description The host name of the VM.
+     * @description The host name.
      *
      * @example iZ2ze45cgxkx4q12eh9l****
      *
@@ -27,7 +27,7 @@ class VMs extends Model
     public $hostName;
 
     /**
-     * @description The ID of the VM.
+     * @description The ID of the ECS instance.
      *
      * @example i-2ze45cgxkx4q12e****
      *
@@ -36,7 +36,7 @@ class VMs extends Model
     public $instanceId;
 
     /**
-     * @description The IP address of the VM.
+     * @description The IP address of the ECS instance.
      *
      * @example 10.0.*,***
      *
@@ -54,7 +54,7 @@ class VMs extends Model
     public $region;
 
     /**
-     * @description The security group to which the VM belongs.
+     * @description The security group to which the ECS instance belongs.
      *
      * @example sg-2zeaqy08amco9osl****
      *
@@ -63,7 +63,7 @@ class VMs extends Model
     public $securityGroupIds;
 
     /**
-     * @description The status of the VM.
+     * @description The state of the ECS instance.
      *
      * @example Running
      *

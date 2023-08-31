@@ -18,7 +18,7 @@ class VMs extends Model
     public $hasTag;
 
     /**
-     * @description The hostname of the ECS instance.
+     * @description The host name.
      *
      * @example iZ2ze45cgxkx4q12eh****
      *
@@ -45,7 +45,7 @@ class VMs extends Model
     public $ipAddress;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -63,7 +63,7 @@ class VMs extends Model
     public $securityGroupIds;
 
     /**
-     * @description The ID of the ASM instance.
+     * @description The ASM instance ID.
      *
      * @example ccb37ff104caf419fbf48fb38e6f3****
      *

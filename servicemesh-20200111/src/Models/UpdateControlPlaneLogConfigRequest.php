@@ -2,18 +2,13 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models\DescribeServiceMeshDetailResponseBody\serviceMesh\spec\meshConfig;
+namespace AlibabaCloud\SDK\Servicemesh\V20200111\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class controlPlaneLogInfo extends Model
+class UpdateControlPlaneLogConfigRequest extends Model
 {
     /**
-     * @description Indicates whether the collection of control-plane logs is enabled. Valid values:
-     *
-     *   `true`: The collection of control-plane logs is enabled.
-     *   `false`: The collection of control-plane logs is disabled.
-     *
      * @example false
      *
      * @var bool
@@ -21,22 +16,30 @@ class controlPlaneLogInfo extends Model
     public $enabled;
 
     /**
+     * @example 30
+     *
      * @var int
      */
-    public $logTTL;
+    public $logTTLInDay;
 
     /**
-     * @description The name of the Log Service project that stores control-plane logs.
-     *
-     * @example mesh-log-cbeb85a09161b4a26ab73e0ac****
+     * @example aia-asm-deva-sh
      *
      * @var string
      */
     public $project;
+
+    /**
+     * @example c20667db760fe4ee6910220136624****
+     *
+     * @var string
+     */
+    public $serviceMeshId;
     protected $_name = [
-        'enabled' => 'Enabled',
-        'logTTL'  => 'LogTTL',
-        'project' => 'Project',
+        'enabled'       => 'Enabled',
+        'logTTLInDay'   => 'LogTTLInDay',
+        'project'       => 'Project',
+        'serviceMeshId' => 'ServiceMeshId',
     ];
 
     public function validate()
@@ -49,11 +52,14 @@ class controlPlaneLogInfo extends Model
         if (null !== $this->enabled) {
             $res['Enabled'] = $this->enabled;
         }
-        if (null !== $this->logTTL) {
-            $res['LogTTL'] = $this->logTTL;
+        if (null !== $this->logTTLInDay) {
+            $res['LogTTLInDay'] = $this->logTTLInDay;
         }
         if (null !== $this->project) {
             $res['Project'] = $this->project;
+        }
+        if (null !== $this->serviceMeshId) {
+            $res['ServiceMeshId'] = $this->serviceMeshId;
         }
 
         return $res;
@@ -62,7 +68,7 @@ class controlPlaneLogInfo extends Model
     /**
      * @param array $map
      *
-     * @return controlPlaneLogInfo
+     * @return UpdateControlPlaneLogConfigRequest
      */
     public static function fromMap($map = [])
     {
@@ -70,11 +76,14 @@ class controlPlaneLogInfo extends Model
         if (isset($map['Enabled'])) {
             $model->enabled = $map['Enabled'];
         }
-        if (isset($map['LogTTL'])) {
-            $model->logTTL = $map['LogTTL'];
+        if (isset($map['LogTTLInDay'])) {
+            $model->logTTLInDay = $map['LogTTLInDay'];
         }
         if (isset($map['Project'])) {
             $model->project = $map['Project'];
+        }
+        if (isset($map['ServiceMeshId'])) {
+            $model->serviceMeshId = $map['ServiceMeshId'];
         }
 
         return $model;

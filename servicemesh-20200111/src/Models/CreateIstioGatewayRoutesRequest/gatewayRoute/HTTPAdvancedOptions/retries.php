@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class retries extends Model
 {
     /**
-     * @description The number of retries allowed for a request.
+     * @description The number of retries that are allowed for a request.
      *
      * @example 3
      *

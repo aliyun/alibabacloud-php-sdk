@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class canaryPilotLoadBalancerStatus extends Model
 {
     /**
+     * @description Indicates whether the SLB instance is locked due to overdue payments. Valid values: `true` `false`
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +25,11 @@ class canaryPilotLoadBalancerStatus extends Model
     public $payType;
 
     /**
+     * @description Indicates whether the SLB instance is reused. Valid values:
+     *
+     *   `true`: The SLB instance is reused. Non-ASM listener configuration is detected in the listener configurations of the SLB instance.
+     *   `false`: The SLB instance is not reused.
+     *
      * @example false
      *
      * @var bool
@@ -30,6 +37,12 @@ class canaryPilotLoadBalancerStatus extends Model
     public $reused;
 
     /**
+     * @description The check result of the number of backend servers of the SLB instance created for exposing Istio Pilot. Valid values:
+     *
+     *   `num_exact`: A proper number of backend servers are created.
+     *   `too_much`: An excessive number of backend servers are created.
+     *   `too_little`: The number of backend servers falls short.
+     *
      * @example num_exact
      *
      * @var string
@@ -37,6 +50,13 @@ class canaryPilotLoadBalancerStatus extends Model
     public $SLBBackEndServerNumStatus;
 
     /**
+     * @description The check result of the SLB instance. Valid values:
+     *
+     *   `exist`: The SLB instance exists.
+     *   `not_exist`: The SLB instance does not exist.
+     *   `time_out`: The check times out.
+     *   `failed`: The SLB instance has expired.
+     *
      * @example exist
      *
      * @var string

@@ -19,6 +19,8 @@ class destination extends Model
     public $host;
 
     /**
+     * @description The port.
+     *
      * @var port
      */
     public $port;

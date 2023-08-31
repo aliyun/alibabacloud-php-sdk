@@ -43,6 +43,11 @@ class UpdateMeshFeatureRequest extends Model
     public $accessLogFormat;
 
     /**
+     * @var bool
+     */
+    public $accessLogGatewayEnabled;
+
+    /**
      * @description The retention period for the access logs of the sidecar proxy. Unit: day. The logs are collected by using Log Service. For example, `30` indicates 30 days.
      *
      * @example 30
@@ -90,6 +95,11 @@ class UpdateMeshFeatureRequest extends Model
      * @var int
      */
     public $accessLogServicePort;
+
+    /**
+     * @var bool
+     */
+    public $accessLogSidecarEnabled;
 
     /**
      * @description Specifies whether to enable automatic diagnostics for the ASM instance. If you enable this feature, the ASM instance is automatically diagnosed when you modify Istio resources in the ASM instance.
@@ -237,11 +247,14 @@ class UpdateMeshFeatureRequest extends Model
     public $DNSProxyingEnabled;
 
     /**
-     * @description Specifies the default scheduling configurations that ASM delivers to components on the data plane. You can configure nodeSelector and tolerations in the JSON format.
+     * @description Specifies the default scheduling configurations that ASM delivers to components on the data plane. You can configure `nodeSelector` and `tolerations` in the JSON format.
      *
+     * >
      *
-     * >* Modifying the value of this parameter is a high-risk operation. The modification will cause all components on the data plane of ASM to restart. Exercise caution before modifying the value of this parameter.
-     * >* The configurations specified by this parameter do not apply to the ASM gateway. You can configure scheduling on the ASM gateway.
+     *   Modifying the value of this parameter is a high-risk operation. The modification will cause all components on the data plane of ASM to restart. Exercise caution before modifying the value of this parameter.
+     *
+     *   The configurations specified by this parameter do not apply to the ASM gateway. You can configure gateway-specific scheduling on the ASM gateway.
+     *
      * @example {"tolerations":[{"key":"test-taints", "operator":"Exists", "effect":"NoSchedule"}], "nodeSelector":{"kubernetes.io/hostname":"test-nodes"}}
      *
      * @var string
@@ -481,9 +494,9 @@ class UpdateMeshFeatureRequest extends Model
     public $kialiEnabled;
 
     /**
-     * @description 当开启网格拓扑且为访问网格拓扑创建CLB时，通过此参数使用Annotation配置不同集群中网格拓扑服务的CLB。
+     * @description Specifies Classic Load Balancer (CLB) instances by using annotations when the Mesh Topology feature is enabled. These CLB instances are used to access the Mesh Topology feature in different clusters.
      *
-     * 有关如何通过注解配置CLB，参考 [通过Annotation配置传统型负载均衡CLB](https://help.aliyun.com/document_detail/86531.html)。
+     * For more information about how to configure CLB instances by using annotations, see [Add annotations to the YAML file of a Service to configure CLB instances](https://www.alibabacloud.com/help/container-service-for-kubernetes/latest/use-annotations-to-configure-load-balancing-1).
      * @example {"c31e3b******5634b":{"service.beta.kubernetes.io/alibaba-cloud-loadbalancer-address-type":"intranet"}}
      *
      * @var string
@@ -1020,11 +1033,13 @@ class UpdateMeshFeatureRequest extends Model
         'accessLogEnabled'                => 'AccessLogEnabled',
         'accessLogFile'                   => 'AccessLogFile',
         'accessLogFormat'                 => 'AccessLogFormat',
+        'accessLogGatewayEnabled'         => 'AccessLogGatewayEnabled',
         'accessLogGatewayLifecycle'       => 'AccessLogGatewayLifecycle',
         'accessLogProject'                => 'AccessLogProject',
         'accessLogServiceEnabled'         => 'AccessLogServiceEnabled',
         'accessLogServiceHost'            => 'AccessLogServiceHost',
         'accessLogServicePort'            => 'AccessLogServicePort',
+        'accessLogSidecarEnabled'         => 'AccessLogSidecarEnabled',
         'accessLogSidecarLifecycle'       => 'AccessLogSidecarLifecycle',
         'auditProject'                    => 'AuditProject',
         'autoInjectionPolicyEnabled'      => 'AutoInjectionPolicyEnabled',
@@ -1132,6 +1147,9 @@ class UpdateMeshFeatureRequest extends Model
         if (null !== $this->accessLogFormat) {
             $res['AccessLogFormat'] = $this->accessLogFormat;
         }
+        if (null !== $this->accessLogGatewayEnabled) {
+            $res['AccessLogGatewayEnabled'] = $this->accessLogGatewayEnabled;
+        }
         if (null !== $this->accessLogGatewayLifecycle) {
             $res['AccessLogGatewayLifecycle'] = $this->accessLogGatewayLifecycle;
         }
@@ -1146,6 +1164,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (null !== $this->accessLogServicePort) {
             $res['AccessLogServicePort'] = $this->accessLogServicePort;
+        }
+        if (null !== $this->accessLogSidecarEnabled) {
+            $res['AccessLogSidecarEnabled'] = $this->accessLogSidecarEnabled;
         }
         if (null !== $this->accessLogSidecarLifecycle) {
             $res['AccessLogSidecarLifecycle'] = $this->accessLogSidecarLifecycle;
@@ -1435,6 +1456,9 @@ class UpdateMeshFeatureRequest extends Model
         if (isset($map['AccessLogFormat'])) {
             $model->accessLogFormat = $map['AccessLogFormat'];
         }
+        if (isset($map['AccessLogGatewayEnabled'])) {
+            $model->accessLogGatewayEnabled = $map['AccessLogGatewayEnabled'];
+        }
         if (isset($map['AccessLogGatewayLifecycle'])) {
             $model->accessLogGatewayLifecycle = $map['AccessLogGatewayLifecycle'];
         }
@@ -1449,6 +1473,9 @@ class UpdateMeshFeatureRequest extends Model
         }
         if (isset($map['AccessLogServicePort'])) {
             $model->accessLogServicePort = $map['AccessLogServicePort'];
+        }
+        if (isset($map['AccessLogSidecarEnabled'])) {
+            $model->accessLogSidecarEnabled = $map['AccessLogSidecarEnabled'];
         }
         if (isset($map['AccessLogSidecarLifecycle'])) {
             $model->accessLogSidecarLifecycle = $map['AccessLogSidecarLifecycle'];

@@ -18,6 +18,11 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $concurrency;
 
     /**
+     * @var bool
+     */
+    public $enableCoreDump;
+
+    /**
      * @description The range of IP addresses that are allowed to access external services. (`global.proxy.excludelPRanges`)
      *
      * @example 172.16.0.0/12
@@ -89,6 +94,8 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
      *   `REDIRECT`: The sidecar proxy intercepts inbound traffic in the REDIRECT mode.
      *   `TPROXY`: The sidecar proxy intercepts inbound traffic in the TPROXY mode.
      *
+     * @example TPROXY
+     *
      * @var string
      */
     public $interceptionMode;
@@ -151,21 +158,34 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $preStop;
 
     /**
+     * @var bool
+     */
+    public $privileged;
+
+    /**
+     * @example 2000
+     *
      * @var string
      */
     public $proxyInitAckSloCPUResourceLimit;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $proxyInitAckSloCPUResourceRequest;
 
     /**
+     * @example 2048Mi
+     *
      * @var string
      */
     public $proxyInitAckSloMemoryResourceLimit;
 
     /**
+     * @example 128Mi
+     *
      * @var string
      */
     public $proxyInitAckSloMemoryResourceRequest;
@@ -207,6 +227,10 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $proxyInitMemoryResourceRequest;
 
     /**
+     * @description The environment variables that are added to a sidecar proxy. The environment variables are represented as JSON objects. The keys and values in the JSON objects represent the keys and values added to the environment variables of the sidecar proxy.
+     *
+     * @example {"EXIT_ON_ZERO_ACTIVE_CONNECTIONS":"true"}
+     *
      * @var string
      */
     public $proxyMetadata;
@@ -221,6 +245,21 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $proxyStatsMatcher;
 
     /**
+     * @var int
+     */
+    public $readinessFailureThreshold;
+
+    /**
+     * @var int
+     */
+    public $readinessInitialDelaySeconds;
+
+    /**
+     * @var int
+     */
+    public $readinessPeriodSeconds;
+
+    /**
      * @description The ID of the ASM instance.
      *
      * @example ca04bc38979214bf2882be79d39b4****
@@ -230,21 +269,29 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
     public $serviceMeshId;
 
     /**
+     * @example 2000
+     *
      * @var string
      */
     public $sidecarProxyAckSloCPUResourceLimit;
 
     /**
+     * @example 100
+     *
      * @var string
      */
     public $sidecarProxyAckSloCPUResourceRequest;
 
     /**
+     * @example 2048Mi
+     *
      * @var string
      */
     public $sidecarProxyAckSloMemoryResourceLimit;
 
     /**
+     * @example 128Mi
+     *
      * @var string
      */
     public $sidecarProxyAckSloMemoryResourceRequest;
@@ -305,11 +352,14 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
      *   `header`: The tag value is a request header in the JSON format. This tag must contain the `name` field and `defaultValue` field.The name field indicates the name of the request header. The defaultValue field indicates the default value that is used when no request header is available. Example: `{"name":"test","defaultValue":"test"}`.
      *   `environment`: The tag value is an environment variable in the JSON format. This tag must contain the `name` field and `defaultValue` field. The name field indicates the name of the environment variable. The defaultValue field indicates the environment variable that is used when no environment variable is available. Example: `{"name":"test","defaultValue":"test"}`.
      *
+     * @example {"sampling":99.8,"custom_tags":{"test":{"literal":{"value":"testnamespace"}}}}
+     *
      * @var string
      */
     public $tracing;
     protected $_name = [
         'concurrency'                             => 'Concurrency',
+        'enableCoreDump'                          => 'EnableCoreDump',
         'excludeIPRanges'                         => 'ExcludeIPRanges',
         'excludeInboundPorts'                     => 'ExcludeInboundPorts',
         'excludeOutboundPorts'                    => 'ExcludeOutboundPorts',
@@ -324,6 +374,7 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         'namespace'                               => 'Namespace',
         'postStart'                               => 'PostStart',
         'preStop'                                 => 'PreStop',
+        'privileged'                              => 'Privileged',
         'proxyInitAckSloCPUResourceLimit'         => 'ProxyInitAckSloCPUResourceLimit',
         'proxyInitAckSloCPUResourceRequest'       => 'ProxyInitAckSloCPUResourceRequest',
         'proxyInitAckSloMemoryResourceLimit'      => 'ProxyInitAckSloMemoryResourceLimit',
@@ -334,6 +385,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         'proxyInitMemoryResourceRequest'          => 'ProxyInitMemoryResourceRequest',
         'proxyMetadata'                           => 'ProxyMetadata',
         'proxyStatsMatcher'                       => 'ProxyStatsMatcher',
+        'readinessFailureThreshold'               => 'ReadinessFailureThreshold',
+        'readinessInitialDelaySeconds'            => 'ReadinessInitialDelaySeconds',
+        'readinessPeriodSeconds'                  => 'ReadinessPeriodSeconds',
         'serviceMeshId'                           => 'ServiceMeshId',
         'sidecarProxyAckSloCPUResourceLimit'      => 'SidecarProxyAckSloCPUResourceLimit',
         'sidecarProxyAckSloCPUResourceRequest'    => 'SidecarProxyAckSloCPUResourceRequest',
@@ -356,6 +410,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         $res = [];
         if (null !== $this->concurrency) {
             $res['Concurrency'] = $this->concurrency;
+        }
+        if (null !== $this->enableCoreDump) {
+            $res['EnableCoreDump'] = $this->enableCoreDump;
         }
         if (null !== $this->excludeIPRanges) {
             $res['ExcludeIPRanges'] = $this->excludeIPRanges;
@@ -399,6 +456,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         if (null !== $this->preStop) {
             $res['PreStop'] = $this->preStop;
         }
+        if (null !== $this->privileged) {
+            $res['Privileged'] = $this->privileged;
+        }
         if (null !== $this->proxyInitAckSloCPUResourceLimit) {
             $res['ProxyInitAckSloCPUResourceLimit'] = $this->proxyInitAckSloCPUResourceLimit;
         }
@@ -428,6 +488,15 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (null !== $this->proxyStatsMatcher) {
             $res['ProxyStatsMatcher'] = $this->proxyStatsMatcher;
+        }
+        if (null !== $this->readinessFailureThreshold) {
+            $res['ReadinessFailureThreshold'] = $this->readinessFailureThreshold;
+        }
+        if (null !== $this->readinessInitialDelaySeconds) {
+            $res['ReadinessInitialDelaySeconds'] = $this->readinessInitialDelaySeconds;
+        }
+        if (null !== $this->readinessPeriodSeconds) {
+            $res['ReadinessPeriodSeconds'] = $this->readinessPeriodSeconds;
         }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
@@ -477,6 +546,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         if (isset($map['Concurrency'])) {
             $model->concurrency = $map['Concurrency'];
         }
+        if (isset($map['EnableCoreDump'])) {
+            $model->enableCoreDump = $map['EnableCoreDump'];
+        }
         if (isset($map['ExcludeIPRanges'])) {
             $model->excludeIPRanges = $map['ExcludeIPRanges'];
         }
@@ -519,6 +591,9 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         if (isset($map['PreStop'])) {
             $model->preStop = $map['PreStop'];
         }
+        if (isset($map['Privileged'])) {
+            $model->privileged = $map['Privileged'];
+        }
         if (isset($map['ProxyInitAckSloCPUResourceLimit'])) {
             $model->proxyInitAckSloCPUResourceLimit = $map['ProxyInitAckSloCPUResourceLimit'];
         }
@@ -548,6 +623,15 @@ class UpdateNamespaceScopeSidecarConfigRequest extends Model
         }
         if (isset($map['ProxyStatsMatcher'])) {
             $model->proxyStatsMatcher = $map['ProxyStatsMatcher'];
+        }
+        if (isset($map['ReadinessFailureThreshold'])) {
+            $model->readinessFailureThreshold = $map['ReadinessFailureThreshold'];
+        }
+        if (isset($map['ReadinessInitialDelaySeconds'])) {
+            $model->readinessInitialDelaySeconds = $map['ReadinessInitialDelaySeconds'];
+        }
+        if (isset($map['ReadinessPeriodSeconds'])) {
+            $model->readinessPeriodSeconds = $map['ReadinessPeriodSeconds'];
         }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
