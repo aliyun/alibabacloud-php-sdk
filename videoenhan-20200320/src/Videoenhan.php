@@ -1924,6 +1924,9 @@ class Videoenhan extends OpenApiClient
         if (!Utils::isUnset($request->addWatermark)) {
             $body['AddWatermark'] = $request->addWatermark;
         }
+        if (!Utils::isUnset($request->enhance)) {
+            $body['Enhance'] = $request->enhance;
+        }
         if (!Utils::isUnset($request->referenceURL)) {
             $body['ReferenceURL'] = $request->referenceURL;
         }
