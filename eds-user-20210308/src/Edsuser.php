@@ -133,7 +133,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **CheckUsedPropertyValue**.
+     * Before you call the operation, you can call the [ListProperty](~~410890~~) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
      *   *
      * @param CheckUsedPropertyValueRequest $request CheckUsedPropertyValueRequest
      * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
@@ -169,7 +169,7 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **CheckUsedPropertyValue**.
+     * Before you call the operation, you can call the [ListProperty](~~410890~~) operation to query the existing user properties and their IDs (PropertyId) and values (PropertyValueId).
      *   *
      * @param CheckUsedPropertyValueRequest $request CheckUsedPropertyValueRequest
      *
@@ -239,6 +239,10 @@ class Edsuser extends OpenApiClient
     public function createUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoLockTime)) {
+            $query['AutoLockTime'] = $request->autoLockTime;
+        }
         $body = [];
         if (!Utils::isUnset($request->password)) {
             $body['Password'] = $request->password;
@@ -247,7 +251,8 @@ class Edsuser extends OpenApiClient
             $body['Users'] = $request->users;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'CreateUsers',
@@ -601,7 +606,8 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Locks a virtual MFA device that is bound to a convenience user.
+     * ## Description
+     *   * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the convenience user will fail authentication based on the virtual MFA device. You can call the UnlockMfaDevice operation to unlock the virtual MFA device.
      *   *
      * @param LockMfaDeviceRequest $request LockMfaDeviceRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -637,7 +643,8 @@ class Edsuser extends OpenApiClient
     }
 
     /**
-     * Locks a virtual MFA device that is bound to a convenience user.
+     * ## Description
+     *   * After a virtual MFA device is locked, the status of the virtual MFA device changes to LOCKED. The convenience user to which the MFA device is bound cannot log on to the cloud desktop that resides in the workspace with the MFA feature enabled because the convenience user will fail authentication based on the virtual MFA device. You can call the UnlockMfaDevice operation to unlock the virtual MFA device.
      *   *
      * @param LockMfaDeviceRequest $request LockMfaDeviceRequest
      *
@@ -1097,12 +1104,17 @@ class Edsuser extends OpenApiClient
     public function unlockUsersWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->autoLockTime)) {
+            $query['AutoLockTime'] = $request->autoLockTime;
+        }
         $body = [];
         if (!Utils::isUnset($request->users)) {
             $body['Users'] = $request->users;
         }
         $req = new OpenApiRequest([
-            'body' => OpenApiUtilClient::parseToMap($body),
+            'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'UnlockUsers',

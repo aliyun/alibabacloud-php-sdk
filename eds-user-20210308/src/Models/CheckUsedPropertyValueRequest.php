@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CheckUsedPropertyValueRequest extends Model
 {
     /**
-     * @description CheckUsedPropertyValue
+     * @description The ID of the property.
      *
      * @example 380
      *
@@ -18,6 +18,8 @@ class CheckUsedPropertyValueRequest extends Model
     public $propertyId;
 
     /**
+     * @description The ID of the property value.
+     *
      * @example 978
      *
      * @var int

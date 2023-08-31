@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateUsersRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $autoLockTime;
+
+    /**
      * @description The initial password. If this parameter is left empty, an email for password reset is sent to the specified email address.
      *
      * @example Test123****
@@ -27,8 +32,9 @@ class CreateUsersRequest extends Model
      */
     public $users;
     protected $_name = [
-        'password' => 'Password',
-        'users'    => 'Users',
+        'autoLockTime' => 'AutoLockTime',
+        'password'     => 'Password',
+        'users'        => 'Users',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class CreateUsersRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->autoLockTime) {
+            $res['AutoLockTime'] = $this->autoLockTime;
+        }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
         }
@@ -62,6 +71,9 @@ class CreateUsersRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AutoLockTime'])) {
+            $model->autoLockTime = $map['AutoLockTime'];
+        }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
         }

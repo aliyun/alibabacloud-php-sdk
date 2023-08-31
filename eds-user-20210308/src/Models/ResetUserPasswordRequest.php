@@ -11,19 +11,6 @@ class ResetUserPasswordRequest extends Model
     /**
      * @description The method to notify the user after the password is reset.
      *
-     * Valid values:
-     *
-     *   1
-     *
-     * <!-- -->
-     *
-     *   2
-     *
-     * <!-- -->
-     *
-     *   3
-     *
-     * <!-- -->
      * @example 1
      *
      * @var int

@@ -102,15 +102,6 @@ class users extends Model
     /**
      * @description The status of the user.
      *
-     * Valid values:
-     *
-     *   0: The user status is normal.
-     *
-     * <!-- -->
-     *
-     *   9: The user is locked.
-     *
-     * <!-- -->
      * @example 0
      *
      * @var int
