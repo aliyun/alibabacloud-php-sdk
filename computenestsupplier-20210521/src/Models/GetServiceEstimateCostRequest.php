@@ -51,6 +51,11 @@ class GetServiceEstimateCostRequest extends Model
     public $serviceVersion;
 
     /**
+     * @var string
+     */
+    public $specificationName;
+
+    /**
      * @example Custom_Image_Ecs
      *
      * @var string
@@ -63,6 +68,7 @@ class GetServiceEstimateCostRequest extends Model
         'serviceId'         => 'ServiceId',
         'serviceInstanceId' => 'ServiceInstanceId',
         'serviceVersion'    => 'ServiceVersion',
+        'specificationName' => 'SpecificationName',
         'templateName'      => 'TemplateName',
     ];
 
@@ -90,6 +96,9 @@ class GetServiceEstimateCostRequest extends Model
         }
         if (null !== $this->serviceVersion) {
             $res['ServiceVersion'] = $this->serviceVersion;
+        }
+        if (null !== $this->specificationName) {
+            $res['SpecificationName'] = $this->specificationName;
         }
         if (null !== $this->templateName) {
             $res['TemplateName'] = $this->templateName;
@@ -123,6 +132,9 @@ class GetServiceEstimateCostRequest extends Model
         }
         if (isset($map['ServiceVersion'])) {
             $model->serviceVersion = $map['ServiceVersion'];
+        }
+        if (isset($map['SpecificationName'])) {
+            $model->specificationName = $map['SpecificationName'];
         }
         if (isset($map['TemplateName'])) {
             $model->templateName = $map['TemplateName'];

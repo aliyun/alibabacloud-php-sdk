@@ -37,6 +37,10 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetUploadCredentialsResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageRepositoriesResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListAcrImageTagsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactVersionsRequest;
@@ -51,6 +55,8 @@ use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceR
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ModifyServiceInstanceResourcesResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\PushMeteringDataResponse;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceRequest;
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\RegisterServiceResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactRequest;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ReleaseArtifactResponse;
 use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\UpdateArtifactRequest;
@@ -793,6 +799,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->serviceVersion)) {
             $query['ServiceVersion'] = $request->serviceVersion;
         }
+        if (!Utils::isUnset($request->specificationName)) {
+            $query['SpecificationName'] = $request->specificationName;
+        }
         if (!Utils::isUnset($request->templateName)) {
             $query['TemplateName'] = $request->templateName;
         }
@@ -913,6 +922,110 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getUploadCredentialsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAcrImageRepositoriesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListAcrImageRepositoriesResponse
+     */
+    public function listAcrImageRepositoriesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->artifactType)) {
+            $query['ArtifactType'] = $request->artifactType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->repoName)) {
+            $query['RepoName'] = $request->repoName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAcrImageRepositories',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAcrImageRepositoriesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAcrImageRepositoriesRequest $request
+     *
+     * @return ListAcrImageRepositoriesResponse
+     */
+    public function listAcrImageRepositories($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAcrImageRepositoriesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListAcrImageTagsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListAcrImageTagsResponse
+     */
+    public function listAcrImageTagsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->artifactType)) {
+            $query['ArtifactType'] = $request->artifactType;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->repoId)) {
+            $query['RepoId'] = $request->repoId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAcrImageTags',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAcrImageTagsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAcrImageTagsRequest $request
+     *
+     * @return ListAcrImageTagsResponse
+     */
+    public function listAcrImageTags($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAcrImageTagsWithOptions($request, $runtime);
     }
 
     /**
@@ -1277,6 +1390,55 @@ class ComputeNestSupplier extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->pushMeteringDataWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RegisterServiceRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return RegisterServiceResponse
+     */
+    public function registerServiceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RegisterService',
+            'version'     => '2021-05-21',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RegisterServiceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RegisterServiceRequest $request
+     *
+     * @return RegisterServiceResponse
+     */
+    public function registerService($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->registerServiceWithOptions($request, $runtime);
     }
 
     /**
