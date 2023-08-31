@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The access point of Alibaba Cloud.
+     *
+     * > This parameter is valid only when the value of **InstanceId** is the instance ID of an Anycast elastic IP address (EIP).
      * @example cn-hongkong-pop
      *
      * @var string
@@ -16,6 +19,8 @@ class data extends Model
     public $accessRegion;
 
     /**
+     * @description The beginning of the time range that you queried. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1684373600099
      *
      * @var string
@@ -23,6 +28,8 @@ class data extends Model
     public $beginTime;
 
     /**
+     * @description The traffic volume. Unit: bytes.
+     *
      * @example 88
      *
      * @var float
@@ -30,16 +37,26 @@ class data extends Model
     public $byteCount;
 
     /**
+     * @description The local city.
+     *
+     * @example Nanjing
+     *
      * @var string
      */
     public $cloudCity;
 
     /**
+     * @description The local country or region.
+     *
+     * @example China
+     *
      * @var string
      */
     public $cloudCountry;
 
     /**
+     * @description The local IP address.
+     *
      * @example 112.74.XX.XX
      *
      * @var string
@@ -47,11 +64,17 @@ class data extends Model
     public $cloudIp;
 
     /**
+     * @description The local ISP.
+     *
+     * @example China Mobile
+     *
      * @var string
      */
     public $cloudIsp;
 
     /**
+     * @description The local port.
+     *
      * @example 443
      *
      * @var string
@@ -59,6 +82,8 @@ class data extends Model
     public $cloudPort;
 
     /**
+     * @description The product code of the instance to which the local IP address belongs.
+     *
      * @example EIP
      *
      * @var string
@@ -66,11 +91,19 @@ class data extends Model
     public $cloudProduct;
 
     /**
+     * @description The local province.
+     *
+     * @example Jiangsu
+     *
      * @var string
      */
     public $cloudProvince;
 
     /**
+     * @description The direction of the Internet traffic. Valid values:
+     *
+     * - **in**: inbound
+     * - **out**: outbound
      * @example in
      *
      * @var string
@@ -78,6 +111,8 @@ class data extends Model
     public $direction;
 
     /**
+     * @description The inbound traffic volume. Unit: bytes.
+     *
      * @example 88
      *
      * @var float
@@ -85,6 +120,8 @@ class data extends Model
     public $inByteCount;
 
     /**
+     * @description The number of inbound disordered packets.
+     *
      * @example 2
      *
      * @var float
@@ -92,6 +129,8 @@ class data extends Model
     public $inOutOrderCount;
 
     /**
+     * @description The number of inbound packets.
+     *
      * @example 33
      *
      * @var float
@@ -99,6 +138,8 @@ class data extends Model
     public $inPacketCount;
 
     /**
+     * @description The number of inbound repeated packets.
+     *
      * @example 0
      *
      * @var float
@@ -106,6 +147,8 @@ class data extends Model
     public $inRetranCount;
 
     /**
+     * @description The instance ID to which the local IP address belongs.
+     *
      * @example eip-sample*
      *
      * @var string
@@ -113,16 +156,26 @@ class data extends Model
     public $instanceId;
 
     /**
+     * @description The remote city. In most cases, this parameter is empty if the value of **OtherCountry** is not China.
+     *
+     * @example Austin
+     *
      * @var string
      */
     public $otherCity;
 
     /**
+     * @description The remote country or region.
+     *
+     * @example United States
+     *
      * @var string
      */
     public $otherCountry;
 
     /**
+     * @description The remote IP address.
+     *
      * @example 122.112.XX.XX
      *
      * @var string
@@ -130,6 +183,8 @@ class data extends Model
     public $otherIp;
 
     /**
+     * @description The remote ISP.
+     *
      * @example amazon.com
      *
      * @var string
@@ -137,6 +192,8 @@ class data extends Model
     public $otherIsp;
 
     /**
+     * @description The remote port.
+     *
      * @example 40002
      *
      * @var string
@@ -144,6 +201,8 @@ class data extends Model
     public $otherPort;
 
     /**
+     * @description The product code of the instance to which the remote IP address belongs. If the IP address is not in the cloud, this parameter is empty.
+     *
      * @example ECS
      *
      * @var string
@@ -151,11 +210,17 @@ class data extends Model
     public $otherProduct;
 
     /**
+     * @description The remote province. In most cases, this parameter is empty if the value of **OtherCountry** is not China.
+     *
+     * @example Texas
+     *
      * @var string
      */
     public $otherProvince;
 
     /**
+     * @description The outbound traffic volume. Unit: bytes.
+     *
      * @example 66
      *
      * @var float
@@ -163,6 +228,8 @@ class data extends Model
     public $outByteCount;
 
     /**
+     * @description The number of disordered packets.
+     *
      * @example 1
      *
      * @var float
@@ -170,6 +237,8 @@ class data extends Model
     public $outOrderCount;
 
     /**
+     * @description The number of outbound disordered packets.
+     *
      * @example 1
      *
      * @var float
@@ -177,6 +246,8 @@ class data extends Model
     public $outOutOrderCount;
 
     /**
+     * @description The number of outbound packets.
+     *
      * @example 22
      *
      * @var float
@@ -184,6 +255,8 @@ class data extends Model
     public $outPacketCount;
 
     /**
+     * @description The number of outbound repeated packets.
+     *
      * @example 1
      *
      * @var float
@@ -191,6 +264,8 @@ class data extends Model
     public $outRetranCount;
 
     /**
+     * @description The number of packets.
+     *
      * @example 66
      *
      * @var float
@@ -198,6 +273,8 @@ class data extends Model
     public $packetCount;
 
     /**
+     * @description The protocol number.
+     *
      * @example 6
      *
      * @var string
@@ -205,6 +282,8 @@ class data extends Model
     public $protocol;
 
     /**
+     * @description The number of repeated packets.
+     *
      * @example 0
      *
      * @var float
@@ -212,6 +291,8 @@ class data extends Model
     public $retranCount;
 
     /**
+     * @description The round-trip time (RTT). Unit: milliseconds.
+     *
      * @example 10000
      *
      * @var float

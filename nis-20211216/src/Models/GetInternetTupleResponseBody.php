@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetInternetTupleResponseBody extends Model
 {
     /**
+     * @description The ranking result of instances by Internet traffic.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example D5E98683-355B-5867-8D3D-A24755F6895B
      *
      * @var string

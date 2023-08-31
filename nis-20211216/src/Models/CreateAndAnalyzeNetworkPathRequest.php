@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CreateAndAnalyzeNetworkPathRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $auditParam;
+
+    /**
      * @description The protocol type. Valid values:
      *
      *   **tcp**: Transmission Control Protocol (TCP)
@@ -115,6 +120,7 @@ class CreateAndAnalyzeNetworkPathRequest extends Model
      */
     public $targetType;
     protected $_name = [
+        'auditParam'      => 'AuditParam',
         'protocol'        => 'Protocol',
         'regionId'        => 'RegionId',
         'sourceId'        => 'SourceId',
@@ -134,6 +140,9 @@ class CreateAndAnalyzeNetworkPathRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->auditParam) {
+            $res['AuditParam'] = $this->auditParam;
+        }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
         }
@@ -176,6 +185,9 @@ class CreateAndAnalyzeNetworkPathRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AuditParam'])) {
+            $model->auditParam = $map['AuditParam'];
+        }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
         }

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class GetInternetTupleRequest extends Model
 {
     /**
+     * @description The IDs of member accounts.
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @description The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1684373600099
      *
      * @var int
@@ -21,6 +25,8 @@ class GetInternetTupleRequest extends Model
     public $beginTime;
 
     /**
+     * @description The local IP address.
+     *
      * @example 112.74.XX.XX
      *
      * @var string
@@ -28,11 +34,19 @@ class GetInternetTupleRequest extends Model
     public $cloudIp;
 
     /**
+     * @description The local Internet service provider (ISP).
+     *
+     * > In most cases, the value is Alibaba or Alibaba Cloud.
+     * @example Alibaba
+     *
      * @var string
      */
     public $cloudIsp;
 
     /**
+     * @description The local port.
+     *
+     * > This parameter is required only when you set **TupleType** to **5**.
      * @example 443
      *
      * @var string
@@ -40,6 +54,10 @@ class GetInternetTupleRequest extends Model
     public $cloudPort;
 
     /**
+     * @description The direction of the Internet traffic that you want to query. Valid values:
+     *
+     * - **in**: inbound
+     * - **out**: outbound
      * @example in
      *
      * @var string
@@ -47,6 +65,8 @@ class GetInternetTupleRequest extends Model
     public $direction;
 
     /**
+     * @description The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1684373700099
      *
      * @var int
@@ -54,6 +74,8 @@ class GetInternetTupleRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the Alibaba Cloud instance.
+     *
      * @example eip-sample*
      *
      * @var string
@@ -61,11 +83,15 @@ class GetInternetTupleRequest extends Model
     public $instanceId;
 
     /**
+     * @description The instance IDs for filtering.
+     *
      * @var string[]
      */
     public $instanceList;
 
     /**
+     * @description The metric for instance ranking. Default value: **ByteCount**. This value specifies that instances are ranked by traffic volume.
+     *
      * @example ByteCount
      *
      * @var string
@@ -73,16 +99,29 @@ class GetInternetTupleRequest extends Model
     public $orderBy;
 
     /**
+     * @description The remote city.
+     *
+     * > This parameter is required only if you set **TupleType** to **5**.
+     * @example Hangzhou
+     *
      * @var string
      */
     public $otherCity;
 
     /**
+     * @description The remote country.
+     *
+     * > This parameter is required only if you set **TupleType** to **5**.
+     * @example China
+     *
      * @var string
      */
     public $otherCountry;
 
     /**
+     * @description The remote IP address.
+     *
+     * > This parameter is required only when you set **TupleType** to **2** or **5**.
      * @example 122.112.XX.XX
      *
      * @var string
@@ -90,11 +129,19 @@ class GetInternetTupleRequest extends Model
     public $otherIp;
 
     /**
+     * @description The remote ISP.
+     *
+     * > This parameter is required if you want to view the information about the remote ISP.
+     * @example China Mobile
+     *
      * @var string
      */
     public $otherIsp;
 
     /**
+     * @description The remote port.
+     *
+     * > This parameter is required only when you set **TupleType** to **5**.
      * @example 40002
      *
      * @var string
@@ -102,6 +149,9 @@ class GetInternetTupleRequest extends Model
     public $otherPort;
 
     /**
+     * @description The protocol number.
+     *
+     * > All protocols are supported. This parameter is required only when you set **TupleType** to **5**.
      * @example 6
      *
      * @var string
@@ -109,6 +159,8 @@ class GetInternetTupleRequest extends Model
     public $protocol;
 
     /**
+     * @description The ID of the region for which you want to query the Internet traffic.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -116,6 +168,10 @@ class GetInternetTupleRequest extends Model
     public $regionId;
 
     /**
+     * @description The order in which instances are ranked by Internet traffic. Valid values:
+     *
+     * - **desc**: the descending order
+     * - **asc**: the ascending order
      * @example desc
      *
      * @var string
@@ -123,6 +179,8 @@ class GetInternetTupleRequest extends Model
     public $sort;
 
     /**
+     * @description Specifies top-N traffic data to display. Default value: **10**. This value specifies to display top-10 traffic data by default.
+     *
      * @example 10
      *
      * @var int
@@ -130,6 +188,11 @@ class GetInternetTupleRequest extends Model
     public $topN;
 
     /**
+     * @description The type of the tuple. Valid values:
+     *
+     * - **1**: 1-tuple
+     * - **2**: 2-tuples
+     * - **5**: 5-tuples
      * @example 1
      *
      * @var int
@@ -137,6 +200,9 @@ class GetInternetTupleRequest extends Model
     public $tupleType;
 
     /**
+     * @description Specifies whether to enable the multi-account management feature. Default value: **false**. This value specifies that the multi-account management feature is disabled.
+     *
+     * > By default, the multi-account management feature is disabled. If you want to enable this feature, contact your customer business manager.
      * @example false
      *
      * @var bool

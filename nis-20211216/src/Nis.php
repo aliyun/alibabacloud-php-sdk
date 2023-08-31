@@ -25,6 +25,12 @@ use AlibabaCloud\SDK\Nis\V20211216\Models\GetNatTopNRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNatTopNResponse;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNetworkReachableAnalysisRequest;
 use AlibabaCloud\SDK\Nis\V20211216\Models\GetNetworkReachableAnalysisResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetTransitRouterFlowTopNShrinkRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNRequest;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNResponse;
+use AlibabaCloud\SDK\Nis\V20211216\Models\GetVbrFlowTopNShrinkRequest;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -207,6 +213,9 @@ class Nis extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->auditParam)) {
+            $query['AuditParam'] = $request->auditParam;
+        }
         if (!Utils::isUnset($request->networkPathId)) {
             $query['NetworkPathId'] = $request->networkPathId;
         }
@@ -573,5 +582,203 @@ class Nis extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getNetworkReachableAnalysisWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetTransitRouterFlowTopNRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetTransitRouterFlowTopNResponse
+     */
+    public function getTransitRouterFlowTopNWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetTransitRouterFlowTopNShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->accountIds)) {
+            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountIdsShrink)) {
+            $query['AccountIds'] = $request->accountIdsShrink;
+        }
+        if (!Utils::isUnset($request->bandwithPackageId)) {
+            $query['BandwithPackageId'] = $request->bandwithPackageId;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->otherIp)) {
+            $query['OtherIp'] = $request->otherIp;
+        }
+        if (!Utils::isUnset($request->otherPort)) {
+            $query['OtherPort'] = $request->otherPort;
+        }
+        if (!Utils::isUnset($request->otherRegion)) {
+            $query['OtherRegion'] = $request->otherRegion;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->thisIp)) {
+            $query['ThisIp'] = $request->thisIp;
+        }
+        if (!Utils::isUnset($request->thisPort)) {
+            $query['ThisPort'] = $request->thisPort;
+        }
+        if (!Utils::isUnset($request->thisRegion)) {
+            $query['ThisRegion'] = $request->thisRegion;
+        }
+        if (!Utils::isUnset($request->topN)) {
+            $query['TopN'] = $request->topN;
+        }
+        if (!Utils::isUnset($request->useMultiAccount)) {
+            $query['UseMultiAccount'] = $request->useMultiAccount;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetTransitRouterFlowTopN',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetTransitRouterFlowTopNResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetTransitRouterFlowTopNRequest $request
+     *
+     * @return GetTransitRouterFlowTopNResponse
+     */
+    public function getTransitRouterFlowTopN($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getTransitRouterFlowTopNWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetVbrFlowTopNRequest $tmpReq
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetVbrFlowTopNResponse
+     */
+    public function getVbrFlowTopNWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new GetVbrFlowTopNShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->accountIds)) {
+            $request->accountIdsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->accountIds, 'AccountIds', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->accountIdsShrink)) {
+            $query['AccountIds'] = $request->accountIdsShrink;
+        }
+        if (!Utils::isUnset($request->attachmentId)) {
+            $query['AttachmentId'] = $request->attachmentId;
+        }
+        if (!Utils::isUnset($request->beginTime)) {
+            $query['BeginTime'] = $request->beginTime;
+        }
+        if (!Utils::isUnset($request->cenId)) {
+            $query['CenId'] = $request->cenId;
+        }
+        if (!Utils::isUnset($request->cloudIp)) {
+            $query['CloudIp'] = $request->cloudIp;
+        }
+        if (!Utils::isUnset($request->cloudPort)) {
+            $query['CloudPort'] = $request->cloudPort;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
+        if (!Utils::isUnset($request->endTime)) {
+            $query['EndTime'] = $request->endTime;
+        }
+        if (!Utils::isUnset($request->groupBy)) {
+            $query['GroupBy'] = $request->groupBy;
+        }
+        if (!Utils::isUnset($request->orderBy)) {
+            $query['OrderBy'] = $request->orderBy;
+        }
+        if (!Utils::isUnset($request->otherIp)) {
+            $query['OtherIp'] = $request->otherIp;
+        }
+        if (!Utils::isUnset($request->otherPort)) {
+            $query['OtherPort'] = $request->otherPort;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->sort)) {
+            $query['Sort'] = $request->sort;
+        }
+        if (!Utils::isUnset($request->topN)) {
+            $query['TopN'] = $request->topN;
+        }
+        if (!Utils::isUnset($request->useMultiAccount)) {
+            $query['UseMultiAccount'] = $request->useMultiAccount;
+        }
+        if (!Utils::isUnset($request->virtualBorderRouterId)) {
+            $query['VirtualBorderRouterId'] = $request->virtualBorderRouterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetVbrFlowTopN',
+            'version'     => '2021-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetVbrFlowTopNResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetVbrFlowTopNRequest $request
+     *
+     * @return GetVbrFlowTopNResponse
+     */
+    public function getVbrFlowTopN($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getVbrFlowTopNWithOptions($request, $runtime);
     }
 }
