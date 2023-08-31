@@ -24,6 +24,11 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupRetentionPeriod;
 
     /**
+     * @var string
+     */
+    public $dbsInstance;
+
+    /**
      * @description Indicates whether incremental data backup is enabled. Valid values:
      *
      *   **1**: Incremental data backup is enabled.
@@ -81,6 +86,7 @@ class DescribeBackupPolicyResponseBody extends Model
     protected $_name = [
         'accessDeniedDetail'      => 'AccessDeniedDetail',
         'backupRetentionPeriod'   => 'BackupRetentionPeriod',
+        'dbsInstance'             => 'DbsInstance',
         'enableBackupLog'         => 'EnableBackupLog',
         'preferredBackupPeriod'   => 'PreferredBackupPeriod',
         'preferredBackupTime'     => 'PreferredBackupTime',
@@ -100,6 +106,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (null !== $this->backupRetentionPeriod) {
             $res['BackupRetentionPeriod'] = $this->backupRetentionPeriod;
+        }
+        if (null !== $this->dbsInstance) {
+            $res['DbsInstance'] = $this->dbsInstance;
         }
         if (null !== $this->enableBackupLog) {
             $res['EnableBackupLog'] = $this->enableBackupLog;
@@ -133,6 +142,9 @@ class DescribeBackupPolicyResponseBody extends Model
         }
         if (isset($map['BackupRetentionPeriod'])) {
             $model->backupRetentionPeriod = $map['BackupRetentionPeriod'];
+        }
+        if (isset($map['DbsInstance'])) {
+            $model->dbsInstance = $map['DbsInstance'];
         }
         if (isset($map['EnableBackupLog'])) {
             $model->enableBackupLog = $map['EnableBackupLog'];
