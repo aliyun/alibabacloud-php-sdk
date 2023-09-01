@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $errorCode;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
@@ -30,11 +36,15 @@ class DescribeRegionsResponseBody extends Model
     public $regions;
 
     /**
+     * @example C458B1E8-1683-3645-B154-6BA32080EEA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

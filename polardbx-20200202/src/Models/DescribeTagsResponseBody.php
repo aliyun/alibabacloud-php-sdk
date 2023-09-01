@@ -12,13 +12,13 @@ class DescribeTagsResponseBody extends Model
     /**
      * @description Id of the request
      *
+     * @example requestid
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 标签信息列表
-     *
      * @var tagInfos[]
      */
     public $tagInfos;

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class tagSet extends Model
 {
     /**
-     * @description 标签名称
+     * @example key1
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 标签值
+     * @example value1
      *
      * @var string
      */

@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationMaintainConfRequest extends Model
 {
     /**
+     * @example 1,2,3,4,5,6,7
+     *
      * @var string
      */
     public $cycleTime;
 
     /**
+     * @example Week
+     *
      * @var string
      */
     public $cycleType;
 
     /**
+     * @example 02:00:00Z
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 02:00:00Z
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

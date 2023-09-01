@@ -10,20 +10,20 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description 下一个查询开始Token，NextToken为空说明没有下一个
+     * @example xxdd
      *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example xxxx-xxxxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 资源列表
-     *
      * @var tagResources
      */
     public $tagResources;

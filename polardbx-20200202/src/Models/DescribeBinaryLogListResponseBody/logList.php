@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class logList extends Model
 {
     /**
+     * @example 2021-09-09 10:27:46
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @example 2021-09-09 10:27:46
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @example http://polarx-cdc-binlog-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/polardbx_cdc/pxc-hzfd132143sfds1/binlog.000001?Expires=1636469502&OSSAccessKeyId=LT13fds12dsafddsf&Signature=fdpm%bdsfadsa%2F%bdsafdsaf%3D
+     *
      * @var string
      */
     public $downloadLink;
 
     /**
+     * @example 2021-11-09 10:27:46
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example binlog.000001
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @example 536870912
+     *
      * @var int
      */
     public $logSize;
 
     /**
+     * @example 2021-11-09 10:27:46
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $purgeStatus;
 
     /**
+     * @example 10.110.88.9
+     *
      * @var string
      */
     public $uploadHost;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $uploadStatus;

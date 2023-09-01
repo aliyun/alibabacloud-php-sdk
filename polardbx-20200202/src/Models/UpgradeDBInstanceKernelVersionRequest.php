@@ -9,23 +9,35 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBInstanceKernelVersionRequest extends Model
 {
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example polarx-kernel_5.4.12-16349923_xcluster-20210926
+     *
+     * @var string
+     */
+    public $minorVersion;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 切换模式： 0:立刻执行，1：运维时间执行
+     * @example 0
      *
      * @var string
      */
     public $switchMode;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
+        'minorVersion'   => 'MinorVersion',
         'regionId'       => 'RegionId',
         'switchMode'     => 'SwitchMode',
     ];
@@ -39,6 +51,9 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->minorVersion) {
+            $res['MinorVersion'] = $this->minorVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -60,6 +75,9 @@ class UpgradeDBInstanceKernelVersionRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['MinorVersion'])) {
+            $model->minorVersion = $map['MinorVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

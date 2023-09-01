@@ -9,61 +9,85 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTasksRequest extends Model
 {
     /**
+     * @example -1
+     *
      * @var int
      */
     public $allowCancel;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $allowChange;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $changeLevel;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $dbType;
 
     /**
+     * @example pxc-xxxxx
+     *
      * @var string
      */
     public $insName;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 25
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $productId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example -1
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @example all
+     *
      * @var string
      */
     public $taskType;

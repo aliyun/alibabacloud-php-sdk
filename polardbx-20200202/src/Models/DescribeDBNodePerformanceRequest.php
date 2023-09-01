@@ -9,41 +9,57 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodePerformanceRequest extends Model
 {
     /**
+     * @example polarx_cn
+     *
      * @var string
      */
     public $characterType;
 
     /**
+     * @example pxc-*******
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example pxc-i-******,pxc-i-*******
+     *
      * @var string
      */
     public $DBNodeIds;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $DBNodeRole;
 
     /**
+     * @example 2012-06-18T15:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @example Cpu_Usage,Mem_Usage
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2012-06-08T15:00Z
+     *
      * @var string
      */
     public $startTime;

@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class performanceItem extends Model
 {
     /**
+     * @example pxc-i-********
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @example Logic_TPS
+     *
      * @var string
      */
     public $measurement;
 
     /**
+     * @example logic_tps
+     *
      * @var string
      */
     public $metricName;

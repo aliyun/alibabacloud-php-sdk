@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var int
      */
     public $backupModel;
 
     /**
+     * @example 111
+     *
      * @var int
      */
     public $backupSetId;
 
     /**
+     * @example 88803195
+     *
      * @var int
      */
     public $backupSetSize;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $backupType;
 
     /**
+     * @example 1635706960956
+     *
      * @var int
      */
     public $beginTime;
 
     /**
+     * @example 1635706960956
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $status;

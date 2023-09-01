@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodePerformanceResponseBody extends Model
 {
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 2021-10-20T02:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -25,11 +29,15 @@ class DescribeDBNodePerformanceResponseBody extends Model
     public $performanceKeys;
 
     /**
+     * @example EFB5E10B-5268-170F-A378-9AF86CCEACC8
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2021-10-20T00:00Z
+     *
      * @var string
      */
     public $startTime;

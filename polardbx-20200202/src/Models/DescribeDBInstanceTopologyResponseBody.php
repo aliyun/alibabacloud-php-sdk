@@ -15,6 +15,8 @@ class DescribeDBInstanceTopologyResponseBody extends Model
     public $data;
 
     /**
+     * @example C458B1E8-1683-3645-B154-6BA32080EEA
+     *
      * @var string
      */
     public $requestId;

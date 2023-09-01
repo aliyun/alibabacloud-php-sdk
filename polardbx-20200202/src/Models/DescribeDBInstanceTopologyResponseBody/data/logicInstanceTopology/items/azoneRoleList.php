@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class azoneRoleList extends Model
 {
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $azone;
 
     /**
+     * @example leader
+     *
      * @var string
      */
     public $role;

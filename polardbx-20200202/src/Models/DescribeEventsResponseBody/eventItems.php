@@ -9,77 +9,77 @@ use AlibabaCloud\Tea\Model;
 class eventItems extends Model
 {
     /**
-     * @description 事件ID
+     * @example 50421290
      *
      * @var int
      */
     public $eventId;
 
     /**
-     * @description 事件名称
+     * @example ModifySecurityIps
      *
      * @var string
      */
     public $eventName;
 
     /**
-     * @description 补充信息
+     * @example {\"Domain\": \"rds-cn-hangzhou.aliyuncs.com\"}
      *
      * @var string
      */
     public $eventPayload;
 
     /**
-     * @description 原因
+     * @example FROM_USER
      *
      * @var string
      */
     public $eventReason;
 
     /**
-     * @description 记录时间
+     * @example 2021-10-15T06:39:49Z
      *
      * @var string
      */
     public $eventRecordTime;
 
     /**
-     * @description 事件时间
+     * @example 2021-10-15T06:35:00Z
      *
      * @var string
      */
     public $eventTime;
 
     /**
-     * @description 事件类型
+     * @example SecurityManagement
      *
      * @var string
      */
     public $eventType;
 
     /**
-     * @description 事件用户类型
+     * @example USRE
      *
      * @var string
      */
     public $eventUserType;
 
     /**
-     * @description 区域ID
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源名
+     * @example px-bp1v8udesc89g156g
      *
      * @var string
      */
     public $resourceName;
 
     /**
-     * @description 资源类型
+     * @example instance
      *
      * @var string
      */

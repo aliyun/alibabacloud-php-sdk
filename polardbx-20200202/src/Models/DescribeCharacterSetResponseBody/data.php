@@ -14,6 +14,8 @@ class data extends Model
     public $characterSet;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $engine;

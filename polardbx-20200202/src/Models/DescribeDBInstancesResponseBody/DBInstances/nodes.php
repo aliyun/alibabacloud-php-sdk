@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodes extends Model
 {
     /**
+     * @example polarx.x4.large.2e
+     *
      * @var string
      */
     public $classCode;
@@ -19,11 +21,15 @@ class nodes extends Model
     public $id;
 
     /**
+     * @example cn-hangzhou-g-aliyun
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

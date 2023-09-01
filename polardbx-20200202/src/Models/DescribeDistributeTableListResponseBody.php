@@ -15,16 +15,22 @@ class DescribeDistributeTableListResponseBody extends Model
     public $data;
 
     /**
+     * @example Success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example C458B1E8-1683-3645-B154-6BA32080EEA
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

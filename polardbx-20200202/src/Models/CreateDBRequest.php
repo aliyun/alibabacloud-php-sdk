@@ -9,53 +9,71 @@ use AlibabaCloud\Tea\Model;
 class CreateDBRequest extends Model
 {
     /**
+     * @example testaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @example utf8mb4
+     *
      * @var string
      */
     public $charset;
 
     /**
+     * @example pxc-**************
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example db for test
+     *
      * @var string
      */
     public $dbDescription;
 
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $dbName;
 
     /**
-     * @description drds/auto 用来区分所建库为自动拆分模式，还是手动拆分模式
+     * @example auto
      *
      * @var string
      */
     public $mode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example securityAccount
+     *
      * @var string
      */
     public $securityAccountName;
 
     /**
+     * @example securityPassword
+     *
      * @var string
      */
     public $securityAccountPassword;

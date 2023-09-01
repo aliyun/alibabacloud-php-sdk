@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyParameterRequest extends Model
 {
     /**
+     * @example FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example pxc-hzjasdyuoo
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example compute
+     *
      * @var string
      */
     public $paramLevel;
 
     /**
+     * @example {"CONN_POOL_BLOCK_TIMEOUT":6000}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

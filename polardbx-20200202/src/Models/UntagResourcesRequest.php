@@ -9,36 +9,30 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
-     * @description 是否全部删除，只针对TagKey.N为空时有效。 取值范围： true  false True False  默认是 false
-     *
      * @var bool
      */
     public $all;
 
     /**
-     * @description 地域
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源ID，最多50个子项
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @example PolarDBXInstance
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 标签键，最多20个子项
-     *
      * @var string[]
      */
     public $tagKey;

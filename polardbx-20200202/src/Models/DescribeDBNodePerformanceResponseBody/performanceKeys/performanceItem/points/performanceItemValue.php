@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class performanceItemValue extends Model
 {
     /**
+     * @example 1600822800000
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @example 42.38
+     *
      * @var string
      */
     public $value;

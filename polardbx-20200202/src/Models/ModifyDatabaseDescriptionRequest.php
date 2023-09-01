@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDatabaseDescriptionRequest extends Model
 {
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -19,11 +21,15 @@ class ModifyDatabaseDescriptionRequest extends Model
     public $dbDescription;
 
     /**
+     * @example testDB
+     *
      * @var string
      */
     public $dbName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

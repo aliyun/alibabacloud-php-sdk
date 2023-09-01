@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class CreateSuperAccountRequest extends Model
 {
     /**
+     * @example testdbadescription
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @example dba
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example testdbapassword
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @example pxc-************
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

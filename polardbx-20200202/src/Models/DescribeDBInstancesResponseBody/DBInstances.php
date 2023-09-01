@@ -11,28 +11,64 @@ use AlibabaCloud\Tea\Model;
 class DBInstances extends Model
 {
     /**
+     * @example pxc-c-dmlgit****
+     *
+     * @var string
+     */
+    public $cdcInstanceName;
+
+    /**
+     * @example polarx.x4.large.2e
+     *
+     * @var string
+     */
+    public $cnNodeClassCode;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $cnNodeCount;
+
+    /**
+     * @example drds_polarxpre_public_cn
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $containBinlogX;
+
+    /**
+     * @example 2021-11-01T03:49:50.000+0000
+     *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description 数据库实例名称
+     * @example pxc-xxxxx
      *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @example 5.7
+     *
      * @var string
      */
     public $DBVersion;
@@ -43,26 +79,50 @@ class DBInstances extends Model
     public $description;
 
     /**
+     * @example mysql.n4.medium.25
+     *
+     * @var string
+     */
+    public $dnNodeClassCode;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $dnNodeCount;
+
+    /**
+     * @example polarx
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2021-12-01T16:00:00.000+0000
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $expired;
 
     /**
+     * @example pxc-hzr2yeov9jmg3z
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
@@ -73,21 +133,29 @@ class DBInstances extends Model
     public $lockReason;
 
     /**
+     * @example polarx-kernel_5.4.12-16349923_xcluster-20210926
+     *
      * @var string
      */
     public $minorVersion;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @example polarx.x4.large.2e
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @example 5
+     *
      * @var int
      */
     public $nodeCount;
@@ -98,6 +166,8 @@ class DBInstances extends Model
     public $nodes;
 
     /**
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
@@ -108,55 +178,87 @@ class DBInstances extends Model
     public $readDBInstances;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源组ID
+     * @example rg-xxxxxx
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example enterprise
+     *
+     * @var string
+     */
+    public $series;
+
+    /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 40658534400
+     *
      * @var int
      */
     public $storageUsed;
 
     /**
-     * @description 标签集合
+     * @example true
      *
+     * @var bool
+     */
+    public $supportBinlogX;
+
+    /**
      * @var tagSet[]
      */
     public $tagSet;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description VPC ID。
+     *
+     * @example VPCID
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'cdcInstanceName' => 'CdcInstanceName',
+        'cnNodeClassCode' => 'CnNodeClassCode',
+        'cnNodeCount'     => 'CnNodeCount',
         'commodityCode'   => 'CommodityCode',
+        'containBinlogX'  => 'ContainBinlogX',
         'createTime'      => 'CreateTime',
         'DBInstanceName'  => 'DBInstanceName',
         'DBType'          => 'DBType',
         'DBVersion'       => 'DBVersion',
         'description'     => 'Description',
+        'dnNodeClassCode' => 'DnNodeClassCode',
+        'dnNodeCount'     => 'DnNodeCount',
         'engine'          => 'Engine',
         'expireTime'      => 'ExpireTime',
         'expired'         => 'Expired',
@@ -172,8 +274,10 @@ class DBInstances extends Model
         'readDBInstances' => 'ReadDBInstances',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'series'          => 'Series',
         'status'          => 'Status',
         'storageUsed'     => 'StorageUsed',
+        'supportBinlogX'  => 'SupportBinlogX',
         'tagSet'          => 'TagSet',
         'type'            => 'Type',
         'VPCId'           => 'VPCId',
@@ -187,8 +291,20 @@ class DBInstances extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cdcInstanceName) {
+            $res['CdcInstanceName'] = $this->cdcInstanceName;
+        }
+        if (null !== $this->cnNodeClassCode) {
+            $res['CnNodeClassCode'] = $this->cnNodeClassCode;
+        }
+        if (null !== $this->cnNodeCount) {
+            $res['CnNodeCount'] = $this->cnNodeCount;
+        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->containBinlogX) {
+            $res['ContainBinlogX'] = $this->containBinlogX;
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
@@ -204,6 +320,12 @@ class DBInstances extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->dnNodeClassCode) {
+            $res['DnNodeClassCode'] = $this->dnNodeClassCode;
+        }
+        if (null !== $this->dnNodeCount) {
+            $res['DnNodeCount'] = $this->dnNodeCount;
         }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
@@ -256,11 +378,17 @@ class DBInstances extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
+        }
+        if (null !== $this->supportBinlogX) {
+            $res['SupportBinlogX'] = $this->supportBinlogX;
         }
         if (null !== $this->tagSet) {
             $res['TagSet'] = [];
@@ -292,8 +420,20 @@ class DBInstances extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CdcInstanceName'])) {
+            $model->cdcInstanceName = $map['CdcInstanceName'];
+        }
+        if (isset($map['CnNodeClassCode'])) {
+            $model->cnNodeClassCode = $map['CnNodeClassCode'];
+        }
+        if (isset($map['CnNodeCount'])) {
+            $model->cnNodeCount = $map['CnNodeCount'];
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['ContainBinlogX'])) {
+            $model->containBinlogX = $map['ContainBinlogX'];
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
@@ -309,6 +449,12 @@ class DBInstances extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DnNodeClassCode'])) {
+            $model->dnNodeClassCode = $map['DnNodeClassCode'];
+        }
+        if (isset($map['DnNodeCount'])) {
+            $model->dnNodeCount = $map['DnNodeCount'];
         }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
@@ -363,11 +509,17 @@ class DBInstances extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];
+        }
+        if (isset($map['SupportBinlogX'])) {
+            $model->supportBinlogX = $map['SupportBinlogX'];
         }
         if (isset($map['TagSet'])) {
             if (!empty($map['TagSet'])) {

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class accounts extends Model
 {
     /**
+     * @example root4test
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;

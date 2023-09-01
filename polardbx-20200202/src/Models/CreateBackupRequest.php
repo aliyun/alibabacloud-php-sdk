@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateBackupRequest extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @example pxc-**************
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

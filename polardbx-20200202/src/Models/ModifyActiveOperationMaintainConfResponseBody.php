@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyActiveOperationMaintainConfResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @example 4035409E-7297-4115-ABC9-C1C3942BC069
      *
      * @var string
      */

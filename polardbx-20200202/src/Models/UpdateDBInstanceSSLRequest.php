@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class UpdateDBInstanceSSLRequest extends Model
 {
     /**
+     * @example pxc-hzrqjarxdocd4t.polarx.rds.aliyuncs.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enableSSL;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

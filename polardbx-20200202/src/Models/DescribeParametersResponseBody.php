@@ -15,6 +15,8 @@ class DescribeParametersResponseBody extends Model
     public $data;
 
     /**
+     * @example 6BA32080EEA
+     *
      * @var string
      */
     public $requestId;

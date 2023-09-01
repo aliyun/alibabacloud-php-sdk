@@ -9,46 +9,66 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesRequest extends Model
 {
     /**
-     * @description 实例名称
+     * @example dinga93c84f4d***
      *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @var bool
+     */
+    public $mustHasCdc;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源组ID
+     * @example rg-acfmyst47hjw***
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 标签过滤条件
+     * @example enterprise
+     *
+     * @var string
+     */
+    public $series;
+
+    /**
+     * @example [{\"TagKey\":\"test\",\"TagValue\":\"test-value\"}]
      *
      * @var string
      */
     public $tags;
     protected $_name = [
         'instanceId'      => 'InstanceId',
+        'mustHasCdc'      => 'MustHasCdc',
         'pageNumber'      => 'PageNumber',
         'pageSize'        => 'PageSize',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
+        'series'          => 'Series',
         'tags'            => 'Tags',
     ];
 
@@ -62,6 +82,9 @@ class DescribeDBInstancesRequest extends Model
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
+        if (null !== $this->mustHasCdc) {
+            $res['MustHasCdc'] = $this->mustHasCdc;
+        }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
         }
@@ -73,6 +96,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
         }
         if (null !== $this->tags) {
             $res['Tags'] = $this->tags;
@@ -92,6 +118,9 @@ class DescribeDBInstancesRequest extends Model
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
+        if (isset($map['MustHasCdc'])) {
+            $model->mustHasCdc = $map['MustHasCdc'];
+        }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];
         }
@@ -103,6 +132,9 @@ class DescribeDBInstancesRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
         }
         if (isset($map['Tags'])) {
             $model->tags = $map['Tags'];

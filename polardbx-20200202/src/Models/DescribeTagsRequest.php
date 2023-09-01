@@ -9,21 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeTagsRequest extends Model
 {
     /**
-     * @description 实例名称
+     * @example pxc-xxx
      *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @description 地域
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 标签Key
+     * @example test
      *
      * @var string
      */

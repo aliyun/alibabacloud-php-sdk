@@ -14,11 +14,15 @@ class ModifyDBInstanceDescriptionRequest extends Model
     public $DBInstanceDescription;
 
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

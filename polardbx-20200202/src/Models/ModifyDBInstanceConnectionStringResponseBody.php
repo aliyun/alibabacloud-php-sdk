@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringResponseBody extends Model
 {
     /**
+     * @example 200
+     *
      * @var int
      */
     public $code;
@@ -20,11 +22,15 @@ class ModifyDBInstanceConnectionStringResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example c3cf535c-a585-11ea-8263-00163e04d3a7
+     *
      * @var string
      */
     public $requestId;

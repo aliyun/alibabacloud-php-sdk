@@ -9,31 +9,43 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @example [0|1]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $dynamic;
 
     /**
+     * @example polarx hatp addition param
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @example loose_enable_gts
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $parameterValue;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $revisable;

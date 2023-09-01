@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskCountRequest extends Model
 {
     /**
+     * @example Category
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $product;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

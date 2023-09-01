@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeUserEncryptionKeyListRequest extends Model
 {
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

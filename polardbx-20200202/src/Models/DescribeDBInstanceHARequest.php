@@ -6,18 +6,14 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InitDBInstanceResourceGroupIdRequest extends Model
+class DescribeDBInstanceHARequest extends Model
 {
     /**
-     * @description 资源类型
-     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
-     * @description 地域
-     *
      * @var string
      */
     public $regionId;
@@ -46,7 +42,7 @@ class InitDBInstanceResourceGroupIdRequest extends Model
     /**
      * @param array $map
      *
-     * @return InitDBInstanceResourceGroupIdRequest
+     * @return DescribeDBInstanceHARequest
      */
     public static function fromMap($map = [])
     {

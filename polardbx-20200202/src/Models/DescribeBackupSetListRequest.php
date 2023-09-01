@@ -9,41 +9,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupSetListRequest extends Model
 {
     /**
+     * @example pxc-xxxxxx
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @var string
+     */
+    public $destCrossRegion;
+
+    /**
+     * @example 1635707845000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 1635707845000
+     *
      * @var int
      */
     public $startTime;
     protected $_name = [
-        'DBInstanceName' => 'DBInstanceName',
-        'endTime'        => 'EndTime',
-        'pageNumber'     => 'PageNumber',
-        'pageSize'       => 'PageSize',
-        'regionId'       => 'RegionId',
-        'startTime'      => 'StartTime',
+        'DBInstanceName'  => 'DBInstanceName',
+        'destCrossRegion' => 'DestCrossRegion',
+        'endTime'         => 'EndTime',
+        'pageNumber'      => 'PageNumber',
+        'pageSize'        => 'PageSize',
+        'regionId'        => 'RegionId',
+        'startTime'       => 'StartTime',
     ];
 
     public function validate()
@@ -55,6 +73,9 @@ class DescribeBackupSetListRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
+        }
+        if (null !== $this->destCrossRegion) {
+            $res['DestCrossRegion'] = $this->destCrossRegion;
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
@@ -85,6 +106,9 @@ class DescribeBackupSetListRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
+        }
+        if (isset($map['DestCrossRegion'])) {
+            $model->destCrossRegion = $map['DestCrossRegion'];
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];

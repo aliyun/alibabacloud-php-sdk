@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersRequest extends Model
 {
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example compute
+     *
      * @var string
      */
     public $paramLevel;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

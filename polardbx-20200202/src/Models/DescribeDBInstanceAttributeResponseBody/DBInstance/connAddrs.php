@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class connAddrs extends Model
 {
     /**
+     * @example polardbx-xxx.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example 3306
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-xxxxxx
+     *
      * @var string
      */
     public $VPCId;
@@ -32,12 +42,20 @@ class connAddrs extends Model
      * @var string
      */
     public $vSwitchId;
+
+    /**
+     * @example pxc-zkralxpc5d****
+     *
+     * @var string
+     */
+    public $vpcInstanceId;
     protected $_name = [
         'connectionString' => 'ConnectionString',
         'port'             => 'Port',
         'type'             => 'Type',
         'VPCId'            => 'VPCId',
         'vSwitchId'        => 'VSwitchId',
+        'vpcInstanceId'    => 'VpcInstanceId',
     ];
 
     public function validate()
@@ -61,6 +79,9 @@ class connAddrs extends Model
         }
         if (null !== $this->vSwitchId) {
             $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcInstanceId) {
+            $res['VpcInstanceId'] = $this->vpcInstanceId;
         }
 
         return $res;
@@ -88,6 +109,9 @@ class connAddrs extends Model
         }
         if (isset($map['VSwitchId'])) {
             $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcInstanceId'])) {
+            $model->vpcInstanceId = $map['VpcInstanceId'];
         }
 
         return $model;

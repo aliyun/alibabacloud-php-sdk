@@ -15,21 +15,29 @@ class DescribeActiveOperationTasksResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 12
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example xxxx
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 23
+     *
      * @var int
      */
     public $totalRecordCount;

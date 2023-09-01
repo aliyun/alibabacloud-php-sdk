@@ -14,11 +14,15 @@ class configParameters extends Model
     public $parameterDescription;
 
     /**
+     * @example CONN_POOL_XPROTO_STORAGE_DB_PORT
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @example -1
+     *
      * @var string
      */
     public $parameterValue;

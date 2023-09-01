@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDbListRequest extends Model
 {
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example db_name
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

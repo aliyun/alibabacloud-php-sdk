@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharacterSetRequest extends Model
 {
     /**
+     * @example pxc-*********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

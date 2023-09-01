@@ -4,60 +4,86 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data;
 
+use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data\logicInstanceTopology\historyItems;
 use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeDBInstanceTopologyResponseBody\data\logicInstanceTopology\items;
 use AlibabaCloud\Tea\Model;
 
 class logicInstanceTopology extends Model
 {
     /**
+     * @example lvs
+     *
      * @var string
      */
     public $DBInstanceConnType;
 
     /**
+     * @example 2021-10-21T10:30:45Z 04:00:00
+     *
      * @var string
      */
     public $DBInstanceCreateTime;
 
     /**
+     * @example pxc-sprcym7g7wj7k
+     *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
+     * @example 304726047
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example pxc-sprcym7g7w****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $DBInstanceStatus;
 
     /**
+     * @example TDE_MODIFYING
+     *
      * @var string
      */
     public $DBInstanceStatusDescription;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $DBInstanceStorage;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;
+
+    /**
+     * @var historyItems[]
+     */
+    public $historyItems;
 
     /**
      * @var items[]
@@ -65,6 +91,8 @@ class logicInstanceTopology extends Model
     public $items;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lockMode;
@@ -75,11 +103,15 @@ class logicInstanceTopology extends Model
     public $lockReason;
 
     /**
+     * @example 05:00:00
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 04:00:00
+     *
      * @var string
      */
     public $maintainStartTime;
@@ -94,6 +126,7 @@ class logicInstanceTopology extends Model
         'DBInstanceStorage'           => 'DBInstanceStorage',
         'engine'                      => 'Engine',
         'engineVersion'               => 'EngineVersion',
+        'historyItems'                => 'HistoryItems',
         'items'                       => 'Items',
         'lockMode'                    => 'LockMode',
         'lockReason'                  => 'LockReason',
@@ -137,6 +170,15 @@ class logicInstanceTopology extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->historyItems) {
+            $res['HistoryItems'] = [];
+            if (null !== $this->historyItems && \is_array($this->historyItems)) {
+                $n = 0;
+                foreach ($this->historyItems as $item) {
+                    $res['HistoryItems'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->items) {
             $res['Items'] = [];
@@ -200,6 +242,15 @@ class logicInstanceTopology extends Model
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['HistoryItems'])) {
+            if (!empty($map['HistoryItems'])) {
+                $model->historyItems = [];
+                $n                   = 0;
+                foreach ($map['HistoryItems'] as $item) {
+                    $model->historyItems[$n++] = null !== $item ? historyItems::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Items'])) {
             if (!empty($map['Items'])) {

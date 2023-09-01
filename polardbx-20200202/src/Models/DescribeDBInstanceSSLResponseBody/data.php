@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example pxc-sddddddcym7g7w****.polarx.singapore.rds.aliyuncs.com
+     *
      * @var string
      */
     public $certCommonName;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $SSLEnabled;
 
     /**
+     * @example 2022-11-04T09:39:07Z
+     *
      * @var string
      */
     public $SSLExpiredTime;

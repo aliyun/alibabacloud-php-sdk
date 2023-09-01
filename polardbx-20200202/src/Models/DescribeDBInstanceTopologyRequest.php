@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceTopologyRequest extends Model
 {
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -16,10 +18,24 @@ class DescribeDBInstanceTopologyRequest extends Model
     /**
      * @var string
      */
+    public $endTime;
+
+    /**
+     * @example cn-hangzhou
+     *
+     * @var string
+     */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $startTime;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
+        'endTime'        => 'EndTime',
         'regionId'       => 'RegionId',
+        'startTime'      => 'StartTime',
     ];
 
     public function validate()
@@ -32,8 +48,14 @@ class DescribeDBInstanceTopologyRequest extends Model
         if (null !== $this->DBInstanceName) {
             $res['DBInstanceName'] = $this->DBInstanceName;
         }
+        if (null !== $this->endTime) {
+            $res['EndTime'] = $this->endTime;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->startTime) {
+            $res['StartTime'] = $this->startTime;
         }
 
         return $res;
@@ -50,8 +72,14 @@ class DescribeDBInstanceTopologyRequest extends Model
         if (isset($map['DBInstanceName'])) {
             $model->DBInstanceName = $map['DBInstanceName'];
         }
+        if (isset($map['EndTime'])) {
+            $model->endTime = $map['EndTime'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['StartTime'])) {
+            $model->startTime = $map['StartTime'];
         }
 
         return $model;

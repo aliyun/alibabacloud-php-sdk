@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example testaccount desc
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @example testAccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @example pxc-*********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2012-06-08T15:00Z
+     *
      * @var string
      */
     public $gmtCreated;

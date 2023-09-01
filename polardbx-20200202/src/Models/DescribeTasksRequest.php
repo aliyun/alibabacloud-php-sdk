@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksRequest extends Model
 {
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example 2021-11-04
+     *
      * @var string
      */
     public $endTime;
@@ -29,6 +33,8 @@ class DescribeTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageNumber;
@@ -39,6 +45,8 @@ class DescribeTasksRequest extends Model
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +62,8 @@ class DescribeTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2021-11-01
+     *
      * @var string
      */
     public $startTime;

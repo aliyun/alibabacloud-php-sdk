@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeScaleOutMigrateTaskListRequest extends Model
 {
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceName;

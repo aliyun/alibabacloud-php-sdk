@@ -15,16 +15,22 @@ class DescribeBackupPolicyResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example B87E2AB3-B7C9-4394-9160-7F639F732031
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

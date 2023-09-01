@@ -9,18 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationTaskCountResponseBody extends Model
 {
     /**
+     * @example 1
+     *
      * @var int
      */
     public $needPop;
 
     /**
-     * @description Id of the request
+     * @example EC7E27FC-58F8-4722-89BB-D1B6D0971956
      *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $taskCount;

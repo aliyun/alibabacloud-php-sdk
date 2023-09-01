@@ -15,21 +15,29 @@ class DescribeBinaryLogListResponseBody extends Model
     public $logList;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 2DFF784E-DC31-5BBC-9B25-9261CD9E0AA9
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalNumber;

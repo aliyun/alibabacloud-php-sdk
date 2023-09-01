@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
+     * @example testaccount
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example pxc-*********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example securityAccount
+     *
      * @var string
      */
     public $securityAccountName;
 
     /**
+     * @example securityPassword
+     *
      * @var string
      */
     public $securityAccountPassword;

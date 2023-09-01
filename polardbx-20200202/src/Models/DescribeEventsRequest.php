@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsRequest extends Model
 {
     /**
-     * @description 结束时间
+     * @example 2021-10-18T03:07:25Z
      *
      * @var string
      */
     public $endTime;
 
     /**
-     * @description 页面下标
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页面大小
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description 区域ID
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 开始时间
+     * @example 2021-10-18T03:07:25Z
      *
      * @var string
      */

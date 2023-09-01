@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class UpdateDBInstanceTDERequest extends Model
 {
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example RkVBNURDMjAtNkQ4QS01OTc5LTk3QUEtRkM1NzU0Nk******
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example acs:ram::1406926****:role/aliyunrdsinstanceencryptiondefaultrole
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $TDEStatus;

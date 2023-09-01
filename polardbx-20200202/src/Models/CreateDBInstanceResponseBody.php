@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
+     * @example pxc-*********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 12345
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example 9B2F3840-5C98-475C-B269-2D5C3A31797C
+     *
      * @var string
      */
     public $requestId;

@@ -12,6 +12,22 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @example polarx.x4.xlarge.2e
+     *
+     * @var string
+     */
+    public $cnNodeClassCode;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $cnNodeCount;
+
+    /**
+     * @example drds_polarxpost_public_cn
+     *
      * @var string
      */
     public $commodityCode;
@@ -27,21 +43,29 @@ class DBInstance extends Model
     public $connectionString;
 
     /**
+     * @example 2021-08-31T08:56:25.000+0000
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $DBInstanceType;
 
     /**
+     * @example polarx.x4.large.2e
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $DBNodeCount;
@@ -52,81 +76,132 @@ class DBInstance extends Model
     public $DBNodes;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @example 5.5
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @example test instance
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @example mysql.x8.large.25
+     *
+     * @var string
+     */
+    public $dnNodeClassCode;
+
+    /**
+     * @example 2
+     *
+     * @var int
+     */
+    public $dnNodeCount;
+
+    /**
+     * @example polarx
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2022-08-31T16:00:00.000+0000
+     *
      * @var string
      */
     public $expireDate;
 
     /**
+     * @example false
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @example pxc-zkralxpc5d****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @example 18
+     *
      * @var int
      */
     public $kindCode;
 
     /**
+     * @var string[]
+     */
+    public $LTSVersions;
+
+    /**
+     * @example polarx-kernel_5.4.11-16301083_xcluster-20210805
+     *
      * @var string
      */
     public $latestMinorVersion;
 
     /**
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @example 06:00
+     *
      * @var string
      */
     public $maintainEndTime;
 
     /**
+     * @example 06:00
+     *
      * @var string
      */
     public $maintainStartTime;
 
     /**
+     * @example polarx-kernel_5.4.11-16301083_xcluster-20210805
+     *
      * @var string
      */
     public $minorVersion;
 
     /**
+     * @example VPC
+     *
      * @var string
      */
     public $network;
 
     /**
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $port;
@@ -137,50 +212,71 @@ class DBInstance extends Model
     public $readDBInstances;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源组ID
+     * @example rg-xxxx
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $rightsSeparationEnabled;
 
     /**
+     * @example disabled
+     *
      * @var string
      */
     public $rightsSeparationStatus;
 
     /**
+     * @example enterprise
+     *
+     * @var string
+     */
+    public $series;
+
+    /**
+     * @example Running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example 17042505728
+     *
      * @var int
      */
     public $storageUsed;
 
     /**
-     * @description 标签集合
-     *
      * @var tagSet[]
      */
     public $tagSet;
 
     /**
+     * @example ReadWrite
+     *
      * @var string
      */
     public $type;
 
     /**
+     * @description VPC ID。
+     *
+     * @example vpc-xxxxx
+     *
      * @var string
      */
     public $VPCId;
@@ -191,10 +287,14 @@ class DBInstance extends Model
     public $vSwitchId;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'cnNodeClassCode'         => 'CnNodeClassCode',
+        'cnNodeCount'             => 'CnNodeCount',
         'commodityCode'           => 'CommodityCode',
         'connAddrs'               => 'ConnAddrs',
         'connectionString'        => 'ConnectionString',
@@ -206,11 +306,14 @@ class DBInstance extends Model
         'DBType'                  => 'DBType',
         'DBVersion'               => 'DBVersion',
         'description'             => 'Description',
+        'dnNodeClassCode'         => 'DnNodeClassCode',
+        'dnNodeCount'             => 'DnNodeCount',
         'engine'                  => 'Engine',
         'expireDate'              => 'ExpireDate',
         'expired'                 => 'Expired',
         'id'                      => 'Id',
         'kindCode'                => 'KindCode',
+        'LTSVersions'             => 'LTSVersions',
         'latestMinorVersion'      => 'LatestMinorVersion',
         'lockMode'                => 'LockMode',
         'maintainEndTime'         => 'MaintainEndTime',
@@ -224,6 +327,7 @@ class DBInstance extends Model
         'resourceGroupId'         => 'ResourceGroupId',
         'rightsSeparationEnabled' => 'RightsSeparationEnabled',
         'rightsSeparationStatus'  => 'RightsSeparationStatus',
+        'series'                  => 'Series',
         'status'                  => 'Status',
         'storageUsed'             => 'StorageUsed',
         'tagSet'                  => 'TagSet',
@@ -240,6 +344,12 @@ class DBInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->cnNodeClassCode) {
+            $res['CnNodeClassCode'] = $this->cnNodeClassCode;
+        }
+        if (null !== $this->cnNodeCount) {
+            $res['CnNodeCount'] = $this->cnNodeCount;
+        }
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
         }
@@ -285,6 +395,12 @@ class DBInstance extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->dnNodeClassCode) {
+            $res['DnNodeClassCode'] = $this->dnNodeClassCode;
+        }
+        if (null !== $this->dnNodeCount) {
+            $res['DnNodeCount'] = $this->dnNodeCount;
+        }
         if (null !== $this->engine) {
             $res['Engine'] = $this->engine;
         }
@@ -299,6 +415,9 @@ class DBInstance extends Model
         }
         if (null !== $this->kindCode) {
             $res['KindCode'] = $this->kindCode;
+        }
+        if (null !== $this->LTSVersions) {
+            $res['LTSVersions'] = $this->LTSVersions;
         }
         if (null !== $this->latestMinorVersion) {
             $res['LatestMinorVersion'] = $this->latestMinorVersion;
@@ -339,6 +458,9 @@ class DBInstance extends Model
         if (null !== $this->rightsSeparationStatus) {
             $res['RightsSeparationStatus'] = $this->rightsSeparationStatus;
         }
+        if (null !== $this->series) {
+            $res['Series'] = $this->series;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
@@ -378,6 +500,12 @@ class DBInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CnNodeClassCode'])) {
+            $model->cnNodeClassCode = $map['CnNodeClassCode'];
+        }
+        if (isset($map['CnNodeCount'])) {
+            $model->cnNodeCount = $map['CnNodeCount'];
+        }
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
         }
@@ -423,6 +551,12 @@ class DBInstance extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['DnNodeClassCode'])) {
+            $model->dnNodeClassCode = $map['DnNodeClassCode'];
+        }
+        if (isset($map['DnNodeCount'])) {
+            $model->dnNodeCount = $map['DnNodeCount'];
+        }
         if (isset($map['Engine'])) {
             $model->engine = $map['Engine'];
         }
@@ -437,6 +571,11 @@ class DBInstance extends Model
         }
         if (isset($map['KindCode'])) {
             $model->kindCode = $map['KindCode'];
+        }
+        if (isset($map['LTSVersions'])) {
+            if (!empty($map['LTSVersions'])) {
+                $model->LTSVersions = $map['LTSVersions'];
+            }
         }
         if (isset($map['LatestMinorVersion'])) {
             $model->latestMinorVersion = $map['LatestMinorVersion'];
@@ -478,6 +617,9 @@ class DBInstance extends Model
         }
         if (isset($map['RightsSeparationStatus'])) {
             $model->rightsSeparationStatus = $map['RightsSeparationStatus'];
+        }
+        if (isset($map['Series'])) {
+            $model->series = $map['Series'];
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];

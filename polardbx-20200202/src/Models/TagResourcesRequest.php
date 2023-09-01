@@ -10,29 +10,25 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description 地域
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description 资源ID,最多 50个子项
-     *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @example PolarDBXInstance
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 标签列表，最多包含20个子项
-     *
      * @var tag[]
      */
     public $tag;

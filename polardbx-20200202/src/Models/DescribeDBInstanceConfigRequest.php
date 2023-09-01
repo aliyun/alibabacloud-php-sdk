@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceConfigRequest extends Model
 {
     /**
+     * @example htap
+     *
      * @var string
      */
     public $configName;
 
     /**
+     * @example pxc-*********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

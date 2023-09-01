@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConnectionStringRequest extends Model
 {
     /**
+     * @example pxc-unrf5ssig0ecg8.polarx.huhehaote.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example pxc-unrf5ssig0ecg8
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 3300
+     *
      * @var string
      */
     public $newPort;
 
     /**
+     * @example test2
+     *
      * @var string
      */
     public $newPrefix;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

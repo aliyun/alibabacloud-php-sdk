@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeScaleOutMigrateTaskListResponseBody extends Model
 {
     /**
+     * @example 32
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @example C458B1E8-1683-3645-B154-6BA32080EEA
+     *
      * @var string
      */
     public $requestId;

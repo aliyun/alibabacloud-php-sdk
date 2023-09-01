@@ -9,49 +9,49 @@ use AlibabaCloud\Tea\Model;
 class config extends Model
 {
     /**
-     * @description 创建时间
+     * @example 2021-08-11T10:08:27Z
      *
      * @var string
      */
     public $createdTime;
 
     /**
-     * @description 循环时间
+     * @example 1,2,3,4,5,6,7
      *
      * @var string
      */
     public $cycleTime;
 
     /**
-     * @description 循环类型
+     * @example Week
      *
      * @var string
      */
     public $cycleType;
 
     /**
-     * @description 运维结束时间
+     * @example 04:00:00Z
      *
      * @var string
      */
     public $maintainEndTime;
 
     /**
-     * @description 运维开始时间
+     * @example 04:00:00Z
      *
      * @var string
      */
     public $maintainStartTime;
 
     /**
-     * @description 修改时间
+     * @example 2021-08-11T10:08:27Z
      *
      * @var string
      */
     public $modifiedTime;
 
     /**
-     * @description 状态
+     * @example 1
      *
      * @var int
      */

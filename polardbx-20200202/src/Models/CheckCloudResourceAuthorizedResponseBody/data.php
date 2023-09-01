@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 0
+     *
      * @var string
      */
     public $authorizationState;
 
     /**
+     * @example acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+     *
      * @var string
      */
     public $roleArn;

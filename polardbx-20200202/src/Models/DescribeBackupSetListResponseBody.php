@@ -15,16 +15,22 @@ class DescribeBackupSetListResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 1A6D328C-84B8-40DC-BF49-6C73984D7494
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

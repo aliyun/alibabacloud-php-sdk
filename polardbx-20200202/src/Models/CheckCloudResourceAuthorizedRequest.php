@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CheckCloudResourceAuthorizedRequest extends Model
 {
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole
+     *
      * @var string
      */
     public $roleArn;

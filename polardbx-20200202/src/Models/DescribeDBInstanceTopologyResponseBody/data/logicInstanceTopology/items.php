@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example true
+     *
      * @var bool
      */
     public $activated;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $azone;
@@ -41,6 +45,8 @@ class items extends Model
     public $DBInstanceConnType;
 
     /**
+     * @example 2021-10-21T10:30:45Z
+     *
      * @var string
      */
     public $DBInstanceCreateTime;
@@ -51,16 +57,22 @@ class items extends Model
     public $DBInstanceDescription;
 
     /**
+     * @example 304726049
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @example pxc-i-tk6t4z****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $DBInstanceStatus;
@@ -71,21 +83,29 @@ class items extends Model
     public $DBInstanceStatusDescription;
 
     /**
+     * @example 3145728
+     *
      * @var int
      */
     public $diskSize;
 
     /**
+     * @example mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 5.7
+     *
      * @var string
      */
     public $engineVersion;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $lockMode;
@@ -106,24 +126,58 @@ class items extends Model
     public $maintainStartTime;
 
     /**
+     * @example 4000
+     *
      * @var int
      */
     public $maxConnections;
 
     /**
+     * @example 7000
+     *
      * @var int
      */
     public $maxIops;
 
     /**
+     * @example polarx.x4.large.2e
+     *
+     * @var string
+     */
+    public $nodeClass;
+
+    /**
+     * @var string
+     */
+    public $phyInstanceName;
+
+    /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @example master
+     *
      * @var string
      */
     public $role;
+
+    /**
+     * @example 0
+     *
+     * @var string
+     */
+    public $status;
+
+    /**
+     * @example polarx-cdc-kernel-2.0.0-3985896
+     *
+     * @var string
+     */
+    public $version;
     protected $_name = [
         'activated'                   => 'Activated',
         'azone'                       => 'Azone',
@@ -146,8 +200,12 @@ class items extends Model
         'maintainStartTime'           => 'MaintainStartTime',
         'maxConnections'              => 'MaxConnections',
         'maxIops'                     => 'MaxIops',
+        'nodeClass'                   => 'NodeClass',
+        'phyInstanceName'             => 'PhyInstanceName',
         'region'                      => 'Region',
         'role'                        => 'Role',
+        'status'                      => 'Status',
+        'version'                     => 'Version',
     ];
 
     public function validate()
@@ -232,11 +290,23 @@ class items extends Model
         if (null !== $this->maxIops) {
             $res['MaxIops'] = $this->maxIops;
         }
+        if (null !== $this->nodeClass) {
+            $res['NodeClass'] = $this->nodeClass;
+        }
+        if (null !== $this->phyInstanceName) {
+            $res['PhyInstanceName'] = $this->phyInstanceName;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
         if (null !== $this->role) {
             $res['Role'] = $this->role;
+        }
+        if (null !== $this->status) {
+            $res['Status'] = $this->status;
+        }
+        if (null !== $this->version) {
+            $res['Version'] = $this->version;
         }
 
         return $res;
@@ -325,11 +395,23 @@ class items extends Model
         if (isset($map['MaxIops'])) {
             $model->maxIops = $map['MaxIops'];
         }
+        if (isset($map['NodeClass'])) {
+            $model->nodeClass = $map['NodeClass'];
+        }
+        if (isset($map['PhyInstanceName'])) {
+            $model->phyInstanceName = $map['PhyInstanceName'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
         if (isset($map['Role'])) {
             $model->role = $map['Role'];
+        }
+        if (isset($map['Status'])) {
+            $model->status = $map['Status'];
+        }
+        if (isset($map['Version'])) {
+            $model->version = $map['Version'];
         }
 
         return $model;

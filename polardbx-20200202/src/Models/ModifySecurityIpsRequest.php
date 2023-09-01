@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifySecurityIpsRequest extends Model
 {
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $modifyMode;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 127.0.0.1,192.168.0.0
+     *
      * @var string
      */
     public $securityIPList;

@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConfigRequest extends Model
 {
     /**
+     * @example ENABLE_CONSISTENT_REPLICA_READ
+     *
      * @var string
      */
     public $configName;
 
     /**
+     * @example true
+     *
      * @var string
      */
     public $configValue;
 
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -15,21 +15,29 @@ class data extends Model
     public $accounts;
 
     /**
+     * @example utf8mb4
+     *
      * @var string
      */
     public $characterSetName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBDescription;
 
     /**
+     * @example pxc-********
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $DBName;

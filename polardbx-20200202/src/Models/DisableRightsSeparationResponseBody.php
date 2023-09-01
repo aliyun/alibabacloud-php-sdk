@@ -4,35 +4,34 @@
 
 namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
-use AlibabaCloud\SDK\Polardbx\V20200202\Models\DescribeSlinkTaskInfoResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class DescribeSlinkTaskInfoResponseBody extends Model
+class DisableRightsSeparationResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $code;
-
-    /**
-     * @var data
-     */
-    public $data;
-
-    /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example FE5D94E3-3C93-3594-95D9-AAED2A980915
+     *
      * @var string
+     */
+    public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
      */
     public $success;
     protected $_name = [
-        'code'    => 'Code',
-        'data'    => 'Data',
-        'message' => 'Message',
-        'success' => 'Success',
+        'message'   => 'Message',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -42,14 +41,11 @@ class DescribeSlinkTaskInfoResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->code) {
-            $res['Code'] = $this->code;
-        }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->success) {
             $res['Success'] = $this->success;
@@ -61,19 +57,16 @@ class DescribeSlinkTaskInfoResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DescribeSlinkTaskInfoResponseBody
+     * @return DisableRightsSeparationResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Code'])) {
-            $model->code = $map['Code'];
-        }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Success'])) {
             $model->success = $map['Success'];

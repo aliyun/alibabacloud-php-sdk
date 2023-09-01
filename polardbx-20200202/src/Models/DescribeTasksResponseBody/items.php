@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @example 2021-10-20T19:40:00Z
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @example DBName
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @example 2021-10-20T20:00:00Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @example 80
+     *
      * @var string
      */
     public $progress;
 
     /**
+     * @example ProgressInfo
+     *
      * @var string
      */
     public $progressInfo;
 
     /**
+     * @example FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+     *
      * @var string
      */
     public $scaleOutToken;
 
     /**
+     * @example RUNNING
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @example multi_scale_out
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @example TaskErrorCode
+     *
      * @var string
      */
     public $taskErrorCode;
 
     /**
+     * @example TaskErrorMessage
+     *
      * @var string
      */
     public $taskErrorMessage;
 
     /**
+     * @example 20089398
+     *
      * @var string
      */
     public $taskId;

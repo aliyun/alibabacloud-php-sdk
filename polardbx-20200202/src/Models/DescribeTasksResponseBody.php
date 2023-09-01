@@ -15,21 +15,29 @@ class DescribeTasksResponseBody extends Model
     public $items;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @example D6045D78-C119-5A17-9DEA-0F810394E008
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $totalRecordCount;

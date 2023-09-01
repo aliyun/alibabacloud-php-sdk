@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example test2.polarx.huhehaote.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example pxc-unrf5ssig0ecg8
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $DBInstanceNetType;
 
     /**
+     * @example 3300
+     *
      * @var string
      */
     public $port;

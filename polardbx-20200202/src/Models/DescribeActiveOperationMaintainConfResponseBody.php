@@ -10,21 +10,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeActiveOperationMaintainConfResponseBody extends Model
 {
     /**
-     * @description 配置信息
-     *
      * @var config
      */
     public $config;
 
     /**
-     * @description 用户是否配置：1:已经配置。 0.未配置
+     * @example 1
      *
      * @var int
      */
     public $hasConfig;
 
     /**
-     * @description requestid
+     * @example 1A586DCB-39A6-4050-81CC-C7BD4CCDB49F
      *
      * @var string
      */

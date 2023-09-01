@@ -10,35 +10,33 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventsResponseBody extends Model
 {
     /**
-     * @description 事件体
-     *
      * @var eventItems[]
      */
     public $eventItems;
 
     /**
-     * @description 页面下标
+     * @example 1
      *
      * @var int
      */
     public $pageNumber;
 
     /**
-     * @description 页面大小
+     * @example 20
      *
      * @var int
      */
     public $pageSize;
 
     /**
-     * @description Id of the request
+     * @example 4748127A-6D50-432C-B635-433467074C27
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总页数
+     * @example 20
      *
      * @var int
      */

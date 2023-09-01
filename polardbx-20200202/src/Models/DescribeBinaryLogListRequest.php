@@ -9,37 +9,55 @@ use AlibabaCloud\Tea\Model;
 class DescribeBinaryLogListRequest extends Model
 {
     /**
+     * @example pxc-hz1fds
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example 2021-11-09 10:27:46
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @var string
+     */
+    public $instanceName;
+
+    /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example 2021-09-09 10:27:46
+     *
      * @var string
      */
     public $startTime;
     protected $_name = [
         'DBInstanceName' => 'DBInstanceName',
         'endTime'        => 'EndTime',
+        'instanceName'   => 'InstanceName',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'regionId'       => 'RegionId',
@@ -58,6 +76,9 @@ class DescribeBinaryLogListRequest extends Model
         }
         if (null !== $this->endTime) {
             $res['EndTime'] = $this->endTime;
+        }
+        if (null !== $this->instanceName) {
+            $res['InstanceName'] = $this->instanceName;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -88,6 +109,9 @@ class DescribeBinaryLogListRequest extends Model
         }
         if (isset($map['EndTime'])) {
             $model->endTime = $map['EndTime'];
+        }
+        if (isset($map['InstanceName'])) {
+            $model->instanceName = $map['InstanceName'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

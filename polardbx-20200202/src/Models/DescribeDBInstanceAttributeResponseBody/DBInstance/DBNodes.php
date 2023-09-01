@@ -14,6 +14,8 @@ class DBNodes extends Model
     public $computeNodeId;
 
     /**
+     * @example pxc-xdb-xxxxxx
+     *
      * @var string
      */
     public $dataNodeId;
@@ -24,16 +26,22 @@ class DBNodes extends Model
     public $id;
 
     /**
+     * @example polarx.x4.large.2e
+     *
      * @var string
      */
     public $nodeClass;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example cn-hangzhou-a
+     *
      * @var string
      */
     public $zoneId;

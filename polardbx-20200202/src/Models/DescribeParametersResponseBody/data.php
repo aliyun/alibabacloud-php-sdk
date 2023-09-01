@@ -16,11 +16,15 @@ class data extends Model
     public $configParameters;
 
     /**
+     * @example polarx
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @example 2.0
+     *
      * @var string
      */
     public $engineVersion;

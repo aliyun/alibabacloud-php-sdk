@@ -15,6 +15,8 @@ class CheckCloudResourceAuthorizedResponseBody extends Model
     public $data;
 
     /**
+     * @example A501A191-BD70-5E50-98A9-C2A486A82****
+     *
      * @var string
      */
     public $requestId;

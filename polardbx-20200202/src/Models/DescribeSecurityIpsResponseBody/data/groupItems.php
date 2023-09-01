@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class groupItems extends Model
 {
     /**
+     * @example defaultGroup
+     *
      * @var string
      */
     public $groupName;
 
     /**
+     * @example 127.0.0.1,172.168.0.0
+     *
      * @var string
      */
     public $securityIPList;

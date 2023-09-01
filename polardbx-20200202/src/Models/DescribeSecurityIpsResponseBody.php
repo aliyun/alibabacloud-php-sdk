@@ -15,16 +15,22 @@ class DescribeSecurityIpsResponseBody extends Model
     public $data;
 
     /**
+     * @example success
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example 14036EBE-CF2E-44DB-ACE9-AC6157D3A6FC
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

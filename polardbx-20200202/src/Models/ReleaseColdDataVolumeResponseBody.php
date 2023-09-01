@@ -6,9 +6,11 @@ namespace AlibabaCloud\SDK\Polardbx\V20200202\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class InitDBInstanceResourceGroupIdResponseBody extends Model
+class ReleaseColdDataVolumeResponseBody extends Model
 {
     /**
+     * @example EA330983-C895-57C0-AE82-5A63106EBB10
+     *
      * @var string
      */
     public $requestId;
@@ -33,7 +35,7 @@ class InitDBInstanceResourceGroupIdResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return InitDBInstanceResourceGroupIdResponseBody
+     * @return ReleaseColdDataVolumeResponseBody
      */
     public static function fromMap($map = [])
     {

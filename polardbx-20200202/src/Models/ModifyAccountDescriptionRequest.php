@@ -14,16 +14,22 @@ class ModifyAccountDescriptionRequest extends Model
     public $accountDescription;
 
     /**
+     * @example account
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @example pxc-hzjasd****
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

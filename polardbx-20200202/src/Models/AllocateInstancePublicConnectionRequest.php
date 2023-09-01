@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionRequest extends Model
 {
     /**
+     * @example pxc-**************
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @example pxc-**************
+     *
      * @var string
      */
     public $DBInstanceName;
@@ -29,11 +33,15 @@ class AllocateInstancePublicConnectionRequest extends Model
     public $ownerId;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

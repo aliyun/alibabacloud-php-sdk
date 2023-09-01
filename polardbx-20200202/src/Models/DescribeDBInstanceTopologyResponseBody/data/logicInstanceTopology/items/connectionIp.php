@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class connectionIp extends Model
 {
     /**
+     * @example pxc-xdb-m-pxcdym7g7w********.mysql.singapore.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $DBInstanceNetType;
 
     /**
+     * @example 3306
+     *
      * @var string
      */
     public $port;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class UpdatePolarDBXInstanceNodeResponseBody extends Model
 {
     /**
+     * @example 20211103105558
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @example FEA5DC20-6D8A-5979-97AA-FC57546ADC20
+     *
      * @var string
      */
     public $requestId;
