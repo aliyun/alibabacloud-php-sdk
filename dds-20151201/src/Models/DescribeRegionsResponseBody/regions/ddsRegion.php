@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ddsRegion extends Model
 {
     /**
+     * @var string
+     */
+    public $endPoint;
+
+    /**
      * @description The ID of the region.
      *
      * @example cn-hangzhou
@@ -35,6 +40,7 @@ class ddsRegion extends Model
      */
     public $zones;
     protected $_name = [
+        'endPoint'   => 'EndPoint',
         'regionId'   => 'RegionId',
         'regionName' => 'RegionName',
         'zones'      => 'Zones',
@@ -47,6 +53,9 @@ class ddsRegion extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->endPoint) {
+            $res['EndPoint'] = $this->endPoint;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -68,6 +77,9 @@ class ddsRegion extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EndPoint'])) {
+            $model->endPoint = $map['EndPoint'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }

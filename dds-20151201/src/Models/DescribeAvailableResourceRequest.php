@@ -76,6 +76,11 @@ class DescribeAvailableResourceRequest extends Model
     public $securityToken;
 
     /**
+     * @var string
+     */
+    public $storageType;
+
+    /**
      * @description The ID of the zone. You can call the [DescribeRegions](~~61933~~) operation to query the available zones.
      *
      * @example cn-hangzhou-h
@@ -93,6 +98,7 @@ class DescribeAvailableResourceRequest extends Model
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'securityToken'        => 'SecurityToken',
+        'storageType'          => 'StorageType',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -129,6 +135,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (null !== $this->securityToken) {
             $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->storageType) {
+            $res['StorageType'] = $this->storageType;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -171,6 +180,9 @@ class DescribeAvailableResourceRequest extends Model
         }
         if (isset($map['SecurityToken'])) {
             $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['StorageType'])) {
+            $model->storageType = $map['StorageType'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];
