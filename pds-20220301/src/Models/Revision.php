@@ -31,6 +31,16 @@ class Revision extends Model
     /**
      * @var string
      */
+    public $creatorId;
+
+    /**
+     * @var string
+     */
+    public $creatorName;
+
+    /**
+     * @var string
+     */
     public $domainId;
 
     /**
@@ -107,6 +117,8 @@ class Revision extends Model
         'contentHashName'     => 'content_hash_name',
         'crc64Hash'           => 'crc64_hash',
         'createdAt'           => 'created_at',
+        'creatorId'           => 'creator_id',
+        'creatorName'         => 'creator_name',
         'domainId'            => 'domain_id',
         'downloadUrl'         => 'download_url',
         'driveId'             => 'drive_id',
@@ -142,6 +154,12 @@ class Revision extends Model
         }
         if (null !== $this->createdAt) {
             $res['created_at'] = $this->createdAt;
+        }
+        if (null !== $this->creatorId) {
+            $res['creator_id'] = $this->creatorId;
+        }
+        if (null !== $this->creatorName) {
+            $res['creator_name'] = $this->creatorName;
         }
         if (null !== $this->domainId) {
             $res['domain_id'] = $this->domainId;
@@ -211,6 +229,12 @@ class Revision extends Model
         }
         if (isset($map['created_at'])) {
             $model->createdAt = $map['created_at'];
+        }
+        if (isset($map['creator_id'])) {
+            $model->creatorId = $map['creator_id'];
+        }
+        if (isset($map['creator_name'])) {
+            $model->creatorName = $map['creator_name'];
         }
         if (isset($map['domain_id'])) {
             $model->domainId = $map['domain_id'];
