@@ -2163,9 +2163,10 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-     *   * ## Prerequisites
-     *   * One or more rules in an account group are added to a compliance package.
+     * ### Prerequisites
+     *   * One or more rules are added to a compliance package.
+     *   * ### Usage notes
+     *   * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
      *   *
      * @param DetachAggregateConfigRuleToCompliancePackRequest $request DetachAggregateConfigRuleToCompliancePackRequest
      * @param RuntimeOptions                                   $runtime runtime options for this request RuntimeOptions
@@ -2204,9 +2205,10 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
-     *   * ## Prerequisites
-     *   * One or more rules in an account group are added to a compliance package.
+     * ### Prerequisites
+     *   * One or more rules are added to a compliance package.
+     *   * ### Usage notes
+     *   * The sample request in this topic shows you how to remove the `cr-6cc4626622af00e7****` rule in the `ca-75b4626622af00c3****` account group from the `cp-5bb1626622af00bd****` compliance package.
      *   *
      * @param DetachAggregateConfigRuleToCompliancePackRequest $request DetachAggregateConfigRuleToCompliancePackRequest
      *
@@ -2437,10 +2439,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GenerateAggregateResourceInventoryRequest $request
-     * @param RuntimeOptions                            $runtime
+     * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *   *
+     * @param GenerateAggregateResourceInventoryRequest $request GenerateAggregateResourceInventoryRequest
+     * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateAggregateResourceInventoryResponse
+     * @return GenerateAggregateResourceInventoryResponse GenerateAggregateResourceInventoryResponse
      */
     public function generateAggregateResourceInventoryWithOptions($request, $runtime)
     {
@@ -2477,9 +2481,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GenerateAggregateResourceInventoryRequest $request
+     * This topic provides an example to show how to generate a downloadable inventory for global resources in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *   *
+     * @param GenerateAggregateResourceInventoryRequest $request GenerateAggregateResourceInventoryRequest
      *
-     * @return GenerateAggregateResourceInventoryResponse
+     * @return GenerateAggregateResourceInventoryResponse GenerateAggregateResourceInventoryResponse
      */
     public function generateAggregateResourceInventory($request)
     {
@@ -2593,10 +2599,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GenerateResourceInventoryRequest $request
-     * @param RuntimeOptions                   $runtime
+     * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+     *   *
+     * @param GenerateResourceInventoryRequest $request GenerateResourceInventoryRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return GenerateResourceInventoryResponse
+     * @return GenerateResourceInventoryResponse GenerateResourceInventoryResponse
      */
     public function generateResourceInventoryWithOptions($request, $runtime)
     {
@@ -2627,9 +2635,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GenerateResourceInventoryRequest $request
+     * This topic provides an example on how to generate a resource inventory for global resources of the current account.
+     *   *
+     * @param GenerateResourceInventoryRequest $request GenerateResourceInventoryRequest
      *
-     * @return GenerateResourceInventoryResponse
+     * @return GenerateResourceInventoryResponse GenerateResourceInventoryResponse
      */
     public function generateResourceInventory($request)
     {
@@ -2849,10 +2859,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetAggregateComplianceSummaryRequest $request
-     * @param RuntimeOptions                       $runtime
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *   *
+     * @param GetAggregateComplianceSummaryRequest $request GetAggregateComplianceSummaryRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAggregateComplianceSummaryResponse
+     * @return GetAggregateComplianceSummaryResponse GetAggregateComplianceSummaryResponse
      */
     public function getAggregateComplianceSummaryWithOptions($request, $runtime)
     {
@@ -2880,9 +2892,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetAggregateComplianceSummaryRequest $request
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the account group ca-a91d626622af0035\\*\\*\\*\\*.
+     *   *
+     * @param GetAggregateComplianceSummaryRequest $request GetAggregateComplianceSummaryRequest
      *
-     * @return GetAggregateComplianceSummaryResponse
+     * @return GetAggregateComplianceSummaryResponse GetAggregateComplianceSummaryResponse
      */
     public function getAggregateComplianceSummary($request)
     {
@@ -3172,7 +3186,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+     * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
      *   *
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request GetAggregateResourceComplianceByConfigRuleRequest
      * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
@@ -3217,7 +3231,7 @@ class Config extends OpenApiClient
     }
 
     /**
-     * The sample request in this topic shows you how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The return result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
+     * This topic provides an example on how to query the compliance evaluation results based on the `cr-d369626622af008e****` rule in the `ca-a4e5626622af0079****` account group. The returned result shows that a total of 10 resources are evaluated by the rule and five of them are evaluated as compliant.
      *   *
      * @param GetAggregateResourceComplianceByConfigRuleRequest $request GetAggregateResourceComplianceByConfigRuleRequest
      *
@@ -3750,9 +3764,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetComplianceSummaryResponse
+     * @return GetComplianceSummaryResponse GetComplianceSummaryResponse
      */
     public function getComplianceSummaryWithOptions($runtime)
     {
@@ -3773,7 +3789,9 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @return GetComplianceSummaryResponse
+     * This topic provides an example on how to query the compliance statistics of resources and rules in the current account group.
+     *   *
+     * @return GetComplianceSummaryResponse GetComplianceSummaryResponse
      */
     public function getComplianceSummary()
     {
@@ -4003,9 +4021,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetConfigurationRecorderResponse
+     * @return GetConfigurationRecorderResponse GetConfigurationRecorderResponse
      */
     public function getConfigurationRecorderWithOptions($runtime)
     {
@@ -4026,7 +4046,9 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @return GetConfigurationRecorderResponse
+     * This topic provides an example on how to query the activation status and resource monitoring scope of Cloud Config for the current account.
+     *   *
+     * @return GetConfigurationRecorderResponse GetConfigurationRecorderResponse
      */
     public function getConfigurationRecorder()
     {
@@ -4264,10 +4286,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetRemediationTemplateRequest $request
-     * @param RuntimeOptions                $runtime
+     * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+     *   *
+     * @param GetRemediationTemplateRequest $request GetRemediationTemplateRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetRemediationTemplateResponse
+     * @return GetRemediationTemplateResponse GetRemediationTemplateResponse
      */
     public function getRemediationTemplateWithOptions($request, $runtime)
     {
@@ -4295,9 +4319,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param GetRemediationTemplateRequest $request
+     * This topic provides an example on how to query the details of the automatic remediation template ACS-ALB-BulkyEnableDeletionProtection.
+     *   *
+     * @param GetRemediationTemplateRequest $request GetRemediationTemplateRequest
      *
-     * @return GetRemediationTemplateResponse
+     * @return GetRemediationTemplateResponse GetRemediationTemplateResponse
      */
     public function getRemediationTemplate($request)
     {
@@ -5990,10 +6016,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListRemediationExecutionsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+     *   *
+     * @param ListRemediationExecutionsRequest $request ListRemediationExecutionsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListRemediationExecutionsResponse
+     * @return ListRemediationExecutionsResponse ListRemediationExecutionsResponse
      */
     public function listRemediationExecutionsWithOptions($request, $runtime)
     {
@@ -6030,9 +6058,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param ListRemediationExecutionsRequest $request
+     * This topic provides an example on how to query the remediation records of the rule cr-5392626622af0000\\*\\*\\*\\*.
+     *   *
+     * @param ListRemediationExecutionsRequest $request ListRemediationExecutionsRequest
      *
-     * @return ListRemediationExecutionsResponse
+     * @return ListRemediationExecutionsResponse ListRemediationExecutionsResponse
      */
     public function listRemediationExecutions($request)
     {
@@ -6715,10 +6745,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param StartConfigRuleEvaluationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+     *   *
+     * @param StartConfigRuleEvaluationRequest $request StartConfigRuleEvaluationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartConfigRuleEvaluationResponse
+     * @return StartConfigRuleEvaluationResponse StartConfigRuleEvaluationResponse
      */
     public function startConfigRuleEvaluationWithOptions($request, $runtime)
     {
@@ -6752,9 +6784,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param StartConfigRuleEvaluationRequest $request
+     * In this example, the cr-9920626622af0035\\*\\*\\*\\* rule is used to re-evaluate the compliance of resources.
+     *   *
+     * @param StartConfigRuleEvaluationRequest $request StartConfigRuleEvaluationRequest
      *
-     * @return StartConfigRuleEvaluationResponse
+     * @return StartConfigRuleEvaluationResponse StartConfigRuleEvaluationResponse
      */
     public function startConfigRuleEvaluation($request)
     {
@@ -6764,9 +6798,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartConfigurationRecorderResponse
+     * @return StartConfigurationRecorderResponse StartConfigurationRecorderResponse
      */
     public function startConfigurationRecorderWithOptions($runtime)
     {
@@ -6787,7 +6823,9 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @return StartConfigurationRecorderResponse
+     * This topic provides an example on how to enable Cloud Config to monitor the resources of your Alibaba Cloud account.
+     *   *
+     * @return StartConfigurationRecorderResponse StartConfigurationRecorderResponse
      */
     public function startConfigurationRecorder()
     {
@@ -7654,10 +7692,12 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigurationRecorderRequest $request
-     * @param RuntimeOptions                     $runtime
+     * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+     *   *
+     * @param UpdateConfigurationRecorderRequest $request UpdateConfigurationRecorderRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateConfigurationRecorderResponse
+     * @return UpdateConfigurationRecorderResponse UpdateConfigurationRecorderResponse
      */
     public function updateConfigurationRecorderWithOptions($request, $runtime)
     {
@@ -7685,9 +7725,11 @@ class Config extends OpenApiClient
     }
 
     /**
-     * @param UpdateConfigurationRecorderRequest $request
+     * This topic provides an example on how to change the resource monitoring scope of the current account to ACS::ECS::Instance.
+     *   *
+     * @param UpdateConfigurationRecorderRequest $request UpdateConfigurationRecorderRequest
      *
-     * @return UpdateConfigurationRecorderResponse
+     * @return UpdateConfigurationRecorderResponse UpdateConfigurationRecorderResponse
      */
     public function updateConfigurationRecorder($request)
     {

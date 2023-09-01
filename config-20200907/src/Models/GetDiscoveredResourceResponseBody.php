@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetDiscoveredResourceResponseBody extends Model
 {
     /**
-     * @description The information about the resource.
+     * @description The details of the resource.
      *
      * @var discoveredResourceDetail
      */
     public $discoveredResourceDetail;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E4D71ACE-6B0A-46E0-8352-56952378CC7F
      *

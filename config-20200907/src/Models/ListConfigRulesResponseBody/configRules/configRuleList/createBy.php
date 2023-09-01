@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class createBy extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
      * @example cp-fdc8626622af00f9****
      *
      * @var string
@@ -16,6 +18,10 @@ class createBy extends Model
     public $compliancePackId;
 
     /**
+     * @description The name of the compliance package.
+     *
+     * @example test-pack-name
+     *
      * @var string
      */
     public $compliancePackName;

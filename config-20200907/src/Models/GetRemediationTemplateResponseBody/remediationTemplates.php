@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class remediationTemplates extends Model
 {
     /**
+     * @description The ID of the supported rule template.
+     *
      * @example alb-delete-protection-enabled
      *
      * @var string
@@ -16,6 +18,8 @@ class remediationTemplates extends Model
     public $managedRuleIdentifier;
 
     /**
+     * @description The type of the automatic remediation template. Valid value: OOS.
+     *
      * @example OOS
      *
      * @var string
@@ -23,16 +27,22 @@ class remediationTemplates extends Model
     public $remediationType;
 
     /**
+     * @description The parameters of the automatic remediation template.
+     *
      * @var string
      */
     public $templateDefinition;
 
     /**
+     * @description The description of the automatic remediation template.
+     *
      * @var string
      */
     public $templateDescription;
 
     /**
+     * @description The identifier of the automatic remediation template.
+     *
      * @example ACS-ALB-BulkyEnableDeletionProtection
      *
      * @var string
@@ -40,6 +50,8 @@ class remediationTemplates extends Model
     public $templateIdentifier;
 
     /**
+     * @description The name of the automatic remediation template.
+     *
      * @var string
      */
     public $templateName;

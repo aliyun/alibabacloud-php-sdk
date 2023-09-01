@@ -11,7 +11,7 @@ class discoveredResourceCountsSummary extends Model
     /**
      * @description The resource type by which the statistics are collected.
      *
-     * >  We recommend that you use the `ResourceType` parameter.
+     * > We recommend that you use the `ResourceType` parameter.
      * @example ACS::ECS::Instance
      *
      * @var string

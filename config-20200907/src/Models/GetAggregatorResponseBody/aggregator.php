@@ -55,7 +55,7 @@ class aggregator extends Model
     /**
      * @description The name of the account group.
      *
-     * @example Test_Group
+     * @example Test-Group
      *
      * @var string
      */
@@ -87,6 +87,8 @@ class aggregator extends Model
 
     /**
      * @description The description of the account group.
+     *
+     * @example The description of the test account group.
      *
      * @var string
      */

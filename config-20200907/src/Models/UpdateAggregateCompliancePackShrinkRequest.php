@@ -41,6 +41,8 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
      * @description The name of the compliance package.
      *
      * For more information about how to obtain the name of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
+     * @example test-pack-name
+     *
      * @var string
      */
     public $compliancePackName;
@@ -57,6 +59,8 @@ class UpdateAggregateCompliancePackShrinkRequest extends Model
      * @description The description of the compliance package.
      *
      * For more information about how to obtain the description of a compliance package, see [ListCompliancePacks](~~262059~~).
+     * @example Test compliance pack description.
+     *
      * @var string
      */
     public $description;

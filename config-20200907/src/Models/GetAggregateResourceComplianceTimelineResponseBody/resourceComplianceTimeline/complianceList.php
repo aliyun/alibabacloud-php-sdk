@@ -38,6 +38,15 @@ class complianceList extends Model
     /**
      * @description The information about the rules that evaluated the resource and the compliance evaluation result.
      *
+     * @example {
+     * "Owner": {
+     * "DisplayName": "126672004088****",
+     * "ID": "126672004088****"
+     * },
+     * "ResourceGroupId": "rg-acfmy4dfoau****",
+     * "AllowEmptyReferer": "true",
+     * "Name": "test-private-oss****",
+     * }
      * @var string
      */
     public $configuration;
@@ -45,6 +54,11 @@ class complianceList extends Model
     /**
      * @description The details of the resource change that triggered the compliance evaluation.
      *
+     * @example {
+     * "ResourceGroupId": [
+     * "rg-acfmy4dfoau****",
+     * "rg-a3dmy4lksta****"
+     * }
      * @var string
      */
     public $configurationDiff;
@@ -70,7 +84,7 @@ class complianceList extends Model
     /**
      * @description The ID of the resource.
      *
-     * @example new-bucket
+     * @example test-private-oss****
      *
      * @var string
      */
@@ -79,7 +93,7 @@ class complianceList extends Model
     /**
      * @description The name of the resource.
      *
-     * @example new-bucket
+     * @example test-private-oss****
      *
      * @var string
      */

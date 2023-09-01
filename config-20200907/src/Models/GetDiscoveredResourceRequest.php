@@ -19,7 +19,7 @@ class GetDiscoveredResourceRequest extends Model
     public $region;
 
     /**
-     * @description The ID of the resource.
+     * @description The resource IDs.
      *
      * For more information about how to query the ID of a resource, see [ListDiscoveredResources](~~411702~~).
      * @example new-bucket
@@ -29,9 +29,9 @@ class GetDiscoveredResourceRequest extends Model
     public $resourceId;
 
     /**
-     * @description The type of the resource.
+     * @description The resource type.
      *
-     * For more information about how to query the type of a resource, see [ListDiscoveredResources](~~411702~~).
+     * For more information about how to obtain the type of a resource, see [ListDiscoveredResources](~~411702~~).
      * @example ACS::OSS::Bucket
      *
      * @var string

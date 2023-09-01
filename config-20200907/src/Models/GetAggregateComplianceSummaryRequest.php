@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateComplianceSummaryRequest extends Model
 {
     /**
+     * @description The ID of the account group.
+     *
      * @example ca-a91d626622af0035****
      *
      * @var string

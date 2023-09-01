@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigurationRecorderResponseBody extends Model
 {
     /**
+     * @description The details of the configuration recorder.
+     *
      * @var configurationRecorder
      */
     public $configurationRecorder;
 
     /**
+     * @description The request ID.
+     *
      * @example 2A1D5095-D1F9-56B6-A712-EA495608E79A
      *
      * @var string

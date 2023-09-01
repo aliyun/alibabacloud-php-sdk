@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateConfigurationRecorderRequest extends Model
 {
     /**
+     * @description The resource types. Separate multiple resource types with commas (,).
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

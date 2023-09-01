@@ -57,6 +57,8 @@ class configRuleList extends Model
     /**
      * @description The rule name.
      *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;
@@ -84,6 +86,8 @@ class configRuleList extends Model
 
     /**
      * @description The description of the rule.
+     *
+     * @example The description of the test rule.
      *
      * @var string
      */

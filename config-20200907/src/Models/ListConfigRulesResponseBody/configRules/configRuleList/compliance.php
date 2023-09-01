@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class compliance extends Model
 {
     /**
+     * @description The compliance evaluation result. Valid values:
+     *
+     * - INSUFFICIENT_DATA: No resource data is available.
      * @example COMPLIANT
      *
      * @var string
@@ -16,6 +19,8 @@ class compliance extends Model
     public $complianceType;
 
     /**
+     * @description The number of evaluated resources.
+     *
      * @example 2
      *
      * @var int

@@ -20,6 +20,8 @@ class CreateConfigRuleRequest extends Model
     /**
      * @description The rule name.
      *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;
@@ -39,6 +41,8 @@ class CreateConfigRuleRequest extends Model
 
     /**
      * @description The rule description.
+     *
+     * @example The description of the test rule.
      *
      * @var string
      */

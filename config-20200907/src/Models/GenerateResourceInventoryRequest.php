@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateResourceInventoryRequest extends Model
 {
     /**
+     * @description The region IDs of the resources. Separate multiple region IDs with commas (,).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateResourceInventoryRequest extends Model
     public $regions;
 
     /**
+     * @description The resource types. Separate multiple resource types with commas (,).
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

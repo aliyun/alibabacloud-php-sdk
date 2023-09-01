@@ -31,6 +31,8 @@ class IgnoreEvaluationResultsShrinkRequest extends Model
     /**
      * @description The reason why you want to ignore the resource.
      *
+     * @example Test ignore.
+     *
      * @var string
      */
     public $reason;

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListRemediationExecutionsResponseBody extends Model
 {
     /**
+     * @description The queried remediation records.
+     *
      * @var remediationExecutionData
      */
     public $remediationExecutionData;
 
     /**
+     * @description The request ID.
+     *
      * @example 13E67493-3165-529A-A961-BE9E4B11BA11
      *
      * @var string

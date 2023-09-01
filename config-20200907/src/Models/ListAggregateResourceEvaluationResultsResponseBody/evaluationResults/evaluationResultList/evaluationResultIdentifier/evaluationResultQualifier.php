@@ -29,6 +29,8 @@ class evaluationResultQualifier extends Model
     /**
      * @description The name of the monitoring rule.
      *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;

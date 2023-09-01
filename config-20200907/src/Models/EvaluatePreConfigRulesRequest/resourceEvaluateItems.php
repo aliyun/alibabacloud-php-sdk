@@ -21,6 +21,10 @@ class resourceEvaluateItems extends Model
     /**
      * @description The properties of the resource.
      *
+     * @example {
+     * "ImageId": "ubuntu_18_04_64_20G_alibase_20190624.vhd",
+     * "SecurityGroupId": "sg-bp15ed6xe1yxeycg****",
+     * }
      * @var string
      */
     public $resourceProperties;

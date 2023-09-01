@@ -19,7 +19,7 @@ class AttachAggregateConfigRuleToCompliancePackRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the compliance package to which you want to add the rule.
+     * @description The ID of the compliance package.
      *
      * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
      * @example cp-0453626622af0020****
@@ -29,7 +29,7 @@ class AttachAggregateConfigRuleToCompliancePackRequest extends Model
     public $compliancePackId;
 
     /**
-     * @description The ID of the rule to be added to the compliance package. Separate multiple rule IDs with commas (,).
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
      * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-a124626622af00e7****

@@ -35,6 +35,8 @@ class ListAggregateConfigRulesRequest extends Model
     /**
      * @description The name of the rule.
      *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;
@@ -84,6 +86,8 @@ class ListAggregateConfigRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description Resource type for the rule to evaluate.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

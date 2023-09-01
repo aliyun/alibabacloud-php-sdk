@@ -19,14 +19,14 @@ class configRules extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @var string
      */
     public $configRuleName;
 
     /**
-     * @description The details of the input parameter of the rule.
+     * @description The input parameters of the rule.
      *
      * @var configRuleParameters[]
      */
@@ -49,6 +49,8 @@ class configRules extends Model
     public $managedRuleIdentifier;
 
     /**
+     * @description The types of the resources evaluated based on the rule. Multiple resource types are separated with commas (,).
+     *
      * @example ACS::EIP::EipAddress
      *
      * @var string

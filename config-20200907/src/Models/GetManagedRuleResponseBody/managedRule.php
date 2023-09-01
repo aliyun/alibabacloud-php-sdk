@@ -22,12 +22,16 @@ class managedRule extends Model
     /**
      * @description The name of the managed rule.
      *
+     * @example cdn-domain-https-enabled
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
      * @description The description of the managed rule.
+     *
+     * @example If HTTPS encryption is enabled for the CDN domain name, the configuration is considered compliant.
      *
      * @var string
      */

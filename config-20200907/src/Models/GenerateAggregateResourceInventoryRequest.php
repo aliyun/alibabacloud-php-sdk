@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateAggregateResourceInventoryRequest extends Model
 {
     /**
+     * @description The IDs of member accounts in the account group. Separate multiple member account IDs with commas (,).
+     *
      * @example 126672004088****
      *
      * @var string
@@ -16,6 +18,8 @@ class GenerateAggregateResourceInventoryRequest extends Model
     public $accountIds;
 
     /**
+     * @description The ID of the account group.
+     *
      * @example ca-a91d626622af0035****
      *
      * @var string
@@ -23,6 +27,8 @@ class GenerateAggregateResourceInventoryRequest extends Model
     public $aggregatorId;
 
     /**
+     * @description The IDs of the regions to which the resources belong. Separate multiple region IDs with commas (,).
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -30,6 +36,8 @@ class GenerateAggregateResourceInventoryRequest extends Model
     public $regions;
 
     /**
+     * @description The resource types. Separate multiple resource types with commas (,).
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

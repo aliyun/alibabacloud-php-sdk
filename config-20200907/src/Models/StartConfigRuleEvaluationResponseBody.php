@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartConfigRuleEvaluationResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example D31EEAD7-BF1E-5927-977A-AFF9342A7273
      *
      * @var string
@@ -16,6 +18,11 @@ class StartConfigRuleEvaluationResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the operation is successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

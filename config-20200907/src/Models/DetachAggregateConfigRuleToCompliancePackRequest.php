@@ -19,7 +19,7 @@ class DetachAggregateConfigRuleToCompliancePackRequest extends Model
     public $aggregatorId;
 
     /**
-     * @description The ID of the compliance package from which you want to remove the rule.
+     * @description The ID of the compliance package.
      *
      * For more information about how to obtain the ID of a compliance package, see [ListAggregateCompliancePacks](~~262059~~).
      * @example cp-5bb1626622af00bd****
@@ -29,7 +29,7 @@ class DetachAggregateConfigRuleToCompliancePackRequest extends Model
     public $compliancePackId;
 
     /**
-     * @description The ID of the rule to be removed from the compliance package. Separate multiple rule IDs with commas (,).
+     * @description The rule IDs. Separate multiple rule IDs with commas (,).
      *
      * For more information about how to obtain the ID of a rule, see [ListAggregateConfigRules](~~264148~~).
      * @example cr-a124626622af00e7****

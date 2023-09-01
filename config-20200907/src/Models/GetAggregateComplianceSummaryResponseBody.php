@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetAggregateComplianceSummaryResponseBody extends Model
 {
     /**
+     * @description The compliance statistics.
+     *
      * @var complianceSummary
      */
     public $complianceSummary;
 
     /**
+     * @description The request ID.
+     *
      * @example 929B8360-BD57-54FF-96DB-AD1D9B476769
      *
      * @var string

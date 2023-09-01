@@ -20,6 +20,8 @@ class CreateCompliancePackShrinkRequest extends Model
     /**
      * @description The name of the compliance package.
      *
+     * @example test-pack-name
+     *
      * @var string
      */
     public $compliancePackName;
@@ -55,6 +57,8 @@ class CreateCompliancePackShrinkRequest extends Model
 
     /**
      * @description The description of the compliance package.
+     *
+     * @example Test pack description.
      *
      * @var string
      */

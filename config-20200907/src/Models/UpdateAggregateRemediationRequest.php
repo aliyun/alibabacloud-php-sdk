@@ -35,6 +35,8 @@ class UpdateAggregateRemediationRequest extends Model
     /**
      * @description The desired parameter values of the remediation setting.
      *
+     * @example {"properties":[{"name":"regionId","type":"STRING","value":"{regionId}","allowedValues":[]},{"name":"bucketName","type":"STRING","value":"{resourceId}","allowedValues":[],"description":"OSS Bucket Name."},{"name":"permissionName","type":"STRING","value":"private","allowedValues":["public-read-write","public-read","private"],"description":"ACL Permission Name."}]}
+     *
      * @var string
      */
     public $params;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class configurationRecorder extends Model
 {
     /**
+     * @description The status of the configuration recorder. Valid values:
+     *
+     *   REGISTRABLE: The configuration recorder has not been registered.
+     *   BUILDING: The configuration recorder is being deployed.
+     *   REGISTERED: The configuration recorder has been registered.
+     *   REBUILDING: The configuration recorder is being redeployed.
+     *
      * @example REGISTERED
      *
      * @var string
@@ -16,6 +23,8 @@ class configurationRecorder extends Model
     public $configurationRecorderStatus;
 
     /**
+     * @description The types of resources that are monitored.
+     *
      * @var string[]
      */
     public $resourceTypes;

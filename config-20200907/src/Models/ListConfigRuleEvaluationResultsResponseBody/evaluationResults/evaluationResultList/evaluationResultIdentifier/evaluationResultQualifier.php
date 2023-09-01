@@ -38,6 +38,8 @@ class evaluationResultQualifier extends Model
     /**
      * @description The name of the rule.
      *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;

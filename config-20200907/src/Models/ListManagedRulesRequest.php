@@ -38,6 +38,8 @@ class ListManagedRulesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The type of the resources to be evaluated based on the rule.
+     *
      * @example ACS::ECS::Instance
      *
      * @var string

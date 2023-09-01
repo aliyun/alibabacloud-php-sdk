@@ -12,6 +12,8 @@ use AlibabaCloud\Tea\Model;
 class configRuleList extends Model
 {
     /**
+     * @description The ID of the management account to which the rule belongs.
+     *
      * @example 100931896542****
      *
      * @var int
@@ -19,6 +21,8 @@ class configRuleList extends Model
     public $accountId;
 
     /**
+     * @description The type of the remediation template. Valid value: OOS, which indicates Operation Orchestration Service.
+     *
      * @example OOS
      *
      * @var string
@@ -26,11 +30,15 @@ class configRuleList extends Model
     public $automationType;
 
     /**
+     * @description The compliance evaluation result.
+     *
      * @var compliance
      */
     public $compliance;
 
     /**
+     * @description The ARN of the rule.
+     *
      * @example acs:config::100931896542****:rule/cr-fdc8626622af00f9****
      *
      * @var string
@@ -38,6 +46,8 @@ class configRuleList extends Model
     public $configRuleArn;
 
     /**
+     * @description The rule ID.
+     *
      * @example cr-fdc8626622af00f9****
      *
      * @var string
@@ -45,11 +55,18 @@ class configRuleList extends Model
     public $configRuleId;
 
     /**
+     * @description The rule name.
+     *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;
 
     /**
+     * @description The status of the rule. Valid values:
+     *
+     * - INACTIVE: The rule is disabled.
      * @example ACTIVE
      *
      * @var string
@@ -57,16 +74,24 @@ class configRuleList extends Model
     public $configRuleState;
 
     /**
+     * @description The information about the creation of the rule.
+     *
      * @var createBy
      */
     public $createBy;
 
     /**
+     * @description The description of the rule.
+     *
+     * @example The description of the test rule.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The types of resources evaluated by the rule. Multiple resource types are separated with commas (,).
+     *
      * @example ACS::EIP::EipAddress
      *
      * @var string
@@ -74,6 +99,9 @@ class configRuleList extends Model
     public $resourceTypesScope;
 
     /**
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
+     *
+     * - 3: low
      * @example 1
      *
      * @var int
@@ -81,6 +109,9 @@ class configRuleList extends Model
     public $riskLevel;
 
     /**
+     * @description The ID of the rule.
+     *
+     * - If the rule is a custom rule, the value of this parameter is the Alibaba Cloud Resource Name (ARN) of the relevant function in Function Compute.
      * @example eip-bandwidth-limit
      *
      * @var string
@@ -88,6 +119,9 @@ class configRuleList extends Model
     public $sourceIdentifier;
 
     /**
+     * @description The type of the rule. Valid values:
+     *
+     * - ALIYUN: managed rule
      * @example ALIYUN
      *
      * @var string
@@ -95,6 +129,8 @@ class configRuleList extends Model
     public $sourceOwner;
 
     /**
+     * @description The tags of the rule.
+     *
      * @var tags[]
      */
     public $tags;

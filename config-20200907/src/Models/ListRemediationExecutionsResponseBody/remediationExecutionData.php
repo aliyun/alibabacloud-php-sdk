@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class remediationExecutionData extends Model
 {
     /**
+     * @description The maximum number of entries returned for a single request.
+     *
      * @example 10
      *
      * @var int
@@ -17,6 +19,8 @@ class remediationExecutionData extends Model
     public $maxResults;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example cMbjqNaYs0Ps7zSNiu37****
      *
      * @var string
@@ -24,6 +28,8 @@ class remediationExecutionData extends Model
     public $nextToken;
 
     /**
+     * @description The queried remediation records.
+     *
      * @var remediationExecutions[]
      */
     public $remediationExecutions;

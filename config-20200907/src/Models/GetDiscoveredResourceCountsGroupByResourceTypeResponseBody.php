@@ -17,7 +17,7 @@ class GetDiscoveredResourceCountsGroupByResourceTypeResponseBody extends Model
     public $discoveredResourceCountsSummary;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AC9BD94C-D20C-4D27-88D4-89E8D75C051B
      *

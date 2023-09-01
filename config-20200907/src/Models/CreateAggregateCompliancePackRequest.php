@@ -31,6 +31,8 @@ class CreateAggregateCompliancePackRequest extends Model
     /**
      * @description The name of the compliance package.
      *
+     * @example test-compliance-pack-name
+     *
      * @var string
      */
     public $compliancePackName;
@@ -66,6 +68,8 @@ class CreateAggregateCompliancePackRequest extends Model
 
     /**
      * @description The description of the compliance package.
+     *
+     * @example Test compliance pack descripaiton.
      *
      * @var string
      */

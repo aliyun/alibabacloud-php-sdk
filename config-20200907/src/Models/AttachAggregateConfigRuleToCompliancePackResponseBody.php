@@ -17,7 +17,7 @@ class AttachAggregateConfigRuleToCompliancePackResponseBody extends Model
     public $operateRuleResult;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example DE72B7B5-D0EA-15E6-A359-EDECBB9BDFA3
      *

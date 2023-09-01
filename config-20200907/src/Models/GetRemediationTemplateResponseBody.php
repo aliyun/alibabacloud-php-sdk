@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetRemediationTemplateResponseBody extends Model
 {
     /**
+     * @description The information about the automatic remediation template.
+     *
      * @var remediationTemplates[]
      */
     public $remediationTemplates;
 
     /**
+     * @description The request ID.
+     *
      * @example E232FC35-BD40-51E3-B2EB-09416A234939
      *
      * @var string

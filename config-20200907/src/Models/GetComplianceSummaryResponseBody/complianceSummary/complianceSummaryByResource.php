@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class complianceSummaryByResource extends Model
 {
     /**
+     * @description The time when the compliance summary was generated. Unit: milliseconds.
+     *
      * @example 1589853712165
      *
      * @var int
@@ -16,6 +18,8 @@ class complianceSummaryByResource extends Model
     public $complianceSummaryTimestamp;
 
     /**
+     * @description The number of resources evaluated as compliant.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class complianceSummaryByResource extends Model
     public $compliantCount;
 
     /**
+     * @description The number of resources evaluated as non-compliant.
+     *
      * @example 12
      *
      * @var int
@@ -30,6 +36,8 @@ class complianceSummaryByResource extends Model
     public $nonCompliantCount;
 
     /**
+     * @description The total number of resources.
+     *
      * @example 13
      *
      * @var int

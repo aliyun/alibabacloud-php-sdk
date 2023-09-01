@@ -38,12 +38,16 @@ class complianceList extends Model
     /**
      * @description The information about the rules that evaluated the resource and the compliance evaluation result.
      *
+     * @example {\"Compliance\":{\"complianceType\":\"COMPLIANT\",\"count\":1},\"ConfigRuleList\":[{\"accountId\":100931896542****,\"configRuleId\":\"cr-9524626622af003d****\",\"configRuleArn\":\"acs:config::100931896542****:rule/cr-9524626622af003d****\",\"configRuleName\":\"test-rule-name\",\"complianceType\":\"COMPLIANT\",\"riskLevel\":1,\"annotation\":\"\",\"invokingEventMessageType\":\"ScheduledNotification\"}]}
+     *
      * @var string
      */
     public $configuration;
 
     /**
      * @description The details of the configuration change that triggered the compliance evaluation.
+     *
+     * @example {\"test-rule-name\":[{\"accountId\":100931896542****,\"configRuleId\":\"cr-965f626622af003d****\",\"configRuleArn\":\"acs:config::100931896542****:rule/cr-965f626622af003d****\",\"configRuleName\":\"test-rule-name\",\"complianceType\":\"COMPLIANT\",\"riskLevel\":1,\"annotation\":\"\",\"invokingEventMessageType\":\"ScheduledNotification\"},{}]}
      *
      * @var string
      */

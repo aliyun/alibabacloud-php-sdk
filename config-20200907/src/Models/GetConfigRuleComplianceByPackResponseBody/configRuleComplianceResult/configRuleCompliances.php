@@ -34,6 +34,8 @@ class configRuleCompliances extends Model
     /**
      * @description The name of the rule enabled in the compliance package.
      *
+     * @example test-rule-name
+     *
      * @var string
      */
     public $configRuleName;

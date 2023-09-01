@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class complianceSummary extends Model
 {
     /**
+     * @description The summary of compliance statistics from the rule dimension.
+     *
      * @var complianceSummaryByConfigRule
      */
     public $complianceSummaryByConfigRule;
 
     /**
+     * @description The summary of compliance statistics from the resource dimension.
+     *
      * @var complianceSummaryByResource
      */
     public $complianceSummaryByResource;

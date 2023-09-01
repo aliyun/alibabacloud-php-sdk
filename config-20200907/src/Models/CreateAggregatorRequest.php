@@ -49,6 +49,8 @@ class CreateAggregatorRequest extends Model
     /**
      * @description The description of the account group.
      *
+     * @example Aggregator description.
+     *
      * @var string
      */
     public $description;

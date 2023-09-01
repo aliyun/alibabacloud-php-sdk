@@ -26,7 +26,7 @@ class resourceConfigurationTimeline extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to initiate the next request.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *

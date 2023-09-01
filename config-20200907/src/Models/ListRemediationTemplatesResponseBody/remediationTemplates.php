@@ -20,12 +20,16 @@ class remediationTemplates extends Model
     /**
      * @description The definition of the remediation template.
      *
+     * @example {
+     * }
      * @var string
      */
     public $templateDefinition;
 
     /**
      * @description The description of the remediation template.
+     *
+     * @example Configure encryption rules for OSSBucket through the PutBucketEncryption interface. Be aware of the risks and exercise caution.
      *
      * @var string
      */
@@ -42,6 +46,8 @@ class remediationTemplates extends Model
 
     /**
      * @description The name of the remediation template.
+     *
+     * @example Set the ACL of an OSS bucket to private
      *
      * @var string
      */

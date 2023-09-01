@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class remediationExecutions extends Model
 {
     /**
+     * @description The time when the remediation record was created.
+     *
      * @example 2023-06-25T11:48:15Z
      *
      * @var string
@@ -16,6 +18,8 @@ class remediationExecutions extends Model
     public $executionCreateDate;
 
     /**
+     * @description The invocation ID of the remediation record.
+     *
      * @example exec-befded3781994ccf****
      *
      * @var string
@@ -23,6 +27,8 @@ class remediationExecutions extends Model
     public $executionInvocationId;
 
     /**
+     * @description The IDs of the remediated resources. Multiple resource IDs are separated with commas (,).
+     *
      * @example rm-0jlk629z240l8****
      *
      * @var string
@@ -30,6 +36,8 @@ class remediationExecutions extends Model
     public $executionResourceIds;
 
     /**
+     * @description The resource type.
+     *
      * @example ACS::RDS::DBInstance
      *
      * @var string
@@ -37,6 +45,11 @@ class remediationExecutions extends Model
     public $executionResourceType;
 
     /**
+     * @description The status of the remediation. Valid values:
+     *
+     *   Success
+     *   Failed
+     *
      * @example Success
      *
      * @var string
@@ -44,6 +57,8 @@ class remediationExecutions extends Model
     public $executionStatus;
 
     /**
+     * @description The error message returned when the remediation fails.
+     *
      * @example Invocation time out.
      *
      * @var string

@@ -81,6 +81,8 @@ class ListAggregateConfigRuleEvaluationResultsRequest extends Model
     public $regions;
 
     /**
+     * @description Member accountId to which the resource to be queried belongs.
+     *
      * @example 100931896542****
      *
      * @var int

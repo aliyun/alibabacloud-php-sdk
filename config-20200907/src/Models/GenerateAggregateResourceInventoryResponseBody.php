@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GenerateAggregateResourceInventoryResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 5111CBA6-6485-57EB-BCDD-85D8BB31E7A7
      *
      * @var string

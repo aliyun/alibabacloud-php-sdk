@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class configRules extends Model
 {
     /**
-     * @description The ID of the rule.
+     * @description The rule ID.
      *
      * @example cr-a260626622af0005****
      *
@@ -19,7 +19,7 @@ class configRules extends Model
     public $configRuleId;
 
     /**
-     * @description The name of the rule.
+     * @description The rule name.
      *
      * @var string
      */
@@ -40,7 +40,7 @@ class configRules extends Model
     public $description;
 
     /**
-     * @description The ID of the managed rule.
+     * @description The identifier of the managed rule.
      *
      * @example eip-bandwidth-limit
      *
@@ -49,6 +49,8 @@ class configRules extends Model
     public $managedRuleIdentifier;
 
     /**
+     * @description The types of the resources evaluated based on the rule. Multiple resource types are separated with commas (,).
+     *
      * @example ACS::EIP::EipAddress
      *
      * @var string
@@ -56,7 +58,7 @@ class configRules extends Model
     public $resourceTypesScope;
 
     /**
-     * @description The risk level of the resources that were not compliant with the rule. Valid values:
+     * @description The risk level of the resources that are not compliant with the rule. Valid values:
      *
      *   1: high
      *   2: medium

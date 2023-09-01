@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class StartConfigRuleEvaluationRequest extends Model
 {
     /**
+     * @description The ID of the compliance package.
+     *
+     * > You must set one of the CompliancePackId and ConfigRuleId parameters.
      * @example cp-ac16626622af0053****
      *
      * @var string
@@ -16,6 +19,9 @@ class StartConfigRuleEvaluationRequest extends Model
     public $compliancePackId;
 
     /**
+     * @description The rule ID.
+     *
+     * For more information about how to obtain the ID of a rule, see [ListConfigRules](~~609222~~).
      * @example cr-9920626622af0035****
      *
      * @var string
@@ -23,6 +29,11 @@ class StartConfigRuleEvaluationRequest extends Model
     public $configRuleId;
 
     /**
+     * @description Specifies whether to re-evaluate ignored non-compliant resources. Valid values:
+     *
+     *   true: re-evaluates ignored non-compliant resources based on the rule.
+     *   false: continues to ignore non-compliant resources.
+     *
      * @example false
      *
      * @var bool
