@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartEaisEiResponseBody extends Model
 {
     /**
+     * @example F23AEEC7-4D98-4657-A104-02692701****
+     *
      * @var string
      */
     public $requestId;

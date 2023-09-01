@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Eais\V20190624\Models;
 
+use AlibabaCloud\SDK\Eais\V20190624\Models\DescribeEaisRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class DescribeEaisRequest extends Model
@@ -61,6 +62,11 @@ class DescribeEaisRequest extends Model
      * @var string
      */
     public $status;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'elasticAcceleratedInstanceIds' => 'ElasticAcceleratedInstanceIds',
         'instanceName'                  => 'InstanceName',
@@ -70,6 +76,7 @@ class DescribeEaisRequest extends Model
         'regionId'                      => 'RegionId',
         'resourceGroupId'               => 'ResourceGroupId',
         'status'                        => 'Status',
+        'tag'                           => 'Tag',
     ];
 
     public function validate()
@@ -102,6 +109,15 @@ class DescribeEaisRequest extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -138,6 +154,15 @@ class DescribeEaisRequest extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DetachEaisEiResponseBody extends Model
 {
     /**
+     * @example 04DEB304-2436-4CB9-BB63-468BCEA0****
+     *
      * @var string
      */
     public $requestId;

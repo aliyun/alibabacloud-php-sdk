@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class CreateEaisEiResponseBody extends Model
 {
     /**
+     * @example eais-hzu00xufs1c8j5nn****
+     *
      * @var string
      */
     public $eiInstanceId;
 
     /**
+     * @example F5FEB9AA-C108-577C-AB3D-D13524AF****
+     *
      * @var string
      */
     public $requestId;

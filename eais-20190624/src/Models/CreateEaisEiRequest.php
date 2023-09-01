@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateEaisEiRequest extends Model
 {
     /**
+     * @example 123e4567-e89b-12d3-a456-426655440000
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @example test_ei
+     *
      * @var string
      */
     public $instanceName;
 
     /**
+     * @example eais.ei-a6.2xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example rg-acfmvpuy4a5****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @example sg-bp16jgp51ttnkbdr****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example vsw-bp17wmd1wb6fwlimk****
+     *
      * @var string
      */
     public $vSwitchId;

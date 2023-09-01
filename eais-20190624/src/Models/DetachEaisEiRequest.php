@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DetachEaisEiRequest extends Model
 {
     /**
+     * @example eais-hzu00xufs1c8j5nn****
+     *
      * @var string
      */
     public $eiInstanceId;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
