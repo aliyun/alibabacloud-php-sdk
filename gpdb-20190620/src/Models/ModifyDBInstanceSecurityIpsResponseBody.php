@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSecurityIpsResponseBody extends Model
 {
     /**
+     * @example "200"
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @example 200
+     *
      * @var int
      */
     public $httpStatusCode;
 
     /**
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @example D4D4BE8A-DD46-440A-BFCD-EE31DA81C9DD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $success;

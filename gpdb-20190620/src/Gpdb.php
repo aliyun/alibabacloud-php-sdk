@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Gpdb\V20190620;
 
 use AlibabaCloud\Endpoint\Endpoint;
+use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Gpdb\V20190620\Models\DescribeDBInstanceForDmsRequest;
 use AlibabaCloud\SDK\Gpdb\V20190620\Models\DescribeDBInstanceForDmsResponse;
 use AlibabaCloud\SDK\Gpdb\V20190620\Models\DescribeDBInstanceSecurityIpsRequest;
@@ -16,6 +17,7 @@ use AlibabaCloud\SDK\Gpdb\V20190620\Models\ModifyDBInstanceSecurityIpsResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
+use Darabonba\OpenApi\Models\Params;
 use Darabonba\OpenApi\OpenApiClient;
 
 class Gpdb extends OpenApiClient
@@ -75,11 +77,35 @@ class Gpdb extends OpenApiClient
     public function describeDBInstanceForDmsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->host)) {
+            $query['Host'] = $request->host;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->port)) {
+            $query['Port'] = $request->port;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceForDms',
+            'version'     => '2019-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceForDmsResponse::fromMap($this->doRPCRequest('DescribeDBInstanceForDms', '2019-06-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceForDmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -103,11 +129,29 @@ class Gpdb extends OpenApiClient
     public function describeDBInstanceSecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstanceSecurityIps',
+            'version'     => '2019-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstanceSecurityIpsResponse::fromMap($this->doRPCRequest('DescribeDBInstanceSecurityIps', '2019-06-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstanceSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -131,11 +175,29 @@ class Gpdb extends OpenApiClient
     public function describeDBInstancesForDmsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBInstancesForDms',
+            'version'     => '2019-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return DescribeDBInstancesForDmsResponse::fromMap($this->doRPCRequest('DescribeDBInstancesForDms', '2019-06-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return DescribeDBInstancesForDmsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
@@ -159,11 +221,38 @@ class Gpdb extends OpenApiClient
     public function modifyDBInstanceSecurityIpsWithOptions($request, $runtime)
     {
         Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aliUid)) {
+            $query['AliUid'] = $request->aliUid;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->whileList)) {
+            $query['WhileList'] = $request->whileList;
+        }
         $req = new OpenApiRequest([
-            'body' => Utils::toMap($request),
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBInstanceSecurityIps',
+            'version'     => '2019-06-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
         ]);
 
-        return ModifyDBInstanceSecurityIpsResponse::fromMap($this->doRPCRequest('ModifyDBInstanceSecurityIps', '2019-06-20', 'HTTPS', 'POST', 'AK', 'json', $req, $runtime));
+        return ModifyDBInstanceSecurityIpsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**

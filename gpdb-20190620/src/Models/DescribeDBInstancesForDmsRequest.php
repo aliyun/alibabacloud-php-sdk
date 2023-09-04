@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesForDmsRequest extends Model
 {
     /**
+     * @example 253460731706911258
+     *
      * @var int
      */
     public $aliUid;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
-        'aliUid' => 'AliUid',
+        'aliUid'  => 'AliUid',
+        'ownerId' => 'OwnerId',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class DescribeDBInstancesForDmsRequest extends Model
         $res = [];
         if (null !== $this->aliUid) {
             $res['AliUid'] = $this->aliUid;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -40,6 +51,9 @@ class DescribeDBInstancesForDmsRequest extends Model
         $model = new self();
         if (isset($map['AliUid'])) {
             $model->aliUid = $map['AliUid'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

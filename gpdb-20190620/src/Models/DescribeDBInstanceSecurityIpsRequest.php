@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSecurityIpsRequest extends Model
 {
     /**
+     * @example gp-xxxxxxxxxxxx
+     *
      * @var string
      */
     public $instanceId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
     protected $_name = [
         'instanceId' => 'InstanceId',
+        'ownerId'    => 'OwnerId',
     ];
 
     public function validate()
@@ -25,6 +33,9 @@ class DescribeDBInstanceSecurityIpsRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
         }
 
         return $res;
@@ -40,6 +51,9 @@ class DescribeDBInstanceSecurityIpsRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
         }
 
         return $model;

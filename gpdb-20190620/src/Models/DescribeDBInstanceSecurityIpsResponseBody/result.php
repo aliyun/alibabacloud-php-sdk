@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @example default
+     *
      * @var string
      */
     public $groupName;

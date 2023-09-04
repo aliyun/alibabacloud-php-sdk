@@ -10,47 +10,59 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceSecurityIpsResponseBody extends Model
 {
     /**
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
-     * @var string
-     */
-    public $requestId;
-
-    /**
-     * @var bool
-     */
-    public $success;
-
-    /**
+     * @example "200"
+     *
      * @var string
      */
     public $code;
 
     /**
-     * @var string
-     */
-    public $message;
-
-    /**
+     * @example 2
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @example 200
+     *
+     * @var int
+     */
+    public $httpStatusCode;
+
+    /**
+     * @example ""
+     *
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
+     *
+     * @var string
+     */
+    public $requestId;
+
+    /**
      * @var result[]
      */
     public $result;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'httpStatusCode' => 'HttpStatusCode',
-        'requestId'      => 'RequestId',
-        'success'        => 'Success',
         'code'           => 'Code',
-        'message'        => 'Message',
         'count'          => 'Count',
+        'httpStatusCode' => 'HttpStatusCode',
+        'message'        => 'Message',
+        'requestId'      => 'RequestId',
         'result'         => 'Result',
+        'success'        => 'Success',
     ];
 
     public function validate()
@@ -60,23 +72,20 @@ class DescribeDBInstanceSecurityIpsResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
-        }
         if (null !== $this->code) {
             $res['Code'] = $this->code;
+        }
+        if (null !== $this->count) {
+            $res['Count'] = $this->count;
+        }
+        if (null !== $this->httpStatusCode) {
+            $res['HttpStatusCode'] = $this->httpStatusCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
-        if (null !== $this->count) {
-            $res['Count'] = $this->count;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
         if (null !== $this->result) {
             $res['Result'] = [];
@@ -86,6 +95,9 @@ class DescribeDBInstanceSecurityIpsResponseBody extends Model
                     $res['Result'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -99,23 +111,20 @@ class DescribeDBInstanceSecurityIpsResponseBody extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
-        }
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
+        }
+        if (isset($map['Count'])) {
+            $model->count = $map['Count'];
+        }
+        if (isset($map['HttpStatusCode'])) {
+            $model->httpStatusCode = $map['HttpStatusCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
-        if (isset($map['Count'])) {
-            $model->count = $map['Count'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
         if (isset($map['Result'])) {
             if (!empty($map['Result'])) {
@@ -125,6 +134,9 @@ class DescribeDBInstanceSecurityIpsResponseBody extends Model
                     $model->result[$n++] = null !== $item ? result::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;
