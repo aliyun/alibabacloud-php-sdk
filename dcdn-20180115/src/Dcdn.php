@@ -11154,6 +11154,9 @@ class Dcdn extends OpenApiClient
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
         }
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
+        }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
