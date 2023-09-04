@@ -23,6 +23,11 @@ class items extends Model
     public $allocationStatus;
 
     /**
+     * @var string
+     */
+    public $commodityCode;
+
+    /**
      * @description The status of the instance. Valid values:
      *
      *   NORMAL: normal
@@ -34,6 +39,11 @@ class items extends Model
      * @var string
      */
     public $currency;
+
+    /**
+     * @var string
+     */
+    public $currentPoolValue;
 
     /**
      * @example 1:Year
@@ -200,7 +210,9 @@ class items extends Model
     public $utilization;
     protected $_name = [
         'allocationStatus'    => 'AllocationStatus',
+        'commodityCode'       => 'CommodityCode',
         'currency'            => 'Currency',
+        'currentPoolValue'    => 'CurrentPoolValue',
         'cycle'               => 'Cycle',
         'deductCycleType'     => 'DeductCycleType',
         'endTime'             => 'EndTime',
@@ -233,8 +245,14 @@ class items extends Model
         if (null !== $this->allocationStatus) {
             $res['AllocationStatus'] = $this->allocationStatus;
         }
+        if (null !== $this->commodityCode) {
+            $res['CommodityCode'] = $this->commodityCode;
+        }
         if (null !== $this->currency) {
             $res['Currency'] = $this->currency;
+        }
+        if (null !== $this->currentPoolValue) {
+            $res['CurrentPoolValue'] = $this->currentPoolValue;
         }
         if (null !== $this->cycle) {
             $res['Cycle'] = $this->cycle;
@@ -317,8 +335,14 @@ class items extends Model
         if (isset($map['AllocationStatus'])) {
             $model->allocationStatus = $map['AllocationStatus'];
         }
+        if (isset($map['CommodityCode'])) {
+            $model->commodityCode = $map['CommodityCode'];
+        }
         if (isset($map['Currency'])) {
             $model->currency = $map['Currency'];
+        }
+        if (isset($map['CurrentPoolValue'])) {
+            $model->currentPoolValue = $map['CurrentPoolValue'];
         }
         if (isset($map['Cycle'])) {
             $model->cycle = $map['Cycle'];

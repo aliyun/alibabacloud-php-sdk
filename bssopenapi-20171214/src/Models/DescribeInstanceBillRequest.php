@@ -19,7 +19,7 @@ class DescribeInstanceBillRequest extends Model
 
     /**
      * @description The billing cycle. Specify the parameter in the YYYY-MM format.
-     *
+     * Only the latest 18 month billing cycle is supported.
      * @example 2020-03
      *
      * @var string

@@ -54,6 +54,11 @@ class cashCoupon extends Model
     public $cashCouponNo;
 
     /**
+     * @var string
+     */
+    public $description;
+
+    /**
      * @description The time when the voucher took effect.
      *
      * @example 2018-08-02T15:15:50Z
@@ -107,6 +112,7 @@ class cashCoupon extends Model
         'balance'             => 'Balance',
         'cashCouponId'        => 'CashCouponId',
         'cashCouponNo'        => 'CashCouponNo',
+        'description'         => 'Description',
         'effectiveTime'       => 'EffectiveTime',
         'expiryTime'          => 'ExpiryTime',
         'grantedTime'         => 'GrantedTime',
@@ -135,6 +141,9 @@ class cashCoupon extends Model
         }
         if (null !== $this->cashCouponNo) {
             $res['CashCouponNo'] = $this->cashCouponNo;
+        }
+        if (null !== $this->description) {
+            $res['Description'] = $this->description;
         }
         if (null !== $this->effectiveTime) {
             $res['EffectiveTime'] = $this->effectiveTime;
@@ -177,6 +186,9 @@ class cashCoupon extends Model
         }
         if (isset($map['CashCouponNo'])) {
             $model->cashCouponNo = $map['CashCouponNo'];
+        }
+        if (isset($map['Description'])) {
+            $model->description = $map['Description'];
         }
         if (isset($map['EffectiveTime'])) {
             $model->effectiveTime = $map['EffectiveTime'];

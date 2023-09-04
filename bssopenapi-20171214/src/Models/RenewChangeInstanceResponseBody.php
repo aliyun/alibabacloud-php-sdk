@@ -4,14 +4,12 @@
 
 namespace AlibabaCloud\SDK\BssOpenApi\V20171214\Models;
 
-use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\QueryRIUtilizationDetailResponseBody\data;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewChangeInstanceResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class QueryRIUtilizationDetailResponseBody extends Model
+class RenewChangeInstanceResponseBody extends Model
 {
     /**
-     * @description The status code.
-     *
      * @example Success
      *
      * @var string
@@ -19,33 +17,27 @@ class QueryRIUtilizationDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The data returned.
-     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The message returned.
-     *
-     * @example Successful！
+     * @example Successful!
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description Id of the request
      *
-     * @example DF58589C-A06C-4224-8615-7797E6474FA3
+     * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
-     *
      * @example true
      *
      * @var bool
@@ -88,7 +80,7 @@ class QueryRIUtilizationDetailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return QueryRIUtilizationDetailResponseBody
+     * @return RenewChangeInstanceResponseBody
      */
     public static function fromMap($map = [])
     {

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The detailed resource plan usage.
+     *
      * @var detailList
      */
     public $detailList;
 
     /**
+     * @description The token that is used to retrieve the next page of results. You can set the LastToken parameter to this value in the next request. If null is returned, all results are queried.
+     *
      * @example CAESF***zNTAw
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryRIUtilizationDetailRequest extends Model
 {
     /**
+     * @description The ID of the instance whose fees are deducted by using the RI. If this parameter is left empty, the usage details of all instances are queried.
+     *
      * @example jsdgfsdhgsdjh
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryRIUtilizationDetailRequest extends Model
     public $deductedInstanceId;
 
     /**
+     * @description The time when the RI expires. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+     *
      * @example 2019-05-23 12:00:00
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryRIUtilizationDetailRequest extends Model
     public $endTime;
 
     /**
+     * @description The instance type of the RI.
+     *
      * @example Instancetyp
      *
      * @var string
@@ -30,6 +36,8 @@ class QueryRIUtilizationDetailRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description The number of the page to return. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -37,6 +45,8 @@ class QueryRIUtilizationDetailRequest extends Model
     public $pageNum;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -44,6 +54,11 @@ class QueryRIUtilizationDetailRequest extends Model
     public $pageSize;
 
     /**
+     * @description The code of the service to which the RI is applied. Default value: ecsRi. Valid values:
+     *
+     *   ecsRi: ECS RI.
+     *   scu_bag: storage capacity unit (SCU).
+     *
      * @example ecsRi
      *
      * @var string
@@ -51,6 +66,8 @@ class QueryRIUtilizationDetailRequest extends Model
     public $RICommodityCode;
 
     /**
+     * @description The ID of the RI. If this parameter is left empty, the usage details of all RIs are queried.
+     *
      * @example dsudfgdsjh
      *
      * @var string
@@ -58,6 +75,8 @@ class QueryRIUtilizationDetailRequest extends Model
     public $RIInstanceId;
 
     /**
+     * @description The time when the RI was created. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+     *
      * @example 2019-05-23 12:00:00
      *
      * @var string

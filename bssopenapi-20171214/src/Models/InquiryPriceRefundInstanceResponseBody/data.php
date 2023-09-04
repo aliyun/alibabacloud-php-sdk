@@ -11,7 +11,7 @@ class data extends Model
     /**
      * @description The currency.
      *
-     * @example CNY
+     * @example CNY. CNY: Chinese Yuan. USD: United States dollar. JPY: Japanese Yen.
      *
      * @var string
      */

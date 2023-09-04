@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
-     * @description The type of deduction plans whose usage details are queried. Valid values: RI and SCU.
+     * @description The unit that is used to measure the resources deducted from deduction plans.
      *
      * @var string
      */
     public $capacityUnit;
 
     /**
-     * @description The number of deduction plans.
+     * @description The currency in which deduction plans were priced.
      *
      * @example CNY
      *
@@ -25,7 +25,7 @@ class items extends Model
     public $currency;
 
     /**
-     * @description The ID of the request.
+     * @description The amount of the resources deducted from deduction plans.
      *
      * @example 1
      *
@@ -34,7 +34,7 @@ class items extends Model
     public $deductQuantity;
 
     /**
-     * @description The currency in which deduction plans were priced.
+     * @description The end of the time range in which the usage details were queried.
      *
      * @example 2021-04-01 01:00:00
      *
@@ -43,7 +43,7 @@ class items extends Model
     public $endTime;
 
     /**
-     * @description The status of the deduction plan.
+     * @description The operating system.
      *
      * @example linux
      *
@@ -52,7 +52,7 @@ class items extends Model
     public $imageType;
 
     /**
-     * @description The fee of purchased deduction plans.
+     * @description The specifications of a deduction plan.
      *
      * @example ecs.t5-lc2m1.nano
      *
@@ -61,7 +61,7 @@ class items extends Model
     public $instanceSpec;
 
     /**
-     * @description The beginning of the time range in which the usage details were queried.
+     * @description The equivalent of pay-as-you-go costs.
      *
      * @example 0.06
      *
@@ -79,6 +79,8 @@ class items extends Model
     public $potentialSavedCost;
 
     /**
+     * @description The number of deduction plans.
+     *
      * @example 2
      *
      * @var int
@@ -86,14 +88,14 @@ class items extends Model
     public $quantity;
 
     /**
-     * @description The total number of entries returned.
+     * @description The region.
      *
      * @var string
      */
     public $region;
 
     /**
-     * @description The code of the zone.
+     * @description The code of the region.
      *
      * @example cn-hangzhou-dg-a01
      *
@@ -102,7 +104,7 @@ class items extends Model
     public $regionNo;
 
     /**
-     * @description The end of the time range to query. The end is excluded from the time range. If you do not set this parameter, the end time is the current time. Specify the time in the format of yyyy-MM-dd HH:mm:ss.
+     * @description The fee of purchased deduction plans.
      *
      * @example 0
      *
@@ -111,7 +113,7 @@ class items extends Model
     public $reservationCost;
 
     /**
-     * @description The region.
+     * @description The ID of a deduction plan.
      *
      * @example ecsri-bp147nnfz21225k9mpix00
      *
@@ -120,7 +122,7 @@ class items extends Model
     public $resourceInstanceId;
 
     /**
-     * @description The unit that is used to measure the resources deducted from deduction plans.
+     * @description The net savings.
      *
      * @example 0.06
      *
@@ -129,7 +131,7 @@ class items extends Model
     public $savedCost;
 
     /**
-     * @description The token that is used to retrieve the next page of results. You do not need to set this parameter if you query usage details within a specific time range for the first time. The response returns a token that you can use to query usage details that are displayed on the next page. If a null value is returned for the NextToken parameter, no more usage details can be queried.
+     * @description The beginning of the time range in which the usage details were queried.
      *
      * @example 2021-04-01 00:00:00
      *
@@ -138,7 +140,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The code of the region.
+     * @description The status of the deduction plan.
      *
      * @example Valid
      *
@@ -147,14 +149,14 @@ class items extends Model
     public $status;
 
     /**
-     * @description The time granularity at which usage details are queried. Valid values: MONTH, DAY, and HOUR.
+     * @description The name of the state.
      *
      * @var string
      */
     public $statusName;
 
     /**
-     * @description The username of the account.
+     * @description The total capacity of deduction plans.
      *
      * @example 2
      *
@@ -163,7 +165,7 @@ class items extends Model
     public $totalQuantity;
 
     /**
-     * @description The returned data.
+     * @description The usage of deduction plans.
      *
      * @example 0.5
      *
@@ -172,7 +174,7 @@ class items extends Model
     public $usagePercentage;
 
     /**
-     * @description The net savings.
+     * @description The ID of the account.
      *
      * @example 123745698925000
      *
@@ -181,6 +183,8 @@ class items extends Model
     public $userId;
 
     /**
+     * @description The username of the account.
+     *
      * @example test@aliyun.com
      *
      * @var string
@@ -188,6 +192,8 @@ class items extends Model
     public $userName;
 
     /**
+     * @description The code of the zone.
+     *
      * @example cn-hangzhou-i
      *
      * @var string
@@ -195,7 +201,7 @@ class items extends Model
     public $zone;
 
     /**
-     * @description The specifications of a deduction plan.
+     * @description The zone.
      *
      * @var string
      */

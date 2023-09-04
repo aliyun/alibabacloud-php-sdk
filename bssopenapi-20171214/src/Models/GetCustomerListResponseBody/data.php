@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The list of customer IDs.
+     *
      * @var string[]
      */
     public $uidList;

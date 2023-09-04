@@ -76,6 +76,11 @@ class items extends Model
     public $region;
 
     /**
+     * @var string
+     */
+    public $regionCode;
+
+    /**
      * @description The type of the resource.
      *
      * @example ecs.g6
@@ -100,6 +105,7 @@ class items extends Model
         'moduleName'           => 'ModuleName',
         'payMode'              => 'PayMode',
         'region'               => 'Region',
+        'regionCode'           => 'RegionCode',
         'spec'                 => 'Spec',
         'spnType'              => 'SpnType',
     ];
@@ -131,6 +137,9 @@ class items extends Model
         }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
+        }
+        if (null !== $this->regionCode) {
+            $res['RegionCode'] = $this->regionCode;
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -170,6 +179,9 @@ class items extends Model
         }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
+        }
+        if (isset($map['RegionCode'])) {
+            $model->regionCode = $map['RegionCode'];
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

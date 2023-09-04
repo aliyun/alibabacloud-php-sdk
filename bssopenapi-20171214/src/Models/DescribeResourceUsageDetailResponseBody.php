@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeResourceUsageDetailResponseBody extends Model
 {
     /**
-     * @description The equivalent of pay-as-you-go costs.
+     * @description The status code.
      *
      * @example Success
      *
@@ -19,14 +19,14 @@ class DescribeResourceUsageDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The message returned.
+     * @description The returned data.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The operation that you want to perform. Set the value to DescribeResourceUsageDetail.
+     * @description The message returned.
      *
      * @example Successful!
      *
@@ -35,7 +35,7 @@ class DescribeResourceUsageDetailResponseBody extends Model
     public $message;
 
     /**
-     * @description The end of the time range in which the usage details were queried.
+     * @description The ID of the request.
      *
      * @example 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
      *
@@ -44,7 +44,7 @@ class DescribeResourceUsageDetailResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The maximum number of entries to return. Default value: 20. Maximum value: 300.
+     * @description Indicates whether the operation was successful.
      *
      * @example true
      *

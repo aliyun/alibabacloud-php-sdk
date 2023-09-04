@@ -175,6 +175,8 @@ use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ReleaseInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\ReleaseInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RelieveAccountRelationResponse;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewChangeInstanceRequest;
+use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewChangeInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceRequest;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewInstanceResponse;
 use AlibabaCloud\SDK\BssOpenApi\V20171214\Models\RenewResourcePackageRequest;
@@ -2430,7 +2432,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The ID of the customer.
+     * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
      *   *
      * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
@@ -2455,7 +2457,7 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The ID of the customer.
+     * The system queries the IDs of customers of a VNO based on the AccessKey pair used in the request.
      *   *
      * @return GetCustomerListResponse GetCustomerListResponse
      */
@@ -3690,7 +3692,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The UID of the deducted instance.
+     * Limits:
+     *   * *   Only the usage records within the past year can be queried.
      *   *
      * @param QueryDPUtilizationDetailRequest $request QueryDPUtilizationDetailRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -3750,7 +3753,8 @@ class BssOpenApi extends OpenApiClient
     }
 
     /**
-     * The UID of the deducted instance.
+     * Limits:
+     *   * *   Only the usage records within the past year can be queried.
      *   *
      * @param QueryDPUtilizationDetailRequest $request QueryDPUtilizationDetailRequest
      *
@@ -5306,6 +5310,64 @@ class BssOpenApi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->relieveAccountRelationWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RenewChangeInstanceRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return RenewChangeInstanceResponse
+     */
+    public function renewChangeInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->parameter)) {
+            $query['Parameter'] = $request->parameter;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        if (!Utils::isUnset($request->productType)) {
+            $query['ProductType'] = $request->productType;
+        }
+        if (!Utils::isUnset($request->renewPeriod)) {
+            $query['RenewPeriod'] = $request->renewPeriod;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenewChangeInstance',
+            'version'     => '2017-12-14',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenewChangeInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenewChangeInstanceRequest $request
+     *
+     * @return RenewChangeInstanceResponse
+     */
+    public function renewChangeInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renewChangeInstanceWithOptions($request, $runtime);
     }
 
     /**

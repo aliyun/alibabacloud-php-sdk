@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class detailList extends Model
 {
     /**
+     * @description The deduction date.
+     *
      * @example 2019/5/23 12:00
      *
      * @var string
@@ -16,6 +18,8 @@ class detailList extends Model
     public $deductDate;
 
     /**
+     * @description The total computing capacity or storage capacity of the RI or SCU during the deduction.
+     *
      * @example 1
      *
      * @var float
@@ -23,6 +27,8 @@ class detailList extends Model
     public $deductFactorTotal;
 
     /**
+     * @description The deduct factor. This parameter is returned only if the CommodityCode parameter is set to ecsRi.
+     *
      * @example 24
      *
      * @var float
@@ -30,6 +36,8 @@ class detailList extends Model
     public $deductHours;
 
     /**
+     * @description The original measured amount.
+     *
      * @example 1
      *
      * @var float
@@ -37,6 +45,8 @@ class detailList extends Model
     public $deductMeasure;
 
     /**
+     * @description The computing capacity or storage capacity that is deducted in a pay-as-you-go instance.
+     *
      * @example 1
      *
      * @var float
@@ -44,6 +54,8 @@ class detailList extends Model
     public $deductQuantity;
 
     /**
+     * @description The code of the deducted service.
+     *
      * @example rds
      *
      * @var string
@@ -51,6 +63,8 @@ class detailList extends Model
     public $deductedCommodityCode;
 
     /**
+     * @description The ID of the deducted instance.
+     *
      * @example oss-123123
      *
      * @var string
@@ -58,11 +72,17 @@ class detailList extends Model
     public $deductedInstanceId;
 
     /**
+     * @description The name of the deducted service.
+     *
+     * @example ApsaraDB RDS
+     *
      * @var string
      */
     public $deductedProductDetail;
 
     /**
+     * @description The ID of the RI.
+     *
      * @example oss-123123
      *
      * @var string
@@ -70,6 +90,8 @@ class detailList extends Model
     public $instanceId;
 
     /**
+     * @description The instance type of the deducted instance.
+     *
      * @example rds.mysql.s3.large
      *
      * @var string
@@ -77,6 +99,8 @@ class detailList extends Model
     public $instanceSpec;
 
     /**
+     * @description The region in which the instance resides. This parameter can be left empty.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -84,6 +108,8 @@ class detailList extends Model
     public $region;
 
     /**
+     * @description The billable item.
+     *
      * @example PutRequest
      *
      * @var string
@@ -91,6 +117,11 @@ class detailList extends Model
     public $resCode;
 
     /**
+     * @description The UID of the deducted instance.
+     *
+     *   If the deduction is shared, the value of this parameter indicates the UID of the deducted instance.
+     *   If the deduction is not shared, the value of this parameter is the same as that of the uid parameter.
+     *
      * @example 1111111111
      *
      * @var int
@@ -98,6 +129,8 @@ class detailList extends Model
     public $shareUid;
 
     /**
+     * @description The UID of the deducted instance.
+     *
      * @example 1111111111
      *
      * @var int

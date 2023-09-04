@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class QueryCommodityListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $lang;
+
+    /**
      * @description The code of the service.
      *
      * @example ecs
@@ -17,6 +22,7 @@ class QueryCommodityListRequest extends Model
      */
     public $productCode;
     protected $_name = [
+        'lang'        => 'Lang',
         'productCode' => 'ProductCode',
     ];
 
@@ -27,6 +33,9 @@ class QueryCommodityListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
+        }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
         }
@@ -42,6 +51,9 @@ class QueryCommodityListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
+        }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];
         }

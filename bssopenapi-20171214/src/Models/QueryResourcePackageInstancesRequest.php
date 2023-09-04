@@ -50,7 +50,7 @@ class QueryResourcePackageInstancesRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page. Default value: 20. Maximum value: 100.
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 300.
      *
      * @example 20
      *

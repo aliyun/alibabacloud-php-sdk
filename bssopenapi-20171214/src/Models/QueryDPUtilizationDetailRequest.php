@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryDPUtilizationDetailRequest extends Model
 {
     /**
+     * @description The code of the resource, such as ecsRi and scu_bag. If this parameter is specified, the ProdCode parameter does not take effect for the request.
+     *
      * @example ecsRi
      *
      * @var string
@@ -16,6 +18,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The ID of the deducted instance. If this parameter is not specified, the details of all instances are returned.
+     *
      * @example oss-123123
      *
      * @var string
@@ -23,6 +27,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $deductedInstanceId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+     *
      * @example 2019-05-23 12:00:00
      *
      * @var string
@@ -30,6 +36,11 @@ class QueryDPUtilizationDetailRequest extends Model
     public $endTime;
 
     /**
+     * @description Specifies whether to query the resource plan usage of linked accounts. Valid values:
+     *
+     *   true: queries the resource plan usage of linked accounts.
+     *   false: does not query the resource plan usage of linked accounts.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +48,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $includeShare;
 
     /**
+     * @description The ID of the instance to query. If this parameter is not specified, the details of all used instances are returned.
+     *
      * @example oss-123123
      *
      * @var string
@@ -44,6 +57,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $instanceId;
 
     /**
+     * @description The instance type of the instance.
+     *
      * @example Instancetyp
      *
      * @var string
@@ -51,6 +66,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description The token that is used to retrieve the next page of results. For the first query, set the value to null. For subsequent queries, set the value to the token that is obtained from the NextToken parameter.
+     *
      * @example CAESF***zNTAw
      *
      * @var string
@@ -58,6 +75,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $lastToken;
 
     /**
+     * @description The number of entries to return on each page. Default value: 20. Maximum value: 300.
+     *
      * @example 20
      *
      * @var int
@@ -65,6 +84,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $limit;
 
     /**
+     * @description The code of the service. Example: ecs.
+     *
      * @example oss
      *
      * @var string
@@ -72,6 +93,8 @@ class QueryDPUtilizationDetailRequest extends Model
     public $prodCode;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
+     *
      * @example 2019-05-23 12:00:00
      *
      * @var string

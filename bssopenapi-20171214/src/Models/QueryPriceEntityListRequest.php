@@ -16,8 +16,14 @@ class QueryPriceEntityListRequest extends Model
      * @var string
      */
     public $commodityCode;
+
+    /**
+     * @var string
+     */
+    public $lang;
     protected $_name = [
         'commodityCode' => 'CommodityCode',
+        'lang'          => 'Lang',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class QueryPriceEntityListRequest extends Model
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->lang) {
+            $res['Lang'] = $this->lang;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class QueryPriceEntityListRequest extends Model
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['Lang'])) {
+            $model->lang = $map['Lang'];
         }
 
         return $model;

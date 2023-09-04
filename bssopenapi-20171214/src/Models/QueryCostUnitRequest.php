@@ -27,7 +27,7 @@ class QueryCostUnitRequest extends Model
     public $pageNum;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page. A maximum of 300 entries can be returned per page.
      *
      * @example 20
      *
