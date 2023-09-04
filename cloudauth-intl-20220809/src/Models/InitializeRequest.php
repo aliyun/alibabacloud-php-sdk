@@ -126,6 +126,11 @@ class InitializeRequest extends Model
     public $productConfig;
 
     /**
+     * @var string
+     */
+    public $productFlow;
+
+    /**
      * @example http*****
      *
      * @var string
@@ -163,6 +168,7 @@ class InitializeRequest extends Model
         'pages'             => 'Pages',
         'productCode'       => 'ProductCode',
         'productConfig'     => 'ProductConfig',
+        'productFlow'       => 'ProductFlow',
         'returnUrl'         => 'ReturnUrl',
         'sceneCode'         => 'SceneCode',
         'serviceLevel'      => 'ServiceLevel',
@@ -225,6 +231,9 @@ class InitializeRequest extends Model
         }
         if (null !== $this->productConfig) {
             $res['ProductConfig'] = $this->productConfig;
+        }
+        if (null !== $this->productFlow) {
+            $res['ProductFlow'] = $this->productFlow;
         }
         if (null !== $this->returnUrl) {
             $res['ReturnUrl'] = $this->returnUrl;
@@ -297,6 +306,9 @@ class InitializeRequest extends Model
         }
         if (isset($map['ProductConfig'])) {
             $model->productConfig = $map['ProductConfig'];
+        }
+        if (isset($map['ProductFlow'])) {
+            $model->productFlow = $map['ProductFlow'];
         }
         if (isset($map['ReturnUrl'])) {
             $model->returnUrl = $map['ReturnUrl'];

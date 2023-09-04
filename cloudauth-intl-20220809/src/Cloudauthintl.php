@@ -26,6 +26,8 @@ use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListRequ
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DescribeTransactionsListResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\DocOcrResponse;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyRequest;
+use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\EkycVerifyResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareRequest;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceCompareResponse;
 use AlibabaCloud\SDK\Cloudauthintl\V20220809\Models\FaceLivenessRequest;
@@ -626,6 +628,82 @@ class Cloudauthintl extends OpenApiClient
     }
 
     /**
+     * @param EkycVerifyRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return EkycVerifyResponse
+     */
+    public function ekycVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authorize)) {
+            $query['Authorize'] = $request->authorize;
+        }
+        if (!Utils::isUnset($request->crop)) {
+            $query['Crop'] = $request->crop;
+        }
+        if (!Utils::isUnset($request->docName)) {
+            $query['DocName'] = $request->docName;
+        }
+        if (!Utils::isUnset($request->docNo)) {
+            $query['DocNo'] = $request->docNo;
+        }
+        if (!Utils::isUnset($request->docType)) {
+            $query['DocType'] = $request->docType;
+        }
+        if (!Utils::isUnset($request->facePictureBase64)) {
+            $query['FacePictureBase64'] = $request->facePictureBase64;
+        }
+        if (!Utils::isUnset($request->facePictureUrl)) {
+            $query['FacePictureUrl'] = $request->facePictureUrl;
+        }
+        if (!Utils::isUnset($request->idOcrPictureBase64)) {
+            $query['IdOcrPictureBase64'] = $request->idOcrPictureBase64;
+        }
+        if (!Utils::isUnset($request->idOcrPictureUrl)) {
+            $query['IdOcrPictureUrl'] = $request->idOcrPictureUrl;
+        }
+        if (!Utils::isUnset($request->merchantBizId)) {
+            $query['MerchantBizId'] = $request->merchantBizId;
+        }
+        if (!Utils::isUnset($request->merchantUserId)) {
+            $query['MerchantUserId'] = $request->merchantUserId;
+        }
+        if (!Utils::isUnset($request->productCode)) {
+            $query['ProductCode'] = $request->productCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EkycVerify',
+            'version'     => '2022-08-09',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EkycVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EkycVerifyRequest $request
+     *
+     * @return EkycVerifyResponse
+     */
+    public function ekycVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ekycVerifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param FaceCompareRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -856,6 +934,9 @@ class Cloudauthintl extends OpenApiClient
         }
         if (!Utils::isUnset($request->productConfig)) {
             $query['ProductConfig'] = $request->productConfig;
+        }
+        if (!Utils::isUnset($request->productFlow)) {
+            $query['ProductFlow'] = $request->productFlow;
         }
         if (!Utils::isUnset($request->returnUrl)) {
             $query['ReturnUrl'] = $request->returnUrl;
