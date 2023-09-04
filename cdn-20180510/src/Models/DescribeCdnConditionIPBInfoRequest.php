@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnConditionIPBInfoRequest extends Model
 {
     /**
+     * @description The configuration ID. Valid values:
+     *
+     *   condition_region_config_cn
+     *   condition_region_config_en
+     *   condition_isp_config_cn
+     *   condition_isp_config_en
+     *   condition_country_config_cn
+     *   condition_country_config_en
+     *
      * @example condition_region_config_cn
      *
      * @var string

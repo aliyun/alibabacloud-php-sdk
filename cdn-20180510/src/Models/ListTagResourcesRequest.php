@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results.
+     *
      * @example QpgBAAAAAABsb2dzL2RzLw==
      *
      * @var string
@@ -17,11 +19,15 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the resource.
+     *
      * @var string[]
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Set the value to **DOMAIN**.
+     *
      * @example DOMAIN
      *
      * @var string
@@ -29,11 +35,15 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The key-value pair of a tag.
+     *
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The business ID of the tag owner.
+     *
      * @example 26842
      *
      * @var string
@@ -41,6 +51,8 @@ class ListTagResourcesRequest extends Model
     public $tagOwnerBid;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the tag belongs.
+     *
      * @example 123xxxx
      *
      * @var string

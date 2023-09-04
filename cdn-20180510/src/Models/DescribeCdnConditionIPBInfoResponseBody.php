@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnConditionIPBInfoResponseBody extends Model
 {
     /**
+     * @description The data that is returned.
+     *
      * @var datas[]
      */
     public $datas;
 
     /**
+     * @description The request ID.
+     *
      * @example 2C4AA72D-8C00-1113-BD68-8BC4E3CF4FF6
      *
      * @var string

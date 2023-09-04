@@ -18,10 +18,10 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $certName;
 
     /**
-     * @description The type of the certificate. Valid values:
+     * @description The type of the SSL certificate. Valid values:
      *
      *   **upload**: a user-uploaded SSL certificate.
-     *   **cas**: a certificate that is acquired through Certificate Management Service.
+     *   **cas**: a certificate that is issued by SSL Certificates Service.
      *
      * @example cas
      *
@@ -32,7 +32,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     /**
      * @description The accelerated domain name to which the SSL certificate belongs. The type of request supported by the accelerated domain name must be HTTPS. You can specify multiple accelerated domain names and separate them with commas (,).
      *
-     * >You can configure up to 10 domain names at a time.
+     * >  You can manage the SSL certificates of up to 50 accelerated domain names in each call.
      * @example example.com
      *
      * @var string
@@ -54,7 +54,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region.
+     * @description The region.
      *
      * @example your region
      *
@@ -63,7 +63,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $region;
 
     /**
-     * @description The private key. Specify the private key only if you want to enable the SSL certificate.
+     * @description The private key. Specify the private key only if you enable the SSL certificate.
      *
      * @example yourSSLPri
      *
@@ -72,10 +72,10 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $SSLPri;
 
     /**
-     * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
+     * @description Specifies whether to enable the SSL certificate. Valid values:
      *
-     *   **on** ：enables the SSL certificate.
-     *   **off**：disables the SSL certificate
+     *   **on**: enables the SSL certificate.
+     *   **off**: disables the SSL certificate. This is the default value.
      *
      * @example on
      *
@@ -84,7 +84,7 @@ class BatchSetCdnDomainServerCertificateRequest extends Model
     public $SSLProtocol;
 
     /**
-     * @description The content of the SSL certificate. Specify the content of the SSL certificate only if you want to enable the SSL certificate.
+     * @description The content of the SSL certificate. Specify the content of the certificate only if you want to enable the SSL certificate.
      *
      * @example yourSSLPub
      *

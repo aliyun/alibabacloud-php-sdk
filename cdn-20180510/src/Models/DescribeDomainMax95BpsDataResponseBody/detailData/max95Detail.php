@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class max95Detail extends Model
 {
     /**
+     * @description Region of the 95th percentile bandwidth.
+     *
+     * @example CN
+     *
      * @var string
      */
     public $area;
 
     /**
+     * @description The 95th percentile bandwidth.
+     *
+     * @example 16777590.28
+     *
      * @var float
      */
     public $max95Bps;
 
     /**
+     * @description Time of the 95th percentile bandwidth.
+     *
+     * @example 2015-12-11T21:05:00Z
+     *
      * @var string
      */
     public $max95BpsPeakTime;
 
     /**
+     * @description The timestamp of the returned data.
+     *
+     * @example 2015-12-11T21:00:00Z
+     *
      * @var string
      */
     public $timeStamp;

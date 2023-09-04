@@ -106,7 +106,7 @@ class certInfo extends Model
     public $certUpdateTime;
 
     /**
-     * @description The CANME status of the domain name.
+     * @description The CNAME status of the domain name.
      *
      *   **ok**: The domain name points to the CNAME assigned by Alibaba Cloud CDN.
      *   **cname_error**: An error occurred and the domain name cannot point to the CNAME.

@@ -722,8 +722,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per account.
-     *   * *   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,).
+     * > *   You can call this operation up to 10 times per second per account.
+     *   * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
+     *   * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
      *   *
      * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -783,8 +784,9 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   You can call this operation up to 10 times per second per account.
-     *   * *   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,).
+     * > *   You can call this operation up to 10 times per second per account.
+     *   * >*   You can specify up to 10 domain names in each request. Separate multiple domain names with commas (,)
+     *   * >*   If the service type of a domain name is live streaming, the service may be unavailable after you configure the certificate for the domain name. Therefore, you cannot use this operation to configure the certificate for a domain name that is used for live streaming.
      *   *
      * @param BatchSetCdnDomainServerCertificateRequest $request BatchSetCdnDomainServerCertificateRequest
      *
@@ -2201,7 +2203,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * >  You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeCdnDomainByCertificateRequest $request DescribeCdnDomainByCertificateRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -2240,7 +2242,7 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * > You can call this operation up to 100 times per second per account.
+     * >  You can call this operation up to 100 times per second per account.
      *   *
      * @param DescribeCdnDomainByCertificateRequest $request DescribeCdnDomainByCertificateRequest
      *
@@ -4358,11 +4360,16 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The unit of the bandwidth is bit/s.
-     *   * *   The time granularity of the queried data is 5 minutes.
-     *   * *   You can query data in the last 90 days.
-     *   * *   You can specify the StartTime and EndTime parameters, or the TimePoint and Cycle parameters to query the 95th percentile bandwidth data. If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned. If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned. If you do not specify parameters as previously mentioned, the 95th percentile bandwidth data in the last 24 hours is returned.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * **You can use one of the following methods to query data:**
+     *   * *   If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned.
+     *   * *   If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+     *   * *   If you specify the StartTime, EndTime, and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+     *   * If you do not use one of the methods, the 95th percentile bandwidth data of the previous 24 hours is returned by default.
+     *   * * Maximum time range to query: 90 days
+     *   * * Minimum data granularity to query: 1 day
+     *   * * Historical data available: 90 days
+     *   * - You can call this operation up to 100 times per second per account.
+     *   * - The unit of the bandwidth data returned is bit/s.
      *   *
      * @param DescribeDomainMax95BpsDataRequest $request DescribeDomainMax95BpsDataRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -4407,11 +4414,16 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * *   The unit of the bandwidth is bit/s.
-     *   * *   The time granularity of the queried data is 5 minutes.
-     *   * *   You can query data in the last 90 days.
-     *   * *   You can specify the StartTime and EndTime parameters, or the TimePoint and Cycle parameters to query the 95th percentile bandwidth data. If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned. If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned. If you do not specify parameters as previously mentioned, the 95th percentile bandwidth data in the last 24 hours is returned.
-     *   * *   You can call this operation up to 100 times per second per account.
+     * **You can use one of the following methods to query data:**
+     *   * *   If you specify the StartTime and EndTime parameters and the time range that is specified by these parameters is less than or equal to 24 hours, the 95th percentile bandwidth data on the day of the start time is returned. If the time range that is specified by these parameters is more than 24 hours, the 95th percentile bandwidth data in the month of the start time is returned.
+     *   * *   If you specify the TimePoint and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+     *   * *   If you specify the StartTime, EndTime, and Cycle parameters, the 95th percentile bandwidth data of the cycle is returned.
+     *   * If you do not use one of the methods, the 95th percentile bandwidth data of the previous 24 hours is returned by default.
+     *   * * Maximum time range to query: 90 days
+     *   * * Minimum data granularity to query: 1 day
+     *   * * Historical data available: 90 days
+     *   * - You can call this operation up to 100 times per second per account.
+     *   * - The unit of the bandwidth data returned is bit/s.
      *   *
      * @param DescribeDomainMax95BpsDataRequest $request DescribeDomainMax95BpsDataRequest
      *
@@ -8075,10 +8087,14 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param ModifyCdnDomainOwnerRequest $request
-     * @param RuntimeOptions              $runtime
+     * This operation is used in the following scenario:
+     *   * *   You have multiple Alibaba Cloud accounts and want to transfer domain names from Account A to Account B.
+     *   * *   You are prompted that a domain name has been added when you add the domain name to Alibaba Cloud CDN. You do not know which account does the domain name belong to, and you want to transfer the domain name to your current account.
+     *   *
+     * @param ModifyCdnDomainOwnerRequest $request ModifyCdnDomainOwnerRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyCdnDomainOwnerResponse
+     * @return ModifyCdnDomainOwnerResponse ModifyCdnDomainOwnerResponse
      */
     public function modifyCdnDomainOwnerWithOptions($request, $runtime)
     {
@@ -8115,9 +8131,13 @@ class Cdn extends OpenApiClient
     }
 
     /**
-     * @param ModifyCdnDomainOwnerRequest $request
+     * This operation is used in the following scenario:
+     *   * *   You have multiple Alibaba Cloud accounts and want to transfer domain names from Account A to Account B.
+     *   * *   You are prompted that a domain name has been added when you add the domain name to Alibaba Cloud CDN. You do not know which account does the domain name belong to, and you want to transfer the domain name to your current account.
+     *   *
+     * @param ModifyCdnDomainOwnerRequest $request ModifyCdnDomainOwnerRequest
      *
-     * @return ModifyCdnDomainOwnerResponse
+     * @return ModifyCdnDomainOwnerResponse ModifyCdnDomainOwnerResponse
      */
     public function modifyCdnDomainOwner($request)
     {
@@ -8667,6 +8687,9 @@ class Cdn extends OpenApiClient
         }
         if (!Utils::isUnset($request->domainName)) {
             $query['DomainName'] = $request->domainName;
+        }
+        if (!Utils::isUnset($request->env)) {
+            $query['Env'] = $request->env;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;

@@ -83,8 +83,8 @@ class SetDomainServerCertificateRequest extends Model
     /**
      * @description Specifies whether to enable the SSL certificate. Default value: off. Valid values:
      *
-     *   **on** ：enables the SSL certificate.
-     *   **off**：disables the SSL certificate.
+     *   **on** : enables the SSL certificate.
+     *   **off**: disables the SSL certificate.
      *
      * @example on
      *

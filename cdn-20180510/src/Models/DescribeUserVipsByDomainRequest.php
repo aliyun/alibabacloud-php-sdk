@@ -11,8 +11,8 @@ class DescribeUserVipsByDomainRequest extends Model
     /**
      * @description Specifies whether to query the virtual IP addresses of only healthy CDN POPs. Valid values:
      *
-     *   **on**：healthy CDN edge nodes.
-     *   **off**：all CDN edge nodes.
+     *   **on**: healthy CDN edge nodes.
+     *   **off**: all CDN edge nodes.
      *
      * @example on
      *

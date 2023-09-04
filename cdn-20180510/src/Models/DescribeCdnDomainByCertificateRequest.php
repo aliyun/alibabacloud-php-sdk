@@ -9,14 +9,21 @@ use AlibabaCloud\Tea\Model;
 class DescribeCdnDomainByCertificateRequest extends Model
 {
     /**
+     * @description Specifies whether the domain name list to return match the SSL certificate.
+     *
+     *   true: The domain name list match the SSL certificate.
+     *   false: The domain name list do not match the SSL certificate.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $exact;
 
     /**
-     * @description The public key of the SSL certificate. You must encode the public key in Base64 before you invoke the encodeURIComponent function to encode a URI component.
+     * @description The public key of the SSL certificate. You must encode the public key in Base64 and then call the encodeURIComponent function to encode the public key again.
      *
-     * A public key in the Privacy Enhanced Mail (PEM) format is supported.
+     * The public key must be in the PEM format.
      * @example ******
      *
      * @var string
@@ -24,10 +31,10 @@ class DescribeCdnDomainByCertificateRequest extends Model
     public $SSLPub;
 
     /**
-     * @description Specifies whether to return only domain names with HTTPS enabled or disabled.
+     * @description Specifies whether the domain name list to return contains only domain names with HTTPS enabled or disabled.
      *
-     *   true: returns only domain names with HTTPS enabled.
-     *   false: returns only domain names with HTTPS disabled.
+     *   true: The domain name list contains only domain names with HTTPS enabled.
+     *   false: The domain name list contains only domain names with HTTPS disabled.
      *
      * @example true
      *

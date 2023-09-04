@@ -57,6 +57,11 @@ class SetCdnDomainSSLCertificateRequest extends Model
     public $domainName;
 
     /**
+     * @var string
+     */
+    public $env;
+
+    /**
      * @var int
      */
     public $ownerId;
@@ -101,6 +106,7 @@ class SetCdnDomainSSLCertificateRequest extends Model
         'certRegion'    => 'CertRegion',
         'certType'      => 'CertType',
         'domainName'    => 'DomainName',
+        'env'           => 'Env',
         'ownerId'       => 'OwnerId',
         'SSLPri'        => 'SSLPri',
         'SSLProtocol'   => 'SSLProtocol',
@@ -129,6 +135,9 @@ class SetCdnDomainSSLCertificateRequest extends Model
         }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
+        }
+        if (null !== $this->env) {
+            $res['Env'] = $this->env;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
@@ -171,6 +180,9 @@ class SetCdnDomainSSLCertificateRequest extends Model
         }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
+        }
+        if (isset($map['Env'])) {
+            $model->env = $map['Env'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];

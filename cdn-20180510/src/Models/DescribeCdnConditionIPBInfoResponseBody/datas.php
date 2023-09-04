@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class datas extends Model
 {
     /**
+     * @description The configuration value.
+     *
+     * @example "[{\"text\":\"阿鲁巴\",\"value\":\"AW\"}]"
+     *
      * @var string
      */
     public $value;

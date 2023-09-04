@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdnDomainOwnerRequest extends Model
 {
     /**
+     * @description The accelerated domain name.
+     *
      * @example example.com
      *
      * @var string

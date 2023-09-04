@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainMax95BpsDataResponseBody extends Model
 {
     /**
+     * @description Details of the 95th percentile bandwidth.
+     *
      * @var detailData
      */
     public $detailData;

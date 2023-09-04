@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyCdnDomainOwnerResponseBody extends Model
 {
     /**
+     * @description Procedure
+     *
      * @example The domain does not allow to transfer to a different account.
      *
      * @var mixed[]
@@ -16,6 +18,8 @@ class ModifyCdnDomainOwnerResponseBody extends Model
     public $content;
 
     /**
+     * @description The request ID.
+     *
      * @example C98E518B-024E-538E-8276-66310CB8667D
      *
      * @var string
