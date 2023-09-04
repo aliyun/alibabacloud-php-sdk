@@ -9,81 +9,159 @@ use AlibabaCloud\Tea\Model;
 class tasks extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00jhtfl8thteu6uj****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The name of the access configuration.
+     *
+     * @example ECS-Admin
+     *
      * @var string
      */
     public $accessConfigurationName;
 
     /**
+     * @description The time when the task ended.
+     *
+     * @example 2021-11-09T05:50:50Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The cause of the task failure.
+     *
+     * >  This parameter is returned only when the value of `Status` is `Failed`.
+     * @example No Permission.
+     *
      * @var string
      */
     public $failureReason;
 
     /**
+     * @description The ID of the CloudSSO identity.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $principalId;
 
     /**
+     * @description The name of the CloudSSO identity.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $principalName;
 
     /**
+     * @description The type of the CloudSSO identity. Valid values:
+     *
+     *   User
+     *   Group
+     *
+     * @example User
+     *
      * @var string
      */
     public $principalType;
 
     /**
+     * @description The time when the task started.
+     *
+     * @example 2021-11-09T05:50:50Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the task. Valid values:
+     *
+     *   InProgress: The task is running.
+     *   Success: The task is successful.
+     *   Failed: The task failed.
+     *
+     * @example Success
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task object.
+     *
+     * @example 114240524784****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The name of the task object.
+     *
+     * @example dev-test
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The path ID of the task object in your resource directory.
+     *
+     * @example rd-3G****\/r-Wm****\/114240524784****
+     *
      * @var string
      */
     public $targetPath;
 
     /**
+     * @description The path name of the task object in your resource directory.
+     *
+     * @example rd-3G****\/root/dev-test
+     *
      * @var string
      */
     public $targetPathName;
 
     /**
+     * @description The type of the task object.
+     *
+     * The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * @example RD-Account
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example t-sh5k4gesm6twlrqb****
+     *
      * @var string
      */
     public $taskId;
 
     /**
+     * @description The type of the task. Valid values:
+     *
+     *   ProvisionAccessConfiguration: An access configuration is provisioned.
+     *   DeprovisionAccessConfiguration: An access configuration is de-provisioned.
+     *   CreateAccessAssignment: Access permissions on an account in your resource directory are assigned.
+     *   DeleteAccessAssignment: Access permissions on an account in your resource directory are removed.
+     *
+     * @example CreateAccessAssignment
+     *
      * @var string
      */
     public $taskType;

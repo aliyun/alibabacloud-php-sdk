@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetServiceStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example ADADC31D-90EE-5459-99B0-D83DF07769A3
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The status information of CloudSSO.
+     *
      * @var serviceStatus
      */
     public $serviceStatus;

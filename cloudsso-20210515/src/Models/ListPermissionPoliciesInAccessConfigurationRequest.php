@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionPoliciesInAccessConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00jhtfl8thteu6uj****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The type of the policy. The type can be used to filter policies. Valid values:
+     *
+     *   System: system policy
+     *   Inline: inline policy
+     *
+     * If you do not specify this parameter, all types of policies are queried.
+     * @example System
+     *
      * @var string
      */
     public $permissionPolicyType;

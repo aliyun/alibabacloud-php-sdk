@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListMFADevicesForUserResponseBody extends Model
 {
     /**
+     * @description The MFA devices.
+     *
      * @var MFADevices[]
      */
     public $MFADevices;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 8B9982ED-FD0D-5622-8EA0-7B768685DCE7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of MFA devices.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCounts;

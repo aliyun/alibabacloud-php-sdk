@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class SAMLIdPCertificates extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * @example idp-c-00dt9gnl7fmjaw9c****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The issuer of the certificate.
+     *
+     * @example 1.2.840.113549.1.9.1=#160d696e666f406f6b74612e63****,CN=dev-xxxxxx,OU=SSOProvider,O=Okta,L=San Francisco,ST=California,C=US
+     *
      * @var string
      */
     public $issuer;
 
     /**
+     * @description The time when the certificate expires.
+     *
+     * @example 2030-06-23T07:04:37Z
+     *
      * @var string
      */
     public $notAfter;
 
     /**
+     * @description The time when the certificate was created.
+     *
+     * @example 2020-06-23T07:03:37Z
+     *
      * @var string
      */
     public $notBefore;
 
     /**
+     * @description The public key of the certificate. The value of this paremeter is in the PEM format and is Base64-encoded.
+     *
+     * @example MIIBIjANBgkqhkiG****
+     *
      * @var string
      */
     public $publicKey;
 
     /**
+     * @description The serial number of the certificate.
+     *
+     * @example 159289587****
+     *
      * @var string
      */
     public $serialNumber;
 
     /**
+     * @description The signature algorithm of the certificate.
+     *
+     * @example SHA256withRSA
+     *
      * @var string
      */
     public $signatureAlgorithm;
 
     /**
+     * @description The subject of the certificate.
+     *
+     * @example 1.2.840.113549.1.9.1=#160d696e666f406f6b74612e63****,CN=dev-xxxxxx,OU=SSOProvider,O=Okta,L=San Francisco,ST=California,C=US
+     *
      * @var string
      */
     public $subject;
 
     /**
+     * @description The version of the certificate.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $version;
 
     /**
+     * @description The X.509 certificate in the PEM format.
+     *
+     * @example MIIDpDCCAoygAwIBAgIG****
+     *
      * @var string
      */
     public $x509Certificate;

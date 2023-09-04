@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class CreateGroupRequest extends Model
 {
     /**
+     * @description The description of the group.
+     *
+     * The description can be up to 1,024 characters in length.
+     * @example This is a group.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The name of the group.
+     *
+     * The name can be up to 128 characters in length.
+     * @example TestGroup
+     *
      * @var string
      */
     public $groupName;

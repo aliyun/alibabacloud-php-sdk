@@ -9,36 +9,65 @@ use AlibabaCloud\Tea\Model;
 class SCIMServerCredential extends Model
 {
     /**
+     * @description The time when the SCIM credential was created.
+     *
+     * @example 2021-11-09T08:12:52Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the SCIM credential.
+     *
+     * @example scimcred-004whl0kvfwcypbi****
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @description The SCIM credential.
+     *
+     * >  The SCIM credential is returned only when it is created. After the SCIM credential is created, you cannot query it. Keep the SCIM credential confidential.
+     * @example 8aAJCtpbyPJ8saXeYDgyw****
+     *
      * @var string
      */
     public $credentialSecret;
 
     /**
+     * @description The type of the SCIM credential.
+     *
+     * @example BearerToken
+     *
      * @var string
      */
     public $credentialType;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The time when the SCIM credential expires.
+     *
+     * @example 2022-11-09T08:12:52Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description The status of the SCIM credential. The value is fixed as Enabled, which indicates that the SCIM credential is enabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $status;

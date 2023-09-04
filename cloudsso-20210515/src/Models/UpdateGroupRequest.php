@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class UpdateGroupRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example g-00jqzghi2n3o5hkh****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The new description of the group.
+     *
+     * @example This is a group.
+     *
      * @var string
      */
     public $newDescription;
 
     /**
+     * @description The new name of the group.
+     *
+     * @example NewTestGroup
+     *
      * @var string
      */
     public $newGroupName;

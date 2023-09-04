@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class UpdateInlinePolicyForAccessConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00jhtfl8thteu6uj****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The name of the inline policy.
+     *
+     * @example InlinePolicy
+     *
      * @var string
      */
     public $inlinePolicyName;
 
     /**
+     * @description The new configurations of the inline policy.
+     *
+     * For more information about the syntax and structure of RAM policies, see [Policy syntax and structure](~~93739~~).
+     * @example {"Statement": [{"Action": "*","Effect": "Allow","Resource": "*"}],"Version": "1"}
+     *
      * @var string
      */
     public $newInlinePolicyDocument;

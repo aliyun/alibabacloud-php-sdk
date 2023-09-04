@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateSCIMServerCredentialResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 2D2E5180-7ACF-57FF-A56C-26A49ABEBFF7
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the SCIM credential.
+     *
      * @var SCIMServerCredential
      */
     public $SCIMServerCredential;

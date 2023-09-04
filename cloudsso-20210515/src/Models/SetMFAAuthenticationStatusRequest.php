@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetMFAAuthenticationStatusRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The status of MFA. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $MFAAuthenticationStatus;

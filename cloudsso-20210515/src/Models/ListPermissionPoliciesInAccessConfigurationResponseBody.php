@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListPermissionPoliciesInAccessConfigurationResponseBody extends Model
 {
     /**
+     * @description The policies.
+     *
      * @var permissionPolicies[]
      */
     public $permissionPolicies;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3A5E771F-1F5A-5555-A64E-579748AAFD98
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of policies.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCounts;

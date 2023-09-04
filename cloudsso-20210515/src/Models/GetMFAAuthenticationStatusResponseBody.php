@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class GetMFAAuthenticationStatusResponseBody extends Model
 {
     /**
+     * @description The status of MFA. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $MFAAuthenticationStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5E688346-DF1A-5537-9BFC-8A9974D29586
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserMFAAuthenticationSettingsRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description Specifies whether to enable MFA for the user. Valid values:
+     *
+     *   Enabled: enables MFA for the user.
+     *   Disabled: disables MFA for the user.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $userMFAAuthenticationSettings;

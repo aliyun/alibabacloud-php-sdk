@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class AddExternalSAMLIdPCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the SAML signing certificate.
+     *
+     * @example idp-c-00wk2fb4foracls0****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 12B3E332-DD16-515B-B695-39BA233AA172
+     *
      * @var string
      */
     public $requestId;

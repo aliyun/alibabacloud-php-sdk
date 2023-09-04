@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class SetExternalSAMLIdentityProviderRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The metadata file of the IdP. The value of this parameter is Base64-encoded.
+     *
+     * The file is provided by the IdP that supports SAML 2.0.
+     * @example PD94bWwgdmVyc2lvbj0iMS4****
+     *
      * @var string
      */
     public $encodedMetadataDocument;
 
     /**
+     * @description The entity ID of the IdP.
+     *
+     * @example http://www.okta.com/exk3qwgtjhetR2Od****
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description The logon URL of the IdP.
+     *
+     * @example https://dev-xxxxxx.okta.com/app/dev-xxxxxx_cloudssodemo_1/exk3qwgtjhetR2Od****\/sso/saml
+     *
      * @var string
      */
     public $loginUrl;
 
     /**
+     * @description The status of SSO logon. Valid values:
+     *
+     *   Enabled
+     *   Disabled (default)
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $SSOStatus;
 
     /**
+     * @description Specifies whether CloudSSO needs to sign SAML requests. The requests are sent when users log on to the CloudSSO user portal to initiate SAML-based SSO. Valid values:
+     *
+     *   true: yes
+     *   false: no (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $wantRequestSigned;
 
     /**
+     * @description The X.509 certificate in the PEM format. If you specify this parameter, all existing certificates are replaced.
+     *
+     * @example MIIC8DCCAdigAwIBAgIQP9eomUYGeoND****
+     *
      * @var string
      */
     public $x509Certificate;

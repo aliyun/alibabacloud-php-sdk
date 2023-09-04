@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetUserRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;

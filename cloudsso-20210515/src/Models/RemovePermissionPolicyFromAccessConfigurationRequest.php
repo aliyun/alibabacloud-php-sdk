@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class RemovePermissionPolicyFromAccessConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00jhtfl8thteu6uj****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example AliyunECSFullAccess
+     *
      * @var string
      */
     public $permissionPolicyName;
 
     /**
+     * @description The type of the policy. Valid values:
+     *
+     *   System: system policy
+     *   Inline: inline policy
+     *
+     * @example System
+     *
      * @var string
      */
     public $permissionPolicyType;

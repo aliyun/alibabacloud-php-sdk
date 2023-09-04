@@ -9,61 +9,115 @@ use AlibabaCloud\Tea\Model;
 class directoryStatistics extends Model
 {
     /**
+     * @description The number of access permissions that are assigned.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $accessAssignmentCount;
 
     /**
+     * @description The number of access configurations.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $accessConfigurationCount;
 
     /**
+     * @description The quota for access configurations.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $accessConfigurationQuota;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The name of the directory.
+     *
+     * @example new-example
+     *
      * @var string
      */
     public $directoryName;
 
     /**
+     * @description The number of groups.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $groupCount;
 
     /**
+     * @description The quota for groups.
+     *
+     * @example 500
+     *
      * @var int
      */
     public $groupQuota;
 
     /**
+     * @description The number of tasks that are being performed.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $inProgressTaskCount;
 
     /**
+     * @description The region ID of the directory.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The number of SCIM credentials.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $SCIMServerCredentialCount;
 
     /**
+     * @description Indicates whether SCIM synchronization is enabled. Valid values:
+     *
+     *   true: SCIM synchronization is enabled.
+     *   false: SCIM synchronization is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $SCIMSyncEnabled;
 
     /**
+     * @description Indicates whether SSO logon is enabled. Valid values:
+     *
+     *   true: SSO logon is enabled.
+     *   false: SSO logon is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $SSOEnabled;
@@ -71,27 +125,41 @@ class directoryStatistics extends Model
     /**
      * @var int
      */
+    public $systemPolicyPerAccessConfigurationQuota;
+
+    /**
+     * @description The number of users.
+     *
+     * @example 16
+     *
+     * @var int
+     */
     public $userCount;
 
     /**
+     * @description The quota for users.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $userQuota;
     protected $_name = [
-        'accessAssignmentCount'     => 'AccessAssignmentCount',
-        'accessConfigurationCount'  => 'AccessConfigurationCount',
-        'accessConfigurationQuota'  => 'AccessConfigurationQuota',
-        'directoryId'               => 'DirectoryId',
-        'directoryName'             => 'DirectoryName',
-        'groupCount'                => 'GroupCount',
-        'groupQuota'                => 'GroupQuota',
-        'inProgressTaskCount'       => 'InProgressTaskCount',
-        'region'                    => 'Region',
-        'SCIMServerCredentialCount' => 'SCIMServerCredentialCount',
-        'SCIMSyncEnabled'           => 'SCIMSyncEnabled',
-        'SSOEnabled'                => 'SSOEnabled',
-        'userCount'                 => 'UserCount',
-        'userQuota'                 => 'UserQuota',
+        'accessAssignmentCount'                   => 'AccessAssignmentCount',
+        'accessConfigurationCount'                => 'AccessConfigurationCount',
+        'accessConfigurationQuota'                => 'AccessConfigurationQuota',
+        'directoryId'                             => 'DirectoryId',
+        'directoryName'                           => 'DirectoryName',
+        'groupCount'                              => 'GroupCount',
+        'groupQuota'                              => 'GroupQuota',
+        'inProgressTaskCount'                     => 'InProgressTaskCount',
+        'region'                                  => 'Region',
+        'SCIMServerCredentialCount'               => 'SCIMServerCredentialCount',
+        'SCIMSyncEnabled'                         => 'SCIMSyncEnabled',
+        'SSOEnabled'                              => 'SSOEnabled',
+        'systemPolicyPerAccessConfigurationQuota' => 'SystemPolicyPerAccessConfigurationQuota',
+        'userCount'                               => 'UserCount',
+        'userQuota'                               => 'UserQuota',
     ];
 
     public function validate()
@@ -136,6 +204,9 @@ class directoryStatistics extends Model
         }
         if (null !== $this->SSOEnabled) {
             $res['SSOEnabled'] = $this->SSOEnabled;
+        }
+        if (null !== $this->systemPolicyPerAccessConfigurationQuota) {
+            $res['SystemPolicyPerAccessConfigurationQuota'] = $this->systemPolicyPerAccessConfigurationQuota;
         }
         if (null !== $this->userCount) {
             $res['UserCount'] = $this->userCount;
@@ -190,6 +261,9 @@ class directoryStatistics extends Model
         }
         if (isset($map['SSOEnabled'])) {
             $model->SSOEnabled = $map['SSOEnabled'];
+        }
+        if (isset($map['SystemPolicyPerAccessConfigurationQuota'])) {
+            $model->systemPolicyPerAccessConfigurationQuota = $map['SystemPolicyPerAccessConfigurationQuota'];
         }
         if (isset($map['UserCount'])) {
             $model->userCount = $map['UserCount'];

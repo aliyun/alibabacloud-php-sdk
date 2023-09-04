@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteSCIMServerCredentialRequest extends Model
 {
     /**
+     * @description The ID of the SCIM credential.
+     *
+     * @example scimcred-004whl0kvfwcypbi****
+     *
      * @var string
      */
     public $credentialId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;

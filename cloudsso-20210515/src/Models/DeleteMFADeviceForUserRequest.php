@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DeleteMFADeviceForUserRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the MFA device.
+     *
+     * You can call the [ListMFADevicesForUser](~~333531~~) operation to query the IDs of MFA devices.
+     * @example mfa-00ujhet8pycljj7j****
+     *
      * @var string
      */
     public $MFADeviceId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;

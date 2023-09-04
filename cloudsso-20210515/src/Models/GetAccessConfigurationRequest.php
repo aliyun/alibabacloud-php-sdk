@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetAccessConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00ccule7tadaijxc****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;

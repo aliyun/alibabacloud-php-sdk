@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SetSCIMSynchronizationStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 3BF1FC78-5D20-54CC-BAEB-8CC33AE21D01
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class UpdateDirectoryRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The new name of the directory. The name must be globally unique.
+     *
+     * The name must be 2 to 64 characters in length.
+     * @example new-example
+     *
      * @var string
      */
     public $newDirectoryName;

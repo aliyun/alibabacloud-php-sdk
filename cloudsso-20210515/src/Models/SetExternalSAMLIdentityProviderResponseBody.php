@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class SetExternalSAMLIdentityProviderResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 63160579-2E1B-57B0-8273-B27427172385
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The configurations of the IdP.
+     *
      * @var SAMLIdentityProviderConfiguration
      */
     public $SAMLIdentityProviderConfiguration;

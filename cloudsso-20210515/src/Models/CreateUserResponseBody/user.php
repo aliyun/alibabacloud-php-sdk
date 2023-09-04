@@ -9,56 +9,106 @@ use AlibabaCloud\Tea\Model;
 class user extends Model
 {
     /**
+     * @description The time when the user was created.
+     *
+     * @example 2021-10-26T03:03:42Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the user.
+     *
+     * @example This is a user.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The display name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The email address of the user.
+     *
+     * @example Alice@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The first name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $firstName;
 
     /**
+     * @description The last name of the user.
+     *
+     * @example Lee
+     *
      * @var string
      */
     public $lastName;
 
     /**
+     * @description The type of the user. Valid values:
+     *
+     *   Manual: The user is manually created.
+     *   Synchronized: The user is synchronized from an external identity provider (IdP).
+     *
+     * @example Manual
+     *
      * @var string
      */
     public $provisionType;
 
     /**
+     * @description The status of the user. Valid values:
+     *
+     *   Enabled: The logon of the user is enabled.
+     *   Disabled: The logon of the user is disabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The time when the user was modified.
+     *
+     * @example 2021-10-26T03:03:42Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $userName;

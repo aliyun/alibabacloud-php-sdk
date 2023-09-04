@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class ProvisionAccessConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example DFDC16B2-4509-5FA6-9FA5-3CD35E4292FB
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the task.
+     *
      * @var tasks[]
      */
     public $tasks;

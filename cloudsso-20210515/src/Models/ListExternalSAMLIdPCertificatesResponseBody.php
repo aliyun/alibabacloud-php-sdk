@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListExternalSAMLIdPCertificatesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 400979BC-92EC-58B9-B47C-6913BD56A6FD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The SAML signing certificates.
+     *
      * @var SAMLIdPCertificates[]
      */
     public $SAMLIdPCertificates;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCounts;

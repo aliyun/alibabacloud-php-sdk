@@ -9,41 +9,72 @@ use AlibabaCloud\Tea\Model;
 class accessConfiguration extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00ccule7tadaijxc****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The name of the access configuration.
+     *
+     * @example VPC-Admin
+     *
      * @var string
      */
     public $accessConfigurationName;
 
     /**
+     * @description The time when the access configuration was created.
+     *
+     * @example 2021-06-30T09:39:44Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the access configuration.
+     *
+     * @example This is an access configuration.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The initial web page that is displayed after a CloudSSO user accesses an account in your resource directory by using the access configuration.
+     *
+     * @example https://cloudsso.console.aliyun.com
+     *
      * @var string
      */
     public $relayState;
 
     /**
+     * @description The duration of a session in which a CloudSSO user accesses an account in your resource directory by using the access configuration.
+     *
+     * Unit: seconds.
+     * @example 3600
+     *
      * @var int
      */
     public $sessionDuration;
 
     /**
+     * @description The status notification.
+     *
      * @var string[]
      */
     public $statusNotifications;
 
     /**
+     * @description The time when the information about the access configuration was modified.
+     *
+     * @example 2021-07-26T03:02:11Z
+     *
      * @var string
      */
     public $updateTime;

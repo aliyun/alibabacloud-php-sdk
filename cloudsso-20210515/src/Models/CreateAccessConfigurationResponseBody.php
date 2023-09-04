@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessConfigurationResponseBody extends Model
 {
     /**
+     * @description The information about the access configuration.
+     *
      * @var accessConfiguration
      */
     public $accessConfiguration;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A3A41736-A050-50B6-ABC5-590F376A0044
+     *
      * @var string
      */
     public $requestId;

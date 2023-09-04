@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteDirectoryResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B182C041-8C64-5F2F-A07B-FC67FAF89CF9
+     *
      * @var string
      */
     public $requestId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserMFAAuthenticationSettingsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5E6C6049-E9B0-5F6F-A104-6150E3B1F4D7
+     *
      * @var string
      */
     public $requestId;

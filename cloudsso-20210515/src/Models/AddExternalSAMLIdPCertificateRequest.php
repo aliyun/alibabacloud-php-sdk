@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class AddExternalSAMLIdPCertificateRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The X.509 certificate in the PEM format.
+     *
+     * The certificate is provided by the SAML IdP.
+     * @example MIIC8DCCAdigAwIBAgIQP9eomUYGeoND****
+     *
      * @var string
      */
     public $x509Certificate;

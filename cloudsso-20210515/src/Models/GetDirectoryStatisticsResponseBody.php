@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDirectoryStatisticsResponseBody extends Model
 {
     /**
+     * @description The statistics of the directory.
+     *
      * @var directoryStatistics
      */
     public $directoryStatistics;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 7B7228B0-A435-5D27-A6B2-ED3571F0654B
+     *
      * @var string
      */
     public $requestId;

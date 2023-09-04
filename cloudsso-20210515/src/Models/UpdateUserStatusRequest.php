@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserStatusRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The new status of the user. Valid values:
+     *
+     *   Enabled: The logon of the user is enabled.
+     *   Disabled: The logon of the user is disabled.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $newStatus;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;

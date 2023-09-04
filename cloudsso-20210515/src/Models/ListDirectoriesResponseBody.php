@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListDirectoriesResponseBody extends Model
 {
     /**
+     * @description The directories.
+     *
      * @var directories[]
      */
     public $directories;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9A504392-F06D-5029-AB64-6654CB9F1DC1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The number of directories.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCounts;

@@ -10,31 +10,57 @@ use AlibabaCloud\Tea\Model;
 class ListJoinedGroupsForUserResponseBody extends Model
 {
     /**
+     * @description Indicates whether the queried entries are truncated. Valid values:
+     *
+     *   true: The queried entries are truncated.
+     *   false: The queried entries are not truncated.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isTruncated;
 
     /**
+     * @description The groups to which the user is added.
+     *
      * @var joinedGroups[]
      */
     public $joinedGroups;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that is returned for the next page.
+     *
+     * >  This parameter is returned only when the value of `IsTruncated` is `true`.
+     * @example K1c3o9K7pFxoTtxH1Nm7MMLb7zrDGvftYBQBPDVv7AD3a8yhRb3Mk8L9ivmN6bFSjfkZNTAg3h4****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E9BBB45F-7877-5DE9-96A5-20E6CFA48929
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalCounts;

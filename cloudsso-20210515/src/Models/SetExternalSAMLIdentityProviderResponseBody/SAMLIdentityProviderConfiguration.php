@@ -9,46 +9,86 @@ use AlibabaCloud\Tea\Model;
 class SAMLIdentityProviderConfiguration extends Model
 {
     /**
+     * @description The ID of the SAML signing certificate.
+     *
      * @var string[]
      */
     public $certificateIds;
 
     /**
+     * @description The time when the IdP was configured for the first time.
+     *
+     * @example 2021-11-10T02:57:16Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The metadata file of the IdP. The value of this parameter is Base64-encoded.
+     *
+     * @example PD94bWwgdmVyc2lvbj0iMS4****
+     *
      * @var string
      */
     public $encodedMetadataDocument;
 
     /**
+     * @description The entity ID of the IdP.
+     *
+     * @example http://www.okta.com/exk3qwgtjhetR2Od****
+     *
      * @var string
      */
     public $entityId;
 
     /**
+     * @description The logon URL of the IdP.
+     *
+     * @example https://dev-xxxxxx.okta.com/app/dev-xxxxxx_cloudssodemo_1/exk3qwgtjhetR2Od****\/sso/saml
+     *
      * @var string
      */
     public $loginUrl;
 
     /**
+     * @description The status of SSO logon. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $SSOStatus;
 
     /**
+     * @description The time when the IdP configurations were last modified.
+     *
+     * @example 2021-11-10T02:57:16Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @description Indicates whether CloudSSO needs to sign SAML requests. The requests are sent when users log on to the CloudSSO user portal to initiate SAML-based SSO. Valid values:
+     *
+     *   true: yes
+     *   false: no (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $wantRequestSigned;

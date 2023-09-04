@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RemoveExternalSAMLIdPCertificateResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 400979BC-92EC-58B9-B47C-6913BD56A6FD
+     *
      * @var string
      */
     public $requestId;

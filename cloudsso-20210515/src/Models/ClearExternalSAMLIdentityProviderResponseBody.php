@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ClearExternalSAMLIdentityProviderResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 96D1E5FF-0301-5636-8D33-071E033CFB82
+     *
      * @var string
      */
     public $requestId;

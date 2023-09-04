@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class permissionPolicies extends Model
 {
     /**
+     * @description The time when the policy was created for the access configuration.
+     *
+     * @example 2021-11-03T06:37:25Z
+     *
      * @var string
      */
     public $addTime;
 
     /**
+     * @description The configurations of the inline policy.
+     *
+     * >  This parameter is returned only when the value of the PermissionPolicyType parameter is Inline.
+     * @example {\"Statement\": [{\"Action\": \"*\",\"Effect\": \"Allow\",\"Resource\": \"*\"}],\"Version\": \"1\"}
+     *
      * @var string
      */
     public $permissionPolicyDocument;
 
     /**
+     * @description The name of the policy.
+     *
+     * @example AliyunECSFullAccess
+     *
      * @var string
      */
     public $permissionPolicyName;
 
     /**
+     * @description The type of the policy.
+     *
+     * @example System
+     *
      * @var string
      */
     public $permissionPolicyType;

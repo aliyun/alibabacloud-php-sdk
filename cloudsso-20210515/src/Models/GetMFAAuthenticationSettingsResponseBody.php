@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class GetMFAAuthenticationSettingsResponseBody extends Model
 {
     /**
+     * @description Indicates whether MFA is enabled for all users. Valid values:
+     *
+     *   Enabled: MFA is enabled for all users.
+     *   Byuser: User-specific settings are applied.
+     *   Disabled: MFA is disabled for all users.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $MFAAuthenticationAdvanceSettings;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A2BC00C5-76A2-5FFC-A340-927940A98377
+     *
      * @var string
      */
     public $requestId;

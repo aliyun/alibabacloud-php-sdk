@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SAMLServiceProvider extends Model
 {
     /**
+     * @description The Assertion Consumer Service (ACS) URL of the SP.
+     *
+     * @example https://signin-cn-shanghai.alibabacloudsso.com/saml/acs/51d298a9-2a3f-4e23-97c7-7ad1cfa9****
+     *
      * @var string
      */
     public $acsUrl;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The metadata file of the SP. The value of this parameter is Base64-encoded.
+     *
+     * @example PD94bWwgdmVyc2lv****
+     *
      * @var string
      */
     public $encodedMetadataDocument;
 
     /**
+     * @description The entity ID of the SP.
+     *
+     * @example https://signin-cn-shanghai.alibabacloudsso.com/saml/sp/d-00fc2p61****
+     *
      * @var string
      */
     public $entityId;

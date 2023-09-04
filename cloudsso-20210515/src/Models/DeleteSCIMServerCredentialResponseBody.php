@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteSCIMServerCredentialResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8CE8B990-193D-50CE-A604-69F3E7DCE740
+     *
      * @var string
      */
     public $requestId;

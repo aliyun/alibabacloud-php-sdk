@@ -56,6 +56,8 @@ use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetExternalSAMLIdentityProviderRe
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetExternalSAMLIdentityProviderResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetGroupRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetGroupResponse;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingInfoRequest;
+use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingInfoResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingsRequest;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationSettingsResponse;
 use AlibabaCloud\SDK\Cloudsso\V20210515\Models\GetMFAAuthenticationStatusRequest;
@@ -170,10 +172,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param AddExternalSAMLIdPCertificateRequest $request
-     * @param RuntimeOptions                       $runtime
+     * You can add up to two SAML signing certificates.
+     *   * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddExternalSAMLIdPCertificateRequest $request AddExternalSAMLIdPCertificateRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddExternalSAMLIdPCertificateResponse
+     * @return AddExternalSAMLIdPCertificateResponse AddExternalSAMLIdPCertificateResponse
      */
     public function addExternalSAMLIdPCertificateWithOptions($request, $runtime)
     {
@@ -204,9 +211,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param AddExternalSAMLIdPCertificateRequest $request
+     * You can add up to two SAML signing certificates.
+     *   * This topic provides an example on how to add a SAML signing certificate to the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddExternalSAMLIdPCertificateRequest $request AddExternalSAMLIdPCertificateRequest
      *
-     * @return AddExternalSAMLIdPCertificateResponse
+     * @return AddExternalSAMLIdPCertificateResponse AddExternalSAMLIdPCertificateResponse
      */
     public function addExternalSAMLIdPCertificate($request)
     {
@@ -216,10 +228,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param AddPermissionPolicyToAccessConfigurationRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddPermissionPolicyToAccessConfigurationRequest $request AddPermissionPolicyToAccessConfigurationRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddPermissionPolicyToAccessConfigurationResponse
+     * @return AddPermissionPolicyToAccessConfigurationResponse AddPermissionPolicyToAccessConfigurationResponse
      */
     public function addPermissionPolicyToAccessConfigurationWithOptions($request, $runtime)
     {
@@ -259,9 +275,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param AddPermissionPolicyToAccessConfigurationRequest $request
+     * This topic provides an example on how to add the system policy `AliyunECSFullAccess` to the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddPermissionPolicyToAccessConfigurationRequest $request AddPermissionPolicyToAccessConfigurationRequest
      *
-     * @return AddPermissionPolicyToAccessConfigurationResponse
+     * @return AddPermissionPolicyToAccessConfigurationResponse AddPermissionPolicyToAccessConfigurationResponse
      */
     public function addPermissionPolicyToAccessConfiguration($request)
     {
@@ -271,10 +291,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param AddUserToGroupRequest $request
-     * @param RuntimeOptions        $runtime
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
+     *   * This topic provides an example of how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroupWithOptions($request, $runtime)
     {
@@ -308,9 +333,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param AddUserToGroupRequest $request
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot add a user to a group that is synchronized by using SCIM.
+     *   * This topic provides an example of how to add the user `u-00q8wbq42wiltcrk****` to the group `g-00jqzghi2n3o5hkh****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param AddUserToGroupRequest $request AddUserToGroupRequest
      *
-     * @return AddUserToGroupResponse
+     * @return AddUserToGroupResponse AddUserToGroupResponse
      */
     public function addUserToGroup($request)
     {
@@ -320,10 +350,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ClearExternalSAMLIdentityProviderRequest $request
-     * @param RuntimeOptions                           $runtime
+     * If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
+     *   * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ClearExternalSAMLIdentityProviderRequest $request ClearExternalSAMLIdentityProviderRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ClearExternalSAMLIdentityProviderResponse
+     * @return ClearExternalSAMLIdentityProviderResponse ClearExternalSAMLIdentityProviderResponse
      */
     public function clearExternalSAMLIdentityProviderWithOptions($request, $runtime)
     {
@@ -351,9 +386,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ClearExternalSAMLIdentityProviderRequest $request
+     * If single sign-on (SSO) logon is disabled, you can clear the configurations of a SAML IdP. If SSO logon is enabled, you cannot clear the configurations.
+     *   * This topic provides an example on how to clear the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ClearExternalSAMLIdentityProviderRequest $request ClearExternalSAMLIdentityProviderRequest
      *
-     * @return ClearExternalSAMLIdentityProviderResponse
+     * @return ClearExternalSAMLIdentityProviderResponse ClearExternalSAMLIdentityProviderResponse
      */
     public function clearExternalSAMLIdentityProvider($request)
     {
@@ -363,10 +403,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessAssignmentRequest $request
-     * @param RuntimeOptions                $runtime
+     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of task execution by using the value of the `TaskId` response parameter.
+     *   * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](~~266726~~).
+     *   * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateAccessAssignmentRequest $request CreateAccessAssignmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessAssignmentResponse
+     * @return CreateAccessAssignmentResponse CreateAccessAssignmentResponse
      */
     public function createAccessAssignmentWithOptions($request, $runtime)
     {
@@ -409,9 +455,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessAssignmentRequest $request
+     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of task execution by using the value of the `TaskId` response parameter.
+     *   * For more information about how to assign permissions on an account in your resource directory, see [Overview of multi-account authorization](~~266726~~).
+     *   * This topic provides an example on how to assign access permissions on the account `114240524784****` in your resource directory to the CloudSSO user `u-00q8wbq42wiltcrk****` by using the access configuration `ac-00jhtfl8thteu6uj****`. After the call is successful, the CloudSSO user can access resources within the account in the resource directory.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateAccessAssignmentRequest $request CreateAccessAssignmentRequest
      *
-     * @return CreateAccessAssignmentResponse
+     * @return CreateAccessAssignmentResponse CreateAccessAssignmentResponse
      */
     public function createAccessAssignment($request)
     {
@@ -421,10 +473,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessConfigurationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * For more information about access configurations, see [Overview of access configurations](~~266737~~).
+     *   * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateAccessConfigurationRequest $request CreateAccessConfigurationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAccessConfigurationResponse
+     * @return CreateAccessConfigurationResponse CreateAccessConfigurationResponse
      */
     public function createAccessConfigurationWithOptions($request, $runtime)
     {
@@ -464,9 +521,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateAccessConfigurationRequest $request
+     * For more information about access configurations, see [Overview of access configurations](~~266737~~).
+     *   * This topic provides an example on how to create an access configuration named `ECS-Admin`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateAccessConfigurationRequest $request CreateAccessConfigurationRequest
      *
-     * @return CreateAccessConfigurationResponse
+     * @return CreateAccessConfigurationResponse CreateAccessConfigurationResponse
      */
     public function createAccessConfiguration($request)
     {
@@ -476,10 +538,19 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
+     *   * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+     *   * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
+     *   * ## Limits
+     *   * - You can create only one directory for a management account.
+     *   * - If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateDirectoryRequest $request CreateDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDirectoryResponse
+     * @return CreateDirectoryResponse CreateDirectoryResponse
      */
     public function createDirectoryWithOptions($request, $runtime)
     {
@@ -507,9 +578,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateDirectoryRequest $request
+     * A directory is a CloudSSO instance. Before you can use CloudSSO, you must create a directory. The directory is used to manage all CloudSSO resources.
+     *   * To create a directory, you must select a region. Alibaba Cloud stores data in the directory only in the region that you select. However, you can deploy Alibaba Cloud resources including Elastic Compute Service (ECS) instances and ApsaraDB RDS instances in other regions. You can also use your cloud account for logons and access the Alibaba Cloud resources in other regions. You can select a region to create a directory based on your security compliance requirements and the geographic location of specific users. If you do not have strict security compliance requirements, we recommend that you select a region that is the closest to the geographical location of the specific users. This way, access to cloud resources is accelerated. You can create the CloudSSO directory in the China (Shanghai), China (Hong Kong), US (Silicon Valley), or Germany (Frankfurt) region.
+     *   * This topic provides an example on how to create a directory named `example` in the China (Shanghai) region.
+     *   * ## Limits
+     *   * - You can create only one directory for a management account.
+     *   * - If you want to change the region of a directory, you must delete the directory and then create a directory in a different region.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateDirectoryRequest $request CreateDirectoryRequest
      *
-     * @return CreateDirectoryResponse
+     * @return CreateDirectoryResponse CreateDirectoryResponse
      */
     public function createDirectory($request)
     {
@@ -519,10 +599,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * This topic provides an example on how to create a group named `TestGroup`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateGroupRequest $request CreateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroupWithOptions($request, $runtime)
     {
@@ -556,9 +640,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateGroupRequest $request
+     * This topic provides an example on how to create a group named `TestGroup`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateGroupRequest $request CreateGroupRequest
      *
-     * @return CreateGroupResponse
+     * @return CreateGroupResponse CreateGroupResponse
      */
     public function createGroup($request)
     {
@@ -568,10 +656,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateSCIMServerCredentialRequest $request
-     * @param RuntimeOptions                    $runtime
+     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+     *   * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateSCIMServerCredentialRequest $request CreateSCIMServerCredentialRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateSCIMServerCredentialResponse
+     * @return CreateSCIMServerCredentialResponse CreateSCIMServerCredentialResponse
      */
     public function createSCIMServerCredentialWithOptions($request, $runtime)
     {
@@ -599,9 +692,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateSCIMServerCredentialRequest $request
+     * SCIM credentials are required for SCIM synchronization. You can create up to two SCIM credentials.
+     *   * This topic provides an example on how to create a SCIM credential within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateSCIMServerCredentialRequest $request CreateSCIMServerCredentialRequest
      *
-     * @return CreateSCIMServerCredentialResponse
+     * @return CreateSCIMServerCredentialResponse CreateSCIMServerCredentialResponse
      */
     public function createSCIMServerCredential($request)
     {
@@ -611,10 +709,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * This topic provides an example on how to create a user named `Alice`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateUserRequest $request CreateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUserWithOptions($request, $runtime)
     {
@@ -663,9 +765,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param CreateUserRequest $request
+     * This topic provides an example on how to create a user named `Alice`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param CreateUserRequest $request CreateUserRequest
      *
-     * @return CreateUserResponse
+     * @return CreateUserResponse CreateUserResponse
      */
     public function createUser($request)
     {
@@ -675,10 +781,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessAssignmentRequest $request
-     * @param RuntimeOptions                $runtime
+     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     *   * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteAccessAssignmentRequest $request DeleteAccessAssignmentRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessAssignmentResponse
+     * @return DeleteAccessAssignmentResponse DeleteAccessAssignmentResponse
      */
     public function deleteAccessAssignmentWithOptions($request, $runtime)
     {
@@ -724,9 +835,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessAssignmentRequest $request
+     * When you call this operation, an asynchronous task is created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     *   * This topic provides an example on how to remove the access permissions on the account `114240524784****` in the resource directory from the CloudSSO user `u-00q8wbq42wiltcrk****`. The access permissions are assigned by using the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteAccessAssignmentRequest $request DeleteAccessAssignmentRequest
      *
-     * @return DeleteAccessAssignmentResponse
+     * @return DeleteAccessAssignmentResponse DeleteAccessAssignmentResponse
      */
     public function deleteAccessAssignment($request)
     {
@@ -736,10 +852,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessConfigurationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+     *   * ## Prerequisites
+     *   * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](~~338352~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteAccessConfigurationRequest $request DeleteAccessConfigurationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccessConfigurationResponse
+     * @return DeleteAccessConfigurationResponse DeleteAccessConfigurationResponse
      */
     public function deleteAccessConfigurationWithOptions($request, $runtime)
     {
@@ -773,9 +895,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccessConfigurationRequest $request
+     * This topic provides an example on how to delete the access configuration whose ID is `ac-001j9mcm3k7335bc****`.
+     *   * ## Prerequisites
+     *   * The access configuration that you want to delete is de-provisioned from the accounts in your resource directory. For more information, see [DeprovisionAccessConfiguration](~~338352~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteAccessConfigurationRequest $request DeleteAccessConfigurationRequest
      *
-     * @return DeleteAccessConfigurationResponse
+     * @return DeleteAccessConfigurationResponse DeleteAccessConfigurationResponse
      */
     public function deleteAccessConfiguration($request)
     {
@@ -785,10 +913,22 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+     *   * ## Prerequisites
+     *   * No resources are contained in the directory that you want to delete.
+     *   * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](~~338350~~).
+     *   * *   Users are deleted. For more information, see [DeleteUser](~~341671~~).
+     *   * *   Groups are deleted. For more information, see [DeleteGroup](~~341821~~).
+     *   * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](~~336907~~).
+     *   * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](~~341842~~).
+     *   * *   SSO logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](~~341573~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDirectoryResponse
+     * @return DeleteDirectoryResponse DeleteDirectoryResponse
      */
     public function deleteDirectoryWithOptions($request, $runtime)
     {
@@ -816,9 +956,21 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteDirectoryRequest $request
+     * This topic provides an example on how to delete a directory whose ID is `d-00fc2p61****`.
+     *   * ## Prerequisites
+     *   * No resources are contained in the directory that you want to delete.
+     *   * *   Access permissions on the accounts in your resource directory are removed from all users and groups. For more information, see [DeleteAccessAssignment](~~338350~~).
+     *   * *   Users are deleted. For more information, see [DeleteUser](~~341671~~).
+     *   * *   Groups are deleted. For more information, see [DeleteGroup](~~341821~~).
+     *   * *   Access configurations are deleted. For more information, see [DeleteAccessConfiguration](~~336907~~).
+     *   * *   System for Cross-domain Identity Management (SCIM) credentials are deleted. For more information, see [DeleteSCIMServerCredential](~~341842~~).
+     *   * *   SSO logon configurations are deleted. For more information, see [ClearExternalSAMLIdentityProvider](~~341573~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteDirectoryRequest $request DeleteDirectoryRequest
      *
-     * @return DeleteDirectoryResponse
+     * @return DeleteDirectoryResponse DeleteDirectoryResponse
      */
     public function deleteDirectory($request)
     {
@@ -828,10 +980,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
+     *   * ## Prerequisites
+     *   * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
+     *   * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](~~335116~~).
+     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](~~338350~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroupWithOptions($request, $runtime)
     {
@@ -862,9 +1022,17 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteGroupRequest $request
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a group that is synchronized by using SCIM.
+     *   * ## Prerequisites
+     *   * The group that you want to delete is not associated with the following resources. If the group is associated with the resources, the deletion fails.
+     *   * *   Users: You must remove users from the group. For more information, see [RemoveUserFromGroup](~~335116~~).
+     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the group. For more information, see [DeleteAccessAssignment](~~338350~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteGroupRequest $request DeleteGroupRequest
      *
-     * @return DeleteGroupResponse
+     * @return DeleteGroupResponse DeleteGroupResponse
      */
     public function deleteGroup($request)
     {
@@ -874,10 +1042,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteMFADeviceForUserRequest $request
-     * @param RuntimeOptions                $runtime
+     * This topic provides an example on how to unbind the MFA device `mfa-00ujhet8pycljj7j****` from the user `u-00q8wbq42wiltcrk****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteMFADeviceForUserRequest $request DeleteMFADeviceForUserRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteMFADeviceForUserResponse
+     * @return DeleteMFADeviceForUserResponse DeleteMFADeviceForUserResponse
      */
     public function deleteMFADeviceForUserWithOptions($request, $runtime)
     {
@@ -911,9 +1083,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteMFADeviceForUserRequest $request
+     * This topic provides an example on how to unbind the MFA device `mfa-00ujhet8pycljj7j****` from the user `u-00q8wbq42wiltcrk****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteMFADeviceForUserRequest $request DeleteMFADeviceForUserRequest
      *
-     * @return DeleteMFADeviceForUserResponse
+     * @return DeleteMFADeviceForUserResponse DeleteMFADeviceForUserResponse
      */
     public function deleteMFADeviceForUser($request)
     {
@@ -923,10 +1099,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteSCIMServerCredentialRequest $request
-     * @param RuntimeOptions                    $runtime
+     * After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
+     *   * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteSCIMServerCredentialRequest $request DeleteSCIMServerCredentialRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteSCIMServerCredentialResponse
+     * @return DeleteSCIMServerCredentialResponse DeleteSCIMServerCredentialResponse
      */
     public function deleteSCIMServerCredentialWithOptions($request, $runtime)
     {
@@ -957,9 +1138,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteSCIMServerCredentialRequest $request
+     * After a SCIM credential is deleted, the synchronization task that uses the SCIM credential fails.
+     *   * This topic provides an example on how to delete the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteSCIMServerCredentialRequest $request DeleteSCIMServerCredentialRequest
      *
-     * @return DeleteSCIMServerCredentialResponse
+     * @return DeleteSCIMServerCredentialResponse DeleteSCIMServerCredentialResponse
      */
     public function deleteSCIMServerCredential($request)
     {
@@ -969,10 +1155,19 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
+     *   * ## Prerequisites
+     *   * The user that you want to delete is not associated with the following resources. If the user is associated with the resources, the deletion fails.
+     *   * *   Multi-factor authentication (MFA) devices: You must unbind the MFA devices from the user. For more information, see [DeleteMFADeviceForUser](~~341675~~).
+     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](~~338350~~).
+     *   * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](~~335116~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteUserRequest $request DeleteUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUserWithOptions($request, $runtime)
     {
@@ -1003,9 +1198,18 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeleteUserRequest $request
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot delete a user that is synchronized by using SCIM.
+     *   * ## Prerequisites
+     *   * The user that you want to delete is not associated with the following resources. If the user is associated with the resources, the deletion fails.
+     *   * *   Multi-factor authentication (MFA) devices: You must unbind the MFA devices from the user. For more information, see [DeleteMFADeviceForUser](~~341675~~).
+     *   * *   Access permissions: You must remove the access permissions on the accounts in your resource directory from the user. For more information, see [DeleteAccessAssignment](~~338350~~).
+     *   * *   Groups: You must remove the user from groups. For more information, see [RemoveUserFromGroup](~~335116~~).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeleteUserRequest $request DeleteUserRequest
      *
-     * @return DeleteUserResponse
+     * @return DeleteUserResponse DeleteUserResponse
      */
     public function deleteUser($request)
     {
@@ -1015,10 +1219,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeprovisionAccessConfigurationRequest $request
-     * @param RuntimeOptions                        $runtime
+     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     *   * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeprovisionAccessConfigurationRequest $request DeprovisionAccessConfigurationRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeprovisionAccessConfigurationResponse
+     * @return DeprovisionAccessConfigurationResponse DeprovisionAccessConfigurationResponse
      */
     public function deprovisionAccessConfigurationWithOptions($request, $runtime)
     {
@@ -1055,9 +1264,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param DeprovisionAccessConfigurationRequest $request
+     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     *   * This topic provides an example on how to de-provision the access configuration `ac-00jhtfl8thteu6uj****` from the account `114240524784****` in your resource directory.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param DeprovisionAccessConfigurationRequest $request DeprovisionAccessConfigurationRequest
      *
-     * @return DeprovisionAccessConfigurationResponse
+     * @return DeprovisionAccessConfigurationResponse DeprovisionAccessConfigurationResponse
      */
     public function deprovisionAccessConfiguration($request)
     {
@@ -1067,9 +1281,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return DisableServiceResponse
+     * @return DisableServiceResponse DisableServiceResponse
      */
     public function disableServiceWithOptions($runtime)
     {
@@ -1090,7 +1308,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @return DisableServiceResponse
+     * If your CloudSSO has no directory, you can disable CloudSSO based on your business requirements. After you disable CloudSSO, you can enable it at any time.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @return DisableServiceResponse DisableServiceResponse
      */
     public function disableService()
     {
@@ -1100,9 +1322,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has permissions to enable CloudSSO. For more information, see [Enable CloudSSO](~~262819~~).
+     *   * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return EnableServiceResponse
+     * @return EnableServiceResponse EnableServiceResponse
      */
     public function enableServiceWithOptions($runtime)
     {
@@ -1123,7 +1350,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @return EnableServiceResponse
+     * You can call this operation only if your account belongs to the management account that is used to enable a resource directory and has permissions to enable CloudSSO. For more information, see [Enable CloudSSO](~~262819~~).
+     *   * If you call this operation, you agree to the [Alibaba Cloud International Website Product Terms of Service](https://www.alibabacloud.com/help/doc-detail/42416.htm).
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @return EnableServiceResponse EnableServiceResponse
      */
     public function enableService()
     {
@@ -1133,10 +1365,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetAccessConfigurationRequest $request
-     * @param RuntimeOptions                $runtime
+     * ## Usage notes
+     *   * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
+     *   *
+     * @param GetAccessConfigurationRequest $request GetAccessConfigurationRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAccessConfigurationResponse
+     * @return GetAccessConfigurationResponse GetAccessConfigurationResponse
      */
     public function getAccessConfigurationWithOptions($request, $runtime)
     {
@@ -1167,9 +1402,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetAccessConfigurationRequest $request
+     * ## Usage notes
+     *   * This topic provides an example on how to query the information about the access configuration whose ID is `ac-00ccule7tadaijxc****`.
+     *   *
+     * @param GetAccessConfigurationRequest $request GetAccessConfigurationRequest
      *
-     * @return GetAccessConfigurationResponse
+     * @return GetAccessConfigurationResponse GetAccessConfigurationResponse
      */
     public function getAccessConfiguration($request)
     {
@@ -1179,10 +1417,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetDirectoryRequest $request
-     * @param RuntimeOptions      $runtime
+     * This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetDirectoryRequest $request GetDirectoryRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDirectoryResponse
+     * @return GetDirectoryResponse GetDirectoryResponse
      */
     public function getDirectoryWithOptions($request, $runtime)
     {
@@ -1210,9 +1452,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetDirectoryRequest $request
+     * This topic provides an example on how to query information about the directory whose ID is `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetDirectoryRequest $request GetDirectoryRequest
      *
-     * @return GetDirectoryResponse
+     * @return GetDirectoryResponse GetDirectoryResponse
      */
     public function getDirectory($request)
     {
@@ -1222,10 +1468,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetDirectorySAMLServiceProviderInfoRequest $request
-     * @param RuntimeOptions                             $runtime
+     * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an identity provider (IdP).
+     *   * This topic provides an example on how to query the information about the SP within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetDirectorySAMLServiceProviderInfoRequest $request GetDirectorySAMLServiceProviderInfoRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDirectorySAMLServiceProviderInfoResponse
+     * @return GetDirectorySAMLServiceProviderInfoResponse GetDirectorySAMLServiceProviderInfoResponse
      */
     public function getDirectorySAMLServiceProviderInfoWithOptions($request, $runtime)
     {
@@ -1253,9 +1504,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetDirectorySAMLServiceProviderInfoRequest $request
+     * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an identity provider (IdP).
+     *   * This topic provides an example on how to query the information about the SP within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetDirectorySAMLServiceProviderInfoRequest $request GetDirectorySAMLServiceProviderInfoRequest
      *
-     * @return GetDirectorySAMLServiceProviderInfoResponse
+     * @return GetDirectorySAMLServiceProviderInfoResponse GetDirectorySAMLServiceProviderInfoResponse
      */
     public function getDirectorySAMLServiceProviderInfo($request)
     {
@@ -1265,10 +1521,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetDirectoryStatisticsRequest $request
-     * @param RuntimeOptions                $runtime
+     * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO) logon, and status of SCIM synchronization.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetDirectoryStatisticsRequest $request GetDirectoryStatisticsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetDirectoryStatisticsResponse
+     * @return GetDirectoryStatisticsResponse GetDirectoryStatisticsResponse
      */
     public function getDirectoryStatisticsWithOptions($request, $runtime)
     {
@@ -1296,9 +1556,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetDirectoryStatisticsRequest $request
+     * This topic provides an example on how to query the statistics of a directory whose ID is `d-00fc2p61****`. The statistics include the number of users, quota for users, number of groups, quota for groups, number of access configurations, quota for access configurations, number of access permissions that are assigned, number of System for Cross-domain Identity Management (SCIM) credentials, number of asynchronous tasks, status of single sign-on (SSO) logon, and status of SCIM synchronization.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetDirectoryStatisticsRequest $request GetDirectoryStatisticsRequest
      *
-     * @return GetDirectoryStatisticsResponse
+     * @return GetDirectoryStatisticsResponse GetDirectoryStatisticsResponse
      */
     public function getDirectoryStatistics($request)
     {
@@ -1308,10 +1572,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetExternalSAMLIdentityProviderRequest $request
-     * @param RuntimeOptions                         $runtime
+     * This topic provides an example on how to query the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetExternalSAMLIdentityProviderRequest $request GetExternalSAMLIdentityProviderRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetExternalSAMLIdentityProviderResponse
+     * @return GetExternalSAMLIdentityProviderResponse GetExternalSAMLIdentityProviderResponse
      */
     public function getExternalSAMLIdentityProviderWithOptions($request, $runtime)
     {
@@ -1339,9 +1607,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetExternalSAMLIdentityProviderRequest $request
+     * This topic provides an example on how to query the configurations of the SAML IdP within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetExternalSAMLIdentityProviderRequest $request GetExternalSAMLIdentityProviderRequest
      *
-     * @return GetExternalSAMLIdentityProviderResponse
+     * @return GetExternalSAMLIdentityProviderResponse GetExternalSAMLIdentityProviderResponse
      */
     public function getExternalSAMLIdentityProvider($request)
     {
@@ -1351,10 +1623,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
-     * @param RuntimeOptions  $runtime
+     * This topic provides an example on how to query the information about the group `g-00jqzghi2n3o5hkh****` in the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetGroupRequest $request GetGroupRequest
+     * @param RuntimeOptions  $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroupWithOptions($request, $runtime)
     {
@@ -1385,9 +1661,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetGroupRequest $request
+     * This topic provides an example on how to query the information about the group `g-00jqzghi2n3o5hkh****` in the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetGroupRequest $request GetGroupRequest
      *
-     * @return GetGroupResponse
+     * @return GetGroupResponse GetGroupResponse
      */
     public function getGroup($request)
     {
@@ -1397,10 +1677,62 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetMFAAuthenticationSettingsRequest $request
-     * @param RuntimeOptions                      $runtime
+     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     *   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
+     *   *
+     * @param GetMFAAuthenticationSettingInfoRequest $request GetMFAAuthenticationSettingInfoRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMFAAuthenticationSettingsResponse
+     * @return GetMFAAuthenticationSettingInfoResponse GetMFAAuthenticationSettingInfoResponse
+     */
+    public function getMFAAuthenticationSettingInfoWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->directoryId)) {
+            $query['DirectoryId'] = $request->directoryId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetMFAAuthenticationSettingInfo',
+            'version'     => '2021-05-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetMFAAuthenticationSettingInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     *   * This topic provides an example on how to query the MFA setting of all CloudSSO users that belong to the directory named `00q8wbq42wiltcrk****`.
+     *   *
+     * @param GetMFAAuthenticationSettingInfoRequest $request GetMFAAuthenticationSettingInfoRequest
+     *
+     * @return GetMFAAuthenticationSettingInfoResponse GetMFAAuthenticationSettingInfoResponse
+     */
+    public function getMFAAuthenticationSettingInfo($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getMFAAuthenticationSettingInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * > This operation is no longer maintained and updated. You can call the [GetMFAAuthenticationSettingInfo](~~611286~~) operation to query more detailed information.
+     *   * This topic provides an example on how to query the MFA setting of the users that belong to the directory named `d-00fc2p61****`. The returned result shows that MFA is enabled for all the users.
+     *   *
+     * @param GetMFAAuthenticationSettingsRequest $request GetMFAAuthenticationSettingsRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetMFAAuthenticationSettingsResponse GetMFAAuthenticationSettingsResponse
      */
     public function getMFAAuthenticationSettingsWithOptions($request, $runtime)
     {
@@ -1428,9 +1760,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetMFAAuthenticationSettingsRequest $request
+     * > This operation is no longer maintained and updated. You can call the [GetMFAAuthenticationSettingInfo](~~611286~~) operation to query more detailed information.
+     *   * This topic provides an example on how to query the MFA setting of the users that belong to the directory named `d-00fc2p61****`. The returned result shows that MFA is enabled for all the users.
+     *   *
+     * @param GetMFAAuthenticationSettingsRequest $request GetMFAAuthenticationSettingsRequest
      *
-     * @return GetMFAAuthenticationSettingsResponse
+     * @return GetMFAAuthenticationSettingsResponse GetMFAAuthenticationSettingsResponse
      */
     public function getMFAAuthenticationSettings($request)
     {
@@ -1440,10 +1775,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetMFAAuthenticationStatusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * This topic provides an example on how to check whether MFA is enabled for users in the directory whose ID is `00fc2p61****`. The returned result shows that MFA is in the Enabled state.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetMFAAuthenticationStatusRequest $request GetMFAAuthenticationStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetMFAAuthenticationStatusResponse
+     * @return GetMFAAuthenticationStatusResponse GetMFAAuthenticationStatusResponse
      */
     public function getMFAAuthenticationStatusWithOptions($request, $runtime)
     {
@@ -1471,9 +1810,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetMFAAuthenticationStatusRequest $request
+     * This topic provides an example on how to check whether MFA is enabled for users in the directory whose ID is `00fc2p61****`. The returned result shows that MFA is in the Enabled state.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetMFAAuthenticationStatusRequest $request GetMFAAuthenticationStatusRequest
      *
-     * @return GetMFAAuthenticationStatusResponse
+     * @return GetMFAAuthenticationStatusResponse GetMFAAuthenticationStatusResponse
      */
     public function getMFAAuthenticationStatus($request)
     {
@@ -1483,10 +1826,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetSCIMSynchronizationStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetSCIMSynchronizationStatusRequest $request GetSCIMSynchronizationStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetSCIMSynchronizationStatusResponse
+     * @return GetSCIMSynchronizationStatusResponse GetSCIMSynchronizationStatusResponse
      */
     public function getSCIMSynchronizationStatusWithOptions($request, $runtime)
     {
@@ -1514,9 +1861,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetSCIMSynchronizationStatusRequest $request
+     * This topic provides an example on how to query the status of SCIM synchronization within the directory `d-00fc2p61****`. The returned result shows that SCIM synchronization is in the Enabled state.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetSCIMSynchronizationStatusRequest $request GetSCIMSynchronizationStatusRequest
      *
-     * @return GetSCIMSynchronizationStatusResponse
+     * @return GetSCIMSynchronizationStatusResponse GetSCIMSynchronizationStatusResponse
      */
     public function getSCIMSynchronizationStatus($request)
     {
@@ -1526,9 +1877,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetServiceStatusResponse
+     * @return GetServiceStatusResponse GetServiceStatusResponse
      */
     public function getServiceStatusWithOptions($runtime)
     {
@@ -1549,7 +1903,10 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @return GetServiceStatusResponse
+     * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @return GetServiceStatusResponse GetServiceStatusResponse
      */
     public function getServiceStatus()
     {
@@ -1559,10 +1916,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetTaskRequest $request
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetTaskRequest $request GetTaskRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTaskWithOptions($request, $runtime)
     {
@@ -1593,9 +1954,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetTaskRequest $request
+     * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetTaskRequest $request GetTaskRequest
      *
-     * @return GetTaskResponse
+     * @return GetTaskResponse GetTaskResponse
      */
     public function getTask($request)
     {
@@ -1605,10 +1970,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetTaskStatusRequest $request
-     * @param RuntimeOptions       $runtime
+     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, you can call the [GetTask](~~340670~~) operation.
+     *   * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetTaskStatusRequest $request GetTaskStatusRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatusWithOptions($request, $runtime)
     {
@@ -1639,9 +2009,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetTaskStatusRequest $request
+     * You can call the GetTaskStatus operation to query the status of an asynchronous task. If you want to query more information about an asynchronous task, you can call the [GetTask](~~340670~~) operation.
+     *   * This topic provides an example on how to query the information about the task whose ID is `t-shfqw1u1edszvxw5****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetTaskStatusRequest $request GetTaskStatusRequest
      *
-     * @return GetTaskStatusResponse
+     * @return GetTaskStatusResponse GetTaskStatusResponse
      */
     public function getTaskStatus($request)
     {
@@ -1651,10 +2026,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetUserRequest $request GetUserRequest
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUserWithOptions($request, $runtime)
     {
@@ -1685,9 +2064,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserRequest $request
+     * This topic provides an example on how to query information about the user whose ID is `u-00q8wbq42wiltcrk****` in the `d-00fc2p61****` directory.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param GetUserRequest $request GetUserRequest
      *
-     * @return GetUserResponse
+     * @return GetUserResponse GetUserResponse
      */
     public function getUser($request)
     {
@@ -1697,10 +2080,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAAuthenticationSettingsRequest $request
-     * @param RuntimeOptions                          $runtime
+     * This topic provides an example on how to query the MFA setting of the user named `u-00q8wbq42wiltcrk****`. The returned result shows that MFA is enabled for the user.
+     *   *
+     * @param GetUserMFAAuthenticationSettingsRequest $request GetUserMFAAuthenticationSettingsRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetUserMFAAuthenticationSettingsResponse
+     * @return GetUserMFAAuthenticationSettingsResponse GetUserMFAAuthenticationSettingsResponse
      */
     public function getUserMFAAuthenticationSettingsWithOptions($request, $runtime)
     {
@@ -1731,9 +2116,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param GetUserMFAAuthenticationSettingsRequest $request
+     * This topic provides an example on how to query the MFA setting of the user named `u-00q8wbq42wiltcrk****`. The returned result shows that MFA is enabled for the user.
+     *   *
+     * @param GetUserMFAAuthenticationSettingsRequest $request GetUserMFAAuthenticationSettingsRequest
      *
-     * @return GetUserMFAAuthenticationSettingsResponse
+     * @return GetUserMFAAuthenticationSettingsResponse GetUserMFAAuthenticationSettingsResponse
      */
     public function getUserMFAAuthenticationSettings($request)
     {
@@ -1743,10 +2130,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListAccessAssignmentsRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccessAssignmentsResponse
+     * @return ListAccessAssignmentsResponse ListAccessAssignmentsResponse
      */
     public function listAccessAssignmentsWithOptions($request, $runtime)
     {
@@ -1795,9 +2186,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListAccessAssignmentsRequest $request
+     * This topic provides an example on how to query the assigned access permissions on the account `114240524784****` in your resource directory. The returned result shows that access permissions on the account in your resource directory is assigned to one user.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListAccessAssignmentsRequest $request ListAccessAssignmentsRequest
      *
-     * @return ListAccessAssignmentsResponse
+     * @return ListAccessAssignmentsResponse ListAccessAssignmentsResponse
      */
     public function listAccessAssignments($request)
     {
@@ -1807,10 +2202,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListAccessConfigurationProvisioningsRequest $request
-     * @param RuntimeOptions                              $runtime
+     * ## Usage notes
+     *   * This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+     *   *
+     * @param ListAccessConfigurationProvisioningsRequest $request ListAccessConfigurationProvisioningsRequest
+     * @param RuntimeOptions                              $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccessConfigurationProvisioningsResponse
+     * @return ListAccessConfigurationProvisioningsResponse ListAccessConfigurationProvisioningsResponse
      */
     public function listAccessConfigurationProvisioningsWithOptions($request, $runtime)
     {
@@ -1856,9 +2254,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListAccessConfigurationProvisioningsRequest $request
+     * ## Usage notes
+     *   * This topic provides an example on how to query the accounts for which the access permission `ac-00ccule7tadaijxc****` is provisioned. The returned result shows that the access configuration is provisioned for two accounts in your resource directory.
+     *   *
+     * @param ListAccessConfigurationProvisioningsRequest $request ListAccessConfigurationProvisioningsRequest
      *
-     * @return ListAccessConfigurationProvisioningsResponse
+     * @return ListAccessConfigurationProvisioningsResponse ListAccessConfigurationProvisioningsResponse
      */
     public function listAccessConfigurationProvisionings($request)
     {
@@ -1868,10 +2269,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListAccessConfigurationsRequest $request
-     * @param RuntimeOptions                  $runtime
+     * ## Usage notes
+     *   * This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
+     *   *
+     * @param ListAccessConfigurationsRequest $request ListAccessConfigurationsRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListAccessConfigurationsResponse
+     * @return ListAccessConfigurationsResponse ListAccessConfigurationsResponse
      */
     public function listAccessConfigurationsWithOptions($request, $runtime)
     {
@@ -1911,9 +2315,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListAccessConfigurationsRequest $request
+     * ## Usage notes
+     *   * This topic provides an example on how to query the access configurations within the directory `d-00fc2p61****`. The returned result shows that the directory contains the `VPC-Admin` and `ECS-Admin` access configurations.
+     *   *
+     * @param ListAccessConfigurationsRequest $request ListAccessConfigurationsRequest
      *
-     * @return ListAccessConfigurationsResponse
+     * @return ListAccessConfigurationsResponse ListAccessConfigurationsResponse
      */
     public function listAccessConfigurations($request)
     {
@@ -1923,9 +2330,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RuntimeOptions $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListDirectoriesResponse
+     * @return ListDirectoriesResponse ListDirectoriesResponse
      */
     public function listDirectoriesWithOptions($runtime)
     {
@@ -1946,7 +2357,11 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @return ListDirectoriesResponse
+     * This topic provides an example on how to query the directories within your Alibaba Cloud account. The returned result shows that only one directory with the ID `d-00fc2p61****` is created within your Alibaba Cloud account.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @return ListDirectoriesResponse ListDirectoriesResponse
      */
     public function listDirectories()
     {
@@ -1956,10 +2371,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListExternalSAMLIdPCertificatesRequest $request
-     * @param RuntimeOptions                         $runtime
+     * This topic provides an example on how to query the SAML signing certificates within the directory `d-00fc2p61****`. The returned result shows that the directory contains one SAML signing certificate.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListExternalSAMLIdPCertificatesRequest $request ListExternalSAMLIdPCertificatesRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListExternalSAMLIdPCertificatesResponse
+     * @return ListExternalSAMLIdPCertificatesResponse ListExternalSAMLIdPCertificatesResponse
      */
     public function listExternalSAMLIdPCertificatesWithOptions($request, $runtime)
     {
@@ -1987,9 +2406,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListExternalSAMLIdPCertificatesRequest $request
+     * This topic provides an example on how to query the SAML signing certificates within the directory `d-00fc2p61****`. The returned result shows that the directory contains one SAML signing certificate.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListExternalSAMLIdPCertificatesRequest $request ListExternalSAMLIdPCertificatesRequest
      *
-     * @return ListExternalSAMLIdPCertificatesResponse
+     * @return ListExternalSAMLIdPCertificatesResponse ListExternalSAMLIdPCertificatesResponse
      */
     public function listExternalSAMLIdPCertificates($request)
     {
@@ -1999,10 +2422,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListGroupMembersRequest $request
-     * @param RuntimeOptions          $runtime
+     * This topic provides an example on how to query the users in the group `g-00jqzghi2n3o5hkh****`. The returned result shows that the group contains the user `Alice` and the user `user1`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListGroupMembersRequest $request ListGroupMembersRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupMembersResponse
+     * @return ListGroupMembersResponse ListGroupMembersResponse
      */
     public function listGroupMembersWithOptions($request, $runtime)
     {
@@ -2039,9 +2466,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListGroupMembersRequest $request
+     * This topic provides an example on how to query the users in the group `g-00jqzghi2n3o5hkh****`. The returned result shows that the group contains the user `Alice` and the user `user1`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListGroupMembersRequest $request ListGroupMembersRequest
      *
-     * @return ListGroupMembersResponse
+     * @return ListGroupMembersResponse ListGroupMembersResponse
      */
     public function listGroupMembers($request)
     {
@@ -2051,10 +2482,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
-     * @param RuntimeOptions    $runtime
+     * This topic provides an example on how to query the groups in the directory `d-00fc2p61****`. The returned result shows that the directory contains three groups. The groups `group1` and `group2` are synchronized from an external identity provider (IdP). The group `TestGroup` is manually created in CloudSSO.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListGroupsRequest $request ListGroupsRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroupsWithOptions($request, $runtime)
     {
@@ -2094,9 +2529,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListGroupsRequest $request
+     * This topic provides an example on how to query the groups in the directory `d-00fc2p61****`. The returned result shows that the directory contains three groups. The groups `group1` and `group2` are synchronized from an external identity provider (IdP). The group `TestGroup` is manually created in CloudSSO.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListGroupsRequest $request ListGroupsRequest
      *
-     * @return ListGroupsResponse
+     * @return ListGroupsResponse ListGroupsResponse
      */
     public function listGroups($request)
     {
@@ -2106,10 +2545,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListJoinedGroupsForUserRequest $request
-     * @param RuntimeOptions                 $runtime
+     * This topic provides an example on how to query the groups to which the user `u-00q8wbq42wiltcrk****` is added. The returned result shows that the user is added to both the `TestGroup` and the `group1` groups.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListJoinedGroupsForUserRequest $request ListJoinedGroupsForUserRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListJoinedGroupsForUserResponse
+     * @return ListJoinedGroupsForUserResponse ListJoinedGroupsForUserResponse
      */
     public function listJoinedGroupsForUserWithOptions($request, $runtime)
     {
@@ -2146,9 +2589,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListJoinedGroupsForUserRequest $request
+     * This topic provides an example on how to query the groups to which the user `u-00q8wbq42wiltcrk****` is added. The returned result shows that the user is added to both the `TestGroup` and the `group1` groups.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListJoinedGroupsForUserRequest $request ListJoinedGroupsForUserRequest
      *
-     * @return ListJoinedGroupsForUserResponse
+     * @return ListJoinedGroupsForUserResponse ListJoinedGroupsForUserResponse
      */
     public function listJoinedGroupsForUser($request)
     {
@@ -2158,10 +2605,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListMFADevicesForUserRequest $request
-     * @param RuntimeOptions               $runtime
+     * This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListMFADevicesForUserRequest $request ListMFADevicesForUserRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListMFADevicesForUserResponse
+     * @return ListMFADevicesForUserResponse ListMFADevicesForUserResponse
      */
     public function listMFADevicesForUserWithOptions($request, $runtime)
     {
@@ -2192,9 +2643,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListMFADevicesForUserRequest $request
+     * This topic provides an example on how to query the MFA devices that are bound to the user `u-00q8wbq42wiltcrk****`. The returned result shows that the MFA device named `Alice-MFA1` is bound to the user.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListMFADevicesForUserRequest $request ListMFADevicesForUserRequest
      *
-     * @return ListMFADevicesForUserResponse
+     * @return ListMFADevicesForUserResponse ListMFADevicesForUserResponse
      */
     public function listMFADevicesForUser($request)
     {
@@ -2204,10 +2659,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionPoliciesInAccessConfigurationRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * This topic provides an example on how to query the policies that are created for the access configuration `ac-00jhtfl8thteu6uj****`. The returned result shows that the access configuration contains one system policy and one inline policy.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListPermissionPoliciesInAccessConfigurationRequest $request ListPermissionPoliciesInAccessConfigurationRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListPermissionPoliciesInAccessConfigurationResponse
+     * @return ListPermissionPoliciesInAccessConfigurationResponse ListPermissionPoliciesInAccessConfigurationResponse
      */
     public function listPermissionPoliciesInAccessConfigurationWithOptions($request, $runtime)
     {
@@ -2241,9 +2700,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListPermissionPoliciesInAccessConfigurationRequest $request
+     * This topic provides an example on how to query the policies that are created for the access configuration `ac-00jhtfl8thteu6uj****`. The returned result shows that the access configuration contains one system policy and one inline policy.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListPermissionPoliciesInAccessConfigurationRequest $request ListPermissionPoliciesInAccessConfigurationRequest
      *
-     * @return ListPermissionPoliciesInAccessConfigurationResponse
+     * @return ListPermissionPoliciesInAccessConfigurationResponse ListPermissionPoliciesInAccessConfigurationResponse
      */
     public function listPermissionPoliciesInAccessConfiguration($request)
     {
@@ -2253,10 +2716,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListSCIMServerCredentialsRequest $request
-     * @param RuntimeOptions                   $runtime
+     * This topic provides an example on how to query the SCIM credentials within the `d-00fc2p61****` directory.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListSCIMServerCredentialsRequest $request ListSCIMServerCredentialsRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListSCIMServerCredentialsResponse
+     * @return ListSCIMServerCredentialsResponse ListSCIMServerCredentialsResponse
      */
     public function listSCIMServerCredentialsWithOptions($request, $runtime)
     {
@@ -2284,9 +2751,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListSCIMServerCredentialsRequest $request
+     * This topic provides an example on how to query the SCIM credentials within the `d-00fc2p61****` directory.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListSCIMServerCredentialsRequest $request ListSCIMServerCredentialsRequest
      *
-     * @return ListSCIMServerCredentialsResponse
+     * @return ListSCIMServerCredentialsResponse ListSCIMServerCredentialsResponse
      */
     public function listSCIMServerCredentials($request)
     {
@@ -2296,10 +2767,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $request
-     * @param RuntimeOptions   $runtime
+     * By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
+     *   * This topic provides an example on how to query the tasks within the previous 24 hours.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListTasksRequest $request ListTasksRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasksWithOptions($request, $runtime)
     {
@@ -2357,9 +2833,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListTasksRequest $request
+     * By default, this operation queries the tasks within the previous 24 hours. This operation allows you to query the tasks within a maximum of 7 days. You can specify the start time of the query by using `Filter`.
+     *   * This topic provides an example on how to query the tasks within the previous 24 hours.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListTasksRequest $request ListTasksRequest
      *
-     * @return ListTasksResponse
+     * @return ListTasksResponse ListTasksResponse
      */
     public function listTasks($request)
     {
@@ -2369,10 +2850,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
-     * @param RuntimeOptions   $runtime
+     * This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListUsersRequest $request ListUsersRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsersWithOptions($request, $runtime)
     {
@@ -2415,9 +2900,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ListUsersRequest $request
+     * This topic provides an example on how to query users in the `d-00fc2p61****` directory. The returned result shows that the directory contains two users. The user `AliceLee` is synchronized from an external identity provider (IdP). The user `user1` is manually created within CloudSSO.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ListUsersRequest $request ListUsersRequest
      *
-     * @return ListUsersResponse
+     * @return ListUsersResponse ListUsersResponse
      */
     public function listUsers($request)
     {
@@ -2427,10 +2916,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ProvisionAccessConfigurationRequest $request
-     * @param RuntimeOptions                      $runtime
+     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     *   * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ProvisionAccessConfigurationRequest $request ProvisionAccessConfigurationRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ProvisionAccessConfigurationResponse
+     * @return ProvisionAccessConfigurationResponse ProvisionAccessConfigurationResponse
      */
     public function provisionAccessConfigurationWithOptions($request, $runtime)
     {
@@ -2467,9 +2961,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ProvisionAccessConfigurationRequest $request
+     * When you call this operation, an asynchronous task is automatically created. You can call the [GetTask](~~340670~~) operation to query the progress of the task based on the value of the `TaskId` response parameter.
+     *   * This topic provides an example on how to provision the access configuration `ac-00jhtfl8thteu6uj****` for the account `114240524784****` in your resource directory.
+     *   * ## Limits
+     *   * You can call this operation up to 20 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ProvisionAccessConfigurationRequest $request ProvisionAccessConfigurationRequest
      *
-     * @return ProvisionAccessConfigurationResponse
+     * @return ProvisionAccessConfigurationResponse ProvisionAccessConfigurationResponse
      */
     public function provisionAccessConfiguration($request)
     {
@@ -2479,10 +2978,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RemoveExternalSAMLIdPCertificateRequest $request
-     * @param RuntimeOptions                          $runtime
+     * This topic provides an example on how to remove the SAML signing certificate whose ID is `idp-c-00dt9gnl7fmjaw9c****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RemoveExternalSAMLIdPCertificateRequest $request RemoveExternalSAMLIdPCertificateRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveExternalSAMLIdPCertificateResponse
+     * @return RemoveExternalSAMLIdPCertificateResponse RemoveExternalSAMLIdPCertificateResponse
      */
     public function removeExternalSAMLIdPCertificateWithOptions($request, $runtime)
     {
@@ -2513,9 +3016,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RemoveExternalSAMLIdPCertificateRequest $request
+     * This topic provides an example on how to remove the SAML signing certificate whose ID is `idp-c-00dt9gnl7fmjaw9c****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RemoveExternalSAMLIdPCertificateRequest $request RemoveExternalSAMLIdPCertificateRequest
      *
-     * @return RemoveExternalSAMLIdPCertificateResponse
+     * @return RemoveExternalSAMLIdPCertificateResponse RemoveExternalSAMLIdPCertificateResponse
      */
     public function removeExternalSAMLIdPCertificate($request)
     {
@@ -2525,10 +3032,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RemovePermissionPolicyFromAccessConfigurationRequest $request
-     * @param RuntimeOptions                                       $runtime
+     * After you remove an inline policy from an access configuration, the policy cannot be restored.
+     *   * This topic provides an example on how to remove the system policy `AliyunECSFullAccess` from the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RemovePermissionPolicyFromAccessConfigurationRequest $request RemovePermissionPolicyFromAccessConfigurationRequest
+     * @param RuntimeOptions                                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemovePermissionPolicyFromAccessConfigurationResponse
+     * @return RemovePermissionPolicyFromAccessConfigurationResponse RemovePermissionPolicyFromAccessConfigurationResponse
      */
     public function removePermissionPolicyFromAccessConfigurationWithOptions($request, $runtime)
     {
@@ -2565,9 +3077,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RemovePermissionPolicyFromAccessConfigurationRequest $request
+     * After you remove an inline policy from an access configuration, the policy cannot be restored.
+     *   * This topic provides an example on how to remove the system policy `AliyunECSFullAccess` from the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RemovePermissionPolicyFromAccessConfigurationRequest $request RemovePermissionPolicyFromAccessConfigurationRequest
      *
-     * @return RemovePermissionPolicyFromAccessConfigurationResponse
+     * @return RemovePermissionPolicyFromAccessConfigurationResponse RemovePermissionPolicyFromAccessConfigurationResponse
      */
     public function removePermissionPolicyFromAccessConfiguration($request)
     {
@@ -2577,10 +3094,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request
-     * @param RuntimeOptions             $runtime
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot remove a user from a group that is synchronized by using SCIM.
+     *   * This topic provides an example on how to remove the user `u-00q8wbq42wiltcrk****` from the group `g-00jqzghi2n3o5hkh****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroupWithOptions($request, $runtime)
     {
@@ -2614,9 +3136,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param RemoveUserFromGroupRequest $request
+     * If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot remove a user from a group that is synchronized by using SCIM.
+     *   * This topic provides an example on how to remove the user `u-00q8wbq42wiltcrk****` from the group `g-00jqzghi2n3o5hkh****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param RemoveUserFromGroupRequest $request RemoveUserFromGroupRequest
      *
-     * @return RemoveUserFromGroupResponse
+     * @return RemoveUserFromGroupResponse RemoveUserFromGroupResponse
      */
     public function removeUserFromGroup($request)
     {
@@ -2626,10 +3153,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ResetUserPasswordRequest $request
-     * @param RuntimeOptions           $runtime
+     * If you forget your password or your password expires or is at risk, you must contact a CloudSSO administrator to reset your password.
+     *   * >  After you enable SSO logon, your password cannot be reset.
+     *   * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetUserPasswordResponse
+     * @return ResetUserPasswordResponse ResetUserPasswordResponse
      */
     public function resetUserPasswordWithOptions($request, $runtime)
     {
@@ -2669,9 +3202,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param ResetUserPasswordRequest $request
+     * If you forget your password or your password expires or is at risk, you must contact a CloudSSO administrator to reset your password.
+     *   * >  After you enable SSO logon, your password cannot be reset.
+     *   * This topic provides an example on how to reset the password of the user `u-00q8wbq42wiltcrk****`. The new password is automatically generated by the system.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param ResetUserPasswordRequest $request ResetUserPasswordRequest
      *
-     * @return ResetUserPasswordResponse
+     * @return ResetUserPasswordResponse ResetUserPasswordResponse
      */
     public function resetUserPassword($request)
     {
@@ -2681,10 +3220,21 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetExternalSAMLIdentityProviderRequest $request
-     * @param RuntimeOptions                         $runtime
+     * ## Usage notes
+     *   * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an IdP.
+     *   * You can use one of the following methods to configure a SAML IdP. You can obtain the required metadata file or parameter values from your IdP.
+     *   * *   Use the metadata file. You can specify the `EncodedMetadataDocument` parameter to upload the metadata file.
+     *   * *   Manually configure the IdP. You can manually specifythe following parameters for your IdP: `EntityId`, `LoginUrl`, `WantRequestSigned`, and `X509Certificate`.
+     *   * If you have configured a SAML IdP, the existing configurations are replaced after you call this operation.
+     *   * *   If the IdP is configured by using the metadata file, all existing configurations are replaced with new configurations.
+     *   * *   If the IdP is manually configured, the original parameter values that are different from the new parameter values are replaced.
+     *   * >  If SSO logon is enabled, new configurations immediately take effect. Take note of the impacts on the production environment.
+     *   * This topic provides an example on how to configure an IdP by using the metadata file within the directory `d-00fc2p61****`.
+     *   *
+     * @param SetExternalSAMLIdentityProviderRequest $request SetExternalSAMLIdentityProviderRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetExternalSAMLIdentityProviderResponse
+     * @return SetExternalSAMLIdentityProviderResponse SetExternalSAMLIdentityProviderResponse
      */
     public function setExternalSAMLIdentityProviderWithOptions($request, $runtime)
     {
@@ -2730,9 +3280,20 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetExternalSAMLIdentityProviderRequest $request
+     * ## Usage notes
+     *   * During SAML 2.0-based single sign-on (SSO) logon, CloudSSO is an SP, and the identity management system of an enterprise is an IdP.
+     *   * You can use one of the following methods to configure a SAML IdP. You can obtain the required metadata file or parameter values from your IdP.
+     *   * *   Use the metadata file. You can specify the `EncodedMetadataDocument` parameter to upload the metadata file.
+     *   * *   Manually configure the IdP. You can manually specifythe following parameters for your IdP: `EntityId`, `LoginUrl`, `WantRequestSigned`, and `X509Certificate`.
+     *   * If you have configured a SAML IdP, the existing configurations are replaced after you call this operation.
+     *   * *   If the IdP is configured by using the metadata file, all existing configurations are replaced with new configurations.
+     *   * *   If the IdP is manually configured, the original parameter values that are different from the new parameter values are replaced.
+     *   * >  If SSO logon is enabled, new configurations immediately take effect. Take note of the impacts on the production environment.
+     *   * This topic provides an example on how to configure an IdP by using the metadata file within the directory `d-00fc2p61****`.
+     *   *
+     * @param SetExternalSAMLIdentityProviderRequest $request SetExternalSAMLIdentityProviderRequest
      *
-     * @return SetExternalSAMLIdentityProviderResponse
+     * @return SetExternalSAMLIdentityProviderResponse SetExternalSAMLIdentityProviderResponse
      */
     public function setExternalSAMLIdentityProvider($request)
     {
@@ -2742,10 +3303,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetMFAAuthenticationStatusRequest $request
-     * @param RuntimeOptions                    $runtime
+     * If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
+     *   * This topic provides an example on how to enable MFA for users.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param SetMFAAuthenticationStatusRequest $request SetMFAAuthenticationStatusRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetMFAAuthenticationStatusResponse
+     * @return SetMFAAuthenticationStatusResponse SetMFAAuthenticationStatusResponse
      */
     public function setMFAAuthenticationStatusWithOptions($request, $runtime)
     {
@@ -2776,9 +3342,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetMFAAuthenticationStatusRequest $request
+     * If a CloudSSO administrator enables username-password logon for users, CloudSSO automatically enables MFA to improve security. The administrator can call this operation to enable or disable MFA based on the business requirements.
+     *   * This topic provides an example on how to enable MFA for users.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param SetMFAAuthenticationStatusRequest $request SetMFAAuthenticationStatusRequest
      *
-     * @return SetMFAAuthenticationStatusResponse
+     * @return SetMFAAuthenticationStatusResponse SetMFAAuthenticationStatusResponse
      */
     public function setMFAAuthenticationStatus($request)
     {
@@ -2788,10 +3359,17 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetSCIMSynchronizationStatusRequest $request
-     * @param RuntimeOptions                      $runtime
+     * You can synchronize users or groups from an external identity provider (IdP) that supports SCIM 2.0 to CloudSSO only after SCIM synchronization is enabled. If you disable SCIM synchronization, you can no longer synchronize users or groups to CloudSSO. The following list describes the impacts after SCIM synchronization is enabled or disabled:
+     *   * *   After you enable SCIM synchronization, you cannot modify or delete the users or groups that are synchronized to CloudSSO by using SCIM. In addition, you cannot add users to or remove users from the groups. However, you can change the passwords of the users and enable or disable the logon of the users.
+     *   * *   After you disable SCIM synchronization, you can modify and delete the users and groups that are synchronized to CloudSSO by using SCIM. You can also add users to or remove users from the groups.
+     *   * This topic provides an example on how to enable SCIM synchronization within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param SetSCIMSynchronizationStatusRequest $request SetSCIMSynchronizationStatusRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return SetSCIMSynchronizationStatusResponse
+     * @return SetSCIMSynchronizationStatusResponse SetSCIMSynchronizationStatusResponse
      */
     public function setSCIMSynchronizationStatusWithOptions($request, $runtime)
     {
@@ -2822,9 +3400,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param SetSCIMSynchronizationStatusRequest $request
+     * You can synchronize users or groups from an external identity provider (IdP) that supports SCIM 2.0 to CloudSSO only after SCIM synchronization is enabled. If you disable SCIM synchronization, you can no longer synchronize users or groups to CloudSSO. The following list describes the impacts after SCIM synchronization is enabled or disabled:
+     *   * *   After you enable SCIM synchronization, you cannot modify or delete the users or groups that are synchronized to CloudSSO by using SCIM. In addition, you cannot add users to or remove users from the groups. However, you can change the passwords of the users and enable or disable the logon of the users.
+     *   * *   After you disable SCIM synchronization, you can modify and delete the users and groups that are synchronized to CloudSSO by using SCIM. You can also add users to or remove users from the groups.
+     *   * This topic provides an example on how to enable SCIM synchronization within the directory `d-00fc2p61****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param SetSCIMSynchronizationStatusRequest $request SetSCIMSynchronizationStatusRequest
      *
-     * @return SetSCIMSynchronizationStatusResponse
+     * @return SetSCIMSynchronizationStatusResponse SetSCIMSynchronizationStatusResponse
      */
     public function setSCIMSynchronizationStatus($request)
     {
@@ -2834,10 +3419,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessConfigurationRequest $request
-     * @param RuntimeOptions                   $runtime
+     * You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
+     *   * This topic provides an example on how to change the initial web page in the access configuration `ac-00jhtfl8thteu6uj****` to `https://cloudsso.console.aliyun.com`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateAccessConfigurationRequest $request UpdateAccessConfigurationRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateAccessConfigurationResponse
+     * @return UpdateAccessConfigurationResponse UpdateAccessConfigurationResponse
      */
     public function updateAccessConfigurationWithOptions($request, $runtime)
     {
@@ -2877,9 +3467,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateAccessConfigurationRequest $request
+     * You can modify the `Description`, `SessionDuration`, and `RelayState` parameters for an access configuration.
+     *   * This topic provides an example on how to change the initial web page in the access configuration `ac-00jhtfl8thteu6uj****` to `https://cloudsso.console.aliyun.com`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateAccessConfigurationRequest $request UpdateAccessConfigurationRequest
      *
-     * @return UpdateAccessConfigurationResponse
+     * @return UpdateAccessConfigurationResponse UpdateAccessConfigurationResponse
      */
     public function updateAccessConfiguration($request)
     {
@@ -2889,10 +3484,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateDirectoryRequest $request
-     * @param RuntimeOptions         $runtime
+     * After you change the name of a directory, the URL that is used to log on to the Cloud SSO user portal is changed. You must notify the Cloud SSO users of the correct URL.
+     *   * This topic provides an example on how to change the name of a directory to `new-example`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateDirectoryRequest $request UpdateDirectoryRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateDirectoryResponse
+     * @return UpdateDirectoryResponse UpdateDirectoryResponse
      */
     public function updateDirectoryWithOptions($request, $runtime)
     {
@@ -2923,9 +3523,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateDirectoryRequest $request
+     * After you change the name of a directory, the URL that is used to log on to the Cloud SSO user portal is changed. You must notify the Cloud SSO users of the correct URL.
+     *   * This topic provides an example on how to change the name of a directory to `new-example`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateDirectoryRequest $request UpdateDirectoryRequest
      *
-     * @return UpdateDirectoryResponse
+     * @return UpdateDirectoryResponse UpdateDirectoryResponse
      */
     public function updateDirectory($request)
     {
@@ -2935,10 +3540,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
-     * @param RuntimeOptions     $runtime
+     * You can modify `GroupName` and `Description` for a group.
+     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a group that is synchronized by using SCIM.
+     *   * This topic provides an example on how to change the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroupWithOptions($request, $runtime)
     {
@@ -2975,9 +3586,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateGroupRequest $request
+     * You can modify `GroupName` and `Description` for a group.
+     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a group that is synchronized by using SCIM.
+     *   * This topic provides an example on how to change the name of the group `g-00jqzghi2n3o5hkh****` to `NewTestGroup`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateGroupRequest $request UpdateGroupRequest
      *
-     * @return UpdateGroupResponse
+     * @return UpdateGroupResponse UpdateGroupResponse
      */
     public function updateGroup($request)
     {
@@ -2987,10 +3604,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateInlinePolicyForAccessConfigurationRequest $request
-     * @param RuntimeOptions                                  $runtime
+     * This topic provides an example on how to modify an inline policy that is created for the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateInlinePolicyForAccessConfigurationRequest $request UpdateInlinePolicyForAccessConfigurationRequest
+     * @param RuntimeOptions                                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateInlinePolicyForAccessConfigurationResponse
+     * @return UpdateInlinePolicyForAccessConfigurationResponse UpdateInlinePolicyForAccessConfigurationResponse
      */
     public function updateInlinePolicyForAccessConfigurationWithOptions($request, $runtime)
     {
@@ -3027,9 +3648,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateInlinePolicyForAccessConfigurationRequest $request
+     * This topic provides an example on how to modify an inline policy that is created for the access configuration `ac-00jhtfl8thteu6uj****`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateInlinePolicyForAccessConfigurationRequest $request UpdateInlinePolicyForAccessConfigurationRequest
      *
-     * @return UpdateInlinePolicyForAccessConfigurationResponse
+     * @return UpdateInlinePolicyForAccessConfigurationResponse UpdateInlinePolicyForAccessConfigurationResponse
      */
     public function updateInlinePolicyForAccessConfiguration($request)
     {
@@ -3039,10 +3664,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateMFAAuthenticationSettingsRequest $request
-     * @param RuntimeOptions                         $runtime
+     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     *   * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
+     *   *
+     * @param UpdateMFAAuthenticationSettingsRequest $request UpdateMFAAuthenticationSettingsRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateMFAAuthenticationSettingsResponse
+     * @return UpdateMFAAuthenticationSettingsResponse UpdateMFAAuthenticationSettingsResponse
      */
     public function updateMFAAuthenticationSettingsWithOptions($request, $runtime)
     {
@@ -3076,9 +3704,12 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateMFAAuthenticationSettingsRequest $request
+     * If you enable username-password logon for CloudSSO users, you can also configure MFA for the users.
+     *   * This topic provides an example on how to enable MFA for all CloudSSO users that belong to the directory named `d-00fc2p61****`.
+     *   *
+     * @param UpdateMFAAuthenticationSettingsRequest $request UpdateMFAAuthenticationSettingsRequest
      *
-     * @return UpdateMFAAuthenticationSettingsResponse
+     * @return UpdateMFAAuthenticationSettingsResponse UpdateMFAAuthenticationSettingsResponse
      */
     public function updateMFAAuthenticationSettings($request)
     {
@@ -3088,10 +3719,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateSCIMServerCredentialStatusRequest $request
-     * @param RuntimeOptions                          $runtime
+     * This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateSCIMServerCredentialStatusRequest $request UpdateSCIMServerCredentialStatusRequest
+     * @param RuntimeOptions                          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSCIMServerCredentialStatusResponse
+     * @return UpdateSCIMServerCredentialStatusResponse UpdateSCIMServerCredentialStatusResponse
      */
     public function updateSCIMServerCredentialStatusWithOptions($request, $runtime)
     {
@@ -3125,9 +3760,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateSCIMServerCredentialStatusRequest $request
+     * This topic provides an example on how to disable the SCIM credential whose ID is `scimcred-004whl0kvfwcypbi****`. After the SCIM credential is disabled, the synchronization task that uses the SCIM credential fails. You can call this operation again to enable the SCIM credential.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateSCIMServerCredentialStatusRequest $request UpdateSCIMServerCredentialStatusRequest
      *
-     * @return UpdateSCIMServerCredentialStatusResponse
+     * @return UpdateSCIMServerCredentialStatusResponse UpdateSCIMServerCredentialStatusResponse
      */
     public function updateSCIMServerCredentialStatus($request)
     {
@@ -3137,10 +3776,16 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
-     * @param RuntimeOptions    $runtime
+     * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
+     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a user that is synchronized by using SCIM.
+     *   * This topic provides an example on how to change the email address of the user whose ID is `u-00q8wbq42wiltcrk****` to `AliceLee@example.com`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateUserRequest $request UpdateUserRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUserWithOptions($request, $runtime)
     {
@@ -3186,9 +3831,15 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserRequest $request
+     * You can modify `FirstName`, `LastName`, `DisplayName`, `Email`, and `Description` for a user. You cannot modify `UserName` for a user.
+     *   * >  If System for Cross-domain Identity Management (SCIM) synchronization is enabled, you cannot modify the information about a user that is synchronized by using SCIM.
+     *   * This topic provides an example on how to change the email address of the user whose ID is `u-00q8wbq42wiltcrk****` to `AliceLee@example.com`.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateUserRequest $request UpdateUserRequest
      *
-     * @return UpdateUserResponse
+     * @return UpdateUserResponse UpdateUserResponse
      */
     public function updateUser($request)
     {
@@ -3198,10 +3849,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserMFAAuthenticationSettingsRequest $request
-     * @param RuntimeOptions                             $runtime
+     * If you call the [UpdateMFAAuthenticationSettings](~~450134~~) operation to set the MFAAuthenticationSettings parameter to `Byuser`, user-specific settings are applied. Then, you must call the UpdateUserMFAAuthenticationSettings operation to configure MFA for each user.
+     *   * By default, the MFAAuthenticationSettings parameter is set to `Enabled` for a new user.
+     *   * This topic provides an example on how to enable MFA for the user named `u-00q8wbq42wiltcrk****`.
+     *   *
+     * @param UpdateUserMFAAuthenticationSettingsRequest $request UpdateUserMFAAuthenticationSettingsRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserMFAAuthenticationSettingsResponse
+     * @return UpdateUserMFAAuthenticationSettingsResponse UpdateUserMFAAuthenticationSettingsResponse
      */
     public function updateUserMFAAuthenticationSettingsWithOptions($request, $runtime)
     {
@@ -3235,9 +3890,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserMFAAuthenticationSettingsRequest $request
+     * If you call the [UpdateMFAAuthenticationSettings](~~450134~~) operation to set the MFAAuthenticationSettings parameter to `Byuser`, user-specific settings are applied. Then, you must call the UpdateUserMFAAuthenticationSettings operation to configure MFA for each user.
+     *   * By default, the MFAAuthenticationSettings parameter is set to `Enabled` for a new user.
+     *   * This topic provides an example on how to enable MFA for the user named `u-00q8wbq42wiltcrk****`.
+     *   *
+     * @param UpdateUserMFAAuthenticationSettingsRequest $request UpdateUserMFAAuthenticationSettingsRequest
      *
-     * @return UpdateUserMFAAuthenticationSettingsResponse
+     * @return UpdateUserMFAAuthenticationSettingsResponse UpdateUserMFAAuthenticationSettingsResponse
      */
     public function updateUserMFAAuthenticationSettings($request)
     {
@@ -3247,10 +3906,14 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserStatusRequest $request
-     * @param RuntimeOptions          $runtime
+     * This topic provides an example on how to change the status of the user whose ID is `u-00q8wbq42wiltcrk****` to Disabled. Users in the Disabled state cannot log on to the CloudSSO user portal.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateUserStatusRequest $request UpdateUserStatusRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateUserStatusResponse
+     * @return UpdateUserStatusResponse UpdateUserStatusResponse
      */
     public function updateUserStatusWithOptions($request, $runtime)
     {
@@ -3284,9 +3947,13 @@ class Cloudsso extends OpenApiClient
     }
 
     /**
-     * @param UpdateUserStatusRequest $request
+     * This topic provides an example on how to change the status of the user whose ID is `u-00q8wbq42wiltcrk****` to Disabled. Users in the Disabled state cannot log on to the CloudSSO user portal.
+     *   * ## Limits
+     *   * You can call this operation up to 100 times per second per account. This operation is globally limited to 100 times per second across all accounts. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   *
+     * @param UpdateUserStatusRequest $request UpdateUserStatusRequest
      *
-     * @return UpdateUserStatusResponse
+     * @return UpdateUserStatusResponse UpdateUserStatusResponse
      */
     public function updateUserStatus($request)
     {

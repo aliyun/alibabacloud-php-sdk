@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class CreateDirectoryResponseBody extends Model
 {
     /**
+     * @description The information about the directory.
+     *
      * @var directory
      */
     public $directory;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example ADADC31D-90EE-5459-99B0-D83DF07769A3
+     *
      * @var string
      */
     public $requestId;

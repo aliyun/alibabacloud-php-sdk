@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class directories extends Model
 {
     /**
+     * @description The time when the directory was created.
+     *
+     * @example 2021-06-30T08:35:26Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The name of the directory.
+     *
+     * @example new-example
+     *
      * @var string
      */
     public $directoryName;
 
     /**
+     * @description The region ID of the directory.
+     *
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The time when the directory was modified.
+     *
+     * @example 2021-10-25T09:13:24Z
+     *
      * @var string
      */
     public $updateTime;

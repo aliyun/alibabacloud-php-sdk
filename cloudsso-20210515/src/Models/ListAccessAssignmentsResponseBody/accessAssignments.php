@@ -9,56 +9,104 @@ use AlibabaCloud\Tea\Model;
 class accessAssignments extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00jhtfl8thteu6uj****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The name of the access configuration.
+     *
+     * @example ECS-Admin
+     *
      * @var string
      */
     public $accessConfigurationName;
 
     /**
+     * @description The time when the access permissions were assigned.
+     *
+     * @example 2021-11-04T10:03:08Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The ID of the CloudSSO identity.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $principalId;
 
     /**
+     * @description The name of the CloudSSO identity.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $principalName;
 
     /**
+     * @description The type of the CloudSSO identity. Valid values:
+     *
+     *   User
+     *   Group
+     *
+     * @example User
+     *
      * @var string
      */
     public $principalType;
 
     /**
+     * @description The ID of the task object.
+     *
+     * @example 114240524784****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The name of the task object.
+     *
+     * @example dev-test
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The path ID of the task object in your resource directory.
+     *
+     * @example rd-3G****\/r-Wm****\/114240524784****
+     *
      * @var string
      */
     public $targetPath;
 
     /**
+     * @description The path name of the task object in your resource directory.
+     *
+     * @example rd-3G****\/root/dev-test
+     *
      * @var string
      */
     public $targetPathName;
 
     /**
+     * @description The type of the task object.
+     *
+     * The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * @example RD-Account
+     *
      * @var string
      */
     public $targetType;

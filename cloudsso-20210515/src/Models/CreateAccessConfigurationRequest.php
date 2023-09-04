@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class CreateAccessConfigurationRequest extends Model
 {
     /**
+     * @description The name of the access configuration.
+     *
+     * The name can be up to 32 characters in length.
+     * @example ECS-Admin
+     *
      * @var string
      */
     public $accessConfigurationName;
 
     /**
+     * @description The description of the access configuration.
+     *
+     * The description can be up to 1,024 characters in length.
+     * @example This is an access configuration.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The initial web page that is displayed after a CloudSSO user accesses an account in your resource directory by using the access configuration.
+     *
+     * The web page must be a page of the Alibaba Cloud Management Console. By default, this parameter is empty, which indicates that the initial web page is the homepage of the Alibaba Cloud Management Console.
+     * @example https://cloudsso.console.aliyun.com
+     *
      * @var string
      */
     public $relayState;
 
     /**
+     * @description The duration of a session in which a CloudSSO user accesses an account in your resource directory by using the access configuration.
+     *
+     * Default value: 3600. The value indicates 1 hour.
+     * @example 3600
+     *
      * @var int
      */
     public $sessionDuration;

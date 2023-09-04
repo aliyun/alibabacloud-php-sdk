@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateSCIMServerCredentialStatusResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 7C086C2F-1C66-57B3-B14E-2C1DA70727CD
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the SCIM credential.
+     *
      * @var SCIMServerCredential
      */
     public $SCIMServerCredential;

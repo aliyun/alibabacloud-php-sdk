@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class GetDirectorySAMLServiceProviderInfoResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 4632107D-BCE1-5A96-B30B-182EE0709625
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the SP.
+     *
      * @var SAMLServiceProvider
      */
     public $SAMLServiceProvider;

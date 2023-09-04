@@ -9,66 +9,122 @@ use AlibabaCloud\Tea\Model;
 class accessConfigurationProvisionings extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00ccule7tadaijxc****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The name of the access configuration.
+     *
+     * @example VPC-Admin
+     *
      * @var string
      */
     public $accessConfigurationName;
 
     /**
+     * @description The first time when the access configuration was provisioned.
+     *
+     * @example 2021-07-26T08:54:14Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the custom policy that is created for an account in your resource directory.
+     *
      * @var string[]
      */
     public $RAMPolicyNames;
 
     /**
+     * @description The name of the RAM role that is created for an account in your resource directory.
+     *
+     * @example AliyunReservedSSO-VPC-Admin
+     *
      * @var string
      */
     public $RAMRoleName;
 
     /**
+     * @description The name of the Security Assertion Markup Language (SAML) identity provider (IdP) that is created within an account in your resource directory.
+     *
+     * @example AliyunReservedSSO-d-00fc2p61****
+     *
      * @var string
      */
     public $SAMLProviderName;
 
     /**
+     * @description The status of the access configuration. Valid values:
+     *
+     *   Provisioned: The access configuration is provisioned.
+     *   ReprovisionRequired: The access configuration needs to be re-provisioned.
+     *   DeprovisionFailed: The access configuration failed to be provisioned.
+     *
+     * @example Provisioned
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the task object.
+     *
+     * If the value of TargetType is `RD-Account`, the value of this parameter is the UID of an account in your resource directory.
+     * @example 101522521960****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The name of the task object.
+     *
+     * @example SharedServices_5009****
+     *
      * @var string
      */
     public $targetName;
 
     /**
+     * @description The path ID of the task object in your resource directory.
+     *
+     * @example rd-3G****\/r-Wm****\/fd-pjM8oy****\/101522521960****
+     *
      * @var string
      */
     public $targetPath;
 
     /**
+     * @description The path name of the task object in your resource directory.
+     *
+     * @example rd-3G****\/root/Core/SharedServices_5009****
+     *
      * @var string
      */
     public $targetPathName;
 
     /**
+     * @description The type of the task object.
+     *
+     * The value is fixed as RD-Account, which indicates an account in your resource directory.
+     * @example RD-Account
+     *
      * @var string
      */
     public $targetType;
 
     /**
+     * @description The last time when the access configuration was provisioned.
+     *
+     * @example 2021-07-26T08:54:18Z
+     *
      * @var string
      */
     public $updateTime;

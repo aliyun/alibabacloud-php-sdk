@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ListSCIMServerCredentialsResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example FE4B7037-C315-5DD5-826E-57A87950BCD1
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The SCIM credentials.
+     *
      * @var SCIMServerCredentials[]
      */
     public $SCIMServerCredentials;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalCounts;

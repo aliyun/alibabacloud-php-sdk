@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class UpdateMFAAuthenticationSettingsRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description Specifies whether to enable MFA for all users. Valid value:
+     *
+     * - OnlyRiskyLogin: MFA is required only for unusual logons.
+     * @example Enabled
+     *
      * @var string
      */
     public $MFAAuthenticationSettings;
 
     /**
+     * @description Specifies whether MFA is required for users who initiated unusual logons. Valid value:
+     *
+     * - EnforceVerify: MFA is required. If no MFA devices are bound to a user who initiated an unusual logon, the user must bind an MFA device. If an MFA device is already bound to a user who initiated an unusual logon, the user must pass MFA.
+     * @example Autonomous
+     *
      * @var string
      */
     public $operationForRiskLogin;

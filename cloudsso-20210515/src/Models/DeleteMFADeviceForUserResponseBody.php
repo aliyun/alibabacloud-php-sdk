@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DeleteMFADeviceForUserResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 8B9982ED-FD0D-5622-8EA0-7B768685DCE7
+     *
      * @var string
      */
     public $requestId;

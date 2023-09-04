@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RemoveExternalSAMLIdPCertificateRequest extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
+     * You can call the [ListExternalSAMLIdPCertificates](~~341629~~) operation to query the IDs of certificates.
+     * @example idp-c-00dt9gnl7fmjaw9c****
+     *
      * @var string
      */
     public $certificateId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;

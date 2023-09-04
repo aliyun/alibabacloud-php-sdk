@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ProvisionAccessConfigurationRequest extends Model
 {
     /**
+     * @description The ID of the access configuration.
+     *
+     * @example ac-00jhtfl8thteu6uj****
+     *
      * @var string
      */
     public $accessConfigurationId;
 
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the task object.
+     *
+     * @example 114240524784****
+     *
      * @var string
      */
     public $targetId;
 
     /**
+     * @description The type of the task object. Set the value to RD-Account, which indicates an account in your resource directory.
+     *
+     * @example RD-Account
+     *
      * @var string
      */
     public $targetType;

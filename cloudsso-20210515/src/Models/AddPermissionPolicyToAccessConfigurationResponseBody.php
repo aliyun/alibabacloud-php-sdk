@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddPermissionPolicyToAccessConfigurationResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example B7C6E839-FB65-59BE-B753-003AA8AF7DF7
+     *
      * @var string
      */
     public $requestId;

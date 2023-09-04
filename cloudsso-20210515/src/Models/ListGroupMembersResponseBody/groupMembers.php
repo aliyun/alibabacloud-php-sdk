@@ -9,46 +9,88 @@ use AlibabaCloud\Tea\Model;
 class groupMembers extends Model
 {
     /**
+     * @description The description of the user.
+     *
+     * @example This is a user.
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description The display name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $displayName;
 
     /**
+     * @description The email address of the user.
+     *
+     * @example AliceLee@example.com
+     *
      * @var string
      */
     public $email;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example g-00jqzghi2n3o5hkh****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The time when the user was added to the user group.
+     *
+     * @example 2021-11-01T06:58:18Z
+     *
      * @var string
      */
     public $joinTime;
 
     /**
+     * @description The type of the user. Valid values:
+     *
+     *   Manual: The user is manually created.
+     *   Synchronized: The user is synchronized from an external identity provider (IdP).
+     *
+     * @example Manual
+     *
      * @var string
      */
     public $provisionType;
 
     /**
+     * @description The status of the user. Valid values:
+     *
+     *   Enabled: The logon of the user is enabled.
+     *   Disabled: The logon of the user is disabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;
 
     /**
+     * @description The name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $userName;

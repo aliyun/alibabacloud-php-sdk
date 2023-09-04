@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The new description of the user.
+     *
+     * @example This is a user.
+     *
      * @var string
      */
     public $newDescription;
 
     /**
+     * @description The new display name of the user.
+     *
+     * @example AliceLee
+     *
      * @var string
      */
     public $newDisplayName;
 
     /**
+     * @description The new email address of the user.
+     *
+     * @example AliceLee@example.com
+     *
      * @var string
      */
     public $newEmail;
 
     /**
+     * @description The new first name of the user.
+     *
+     * @example Alice
+     *
      * @var string
      */
     public $newFirstName;
 
     /**
+     * @description The new last name of the user.
+     *
+     * @example Lee
+     *
      * @var string
      */
     public $newLastName;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;

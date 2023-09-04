@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class SetSCIMSynchronizationStatusRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The status of SCIM synchronization. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $SCIMSynchronizationStatus;

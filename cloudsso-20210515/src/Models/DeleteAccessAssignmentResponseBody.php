@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccessAssignmentResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 5C9D0CF4-5CE8-5CE6-932A-826EF4ADD007
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The information about the task.
+     *
      * @var task
      */
     public $task;

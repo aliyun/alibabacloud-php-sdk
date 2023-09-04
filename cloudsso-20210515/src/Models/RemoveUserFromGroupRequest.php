@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class RemoveUserFromGroupRequest extends Model
 {
     /**
+     * @description The ID of the directory.
+     *
+     * @example d-00fc2p61****
+     *
      * @var string
      */
     public $directoryId;
 
     /**
+     * @description The ID of the group.
+     *
+     * @example g-00jqzghi2n3o5hkh****
+     *
      * @var string
      */
     public $groupId;
 
     /**
+     * @description The ID of the user.
+     *
+     * @example u-00q8wbq42wiltcrk****
+     *
      * @var string
      */
     public $userId;

@@ -9,21 +9,42 @@ use AlibabaCloud\Tea\Model;
 class serviceStatus extends Model
 {
     /**
+     * @description The ID of your Alibaba Cloud account.
+     *
+     * @example 151266687691****
+     *
      * @var string
      */
     public $accountId;
 
     /**
+     * @description Indicates whether you have permissions to enable CloudSSO. Valid values:
+     *
+     *   Success: You have permissions to enable CloudSSO.
+     *   Failed: You do not have permissions to enable CloudSSO.
+     *
+     * >  The value of this parameter is returned only if the value of `Status` is `Disabled`.
+     * @example Success
+     *
      * @var string
      */
     public $prerequisiteCheckResult;
 
     /**
+     * @description The ID of the region.
+     *
      * @var string[]
      */
     public $regionsInUse;
 
     /**
+     * @description Indicates whether CloudSSO is enabled. Valid values:
+     *
+     *   Enabled
+     *   Disabled
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $status;

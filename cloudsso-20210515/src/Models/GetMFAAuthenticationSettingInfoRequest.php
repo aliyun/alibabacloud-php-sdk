@@ -6,18 +6,18 @@ namespace AlibabaCloud\SDK\Cloudsso\V20210515\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class RemovePermissionPolicyFromAccessConfigurationResponseBody extends Model
+class GetMFAAuthenticationSettingInfoRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the directory.
      *
-     * @example 9B13E4EE-3853-5852-9165-597C32AD8FB7
+     * @example u-00q8wbq42wiltcrk****
      *
      * @var string
      */
-    public $requestId;
+    public $directoryId;
     protected $_name = [
-        'requestId' => 'RequestId',
+        'directoryId' => 'DirectoryId',
     ];
 
     public function validate()
@@ -27,8 +27,8 @@ class RemovePermissionPolicyFromAccessConfigurationResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->requestId) {
-            $res['RequestId'] = $this->requestId;
+        if (null !== $this->directoryId) {
+            $res['DirectoryId'] = $this->directoryId;
         }
 
         return $res;
@@ -37,13 +37,13 @@ class RemovePermissionPolicyFromAccessConfigurationResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return RemovePermissionPolicyFromAccessConfigurationResponseBody
+     * @return GetMFAAuthenticationSettingInfoRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['RequestId'])) {
-            $model->requestId = $map['RequestId'];
+        if (isset($map['DirectoryId'])) {
+            $model->directoryId = $map['DirectoryId'];
         }
 
         return $model;
