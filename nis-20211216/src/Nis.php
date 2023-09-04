@@ -213,9 +213,6 @@ class Nis extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->auditParam)) {
-            $query['AuditParam'] = $request->auditParam;
-        }
         if (!Utils::isUnset($request->networkPathId)) {
             $query['NetworkPathId'] = $request->networkPathId;
         }

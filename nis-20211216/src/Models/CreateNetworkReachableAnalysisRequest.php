@@ -10,11 +10,6 @@ use AlibabaCloud\Tea\Model;
 class CreateNetworkReachableAnalysisRequest extends Model
 {
     /**
-     * @var string
-     */
-    public $auditParam;
-
-    /**
      * @description The ID of the network path. You can call the **CreateNetworkPath** operation to obtain the ID of the network path.
      *
      * @example np-b2f618ceb2c84057****
@@ -37,7 +32,6 @@ class CreateNetworkReachableAnalysisRequest extends Model
      */
     public $tag;
     protected $_name = [
-        'auditParam'    => 'AuditParam',
         'networkPathId' => 'NetworkPathId',
         'regionId'      => 'RegionId',
         'tag'           => 'Tag',
@@ -50,9 +44,6 @@ class CreateNetworkReachableAnalysisRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->auditParam) {
-            $res['AuditParam'] = $this->auditParam;
-        }
         if (null !== $this->networkPathId) {
             $res['NetworkPathId'] = $this->networkPathId;
         }
@@ -80,9 +71,6 @@ class CreateNetworkReachableAnalysisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AuditParam'])) {
-            $model->auditParam = $map['AuditParam'];
-        }
         if (isset($map['NetworkPathId'])) {
             $model->networkPathId = $map['NetworkPathId'];
         }
