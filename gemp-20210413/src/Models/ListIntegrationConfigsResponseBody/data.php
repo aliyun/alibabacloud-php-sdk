@@ -44,6 +44,11 @@ class data extends Model
     public $monitorSourceShortName;
 
     /**
+     * @var int
+     */
+    public $monitorSourceType;
+
+    /**
      * @example NOT_INTEGRATED
      *
      * @var string
@@ -55,6 +60,7 @@ class data extends Model
         'monitorSourceId'        => 'monitorSourceId',
         'monitorSourceName'      => 'monitorSourceName',
         'monitorSourceShortName' => 'monitorSourceShortName',
+        'monitorSourceType'      => 'monitorSourceType',
         'status'                 => 'status',
     ];
 
@@ -79,6 +85,9 @@ class data extends Model
         }
         if (null !== $this->monitorSourceShortName) {
             $res['monitorSourceShortName'] = $this->monitorSourceShortName;
+        }
+        if (null !== $this->monitorSourceType) {
+            $res['monitorSourceType'] = $this->monitorSourceType;
         }
         if (null !== $this->status) {
             $res['status'] = $this->status;
@@ -109,6 +118,9 @@ class data extends Model
         }
         if (isset($map['monitorSourceShortName'])) {
             $model->monitorSourceShortName = $map['monitorSourceShortName'];
+        }
+        if (isset($map['monitorSourceType'])) {
+            $model->monitorSourceType = $map['monitorSourceType'];
         }
         if (isset($map['status'])) {
             $model->status = $map['status'];

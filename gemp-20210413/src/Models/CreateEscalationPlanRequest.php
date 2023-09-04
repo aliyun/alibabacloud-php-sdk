@@ -42,12 +42,18 @@ class CreateEscalationPlanRequest extends Model
      * @var escalationPlanScopeObjects[]
      */
     public $escalationPlanScopeObjects;
+
+    /**
+     * @var bool
+     */
+    public $isGlobal;
     protected $_name = [
         'clientToken'                => 'clientToken',
         'escalationPlanDescription'  => 'escalationPlanDescription',
         'escalationPlanName'         => 'escalationPlanName',
         'escalationPlanRules'        => 'escalationPlanRules',
         'escalationPlanScopeObjects' => 'escalationPlanScopeObjects',
+        'isGlobal'                   => 'isGlobal',
     ];
 
     public function validate()
@@ -83,6 +89,9 @@ class CreateEscalationPlanRequest extends Model
                     $res['escalationPlanScopeObjects'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isGlobal) {
+            $res['isGlobal'] = $this->isGlobal;
         }
 
         return $res;
@@ -122,6 +131,9 @@ class CreateEscalationPlanRequest extends Model
                     $model->escalationPlanScopeObjects[$n++] = null !== $item ? escalationPlanScopeObjects::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['isGlobal'])) {
+            $model->isGlobal = $map['isGlobal'];
         }
 
         return $model;

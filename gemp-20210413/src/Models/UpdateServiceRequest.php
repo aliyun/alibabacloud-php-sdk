@@ -16,11 +16,21 @@ class UpdateServiceRequest extends Model
     public $clientToken;
 
     /**
+     * @var int
+     */
+    public $escalationPlanId;
+
+    /**
      * @example 服务描述
      *
      * @var string
      */
     public $serviceDescription;
+
+    /**
+     * @var int[]
+     */
+    public $serviceGroupIdList;
 
     /**
      * @example 10002000
@@ -37,7 +47,9 @@ class UpdateServiceRequest extends Model
     public $serviceName;
     protected $_name = [
         'clientToken'        => 'clientToken',
+        'escalationPlanId'   => 'escalationPlanId',
         'serviceDescription' => 'serviceDescription',
+        'serviceGroupIdList' => 'serviceGroupIdList',
         'serviceId'          => 'serviceId',
         'serviceName'        => 'serviceName',
     ];
@@ -52,8 +64,14 @@ class UpdateServiceRequest extends Model
         if (null !== $this->clientToken) {
             $res['clientToken'] = $this->clientToken;
         }
+        if (null !== $this->escalationPlanId) {
+            $res['escalationPlanId'] = $this->escalationPlanId;
+        }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
+        }
+        if (null !== $this->serviceGroupIdList) {
+            $res['serviceGroupIdList'] = $this->serviceGroupIdList;
         }
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
@@ -76,8 +94,16 @@ class UpdateServiceRequest extends Model
         if (isset($map['clientToken'])) {
             $model->clientToken = $map['clientToken'];
         }
+        if (isset($map['escalationPlanId'])) {
+            $model->escalationPlanId = $map['escalationPlanId'];
+        }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
+        }
+        if (isset($map['serviceGroupIdList'])) {
+            if (!empty($map['serviceGroupIdList'])) {
+                $model->serviceGroupIdList = $map['serviceGroupIdList'];
+            }
         }
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];

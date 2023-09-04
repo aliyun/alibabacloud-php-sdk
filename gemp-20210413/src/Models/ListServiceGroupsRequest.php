@@ -58,6 +58,11 @@ class ListServiceGroupsRequest extends Model
     public $queryType;
 
     /**
+     * @var int
+     */
+    public $serviceId;
+
+    /**
      * @example 100000
      *
      * @var int
@@ -71,6 +76,7 @@ class ListServiceGroupsRequest extends Model
         'pageSize'              => 'pageSize',
         'queryName'             => 'queryName',
         'queryType'             => 'queryType',
+        'serviceId'             => 'serviceId',
         'userId'                => 'userId',
     ];
 
@@ -101,6 +107,9 @@ class ListServiceGroupsRequest extends Model
         }
         if (null !== $this->queryType) {
             $res['queryType'] = $this->queryType;
+        }
+        if (null !== $this->serviceId) {
+            $res['serviceId'] = $this->serviceId;
         }
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
@@ -137,6 +146,9 @@ class ListServiceGroupsRequest extends Model
         }
         if (isset($map['queryType'])) {
             $model->queryType = $map['queryType'];
+        }
+        if (isset($map['serviceId'])) {
+            $model->serviceId = $map['serviceId'];
         }
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];

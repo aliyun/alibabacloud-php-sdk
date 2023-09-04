@@ -37,6 +37,11 @@ class UpdateUserRequest extends Model
     public $ramId;
 
     /**
+     * @var int[]
+     */
+    public $roleIdList;
+
+    /**
      * @example 111
      *
      * @var int
@@ -52,6 +57,7 @@ class UpdateUserRequest extends Model
         'email'       => 'email',
         'phone'       => 'phone',
         'ramId'       => 'ramId',
+        'roleIdList'  => 'roleIdList',
         'userId'      => 'userId',
         'username'    => 'username',
     ];
@@ -74,6 +80,9 @@ class UpdateUserRequest extends Model
         }
         if (null !== $this->ramId) {
             $res['ramId'] = $this->ramId;
+        }
+        if (null !== $this->roleIdList) {
+            $res['roleIdList'] = $this->roleIdList;
         }
         if (null !== $this->userId) {
             $res['userId'] = $this->userId;
@@ -104,6 +113,11 @@ class UpdateUserRequest extends Model
         }
         if (isset($map['ramId'])) {
             $model->ramId = $map['ramId'];
+        }
+        if (isset($map['roleIdList'])) {
+            if (!empty($map['roleIdList'])) {
+                $model->roleIdList = $map['roleIdList'];
+            }
         }
         if (isset($map['userId'])) {
             $model->userId = $map['userId'];

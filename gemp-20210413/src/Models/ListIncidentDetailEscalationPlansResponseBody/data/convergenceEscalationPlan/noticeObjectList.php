@@ -28,10 +28,16 @@ class noticeObjectList extends Model
      * @var string
      */
     public $noticeObjectPhone;
+
+    /**
+     * @var string[]
+     */
+    public $roleNameList;
     protected $_name = [
         'noticeObjectId'    => 'noticeObjectId',
         'noticeObjectName'  => 'noticeObjectName',
         'noticeObjectPhone' => 'noticeObjectPhone',
+        'roleNameList'      => 'roleNameList',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class noticeObjectList extends Model
         }
         if (null !== $this->noticeObjectPhone) {
             $res['noticeObjectPhone'] = $this->noticeObjectPhone;
+        }
+        if (null !== $this->roleNameList) {
+            $res['roleNameList'] = $this->roleNameList;
         }
 
         return $res;
@@ -70,6 +79,11 @@ class noticeObjectList extends Model
         }
         if (isset($map['noticeObjectPhone'])) {
             $model->noticeObjectPhone = $map['noticeObjectPhone'];
+        }
+        if (isset($map['roleNameList'])) {
+            if (!empty($map['roleNameList'])) {
+                $model->roleNameList = $map['roleNameList'];
+            }
         }
 
         return $model;

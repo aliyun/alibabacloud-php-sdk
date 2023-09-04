@@ -9,9 +9,21 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @example 1
+     *
+     * @var int
+     */
+    public $escalationPlanId;
+
+    /**
      * @var string
      */
     public $serviceDescription;
+
+    /**
+     * @var int[]
+     */
+    public $serviceGroupIdList;
 
     /**
      * @example 1
@@ -32,7 +44,9 @@ class data extends Model
      */
     public $updateTime;
     protected $_name = [
+        'escalationPlanId'   => 'escalationPlanId',
         'serviceDescription' => 'serviceDescription',
+        'serviceGroupIdList' => 'serviceGroupIdList',
         'serviceId'          => 'serviceId',
         'serviceName'        => 'serviceName',
         'updateTime'         => 'updateTime',
@@ -45,8 +59,14 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->escalationPlanId) {
+            $res['escalationPlanId'] = $this->escalationPlanId;
+        }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
+        }
+        if (null !== $this->serviceGroupIdList) {
+            $res['serviceGroupIdList'] = $this->serviceGroupIdList;
         }
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
@@ -69,8 +89,16 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['escalationPlanId'])) {
+            $model->escalationPlanId = $map['escalationPlanId'];
+        }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
+        }
+        if (isset($map['serviceGroupIdList'])) {
+            if (!empty($map['serviceGroupIdList'])) {
+                $model->serviceGroupIdList = $map['serviceGroupIdList'];
+            }
         }
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];

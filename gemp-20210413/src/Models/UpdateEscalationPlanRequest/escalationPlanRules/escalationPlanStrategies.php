@@ -33,6 +33,11 @@ class escalationPlanStrategies extends Model
     public $noticeObjects;
 
     /**
+     * @var int[]
+     */
+    public $noticeRoleList;
+
+    /**
      * @example 30
      *
      * @var int
@@ -48,6 +53,7 @@ class escalationPlanStrategies extends Model
         'escalationPlanType' => 'escalationPlanType',
         'noticeChannels'     => 'noticeChannels',
         'noticeObjects'      => 'noticeObjects',
+        'noticeRoleList'     => 'noticeRoleList',
         'noticeTime'         => 'noticeTime',
         'serviceGroupIds'    => 'serviceGroupIds',
     ];
@@ -70,6 +76,9 @@ class escalationPlanStrategies extends Model
         }
         if (null !== $this->noticeObjects) {
             $res['noticeObjects'] = $this->noticeObjects;
+        }
+        if (null !== $this->noticeRoleList) {
+            $res['noticeRoleList'] = $this->noticeRoleList;
         }
         if (null !== $this->noticeTime) {
             $res['noticeTime'] = $this->noticeTime;
@@ -103,6 +112,11 @@ class escalationPlanStrategies extends Model
         if (isset($map['noticeObjects'])) {
             if (!empty($map['noticeObjects'])) {
                 $model->noticeObjects = $map['noticeObjects'];
+            }
+        }
+        if (isset($map['noticeRoleList'])) {
+            if (!empty($map['noticeRoleList'])) {
+                $model->noticeRoleList = $map['noticeRoleList'];
             }
         }
         if (isset($map['noticeTime'])) {

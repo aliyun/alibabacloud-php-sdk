@@ -63,6 +63,16 @@ class data extends Model
     public $ramId;
 
     /**
+     * @var int[]
+     */
+    public $roleIdList;
+
+    /**
+     * @var string[]
+     */
+    public $roleNameList;
+
+    /**
      * @var serviceGroups[]
      */
     public $serviceGroups;
@@ -86,6 +96,8 @@ class data extends Model
         'isRelated'      => 'isRelated',
         'phone'          => 'phone',
         'ramId'          => 'ramId',
+        'roleIdList'     => 'roleIdList',
+        'roleNameList'   => 'roleNameList',
         'serviceGroups'  => 'serviceGroups',
         'userId'         => 'userId',
         'username'       => 'username',
@@ -118,6 +130,12 @@ class data extends Model
         }
         if (null !== $this->ramId) {
             $res['ramId'] = $this->ramId;
+        }
+        if (null !== $this->roleIdList) {
+            $res['roleIdList'] = $this->roleIdList;
+        }
+        if (null !== $this->roleNameList) {
+            $res['roleNameList'] = $this->roleNameList;
         }
         if (null !== $this->serviceGroups) {
             $res['serviceGroups'] = [];
@@ -166,6 +184,16 @@ class data extends Model
         }
         if (isset($map['ramId'])) {
             $model->ramId = $map['ramId'];
+        }
+        if (isset($map['roleIdList'])) {
+            if (!empty($map['roleIdList'])) {
+                $model->roleIdList = $map['roleIdList'];
+            }
+        }
+        if (isset($map['roleNameList'])) {
+            if (!empty($map['roleNameList'])) {
+                $model->roleNameList = $map['roleNameList'];
+            }
         }
         if (isset($map['serviceGroups'])) {
             if (!empty($map['serviceGroups'])) {

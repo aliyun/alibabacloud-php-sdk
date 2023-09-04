@@ -29,6 +29,11 @@ class data extends Model
     public $escalationPlanScopeObjects;
 
     /**
+     * @var bool
+     */
+    public $isGlobal;
+
+    /**
      * @example 2021-09-09 09:09:09
      *
      * @var string
@@ -45,6 +50,7 @@ class data extends Model
         'escalationPlanId'           => 'escalationPlanId',
         'escalationPlanName'         => 'escalationPlanName',
         'escalationPlanScopeObjects' => 'escalationPlanScopeObjects',
+        'isGlobal'                   => 'isGlobal',
         'modifyTime'                 => 'modifyTime',
         'status'                     => 'status',
     ];
@@ -70,6 +76,9 @@ class data extends Model
                     $res['escalationPlanScopeObjects'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
+        }
+        if (null !== $this->isGlobal) {
+            $res['isGlobal'] = $this->isGlobal;
         }
         if (null !== $this->modifyTime) {
             $res['modifyTime'] = $this->modifyTime;
@@ -103,6 +112,9 @@ class data extends Model
                     $model->escalationPlanScopeObjects[$n++] = null !== $item ? escalationPlanScopeObjects::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['isGlobal'])) {
+            $model->isGlobal = $map['isGlobal'];
         }
         if (isset($map['modifyTime'])) {
             $model->modifyTime = $map['modifyTime'];

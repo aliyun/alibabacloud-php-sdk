@@ -37,6 +37,11 @@ class CreateUserRequest extends Model
     public $ramId;
 
     /**
+     * @var int[]
+     */
+    public $roleIdList;
+
+    /**
      * @var string
      */
     public $username;
@@ -45,6 +50,7 @@ class CreateUserRequest extends Model
         'email'       => 'email',
         'phone'       => 'phone',
         'ramId'       => 'ramId',
+        'roleIdList'  => 'roleIdList',
         'username'    => 'username',
     ];
 
@@ -66,6 +72,9 @@ class CreateUserRequest extends Model
         }
         if (null !== $this->ramId) {
             $res['ramId'] = $this->ramId;
+        }
+        if (null !== $this->roleIdList) {
+            $res['roleIdList'] = $this->roleIdList;
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
@@ -93,6 +102,11 @@ class CreateUserRequest extends Model
         }
         if (isset($map['ramId'])) {
             $model->ramId = $map['ramId'];
+        }
+        if (isset($map['roleIdList'])) {
+            if (!empty($map['roleIdList'])) {
+                $model->roleIdList = $map['roleIdList'];
+            }
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];

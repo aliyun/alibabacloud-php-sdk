@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data;
 
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\unFinishEscalationPlan\noticeObjectList;
+use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\unFinishEscalationPlan\noticeRoleObjectList;
 use AlibabaCloud\SDK\GEMP\V20210413\Models\ListIncidentDetailEscalationPlansResponseBody\data\unFinishEscalationPlan\serviceGroupList;
 use AlibabaCloud\Tea\Model;
 
@@ -26,6 +27,16 @@ class unFinishEscalationPlan extends Model
      * @var noticeObjectList[]
      */
     public $noticeObjectList;
+
+    /**
+     * @var int[]
+     */
+    public $noticeRoleList;
+
+    /**
+     * @var noticeRoleObjectList[]
+     */
+    public $noticeRoleObjectList;
 
     /**
      * @example 10
@@ -53,13 +64,15 @@ class unFinishEscalationPlan extends Model
      */
     public $status;
     protected $_name = [
-        'escalationPlanType' => 'escalationPlanType',
-        'noticeChannels'     => 'noticeChannels',
-        'noticeObjectList'   => 'noticeObjectList',
-        'noticeTime'         => 'noticeTime',
-        'serviceGroupList'   => 'serviceGroupList',
-        'startTime'          => 'startTime',
-        'status'             => 'status',
+        'escalationPlanType'   => 'escalationPlanType',
+        'noticeChannels'       => 'noticeChannels',
+        'noticeObjectList'     => 'noticeObjectList',
+        'noticeRoleList'       => 'noticeRoleList',
+        'noticeRoleObjectList' => 'noticeRoleObjectList',
+        'noticeTime'           => 'noticeTime',
+        'serviceGroupList'     => 'serviceGroupList',
+        'startTime'            => 'startTime',
+        'status'               => 'status',
     ];
 
     public function validate()
@@ -81,6 +94,18 @@ class unFinishEscalationPlan extends Model
                 $n = 0;
                 foreach ($this->noticeObjectList as $item) {
                     $res['noticeObjectList'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->noticeRoleList) {
+            $res['noticeRoleList'] = $this->noticeRoleList;
+        }
+        if (null !== $this->noticeRoleObjectList) {
+            $res['noticeRoleObjectList'] = [];
+            if (null !== $this->noticeRoleObjectList && \is_array($this->noticeRoleObjectList)) {
+                $n = 0;
+                foreach ($this->noticeRoleObjectList as $item) {
+                    $res['noticeRoleObjectList'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -128,6 +153,20 @@ class unFinishEscalationPlan extends Model
                 $n                       = 0;
                 foreach ($map['noticeObjectList'] as $item) {
                     $model->noticeObjectList[$n++] = null !== $item ? noticeObjectList::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['noticeRoleList'])) {
+            if (!empty($map['noticeRoleList'])) {
+                $model->noticeRoleList = $map['noticeRoleList'];
+            }
+        }
+        if (isset($map['noticeRoleObjectList'])) {
+            if (!empty($map['noticeRoleObjectList'])) {
+                $model->noticeRoleObjectList = [];
+                $n                           = 0;
+                foreach ($map['noticeRoleObjectList'] as $item) {
+                    $model->noticeRoleObjectList[$n++] = null !== $item ? noticeRoleObjectList::fromMap($item) : $item;
                 }
             }
         }

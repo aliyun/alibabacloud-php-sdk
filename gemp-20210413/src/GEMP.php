@@ -606,6 +606,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->escalationPlanScopeObjects)) {
             $body['escalationPlanScopeObjects'] = $request->escalationPlanScopeObjects;
         }
+        if (!Utils::isUnset($request->isGlobal)) {
+            $body['isGlobal'] = $request->isGlobal;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -1365,8 +1368,14 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->escalationPlanId)) {
+            $body['escalationPlanId'] = $request->escalationPlanId;
+        }
         if (!Utils::isUnset($request->serviceDescription)) {
             $body['serviceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceGroupIdList)) {
+            $body['serviceGroupIdList'] = $request->serviceGroupIdList;
         }
         if (!Utils::isUnset($request->serviceName)) {
             $body['serviceName'] = $request->serviceName;
@@ -1675,6 +1684,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->ramId)) {
             $body['ramId'] = $request->ramId;
+        }
+        if (!Utils::isUnset($request->roleIdList)) {
+            $body['roleIdList'] = $request->roleIdList;
         }
         if (!Utils::isUnset($request->username)) {
             $body['username'] = $request->username;
@@ -5101,6 +5113,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->escalationPlanName)) {
             $body['escalationPlanName'] = $request->escalationPlanName;
         }
+        if (!Utils::isUnset($request->isGlobal)) {
+            $body['isGlobal'] = $request->isGlobal;
+        }
         if (!Utils::isUnset($request->pageNumber)) {
             $body['pageNumber'] = $request->pageNumber;
         }
@@ -5109,6 +5124,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->serviceName)) {
             $body['serviceName'] = $request->serviceName;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['status'] = $request->status;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,
@@ -6152,6 +6170,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->queryType)) {
             $body['queryType'] = $request->queryType;
         }
+        if (!Utils::isUnset($request->serviceId)) {
+            $body['serviceId'] = $request->serviceId;
+        }
         if (!Utils::isUnset($request->userId)) {
             $body['userId'] = $request->userId;
         }
@@ -7153,6 +7174,9 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->escalationPlanScopeObjects)) {
             $body['escalationPlanScopeObjects'] = $request->escalationPlanScopeObjects;
         }
+        if (!Utils::isUnset($request->isGlobal)) {
+            $body['isGlobal'] = $request->isGlobal;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
             'body'    => OpenApiUtilClient::parseToMap($body),
@@ -7887,8 +7911,14 @@ class GEMP extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $body['clientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->escalationPlanId)) {
+            $body['escalationPlanId'] = $request->escalationPlanId;
+        }
         if (!Utils::isUnset($request->serviceDescription)) {
             $body['serviceDescription'] = $request->serviceDescription;
+        }
+        if (!Utils::isUnset($request->serviceGroupIdList)) {
+            $body['serviceGroupIdList'] = $request->serviceGroupIdList;
         }
         if (!Utils::isUnset($request->serviceId)) {
             $body['serviceId'] = $request->serviceId;
@@ -8209,6 +8239,9 @@ class GEMP extends OpenApiClient
         }
         if (!Utils::isUnset($request->ramId)) {
             $body['ramId'] = $request->ramId;
+        }
+        if (!Utils::isUnset($request->roleIdList)) {
+            $body['roleIdList'] = $request->roleIdList;
         }
         if (!Utils::isUnset($request->userId)) {
             $body['userId'] = $request->userId;

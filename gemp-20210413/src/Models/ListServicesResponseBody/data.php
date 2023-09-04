@@ -11,6 +11,16 @@ class data extends Model
     /**
      * @var int
      */
+    public $escalationPlanId;
+
+    /**
+     * @var string
+     */
+    public $escalationPlanName;
+
+    /**
+     * @var int
+     */
     public $isValid;
 
     /**
@@ -19,6 +29,11 @@ class data extends Model
      * @var string
      */
     public $serviceDescription;
+
+    /**
+     * @var int[]
+     */
+    public $serviceGroupIdList;
 
     /**
      * @example 1
@@ -41,8 +56,11 @@ class data extends Model
      */
     public $updateTime;
     protected $_name = [
+        'escalationPlanId'   => 'escalationPlanId',
+        'escalationPlanName' => 'escalationPlanName',
         'isValid'            => 'isValid',
         'serviceDescription' => 'serviceDescription',
+        'serviceGroupIdList' => 'serviceGroupIdList',
         'serviceId'          => 'serviceId',
         'serviceName'        => 'serviceName',
         'updateTime'         => 'updateTime',
@@ -55,11 +73,20 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->escalationPlanId) {
+            $res['escalationPlanId'] = $this->escalationPlanId;
+        }
+        if (null !== $this->escalationPlanName) {
+            $res['escalationPlanName'] = $this->escalationPlanName;
+        }
         if (null !== $this->isValid) {
             $res['isValid'] = $this->isValid;
         }
         if (null !== $this->serviceDescription) {
             $res['serviceDescription'] = $this->serviceDescription;
+        }
+        if (null !== $this->serviceGroupIdList) {
+            $res['serviceGroupIdList'] = $this->serviceGroupIdList;
         }
         if (null !== $this->serviceId) {
             $res['serviceId'] = $this->serviceId;
@@ -82,11 +109,22 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['escalationPlanId'])) {
+            $model->escalationPlanId = $map['escalationPlanId'];
+        }
+        if (isset($map['escalationPlanName'])) {
+            $model->escalationPlanName = $map['escalationPlanName'];
+        }
         if (isset($map['isValid'])) {
             $model->isValid = $map['isValid'];
         }
         if (isset($map['serviceDescription'])) {
             $model->serviceDescription = $map['serviceDescription'];
+        }
+        if (isset($map['serviceGroupIdList'])) {
+            if (!empty($map['serviceGroupIdList'])) {
+                $model->serviceGroupIdList = $map['serviceGroupIdList'];
+            }
         }
         if (isset($map['serviceId'])) {
             $model->serviceId = $map['serviceId'];

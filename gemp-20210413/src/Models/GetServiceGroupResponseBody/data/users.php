@@ -16,6 +16,11 @@ class users extends Model
     public $phone;
 
     /**
+     * @var string[]
+     */
+    public $roleNameList;
+
+    /**
      * @example 1
      *
      * @var int
@@ -37,6 +42,7 @@ class users extends Model
     public $userName;
     protected $_name = [
         'phone'          => 'phone',
+        'roleNameList'   => 'roleNameList',
         'serviceGroupId' => 'serviceGroupId',
         'userId'         => 'userId',
         'userName'       => 'userName',
@@ -51,6 +57,9 @@ class users extends Model
         $res = [];
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
+        }
+        if (null !== $this->roleNameList) {
+            $res['roleNameList'] = $this->roleNameList;
         }
         if (null !== $this->serviceGroupId) {
             $res['serviceGroupId'] = $this->serviceGroupId;
@@ -75,6 +84,11 @@ class users extends Model
         $model = new self();
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];
+        }
+        if (isset($map['roleNameList'])) {
+            if (!empty($map['roleNameList'])) {
+                $model->roleNameList = $map['roleNameList'];
+            }
         }
         if (isset($map['serviceGroupId'])) {
             $model->serviceGroupId = $map['serviceGroupId'];

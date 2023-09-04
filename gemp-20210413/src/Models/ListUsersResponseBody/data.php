@@ -68,6 +68,16 @@ class data extends Model
     public $ramId;
 
     /**
+     * @var int[]
+     */
+    public $roleIdList;
+
+    /**
+     * @var string[]
+     */
+    public $roleNameList;
+
+    /**
      * @example DINGDING
      *
      * @var string
@@ -95,6 +105,8 @@ class data extends Model
         'isRelated'      => 'isRelated',
         'phone'          => 'phone',
         'ramId'          => 'ramId',
+        'roleIdList'     => 'roleIdList',
+        'roleNameList'   => 'roleNameList',
         'synergyChannel' => 'synergyChannel',
         'userId'         => 'userId',
         'username'       => 'username',
@@ -133,6 +145,12 @@ class data extends Model
         }
         if (null !== $this->ramId) {
             $res['ramId'] = $this->ramId;
+        }
+        if (null !== $this->roleIdList) {
+            $res['roleIdList'] = $this->roleIdList;
+        }
+        if (null !== $this->roleNameList) {
+            $res['roleNameList'] = $this->roleNameList;
         }
         if (null !== $this->synergyChannel) {
             $res['synergyChannel'] = $this->synergyChannel;
@@ -181,6 +199,16 @@ class data extends Model
         }
         if (isset($map['ramId'])) {
             $model->ramId = $map['ramId'];
+        }
+        if (isset($map['roleIdList'])) {
+            if (!empty($map['roleIdList'])) {
+                $model->roleIdList = $map['roleIdList'];
+            }
+        }
+        if (isset($map['roleNameList'])) {
+            if (!empty($map['roleNameList'])) {
+                $model->roleNameList = $map['roleNameList'];
+            }
         }
         if (isset($map['synergyChannel'])) {
             $model->synergyChannel = $map['synergyChannel'];
