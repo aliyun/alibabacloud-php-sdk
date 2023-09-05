@@ -9,6 +9,12 @@ use AlibabaCloud\Tea\Model;
 class StartDiskReplicaGroupRequest extends Model
 {
     /**
+     * @description Specifies whether to immediately synchronize data once. Valid values:
+     *
+     *   true: immediately synchronizes data once.
+     *   false: synchronizes data based on the RPO of the replication pair-consistent group.
+     *
+     * Default value: false.
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -16,6 +22,8 @@ class StartDiskReplicaGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +31,8 @@ class StartDiskReplicaGroupRequest extends Model
     public $oneShot;
 
     /**
+     * @description The ID of the replication pair-consistent group.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -30,6 +40,8 @@ class StartDiskReplicaGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example pg-myreplica****
      *
      * @var string

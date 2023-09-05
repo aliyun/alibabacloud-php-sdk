@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskMonitorDataListResponseBody extends Model
 {
     /**
+     * @description The near real-time monitoring data of the disks.
+     *
      * @var monitorData[]
      */
     public $monitorData;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+     *
      * @example e71d8a535bd9c****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDiskMonitorDataListResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDiskMonitorDataListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 3
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that the value is unique among different requests. The **ClientToken** value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 0c593ea1-3bea-11e9-b96b-88e9fe63****
      *
      * @var string
@@ -17,6 +19,8 @@ class ListTagResourcesRequest extends Model
     public $clientToken;
 
     /**
+     * @description The token used to start the next query.
+     *
      * @example token123
      *
      * @var string
@@ -24,6 +28,8 @@ class ListTagResourcesRequest extends Model
     public $nextToken;
 
     /**
+     * @description The region ID of the resource. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -31,6 +37,8 @@ class ListTagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID list of the resource. You can specify up to 50 resource IDs in each call.
+     *
      * @example disk-123
      *
      * @var string[]
@@ -38,13 +46,22 @@ class ListTagResourcesRequest extends Model
     public $resourceId;
 
     /**
-     * @example pair
+     * @description The type of the resource. Valid values:
+     *
+     *   dedicatedblockstoragecluster: dedicated block storage cluster
+     *   diskreplicapair: replication pair
+     *   diskreplicagroup: replication pair-consistent group
+     *
+     * @example diskreplicagroup
      *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The information about the tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;

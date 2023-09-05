@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairProgressRequest extends Model
 {
     /**
+     * @description The region ID of the replication pair.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDiskReplicaPairProgressRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the replication pair. You can call the [DescribeDiskReplicaPairs](~~354206~~)operation to query the IDs of existing replication pairs.
+     *
      * @example pair-cn-tl32ribst0z
      *
      * @var string

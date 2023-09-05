@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class diskEvents extends Model
 {
     /**
+     * @description The description of the event.
+     *
      * @example This is description.
      *
      * @var string
@@ -16,6 +18,8 @@ class diskEvents extends Model
     public $description;
 
     /**
+     * @description The ID of the disk.
+     *
      * @example d-bp1bq5g3dxxo1x4o****
      *
      * @var string
@@ -23,6 +27,12 @@ class diskEvents extends Model
     public $diskId;
 
     /**
+     * @description The recommended action after the event occurred. Valid values:
+     *
+     *   Resize: resizes the disk.
+     *   ModifyDiskSpec: changes the category of the disk.
+     *   NoAction: performs no operation.
+     *
      * @example NoAction
      *
      * @var string
@@ -30,6 +40,8 @@ class diskEvents extends Model
     public $recommendAction;
 
     /**
+     * @description The region ID of the disk.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +49,11 @@ class diskEvents extends Model
     public $regionId;
 
     /**
+     * @description The state of the event. Valid values:
+     *
+     *   Solved
+     *   UnSolved
+     *
      * @example Solved
      *
      * @var string
@@ -44,6 +61,8 @@ class diskEvents extends Model
     public $status;
 
     /**
+     * @description The time when the event occurred. The time follows the [ISO 8601](~~25696~~) standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     *
      * @example 2022-06-01T08:00:00Z
      *
      * @var string
@@ -51,6 +70,8 @@ class diskEvents extends Model
     public $timestamp;
 
     /**
+     * @description The type of the event. Only DataNeedProtect can be returned.
+     *
      * @example DataNeedProtect
      *
      * @var string

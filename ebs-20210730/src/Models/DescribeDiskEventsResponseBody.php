@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskEventsResponseBody extends Model
 {
     /**
+     * @description The risk events of the disk.
+     *
      * @var diskEvents[]
      */
     public $diskEvents;
 
     /**
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
+     *
      * @example caeba0bbb2be03f84eb48b699f0a****
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDiskEventsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The request ID.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -29,6 +35,8 @@ class DescribeDiskEventsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int

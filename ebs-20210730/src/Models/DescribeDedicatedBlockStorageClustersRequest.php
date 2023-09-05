@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClustersRequest extends Model
 {
     /**
+     * @description The zone ID of the dedicated block storage cluster. You can call the [DescribeZones](~~25610~~) operation to query the most recent zone list.
+     *
      * @example cn-heyuan-b
      *
      * @var string
@@ -17,6 +19,9 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $azoneId;
 
     /**
+     * @description The category of disks that can be created in the dedicated block storage cluster.
+     *
+     * Set the value to cloud_essd. Only enhanced SSDs (ESSDs) can be created in dedicated block storage clusters.
      * @example cloud_essd
      *
      * @var string
@@ -24,8 +29,6 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $category;
 
     /**
-     * @example 123e4567-e89b-12d3-a456-426655440000
-     *
      * @var string
      */
     public $clientToken;
@@ -36,30 +39,32 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $dedicatedBlockStorageClusterId;
 
     /**
-     * @example 10
-     *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @example AAAAAdDWBF2
-     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the dedicated block storage cluster. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
      * @example cn-heyuan
      *
      * @var string
@@ -67,6 +72,8 @@ class DescribeDedicatedBlockStorageClustersRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-acfmvs4****
+     *
      * @var string
      */
     public $resourceGroupId;

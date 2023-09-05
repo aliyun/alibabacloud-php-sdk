@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyDiskReplicaGroupRequest extends Model
 {
     /**
+     * @description The bandwidth value. Unit: Kbit/s.
+     *
+     * >  This parameter is unavailable.
      * @example -
      *
      * @var int
@@ -16,6 +19,8 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $bandwidth;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How to ensure idempotence](~~25693~~).
+     *
      * @example 123e4567-e89b-12d3-a456-42665544****
      *
      * @var string
@@ -23,6 +28,8 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The description of the replication pair-consistent group. The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
+     *
      * @example This is description.
      *
      * @var string
@@ -30,6 +37,8 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $description;
 
     /**
+     * @description The name of the replication pair-consistent group. The name must be 2 to 128 characters in length. It must start with a letter and cannot start with `http://` or `https://`. It can contain letters, digits, colons (:), underscores (\_), and hyphens (-).
+     *
      * @example myreplicagrouptest
      *
      * @var string
@@ -37,6 +46,8 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $groupName;
 
     /**
+     * @description The RPO of the replication pair-consistent group. Unit: seconds. Valid value: 900.
+     *
      * @example 900
      *
      * @var int
@@ -44,6 +55,8 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $RPO;
 
     /**
+     * @description The region ID of the replication pair-consistent group.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -51,6 +64,8 @@ class ModifyDiskReplicaGroupRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the replication pair-consistent group. You can call the [DescribeDiskReplicaGroups](~~426614~~) operation to query the IDs of replication pair-consistent groups.
+     *
      * @example pg-myreplica****
      *
      * @var string

@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
 {
     /**
+     * @description Details about the cloud disks.
+     *
      * @var disks
      */
     public $disks;
 
     /**
+     * @description The query token returned in this call.
+     *
      * @example AAAAAdDWBF2
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeDedicatedBlockStorageClusterDisksResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 11B55F58-D3A4-4A9B-9596-342420D0****
      *
      * @var string

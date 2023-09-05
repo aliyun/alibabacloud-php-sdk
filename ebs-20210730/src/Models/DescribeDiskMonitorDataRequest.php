@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskMonitorDataRequest extends Model
 {
     /**
+     * @description The ID of the disk.
+     *
      * @example d-bp67acfmxazb4p****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDiskMonitorDataRequest extends Model
     public $diskId;
 
     /**
+     * @description The end of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     *
      * @example 2022-06-01T05:00:00Z
      *
      * @var string
@@ -23,6 +27,12 @@ class DescribeDiskMonitorDataRequest extends Model
     public $endTime;
 
     /**
+     * @description The interval at which the near real-time monitoring data is collected. Unit: seconds. Valid values:
+     *
+     *   5
+     *   60
+     *
+     * Default value: 5.
      * @example 5
      *
      * @var int
@@ -30,6 +40,8 @@ class DescribeDiskMonitorDataRequest extends Model
     public $period;
 
     /**
+     * @description The region ID of the disk.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -37,6 +49,8 @@ class DescribeDiskMonitorDataRequest extends Model
     public $regionId;
 
     /**
+     * @description The beginning of the time range during which you want to query the near real-time monitoring data of the disk. Specify the time in the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     *
      * @example 2022-06-01T03:00:00Z
      *
      * @var string
@@ -44,6 +58,11 @@ class DescribeDiskMonitorDataRequest extends Model
     public $startTime;
 
     /**
+     * @description The type of the monitoring data. Valid values:
+     *
+     *   basic: baseline performance data.
+     *   pro: burst performance data, such as burst I/O operations.
+     *
      * @example basic
      *
      * @var string

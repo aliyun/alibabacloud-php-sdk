@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class StopDiskMonitorShrinkRequest extends Model
 {
     /**
+     * @description The IDs of the disks for which you want to disable near real-time monitoring.
+     *
      * @var string
      */
     public $diskIdsShrink;
 
     /**
+     * @description The ID of the region in which you want to disable near real-time monitoring for disks. You can call the [DescribeRegions](~~354276~~) operation to query the list of regions that support CloudLens for EBS.
+     *
      * @example cn-hangzhou
      *
      * @var string

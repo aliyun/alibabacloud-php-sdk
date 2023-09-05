@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class monitorData extends Model
 {
     /**
+     * @description The number of burst I/O operations.
+     *
      * @example 2000
      *
      * @var int
@@ -16,6 +18,8 @@ class monitorData extends Model
     public $burstIOCount;
 
     /**
+     * @description The ID of the disk.
+     *
      * @example d-bp67acfmxazb4p****
      *
      * @var string
@@ -23,6 +27,8 @@ class monitorData extends Model
     public $diskId;
 
     /**
+     * @description The beginning of the time range during which the performance of the disk bursts. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
      * @example 2022-06-01T08:00:00Z
      *
      * @var string

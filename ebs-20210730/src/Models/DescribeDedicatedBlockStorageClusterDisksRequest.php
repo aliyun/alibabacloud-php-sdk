@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
 {
     /**
+     * @description The ID of the dedicated block storage cluster.
+     *
      * @example dbsc-cn-od43bf****
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
     public $dbscId;
 
     /**
+     * @description The maximum number of entries to return on each page. Maximum value: 500.
+     *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -23,6 +28,8 @@ class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
     public $maxResults;
 
     /**
+     * @description The query token. Set the value to the NextToken value returned in the previous call to the DescribeDedicatedBlockStorageClusterDisks operation. Leave this parameter empty the first time you call this operation.
+     *
      * @example AAAAAdDWBF2
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeDedicatedBlockStorageClusterDisksRequest extends Model
     public $nextToken;
 
     /**
+     * @description The ID of the region where the dedicated block storage cluster resides. You can call the [DescribeRegions](~~25609~~) operation to query the most recent region list.
+     *
      * @example cn-heyuan
      *
      * @var string

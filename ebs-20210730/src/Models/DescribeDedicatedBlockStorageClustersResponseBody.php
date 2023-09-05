@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedBlockStorageClustersResponseBody extends Model
 {
     /**
+     * @description Details about the dedicated block storage clusters.
+     *
      * @var dedicatedBlockStorageClusters[]
      */
     public $dedicatedBlockStorageClusters;
 
     /**
+     * @description The query token returned in this call.
+     *
      * @example AAAAAdDWBF2
      *
      * @var string
@@ -22,16 +26,22 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public $nextToken;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 11B55F58-D3A4-4A9B-9596-342420D0****
      *
      * @var string
@@ -39,6 +49,8 @@ class DescribeDedicatedBlockStorageClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $totalCount;

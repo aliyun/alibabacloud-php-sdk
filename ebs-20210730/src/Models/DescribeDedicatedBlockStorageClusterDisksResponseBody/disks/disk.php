@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class disk extends Model
 {
     /**
+     * @description The time when the cloud disk was last attached. The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
+     *
      * @example 2021-06-07T06:08:56Z
      *
      * @var string
@@ -17,6 +19,8 @@ class disk extends Model
     public $attachedTime;
 
     /**
+     * @description This parameter is currently in invitational preview and unavailable for general users.
+     *
      * @example null
      *
      * @var string
@@ -24,6 +28,13 @@ class disk extends Model
     public $bdfId;
 
     /**
+     * @var bool
+     */
+    public $burstingEnabled;
+
+    /**
+     * @description The category of the disk. A value of cloud_essd indicates that the disk is an ESSD.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -31,6 +42,12 @@ class disk extends Model
     public $category;
 
     /**
+     * @description Indicates whether the automatic snapshots of the cloud disk are deleted when the disk is released. Valid values:
+     *
+     *   true: The automatic snapshots of the cloud disk are deleted when the disk is released.
+     *   false: The automatic snapshots of the cloud disk are retained when the disk is released.
+     *
+     * Snapshots that are created by calling the [CreateSnapshot](~~25524~~) operation or by using the Elastic Compute Service (ECS) console are retained and not affected by this parameter.
      * @example false
      *
      * @var bool
@@ -38,6 +55,11 @@ class disk extends Model
     public $deleteAutoSnapshot;
 
     /**
+     * @description Indicates whether the cloud disk is released when its associated instance is released. Valid values:
+     *
+     *   true: The cloud disk is released when its associated instance is released.
+     *   false: The cloud disk is retained when its associated instance is released.
+     *
      * @example true
      *
      * @var bool
@@ -45,6 +67,8 @@ class disk extends Model
     public $deleteWithInstance;
 
     /**
+     * @description The description of the cloud disk.
+     *
      * @example testDescription
      *
      * @var string
@@ -52,6 +76,8 @@ class disk extends Model
     public $description;
 
     /**
+     * @description The time when the cloud disk was last detached.
+     *
      * @example 2021-06-07T21:01:22Z
      *
      * @var string
@@ -59,6 +85,12 @@ class disk extends Model
     public $detachedTime;
 
     /**
+     * @description The device name of the cloud disk on its associated instance. Example: /dev/xvdb. Take note of the following items:
+     *
+     *   This parameter has a value only when the `Status` value is `In_use`.
+     *   This parameter is empty for cloud disks that have the multi-attach feature enabled. You can query the attachment information of the cloud disk based on the `Attachment` values.
+     *
+     * >  This parameter will be removed in the future. We recommend that you use other parameters to ensure future compatibility.
      * @example /dev/xvdb
      *
      * @var string
@@ -66,6 +98,11 @@ class disk extends Model
     public $device;
 
     /**
+     * @description The billing method of the cloud disk. Valid values:
+     *
+     *   PrePaid: subscription
+     *   PostPaid: pay-as-you-go
+     *
      * @example PrePaid
      *
      * @var string
@@ -73,6 +110,8 @@ class disk extends Model
     public $diskChargeType;
 
     /**
+     * @description The ID of the cloud disk.
+     *
      * @example d-bp67acfmxazb4p****
      *
      * @var string
@@ -80,6 +119,8 @@ class disk extends Model
     public $diskId;
 
     /**
+     * @description The name of the cloud disk.
+     *
      * @example testDiskName
      *
      * @var string
@@ -87,6 +128,8 @@ class disk extends Model
     public $diskName;
 
     /**
+     * @description Indicates whether the automatic snapshot policy feature is enabled for the cloud disk.
+     *
      * @example false
      *
      * @var bool
@@ -94,6 +137,8 @@ class disk extends Model
     public $enableAutoSnapshot;
 
     /**
+     * @description Indicates whether the cloud disk is encrypted.
+     *
      * @example false
      *
      * @var bool
@@ -101,6 +146,8 @@ class disk extends Model
     public $encrypted;
 
     /**
+     * @description The maximum number of IOPS.
+     *
      * @example 4000
      *
      * @var int
@@ -108,6 +155,8 @@ class disk extends Model
     public $IOPS;
 
     /**
+     * @description The ID of the image that was used to create the instance. This parameter is empty unless the cloud disk was created from an image. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
+     *
      * @example m-bp13aqm171qynt3u***
      *
      * @var string
@@ -115,6 +164,11 @@ class disk extends Model
     public $imageId;
 
     /**
+     * @description The ID of the instance to which the cloud disk is attached. Take note of the following items:
+     *
+     *   This parameter has a value only when the `Status` value is `In_use`.
+     *   This parameter is empty for cloud disks that have the multi-attach feature enabled. You can query the attachment information of the cloud disk based on the `Attachment` values.
+     *
      * @example i-bp67acfmxazb4q****
      *
      * @var string
@@ -122,6 +176,8 @@ class disk extends Model
     public $instanceId;
 
     /**
+     * @description The ID of the Key Management Service (KMS) key used by the cloud disk.
+     *
      * @example 0e478b7a-4262-4802-b8cb-00d3fb40****
      *
      * @var string
@@ -129,6 +185,8 @@ class disk extends Model
     public $KMSKeyId;
 
     /**
+     * @description The number of instances to which the Shared Block Storage device is attached.
+     *
      * @example 1
      *
      * @var int
@@ -136,6 +194,8 @@ class disk extends Model
     public $mountInstanceNum;
 
     /**
+     * @description Indicates whether the multi-attach feature was enabled for the cloud disk.
+     *
      * @example Disabled
      *
      * @var string
@@ -143,6 +203,13 @@ class disk extends Model
     public $multiAttach;
 
     /**
+     * @description The performance level of the enhanced SSD (ESSD). Valid values:
+     *
+     *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
+     *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
+     *
      * @example PL0
      *
      * @var string
@@ -150,6 +217,8 @@ class disk extends Model
     public $performanceLevel;
 
     /**
+     * @description Indicates whether the cloud disk is removable.
+     *
      * @example false
      *
      * @var bool
@@ -157,6 +226,13 @@ class disk extends Model
     public $portable;
 
     /**
+     * @var int
+     */
+    public $provisionedIops;
+
+    /**
+     * @description The region ID of cloud disk.
+     *
      * @example cn-heyuan
      *
      * @var string
@@ -164,6 +240,8 @@ class disk extends Model
     public $regionId;
 
     /**
+     * @description The size of the disk. Unit: GiB.
+     *
      * @example 60
      *
      * @var int
@@ -171,6 +249,9 @@ class disk extends Model
     public $size;
 
     /**
+     * @description The ID of the snapshot that was used to create the cloud disk.
+     *
+     * This parameter is empty unless the cloud disk was created from a snapshot. The value of this parameter remains unchanged throughout the lifecycle of the cloud disk.
      * @example s-bp67acfmxazb4p****
      *
      * @var string
@@ -178,6 +259,15 @@ class disk extends Model
     public $sourceSnapshotId;
 
     /**
+     * @description The state of the cloud disk. For more information, see [Disk states](~~25689~~). Valid values:
+     *
+     *   In_use
+     *   Available
+     *   Attaching
+     *   Detaching
+     *   Creating
+     *   ReIniting
+     *
      * @example In_use
      *
      * @var string
@@ -185,6 +275,8 @@ class disk extends Model
     public $status;
 
     /**
+     * @description The ID of the dedicated block storage cluster to which the cloud disk belongs. If your cloud disk belongs to the public block storage cluster, an empty value is returned.
+     *
      * @example dbsc-j5e1sf2vaf5he8m2****
      *
      * @var string
@@ -192,6 +284,8 @@ class disk extends Model
     public $storageClusterId;
 
     /**
+     * @description The ID of the storage set.
+     *
      * @example ss-i-bp1j4i2jdf3owlhe****
      *
      * @var string
@@ -199,6 +293,8 @@ class disk extends Model
     public $storageSetId;
 
     /**
+     * @description The maximum number of partitions in the storage set.
+     *
      * @example 11
      *
      * @var int
@@ -206,11 +302,23 @@ class disk extends Model
     public $storageSetPartitionNumber;
 
     /**
+     * @description The tags of the cloud disk.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @var int
+     */
+    public $throughput;
+
+    /**
+     * @description The type of the disk. Valid values:
+     *
+     *   system: system disk
+     *   data: data disk
+     *
      * @example all
      *
      * @var string
@@ -218,6 +326,8 @@ class disk extends Model
     public $type;
 
     /**
+     * @description The zone ID of cloud disk.
+     *
      * @example cn-heyuan-i
      *
      * @var string
@@ -226,6 +336,7 @@ class disk extends Model
     protected $_name = [
         'attachedTime'              => 'AttachedTime',
         'bdfId'                     => 'BdfId',
+        'burstingEnabled'           => 'BurstingEnabled',
         'category'                  => 'Category',
         'deleteAutoSnapshot'        => 'DeleteAutoSnapshot',
         'deleteWithInstance'        => 'DeleteWithInstance',
@@ -245,6 +356,7 @@ class disk extends Model
         'multiAttach'               => 'MultiAttach',
         'performanceLevel'          => 'PerformanceLevel',
         'portable'                  => 'Portable',
+        'provisionedIops'           => 'ProvisionedIops',
         'regionId'                  => 'RegionId',
         'size'                      => 'Size',
         'sourceSnapshotId'          => 'SourceSnapshotId',
@@ -253,6 +365,7 @@ class disk extends Model
         'storageSetId'              => 'StorageSetId',
         'storageSetPartitionNumber' => 'StorageSetPartitionNumber',
         'tags'                      => 'Tags',
+        'throughput'                => 'Throughput',
         'type'                      => 'Type',
         'zoneId'                    => 'ZoneId',
     ];
@@ -269,6 +382,9 @@ class disk extends Model
         }
         if (null !== $this->bdfId) {
             $res['BdfId'] = $this->bdfId;
+        }
+        if (null !== $this->burstingEnabled) {
+            $res['BurstingEnabled'] = $this->burstingEnabled;
         }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
@@ -327,6 +443,9 @@ class disk extends Model
         if (null !== $this->portable) {
             $res['Portable'] = $this->portable;
         }
+        if (null !== $this->provisionedIops) {
+            $res['ProvisionedIops'] = $this->provisionedIops;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
@@ -357,6 +476,9 @@ class disk extends Model
                 }
             }
         }
+        if (null !== $this->throughput) {
+            $res['Throughput'] = $this->throughput;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
@@ -380,6 +502,9 @@ class disk extends Model
         }
         if (isset($map['BdfId'])) {
             $model->bdfId = $map['BdfId'];
+        }
+        if (isset($map['BurstingEnabled'])) {
+            $model->burstingEnabled = $map['BurstingEnabled'];
         }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
@@ -438,6 +563,9 @@ class disk extends Model
         if (isset($map['Portable'])) {
             $model->portable = $map['Portable'];
         }
+        if (isset($map['ProvisionedIops'])) {
+            $model->provisionedIops = $map['ProvisionedIops'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
@@ -467,6 +595,9 @@ class disk extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['Throughput'])) {
+            $model->throughput = $map['Throughput'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

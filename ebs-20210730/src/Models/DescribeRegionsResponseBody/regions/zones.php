@@ -9,16 +9,24 @@ use AlibabaCloud\Tea\Model;
 class zones extends Model
 {
     /**
+     * @description The name of the zone.
+     *
+     * @example Hangzhou Zone H
+     *
      * @var string
      */
     public $localName;
 
     /**
+     * @description The type of resource list.
+     *
      * @var string[]
      */
     public $resourceTypes;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

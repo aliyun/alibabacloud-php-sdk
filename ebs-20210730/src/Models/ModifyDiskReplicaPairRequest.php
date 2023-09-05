@@ -23,6 +23,8 @@ class ModifyDiskReplicaPairRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example This is description.
      *
      * @var string
@@ -30,6 +32,8 @@ class ModifyDiskReplicaPairRequest extends Model
     public $description;
 
     /**
+     * @description The recovery point objective (RPO) of the replication pair. Unit: seconds. Set the value to 900.
+     *
      * @example TestReplicaPair
      *
      * @var string
@@ -44,6 +48,8 @@ class ModifyDiskReplicaPairRequest extends Model
     public $RPO;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The ClientToken value can contain only ASCII characters and cannot exceed 64 characters in length. For more information, see [How do I ensure idempotence ](~~25693~~).
+     *
      * @example cn-beijing
      *
      * @var string
@@ -51,6 +57,14 @@ class ModifyDiskReplicaPairRequest extends Model
     public $regionId;
 
     /**
+     * @description The bandwidth used to asynchronously replicate data between the primary and secondary disks. Unit: Kbit/s. Valid values:
+     *
+     *   10240: equal to 10 Mbit/s
+     *   20480: equal to 20 Mbit/s
+     *   51200: equal to 50 Mbit/s
+     *   102400: equal to 100 Mbit/s
+     *
+     * Default value: 10240.
      * @example pair-cn-dsa****
      *
      * @var string

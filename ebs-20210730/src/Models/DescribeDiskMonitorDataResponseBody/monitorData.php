@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class monitorData extends Model
 {
     /**
+     * @description The percentage of BPS.
+     *
      * @example 80(%)
      *
      * @var int
@@ -16,6 +18,8 @@ class monitorData extends Model
     public $BPSPercent;
 
     /**
+     * @description The number of burst I/O operations.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class monitorData extends Model
     public $burstIOCount;
 
     /**
+     * @description The ID of the disk.
+     *
      * @example d-bp1bq5g3dxxo1x4o****
      *
      * @var string
@@ -30,6 +36,8 @@ class monitorData extends Model
     public $diskId;
 
     /**
+     * @description The percentage of IOPS.
+     *
      * @example 80(%)
      *
      * @var int
@@ -37,6 +45,8 @@ class monitorData extends Model
     public $IOPSPercent;
 
     /**
+     * @description The read bandwidth of the disk. Unit: Mbit/s.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,8 @@ class monitorData extends Model
     public $readBPS;
 
     /**
+     * @description The maximum number of read IOPS.
+     *
      * @example 2000
      *
      * @var int
@@ -51,6 +63,8 @@ class monitorData extends Model
     public $readIOPS;
 
     /**
+     * @description The timestamp that is used to query the near real-time monitoring data of the disk. The time follows the [ISO 8601](~~25696~~) standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
      * @example 2022-06-01T08:00:00Z
      *
      * @var string
@@ -58,6 +72,8 @@ class monitorData extends Model
     public $timestamp;
 
     /**
+     * @description The write bandwidth of the disk. Unit: Mbit/s.
+     *
      * @example 204
      *
      * @var int
@@ -65,6 +81,8 @@ class monitorData extends Model
     public $writeBPS;
 
     /**
+     * @description The maximum number of write IOPS.
+     *
      * @example 2000
      *
      * @var int

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairsResponseBody extends Model
 {
     /**
+     * @description The query token returned in this call.
+     *
      * @example AAAAAdDWBF2****
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -24,6 +28,8 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page. Valid values: 1 to 100.
+     *
      * @example 10
      *
      * @var int
@@ -31,11 +37,15 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Details about the replication pairs.
+     *
      * @var replicaPairs[]
      */
     public $replicaPairs;
 
     /**
+     * @description The ID of the request.
+     *
      * @example AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
      *
      * @var string
@@ -43,6 +53,8 @@ class DescribeDiskReplicaPairsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 60
      *
      * @var int

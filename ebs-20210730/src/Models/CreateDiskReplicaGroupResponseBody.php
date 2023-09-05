@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDiskReplicaGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the replication pair-consistent group.
+     *
      * @example pg-xxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateDiskReplicaGroupResponseBody extends Model
     public $replicaGroupId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example C123F94F-4E38-19AE-942A-A8D6F44F****
      *
      * @var string

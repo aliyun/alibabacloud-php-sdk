@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiskReplicaPairProgressResponseBody extends Model
 {
     /**
+     * @description The replication progress of the replication pair.
+     *
      * @example 100
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeDiskReplicaPairProgressResponseBody extends Model
     public $progress;
 
     /**
+     * @description The timestamp that indicates the last recovery point in time. The value is returned only after the replication pair works for replicating data.
+     *
      * @example 1661917424
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeDiskReplicaPairProgressResponseBody extends Model
     public $recoverPoint;
 
     /**
+     * @description The request ID.
+     *
      * @example AAA478A0-BEE6-1D42-BEB6-A9CFEAD6****
      *
      * @var string

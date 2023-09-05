@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
+     * @description The language in which the regions and zones are named. This parameter corresponds to the `LocalName` response parameter. Valid values:
+     *
+     *   zh-CN: Chinese
+     *   en-US: English
+     *   ja: Japanese
+     *
+     * Default value: zh-CN.
      * @example zh-CN
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeRegionsRequest extends Model
     public $acceptLanguage;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -23,6 +32,13 @@ class DescribeRegionsRequest extends Model
     public $regionId;
 
     /**
+     * @description The type of resource. Valid values:
+     *
+     *   ear: async replication
+     *   lens: CloudLens for EBS
+     *   dbsc: Dedicated Block Storage Cluster
+     *
+     * Default value: ear.
      * @example ear
      *
      * @var string

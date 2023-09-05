@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveDiskReplicaPairResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example C123F94F-4E38-19AE-942A-A8D6F44F****
      *
      * @var string

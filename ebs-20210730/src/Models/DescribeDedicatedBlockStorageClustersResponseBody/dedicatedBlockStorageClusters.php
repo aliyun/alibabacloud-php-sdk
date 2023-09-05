@@ -11,6 +11,13 @@ use AlibabaCloud\Tea\Model;
 class dedicatedBlockStorageClusters extends Model
 {
     /**
+     * @var string
+     */
+    public $aliUid;
+
+    /**
+     * @description The category of disks that can be created in the dedicated block storage cluster.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -18,6 +25,8 @@ class dedicatedBlockStorageClusters extends Model
     public $category;
 
     /**
+     * @description The time when the dedicated block storage cluster was created. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1657113211
      *
      * @var string
@@ -25,11 +34,15 @@ class dedicatedBlockStorageClusters extends Model
     public $createTime;
 
     /**
+     * @description Details about the storage capacity of the dedicated block storage cluster.
+     *
      * @var dedicatedBlockStorageClusterCapacity
      */
     public $dedicatedBlockStorageClusterCapacity;
 
     /**
+     * @description The ID of the dedicated block storage cluster.
+     *
      * @example dbsc-f8z4d3k4nsgg9okb****
      *
      * @var string
@@ -37,6 +50,8 @@ class dedicatedBlockStorageClusters extends Model
     public $dedicatedBlockStorageClusterId;
 
     /**
+     * @description The name of the dedicated block storage cluster.
+     *
      * @example myDBSCCluster
      *
      * @var string
@@ -44,6 +59,8 @@ class dedicatedBlockStorageClusters extends Model
     public $dedicatedBlockStorageClusterName;
 
     /**
+     * @description The description of the dedicated block storage cluster.
+     *
      * @example This is description.
      *
      * @var string
@@ -51,6 +68,13 @@ class dedicatedBlockStorageClusters extends Model
     public $description;
 
     /**
+     * @var bool
+     */
+    public $enableThinProvision;
+
+    /**
+     * @description The time when the dedicated block storage cluster expires. The value is a UNIX timestamp. Unit: seconds.
+     *
      * @example 1673020800
      *
      * @var string
@@ -58,6 +82,14 @@ class dedicatedBlockStorageClusters extends Model
     public $expiredTime;
 
     /**
+     * @description The performance level of disks. Valid values:
+     *
+     *   PL0
+     *   PL1
+     *   PL2
+     *   PL3
+     *
+     * >  This parameter is valid only when SupportedCategory is set to cloud_essd.
      * @example PL0
      *
      * @var string
@@ -65,6 +97,8 @@ class dedicatedBlockStorageClusters extends Model
     public $performanceLevel;
 
     /**
+     * @description The region ID of the dedicated block storage cluster.
+     *
      * @example cn-heyuan
      *
      * @var string
@@ -72,11 +106,25 @@ class dedicatedBlockStorageClusters extends Model
     public $regionId;
 
     /**
+     * @example rg-aekzsoux****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @var float
+     */
+    public $sizeOverSoldRatio;
+
+    /**
+     * @description The state of the dedicated block storage cluster. Valid values:
+     *
+     *   Preparing: The cluster is pending delivery.
+     *   Running: The cluster is running.
+     *   Expired: The cluster has expired.
+     *   Offline: The cluster is offline.
+     *
      * @example Running
      *
      * @var string
@@ -84,6 +132,13 @@ class dedicatedBlockStorageClusters extends Model
     public $status;
 
     /**
+     * @var string
+     */
+    public $storageDomain;
+
+    /**
+     * @description This parameter is not supported.
+     *
      * @example cloud_essd
      *
      * @var string
@@ -96,6 +151,11 @@ class dedicatedBlockStorageClusters extends Model
     public $tags;
 
     /**
+     * @description The type of the dedicated block storage cluster. Valid values:
+     *
+     *   Standard: a standard dedicated block storage cluster. ESSDs at performance level 0 (PL0 ESSDs) can be created in standard dedicated block storage clusters.
+     *   Premium: a performance dedicated block storage cluster. ESSDs at performance level 1 (PL1 ESSDs) can be created in performance dedicated block storage clusters.
+     *
      * @example Standard
      *
      * @var string
@@ -103,23 +163,29 @@ class dedicatedBlockStorageClusters extends Model
     public $type;
 
     /**
+     * @description The zone ID of the dedicated block storage cluster.
+     *
      * @example cn-heyuan-b
      *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'aliUid'                               => 'AliUid',
         'category'                             => 'Category',
         'createTime'                           => 'CreateTime',
         'dedicatedBlockStorageClusterCapacity' => 'DedicatedBlockStorageClusterCapacity',
         'dedicatedBlockStorageClusterId'       => 'DedicatedBlockStorageClusterId',
         'dedicatedBlockStorageClusterName'     => 'DedicatedBlockStorageClusterName',
         'description'                          => 'Description',
+        'enableThinProvision'                  => 'EnableThinProvision',
         'expiredTime'                          => 'ExpiredTime',
         'performanceLevel'                     => 'PerformanceLevel',
         'regionId'                             => 'RegionId',
         'resourceGroupId'                      => 'ResourceGroupId',
+        'sizeOverSoldRatio'                    => 'SizeOverSoldRatio',
         'status'                               => 'Status',
+        'storageDomain'                        => 'StorageDomain',
         'supportedCategory'                    => 'SupportedCategory',
         'tags'                                 => 'Tags',
         'type'                                 => 'Type',
@@ -133,6 +199,9 @@ class dedicatedBlockStorageClusters extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aliUid) {
+            $res['AliUid'] = $this->aliUid;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -151,6 +220,9 @@ class dedicatedBlockStorageClusters extends Model
         if (null !== $this->description) {
             $res['Description'] = $this->description;
         }
+        if (null !== $this->enableThinProvision) {
+            $res['EnableThinProvision'] = $this->enableThinProvision;
+        }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
         }
@@ -163,8 +235,14 @@ class dedicatedBlockStorageClusters extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->sizeOverSoldRatio) {
+            $res['SizeOverSoldRatio'] = $this->sizeOverSoldRatio;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->storageDomain) {
+            $res['StorageDomain'] = $this->storageDomain;
         }
         if (null !== $this->supportedCategory) {
             $res['SupportedCategory'] = $this->supportedCategory;
@@ -196,6 +274,9 @@ class dedicatedBlockStorageClusters extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AliUid'])) {
+            $model->aliUid = $map['AliUid'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -214,6 +295,9 @@ class dedicatedBlockStorageClusters extends Model
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
         }
+        if (isset($map['EnableThinProvision'])) {
+            $model->enableThinProvision = $map['EnableThinProvision'];
+        }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
         }
@@ -226,8 +310,14 @@ class dedicatedBlockStorageClusters extends Model
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
+        if (isset($map['SizeOverSoldRatio'])) {
+            $model->sizeOverSoldRatio = $map['SizeOverSoldRatio'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['StorageDomain'])) {
+            $model->storageDomain = $map['StorageDomain'];
         }
         if (isset($map['SupportedCategory'])) {
             $model->supportedCategory = $map['SupportedCategory'];

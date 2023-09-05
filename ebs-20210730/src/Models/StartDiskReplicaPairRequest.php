@@ -23,6 +23,8 @@ class StartDiskReplicaPairRequest extends Model
     public $oneShot;
 
     /**
+     * @description The ID of the request.
+     *
      * @example cn-beijing
      *
      * @var string

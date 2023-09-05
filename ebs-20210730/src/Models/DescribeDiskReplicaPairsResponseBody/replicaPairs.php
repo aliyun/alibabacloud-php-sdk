@@ -4,11 +4,14 @@
 
 namespace AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponseBody;
 
+use AlibabaCloud\SDK\Ebs\V20210730\Models\DescribeDiskReplicaPairsResponseBody\replicaPairs\tags;
 use AlibabaCloud\Tea\Model;
 
 class replicaPairs extends Model
 {
     /**
+     * @description The bandwidth used to asynchronously replicate data from the primary disk to the secondary disk. Unit: Kbit/s.
+     *
      * @example 10240
      *
      * @var int
@@ -16,6 +19,13 @@ class replicaPairs extends Model
     public $bandwidth;
 
     /**
+     * @description The billing method of the replication pair.
+     *
+     * Valid values:
+     *
+     *   PREPAY: subscription
+     *   POSTPAY: pay-as-you-go
+     *
      * @example PREPAY
      *
      * @var string
@@ -23,6 +33,8 @@ class replicaPairs extends Model
     public $chargeType;
 
     /**
+     * @description The time when the replication pair was created. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1649750977
      *
      * @var int
@@ -30,6 +42,8 @@ class replicaPairs extends Model
     public $createTime;
 
     /**
+     * @description The description of the replication pair.
+     *
      * @example This is description.
      *
      * @var string
@@ -37,6 +51,8 @@ class replicaPairs extends Model
     public $description;
 
     /**
+     * @description The ID of the secondary disk.
+     *
      * @example d-asdfjl2342kj2l3k4****
      *
      * @var string
@@ -44,6 +60,8 @@ class replicaPairs extends Model
     public $destinationDiskId;
 
     /**
+     * @description The region ID of the secondary disk.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -51,6 +69,8 @@ class replicaPairs extends Model
     public $destinationRegion;
 
     /**
+     * @description The zone ID of the secondary disk.
+     *
      * @example cn-shanghai-b
      *
      * @var string
@@ -58,6 +78,8 @@ class replicaPairs extends Model
     public $destinationZoneId;
 
     /**
+     * @description The time when the replication pair expires. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1649750977
      *
      * @var int
@@ -65,6 +87,8 @@ class replicaPairs extends Model
     public $expiredTime;
 
     /**
+     * @description The time when data was last replicated from the primary disk to the secondary disk in the replication pair. The value of this parameter is a timestamp. Unit: seconds.
+     *
      * @example 1649751977
      *
      * @var int
@@ -72,6 +96,8 @@ class replicaPairs extends Model
     public $lastRecoverPoint;
 
     /**
+     * @description The name of the replication pair.
+     *
      * @example TestReplicaPair
      *
      * @var string
@@ -79,6 +105,8 @@ class replicaPairs extends Model
     public $pairName;
 
     /**
+     * @description The initial source region (primary region) of the replication pair.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -86,6 +114,8 @@ class replicaPairs extends Model
     public $primaryRegion;
 
     /**
+     * @description The initial source zone (primary zone) of the replication pair.
+     *
      * @example cn-beijing-a
      *
      * @var string
@@ -93,6 +123,8 @@ class replicaPairs extends Model
     public $primaryZone;
 
     /**
+     * @description The recovery point objective (RPO) of the replication pair. Unit: seconds.
+     *
      * @example 900
      *
      * @var int
@@ -100,6 +132,8 @@ class replicaPairs extends Model
     public $RPO;
 
     /**
+     * @description The ID of the replication pair-consistent group to which the replication pair belongs.
+     *
      * @example pg-xxxx****
      *
      * @var string
@@ -107,6 +141,8 @@ class replicaPairs extends Model
     public $replicaGroupId;
 
     /**
+     * @description The name of the replication pair-consistent group to which the replication pair belongs.
+     *
      * @example pg-name****
      *
      * @var string
@@ -114,6 +150,8 @@ class replicaPairs extends Model
     public $replicaGroupName;
 
     /**
+     * @description The ID of the replication pair.
+     *
      * @example pair-cn-dsa****
      *
      * @var string
@@ -121,6 +159,20 @@ class replicaPairs extends Model
     public $replicaPairId;
 
     /**
+     * @description The ID of the resource group to which the replication pair belongs.
+     *
+     * @example rg-acfmvs*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @description The type of the site from which the information of the replication pair and replication pair-consistent group is obtained. Valid values:
+     *
+     *   production: primary site
+     *   backup: secondary site
+     *
      * @example production
      *
      * @var string
@@ -128,6 +180,8 @@ class replicaPairs extends Model
     public $site;
 
     /**
+     * @description The ID of the primary disk.
+     *
      * @example d-bp131n0q38u3a4zi****
      *
      * @var string
@@ -135,6 +189,8 @@ class replicaPairs extends Model
     public $sourceDiskId;
 
     /**
+     * @description The region ID of the primary disk.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -142,6 +198,8 @@ class replicaPairs extends Model
     public $sourceRegion;
 
     /**
+     * @description The zone ID of the primary disk.
+     *
      * @example cn-beijing-a
      *
      * @var string
@@ -149,6 +207,8 @@ class replicaPairs extends Model
     public $sourceZoneId;
 
     /**
+     * @description The initial destination region (secondary region) of the replication pair.
+     *
      * @example cn-shanghai
      *
      * @var string
@@ -156,6 +216,8 @@ class replicaPairs extends Model
     public $standbyRegion;
 
     /**
+     * @description The initial destination zone (secondary zone) of the replication pair.
+     *
      * @example cn-shanghai-b
      *
      * @var string
@@ -163,6 +225,28 @@ class replicaPairs extends Model
     public $standbyZone;
 
     /**
+     * @description The state of the replication pair. Valid values:
+     *
+     *   invalid: The replication pair is invalid. When a replication pair becomes abnormal, it enters this state.
+     *   creating: The replication pair is being created.
+     *   created: The replication pair is created.
+     *   create_failed: The replication pair cannot be created.
+     *   initial_syncing: Data is synchronized from the primary disk to the secondary disk for the first time. After a replication pair is created and activated, the replication pair is in this state the first time data is synchronized from the primary disk to the secondary disk.
+     *   manual_syncing: Data is being manually synchronized from the primary disk to the secondary disk. After data is manually synchronized from the primary disk to the secondary disk, the replication pair returns to the Stopped state. The first time data is manually synchronized from the primary disk to the secondary disk, the replication pair is in the manual_syncing state during the synchronization.
+     *   syncing: Data is being synchronized from the primary disk to the secondary disk. While data is being asynchronously replicated from the primary disk to the secondary disk not for the first time, the replication pair is in this state.
+     *   normal: The replication pair is working as expected. When the system finishes replicating data from the primary disk to the secondary disk within the current replication cycle, the replication pair enters this state.
+     *   stopping: The replication pair is being stopped.
+     *   stopped: The replication pair is stopped.
+     *   stop_failed: The replication pair cannot be stopped.
+     *   failovering: A failover is being performed.
+     *   failovered: A failover is performed.
+     *   failover_failed: A failover cannot be performed.
+     *   reprotecting: A reverse replication is being performed.
+     *   reprotect_failed: A reverse replication cannot be performed.
+     *   deleting: The replication pair is being deleted.
+     *   delete_failed: The replication pair cannot be deleted.
+     *   deleted: The replication pair is deleted.
+     *
      * @example created
      *
      * @var string
@@ -170,11 +254,27 @@ class replicaPairs extends Model
     public $status;
 
     /**
+     * @description The message that describes the state of the replication pair. This parameter has a value when `Status` has a value of invalid or `create_failed`. Valid values:
+     *
+     *   PrePayOrderExpired: The replication pair has expired.
+     *   PostPayOrderCeaseService: The pay-as-you-go replication pair has been stopped due to an overdue payment.
+     *   DeviceRemoved: The primary or secondary disk has been deleted.
+     *   DeviceKeyChanged: The `DeviceKey` mapping of the primary or secondary disk has changed.
+     *   DeviceSizeChanged: The `DeviceSize` value of the primary or secondary disk has changed.
+     *   OperationDenied.QuotaExceed: The maximum number of replication pairs that can be created has been reached.
+     *
      * @example PrePayOrderExpired
      *
      * @var string
      */
     public $statusMessage;
+
+    /**
+     * @description The tags of the replication pair.
+     *
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'bandwidth'         => 'Bandwidth',
         'chargeType'        => 'ChargeType',
@@ -192,6 +292,7 @@ class replicaPairs extends Model
         'replicaGroupId'    => 'ReplicaGroupId',
         'replicaGroupName'  => 'ReplicaGroupName',
         'replicaPairId'     => 'ReplicaPairId',
+        'resourceGroupId'   => 'ResourceGroupId',
         'site'              => 'Site',
         'sourceDiskId'      => 'SourceDiskId',
         'sourceRegion'      => 'SourceRegion',
@@ -200,6 +301,7 @@ class replicaPairs extends Model
         'standbyZone'       => 'StandbyZone',
         'status'            => 'Status',
         'statusMessage'     => 'StatusMessage',
+        'tags'              => 'Tags',
     ];
 
     public function validate()
@@ -257,6 +359,9 @@ class replicaPairs extends Model
         if (null !== $this->replicaPairId) {
             $res['ReplicaPairId'] = $this->replicaPairId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->site) {
             $res['Site'] = $this->site;
         }
@@ -280,6 +385,15 @@ class replicaPairs extends Model
         }
         if (null !== $this->statusMessage) {
             $res['StatusMessage'] = $this->statusMessage;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -341,6 +455,9 @@ class replicaPairs extends Model
         if (isset($map['ReplicaPairId'])) {
             $model->replicaPairId = $map['ReplicaPairId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Site'])) {
             $model->site = $map['Site'];
         }
@@ -364,6 +481,15 @@ class replicaPairs extends Model
         }
         if (isset($map['StatusMessage'])) {
             $model->statusMessage = $map['StatusMessage'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
+     * @description The tag key of the cloud disk.
+     *
      * @example TestKey
      *
      * @var string
@@ -16,6 +18,8 @@ class tags extends Model
     public $tagKey;
 
     /**
+     * @description The tag value of the cloud disk.
+     *
      * @example TestValue
      *
      * @var string
