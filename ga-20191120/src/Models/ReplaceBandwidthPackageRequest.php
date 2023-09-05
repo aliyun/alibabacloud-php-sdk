@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ReplaceBandwidthPackageRequest extends Model
 {
     /**
+     * @description The GA instance ID.
+     *
      * @example ga-bp17frjjh0udz4qz****
      *
      * @var string
@@ -16,7 +18,7 @@ class ReplaceBandwidthPackageRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The ID of the replacement bandwidth plan. When you specify a replacement bandwidth plan, take note of the following items:
+     * @description The ID of the required bandwidth plan. When you specify a replacement bandwidth plan, take note of the following items:
      *
      *   Only a bandwidth plan that is not associated with a GA instance can be specified.
      *   If you want to replace a basic bandwidth plan, make sure that the bandwidth provided by the replacement bandwidth plan is not less than the total bandwidth allocated to the acceleration area.
@@ -28,7 +30,7 @@ class ReplaceBandwidthPackageRequest extends Model
     public $bandwidthPackageId;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

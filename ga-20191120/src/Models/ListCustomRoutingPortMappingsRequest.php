@@ -40,7 +40,7 @@ class ListCustomRoutingPortMappingsRequest extends Model
      *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
@@ -49,7 +49,7 @@ class ListCustomRoutingPortMappingsRequest extends Model
      *
      * @example 10
      *
-     * @var string
+     * @var int
      */
     public $pageSize;
 

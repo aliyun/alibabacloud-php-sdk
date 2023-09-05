@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponseBody;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponseBody\forwardingRules\ruleActions;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponseBody\forwardingRules\ruleConditions;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListForwardingRulesResponseBody\forwardingRules\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class forwardingRules extends Model
@@ -83,6 +84,21 @@ class forwardingRules extends Model
      * @var ruleConditions[]
      */
     public $ruleConditions;
+
+    /**
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
     protected $_name = [
         'forwardingRuleDirection' => 'ForwardingRuleDirection',
         'forwardingRuleId'        => 'ForwardingRuleId',
@@ -92,6 +108,9 @@ class forwardingRules extends Model
         'priority'                => 'Priority',
         'ruleActions'             => 'RuleActions',
         'ruleConditions'          => 'RuleConditions',
+        'serviceId'               => 'ServiceId',
+        'serviceManaged'          => 'ServiceManaged',
+        'serviceManagedInfos'     => 'ServiceManagedInfos',
     ];
 
     public function validate()
@@ -134,6 +153,21 @@ class forwardingRules extends Model
                 $n = 0;
                 foreach ($this->ruleConditions as $item) {
                     $res['RuleConditions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -182,6 +216,21 @@ class forwardingRules extends Model
                 $n                     = 0;
                 foreach ($map['RuleConditions'] as $item) {
                     $model->ruleConditions[$n++] = null !== $item ? ruleConditions::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
                 }
             }
         }

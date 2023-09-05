@@ -266,6 +266,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorConfirmRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorConfirmResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorCrossBorderModeRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorCrossBorderModeResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorCrossBorderStatusRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorCrossBorderStatusResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAcceleratorResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateAclAttributeRequest;
@@ -312,6 +314,8 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateIpSetsRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateIpSetsResponse;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerRequest;
 use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateListenerResponse;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateServiceManagedControlRequest;
+use AlibabaCloud\SDK\Ga\V20191120\Models\UpdateServiceManagedControlResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -352,10 +356,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
-     *   *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
-     *   *     *   If an ACL is in the **active** state, the IP entries are added.
-     *   * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL to which you want to add IP entries.
+     *   *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
+     *   *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
+     *   * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
      * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
@@ -400,10 +404,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   The **AddEntriesToAcl** operation is asynchronous. After you send a request, the system returns a request ID, but the operation is still being performed in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of an ACL:
-     *   *     *   If an ACL is in the **configuring** state, the IP entries are being added. In this case, you can perform only query operations.
-     *   *     *   If an ACL is in the **active** state, the IP entries are added.
-     *   * *   You cannot repeatedly call the **AddEntriesToAcl** operation for the same Global Accelerator (GA) instance within the specified period of time.
+     * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL to which you want to add IP entries.
+     *   *     *   If the ACL is in the **configuring** state, it indicates that IP entries are added to the ACL. In this case, you can perform only query operations.
+     *   *     *   If the ACL is in the **active** state, it indicates that IP entries are added to the ACL.
+     *   * *   The **AddEntriesToAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
      *
@@ -417,7 +421,8 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
+     * ## Description
+     *   * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
      *   *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
      *   *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
      *   * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
@@ -468,7 +473,8 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
+     * ## Description
+     *   * *   **AssociateAclsWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an ACL.
      *   *     *   If the listener is in the **updating** state, it indicates that the ACL is being associated. In this case, you can perform only query operations.
      *   *     *   If the listener is in the **active** state, it indicates that the ACL is associated.
      *   * *   The **AssociateAclsWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
@@ -485,11 +491,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   You can associate additional certificates with only HTTPS listeners.
-     *   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+     * *   Only HTTPS listeners can be associated with additional certificates.
+     *   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener with which you want to associate an additional certificate.
      *   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
      *   *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
-     *   * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
@@ -534,11 +540,11 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   You can associate additional certificates with only HTTPS listeners.
-     *   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeListener](~~153254~~) operation to query the state of the listener with which you attempt to associate an additional certificate.
+     * *   Only HTTPS listeners can be associated with additional certificates.
+     *   * *   **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeListener](~~153254~~) operation to query the status of the listener with which you want to associate an additional certificate.
      *   *     *   If the listener is in the **updating** state, it indicates that the additional certificate is being associated. In this case, you can perform only query operations.
      *   *     *   If the listener is in the **active** state, it indicates that the additional certificate is associated.
-     *   * *   The **AssociateAdditionalCertificatesWithListener** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **AssociateAdditionalCertificatesWithListener** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
@@ -690,10 +696,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+     * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to associate.
      *   *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
      *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
-     *   * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+     *   * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param BandwidthPackageAddAcceleratorRequest $request BandwidthPackageAddAcceleratorRequest
      * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
@@ -732,10 +738,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the state of the bandwidth plan that you attempt to associate.
+     * *   **BandwidthPackageAddAccelerator** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeBandwidthPackage](~~153241~~) operation to query the status of the bandwidth plan that you want to associate.
      *   *     *   If the bandwidth plan is in the **binding** state, it indicates that the bandwidth plan is being associated. In this case, you can perform only query operations.
      *   *     *   If the bandwidth plan is in the **active** state, it indicates that the bandwidth plan is associated.
-     *   * *   The **BandwidthPackageAddAccelerator** operation cannot be called repeatedly for the same GA instance.
+     *   * *   The **BandwidthPackageAddAccelerator** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param BandwidthPackageAddAcceleratorRequest $request BandwidthPackageAddAcceleratorRequest
      *
@@ -867,10 +873,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+     * *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
      *   *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
      *   *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
-     *   * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param ConfigEndpointProbeRequest $request ConfigEndpointProbeRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -924,10 +930,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **ConfigEndpointProbe** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
+     * *   **ConfigEndpointProbe** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group to which an endpoint belongs and determine whether latency monitoring is configured for the endpoint.
      *   *     *   If the endpoint group is in the **updating** state, it indicates that latency monitoring is being configured for the endpoint. In this case, you can perform only query operations.
      *   *     *   If the endpoint group is in the **active** state, it indicates that latency monitoring is configured for the endpoint.
-     *   * *   The **ConfigEndpointProbe** operation cannot be called repeatedly for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **ConfigEndpointProbe** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param ConfigEndpointProbeRequest $request ConfigEndpointProbeRequest
      *
@@ -941,8 +947,9 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-     *   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can continue to perform query operations on the GA instance.
+     * ## Description
+     *   * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
      *   * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
      *   *
      * @param CreateAcceleratorRequest $request CreateAcceleratorRequest
@@ -1024,8 +1031,9 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
-     *   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can continue to perform query operations on the GA instance.
+     * ## Description
+     *   * **CreateAccelerator** is an asynchronous operation. After you send a request, the system returns the ID of a GA instance, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     *   * *   If the GA instance is in the **init** state, it indicates that the GA instance is being created. In this case, you can perform only query operations.
      *   * *   If the GA instance is in the **active** state, it indicates that the GA instance is created.
      *   *
      * @param CreateAcceleratorRequest $request CreateAcceleratorRequest
@@ -2640,10 +2648,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
-     *   *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
-     *   *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
-     *   * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     * *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
+     *   * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param CreateSpareIpsRequest $request CreateSpareIpsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -2688,10 +2696,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **CreateSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but this operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
-     *   *     *   If the GA instance is in the **configuring** state, it indicates that spare IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
-     *   *     *   If the GA instance is in the **active** state, it indicates that spare IP addresses are created for the CNAME that is assigned to the GA instance.
-     *   * *   The **CreateSpareIps** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     * *   **CreateSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
+     *   *     *   If the GA instance is in the **configuring** state, it indicates that secondary IP addresses are being created for the CNAME that is assigned to the GA instance. In this case, you can only perform query operations.
+     *   *     *   If the GA instance is in the **active** state, it indicates that secondary IP addresses are created for the CNAME that is assigned to the GA instance.
+     *   * *   The **CreateSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param CreateSpareIpsRequest $request CreateSpareIpsRequest
      *
@@ -3609,10 +3617,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     * *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group.
      *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
      *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
-     *   * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param DeleteEndpointGroupRequest $request DeleteEndpointGroupRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -3651,10 +3659,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **DeleteEndpointGroup** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the state of an endpoint group.
+     * *   **DeleteEndpointGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeEndpointGroup](~~153260~~) operation to query the status of the endpoint group.
      *   *     *   If the endpoint group is in the **deleting** state, it indicates that the endpoint group is being deleted. In this case, you can perform only query operations.
      *   *     *   If the endpoint group cannot be queried, it indicates that the endpoint group is deleted.
-     *   * *   The **DeleteEndpointGroup** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     *   * *   The **DeleteEndpointGroup** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param DeleteEndpointGroupRequest $request DeleteEndpointGroupRequest
      *
@@ -3795,10 +3803,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
-     *   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-     *   *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
-     *   * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     * *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+     *   * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param DeleteIpSetRequest $request DeleteIpSetRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -3840,10 +3848,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **DeleteIpSet** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeIpSet](~~153246~~) operation to query the state of an acceleration region.
-     *   *     *   If the acceleration region is in the **deleting** state, the acceleration region is being deleted. In this case, you can perform only query operations.
-     *   *     *   If the acceleration region cannot be queried, the acceleration region is deleted.
-     *   * *   The **DeleteIpSet** operation cannot be repeatedly called for the same Global Accelerator (GA) instance within a specific period of time.
+     * *   **DeleteIpSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeIpSet](~~153246~~) operation to query the status of an acceleration region.
+     *   *     *   If the acceleration region is in the **deleting** state, it indicates that the acceleration region is being deleted. In this case, you can perform only query operations.
+     *   *     *   If the acceleration region cannot be queried, it indicates that the acceleration region is deleted.
+     *   * *   The **DeleteIpSet** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param DeleteIpSetRequest $request DeleteIpSetRequest
      *
@@ -3972,10 +3980,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     * *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
      *   *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
      *   *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
-     *   * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param DeleteSpareIpsRequest $request DeleteSpareIpsRequest
      * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
@@ -4020,10 +4028,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * *   **DeleteSpareIps** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) operation to query the state of a GA instance.
+     * *   **DeleteSpareIps** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) operation to query the status of a GA instance.
      *   *     *   If the GA instance is in the **configuring** state, it indicates that the secondary IP addresses for the CNAME are being deleted. In this case, you can perform only query operations.
      *   *     *   If the GA instance is in the **active** state and the secondary IP addresses for the CNAME cannot be queried by calling the [ListSpareIps](~~262121~~) operation, it indicates that the IP addresses are deleted.
-     *   * *   The **DeleteSpareIps** operation cannot be repeatedly called for the same GA instance within a specific period of time.
+     *   * *   The **DeleteSpareIps** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param DeleteSpareIpsRequest $request DeleteSpareIpsRequest
      *
@@ -7473,7 +7481,7 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+     * You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
      *   *
      * @param ListSystemSecurityPoliciesRequest $request ListSystemSecurityPoliciesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -7512,7 +7520,7 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * You can select a TLS security policy when you create and modify an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
+     * You can select a TLS security policy when you create an HTTPS listener. This API operation is used to query the TLS security policies that are supported by HTTPS listeners.
      *   *
      * @param ListSystemSecurityPoliciesRequest $request ListSystemSecurityPoliciesRequest
      *
@@ -7683,7 +7691,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **RemoveEntriesFromAcl**.
+     * *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL from which you want to delete IP entries.
+     *   *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
+     *   * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -7728,7 +7739,10 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * The operation that you want to perform. Set the value to **RemoveEntriesFromAcl**.
+     * *   **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetAcl](~~258292~~) or [ListAcls](~~258291~~) operation to query the status of the ACL from which you want to delete IP entries.
+     *   *     *   If the ACL is in the **configuring** state, it indicates that the IP entries are being deleted. In this case, you can perform only query operations.
+     *   *     *   If the ACL is in the **active** state, it indicates that the IP entries are deleted.
+     *   * *   The **RemoveEntriesFromAcl** operation holds an exclusive lock on the Global Accelerator (GA) instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
      *
@@ -7742,12 +7756,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+     * When you call this operation, take note of the following items:
      *   * *   The GA instance continues to forward network traffic.
-     *   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+     *   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
      *   *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
      *   *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
-     *   * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param ReplaceBandwidthPackageRequest $request ReplaceBandwidthPackageRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -7789,12 +7803,12 @@ class Ga extends OpenApiClient
     }
 
     /**
-     * When you call this operation to replace the bandwidth plan that is associated with a GA instance, take note of the following items:
+     * When you call this operation, take note of the following items:
      *   * *   The GA instance continues to forward network traffic.
-     *   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After you send a request, the system returns a request ID, but the operation is still being performed in the system background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the state of the GA instance.
+     *   * *   **ReplaceBandwidthPackage** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [DescribeAccelerator](~~153235~~) or [ListAccelerators](~~153236~~) operation to query the status of the GA instance.
      *   *     *   If the GA instance is in the **configuring** state, it indicates that the associated bandwidth plan is being replaced. In this case, you can perform only query operations.
      *   *     *   If the GA instance is in the **active** state, it indicates that the associated bandwidth plan is replaced.
-     *   * *   The **ReplaceBandwidthPackage** operation cannot be called repeatedly for the same GA instance within a specific period of time.
+     *   * *   The **ReplaceBandwidthPackage** operation holds an exclusive lock on the GA instance. While the operation is in progress, you cannot call the same operation in the same Alibaba Cloud account.
      *   *
      * @param ReplaceBandwidthPackageRequest $request ReplaceBandwidthPackageRequest
      *
@@ -8183,6 +8197,58 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateAcceleratorCrossBorderModeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateAcceleratorCrossBorderStatusRequest $request
+     * @param RuntimeOptions                            $runtime
+     *
+     * @return UpdateAcceleratorCrossBorderStatusResponse
+     */
+    public function updateAcceleratorCrossBorderStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceleratorId)) {
+            $query['AcceleratorId'] = $request->acceleratorId;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->crossBorderStatus)) {
+            $query['CrossBorderStatus'] = $request->crossBorderStatus;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAcceleratorCrossBorderStatus',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAcceleratorCrossBorderStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAcceleratorCrossBorderStatusRequest $request
+     *
+     * @return UpdateAcceleratorCrossBorderStatusResponse
+     */
+    public function updateAcceleratorCrossBorderStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAcceleratorCrossBorderStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -9636,5 +9702,60 @@ class Ga extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateListenerWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateServiceManagedControlRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateServiceManagedControlResponse
+     */
+    public function updateServiceManagedControlWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceId)) {
+            $query['ResourceId'] = $request->resourceId;
+        }
+        if (!Utils::isUnset($request->resourceType)) {
+            $query['ResourceType'] = $request->resourceType;
+        }
+        if (!Utils::isUnset($request->serviceManaged)) {
+            $query['ServiceManaged'] = $request->serviceManaged;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateServiceManagedControl',
+            'version'     => '2019-11-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateServiceManagedControlResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateServiceManagedControlRequest $request
+     *
+     * @return UpdateServiceManagedControlResponse
+     */
+    public function updateServiceManagedControl($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateServiceManagedControlWithOptions($request, $runtime);
     }
 }

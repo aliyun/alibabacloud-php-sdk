@@ -27,15 +27,15 @@ class applicationMonitorDetectResultList extends Model
     public $content;
 
     /**
-     * @description The description of the diagnostic result of the origin probing task. Valid values:
+     * @description The description of the diagnostic result. Valid values:
      *
-     *   **All forward nodes work well**: The origin is normal.
-     *   **Endpoint network error.**: The origin is abnormal. You must check whether the origin is running as expected.
+     *   **All forward nodes work well.**: The origin server is normal.
+     *   **Endpoint network error.**: The origin server is abnormal. You must check whether the origin server is running as expected.
      *   **Public network error.**: An Internet error occurred. This refers to a network error that occurred when the client connects to the acceleration region.
      *   **Ga internal error.**: An internal error occurred. For example, an exception occurred when a request is processed by GA.
      *   **Ga has been deleted.**: The current GA instance is deleted.
      *   **Ga state is not stable**: The current GA instance is in an unstable state, such as the Configuring state.
-     *   **Ga has no listener configuration.**: The current GA instance does not have a listener.
+     *   **Ga has no listener configuration.**: No listener is configured for the current GA instance.
      *   **Missing endpoint configuration.**: No endpoint is configured.
      *   **Missing acceleration region configuration.**: No acceleration region is configured.
      *   **Missing endpointgroup configuration.**: No endpoint group is configured.
@@ -47,7 +47,7 @@ class applicationMonitorDetectResultList extends Model
     public $detail;
 
     /**
-     * @description The time when the diagnosis of the origin detection task ends.
+     * @description The time when the diagnosis of the origin probing task ends.
      *
      * @example 1663205460
      *
@@ -56,10 +56,10 @@ class applicationMonitorDetectResultList extends Model
     public $detectTime;
 
     /**
-     * @description The diagnostic result of the origin probing task.
+     * @description The diagnostic result of the origin probing task. Valid values:
      *
-     *   **success**: The origin probing task succeeded.
-     *   **failed**: The origin probing task failed.
+     *   **success:** The origin probing task succeeded.
+     *   **failed:** The origin probing task failed.
      *
      * @example success
      *
@@ -88,10 +88,10 @@ class applicationMonitorDetectResultList extends Model
     /**
      * @description The network transmission protocol that is used by the listener. Valid values:
      *
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp:** TCP.
+     *   **udp:** UDP.
+     *   **http:** HTTP.
+     *   **https:** HTTPS.
      *
      * >  UDP listeners do not support probing.
      * @example http
@@ -110,7 +110,7 @@ class applicationMonitorDetectResultList extends Model
     public $statusCode;
 
     /**
-     * @description The ID of the origin probing task.
+     * @description The origin probing task ID.
      *
      * @example sm-bp1fpdjfju9k8yr1y****
      *

@@ -30,6 +30,8 @@ class AttachLogStoreToEndpointGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IDs of the endpoint groups.
+     *
      * @var string[]
      */
     public $endpointGroupIds;

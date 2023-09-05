@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The IP address (192.168.XX.XX) or CIDR block (10.0.XX.XX/24) that you want to delete from the ACL. You can delete up to 20 entries in each request.
      *
-     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The client token can contain only ASCII characters.
-     *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * > This parameter is required.
      * @example 10.0.XX.XX/24
      *
      * @var string

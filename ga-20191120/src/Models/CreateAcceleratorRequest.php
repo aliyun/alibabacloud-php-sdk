@@ -11,9 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAcceleratorRequest extends Model
 {
     /**
-     * @description Specifies whether to enable automatic payment. Valid values:
+     * @description Specifies whether to enable automatic payment. Default value: false. Valid values:
      *
-     *   **false:** disables automatic payment. This is the default value. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
+     *   **false:** disables automatic payment. If you select this option, you must go to the Order Center to complete the payment after an order is generated.
      *   **true:** enables automatic payment. Payments are automatically completed.
      *
      * @example false
@@ -23,10 +23,10 @@ class CreateAcceleratorRequest extends Model
     public $autoPay;
 
     /**
-     * @description Specifies whether to enable auto-renewal. Valid values:
+     * @description Specifies whether to enable auto-renewal for the GA instance. Default value: false. Valid values:
      *
      *   **true:** enables auto-renewal.
-     *   **false:** disables auto-renewal. This is the default value.
+     *   **false:** disables auto-renewal.
      *
      * @example false
      *
@@ -39,7 +39,7 @@ class CreateAcceleratorRequest extends Model
      *
      * Valid values: **1** to **12**. Default value: **1**.
      *
-     * >  This parameter takes effect only when the **AutoPay** parameter is set to **true**.
+     * >  This parameter takes effect only when **AutoRenew** is set to **true**.
      * @example 1
      *
      * @var int
@@ -47,12 +47,12 @@ class CreateAcceleratorRequest extends Model
     public $autoRenewDuration;
 
     /**
-     * @description Specifies whether to automatically apply coupons to your bills. Valid values:
+     * @description Specifies whether to automatically use coupons when making payments. Default value: false. Valid values:
      *
-     *   **true:** automatically applies coupons to your bills.
-     *   **false:** does not automatically apply coupons to your bills. This is the default value.
+     *   **true:** automatically pays bill by using coupons.
+     *   **false:** does not automatically pay bills by using coupons.
      *
-     * >  This parameter takes effect only when the **AutoPay** parameter is set to **true**.
+     * >  This parameter takes effect only when **AutoPay** is set to **true**.
      * @example false
      *
      * @var string
@@ -60,10 +60,11 @@ class CreateAcceleratorRequest extends Model
     public $autoUseCoupon;
 
     /**
-     * @description The bandwidth billing method. Valid values:
+     * @description The bandwidth billing method.
      *
-     *   **BandwidthPackage:** billed based on bandwidth plans. This is the default value.
+     *   **BandwidthPackage:** billed based on bandwidth plans.
      *   **CDT:** billed based on data transfer.
+     *   **CDT95:** billed based on the 95th percentile bandwidth. The billing is managed by Cloud Data Transfer (CDT). This bandwidth billing method is not available by default. Contact your Alibaba Cloud account manager for more information.
      *
      * @example BandwidthPackage
      *
@@ -74,9 +75,9 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** may be different for each API request.
+     * >  If you do not set this parameter, the system sets **ClientToken** to the value of **RequestId**. The value of **RequestId** of each API request may be different.
      * @example 123e4567****
      *
      * @var string
@@ -84,6 +85,13 @@ class CreateAcceleratorRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether only to precheck the request. Default value: false. Valid values:
+     *
+     *   **true**: prechecks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+     *   **false**: sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $dryRun;
@@ -91,8 +99,8 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The subscription duration of the GA instance.
      *
-     *   If you set the **PricingCycle** parameter to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
-     *   If you set the **PricingCycle** parameter to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
+     *   If the **PricingCycle** parameter is set to **Month**, the valid values for the **Duration** parameter are **1** to **9**.
+     *   If the **PricingCycle** parameter is set to **Year**, the valid values for the **Duration** parameter are **1** to **3**.
      *
      * @example 1
      *
@@ -101,6 +109,13 @@ class CreateAcceleratorRequest extends Model
     public $duration;
 
     /**
+     * @description The billing method of the GA. Default value is PREPAY (subscription).
+     *
+     *   PREPAY : subscription.
+     *   POSTPAY : pay-as-you-go
+     *
+     * @example PREPAY
+     *
      * @var string
      */
     public $instanceChargeType;
@@ -115,7 +130,7 @@ class CreateAcceleratorRequest extends Model
     /**
      * @description The name of the GA instance.
      *
-     * The name must be 2 to 128 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). It must start with a letter.
+     * The name must be 2 to 128 characters in length and can contain digits, underscores (\_), and hyphens (-). It must start with a letter.
      * @example test
      *
      * @var string
@@ -135,9 +150,9 @@ class CreateAcceleratorRequest extends Model
     public $pricingCycle;
 
     /**
-     * @description The code of the coupon.
+     * @description The coupon code.
      *
-     * >  This parameter takes effect only for accounts registered on the international site (alibabacloud.com).
+     * >
      * @example 50003298014****
      *
      * @var string
@@ -145,7 +160,7 @@ class CreateAcceleratorRequest extends Model
     public $promotionOptionNo;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region in which to create the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -163,7 +178,7 @@ class CreateAcceleratorRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The specification of the GA instance. Valid values:
+     * @description The type of GA instance. Valid values:
      *
      *   **1:** Small Ⅰ
      *   **2:** Small Ⅱ
@@ -182,7 +197,7 @@ class CreateAcceleratorRequest extends Model
      *   **100:** Super Large Ⅰ
      *   **200:** Super Large Ⅱ
      *
-     * Each instance specification provides different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Each instance type provides different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string
@@ -190,6 +205,8 @@ class CreateAcceleratorRequest extends Model
     public $spec;
 
     /**
+     * @description The tags of the GA instance.
+     *
      * @var tag[]
      */
     public $tag;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeApplicationMonitorResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance on which the origin probing task runs.
+     * @description The ID of the GA instance on which the origin probing task ran.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -19,7 +19,7 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The URL or IP address that is probed.
+     * @description The URL or IP address that was probed.
      *
      * @example https://www.aliyun.com
      *
@@ -30,8 +30,8 @@ class DescribeApplicationMonitorResponseBody extends Model
     /**
      * @description Indicates whether the automatic diagnostics feature is enabled. Valid values:
      *
-     *   **true**: yes.
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -40,9 +40,9 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $detectEnable;
 
     /**
-     * @description The threshold that is used to trigger the automatic diagnostics feature.
+     * @description The threshold that is used to trigger automatic diagnostics.
      *
-     * If the liveness of the origin in percentile drops below the specified threshold, the automatic diagnostics feature is triggered.
+     * If the availability of the origin server drops below the specified threshold, the automatic diagnostics feature is triggered.
      * @example 0
      *
      * @var int
@@ -50,7 +50,7 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $detectThreshold;
 
     /**
-     * @description The number of times that is required to reach the threshold before the automatic diagnostics feature can be triggered.
+     * @description The number of times that are required to reach the threshold before the automatic diagnostics feature is triggered.
      *
      * @example 1
      *
@@ -59,14 +59,14 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $detectTimes;
 
     /**
-     * @description The list of probe points provided by the service provider.
+     * @description The probe points of the Internet service provider (ISP).
      *
      * @var ispCityList[]
      */
     public $ispCityList;
 
     /**
-     * @description The ID of the listener on which the origin probing task runs.
+     * @description The ID of the listener on which the origin probing task ran.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -84,7 +84,7 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $optionsJson;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. The value is set to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -93,7 +93,7 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -102,9 +102,9 @@ class DescribeApplicationMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The silence period of the automatic diagnostics feature. This parameter specifies the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic, GA must wait until the silence period ends before GA can trigger another automatic diagnostic.
+     * @description The silence period of the automatic diagnostics feature. This parameter indicates the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers automatic diagnostics, GA must wait until the silence period ends before GA can trigger another automatic diagnostic.
      *
-     * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of the **DetectTimes** parameter, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
+     * If the number of consecutive times that the availability rate drops below the automatic diagnostics threshold reaches the value of **DetectTimes**, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period regardless of whether the availability rate remains below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
      *
      * Unit: seconds.
      * @example 300

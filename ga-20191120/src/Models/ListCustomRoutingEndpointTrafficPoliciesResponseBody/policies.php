@@ -5,12 +5,13 @@
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesResponseBody;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesResponseBody\policies\portRanges;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointTrafficPoliciesResponseBody\policies\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class policies extends Model
 {
     /**
-     * @description The ID of the GA instance to which the endpoint belongs.
+     * @description The ID of the GA instance with which the endpoint is associated.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -19,7 +20,7 @@ class policies extends Model
     public $acceleratorId;
 
     /**
-     * @description The IP address of the traffic policy.
+     * @description The IP address of the traffic destination.
      *
      * @example 10.0.XX.XX
      *
@@ -37,7 +38,7 @@ class policies extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the endpoint to which the traffic policy belongs.
+     * @description The ID of the endpoint to which the traffic destination belongs.
      *
      * @example ep-bp14sz7ftcwwjgrdm****
      *
@@ -46,7 +47,7 @@ class policies extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the custom routing listener to which the endpoint belongs.
+     * @description The ID of the custom routing listener with which the endpoint is associated.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -55,7 +56,7 @@ class policies extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the traffic policy.
+     * @description The traffic policy ID.
      *
      * @example ply-bp1dmlohjjz4kqaun****
      *
@@ -69,14 +70,45 @@ class policies extends Model
      * @var portRanges[]
      */
     public $portRanges;
+
+    /**
+     * @description 托管实例所属的服务方ID。
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description 是否为托管实例。取值：
+     *
+     * - false：不是托管实例。
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description 用户在此托管实例下可执行的动作策略列表。
+     *
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
     protected $_name = [
-        'acceleratorId'   => 'AcceleratorId',
-        'address'         => 'Address',
-        'endpointGroupId' => 'EndpointGroupId',
-        'endpointId'      => 'EndpointId',
-        'listenerId'      => 'ListenerId',
-        'policyId'        => 'PolicyId',
-        'portRanges'      => 'PortRanges',
+        'acceleratorId'       => 'AcceleratorId',
+        'address'             => 'Address',
+        'endpointGroupId'     => 'EndpointGroupId',
+        'endpointId'          => 'EndpointId',
+        'listenerId'          => 'ListenerId',
+        'policyId'            => 'PolicyId',
+        'portRanges'          => 'PortRanges',
+        'serviceId'           => 'ServiceId',
+        'serviceManaged'      => 'ServiceManaged',
+        'serviceManagedInfos' => 'ServiceManagedInfos',
     ];
 
     public function validate()
@@ -110,6 +142,21 @@ class policies extends Model
                 $n = 0;
                 foreach ($this->portRanges as $item) {
                     $res['PortRanges'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -149,6 +196,21 @@ class policies extends Model
                 $n                 = 0;
                 foreach ($map['PortRanges'] as $item) {
                     $model->portRanges[$n++] = null !== $item ? portRanges::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
                 }
             }
         }

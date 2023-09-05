@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class AddEntriesToAclRequest extends Model
 {
     /**
-     * @description The ACL entries.
+     * @description The IP addresses or CIDR blocks that you want to add to the ACL. You can add at most 20 entries in each request.
      *
      * @var aclEntries[]
      */
     public $aclEntries;
 
     /**
-     * @description The ID of the ACL.
+     * @description The ACL ID.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -28,9 +28,9 @@ class AddEntriesToAclRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must ensure that it is unique among all requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
@@ -38,10 +38,10 @@ class AddEntriesToAclRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to check the request without performing the operation. Valid values:
+     * @description Specifies whether to perform a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: checks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the check, an error message is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-     *   **false** (default): sends the request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false**(default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example false
      *
@@ -50,7 +50,7 @@ class AddEntriesToAclRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

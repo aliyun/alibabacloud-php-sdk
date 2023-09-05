@@ -18,7 +18,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the traffic destination to be queried.
+     * @description The ID of the traffic policy to be queried.
      *
      * @example ply-bptest2****
      *

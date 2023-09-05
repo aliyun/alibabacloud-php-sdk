@@ -20,8 +20,8 @@ class spareIps extends Model
     /**
      * @description The status of the secondary IP address. Valid values:
      *
-     *   **active**: The secondary IP address is available.
-     *   **inuse**: The secondary IP address is in use.
+     *   **active:** The secondary IP address is available.
+     *   **inuse:** The secondary IP address is in use.
      *
      * @example active
      *

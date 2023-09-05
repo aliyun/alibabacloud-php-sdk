@@ -5,12 +5,13 @@
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndPointTrafficPolicyResponseBody\portRanges;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndPointTrafficPolicyResponseBody\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance with which the endpoint is associated.
+     * @description The ID of the GA instance to which the endpoint belongs.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -19,7 +20,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The IP address of the traffic destination.
+     * @description The IP address of the traffic policy.
      *
      * @example 10.0.XX.XX
      *
@@ -28,7 +29,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $address;
 
     /**
-     * @description The name of the vSwitch to which the traffic destination belongs.
+     * @description The name of the vSwitch to which the traffic policy belongs.
      *
      * @example vsw-test01
      *
@@ -46,7 +47,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the endpoint to which the traffic destination belongs.
+     * @description The ID of the endpoint to which the traffic policy belongs.
      *
      * @example ep-2zewuzypq5e6r3pfh****
      *
@@ -55,7 +56,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the listener with which the endpoint is associated.
+     * @description The ID of the listener to which the endpoint belongs.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -64,7 +65,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the traffic destination.
+     * @description The ID of the traffic policy.
      *
      * @example ply-bptest2****
      *
@@ -73,7 +74,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description The port range of the traffic destination.
+     * @description The port range of the traffic policy.
      *
      * @var portRanges[]
      */
@@ -89,29 +90,56 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service ID to which the managed instance belongs.
+     * > Valid only when the **ServiceManaged** parameter is **True**.。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description Is it a managed instance. Value：
+     *
+     * - **true**
+     *
+     * - **false**
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The status of the traffic destination.
      *
-     *   **init**: being initialized.
-     *   **active**: running as expected.
-     *   **updating**: being updated.
-     *   **deleting**: being deleted.
-     *
+     * - deleting: being deleted.
      * @example active
      *
      * @var string
      */
     public $state;
     protected $_name = [
-        'acceleratorId'   => 'AcceleratorId',
-        'address'         => 'Address',
-        'endpoint'        => 'Endpoint',
-        'endpointGroupId' => 'EndpointGroupId',
-        'endpointId'      => 'EndpointId',
-        'listenerId'      => 'ListenerId',
-        'policyId'        => 'PolicyId',
-        'portRanges'      => 'PortRanges',
-        'requestId'       => 'RequestId',
-        'state'           => 'State',
+        'acceleratorId'       => 'AcceleratorId',
+        'address'             => 'Address',
+        'endpoint'            => 'Endpoint',
+        'endpointGroupId'     => 'EndpointGroupId',
+        'endpointId'          => 'EndpointId',
+        'listenerId'          => 'ListenerId',
+        'policyId'            => 'PolicyId',
+        'portRanges'          => 'PortRanges',
+        'requestId'           => 'RequestId',
+        'serviceId'           => 'ServiceId',
+        'serviceManaged'      => 'ServiceManaged',
+        'serviceManagedInfos' => 'ServiceManagedInfos',
+        'state'               => 'State',
     ];
 
     public function validate()
@@ -153,6 +181,21 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -201,6 +244,21 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

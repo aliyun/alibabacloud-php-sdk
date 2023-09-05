@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RemoveEntriesFromAclResponseBody extends Model
 {
     /**
+     * @description The ACL ID.
+     *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
@@ -16,7 +18,7 @@ class RemoveEntriesFromAclResponseBody extends Model
     public $aclId;
 
     /**
-     * @description The ID of the ACL.
+     * @description The request ID.
      *
      * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
      *

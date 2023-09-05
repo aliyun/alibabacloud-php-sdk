@@ -18,7 +18,7 @@ class applicationMonitors extends Model
     public $acceleratorId;
 
     /**
-     * @description The URL or IP address that is probed.
+     * @description The URL or IP address that was probed.
      *
      * @example https://www.aliyun.com
      *
@@ -29,8 +29,8 @@ class applicationMonitors extends Model
     /**
      * @description Indicates whether the automatic diagnostics feature is enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -75,9 +75,9 @@ class applicationMonitors extends Model
     public $optionsJson;
 
     /**
-     * @description The silence period of the automatic diagnostics feature. This parameter indicates the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic, GA must wait until the silence period ends before GA can trigger another automatic diagnostic.
+     * @description The silence period of the automatic diagnostics feature. This parameter indicates the interval at which the automatic diagnostics feature is triggered. If the availability rate does not return to normal after GA triggers an automatic diagnostic task, GA must wait until the silence period ends before GA can trigger another automatic diagnostic task.
      *
-     * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of the **DetectTimes** parameter, the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
+     * If the number of consecutive times that the availability rate drops below the threshold of automatic diagnostics reaches the value of **DetectTimes** , the automatic diagnostics feature is triggered. The automatic diagnostics feature is not triggered again within the silence period even if the availability rate stays below the threshold. If the availability rate does not return to normal after the silence period ends, the automatic diagnostics feature is triggered again.
      *
      * Unit: seconds.
      * @example 300
@@ -87,12 +87,12 @@ class applicationMonitors extends Model
     public $silenceTime;
 
     /**
-     * @description The state of the origin probing task. Valid values:
+     * @description The status of the origin probing task. Valid values:
      *
-     *   **active**: The origin probing task is running.
-     *   **inactive**: The origin probing task is stopped.
-     *   **init**: The origin probing task is being initialized.
-     *   **deleting**: The origin probing task is being deleted.
+     *   **active:** The origin probing task is running.
+     *   **inactive:** The origin probing task is stopped.
+     *   **init:** The origin probing task is being initialized.
+     *   **deleting:** The origin probing task is being deleted.
      *
      * @example active
      *
@@ -101,7 +101,7 @@ class applicationMonitors extends Model
     public $state;
 
     /**
-     * @description The ID of the origin probing task.
+     * @description The origin probing task ID.
      *
      * @example sm-bp1fpdjfju9k8yr1y****
      *
@@ -110,7 +110,7 @@ class applicationMonitors extends Model
     public $taskId;
 
     /**
-     * @description The name of the origin probing task.
+     * @description The origin probing task name.
      *
      * @example task1
      *

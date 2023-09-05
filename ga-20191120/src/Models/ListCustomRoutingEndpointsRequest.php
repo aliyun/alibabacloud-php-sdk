@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointsRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The GA instance ID.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -18,7 +18,7 @@ class ListCustomRoutingEndpointsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The endpoint group ID.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -27,7 +27,7 @@ class ListCustomRoutingEndpointsRequest extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -36,25 +36,25 @@ class ListCustomRoutingEndpointsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
-     * @var string
+     * @var int
      */
     public $pageSize;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

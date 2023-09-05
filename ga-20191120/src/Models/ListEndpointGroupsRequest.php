@@ -62,7 +62,7 @@ class ListEndpointGroupsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -71,10 +71,7 @@ class ListEndpointGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The protocol that is used by the backend service. Valid values:
-     *
-     *   **HTTP**: HTTP
-     *   **HTTPS**: HTTPS
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *

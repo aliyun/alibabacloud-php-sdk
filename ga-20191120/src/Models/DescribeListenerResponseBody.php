@@ -8,6 +8,7 @@ use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\backendPor
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\certificates;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\portRanges;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\relatedAcls;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\serviceManagedInfos;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeListenerResponseBody\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
@@ -182,6 +183,21 @@ class DescribeListenerResponseBody extends Model
     public $securityPolicyId;
 
     /**
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The state of the listener. Valid values:
      *
      *   **configuring**: The listener is being configured.
@@ -229,6 +245,9 @@ class DescribeListenerResponseBody extends Model
         'relatedAcls'         => 'RelatedAcls',
         'requestId'           => 'RequestId',
         'securityPolicyId'    => 'SecurityPolicyId',
+        'serviceId'           => 'ServiceId',
+        'serviceManaged'      => 'ServiceManaged',
+        'serviceManagedInfos' => 'ServiceManagedInfos',
         'state'               => 'State',
         'type'                => 'Type',
         'XForwardedForConfig' => 'XForwardedForConfig',
@@ -309,6 +328,21 @@ class DescribeListenerResponseBody extends Model
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -399,6 +433,21 @@ class DescribeListenerResponseBody extends Model
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

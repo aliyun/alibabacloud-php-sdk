@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class crossDomainBandwidthPackage extends Model
 {
     /**
-     * @description The bandwidth that is provided by the cross-border acceleration bandwidth plan. Unit: Mbit/s.
+     * @description The bandwidth value of the cross-border acceleration bandwidth plan. Unit: Mbit/s.
      *
      * @example 2
      *

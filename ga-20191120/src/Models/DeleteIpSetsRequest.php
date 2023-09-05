@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIpSetsRequest extends Model
 {
     /**
+     * @description The ID of the acceleration region that you want to delete.
+     *
      * @example ips-bp11c9mpphtb1xkds****
      *
      * @var string[]

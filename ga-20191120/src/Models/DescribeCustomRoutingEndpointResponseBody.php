@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointResponseBody\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCustomRoutingEndpointResponseBody extends Model
@@ -63,7 +64,34 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 终端节点当前状态。
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description Is it a managed instance. Value：
+     *
+     * - false
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
+     * @description The status of the endpoint .
      *
      * @example active
      *
@@ -74,9 +102,9 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     /**
      * @description The access policy of traffic for the specified endpoint. Valid values:
      *
-     *   **AllowAll:** allows all traffic to the endpoint.
-     *   **DenyAll:** denies all traffic to the endpoint.
-     *   **AllowCustom:** allows traffic only to specified destinations in the endpoint
+     *   **AllowAll**: allows all traffic to the endpoint.
+     *   **DenyAll**: denies all traffic to the endpoint.
+     *   **AllowCustom**: allows traffic only to specified destinations.
      *
      * @example DenyAll
      *
@@ -100,6 +128,9 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
         'endpointId'              => 'EndpointId',
         'listenerId'              => 'ListenerId',
         'requestId'               => 'RequestId',
+        'serviceId'               => 'ServiceId',
+        'serviceManaged'          => 'ServiceManaged',
+        'serviceManagedInfos'     => 'ServiceManagedInfos',
         'state'                   => 'State',
         'trafficToEndpointPolicy' => 'TrafficToEndpointPolicy',
         'type'                    => 'Type',
@@ -129,6 +160,21 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -168,6 +214,21 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

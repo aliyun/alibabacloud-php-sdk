@@ -18,11 +18,11 @@ class basicBandwidthPackage extends Model
     public $bandwidth;
 
     /**
-     * @description The type of the bandwidth that is provided by the basic bandwidth plan. Valid values:
+     * @description The bandwidth type that is provided by the basic bandwidth plan. Valid values:
      *
-     *   **Basic**: basic
-     *   **Enhanced**: enhanced
-     *   **Advanced**: premium
+     *   **Basic:** standard.
+     *   **Enhanced:** enhanced.
+     *   **Advanced:**: premium.
      *
      * @example Basic
      *

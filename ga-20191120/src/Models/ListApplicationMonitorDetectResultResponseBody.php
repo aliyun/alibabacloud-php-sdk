@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationMonitorDetectResultResponseBody extends Model
 {
     /**
-     * @description The diagnostic results of the origin probing tasks.
+     * @description Details about the diagnostic result of the origin probing task.
      *
      * @var applicationMonitorDetectResultList[]
      */
     public $applicationMonitorDetectResultList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListApplicationMonitorDetectResultResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class ListApplicationMonitorDetectResultResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -44,7 +44,7 @@ class ListApplicationMonitorDetectResultResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

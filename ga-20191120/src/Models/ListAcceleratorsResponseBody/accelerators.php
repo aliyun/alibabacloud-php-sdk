@@ -7,6 +7,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody\accelerators\basicBandwidthPackage;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody\accelerators\crossDomainBandwidthPackage;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody\accelerators\ipSetConfig;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody\accelerators\serviceManagedInfos;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListAcceleratorsResponseBody\accelerators\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -31,10 +32,10 @@ class accelerators extends Model
     public $bandwidth;
 
     /**
-     * @description The bandwidth metering method.
+     * @description The bandwidth metering method. Valid values:
      *
-     *   **BandwidthPackage**: billed based on bandwidth plans.
-     *   **CDT**: billed based on data transfer.
+     *   **BandwidthPackage:** metered based on bandwidth plans.
+     *   **CDT:** metered based on data transfers.
      *
      * @example CDT
      *
@@ -43,7 +44,7 @@ class accelerators extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description The details about the basic bandwidth plan that is associated with the GA instance.
+     * @description Details about the basic bandwidth plan that is associated with the GA instance.
      *
      * @var basicBandwidthPackage
      */
@@ -68,10 +69,9 @@ class accelerators extends Model
     public $createTime;
 
     /**
-     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer.
+     * @description The type of cross-border acceleration. This parameter is returned for GA instances whose bandwidth metering method is pay-by-data-transfer (CDT).
      *
-     **bpgPro** is returned, which indicates BGP (Multi-ISP) Pro lines.
-     *
+     * Only **bpgPro** is returned, which indicates BGP (Multi-ISP) Pro lines.
      * @example bpgPro
      *
      * @var string
@@ -79,9 +79,11 @@ class accelerators extends Model
     public $crossBorderMode;
 
     /**
-     * @description Indicates whether cross-border acceleration is enabled.
-     * - **true**: yes
-     * - **false**: no
+     * @description Indicates whether cross-border acceleration is enabled for the GA instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -89,9 +91,9 @@ class accelerators extends Model
     public $crossBorderStatus;
 
     /**
-     * @description The details about the cross-border acceleration bandwidth plan that is associated with the GA instance.
+     * @description Details about the cross-border acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
+     * This array is returned only for GA instances that are created on the International site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
@@ -158,7 +160,7 @@ class accelerators extends Model
     public $name;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -167,7 +169,7 @@ class accelerators extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID to which the GA instance belongs.
      *
      * @example rg-aekztkx4zwc****
      *
@@ -185,26 +187,53 @@ class accelerators extends Model
     public $secondDnsName;
 
     /**
+     * @description 托管实例所属的服务方ID。
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description 是否为托管实例。取值：
+     * - **true**：是托管资实例。
+     * - **false**：不是托管实例。
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description 用户在此托管实例下可执行的动作策略列表。
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The specification of the GA instance. Valid values:
      *
-     *   **1**: Small Ⅰ
-     *   **2**: Small Ⅱ
-     *   **3**: Small Ⅲ
-     *   **5**: Medium Ⅰ
-     *   **8**: Medium Ⅱ
-     *   **10**: Medium Ⅲ
-     *   **20**: Large Ⅰ
-     *   **30**: Large Ⅱ
-     *   **40**: Large Ⅲ
-     *   **50**: Large Ⅳ
-     *   **60**: Large Ⅴ
-     *   **70**: Large Ⅵ
-     *   **80**: Large VⅡ
-     *   **90**: Large VⅢ
-     *   **100**: Super Large Ⅰ
-     *   **200**: Super Large Ⅱ
+     *   **1:** Small Ⅰ.
+     *   **2:** Small Ⅱ.
+     *   **3:** Small Ⅲ.
+     *   **5:** Medium Ⅰ.
+     *   **8:** Medium Ⅱ.
+     *   **10:** Medium Ⅲ.
+     *   **20:** Large Ⅰ.
+     *   **30:** Large Ⅱ.
+     *   **40:** Large Ⅲ.
+     *   **50:** Large Ⅳ.
+     *   **60:** Large Ⅴ.
+     *   **70:** Large Ⅵ.
+     *   **80:** Large VⅡ.
+     *   **90:** Large VⅢ.
+     *   **100:** Super Large Ⅰ.
+     *   **200:** Super Large Ⅱ.
      *
-     * Different specifications provide different capabilities. For more information, see [Instance specifications](~~153127~~).
+     * Each instance specification provides different capabilities. For more information, see [Instance specifications](~~153127~~).
      * @example 1
      *
      * @var string
@@ -214,13 +243,13 @@ class accelerators extends Model
     /**
      * @description The status of the GA instance. Valid values:
      *
-     *   **init**: The GA instance is being initialized.
-     *   **active**: The GA instance is available.
+     *   **init:** The GA instance is being initialized.
+     *   **active:** The GA instance is available.
      *   **configuring**: The GA instance is being configured.
-     *   **binding**: The GA instance is being associated.
-     *   **unbinding**: The GA instance is being disassociated.
-     *   **deleting**: The GA instance is being deleted.
-     *   **finacialLocked**: The GA instance is locked due to overdue payments.
+     *   **binding:** The GA instance is being associated.
+     *   **unbinding:** The GA instance is being disassociated.
+     *   **deleting:** The GA instance is being deleted.
+     *   **finacialLocked:** The GA instance is locked due to overdue payments.
      *
      * @example active
      *
@@ -229,7 +258,7 @@ class accelerators extends Model
     public $state;
 
     /**
-     * @description The tags of the GA instance.
+     * @description The tags that are added to the resource.
      *
      * @var tags[]
      */
@@ -245,10 +274,12 @@ class accelerators extends Model
     public $type;
 
     /**
-     * @description Indicates the upgradable state of the GA instance.
-     * - **notUpgradable**: The GA instance can not be upgraded
-     * - **upgradable**: The GA instance can be upgraded
-     * - **upgradeFailed**: The GA instance has been upgraded and failed
+     * @description Indicates whether the GA instance can be upgraded. Valid values:
+     *
+     *   **notUpgradable:** The GA instance does not need to be upgraded.
+     *   **upgradable:** The GA instance can be upgraded to the latest version.
+     *   **upgradeFailed:** The GA instance failed to be upgraded.
+     *
      * @example notUpgradable
      *
      * @var string
@@ -274,6 +305,9 @@ class accelerators extends Model
         'regionId'                    => 'RegionId',
         'resourceGroupId'             => 'ResourceGroupId',
         'secondDnsName'               => 'SecondDnsName',
+        'serviceId'                   => 'ServiceId',
+        'serviceManaged'              => 'ServiceManaged',
+        'serviceManagedInfos'         => 'ServiceManagedInfos',
         'spec'                        => 'Spec',
         'state'                       => 'State',
         'tags'                        => 'Tags',
@@ -344,6 +378,21 @@ class accelerators extends Model
         }
         if (null !== $this->secondDnsName) {
             $res['SecondDnsName'] = $this->secondDnsName;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->spec) {
             $res['Spec'] = $this->spec;
@@ -434,6 +483,21 @@ class accelerators extends Model
         }
         if (isset($map['SecondDnsName'])) {
             $model->secondDnsName = $map['SecondDnsName'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Spec'])) {
             $model->spec = $map['Spec'];

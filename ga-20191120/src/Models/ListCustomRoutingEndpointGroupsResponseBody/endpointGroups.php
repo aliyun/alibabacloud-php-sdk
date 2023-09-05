@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupsResponseBody;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointGroupsResponseBody\endpointGroups\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class endpointGroups extends Model
@@ -77,6 +78,25 @@ class endpointGroups extends Model
     public $name;
 
     /**
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The status of the endpoint group. Valid values:
      *
      *   **init**: The endpoint group is being initialized.
@@ -98,6 +118,9 @@ class endpointGroups extends Model
         'endpointGroupUnconfirmedIpList' => 'EndpointGroupUnconfirmedIpList',
         'listenerId'                     => 'ListenerId',
         'name'                           => 'Name',
+        'serviceId'                      => 'ServiceId',
+        'serviceManaged'                 => 'ServiceManaged',
+        'serviceManagedInfos'            => 'ServiceManagedInfos',
         'state'                          => 'State',
     ];
 
@@ -131,6 +154,21 @@ class endpointGroups extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -174,6 +212,21 @@ class endpointGroups extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

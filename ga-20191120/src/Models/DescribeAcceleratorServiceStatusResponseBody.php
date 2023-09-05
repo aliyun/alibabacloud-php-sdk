@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAcceleratorServiceStatusResponseBody extends Model
 {
     /**
+     * @description The response code. The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAcceleratorServiceStatusResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -32,6 +36,25 @@ class DescribeAcceleratorServiceStatusResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The status of the GA instance.
+     *
+     * Valid values:
+     *
+     *   Released
+     *
+     * .
+     *
+     *   Expired
+     *
+     * .
+     *
+     *   NotOpened
+     *
+     * .
+     *
+     *   Normal
+     *
+     * .
      * @example Normal
      *
      * @var string
@@ -39,6 +62,8 @@ class DescribeAcceleratorServiceStatusResponseBody extends Model
     public $status;
 
     /**
+     * @description Indicates whether the request was successful. Valid values: true false
+     *
      * @example True
      *
      * @var string

@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupDestinationsResponseBody\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
@@ -74,6 +75,21 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @example active
      *
      * @var string
@@ -89,15 +105,18 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
      */
     public $toPort;
     protected $_name = [
-        'acceleratorId'   => 'AcceleratorId',
-        'destinationId'   => 'DestinationId',
-        'endpointGroupId' => 'EndpointGroupId',
-        'fromPort'        => 'FromPort',
-        'listenerId'      => 'ListenerId',
-        'protocols'       => 'Protocols',
-        'requestId'       => 'RequestId',
-        'state'           => 'State',
-        'toPort'          => 'ToPort',
+        'acceleratorId'       => 'AcceleratorId',
+        'destinationId'       => 'DestinationId',
+        'endpointGroupId'     => 'EndpointGroupId',
+        'fromPort'            => 'FromPort',
+        'listenerId'          => 'ListenerId',
+        'protocols'           => 'Protocols',
+        'requestId'           => 'RequestId',
+        'serviceId'           => 'ServiceId',
+        'serviceManaged'      => 'ServiceManaged',
+        'serviceManagedInfos' => 'ServiceManagedInfos',
+        'state'               => 'State',
+        'toPort'              => 'ToPort',
     ];
 
     public function validate()
@@ -127,6 +146,21 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -168,6 +202,21 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

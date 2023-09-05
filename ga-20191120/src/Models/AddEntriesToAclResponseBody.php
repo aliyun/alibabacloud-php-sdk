@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AddEntriesToAclResponseBody extends Model
 {
     /**
-     * @description The ID of the ACL.
+     * @description The ACL ID.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -18,7 +18,7 @@ class AddEntriesToAclResponseBody extends Model
     public $aclId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *

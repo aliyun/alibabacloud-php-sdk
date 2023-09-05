@@ -11,8 +11,8 @@ class endpointConfigurations extends Model
     /**
      * @description Indicates whether the client IP address preservation feature is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true:** The client IP address preservation feature is enabled.
+     *   **false:** The client IP address preservation feature is disabled.
      *
      * @example false
      *
@@ -21,7 +21,7 @@ class endpointConfigurations extends Model
     public $enableClientIPPreservation;
 
     /**
-     * @description 是否使用ProxyProtocol方式保留客户端源IP。
+     * @description Indicates whether the proxy protocol is used to preserve client IP addresses.
      *
      * @example false
      *
@@ -39,7 +39,7 @@ class endpointConfigurations extends Model
     public $endpoint;
 
     /**
-     * @description The port that is used to monitor the latency.
+     * @description The port that is used to monitor latency.
      *
      * @example 80
      *
@@ -48,10 +48,10 @@ class endpointConfigurations extends Model
     public $probePort;
 
     /**
-     * @description The protocol that is used to monitor the network latency. Valid values:
+     * @description The protocol that is used to monitor latency. Valid values:
      *
-     *   **tcp**: TCP
-     *   **icmp**: ICMP
+     *   **tcp:** TCP.
+     *   **icmp:** ICMP.
      *
      * @example tcp
      *
@@ -60,15 +60,15 @@ class endpointConfigurations extends Model
     public $probeProtocol;
 
     /**
-     * @description The type of endpoint. Valid values:
+     * @description The type of the endpoint. Valid values:
      *
-     *   **Domain**: a custom domain name
-     *   **Ip**: a custom IP address
-     *   **PublicIp**: a public IP address provided by Alibaba Cloud
-     *   **ECS:** Elastic Compute Service (ECS) instance
-     *   **SLB**: Server Load Balancer (SLB) instance
-     *   **ALB**: Application Load Balancer (ALB) instance
-     *   **OSS**: Object Storage Service (OSS) bucket
+     *   **Domain:** a custom domain name.
+     *   **Ip:** a custom IP address.
+     *   **PublicIp:** a public IP address provided by Alibaba Cloud.
+     *   **ECS:** an Elastic Compute Service (ECS) instance.
+     *   **SLB:** a Server Load Balancer (SLB) instance.
+     *   **ALB:** an Application Load Balancer (ALB) instance.
+     *   **OSS:** an Object Storage Service (OSS) bucket.
      *
      * @example Ip
      *

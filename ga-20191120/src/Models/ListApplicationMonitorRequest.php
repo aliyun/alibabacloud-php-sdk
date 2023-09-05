@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListApplicationMonitorRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example １
      *
@@ -18,7 +18,7 @@ class ListApplicationMonitorRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListApplicationMonitorRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class ListApplicationMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The keyword that is used to search for origin probing tasks. You can enter a URL, an IP address, the ID of a GA instance, or the ID of a listener to perform a fuzzy match.
+     * @description The keyword that is used to search for origin probing tasks. You can enter a URL, an IP address, a GA instance ID, or a listener ID to perform a fuzzy match.
      *
      * @example aliyun
      *

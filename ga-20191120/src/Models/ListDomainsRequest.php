@@ -27,7 +27,7 @@ class ListDomainsRequest extends Model
     public $domain;
 
     /**
-     * @description The page number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class ListDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *

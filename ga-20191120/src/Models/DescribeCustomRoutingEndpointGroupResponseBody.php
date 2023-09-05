@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeCustomRoutingEndpointGroupResponseBody\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeCustomRoutingEndpointGroupResponseBody extends Model
@@ -43,10 +44,10 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     /**
      * @description Indicates whether access logging is enabled.
      *
-     *   **on**: enabled
-     *   **off**: disabled
+     *   **true**: enabled
+     *   **false**: disabled
      *
-     * @example on
+     * @example true
      *
      * @var bool
      */
@@ -112,6 +113,21 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The name of the Logstore.
      *
      * @example lsn-01
@@ -163,6 +179,9 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
         'listenerId'                     => 'ListenerId',
         'name'                           => 'Name',
         'requestId'                      => 'RequestId',
+        'serviceId'                      => 'ServiceId',
+        'serviceManaged'                 => 'ServiceManaged',
+        'serviceManagedInfos'            => 'ServiceManagedInfos',
         'slsLogStoreName'                => 'SlsLogStoreName',
         'slsProjectName'                 => 'SlsProjectName',
         'slsRegion'                      => 'SlsRegion',
@@ -208,6 +227,21 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->slsLogStoreName) {
             $res['SlsLogStoreName'] = $this->slsLogStoreName;
@@ -269,6 +303,21 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SlsLogStoreName'])) {
             $model->slsLogStoreName = $map['SlsLogStoreName'];

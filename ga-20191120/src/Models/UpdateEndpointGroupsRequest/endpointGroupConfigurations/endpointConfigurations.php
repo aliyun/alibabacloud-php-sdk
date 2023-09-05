@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class endpointConfigurations extends Model
 {
     /**
-     * @description The IP address or domain name of the endpoint.
+     * @description The IP address, domain name or instance id according to the type of the endpoint.
      *
      * @example 47.0.XX.XX
      *

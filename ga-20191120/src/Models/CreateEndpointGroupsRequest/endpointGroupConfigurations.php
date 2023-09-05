@@ -37,6 +37,8 @@ class endpointGroupConfigurations extends Model
     public $enableClientIPPreservationToa;
 
     /**
+     * @description Terminal node configuration information.
+     *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -158,6 +160,8 @@ class endpointGroupConfigurations extends Model
     public $healthCheckProtocol;
 
     /**
+     * @description The mappings between ports.
+     *
      * @var portOverrides[]
      */
     public $portOverrides;

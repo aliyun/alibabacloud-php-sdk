@@ -18,7 +18,7 @@ class ListIpSetsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class ListIpSetsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **100**. Default value: **10**.
      *
      * @example 10
      *

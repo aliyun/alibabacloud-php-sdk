@@ -31,7 +31,7 @@ class endpointConfigurations extends Model
     public $enableProxyProtocol;
 
     /**
-     * @description The IP address or domain name of the endpoint.
+     * @description The IP address, domain name or instance id according to the type of the endpoint.
      *
      * @example 120.XX.XX.21
      *

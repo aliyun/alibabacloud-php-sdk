@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupResponseBody\endpointConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupResponseBody\portOverrides;
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupResponseBody\serviceManagedInfos;
 use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeEndpointGroupResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -46,17 +47,17 @@ class DescribeEndpointGroupResponseBody extends Model
     /**
      * @description Indicates whether the access log feature is enabled. Valid values:
      *
-     *   **on**: enabled
-     *   **off**: disabled
+     *   **true**: enabled
+     *   **false**: disabled
      *
-     * @example on
+     * @example true
      *
      * @var bool
      */
     public $enableAccessLog;
 
     /**
-     * @description The configurations of the endpoint.
+     * @description The configurations of endpoints in the endpoint group.
      *
      * @var endpointConfigurations[]
      */
@@ -72,7 +73,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The IP addresses in the endpoint group.
+     * @description The active endpoint IP addresses of the endpoint group.
      *
      * @var string[]
      */
@@ -100,7 +101,7 @@ class DescribeEndpointGroupResponseBody extends Model
     public $endpointGroupType;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     * @description The endpoint group IP addresses to be confirmed. After the GA instance is upgraded, the IP addresses that are added to the endpoint group need to be confirmed.
      *
      * @var string[]
      */
@@ -212,6 +213,36 @@ class DescribeEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 托管实例所属的服务方ID。
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description 是否为托管实例。取值：
+     *
+     * - **true**：是托管实例。
+     *
+     * - **false**：不是托管实例。
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description 用户在此托管实例下可执行的动作策略列表。
+     *
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The name of the Logstore.
      *
      * @example lsn-01
@@ -298,6 +329,9 @@ class DescribeEndpointGroupResponseBody extends Model
         'name'                           => 'Name',
         'portOverrides'                  => 'PortOverrides',
         'requestId'                      => 'RequestId',
+        'serviceId'                      => 'ServiceId',
+        'serviceManaged'                 => 'ServiceManaged',
+        'serviceManagedInfos'            => 'ServiceManagedInfos',
         'slsLogStoreName'                => 'SlsLogStoreName',
         'slsProjectName'                 => 'SlsProjectName',
         'slsRegion'                      => 'SlsRegion',
@@ -388,6 +422,21 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->slsLogStoreName) {
             $res['SlsLogStoreName'] = $this->slsLogStoreName;
@@ -508,6 +557,21 @@ class DescribeEndpointGroupResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['SlsLogStoreName'])) {
             $model->slsLogStoreName = $map['SlsLogStoreName'];

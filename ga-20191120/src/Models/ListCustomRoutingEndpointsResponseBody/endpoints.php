@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointsResponseBody;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListCustomRoutingEndpointsResponseBody\endpoints\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class endpoints extends Model
@@ -18,7 +19,7 @@ class endpoints extends Model
     public $acceleratorId;
 
     /**
-     * @description The name of the endpoint (vSwitch).
+     * @description The name of the vSwitch that is specified as an endpoint.
      *
      * @example vsw-test01
      *
@@ -36,7 +37,7 @@ class endpoints extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the endpoint.
+     * @description The endpoint ID.
      *
      * @example ep-bp14sz7ftcwwjgrdm****
      *
@@ -45,7 +46,7 @@ class endpoints extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the listener with which the endpoint is associated.
+     * @description The ID of the listener to which the endpoint belongs.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -54,11 +55,42 @@ class endpoints extends Model
     public $listenerId;
 
     /**
-     * @description The access policy of traffic for the specified endpoint. Valid values:
+     * @description 托管实例所属的服务方ID。
      *
-     *   **AllowAll**: allows all traffic to the endpoint.
-     *   **DenyAll**: denies all traffic to the endpoint.
-     *   **AllowCustom**: allows traffic only to specified destinations.
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description 是否为托管实例。取值：
+     *
+     * - **true**：是托管资实例。
+     *
+     * - **false**：不是托管实例。
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description 用户在此托管实例下可执行的动作策略列表。
+     *
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
+     * @description The access policy of traffic that is destinated for the endpoint. Valid values:
+     *
+     *   **AllowAll:** allows all traffic to the endpoint.
+     *   **DenyAll:** denies all traffic to the endpoint.
+     *   **AllowCustom:** allows traffic only to specified destinations.
      *
      * @example DenyAll
      *
@@ -69,7 +101,8 @@ class endpoints extends Model
     /**
      * @description The backend service type of the endpoint.
      *
-     * Set the value to **PrivateSubNet**, which indicates private CIDR blocks.
+     **PrivateSubNet** is returned, which indicates a private CIDR block.
+     *
      * @example PrivateSubNet
      *
      * @var string
@@ -81,6 +114,9 @@ class endpoints extends Model
         'endpointGroupId'         => 'EndpointGroupId',
         'endpointId'              => 'EndpointId',
         'listenerId'              => 'ListenerId',
+        'serviceId'               => 'ServiceId',
+        'serviceManaged'          => 'ServiceManaged',
+        'serviceManagedInfos'     => 'ServiceManagedInfos',
         'trafficToEndpointPolicy' => 'TrafficToEndpointPolicy',
         'type'                    => 'Type',
     ];
@@ -106,6 +142,21 @@ class endpoints extends Model
         }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->trafficToEndpointPolicy) {
             $res['TrafficToEndpointPolicy'] = $this->trafficToEndpointPolicy;
@@ -139,6 +190,21 @@ class endpoints extends Model
         }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['TrafficToEndpointPolicy'])) {
             $model->trafficToEndpointPolicy = $map['TrafficToEndpointPolicy'];

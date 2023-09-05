@@ -152,6 +152,8 @@ class DescribeBandwidthPackageResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfnvueepcihjiq
      *
      * @var string
@@ -177,6 +179,8 @@ class DescribeBandwidthPackageResponseBody extends Model
     public $state;
 
     /**
+     * @description Tag objects.
+     *
      * @var tags[]
      */
     public $tags;

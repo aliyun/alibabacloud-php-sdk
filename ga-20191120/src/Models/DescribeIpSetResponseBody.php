@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
+use AlibabaCloud\SDK\Ga\V20191120\Models\DescribeIpSetResponseBody\serviceManagedInfos;
 use AlibabaCloud\Tea\Model;
 
 class DescribeIpSetResponseBody extends Model
@@ -95,6 +96,21 @@ class DescribeIpSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The status of the acceleration region. Valid values:
      *
      *   **init**: The acceleration region is being initialized.
@@ -108,15 +124,18 @@ class DescribeIpSetResponseBody extends Model
      */
     public $state;
     protected $_name = [
-        'accelerateRegionId' => 'AccelerateRegionId',
-        'acceleratorId'      => 'AcceleratorId',
-        'bandwidth'          => 'Bandwidth',
-        'ipAddressList'      => 'IpAddressList',
-        'ipSetId'            => 'IpSetId',
-        'ipVersion'          => 'IpVersion',
-        'ispType'            => 'IspType',
-        'requestId'          => 'RequestId',
-        'state'              => 'State',
+        'accelerateRegionId'  => 'AccelerateRegionId',
+        'acceleratorId'       => 'AcceleratorId',
+        'bandwidth'           => 'Bandwidth',
+        'ipAddressList'       => 'IpAddressList',
+        'ipSetId'             => 'IpSetId',
+        'ipVersion'           => 'IpVersion',
+        'ispType'             => 'IspType',
+        'requestId'           => 'RequestId',
+        'serviceId'           => 'ServiceId',
+        'serviceManaged'      => 'ServiceManaged',
+        'serviceManagedInfos' => 'ServiceManagedInfos',
+        'state'               => 'State',
     ];
 
     public function validate()
@@ -149,6 +168,21 @@ class DescribeIpSetResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->state) {
             $res['State'] = $this->state;
@@ -190,6 +224,21 @@ class DescribeIpSetResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['State'])) {
             $model->state = $map['State'];

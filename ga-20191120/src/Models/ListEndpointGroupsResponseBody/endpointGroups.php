@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody;
 
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\endpointConfigurations;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\portOverrides;
+use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\serviceManagedInfos;
 use AlibabaCloud\SDK\Ga\V20191120\Models\ListEndpointGroupsResponseBody\endpointGroups\tags;
 use AlibabaCloud\Tea\Model;
 
@@ -141,6 +142,37 @@ class endpointGroups extends Model
     public $portOverrides;
 
     /**
+     * @description 托管实例所属的服务方ID。
+     *
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description 是否为托管实例。取值：
+     *
+     * - **true**：是托管资实例。
+     *
+     * - **false**：不是托管实例。
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description 用户在此托管实例下可执行的动作策略列表。
+     *
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
      * @description The protocol over which health check requests are sent. Valid values:
      *
      *   **tcp**: TCP
@@ -190,6 +222,9 @@ class endpointGroups extends Model
         'listenerId'                     => 'ListenerId',
         'name'                           => 'Name',
         'portOverrides'                  => 'PortOverrides',
+        'serviceId'                      => 'ServiceId',
+        'serviceManaged'                 => 'ServiceManaged',
+        'serviceManagedInfos'            => 'ServiceManagedInfos',
         'state'                          => 'State',
         'tags'                           => 'Tags',
         'thresholdCount'                 => 'ThresholdCount',
@@ -266,6 +301,21 @@ class endpointGroups extends Model
                 $n = 0;
                 foreach ($this->portOverrides as $item) {
                     $res['PortOverrides'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
+        if (null !== $this->serviceId) {
+            $res['ServiceId'] = $this->serviceId;
+        }
+        if (null !== $this->serviceManaged) {
+            $res['ServiceManaged'] = $this->serviceManaged;
+        }
+        if (null !== $this->serviceManagedInfos) {
+            $res['ServiceManagedInfos'] = [];
+            if (null !== $this->serviceManagedInfos && \is_array($this->serviceManagedInfos)) {
+                $n = 0;
+                foreach ($this->serviceManagedInfos as $item) {
+                    $res['ServiceManagedInfos'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
         }
@@ -368,6 +418,21 @@ class endpointGroups extends Model
                 $n                    = 0;
                 foreach ($map['PortOverrides'] as $item) {
                     $model->portOverrides[$n++] = null !== $item ? portOverrides::fromMap($item) : $item;
+                }
+            }
+        }
+        if (isset($map['ServiceId'])) {
+            $model->serviceId = $map['ServiceId'];
+        }
+        if (isset($map['ServiceManaged'])) {
+            $model->serviceManaged = $map['ServiceManaged'];
+        }
+        if (isset($map['ServiceManagedInfos'])) {
+            if (!empty($map['ServiceManagedInfos'])) {
+                $model->serviceManagedInfos = [];
+                $n                          = 0;
+                foreach ($map['ServiceManagedInfos'] as $item) {
+                    $model->serviceManagedInfos[$n++] = null !== $item ? serviceManagedInfos::fromMap($item) : $item;
                 }
             }
         }

@@ -11,9 +11,9 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -21,10 +21,10 @@ class ConfigEndpointProbeRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to enable latency monitoring. Default value: false. Valid values:
+     * @description Specifies whether to enable latency monitoring. Valid values:
      *
-     *   **true**: enables latency monitoring.
-     *   **false**: disables latency monitoring.
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -42,7 +42,7 @@ class ConfigEndpointProbeRequest extends Model
     public $endpoint;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The endpoint group ID.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -51,12 +51,12 @@ class ConfigEndpointProbeRequest extends Model
     public $endpointGroupId;
 
     /**
-     * @description The type of endpoint. Valid values:
+     * @description The type of the endpoint. Valid values:
      *
-     *   **Ip**: a custom IP address
-     *   **Domain**: a custom domain name
-     *   **EIP**: an Alibaba Cloud elastic IP address (EIP)
-     *   **PublicIp**: an Alibaba Cloud public IP address
+     *   **Ip:** a custom IP address.
+     *   **Domain:** a custom domain name.
+     *   **EIP:** an Alibaba Cloud elastic IP address (EIP).
+     *   **PublicIp:** an Alibaba Cloud public IP address.
      *
      * @example Ip
      *
@@ -76,8 +76,8 @@ class ConfigEndpointProbeRequest extends Model
     /**
      * @description The protocol that is used to monitor latency. Valid values:
      *
-     *   **tcp**
-     *   **icmp**
+     *   **tcp:** TCP.
+     *   **icmp:** ICMP.
      *
      * @example tcp
      *
@@ -86,7 +86,7 @@ class ConfigEndpointProbeRequest extends Model
     public $probeProtocol;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

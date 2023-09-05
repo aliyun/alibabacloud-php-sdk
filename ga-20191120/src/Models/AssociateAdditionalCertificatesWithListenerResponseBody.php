@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AssociateAdditionalCertificatesWithListenerResponseBody extends Model
 {
     /**
-     * @description The ID of the listener.
+     * @description The listener ID.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -18,7 +18,7 @@ class AssociateAdditionalCertificatesWithListenerResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
      *

@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAclRequest extends Model
 {
     /**
-     * @description The ACL entries.
+     * @description The entries of IP addresses or CIDR blocks to add to the ACL.
      *
+     * You can add up to 20 entries in each request.
      * @var aclEntries[]
      */
     public $aclEntries;
@@ -81,6 +82,8 @@ class CreateAclRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags of the ACL.
+     *
      * @var tag[]
      */
     public $tag;

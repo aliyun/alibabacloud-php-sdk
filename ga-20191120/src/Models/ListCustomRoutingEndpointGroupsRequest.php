@@ -36,20 +36,20 @@ class ListCustomRoutingEndpointGroupsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
-     * @var string
+     * @var int
      */
     public $pageSize;
 

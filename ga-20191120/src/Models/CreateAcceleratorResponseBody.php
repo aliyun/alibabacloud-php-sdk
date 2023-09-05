@@ -28,7 +28,7 @@ class CreateAcceleratorResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example F591955F-5CB5-4CCE-A75D-17CF2085CE22
      *

@@ -158,6 +158,8 @@ class CreateBasicAcceleratorRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags of the basic GA instance.
+     *
      * @var tag[]
      */
     public $tag;

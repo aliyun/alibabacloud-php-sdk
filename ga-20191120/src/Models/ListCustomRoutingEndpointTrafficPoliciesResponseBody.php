@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
     public $policies;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -44,7 +44,7 @@ class ListCustomRoutingEndpointTrafficPoliciesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

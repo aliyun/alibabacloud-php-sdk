@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSystemSecurityPoliciesRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class ListSystemSecurityPoliciesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **10**.
+     * @description The number of entries per page. Maximum value: **100**. Default value: **10**.
      *
      * @example 10
      *
@@ -27,7 +27,7 @@ class ListSystemSecurityPoliciesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the Global Accelerator (GA) instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

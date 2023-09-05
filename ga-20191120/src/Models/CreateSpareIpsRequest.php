@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateSpareIpsRequest extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The GA instance ID.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -20,9 +20,9 @@ class CreateSpareIpsRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 1F4B6A4A-C89E-489E-BAF1-52777EE148EF
      *
      * @var string
@@ -30,10 +30,10 @@ class CreateSpareIpsRequest extends Model
     public $clientToken;
 
     /**
-     * @description Specifies whether to only precheck this request. Default value: false. Valid values:
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
      *
-     *   **true**: prechecks the request without performing the operation. The system checks the required parameters, request syntax, and limits. If the request fails the precheck, an error message is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
-     *   **false**: sends the request. If the request passes the precheck, a 2xx HTTP status code is returned and the operation is performed.
+     *   **true:** performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (defalut): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
      *
      * @example true
      *
@@ -42,7 +42,7 @@ class CreateSpareIpsRequest extends Model
     public $dryRun;
 
     /**
-     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -51,6 +51,9 @@ class CreateSpareIpsRequest extends Model
     public $regionId;
 
     /**
+     * @description The secondary IP addresses to be created for the CNAME. If an acceleration area of the GA instance become unavailable, GA redirects the access traffic to the secondary IP addresses.
+     *
+     * You can specify up to 2 secondary IP addresses. Separate IP addresses with commas (,).
      * @var string[]
      */
     public $spareIps;
