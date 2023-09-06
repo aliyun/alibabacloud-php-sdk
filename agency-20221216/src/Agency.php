@@ -14,6 +14,8 @@ use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditNewBuyStatusResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditZeroCreditShutdownRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\EditZeroCreditShutdownResponse;
+use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountRequest;
+use AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponse;
 use AlibabaCloud\SDK\Agency\V20221216\Models\SubscriptionBillRequest;
 use AlibabaCloud\SDK\Agency\V20221216\Models\SubscriptionBillResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -296,6 +298,49 @@ class Agency extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->editZeroCreditShutdownWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param InviteSubAccountRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return InviteSubAccountResponse
+     */
+    public function inviteSubAccountWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accountInfoList)) {
+            $query['AccountInfoList'] = $request->accountInfoList;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'InviteSubAccount',
+            'version'     => '2022-12-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return InviteSubAccountResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param InviteSubAccountRequest $request
+     *
+     * @return InviteSubAccountResponse
+     */
+    public function inviteSubAccount($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->inviteSubAccountWithOptions($request, $runtime);
     }
 
     /**
