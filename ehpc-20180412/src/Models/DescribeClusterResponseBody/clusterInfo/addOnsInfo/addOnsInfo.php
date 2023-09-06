@@ -9,26 +9,53 @@ use AlibabaCloud\Tea\Model;
 class addOnsInfo extends Model
 {
     /**
+     * @description The deployment mode of the custom component. Valid values:
+     *
+     *   local
+     *   ecs
+     *
+     * @example local
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description The TCP port number of the custom component.
+     *
+     * @example 10000
+     *
      * @var int
      */
     public $port;
 
     /**
+     * @description The software ID of the component.
+     *
+     * @example CROMWELL_85
+     *
      * @var string
      */
     public $softwareId;
 
     /**
+     * @description The running status of the custom component. Valid values:
+     *
+     *   running
+     *   stopped
+     *   exception
+     *
+     * @example running
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The endpoint of the custom component service.
+     *
+     * @example http://172.16.10.12:10000/
+     *
      * @var string
      */
     public $URL;

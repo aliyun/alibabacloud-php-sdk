@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListContainerImagesRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -28,9 +28,9 @@ class ListContainerImagesRequest extends Model
     public $containerType;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number to return.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -40,7 +40,7 @@ class ListContainerImagesRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values: 1 to 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 10
      *
      * @var int

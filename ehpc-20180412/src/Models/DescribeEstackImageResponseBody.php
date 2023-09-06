@@ -17,7 +17,7 @@ class DescribeEstackImageResponseBody extends Model
     public $imageList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number returned.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeEstackImageResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2D69A58F-345C-4FDE-88E4-BF518948xxxx
      *

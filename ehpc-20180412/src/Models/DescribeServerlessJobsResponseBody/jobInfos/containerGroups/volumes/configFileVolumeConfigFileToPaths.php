@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class configFileVolumeConfigFileToPaths extends Model
 {
     /**
+     * @description The content of the configuration file. Maximum size: 32 KB.
+     *
      * @example hello world
      *
      * @var string
@@ -16,6 +18,8 @@ class configFileVolumeConfigFileToPaths extends Model
     public $content;
 
     /**
+     * @description The relative path to the configuration file.
+     *
      * @example /usr/bin/
      *
      * @var string

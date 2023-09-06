@@ -654,8 +654,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * The ID of the zone.
-     *   * You can call the [ListRegions](~~188593~~) and [DescribeZones](~~25610~~) operations to query IDs of the zones where E-HPC is supported.
+     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
@@ -685,8 +684,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * The ID of the zone.
-     *   * You can call the [ListRegions](~~188593~~) and [DescribeZones](~~25610~~) operations to query IDs of the zones where E-HPC is supported.
+     * After you create an Elastic High Performance Computing (E-HPC) cluster, you are charged for the cluster resources that you use. We recommend that you learn about the billing methods of E-HPC in advance. For more information, see [Billing overview](~~57844~~).
      *   *
      * @param CreateClusterRequest $request CreateClusterRequest
      *
@@ -984,10 +982,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteContainerAppsRequest $request
-     * @param RuntimeOptions             $runtime
+     * Before you delete container applications, you can call the [ListContainerApps](~~87333~~) operation to query the container applications.
+     *   *
+     * @param DeleteContainerAppsRequest $request DeleteContainerAppsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteContainerAppsResponse
+     * @return DeleteContainerAppsResponse DeleteContainerAppsResponse
      */
     public function deleteContainerAppsWithOptions($request, $runtime)
     {
@@ -1012,9 +1012,11 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param DeleteContainerAppsRequest $request
+     * Before you delete container applications, you can call the [ListContainerApps](~~87333~~) operation to query the container applications.
+     *   *
+     * @param DeleteContainerAppsRequest $request DeleteContainerAppsRequest
      *
-     * @return DeleteContainerAppsResponse
+     * @return DeleteContainerAppsResponse DeleteContainerAppsResponse
      */
     public function deleteContainerApps($request)
     {
@@ -1388,8 +1390,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
+     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
      *   *
      * @param DeleteUsersRequest $request DeleteUsersRequest
      * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
@@ -1419,8 +1420,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * ## Description
-     *   * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
+     * If you delete a user, only its information is deleted. The files stored in the /home directory for the user are retained. For example, if you delete a user named user1, the files in the `/home/user1/` directory of the cluster are not deleted. However, a deleted user cannot be recovered. Even if you create another user that has the same name, the data retained for the deleted user is not reused.
      *   *
      * @param DeleteUsersRequest $request DeleteUsersRequest
      *
@@ -2129,10 +2129,13 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param GetAutoScaleConfigRequest $request
-     * @param RuntimeOptions            $runtime
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=EHPC\\&api=GetAutoScaleConfig\\&type=RPC\\&version=2018-04-12).
+     *   *
+     * @param GetAutoScaleConfigRequest $request GetAutoScaleConfigRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return GetAutoScaleConfigResponse
+     * @return GetAutoScaleConfigResponse GetAutoScaleConfigResponse
      */
     public function getAutoScaleConfigWithOptions($request, $runtime)
     {
@@ -2157,9 +2160,12 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * @param GetAutoScaleConfigRequest $request
+     * ## Debugging
+     *   * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=EHPC\\&api=GetAutoScaleConfig\\&type=RPC\\&version=2018-04-12).
+     *   *
+     * @param GetAutoScaleConfigRequest $request GetAutoScaleConfigRequest
      *
-     * @return GetAutoScaleConfigResponse
+     * @return GetAutoScaleConfigResponse GetAutoScaleConfigResponse
      */
     public function getAutoScaleConfig($request)
     {
@@ -4247,7 +4253,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * The new cluster name.
+     * ## Usage notes
+     *   * Before you call this operation, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
      *   *
      * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -4277,7 +4284,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * The new cluster name.
+     * ## Usage notes
+     *   * Before you call this operation, you can call the [DescribeCluster](~~87126~~) operation to query details of the selected cluster.
      *   *
      * @param ModifyClusterAttributesRequest $request ModifyClusterAttributesRequest
      *
@@ -4780,7 +4788,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Configures the auto scaling settings of a cluster.
+     * ## Usage notes
+     *   * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
      *   *
      * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -4810,7 +4819,8 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * Configures the auto scaling settings of a cluster.
+     * ## Usage notes
+     *   * If the settings in the Queue Configuration section are different from the settings in the Global Configurations section, the former prevails.
      *   *
      * @param SetAutoScaleConfigRequest $request SetAutoScaleConfigRequest
      *
@@ -5561,10 +5571,13 @@ class EHPC extends OpenApiClient
             $request->dependsOnShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->dependsOn, 'DependsOn', 'json');
         }
         if (!Utils::isUnset($tmpReq->instanceType)) {
-            $request->instanceTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceType, 'InstanceType', 'simple');
+            $request->instanceTypeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->instanceType, 'InstanceType', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->retryStrategy)) {
+            $request->retryStrategyShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->retryStrategy, 'RetryStrategy', 'json');
         }
         if (!Utils::isUnset($tmpReq->vSwitchId)) {
-            $request->vSwitchIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchId, 'VSwitchId', 'simple');
+            $request->vSwitchIdShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->vSwitchId, 'VSwitchId', 'json');
         }
         $query = [];
         if (!Utils::isUnset($request->arrayPropertiesShrink)) {
@@ -5599,6 +5612,9 @@ class EHPC extends OpenApiClient
         }
         if (!Utils::isUnset($request->ramRoleName)) {
             $query['RamRoleName'] = $request->ramRoleName;
+        }
+        if (!Utils::isUnset($request->retryStrategyShrink)) {
+            $query['RetryStrategy'] = $request->retryStrategyShrink;
         }
         if (!Utils::isUnset($request->spotPriceLimit)) {
             $query['SpotPriceLimit'] = $request->spotPriceLimit;
@@ -5950,7 +5966,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+     * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
      *   *
      * @param UpdateQueueConfigRequest $request UpdateQueueConfigRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -5980,7 +5996,7 @@ class EHPC extends OpenApiClient
     }
 
     /**
-     * After you update the instance types of a resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
+     * After you update the resource group, the nodes that you add by scaling out the cluster are automatically included in the resource group.
      *   *
      * @param UpdateQueueConfigRequest $request UpdateQueueConfigRequest
      *

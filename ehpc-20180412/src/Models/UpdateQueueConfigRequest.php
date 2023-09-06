@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateQueueConfigRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -29,9 +29,18 @@ class UpdateQueueConfigRequest extends Model
     public $computeInstanceType;
 
     /**
+     * @description The ID of the deployment set. You can obtain the deployment set ID by calling the [DescribeDeploymentSets](~~91313~~) operation. Only the deployment sets that use low latency policy are supported.
+     *
+     * @example ds-bp1frxuzdg87zh4pzq****
+     *
      * @var string
      */
     public $deploymentSetId;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceTrafficMode;
 
     /**
      * @description The name of the queue.
@@ -43,7 +52,7 @@ class UpdateQueueConfigRequest extends Model
     public $queueName;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * You can call the [ListResourceGroups](~~158855~~) operation to query the IDs of resource groups.
      * @example rg-acfmxazb4ph****
@@ -52,11 +61,12 @@ class UpdateQueueConfigRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'clusterId'           => 'ClusterId',
-        'computeInstanceType' => 'ComputeInstanceType',
-        'deploymentSetId'     => 'DeploymentSetId',
-        'queueName'           => 'QueueName',
-        'resourceGroupId'     => 'ResourceGroupId',
+        'clusterId'                   => 'ClusterId',
+        'computeInstanceType'         => 'ComputeInstanceType',
+        'deploymentSetId'             => 'DeploymentSetId',
+        'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
+        'queueName'                   => 'QueueName',
+        'resourceGroupId'             => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -74,6 +84,9 @@ class UpdateQueueConfigRequest extends Model
         }
         if (null !== $this->deploymentSetId) {
             $res['DeploymentSetId'] = $this->deploymentSetId;
+        }
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
@@ -101,6 +114,9 @@ class UpdateQueueConfigRequest extends Model
         }
         if (isset($map['DeploymentSetId'])) {
             $model->deploymentSetId = $map['DeploymentSetId'];
+        }
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];

@@ -29,7 +29,7 @@ class fileSystems extends Model
     public $capacity;
 
     /**
-     * @description The time when the file system was created.
+     * @description The time at which the file system is created.
      *
      * @example 2018-07-26 16:36:27
      *
@@ -47,10 +47,13 @@ class fileSystems extends Model
     public $destription;
 
     /**
-     * @description Indicates whether the file system is encrypted. Valid values:
+     * @description Specifies whether to encrypt the data in the file system.
      *
-     *   0: The file system is not encrypted.
-     *   1: The file system is encrypted.
+     * Valid values:
+     *
+     *   0 (default): The data in the file system is not encrypted.
+     *   1: NAS-managed keys are used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to standard or extreme.
+     *   2: KMS-managed keys are used to encrypt the data in the file system. This value is valid only if the FileSystemType parameter is set to extreme.
      *
      * @example 0
      *
@@ -70,8 +73,7 @@ class fileSystems extends Model
     /**
      * @description The type of the file system. Valid values:
      *
-     *   standard: General-purpose NAS file system
-     *   extreme: Extreme NAS file system
+     *   standard: general-purpose NAS. extreme: Extreme NAS.
      *
      * @example standard
      *
@@ -80,7 +82,7 @@ class fileSystems extends Model
     public $fileSystemType;
 
     /**
-     * @description The used capacity of the file system. Unit: bytes.
+     * @description The used storage of the NAS file system. Unit: byte.
      *
      * @example 1216816455
      *
@@ -89,7 +91,7 @@ class fileSystems extends Model
     public $meteredSize;
 
     /**
-     * @description The list of mount targets.
+     * @description The mount targets.
      *
      * @var mountTargetList
      */
@@ -105,7 +107,8 @@ class fileSystems extends Model
     /**
      * @description The protocol type of the file system. Valid values:
      *
-     * - SMB
+     *   NFS- SMB
+     *
      * @example NFS
      *
      * @var string
@@ -113,7 +116,7 @@ class fileSystems extends Model
     public $protocolType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -124,7 +127,13 @@ class fileSystems extends Model
     /**
      * @description The status of the file system. Valid values:
      *
-     * - Deleting: The file system is being deleted.
+     *   Pending: The file system is processing a task.
+     *   Running: The file system is available.
+     *   Stopped: The file system is unavailable.
+     *   Extending: The file system is being scaled out.
+     *   Stopping: The file system is being disabled.
+     *   Deleting: The file system is being deleted.
+     *
      * @example Running
      *
      * @var string
@@ -134,7 +143,8 @@ class fileSystems extends Model
     /**
      * @description The storage type of the file system.
      *
-     * - If FileSystemType is set to extreme, the StorageType parameter has the following valid values: standard and advance.
+     *   Valid values when FileSystemType is set to standard: Capacity and Performance. Valid values when FileSystemType is set to extreme: standard and advance.
+     *
      * @example Performance
      *
      * @var string
@@ -142,6 +152,8 @@ class fileSystems extends Model
     public $storageType;
 
     /**
+     * @description The VPC ID of the node.
+     *
      * @example vpc-bp132kgui8n0targbn1cm
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListContainerAppsRequest extends Model
 {
     /**
-     * @description The page number of the returned page.
+     * @description The page number to return.
      *
      * Default value: 1.
      * @example 1

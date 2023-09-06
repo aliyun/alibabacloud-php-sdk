@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SubmitServerlessJobResponseBody extends Model
 {
     /**
+     * @description The ID of the serverless job.
+     *
      * @example 10
      *
      * @var string
@@ -16,6 +18,8 @@ class SubmitServerlessJobResponseBody extends Model
     public $jobId;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string

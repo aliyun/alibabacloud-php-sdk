@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class arrayProperties extends Model
 {
     /**
+     * @description The end value of the array job index.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class arrayProperties extends Model
     public $indexEnd;
 
     /**
+     * @description The starting value of the array job index.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,8 @@ class arrayProperties extends Model
     public $indexStart;
 
     /**
+     * @description The interval of the array job index.
+     *
      * @example 2
      *
      * @var int

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class compute extends Model
 {
     /**
+     * @description The number of compute nodes in the cluster.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class compute extends Model
     public $count;
 
     /**
+     * @description The instance type of the compute nodes.
+     *
      * @example ecs.n1.tiny
      *
      * @var string

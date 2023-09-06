@@ -17,7 +17,7 @@ class ListJobsWithFiltersResponseBody extends Model
     public $jobs;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number returned.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class ListJobsWithFiltersResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *
@@ -46,7 +46,7 @@ class ListJobsWithFiltersResponseBody extends Model
     /**
      * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
+     *   true: The request was successful.
      *   false: The request failed.
      *
      * @example true

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class valueFrom extends Model
 {
     /**
+     * @description The specified field.
+     *
      * @var fieldRef
      */
     public $fieldRef;

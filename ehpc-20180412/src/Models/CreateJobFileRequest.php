@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateJobFileRequest extends Model
 {
     /**
+     * @description Indicates whether to use an asynchronous link to submit job files.
+     *
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -16,7 +19,7 @@ class CreateJobFileRequest extends Model
     public $async;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-jeJki6****
@@ -35,7 +38,7 @@ class CreateJobFileRequest extends Model
     public $content;
 
     /**
-     * @description The user to which the job belongs.
+     * @description The user to which the job file belongs.
      *
      * You can call the [ListUsers](~~188572~~) operation to query the users of the cluster.
      * @example testuser1
@@ -45,7 +48,7 @@ class CreateJobFileRequest extends Model
     public $runasUser;
 
     /**
-     * @description The password of the user.
+     * @description The user password.
      *
      * @example !QAZ****
      *

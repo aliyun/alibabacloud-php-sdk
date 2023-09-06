@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class arrayProperties extends Model
 {
     /**
+     * @description The end value of the array job index. Valid values: 0 to 4999. The value must be greater than or equal to the value of IndexStart.
+     *
      * @example 5
      *
      * @var int
@@ -16,6 +18,8 @@ class arrayProperties extends Model
     public $indexEnd;
 
     /**
+     * @description The starting value of the array job index. Valid values: 0 to 4999.
+     *
      * @example 1
      *
      * @var int
@@ -23,6 +27,9 @@ class arrayProperties extends Model
     public $indexStart;
 
     /**
+     * @description The interval of the array job index.
+     *
+     * >  If the IndexStart of the array job is set to 1, IndexEnd is set to 5, and IndexStep is set to 2, the array job contains three subtasks. The subtask indexes are 1, 3, and 5.
      * @example 2
      *
      * @var int

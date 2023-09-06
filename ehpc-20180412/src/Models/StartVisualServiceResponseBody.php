@@ -14,7 +14,7 @@ class StartVisualServiceResponseBody extends Model
      *   Service started
      *   Service stopped
      *
-     * @example StartVisualService
+     * @example Service started
      *
      * @var string
      */

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class login extends Model
 {
     /**
+     * @description The number of logon nodes in the cluster.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class login extends Model
     public $count;
 
     /**
+     * @description The instance type of the logon nodes.
+     *
      * @example ecs.n1.tiny
      *
      * @var string

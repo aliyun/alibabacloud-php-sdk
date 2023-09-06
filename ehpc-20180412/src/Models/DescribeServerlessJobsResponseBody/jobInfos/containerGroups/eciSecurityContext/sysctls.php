@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class sysctls extends Model
 {
     /**
+     * @description The name of the Sysctl parameter.
+     *
      * @example kernel.msgmax
      *
      * @var string
@@ -16,6 +18,8 @@ class sysctls extends Model
     public $name;
 
     /**
+     * @description The value of the Sysctl parameter.
+     *
      * @example 65536
      *
      * @var string

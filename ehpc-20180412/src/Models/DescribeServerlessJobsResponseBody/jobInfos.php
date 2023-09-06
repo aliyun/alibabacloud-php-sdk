@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class jobInfos extends Model
 {
     /**
+     * @description The properties of the array job.
+     *
      * @var arrayProperties
      */
     public $arrayProperties;
 
     /**
+     * @description The information of the container groups that are used to run the serverless job.
+     *
      * @var containerGroups[]
      */
     public $containerGroups;
 
     /**
+     * @description The time when the serverless job ended.
+     *
      * @example 1662016121
      *
      * @var int
@@ -28,6 +34,8 @@ class jobInfos extends Model
     public $endTime;
 
     /**
+     * @description Indicates whether the job is an array job.
+     *
      * @example false
      *
      * @var bool
@@ -35,16 +43,26 @@ class jobInfos extends Model
     public $isArrayJob;
 
     /**
+     * @description The ID of the serverless job or the subtask (array job).
+     *
+     * @example 5
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The name of the serverless job.
+     *
+     * @example testjob
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The time when the serverless job is last modified.
+     *
      * @example 1663831441000
      *
      * @var int
@@ -52,6 +70,8 @@ class jobInfos extends Model
     public $lastModifyTime;
 
     /**
+     * @description The scheduling priority of the serverless job.
+     *
      * @example 9
      *
      * @var int
@@ -59,6 +79,8 @@ class jobInfos extends Model
     public $priority;
 
     /**
+     * @description The name of the queue in which the serverless job is run.
+     *
      * @example comp
      *
      * @var string
@@ -66,6 +88,8 @@ class jobInfos extends Model
     public $queue;
 
     /**
+     * @description The time when the serverless job started.
+     *
      * @example 1647427667
      *
      * @var int
@@ -73,6 +97,15 @@ class jobInfos extends Model
     public $startTime;
 
     /**
+     * @description The status of the serverless job. Valid values:
+     *
+     *   Pending
+     *   Initing
+     *   Running
+     *   Succeeded
+     *   Canceled
+     *   Failed
+     *
      * @example Running
      *
      * @var string
@@ -80,6 +113,8 @@ class jobInfos extends Model
     public $state;
 
     /**
+     * @description The time when the serverless job is submitted.
+     *
      * @example 1647423718
      *
      * @var int
@@ -87,6 +122,10 @@ class jobInfos extends Model
     public $submitTime;
 
     /**
+     * @description The username that is used to run the serverless job.
+     *
+     * @example testuser
+     *
      * @var string
      */
     public $user;

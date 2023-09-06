@@ -27,7 +27,7 @@ class totalResources extends Model
     public $gpu;
 
     /**
-     * @description The memory capacity. Unit: GB
+     * @description The memory capacity. Unit: GB.
      *
      * @example 1024
      *

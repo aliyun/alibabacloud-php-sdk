@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListFileSystemWithMountTargetsRequest extends Model
 {
     /**
-     * @description The page number of the page to return.
+     * @description The page number.
      *
-     * Default value: 1
      * @example 1
      *
      * @var int
@@ -19,9 +18,8 @@ class ListFileSystemWithMountTargetsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 50.
+     * @description The number of entries to return on each page. Valid values: 1 to 50. Default value: 10.
      *
-     * Default value: 10
      * @example 10
      *
      * @var int

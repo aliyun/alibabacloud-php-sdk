@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListNodesResponseBody extends Model
 {
     /**
-     * @description The information about nodes.
+     * @description The list of nodes.
      *
      * @var nodes
      */
     public $nodes;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number returned.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class ListNodesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 89A1AC0F-4A6C-4F3D-98F9-BEF9A823****
      *

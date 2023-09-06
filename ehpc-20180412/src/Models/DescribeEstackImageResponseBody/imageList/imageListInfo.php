@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageListInfo extends Model
 {
     /**
-     * @description The name of the image.
+     * @description The image name.
      *
      * @example tensorflow-21.09-tf1-py3.sif
      *

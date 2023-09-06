@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteContainerAppsRequest extends Model
 {
     /**
+     * @description The information about containers.
+     *
      * @var containerApp[]
      */
     public $containerApp;

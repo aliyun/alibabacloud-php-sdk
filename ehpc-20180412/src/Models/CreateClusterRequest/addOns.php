@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class addOns extends Model
 {
     /**
+     * @description The path to the configuration file.
+     *
+     * @example /usr/local/addon/cromwell/cromwell.conf
+     *
      * @var string
      */
     public $configFile;
 
     /**
+     * @description The type of the database engine. Valid values: Mysql, and null.
+     *
+     * @example Mysql
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description Indicates whether to auto-start the custom component. Valid values: true and false.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $defaultStart;
 
     /**
+     * @description The deployment mode. Valid values: local and ecs.
+     *
+     * @example local
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description The component name.
+     *
+     * @example cromwell
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The access port of the custom component.
+     *
+     * @example 10000
+     *
      * @var float
      */
     public $port;
 
     /**
+     * @description The version number of the component.
+     *
+     * @example 85
+     *
      * @var string
      */
     public $version;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class winAdPar extends Model
 {
     /**
+     * @description The domain name of the Windows AD server.
+     *
+     * @example ehpcad.com
+     *
      * @var string
      */
     public $adDc;
 
     /**
+     * @description The IP address of the Windows AD server.
+     *
+     * @example 192.168.1.2
+     *
      * @var string
      */
     public $adIp;
 
     /**
+     * @description The Windows AD server administrator.
+     *
+     * @example administrator
+     *
      * @var string
      */
     public $adUser;
 
     /**
+     * @description The administrator password of the Windows AD server.
+     *
+     * @example xxxxxxx
+     *
      * @var string
      */
     public $adUserPasswd;
 
     /**
+     * @description The home directory of the Linux server.
+     *
+     * @example /home
+     *
      * @var string
      */
     public $fallbackHomeDir;

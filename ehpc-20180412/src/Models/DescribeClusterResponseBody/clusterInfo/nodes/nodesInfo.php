@@ -9,31 +9,69 @@ use AlibabaCloud\Tea\Model;
 class nodesInfo extends Model
 {
     /**
+     * @description The service type of the domain account to which the on-premises node in the cluster belongs. Valid values:
+     *
+     *   nis
+     *   ldap
+     *
+     * Default value: nis.
+     * @example nis
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The directory of the on-premises node in the cluster.
+     *
+     * @example /opt/sge/default/
+     *
      * @var string
      */
     public $dir;
 
     /**
+     * @description The hostname of the on-premises node in the cluster.
+     *
+     * @example compute000
+     *
      * @var string
      */
     public $hostName;
 
     /**
+     * @description The IP address of the on-premises node in the cluster.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $ipAddress;
 
     /**
+     * @description The role of the on-premises node in the cluster. Valid values:
+     *
+     *   Manager: management node
+     *   Login: logon node
+     *   Compute: compute node
+     *
+     * @example Compute
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The scheduler type of the on-premises node in the cluster. Valid values:
+     *
+     *   pbs
+     *   slurm
+     *   opengridscheduler
+     *   deadline
+     *
+     * Default value: pbs.
+     * @example pbs
+     *
      * @var string
      */
     public $schedulerType;

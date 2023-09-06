@@ -17,6 +17,8 @@ use AlibabaCloud\Tea\Model;
 class containerGroups extends Model
 {
     /**
+     * @description The ID of the container group.
+     *
      * @example eci-bp1jrgfqqy54kg5hc****
      *
      * @var string
@@ -24,6 +26,8 @@ class containerGroups extends Model
     public $containerGroupId;
 
     /**
+     * @description The name of the container group.
+     *
      * @example test
      *
      * @var string
@@ -31,11 +35,15 @@ class containerGroups extends Model
     public $containerGroupName;
 
     /**
+     * @description The list of containers in the container group.
+     *
      * @var containers[]
      */
     public $containers;
 
     /**
+     * @description The number of vCPUs that are allocated to the container.
+     *
      * @example 2
      *
      * @var float
@@ -43,6 +51,8 @@ class containerGroups extends Model
     public $cpu;
 
     /**
+     * @description The time when the instance is created. The time follows the RFC 3339 standard and must be in UTC.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -50,6 +60,8 @@ class containerGroups extends Model
     public $creationTime;
 
     /**
+     * @description The discount.
+     *
      * @example 9
      *
      * @var int
@@ -57,16 +69,22 @@ class containerGroups extends Model
     public $discount;
 
     /**
+     * @description The Domain Name System (DNS) settings.
+     *
      * @var dnsConfig
      */
     public $dnsConfig;
 
     /**
+     * @description The security context of the container group.
+     *
      * @var eciSecurityContext
      */
     public $eciSecurityContext;
 
     /**
+     * @description The ID of the elastic network interface (ENI).
+     *
      * @example eni-bp14rzqi6fd8satm****
      *
      * @var string
@@ -74,6 +92,8 @@ class containerGroups extends Model
     public $eniInstanceId;
 
     /**
+     * @description The size of the temporary storage space. Unit: GiB.
+     *
      * @example 20
      *
      * @var int
@@ -81,11 +101,15 @@ class containerGroups extends Model
     public $ephemeralStorage;
 
     /**
+     * @description The event information. Up to 50 events can be returned.
+     *
      * @var events[]
      */
     public $events;
 
     /**
+     * @description The time when the instance failed to run due to overdue payments. The beginning of the time range to query. Specify the time in the RFC 3339 standard. The time must be in UTC.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -93,6 +117,8 @@ class containerGroups extends Model
     public $expiredTime;
 
     /**
+     * @description The time when the instance failed to run. The time follows the RFC 3339 standard and must be in UTC.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -100,16 +126,22 @@ class containerGroups extends Model
     public $failedTime;
 
     /**
+     * @description The hostname mapping of a container in the elastic container instance.
+     *
      * @var hostAliases[]
      */
     public $hostAliases;
 
     /**
+     * @description The init containers.
+     *
      * @var initContainers[]
      */
     public $initContainers;
 
     /**
+     * @description The instance type of the Elastic Compute Service (ECS) instance.
+     *
      * @example ecs.g5.large
      *
      * @var string
@@ -117,6 +149,8 @@ class containerGroups extends Model
     public $instanceType;
 
     /**
+     * @description The public IP address.
+     *
      * @example 192.0.XX.XX
      *
      * @var string
@@ -124,6 +158,8 @@ class containerGroups extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address.
+     *
      * @example 172.16.XX.XX
      *
      * @var string
@@ -131,6 +167,8 @@ class containerGroups extends Model
     public $intranetIp;
 
     /**
+     * @description The IPv6 address.
+     *
      * @example 2001:XXXX:4:4:4:4:4:4
      *
      * @var string
@@ -138,6 +176,8 @@ class containerGroups extends Model
     public $ipv6Address;
 
     /**
+     * @description The memory size of the instance. Unit: GiB.
+     *
      * @example 4.0
      *
      * @var float
@@ -145,6 +185,8 @@ class containerGroups extends Model
     public $memory;
 
     /**
+     * @description The name of the instance RAM role. You can use an instance RAM role to access both elastic container instances and ECS instances. For more information, see [Use the instance RAM role by calling APIs](~~61178~~).
+     *
      * @example ram:PassRole
      *
      * @var string
@@ -152,6 +194,8 @@ class containerGroups extends Model
     public $ramRoleName;
 
     /**
+     * @description The ID of the region in which the instance resides.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -159,6 +203,8 @@ class containerGroups extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the instance belongs. If you do not specify a resource group when you create an elastic container instance, the system automatically adds the instance to the default resource group in your account.
+     *
      * @example rg-aekzh43v*****
      *
      * @var string
@@ -166,6 +212,12 @@ class containerGroups extends Model
     public $resourceGroupId;
 
     /**
+     * @description The instance restart policy. Valid values:
+     *
+     *   Always: Always restarts the instance if a container in the instance exits upon termination.
+     *   Never: Never restarts the instance if a container in the instance exits upon termination.
+     *   OnFailure: Restarts the instance only if a container in the instance exists upon failure with a status code of non-zero.
+     *
      * @example Never
      *
      * @var string
@@ -173,6 +225,8 @@ class containerGroups extends Model
     public $restartPolicy;
 
     /**
+     * @description The ID of the security group to which the instances belong.
+     *
      * @example sg-bp12ujq5zpxuyjfo3o8r
      *
      * @var string
@@ -180,6 +234,9 @@ class containerGroups extends Model
     public $securityGroupId;
 
     /**
+     * @description The maximum hourly price for the preemptible instance.
+     *
+     * This parameter is returned only if you set SpotStrategy to SpotWithPriceLimit.
      * @example 0.025
      *
      * @var float
@@ -187,6 +244,12 @@ class containerGroups extends Model
     public $spotPriceLimit;
 
     /**
+     * @description The bidding policy for the instance. Valid values:
+     *
+     *   NoSpot: The node is a regular pay-as-you-go instance.
+     *   SpotWithPriceLimit: The node is a preemptible instance that has a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The node is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *
      * @example NoSpot
      *
      * @var string
@@ -194,6 +257,19 @@ class containerGroups extends Model
     public $spotStrategy;
 
     /**
+     * @description The status of the instance. Valid value:
+     *
+     *   Pending: The instance is being started.
+     *   Running: The instance is running.
+     *   Succeeded: The instance runs successfully.
+     *   Failed: The instance fails to run.
+     *   Scheduling: The instance is being created.
+     *   ScheduleFailed: The instance fails to be created.
+     *   Restarting: The instance is being restarted.
+     *   Updating: The instance is being updated.
+     *   Terminating: The instance is being terminated.
+     *   Expired: The instance expires.
+     *
      * @example Running
      *
      * @var string
@@ -201,6 +277,8 @@ class containerGroups extends Model
     public $status;
 
     /**
+     * @description The time when all containers exited on success. The beginning of the time range to query. Specify the time in the RFC 3339 standard. The time must be in UTC.
+     *
      * @example 2019-12-11T04:33:42Z
      *
      * @var string
@@ -208,11 +286,15 @@ class containerGroups extends Model
     public $succeededTime;
 
     /**
+     * @description The tags of the instances.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description This parameter is unavailable.
+     *
      * @example i-xxx
      *
      * @var string
@@ -220,6 +302,8 @@ class containerGroups extends Model
     public $tenantEniInstanceId;
 
     /**
+     * @description This parameter is unavailable.
+     *
      * @example 10.10.XX.XX
      *
      * @var string
@@ -227,6 +311,8 @@ class containerGroups extends Model
     public $tenantEniIp;
 
     /**
+     * @description This parameter is unavailable.
+     *
      * @example sg-xxx
      *
      * @var string
@@ -234,6 +320,8 @@ class containerGroups extends Model
     public $tenantSecurityGroupId;
 
     /**
+     * @description This parameter is unavailable.
+     *
      * @example vsw-xxx
      *
      * @var string
@@ -241,6 +329,8 @@ class containerGroups extends Model
     public $tenantVSwitchId;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-bp1vzjjflab6wvjox****
      *
      * @var string
@@ -248,11 +338,15 @@ class containerGroups extends Model
     public $vSwitchId;
 
     /**
+     * @description The information about volumes.
+     *
      * @var volumes[]
      */
     public $volumes;
 
     /**
+     * @description The ID of the VPC to which the elastic container instances belong.
+     *
      * @example vpc-1vzjjflab6wvjox****
      *
      * @var string
@@ -260,6 +354,8 @@ class containerGroups extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone in which the elastic container instance is deployed.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

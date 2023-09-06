@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListJobsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -29,9 +29,9 @@ class ListJobsRequest extends Model
     public $owner;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -39,9 +39,9 @@ class ListJobsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
+     * @description The number of entries to return per page. Maximum value: 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -54,7 +54,7 @@ class ListJobsRequest extends Model
      *   true
      *   false
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var string

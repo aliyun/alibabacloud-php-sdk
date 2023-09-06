@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
+     * @description The time at which the serverless job ended.
+     *
      * @example 1682128871
      *
      * @var string
@@ -16,6 +18,11 @@ class jobs extends Model
     public $endTime;
 
     /**
+     * @description Indicates whether the job is an array job. Valid values:
+     *
+     *   True: yes
+     *   False: no
+     *
      * @example True
      *
      * @var bool
@@ -23,16 +30,26 @@ class jobs extends Model
     public $isArrayJob;
 
     /**
+     * @description The ID of the serverless job or subtask (array job).
+     *
+     * @example 5
+     *
      * @var string
      */
     public $jobId;
 
     /**
+     * @description The name of the serverless job.
+     *
+     * @example testjob
+     *
      * @var string
      */
     public $jobName;
 
     /**
+     * @description The scheduling priority of the serverless job. Valid values are 0 to 999. A greater value indicates a higher priority.
+     *
      * @example 9
      *
      * @var string
@@ -40,6 +57,8 @@ class jobs extends Model
     public $priority;
 
     /**
+     * @description The name of the queue in which the serverless job is run.
+     *
      * @example comp
      *
      * @var string
@@ -47,6 +66,8 @@ class jobs extends Model
     public $queue;
 
     /**
+     * @description The time at which the serverless job started.
+     *
      * @example 1647427667
      *
      * @var string
@@ -54,6 +75,15 @@ class jobs extends Model
     public $startTime;
 
     /**
+     * @description The status of the serverless job. Valid values:
+     *
+     *   Pending
+     *   Initing
+     *   Running
+     *   Succeeded
+     *   Canceled
+     *   Failed
+     *
      * @example Running
      *
      * @var string
@@ -61,6 +91,8 @@ class jobs extends Model
     public $state;
 
     /**
+     * @description The time at which the serverless job is submitted.
+     *
      * @example 1647423718
      *
      * @var string
@@ -68,6 +100,10 @@ class jobs extends Model
     public $submitTime;
 
     /**
+     * @description The username that is used to run the serverless job.
+     *
+     * @example testuser
+     *
      * @var string
      */
     public $user;

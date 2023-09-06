@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class images extends Model
 {
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example centos_7_06_64_20G_alibase_2019071****
      *
@@ -18,7 +18,7 @@ class images extends Model
     public $imageId;
 
     /**
-     * @description The name of the repository.
+     * @description The name of the certificate application repository.
      *
      * @example busybox
      *
@@ -27,7 +27,7 @@ class images extends Model
     public $repository;
 
     /**
-     * @description The status of the image.
+     * @description The state of the image.
      *
      * @example READY
      *

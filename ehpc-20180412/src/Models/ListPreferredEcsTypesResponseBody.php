@@ -19,7 +19,7 @@ class ListPreferredEcsTypesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of recommended ECS instances. Each series contains the recommended ECS instance types for various nodes of the E-HPC cluster.
+     * @description The list of recommended ECS instances. Each SeriesInfo element contains the recommended ECS instance types for various nodes in the E-HPC cluster.
      *
      * @var series
      */

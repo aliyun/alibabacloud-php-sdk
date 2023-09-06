@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupsResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6D9A3378-61CA-4415-BEB0-1168C2A15975
      *
@@ -19,7 +19,7 @@ class ListSecurityGroupsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the security group.
+     * @description The security group ID.
      *
      * @var securityGroups
      */

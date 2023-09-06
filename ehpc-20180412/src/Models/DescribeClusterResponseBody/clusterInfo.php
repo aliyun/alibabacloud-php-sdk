@@ -16,7 +16,10 @@ use AlibabaCloud\Tea\Model;
 class clusterInfo extends Model
 {
     /**
-     * @description The version of the E-HPC client.
+     * @description The server type of the account. Valid values:
+     *
+     *   nis
+     *   ldap
      *
      * @example nis
      *
@@ -25,30 +28,47 @@ class clusterInfo extends Model
     public $accountType;
 
     /**
+     * @description The information about the custom component service.
+     *
      * @var addOnsInfo
      */
     public $addOnsInfo;
 
     /**
-     * @description The list of on-premises management nodes.
+     * @description The array of the software in the cluster. The array contains the name and version of the software.
      *
-     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var applications
      */
     public $applications;
 
     /**
+     * @description Specifies whether to enable auto-renewal. The parameter takes effect only when EcsChargeType is set to PrePaid. Valid values:
+     *
+     *   true: enables auto-renewal.
+     *   false: disables auto-renewal.
+     *
+     * Default value: true.
+     * @example false
+     *
      * @var string
      */
     public $autoRenew;
 
     /**
+     * @description The auto-renewal period of the subscription compute nodes. The parameter takes effect when AutoRenew is set to true.
+     *
+     *   If PeriodUnit is set to Week, the valid values of the AutoRenewPeriod parameter are 1, 2, and 3.
+     *   If PeriodUnit is set to Month, the valid values of the AutoRenewPeriod parameter are 1, 2, 3, 6, and 12.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $autoRenewPeriod;
 
     /**
-     * @description The list of scripts downloaded after the cluster was created.
+     * @description The image of the cluster.
      *
      * @example CentOS_7.2_64
      *
@@ -57,7 +77,7 @@ class clusterInfo extends Model
     public $baseOsTag;
 
     /**
-     * @description The number of proxy nodes.
+     * @description The version of the E-HPC client.
      *
      * @example 1.0.1
      *
@@ -66,22 +86,38 @@ class clusterInfo extends Model
     public $clientVersion;
 
     /**
+     * @description The version of the E-HPC cluster.
+     *
+     * @example 1.0
+     *
      * @var string
      */
     public $clusterVersion;
 
     /**
+     * @description The maximum hourly price of the compute nodes. A maximum of three decimal places can be used in the value of the parameter. The parameter is valid only when the ComputeSpotStrategy parameter is set to SpotWithPriceLimit.
+     *
+     * @example 0.56
+     *
      * @var string
      */
     public $computeSpotPriceLimit;
 
     /**
+     * @description The bidding method of the compute node. Valid values:
+     *
+     *   NoSpot: The instance is created as a pay-as-you-go instance.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $computeSpotStrategy;
 
     /**
-     * @description The ID of the Elastic Compute Service (ECS) instance.
+     * @description The time at which the instance is created.
      *
      * @example 2020-12-24T03:18:23.000Z
      *
@@ -90,7 +126,12 @@ class clusterInfo extends Model
     public $createTime;
 
     /**
-     * @description The list of management nodes.
+     * @description The mode in which the cluster is deployed. Valid values:
+     *
+     *   Standard: An account node, a scheduling node, a logon node, and multiple compute nodes are separately deployed.
+     *   Advanced: Two high availability (HA) account nodes, two HA scheduler nodes, one logon node, and multiple compute nodes are separately deployed.
+     *   Simple: A management node, a logon node, and multiple compute nodes are deployed. The management node consists of an account node and a scheduling node. The logon node and compute nodes are separately deployed.
+     *   Tiny: The account node, scheduling node, and logon node are deployed on one node. The compute node is separately deployed.
      *
      * @example Simple
      *
@@ -99,7 +140,7 @@ class clusterInfo extends Model
     public $deployMode;
 
     /**
-     * @description The tag of the software.
+     * @description The description of the cluster.
      *
      * @example cluster
      *
@@ -108,12 +149,20 @@ class clusterInfo extends Model
     public $description;
 
     /**
+     * @description The domain name of the on-premises E-HPC cluster.
+     *
+     * This parameter takes effect only when the AccoutType parameter is set to Idap.
+     * @example ldap
+     *
      * @var string
      */
     public $domain;
 
     /**
-     * @description The name of the image.
+     * @description The billing method of the nodes in the cluster. Valid values:
+     *
+     *   PostPaid: pay-as-you-go
+     *   PrePaid: subscription
      *
      * @example PostPaid
      *
@@ -122,13 +171,16 @@ class clusterInfo extends Model
     public $ecsChargeType;
 
     /**
+     * @description The list of ECS instance specifications and quantity.
+     *
      * @var ecsInfo
      */
     public $ecsInfo;
 
     /**
-     * @description The version of the software.
+     * @description Specifies whether to enable the high availability feature.
      *
+     * >  If high availability is enabled, each management role in the cluster uses both primary and secondary instances.
      * @example false
      *
      * @var bool
@@ -136,7 +188,7 @@ class clusterInfo extends Model
     public $haEnable;
 
     /**
-     * @description The instance type of the proxy node.
+     * @description The instance ID.
      *
      * @example i-bp15de54eet1c43f****
      *
@@ -145,7 +197,7 @@ class clusterInfo extends Model
     public $id;
 
     /**
-     * @description The runtime parameter of the script.
+     * @description The image ID.
      *
      * @example centos_7_02_64_20G_alibase_20170818****
      *
@@ -154,7 +206,7 @@ class clusterInfo extends Model
     public $imageId;
 
     /**
-     * @description The instance type of the logon nodes.
+     * @description The image name.
      *
      * @example test_for_Image
      *
@@ -163,7 +215,12 @@ class clusterInfo extends Model
     public $imageName;
 
     /**
-     * @description The instance type of the management nodes.
+     * @description The image type. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
      *
      * @example system
      *
@@ -172,12 +229,14 @@ class clusterInfo extends Model
     public $imageOwnerAlias;
 
     /**
+     * @description The image information of the operating systems.
+     *
      * @var initialImage
      */
     public $initialImage;
 
     /**
-     * @description The ID of the vSwitch. E-HPC can be deployed only in VPCs.
+     * @description The name of the AccessKey pair.
      *
      * @example test
      *
@@ -186,9 +245,11 @@ class clusterInfo extends Model
     public $keyPairName;
 
     /**
-     * @description The list of proxy nodes on the cloud.
+     * @description The location where the cluster is deployed. Valid values:
      *
-     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
+     *   OnPremise: The node is deployed on a hybrid cloud.
+     *   PublicCloud: The cluster is deployed on a public cloud.
+     *
      * @example PublicCloud
      *
      * @var string
@@ -196,7 +257,7 @@ class clusterInfo extends Model
     public $location;
 
     /**
-     * @description The URL that was used to download the script.
+     * @description The name of the cluster.
      *
      * @example cluster
      *
@@ -205,22 +266,31 @@ class clusterInfo extends Model
     public $name;
 
     /**
+     * @description The information of the on-premises node in the cluster.
+     *
      * @var nodes
      */
     public $nodes;
 
     /**
+     * @description The list of on-premises management nodes.
+     *
+     * This parameter is returned only when the cluster is deployed across hybrid environments and the hybrid-cloud proxy mode is enabled for the cluster.
      * @var onPremiseInfo
      */
     public $onPremiseInfo;
 
     /**
+     * @description The parameter that is used to connect to the OpenLDAP server.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $openldapPar;
 
     /**
-     * @description The number of management nodes.
+     * @description The operating system tag of the image.
      *
      * @example CentOS_7.2_64
      *
@@ -229,37 +299,80 @@ class clusterInfo extends Model
     public $osTag;
 
     /**
+     * @description The duration of the subscription. The unit of the duration is specified by the `PeriodUnit` parameter.
+     *
+     *   If you set PriceUnit to Year, the valid values of the Period parameter are 1, 2, and 3.
+     *   If you set PriceUnit to Month, the valid values of the Period parameter are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
+     *   If you set PriceUnit to Hour, the valid value of the Period parameter is 1.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The unit of the subscription duration. Valid value:
+     *
+     *   Year
+     *   Month
+     *   Hour
+     *
+     * Default value: Month.
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The mode configurations of the plug-in. This parameter takes effect only when the SchedulerType parameter is set to custom.
+     *
+     * The value must be a JSON string. The parameter contains the following parameters: pluginMod, pluginLocalPath, and pluginOssPath.
+     *
+     *   pluginMod: the mode of the plug-in. The following modes are supported:
+     *
+     *   oss: The plug-in is downloaded and decompressed from OSS to a local path that is specified by the pluginLocalPath parameter.
+     *   image: By default, the plug-in is stored in a pre-defined local path that is specified by the pluginLocalPath parameter.
+     *
+     *   pluginLocalPath: the local path where the plug-in is stored. We recommend that you select a shared directory in the oss mode and a non-shared directory in the image mode.
+     *
+     *   pluginOssPath: the remote path where the plug-in is stored in OSS. This parameter takes effect only if you set the pluginMod parameter to oss.
+     *
+     * @example {\"pluginMod\":\"image\",\"pluginLocalPath\":\"/opt/plugin\"}
+     *
      * @var string
      */
     public $plugin;
 
     /**
+     * @description The list of post-installation scripts
+     *
      * @var postInstallScripts
      */
     public $postInstallScripts;
 
     /**
+     * @description The node type details of the instance RAM role.
+     *
+     * @example ["manager", "compute"]
+     *
      * @var string
      */
     public $ramNodeTypes;
 
     /**
+     * @description The name of the instance Resource Access Management (RAM) role.
+     *
+     * @example AliyunEHPCFullAccess
+     *
      * @var string
      */
     public $ramRoleName;
 
     /**
-     * @description The number of compute nodes.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -268,7 +381,7 @@ class clusterInfo extends Model
     public $regionId;
 
     /**
-     * @description The instance type of the compute nodes.
+     * @description The remote directory on which the file system is mounted.
      *
      * @example NasMountpoint:/RemoteDirectory
      *
@@ -277,15 +390,16 @@ class clusterInfo extends Model
     public $remoteDirectory;
 
     /**
+     * @description The resource group ID.
+     *
+     * @example rg-aek23szz5i2****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description The location where the cluster is deployed. Valid values:
-     *
-     *   OnPremise: The cluster is deployed on a hybrid cloud.
-     *   PublicCloud: The node is deployed on a public cloud.
+     * @description The ID of the Super Computing Cluster (SCC) instance. If the cluster is not an SCC instance, a null string is returned.
      *
      * @example 00b648b****
      *
@@ -294,12 +408,24 @@ class clusterInfo extends Model
     public $sccClusterId;
 
     /**
+     * @description Specifies whether the scheduler is preinstalled for the image. Valid values:
+     *
+     *   true: The scheduler is preinstalled. When you create a node or scale out a cluster, you do not need to install the scheduler.
+     *   false: The scheduler is not preinstalled. When you create or add a cluster, you must install the scheduler.
+     *
+     * @example true
+     *
      * @var int
      */
     public $schedulerPreInstall;
 
     /**
-     * @description The list of ECS instance specifications and quantity.
+     * @description The type of the scheduler. Valid values:
+     *
+     *   pbs
+     *   slurm
+     *   opengridscheduler
+     *   deadline
      *
      * @example pbs
      *
@@ -308,7 +434,7 @@ class clusterInfo extends Model
     public $schedulerType;
 
     /**
-     * @description The type of the network shared storage. Valid value: NAS.
+     * @description The ID of the security group.
      *
      * @example sg-bp1asugr34gzn****
      *
@@ -317,7 +443,14 @@ class clusterInfo extends Model
     public $securityGroupId;
 
     /**
-     * @description The remote directory on which the file system is mounted.
+     * @description The status of the cluster. Valid values:
+     *
+     *   uninit: The cluster is not initialized.
+     *   creating: The cluster is being created.
+     *   init: The cluster is being initialized.
+     *   running: The cluster is running.
+     *   exception: The cluster encounters an exception.
+     *   releasing: The cluster is being released.
      *
      * @example creating
      *
@@ -326,7 +459,7 @@ class clusterInfo extends Model
     public $status;
 
     /**
-     * @description The list of logon nodes.
+     * @description The vSwitch ID. E-HPC can be deployed only in VPCs.
      *
      * @example vsw-bp1e47optm9g58zcu****
      *
@@ -335,7 +468,7 @@ class clusterInfo extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the software.
+     * @description The ID of the Apsara File Storage NAS file system. NAS file systems cannot be automatically created.
      *
      * @example 008b64****
      *
@@ -344,7 +477,7 @@ class clusterInfo extends Model
     public $volumeId;
 
     /**
-     * @description The list of compute nodes.
+     * @description The mount target of the NAS file system. The mount target is of the VPC type. Mount targets cannot be automatically created for NAS file systems.
      *
      * @example 008b648bcb-s****.cn-hangzhou.nas.aliyuncs.com
      *
@@ -353,7 +486,10 @@ class clusterInfo extends Model
     public $volumeMountpoint;
 
     /**
-     * @description The array of the software in the cluster. The array contains the name and version of the software.
+     * @description The type of the protocol that is used by the file system. Valid values:
+     *
+     *   nfs
+     *   smb
      *
      * @example nfs
      *
@@ -362,7 +498,7 @@ class clusterInfo extends Model
     public $volumeProtocol;
 
     /**
-     * @description The number of logon nodes.
+     * @description The type of the network shared storage. Valid value: NAS.
      *
      * @example NAS
      *
@@ -371,7 +507,7 @@ class clusterInfo extends Model
     public $volumeType;
 
     /**
-     * @description The region ID of the security group.
+     * @description The VPC ID of the node.
      *
      * @example vpc-bp1pxkcvmmz53ki89****
      *
@@ -380,16 +516,28 @@ class clusterInfo extends Model
     public $vpcId;
 
     /**
+     * @description The parameter that is used to connect to the Windows AD server.
+     *
+     * @example {	"AdUser": "Administrator",	"AdUserPasswd": "xxxxxx",	"AdDc": "ad-hybrid001.ehpcad.com",	"AdIp": "192.168.XX.XX"}
+     *
      * @var string
      */
     public $winAdPar;
 
     /**
+     * @description Specifies whether to not install the agent.
+     *
+     * @example false
+     *
      * @var int
      */
     public $withoutAgent;
 
     /**
+     * @description The zone ID.
+     *
+     * @example cn-hangzhou-k
+     *
      * @var string
      */
     public $zoneId;

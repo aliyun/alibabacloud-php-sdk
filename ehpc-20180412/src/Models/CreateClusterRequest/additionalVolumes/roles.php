@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class roles extends Model
 {
     /**
-     * @description The type of the additional shared storage. Only NAS file systems are supported.
+     * @description The type of the nodes to which the NAS file system is attached.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N in Roles.N.Name: 0 to 8.
      * @example ["Compute"]
      *
      * @var string

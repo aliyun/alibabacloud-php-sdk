@@ -12,11 +12,11 @@ class dataDisks extends Model
      * @description The type of the data disk. Valid values:
      *
      *   cloud_efficiency: ultra disk
-     *   cloud_ssd: SSD
+     *   cloud_ssd: standard SSD
      *   cloud_essd: ESSD
      *   cloud: basic disk
      *
-     * Valid values of N: 0 to 4
+     * Valid values of N: 0 to 4.
      * @example cloud_efficiency
      *
      * @var string
@@ -29,7 +29,7 @@ class dataDisks extends Model
      *   true
      *   false
      *
-     * Valid values of N: 0 to 4
+     * Valid values of N: 0 to 4.
      * @example true
      *
      * @var bool
@@ -39,10 +39,10 @@ class dataDisks extends Model
     /**
      * @description Specifies whether to encrypt the data disk. Valid values:
      *
-     *   true
-     *   false
+     *   true: encrypts the data disk.
+     *   false: does not encrypt the data disk.
      *
-     * Valid values of N: 0 to 4
+     * Valid values of N: 0 to 4.
      * @example false
      *
      * @var bool
@@ -50,14 +50,14 @@ class dataDisks extends Model
     public $encrypted;
 
     /**
-     * @description The performance level of the ESSD used as the data disk. This parameter takes effect only when the Commodities.N.DataDisks.N.category parameter is set to cloud_essd. Default value: PL1. Valid values:
+     * @description The performance level of the ESSD used as the data disk. This parameter takes effect only when the Commodities.N.DataDisks.N.category parameter is set to cloud_essd. Valid values:
      *
      *   PL0: A single ESSD can deliver up to 10,000 random read/write IOPS.
-     *   PL1: A single ESSD can deliver up to 50,000 random read/write IOPS.
+     *   PL1: A single ESSD can deliver up to 50,000 IOPS of random read/write.
      *   PL2: A single ESSD can deliver up to 100,000 random read/write IOPS.
      *   PL3: A single ESSD can deliver up to 1,000,000 random read/write IOPS.
      *
-     * Valid values of N: 0 to 4
+     * Valid values of N: 0 to 4.
      * @example PL1
      *
      * @var string
@@ -67,7 +67,7 @@ class dataDisks extends Model
     /**
      * @description The size of the data disk. Unit: GB.
      *
-     * Valid values of N: 0 to 4
+     * Valid values of N: 0 to 4.
      * @example 40
      *
      * @var int

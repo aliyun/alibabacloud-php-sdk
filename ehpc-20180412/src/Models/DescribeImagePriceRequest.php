@@ -11,7 +11,7 @@ class DescribeImagePriceRequest extends Model
     /**
      * @description The number of images that you want to purchase. Valid values: 1 to 1000.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 2
      *
      * @var int
@@ -19,7 +19,7 @@ class DescribeImagePriceRequest extends Model
     public $amount;
 
     /**
-     * @description The ID of the image.
+     * @description The ID of an image.
      *
      * @example m-bp198jigq7l1ga11****
      *
@@ -37,13 +37,13 @@ class DescribeImagePriceRequest extends Model
     public $orderType;
 
     /**
-     * @description The subscription duration. Valid values:
+     * @description The subscription duration of the read-only instance. Valid values:
      *
      *   If PriceUnit is set to Day, the valid values of the Period parameter are 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, and 30.
      *   If PriceUnit is set to Month, the valid values of the Period parameter are 1, 2, 3, 4, 5, 6, 7, 8, and 9.
      *   If PriceUnit is set to Year, the valid values of the Period parameter are 1, 2, and 3.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -57,7 +57,7 @@ class DescribeImagePriceRequest extends Model
      *   Month
      *   Year
      *
-     * Default value: Day
+     * Default value: Day.
      * @example Day
      *
      * @var string

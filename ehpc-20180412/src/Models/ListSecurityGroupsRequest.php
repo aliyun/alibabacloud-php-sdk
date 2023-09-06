@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityGroupsRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-FYUr32****
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The key of the tag. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`. It must not start with `acs:` or `aliyun`.
+     * @description The region ID of the resource.
      *
      * @example cn-hangzhou
      *
@@ -19,14 +19,14 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The resource IDs. You can specify up to 50 resource IDs.
      *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description The value of the tag. The tag key cannot be an empty string. It can be up to 128 characters in length and cannot contain `http://` or `https://`. It must not start with `acs:` or `aliyun`.
+     * @description The resource type. Set the value to cluster, which indicates E-HPC clusters.
      *
      * @example cluster
      *
@@ -35,6 +35,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The resource tags. You can specify up to 20 tags.
+     *
      * @var tag[]
      */
     public $tag;

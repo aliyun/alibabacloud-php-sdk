@@ -15,16 +15,22 @@ use AlibabaCloud\Tea\Model;
 class initContainers extends Model
 {
     /**
+     * @description The startup parameters.
+     *
      * @var string[]
      */
     public $args;
 
     /**
+     * @description The startup command.
+     *
      * @var string[]
      */
     public $command;
 
     /**
+     * @description The number of vCPUs.
+     *
      * @example 1.0
      *
      * @var int
@@ -32,16 +38,22 @@ class initContainers extends Model
     public $cpu;
 
     /**
+     * @description The current status of the container.
+     *
      * @var currentState
      */
     public $currentState;
 
     /**
+     * @description The environment variables.
+     *
      * @var environmentVars[]
      */
     public $environmentVars;
 
     /**
+     * @description The number of GPUs.
+     *
      * @example 1
      *
      * @var int
@@ -49,6 +61,8 @@ class initContainers extends Model
     public $gpu;
 
     /**
+     * @description The image of the container.
+     *
      * @example nginx
      *
      * @var string
@@ -56,6 +70,8 @@ class initContainers extends Model
     public $image;
 
     /**
+     * @description The policy for image pulling.
+     *
      * @example Always
      *
      * @var string
@@ -63,6 +79,8 @@ class initContainers extends Model
     public $imagePullPolicy;
 
     /**
+     * @description The size of memory that is allocated to the init container. Unit: GiB.
+     *
      * @example 2.0
      *
      * @var int
@@ -70,6 +88,8 @@ class initContainers extends Model
     public $memory;
 
     /**
+     * @description The container name.
+     *
      * @example Init-xxx
      *
      * @var string
@@ -77,16 +97,22 @@ class initContainers extends Model
     public $name;
 
     /**
+     * @description The exposed ports and protocols of the container.
+     *
      * @var ports[]
      */
     public $ports;
 
     /**
+     * @description The previous status of the container.
+     *
      * @var previousState
      */
     public $previousState;
 
     /**
+     * @description Indicates whether the container passed the readiness probe.
+     *
      * @example true
      *
      * @var bool
@@ -94,6 +120,8 @@ class initContainers extends Model
     public $ready;
 
     /**
+     * @description The number of times that the instance worker restarted.
+     *
      * @example 5
      *
      * @var int
@@ -101,16 +129,22 @@ class initContainers extends Model
     public $restartCount;
 
     /**
+     * @description The security context of the container.
+     *
      * @var securityContext
      */
     public $securityContext;
 
     /**
+     * @description The information about the volumes that are mounted to the init container.
+     *
      * @var volumeMounts[]
      */
     public $volumeMounts;
 
     /**
+     * @description The working directory.
+     *
      * @example /usr/test
      *
      * @var string

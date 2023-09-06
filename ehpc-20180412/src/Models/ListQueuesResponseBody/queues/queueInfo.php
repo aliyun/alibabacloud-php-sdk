@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class queueInfo extends Model
 {
     /**
-     * @description The instance type of the compute nodes.
+     * @description The instance type of compute node.
      *
      * @var computeInstanceType
      */
@@ -23,10 +23,10 @@ class queueInfo extends Model
     public $deploymentSetId;
 
     /**
-     * @description Indicates whether the queue enabled auto scale-out. Valid values:
+     * @description Indicates whether the queue enabled the auto scale-out. Valid values:
      *
-     *   true
-     *   false
+     *   true: The queue enabled auto scale-out.
+     *   false: The queue disabled auto scale-out.
      *
      * @example false
      *
@@ -35,7 +35,7 @@ class queueInfo extends Model
     public $enableAutoGrow;
 
     /**
-     * @description The orefix of the host name.
+     * @description The prefix of the hostname.
      *
      * @example compute
      *
@@ -60,6 +60,11 @@ class queueInfo extends Model
      * @var string
      */
     public $imageId;
+
+    /**
+     * @var string
+     */
+    public $networkInterfaceTrafficMode;
 
     /**
      * @description The name of the queue.
@@ -89,8 +94,8 @@ class queueInfo extends Model
     /**
      * @description The preemption policy of the compute nodes. Valid values:
      *
-     *   NoSpot: The instance is a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible instance with a user-defined maximum hourly price.
+     *   NoSpot: The instances of the compute node are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
      *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
@@ -100,7 +105,7 @@ class queueInfo extends Model
     public $spotStrategy;
 
     /**
-     * @description The type of the queue. Valid values:
+     * @description The type of queue. Valid values:
      *
      *   Execution: Queues in which jobs can be executed.
      *   Router: Queues in which jobs cannot be executed but are forwarded to the bounded Execution queue for processing.
@@ -110,18 +115,25 @@ class queueInfo extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var bool
+     */
+    public $useESS;
     protected $_name = [
-        'computeInstanceType' => 'ComputeInstanceType',
-        'deploymentSetId'     => 'DeploymentSetId',
-        'enableAutoGrow'      => 'EnableAutoGrow',
-        'hostNamePrefix'      => 'HostNamePrefix',
-        'hostNameSuffix'      => 'HostNameSuffix',
-        'imageId'             => 'ImageId',
-        'queueName'           => 'QueueName',
-        'resourceGroupId'     => 'ResourceGroupId',
-        'spotInstanceTypes'   => 'SpotInstanceTypes',
-        'spotStrategy'        => 'SpotStrategy',
-        'type'                => 'Type',
+        'computeInstanceType'         => 'ComputeInstanceType',
+        'deploymentSetId'             => 'DeploymentSetId',
+        'enableAutoGrow'              => 'EnableAutoGrow',
+        'hostNamePrefix'              => 'HostNamePrefix',
+        'hostNameSuffix'              => 'HostNameSuffix',
+        'imageId'                     => 'ImageId',
+        'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
+        'queueName'                   => 'QueueName',
+        'resourceGroupId'             => 'ResourceGroupId',
+        'spotInstanceTypes'           => 'SpotInstanceTypes',
+        'spotStrategy'                => 'SpotStrategy',
+        'type'                        => 'Type',
+        'useESS'                      => 'UseESS',
     ];
 
     public function validate()
@@ -149,6 +161,9 @@ class queueInfo extends Model
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
         }
+        if (null !== $this->networkInterfaceTrafficMode) {
+            $res['NetworkInterfaceTrafficMode'] = $this->networkInterfaceTrafficMode;
+        }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
         }
@@ -163,6 +178,9 @@ class queueInfo extends Model
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->useESS) {
+            $res['UseESS'] = $this->useESS;
         }
 
         return $res;
@@ -194,6 +212,9 @@ class queueInfo extends Model
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];
         }
+        if (isset($map['NetworkInterfaceTrafficMode'])) {
+            $model->networkInterfaceTrafficMode = $map['NetworkInterfaceTrafficMode'];
+        }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
         }
@@ -208,6 +229,9 @@ class queueInfo extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UseESS'])) {
+            $model->useESS = $map['UseESS'];
         }
 
         return $model;

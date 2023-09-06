@@ -30,7 +30,7 @@ class userInfo extends Model
     public $group;
 
     /**
-     * @description The username.
+     * @description The username of the account.
      *
      * @example user1
      *

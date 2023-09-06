@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
-     * @description The time when the node was added to the cluster.
+     * @description The time when the node is added to the cluster.
      *
      * @example 2020-06-09T06:22:02.000Z
      *
@@ -23,8 +23,8 @@ class nodeInfo extends Model
     /**
      * @description The mode in which the compute nodes are added. Valid values:
      *
-     *   manual: The compute nodes are manually added.
-     *   autoscale: The compute nodes are automatically added.
+     *   manual: The node is manually added.
+     *   autoscale: The node is automatically added.
      *
      * @example manual
      *
@@ -33,7 +33,7 @@ class nodeInfo extends Model
     public $createMode;
 
     /**
-     * @description Indicates whether the node was created by using E-HPC.
+     * @description Indicates whether the node is created by using E-HPC.
      *
      *   true: The node is created by using E-HPC.
      *   false: The node is not created by using E-HPC.
@@ -63,7 +63,7 @@ class nodeInfo extends Model
     public $expiredTime;
 
     /**
-     * @description The name of the node.
+     * @description The name of the task node.
      *
      * @example test-HostName
      *
@@ -81,7 +81,7 @@ class nodeInfo extends Model
     public $htEnabled;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example i-bp15707mys2rsy0j****
      *
@@ -90,7 +90,7 @@ class nodeInfo extends Model
     public $id;
 
     /**
-     * @description The ID of the image.
+     * @description The ID of the custom image.
      *
      * @example centos_7_06_64_20G_alibase_20190711.vhd
      *
@@ -131,7 +131,7 @@ class nodeInfo extends Model
     public $ipAddress;
 
     /**
-     * @description The location where the node was deployed. Valid values:
+     * @description The location where the node is deployed. Valid values:
      *
      *   OnPremise: The node is deployed on your data center.
      *   PublicCloud: The node is deployed on the public cloud.
@@ -143,12 +143,12 @@ class nodeInfo extends Model
     public $location;
 
     /**
-     * @description The reason why the node was locked. Valid values:
+     * @description The reason why the node is locked. Valid values:
      *
-     *   financial: The node is locked due to overdue payments.
+     *   financial: The instance is locked due to overdue payments.
      *   security: The node is locked for security reasons.
-     *   recycling: The preemptible node is locked and pending release.
-     *   dedicatedhostfinancial: The node is locked due to the overdue payments of the dedicated host.
+     *   recycling: The preemptible instance is locked and pending release.
+     *   dedicatedhostfinancial: The ECS instance is locked due to overdue payments of the dedicated host.
      *
      * By default, an empty string is returned.
      * @example financial
@@ -158,7 +158,7 @@ class nodeInfo extends Model
     public $lockReason;
 
     /**
-     * @description The public IP address of the node.
+     * @description The public IP address of the server.
      *
      * @example 172.16.**.**
      *
@@ -167,7 +167,7 @@ class nodeInfo extends Model
     public $publicIpAddress;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -212,7 +212,7 @@ class nodeInfo extends Model
      * @description The status of the node. Valid values:
      *
      *   uninit: The node is being installed.
-     *   exception: An exception has occurred on the node.
+     *   exception: An exception occurred on the node.
      *   running: The node is running.
      *   initing: The node is being initialized.
      *   releasing: The node is being released.
@@ -240,7 +240,7 @@ class nodeInfo extends Model
     public $usedResources;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1e47optm9g58zcu****
      *
@@ -249,7 +249,7 @@ class nodeInfo extends Model
     public $vSwitchId;
 
     /**
-     * @description The version of the client.
+     * @description The version of the client that is used for the cluster.
      *
      * @example 1.0.78
      *
@@ -258,7 +258,7 @@ class nodeInfo extends Model
     public $version;
 
     /**
-     * @description The ID of the virtual private cloud (VPC).
+     * @description The VPC ID of the node.
      *
      * @example vpc-bp1gnu8br4ay7beb2w****
      *
@@ -267,7 +267,7 @@ class nodeInfo extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-b
      *

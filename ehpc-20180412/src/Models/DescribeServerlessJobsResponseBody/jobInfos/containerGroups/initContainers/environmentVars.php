@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class environmentVars extends Model
 {
     /**
+     * @description The key of the environment variable.
+     *
      * @example PATH
      *
      * @var string
@@ -17,6 +19,8 @@ class environmentVars extends Model
     public $key;
 
     /**
+     * @description The value of the environment variable.
+     *
      * @example /usr/local/bin
      *
      * @var string
@@ -24,6 +28,8 @@ class environmentVars extends Model
     public $value;
 
     /**
+     * @description The source of the environment variable value. This parameter can be used only when the variable value is not specified.
+     *
      * @var valueFrom
      */
     public $valueFrom;

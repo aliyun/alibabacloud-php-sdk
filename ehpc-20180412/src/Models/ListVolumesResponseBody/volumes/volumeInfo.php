@@ -17,7 +17,7 @@ class volumeInfo extends Model
     public $additionalVolumes;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -26,7 +26,7 @@ class volumeInfo extends Model
     public $clusterId;
 
     /**
-     * @description The name of the cluster.
+     * @description The instance name.
      *
      * @example cluster1
      *
@@ -35,7 +35,7 @@ class volumeInfo extends Model
     public $clusterName;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class initialImage extends Model
 {
     /**
+     * @description The image ID.
+     *
+     * @example centos_7_6_x64_20G_alibase_20211130.vhd
+     *
      * @var string
      */
     public $imageId;
 
     /**
+     * @description The type of the image. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
+     * @example system
+     *
      * @var string
      */
     public $imageOwnerAlias;
 
     /**
+     * @description An array of OS images that are supported by E-HPC.
+     *
+     * @example CentOS_7.6_64
+     *
      * @var string
      */
     public $osTag;

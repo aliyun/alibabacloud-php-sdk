@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class options extends Model
 {
     /**
+     * @description The variable name of the option.
+     *
      * @example name
      *
      * @var string
@@ -16,6 +18,8 @@ class options extends Model
     public $name;
 
     /**
+     * @description The variable value of the option.
+     *
      * @example value
      *
      * @var string

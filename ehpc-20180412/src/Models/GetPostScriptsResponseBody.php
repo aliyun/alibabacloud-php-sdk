@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetPostScriptsResponseBody extends Model
 {
     /**
+     * @description The post-installation scripts.
+     *
      * @var postInstallScripts[]
      */
     public $postInstallScripts;
 
     /**
+     * @description The request ID.
+     *
      * @example B745C159-3155-4B94-95D0-4B73D4D2****
      *
      * @var string

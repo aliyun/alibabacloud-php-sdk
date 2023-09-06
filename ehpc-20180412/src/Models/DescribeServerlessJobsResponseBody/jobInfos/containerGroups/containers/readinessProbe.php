@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class readinessProbe extends Model
 {
     /**
+     * @description The commands that are run in the container when you use the command line interface (CLI) to perform health checks.
+     *
      * @var string[]
      */
     public $execs;
 
     /**
+     * @description The minimum number of consecutive failures that must occur for the check to be considered failure. Default value: 3.
+     *
      * @example 3
      *
      * @var int
@@ -23,11 +27,15 @@ class readinessProbe extends Model
     public $failureThreshold;
 
     /**
+     * @description The HTTP GET method that is used to check the container.
+     *
      * @var httpGet
      */
     public $httpGet;
 
     /**
+     * @description The number of seconds between the time when the startup of the container ends and the time when the check starts.
+     *
      * @example 10
      *
      * @var int
@@ -35,6 +43,8 @@ class readinessProbe extends Model
     public $initialDelaySeconds;
 
     /**
+     * @description The interval at which the check is performed. Unit: seconds. Default value: 10. Minimum value: 1.
+     *
      * @example 5
      *
      * @var int
@@ -42,6 +52,8 @@ class readinessProbe extends Model
     public $periodSeconds;
 
     /**
+     * @description The minimum number of consecutive successes that must occur for the check to be considered successful. Default value: 1. Set the value to 1.
+     *
      * @example 1
      *
      * @var int
@@ -49,11 +61,15 @@ class readinessProbe extends Model
     public $successThreshold;
 
     /**
+     * @description The TCP socket method that is used to check the container.
+     *
      * @var tcpSocket
      */
     public $tcpSocket;
 
     /**
+     * @description The timeout period of the check. Default value: 1. Minimum value: 1.
+     *
      * @example 1
      *
      * @var int

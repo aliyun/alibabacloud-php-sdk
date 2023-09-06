@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ListServerlessJobsRequest extends Model
 {
     /**
+     * @description The ID of the E-HPC cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,16 +19,22 @@ class ListServerlessJobsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The list of serverless job IDs or subtask IDs (array jobs).
+     *
      * @var string[]
      */
     public $jobIds;
 
     /**
+     * @description The names of the serverless jobs.
+     *
      * @var string[]
      */
     public $jobNames;
 
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +42,8 @@ class ListServerlessJobsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Maximum value: 100. Default value: 20.
+     *
      * @example 20
      *
      * @var int
@@ -40,6 +51,8 @@ class ListServerlessJobsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID. You can call the [ListRegions](~~188593~~) operation to query the list of regions where E-HPC is supported.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -47,16 +60,40 @@ class ListServerlessJobsRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether to sort the serverless jobs by the job start time. Valid value:
+     *
+     *   Asc: ascending order
+     *   Desc: descending order
+     *
+     * @example Asc
+     *
      * @var string
      */
     public $startOrder;
 
     /**
+     * @description The status of the serverless job. Valid value:
+     *
+     *   All
+     *   Pending
+     *   Running
+     *   Succeeded
+     *   Canceled
+     *   Failed
+     *
+     * Default value: All.
+     * @example Running
+     *
      * @var string
      */
     public $state;
 
     /**
+     * @description Specifies whether to sort the serverless jobs by the job submission time. Valid value:
+     *
+     *   Asc: ascending order
+     *   Desc: descending order
+     *
      * @example asc
      *
      * @var string
@@ -64,11 +101,21 @@ class ListServerlessJobsRequest extends Model
     public $submitOrder;
 
     /**
+     * @description The latest time at which the job is submitted.
+     *
+     * >  You can use this parameter to query the job list based on the job submission time.
+     * @example 1659521430
+     *
      * @var string
      */
     public $submitTimeEnd;
 
     /**
+     * @description The earliest time at which the job is submitted.
+     *
+     * >  You can use this parameter to query the job list based on the job submission time.
+     * @example 1647427667
+     *
      * @var string
      */
     public $submitTimeStart;

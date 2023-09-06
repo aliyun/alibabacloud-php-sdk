@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetPostScriptsRequest extends Model
 {
     /**
-     * @description The URL that is used to download the Nth post-installation script. Valid values of N: 1 to 16.
+     * @description The cluster ID.
      *
+     * You can call the [ListClusters](~~87116~~) operation to obtain the cluster ID.
      * @example ehpc-sh-EnjshUxn
      *
      * @var string
@@ -18,8 +19,9 @@ class GetPostScriptsRequest extends Model
     public $clusterId;
 
     /**
-     * @description The parameter that is used to run the Nth post-installation script. Valid values of N: 1 to 16.
+     * @description The ID of the region where the cluster resides.
      *
+     * You can call the [ListRegions](~~188593~~) operation to query the latest region list.
      * @example cn-shanghai
      *
      * @var string

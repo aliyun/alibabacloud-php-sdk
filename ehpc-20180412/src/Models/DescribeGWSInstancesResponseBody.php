@@ -17,7 +17,7 @@ class DescribeGWSInstancesResponseBody extends Model
     public $instances;
 
     /**
-     * @description The page number of the current page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +35,7 @@ class DescribeGWSInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2777461A-E45E-42F8-8E67-0EBF132E93E0
      *
@@ -44,7 +44,7 @@ class DescribeGWSInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of the information.
      *
      * @example 1
      *

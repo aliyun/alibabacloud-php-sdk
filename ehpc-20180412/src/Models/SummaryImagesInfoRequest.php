@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SummaryImagesInfoRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-ibug699XXX
      *
@@ -18,7 +18,7 @@ class SummaryImagesInfoRequest extends Model
     public $clusterId;
 
     /**
-     * @description The detailed information about the image.
+     * @description The type of the image. Set the value to singularity.
      *
      * @example singularity
      *
@@ -27,6 +27,8 @@ class SummaryImagesInfoRequest extends Model
     public $containerType;
 
     /**
+     * @description The name of the image. You can call the [SummaryImages](~~440783~~) operation to query the names of all images in a cluster.
+     *
      * @example test.sif
      *
      * @var string

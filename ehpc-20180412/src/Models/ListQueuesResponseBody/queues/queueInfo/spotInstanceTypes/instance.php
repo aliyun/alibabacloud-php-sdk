@@ -18,7 +18,7 @@ class instance extends Model
     public $instanceType;
 
     /**
-     * @description The maximum hourly price of the preemptible instance. The value can be accurate to three decimal places. The parameter takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+     * @description The maximum hourly price of the preemptible instance. The value can be accurate to three decimal places. The parameter only takes effect when SpotStrategy is set to SpotWithPriceLimit.
      *
      * @example 0.062
      *

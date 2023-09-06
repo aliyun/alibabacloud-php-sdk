@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class tcpSocket extends Model
 {
     /**
+     * @description The name of the host.
+     *
      * @example 1.2.3.4
      *
      * @var string
@@ -16,6 +18,8 @@ class tcpSocket extends Model
     public $host;
 
     /**
+     * @description The port number.
+     *
      * @example 80
      *
      * @var int

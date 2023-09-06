@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageRequest extends Model
 {
     /**
-     * @description The ID of the cluster that you want to manage.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -27,7 +27,7 @@ class DescribeImageRequest extends Model
     public $containerType;
 
     /**
-     * @description The tag of the image. Default value: latest.
+     * @description The tags of the image. Default value: latest.
      *
      * @example latest
      *

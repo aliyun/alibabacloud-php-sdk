@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerlessJobsResponseBody extends Model
 {
     /**
+     * @description The list of detailed information about the serverless job.
+     *
      * @var jobInfos[]
      */
     public $jobInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeServerlessJobsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int

@@ -17,7 +17,7 @@ class DescribePriceResponseBody extends Model
     public $prices;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54FF9025-2C2F-42EB-870D-0DF5B0ACF24E
      *
@@ -28,7 +28,7 @@ class DescribePriceResponseBody extends Model
     /**
      * @description The total price.
      *
-     * Unit: USD
+     * Unit: USD.
      * @example 1258
      *
      * @var float

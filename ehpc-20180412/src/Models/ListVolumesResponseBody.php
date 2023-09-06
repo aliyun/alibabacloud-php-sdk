@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListVolumesResponseBody extends Model
 {
     /**
-     * @description The number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListVolumesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

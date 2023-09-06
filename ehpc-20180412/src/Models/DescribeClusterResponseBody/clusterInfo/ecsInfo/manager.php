@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class manager extends Model
 {
     /**
+     * @description The number of management nodes.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class manager extends Model
     public $count;
 
     /**
+     * @description The instance type of the management nodes.
+     *
      * @example ecs.n1.tiny
      *
      * @var string

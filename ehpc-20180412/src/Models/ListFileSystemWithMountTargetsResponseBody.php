@@ -17,7 +17,7 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     public $fileSystemList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries returned per page. Valid values: 1 to 50. Default value: 10.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class ListFileSystemWithMountTargetsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 25638B77-2F19-5DC5-B578-7790CE92052B
      *

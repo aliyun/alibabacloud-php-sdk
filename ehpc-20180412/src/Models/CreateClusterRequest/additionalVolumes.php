@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class additionalVolumes extends Model
 {
     /**
-     * @description The mount target of the additional file system.
+     * @description The queue of the nodes to which the NAS file system is attached.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N: 1 to 10.
      * @example high
      *
      * @var string
@@ -20,9 +20,9 @@ class additionalVolumes extends Model
     public $jobQueue;
 
     /**
-     * @description The URL that is used to download the script after the E-HPC cluster is created.
+     * @description The local directory on which the NAS file system is mounted.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 1 to 10.
      * @example /ff
      *
      * @var string
@@ -30,12 +30,9 @@ class additionalVolumes extends Model
     public $localDirectory;
 
     /**
-     * @description Specifies whether not to install the agent.
+     * @description The type of the E-HPC cluster. Set the value to PublicCloud.
      *
-     *   true: The agent is not installed.
-     *   false: The agent is installed.
-     *
-     * Default value: false
+     * Valid values of N: 1 to 10.
      * @example PublicCloud
      *
      * @var string
@@ -43,9 +40,9 @@ class additionalVolumes extends Model
     public $location;
 
     /**
-     * @description The type of the E-HPC cluster. Set the value to PublicCloud.
+     * @description The remote directory to which the NAS file system is mounted.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N: 1 to 10.
      * @example /test
      *
      * @var string
@@ -53,17 +50,16 @@ class additionalVolumes extends Model
     public $remoteDirectory;
 
     /**
-     * @description The remote directory on which the additional file system is mounted.
+     * @description The node information to which the NAS file system is attached.
      *
-     * Valid values of N: 1 to 10
      * @var roles[]
      */
     public $roles;
 
     /**
-     * @description The mount options of the additional file system.
+     * @description The ID of the NAS file system.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N: 1 to 10.
      * @example extreme-00b88****
      *
      * @var string
@@ -71,12 +67,9 @@ class additionalVolumes extends Model
     public $volumeId;
 
     /**
-     * @description The type of the protocol that is used by the additional file system. Valid values:
+     * @description The mount options of the NAS file system.
      *
-     *   NFS
-     *   SMB
-     *
-     * Default value: NFS
+     * You can specify 1 to 10 vCPUs.
      * @example -t nfs -o vers=4.0
      *
      * @var string
@@ -84,9 +77,9 @@ class additionalVolumes extends Model
     public $volumeMountOption;
 
     /**
-     * @description The local directory on which the additional file system is mounted.
+     * @description The mount target of the NAS file system.
      *
-     * Valid values of N: 1 to 10
+     * Valid values of N: 1 to 10.
      * @example 0088****-sihc.cn-hangzhou.extreme.nas.aliyuncs.com
      *
      * @var string
@@ -94,19 +87,12 @@ class additionalVolumes extends Model
     public $volumeMountpoint;
 
     /**
-     * @description The mode configurations of the plug-in. This parameter takes effect only when the SchedulerType parameter is set to custom.
+     * @description The type of the protocol that is used by the NAS file system. Valid value:
      *
-     * The value must be a JSON string. The parameter contains the following parameters: pluginMod, pluginLocalPath, and pluginOssPath.
+     *   NFS
+     *   SMB
      *
-     *   pluginMod: the mode of the plug-in. The following modes are supported:
-     *
-     *   oss: The plug-in is downloaded and decompressed from OSS to a local path. The local path is specified by the pluginLocalPath parameter.
-     *   image: By default, the plug-in is stored in a pre-defined local path. The local path is specified by the pluginLocalPath parameter.
-     *
-     *   pluginLocalPath: the local path where the plug-in is stored. We recommend that you select a shared directory in oss mode and a non-shared directory in image mode.
-     *
-     *   pluginOssPath: the remote path where the plug-in is stored in OSS. This parameter takes effect only when the pluginMod parameter is set to oss.
-     *
+     * Default value: NFS.
      * @example NFS
      *
      * @var string
@@ -114,9 +100,9 @@ class additionalVolumes extends Model
     public $volumeProtocol;
 
     /**
-     * @description The parameter that is used to run the script after the E-HPC cluster is created.
+     * @description The type of the additional shared storage. Only NAS file systems are supported.
      *
-     * Valid values of N: 0 to 16
+     * Valid values of N: 1 to 10.
      * @example nas
      *
      * @var string

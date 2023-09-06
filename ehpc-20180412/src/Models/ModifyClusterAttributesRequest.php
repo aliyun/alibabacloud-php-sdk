@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterAttributesRequest extends Model
 {
     /**
-     * @description The ID of the image.
+     * @description The ID of the cluster that you want to modify.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -19,6 +19,8 @@ class ModifyClusterAttributesRequest extends Model
     public $clusterId;
 
     /**
+     * @description The new cluster description.
+     *
      * @example test-description
      *
      * @var string
@@ -26,6 +28,8 @@ class ModifyClusterAttributesRequest extends Model
     public $description;
 
     /**
+     * @description The IDs of the images.
+     *
      * @example centos_7_06_64_20G_alibase_2019071****
      *
      * @var string
@@ -33,6 +37,13 @@ class ModifyClusterAttributesRequest extends Model
     public $imageId;
 
     /**
+     * @description The new image type of the cluster. Valid values:
+     *
+     *   system: public image
+     *   self: custom image
+     *   others: shared image
+     *   marketplace: Alibaba Cloud Marketplace image
+     *
      * @example self
      *
      * @var string
@@ -40,7 +51,7 @@ class ModifyClusterAttributesRequest extends Model
     public $imageOwnerAlias;
 
     /**
-     * @description The ID of the request.
+     * @description The new cluster name.
      *
      * @example cluster1
      *
@@ -49,14 +60,14 @@ class ModifyClusterAttributesRequest extends Model
     public $name;
 
     /**
-     * @description 授权实例配置时，要绑定RAM角色的节点类型。
+     * @description The type of the node to which you want to bind the RAM role.
      *
      * @var string[]
      */
     public $ramNodeTypes;
 
     /**
-     * @description 授权实例配置时，实例RAM角色的名称。
+     * @description The name of the instance RAM role.
      *
      * @example testRamRoleName
      *
@@ -65,6 +76,8 @@ class ModifyClusterAttributesRequest extends Model
     public $ramRoleName;
 
     /**
+     * @description The parameters that are used to connect to the Windows AD server.
+     *
      * @var winAdPar
      */
     public $winAdPar;

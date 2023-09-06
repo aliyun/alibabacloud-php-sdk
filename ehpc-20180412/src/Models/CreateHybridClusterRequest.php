@@ -68,7 +68,7 @@ class CreateHybridClusterRequest extends Model
     public $computeSpotStrategy;
 
     /**
-     * @description The description of the E-HPC cluster. The description must be 2 to 256 characters in length and cannot start with [http:// or https://](http://https://。).
+     * @description The description of the E-HPC cluster. The description must be 2 to 256 characters in length and cannot start with `http://` or` https://`.
      *
      * This parameter is empty by default.
      * @example TestDescription
@@ -313,10 +313,7 @@ class CreateHybridClusterRequest extends Model
     /**
      * @description You can select an existing security group by its ID.
      *
-     **
-     *
-     **If you specify this parameter, you cannot specify the **SecurityGroupName`  parameter. `
-     *
+     * > If you specify this parameter, you cannot specify the `SecurityGroupName`  parameter.
      * @example sg-bp13n61xsydodfyg****
      *
      * @var string

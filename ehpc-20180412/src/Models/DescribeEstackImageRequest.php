@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeEstackImageRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class DescribeEstackImageRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The number of entries per page.
      *
      * @example 10
      *

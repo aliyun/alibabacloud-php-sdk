@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoScaleConfigRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example ehpc-hz-FYUr32****
      *

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class volumeMount extends Model
 {
     /**
+     * @description 使用FlexVolume插件挂载数据卷时的驱动类型。取值范围如下：
+     *
+     * alicloud/oss：挂载OSS。
+     * @example alicloud/oss
+     *
      * @var string
      */
     public $flexVolumeDriver;
 
     /**
+     * @description FlexVolume对象选项列表。为KV形式，采用JSON传递。
+     *
+     * @example \"{"bucket":"hpctest","url": "oss-cn-hangzhou-internal.aliyuncs.com
+     * ","path":"/data","ramRole":"AliyunECSInstanceForEHPCRole"}\"
      * @var string
      */
     public $flexVolumeOptions;
 
     /**
+     * @description The directory to which the volume is mounted.
+     *
+     * > The data stored in this directory is overwritten by the data on the volume. Specify this parameter with caution.
      * @example /data
      *
      * @var string

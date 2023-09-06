@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class events extends Model
 {
     /**
+     * @description The number of the events.
+     *
      * @example 20
      *
      * @var int
@@ -16,6 +18,8 @@ class events extends Model
     public $count;
 
     /**
+     * @description The time when the event started.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class events extends Model
     public $firstTimestamp;
 
     /**
+     * @description The time when the event ended.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class events extends Model
     public $lastTimestamp;
 
     /**
+     * @description The message about the event.
+     *
      * @example Started container
      *
      * @var string
@@ -37,6 +45,8 @@ class events extends Model
     public $message;
 
     /**
+     * @description The name of the object to which the event belongs.
+     *
      * @example test-xxx
      *
      * @var string
@@ -44,6 +54,8 @@ class events extends Model
     public $name;
 
     /**
+     * @description The name of the event.
+     *
      * @example Created
      *
      * @var string
@@ -51,6 +63,11 @@ class events extends Model
     public $reason;
 
     /**
+     * @description The type of the event. Valid values:
+     *
+     *   Normal
+     *   Warning
+     *
      * @example Normal
      *
      * @var string

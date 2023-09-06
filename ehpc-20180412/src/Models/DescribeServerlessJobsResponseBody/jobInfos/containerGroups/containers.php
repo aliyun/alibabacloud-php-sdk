@@ -17,16 +17,22 @@ use AlibabaCloud\Tea\Model;
 class containers extends Model
 {
     /**
+     * @description The startup parameter of the container.
+     *
      * @var string[]
      */
     public $args;
 
     /**
+     * @description The startup command of the container.
+     *
      * @var string[]
      */
     public $commands;
 
     /**
+     * @description The number of vCPUs of the container.
+     *
      * @example 2.0
      *
      * @var float
@@ -34,16 +40,22 @@ class containers extends Model
     public $cpu;
 
     /**
+     * @description The current status of the container.
+     *
      * @var currentState
      */
     public $currentState;
 
     /**
+     * @description The environment variables.
+     *
      * @var environmentVars[]
      */
     public $environmentVars;
 
     /**
+     * @description The number of GPUs.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class containers extends Model
     public $gpu;
 
     /**
+     * @description The image of the container.
+     *
      * @example HPL
      *
      * @var string
@@ -58,6 +72,12 @@ class containers extends Model
     public $image;
 
     /**
+     * @description The policy for image pulling. Valid values:
+     *
+     *   Always: Each time instances are created, image pulling is performed.
+     *   IfNotPresent: On-premises images are preferentially used. If no on-premises images are available, image pulling is performed.
+     *   Never: On-premises images are always used. Image pulling is not performed.
+     *
      * @example Always
      *
      * @var string
@@ -65,11 +85,15 @@ class containers extends Model
     public $imagePullPolicy;
 
     /**
+     * @description The liveness probe of the container.
+     *
      * @var livenessProbe
      */
     public $livenessProbe;
 
     /**
+     * @description The memory size of the instance. Unit: GiB.
+     *
      * @example 4.0
      *
      * @var float
@@ -77,6 +101,8 @@ class containers extends Model
     public $memory;
 
     /**
+     * @description The container name.
+     *
      * @example HPL
      *
      * @var string
@@ -84,21 +110,29 @@ class containers extends Model
     public $name;
 
     /**
+     * @description The exposed ports and protocols of the container.
+     *
      * @var ports[]
      */
     public $ports;
 
     /**
+     * @description The previous status of the container.
+     *
      * @var previousState
      */
     public $previousState;
 
     /**
+     * @description The readiness probe that is used to check whether the container is ready to serve a request.
+     *
      * @var readinessProbe
      */
     public $readinessProbe;
 
     /**
+     * @description Indicates whether the container passed the readiness probe.
+     *
      * @example true
      *
      * @var bool
@@ -106,6 +140,8 @@ class containers extends Model
     public $ready;
 
     /**
+     * @description The number of times that the instance worker restarted.
+     *
      * @example 5
      *
      * @var int
@@ -113,11 +149,15 @@ class containers extends Model
     public $restartCount;
 
     /**
+     * @description The security context of the container.
+     *
      * @var securityContext
      */
     public $securityContext;
 
     /**
+     * @description Indicates whether the container allocates buffer resources to standard input streams when the container runs. If you do not specify this parameter, an EOF error may occur when standard input streams in the init container are read. Default value: false.
+     *
      * @example true
      *
      * @var bool
@@ -125,6 +165,8 @@ class containers extends Model
     public $stdin;
 
     /**
+     * @description Indicates whether the container runtime closes the stdin channel after the stdin channel has been opened by a single attach session. If stdin is true, the stdin stream remains open across multiple attach sessions. If StdinOnce is set to true, stdin is opened on container start, remains empty until the first client attaches to stdin, and then is open and receives data until the client disconnects. When the client disconnects, stdin is closed and remains closed until the container is restarted.
+     *
      * @example true
      *
      * @var bool
@@ -132,6 +174,8 @@ class containers extends Model
     public $stdinOnce;
 
     /**
+     * @description Indicates whether interaction is enabled. Default value: false. If the value of the Command parameter is /bin/bash, the value of this parameter must be set to true.
+     *
      * @example false
      *
      * @var bool
@@ -139,11 +183,15 @@ class containers extends Model
     public $tty;
 
     /**
+     * @description Information about the mounted volumes.
+     *
      * @var volumeMounts[]
      */
     public $volumeMounts;
 
     /**
+     * @description The working directory.
+     *
      * @example /usr/local/nginx
      *
      * @var string

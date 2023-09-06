@@ -18,7 +18,7 @@ class ListJobsWithFiltersRequest extends Model
     public $async;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -58,7 +58,7 @@ class ListJobsWithFiltersRequest extends Model
     public $executeOrder;
 
     /**
-     * @description The name of the job. Fuzzy match is supported.
+     * @description The name of the job. Fuzzy search is supported.
      *
      * @example job1
      *
@@ -73,7 +73,7 @@ class ListJobsWithFiltersRequest extends Model
      *   finished
      *   notfinish
      *
-     * Default value: all
+     * Default value: all.
      * @example finished
      *
      * @var string
@@ -81,14 +81,16 @@ class ListJobsWithFiltersRequest extends Model
     public $jobStatus;
 
     /**
+     * @description The information about the computing nodes that are used to run the job.
+     *
      * @var string[]
      */
     public $nodes;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number to return.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -96,9 +98,9 @@ class ListJobsWithFiltersRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: 50.
+     * @description The number of entries per page. Maximum value: 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -118,14 +120,15 @@ class ListJobsWithFiltersRequest extends Model
     public $pendOrder;
 
     /**
+     * @description The information about the queues in which the job is run.
+     *
      * @var string[]
      */
     public $queues;
 
     /**
-     * @description The ID of the region.
+     * @description The ID of the region. You can call the [ListRegions](~~188593~~) operation to query the list of regions where E-HPC is supported.
      *
-     * You can call the [ListRegions](~~188593~~) operation to query the list of regions where E-HPC is supported.
      * @example cn-hangzhou
      *
      * @var string
@@ -145,6 +148,8 @@ class ListJobsWithFiltersRequest extends Model
     public $submitOrder;
 
     /**
+     * @description The users that run the job.
+     *
      * @var string[]
      */
     public $users;

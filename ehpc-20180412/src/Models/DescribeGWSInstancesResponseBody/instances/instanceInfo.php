@@ -10,15 +10,15 @@ use AlibabaCloud\Tea\Model;
 class instanceInfo extends Model
 {
     /**
-     * @description The list of application information.
+     * @description The application information.
      *
-     * >  If the WorkMode parameter is set to Desktop, an empty value is returned in this parameter.
+     * >  This parameter is emtryp if the working mode is Desktop.
      * @var appList
      */
     public $appList;
 
     /**
-     * @description The ID of the visualizatio service.
+     * @description The ID of the visualization cluster.
      *
      * @example gws-rhz99q8rc****
      *
@@ -27,7 +27,7 @@ class instanceInfo extends Model
     public $clusterId;
 
     /**
-     * @description The time when the visualization instance was created.
+     * @description The time at which the visualization instance was created.
      *
      * @example 2020-02-03T14:03Z
      *
@@ -36,7 +36,7 @@ class instanceInfo extends Model
     public $createTime;
 
     /**
-     * @description The time when the visualization instance expires.
+     * @description The time at which the visualization instance expires.
      *
      * @example 2099-12-31T15:59Z
      *
@@ -74,16 +74,16 @@ class instanceInfo extends Model
     /**
      * @description The status of the visualization instance. Valid values:
      *
-     *   Creating: The instance is being created.
-     *   Starting: The instance is being started.
-     *   Stopping: The instance is being stopped.
-     *   Stopped: The instance is stopped.
-     *   Initializing: The instance is being initialized.
-     *   Unregistered: The instance is not registered.
-     *   Registered: The instance is registered.
-     *   InUse: The instance is in use.
-     *   Missing: The instance cannot be found.
-     *   Cloning: An image is being generated based on the instance.
+     *   Creating
+     *   Starting
+     *   Stopping
+     *   Stopped
+     *   Initializing
+     *   Unregistered
+     *   Registered
+     *   InUse
+     *   Missing
+     *   Cloning: The image is being created.
      *
      * @example Creating
      *
@@ -92,9 +92,9 @@ class instanceInfo extends Model
     public $status;
 
     /**
-     * @description The username of the entity to which the visualization instance is assigned.
+     * @description The username assigned to the visualization instance.
      *
-     * >  If the instance is not assigned to a specified user, this parameter is empty.
+     * >  This parameter is empty if the instance is not assigned to specified users.
      * @example user-****
      *
      * @var string
@@ -104,8 +104,8 @@ class instanceInfo extends Model
     /**
      * @description The working mode of the visualization instance. Valid values:
      *
-     *   Desktop
-     *   Application
+     *   Desktop: the desktop mode
+     *   Application: the application mode
      *
      * @example Desktop
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class containerApps extends Model
 {
     /**
-     * @description The time when the containerized application was created.
+     * @description The time at which the containerized application was created.
      *
      * @example 2018-07-18T17:46:47
      *
@@ -27,7 +27,7 @@ class containerApps extends Model
     public $description;
 
     /**
-     * @description The ID of the containerized application.
+     * @description The ID of the container application.
      *
      * @example ehpc-container-ABDUGSkjs****
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class appInfo extends Model
 {
     /**
+     * @description The runtime parameters of the application.
+     *
      * @example temp.txt
      *
      * @var string
@@ -25,7 +27,7 @@ class appInfo extends Model
     public $appName;
 
     /**
-     * @description The execution directory of the application.
+     * @description The running path of the application.
      *
      * @example /home/test/notepad.exe
      *

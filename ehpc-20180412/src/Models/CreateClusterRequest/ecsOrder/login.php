@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class login extends Model
 {
     /**
-     * @description The instance type of the logon nodes.
+     * @description The number of the logon nodes. Valid value: 1.
      *
-     * You can call the [ListPreferredEcsTypes](~~188592~~) operation to query the recommended instance types.
      * @example 1
      *
      * @var int
@@ -19,9 +18,9 @@ class login extends Model
     public $count;
 
     /**
-     * @description The ID of the Super Computing Cluster (SCC) instance.
+     * @description The instance type of the logon nodes.
      *
-     * If you specify the parameter, the SCC instance is moved to a new SCC cluster.
+     * You can call the [ListPreferredEcsTypes](~~188592~~) operation to query the recommended instance types.
      * @example ecs.n1.tiny
      *
      * @var string

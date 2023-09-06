@@ -11,7 +11,7 @@ class schedInfo extends Model
     /**
      * @description The detailed settings of the scheduler.
      *
-     * @example { 				"AclInfo": [ 					{ 						"AclEnable": false, 						"UntrackUser": [], 						"User": [], 						"QueueName": "workq" 					} 				], 				"JobHistory": "", 				"SchedIteration": "60", 				"QueueResource": [ 					{ 						"UntrackUser": [], 						"User": [], 						"QueueName": "workq" 					} 				] 			}
+     * @example {"AclInfo":[{"AclEnable": false,"UntrackUser": [],"User": [],"QueueName": "workq"}],"JobHistory": "","SchedIteration": "60","QueueResource": [{"UntrackUser": [],"User": [],"QueueName": "workq"}]}
      *
      * @var string
      */

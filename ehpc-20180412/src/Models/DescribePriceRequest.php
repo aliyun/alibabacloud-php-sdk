@@ -15,7 +15,7 @@ class DescribePriceRequest extends Model
      *   PostPaid: pay-as-you-go
      *   PrePaid: subscription
      *
-     * Default value: PostPaid
+     * Default value: PostPaid.
      * @example PostPaid
      *
      * @var string
@@ -23,7 +23,7 @@ class DescribePriceRequest extends Model
     public $chargeType;
 
     /**
-     * @description Product List
+     * @description The information about the service.
      *
      * @var commodities[]
      */
@@ -45,7 +45,7 @@ class DescribePriceRequest extends Model
      *   Year: pay-by-year
      *   Hour: pay-by-hour
      *
-     * Default value: Hour
+     * Default value: Hour.
      * @example Hour
      *
      * @var string

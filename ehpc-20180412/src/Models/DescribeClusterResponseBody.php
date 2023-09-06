@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeClusterResponseBody extends Model
 {
     /**
-     * @description The mount target of the file system. Mount targets cannot be automatically created for NAS file systems.
+     * @description The cluster information.
      *
      * @var clusterInfo
      */
     public $clusterInfo;
 
     /**
-     * @description The image tag of the operating system.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *

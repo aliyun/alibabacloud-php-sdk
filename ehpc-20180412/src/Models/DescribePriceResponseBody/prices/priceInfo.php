@@ -12,7 +12,7 @@ class priceInfo extends Model
      * @description The currency that is used to measure the price. Valid values:
      *
      * USD
-     * @example CNY
+     * @example USD
      *
      * @var string
      */
@@ -34,7 +34,7 @@ class priceInfo extends Model
     /**
      * @description The original price of the image.
      *
-     * Unit: USD
+     * Unit: USD.
      * @example 1258
      *
      * @var float
@@ -44,7 +44,7 @@ class priceInfo extends Model
     /**
      * @description The final price.
      *
-     * Unit: USD
+     * Unit: USD.
      * @example 1258
      *
      * @var float

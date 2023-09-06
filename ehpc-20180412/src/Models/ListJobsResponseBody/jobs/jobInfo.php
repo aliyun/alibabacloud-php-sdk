@@ -29,7 +29,7 @@ class jobInfo extends Model
     public $comment;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
      * @example 0.manager
      *
@@ -65,7 +65,7 @@ class jobInfo extends Model
     public $nodeList;
 
     /**
-     * @description The name of the user that runs the job.
+     * @description The name of the user that ran the job.
      *
      * @example user1
      *
@@ -74,7 +74,7 @@ class jobInfo extends Model
     public $owner;
 
     /**
-     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
+     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a higher priority.
      *
      * @example 0
      *
@@ -99,7 +99,7 @@ class jobInfo extends Model
     public $shellPath;
 
     /**
-     * @description The time when the job started to run.
+     * @description The time when the job was created.
      *
      * @example 2018-07-18T17:46:48
      *
@@ -108,10 +108,10 @@ class jobInfo extends Model
     public $startTime;
 
     /**
-     * @description The status of the job. Valid values: Valid values:
+     * @description The status of the job. Valid values:
      *
      *   FINISHED: The job is completed
-     *   RUNNING: The job is running.
+     *   RUNNING: The job connector is running.
      *   QUEUED: The job is pending in a queue.
      *
      * @example FINISHED

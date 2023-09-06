@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class applicationInfo extends Model
 {
     /**
-     * @description The hostname of the on-premises management nodes.
+     * @description The name of the software.
      *
      * @example openmpi
      *
@@ -18,9 +18,8 @@ class applicationInfo extends Model
     public $name;
 
     /**
-     * @description The type of on-premises management nodes. Valid values:
+     * @description The tag of the software.
      *
-     * - account, scheduler
      * @example OpenMPI_1.8.7
      *
      * @var string
@@ -28,7 +27,7 @@ class applicationInfo extends Model
     public $tag;
 
     /**
-     * @description The IP address of the on-premises management nodes.
+     * @description The version of the software.
      *
      * @example 1.10
      *

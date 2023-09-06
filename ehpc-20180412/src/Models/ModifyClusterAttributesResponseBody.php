@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyClusterAttributesResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7336
      *
      * @var string

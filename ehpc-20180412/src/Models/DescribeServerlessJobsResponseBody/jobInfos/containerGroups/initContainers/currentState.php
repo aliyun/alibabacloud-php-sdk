@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class currentState extends Model
 {
     /**
+     * @description The details of the container status.
+     *
      * @example working
      *
      * @var string
@@ -16,6 +18,8 @@ class currentState extends Model
     public $detailStatus;
 
     /**
+     * @description The exit code of the container.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +27,8 @@ class currentState extends Model
     public $exitCode;
 
     /**
+     * @description The time when the container stopped running.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -30,6 +36,8 @@ class currentState extends Model
     public $finishTime;
 
     /**
+     * @description The message of the event.
+     *
      * @example Created container
      *
      * @var string
@@ -37,6 +45,8 @@ class currentState extends Model
     public $message;
 
     /**
+     * @description The reason why the container is in this state.
+     *
      * @example Started
      *
      * @var string
@@ -44,6 +54,8 @@ class currentState extends Model
     public $reason;
 
     /**
+     * @description The code of the container status.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +63,8 @@ class currentState extends Model
     public $signal;
 
     /**
+     * @description The time when the container started to run.
+     *
      * @example 2018-08-02T15:00:00Z
      *
      * @var string
@@ -58,6 +72,12 @@ class currentState extends Model
     public $startTime;
 
     /**
+     * @description The status of the container. Valid values:
+     *
+     *   Waiting
+     *   Running
+     *   Terminated
+     *
      * @example Running
      *
      * @var string

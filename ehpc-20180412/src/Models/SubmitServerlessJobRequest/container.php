@@ -11,21 +11,29 @@ use AlibabaCloud\Tea\Model;
 class container extends Model
 {
     /**
+     * @description The arguments of the container startup command. You can specify up to 10 arguments.
+     *
      * @var string[]
      */
     public $arg;
 
     /**
+     * @description The container startup commands.
+     *
      * @var string[]
      */
     public $command;
 
     /**
+     * @description The environment variable of the container.
+     *
      * @var environmentVar[]
      */
     public $environmentVar;
 
     /**
+     * @description The number of GPUs of the container.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +41,8 @@ class container extends Model
     public $gpu;
 
     /**
+     * @description The image of the container.
+     *
      * @example registry-vpc.cn-hangzhou.aliyuncs.com/ehpc/hpl:latest
      *
      * @var string
@@ -40,11 +50,15 @@ class container extends Model
     public $image;
 
     /**
+     * @description The data volumes mounted to the container.
+     *
      * @var volumeMount[]
      */
     public $volumeMount;
 
     /**
+     * @description The working directory of the container.
+     *
      * @example /usr/local/
      *
      * @var string

@@ -19,7 +19,7 @@ class ListContainerImagesResponseBody extends Model
     public $DBInfo;
 
     /**
-     * @description The array of local images.
+     * @description The array of images.
      *
      * @var images
      */
@@ -44,7 +44,7 @@ class ListContainerImagesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE7****
      *

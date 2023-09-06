@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeServerlessJobsRequest extends Model
 {
     /**
+     * @description The ID of the E-HPC cluster.
+     *
+     * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
      *
      * @var string
@@ -16,6 +19,14 @@ class DescribeServerlessJobsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The list of serverless job IDs or the subtask IDs (array jobs).
+     *
+     * >
+     *
+     *   If the serverless job is an array job, you can specify only the subtask ID. Specify the subtask ID in the format of \<array job ID>\_< subtask index>. For example, 10\_3 indicates the subtask whose index is 3 in the array job whose ID is 10.
+     *
+     *   You can specify only a single ID in one request.
+     *
      * @var string[]
      */
     public $jobIds;

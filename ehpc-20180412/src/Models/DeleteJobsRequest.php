@@ -11,7 +11,7 @@ class DeleteJobsRequest extends Model
     /**
      * @description Specifies whether to use an asynchronous link to delete the jobs.
      *
-     * Default value: false
+     * Default value: false.
      * @example false
      *
      * @var bool
@@ -19,7 +19,7 @@ class DeleteJobsRequest extends Model
     public $async;
 
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****

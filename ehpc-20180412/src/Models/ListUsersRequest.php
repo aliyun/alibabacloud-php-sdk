@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListUsersRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the E-HPC cluster.
      *
      * You can call the [ListClusters](~~87116~~) operation to query the cluster ID.
      * @example ehpc-hz-FYUr32****
@@ -19,9 +19,9 @@ class ListUsersRequest extends Model
     public $clusterId;
 
     /**
-     * @description The number of the page to return.
+     * @description The page number of the page to return.
      *
-     * Default value: 1
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -31,7 +31,7 @@ class ListUsersRequest extends Model
     /**
      * @description The number of entries to return on each page. Valid values: 1 to 50.
      *
-     * Default value: 10
+     * Default value: 10.
      * @example 10
      *
      * @var int

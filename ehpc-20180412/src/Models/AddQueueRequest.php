@@ -38,11 +38,17 @@ class AddQueueRequest extends Model
      * @var string
      */
     public $queueName;
+
+    /**
+     * @var bool
+     */
+    public $useESS;
     protected $_name = [
         'clusterId'                   => 'ClusterId',
         'deploymentSetId'             => 'DeploymentSetId',
         'networkInterfaceTrafficMode' => 'NetworkInterfaceTrafficMode',
         'queueName'                   => 'QueueName',
+        'useESS'                      => 'UseESS',
     ];
 
     public function validate()
@@ -63,6 +69,9 @@ class AddQueueRequest extends Model
         }
         if (null !== $this->queueName) {
             $res['QueueName'] = $this->queueName;
+        }
+        if (null !== $this->useESS) {
+            $res['UseESS'] = $this->useESS;
         }
 
         return $res;
@@ -87,6 +96,9 @@ class AddQueueRequest extends Model
         }
         if (isset($map['QueueName'])) {
             $model->queueName = $map['QueueName'];
+        }
+        if (isset($map['UseESS'])) {
+            $model->useESS = $map['UseESS'];
         }
 
         return $model;

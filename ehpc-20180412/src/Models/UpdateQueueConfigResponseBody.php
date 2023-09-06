@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateQueueConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5198C3E8-85F5-4280-8547-687C1710****
      *

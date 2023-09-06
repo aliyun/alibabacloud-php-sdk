@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class jobTemplates extends Model
 {
     /**
-     * @description The job array.
+     * @description The queue of the job.
      *
      * Format: X-Y:Z. X is the minimum index value. Y is the maximum index value. Z is the step size. For example, 2-7:2 indicates that three jobs need to be run and their index values are 2, 4, and 6.
      * @example 2-7:2
@@ -32,7 +32,7 @@ class jobTemplates extends Model
     public $clockTime;
 
     /**
-     * @description The command that was used to run the job.
+     * @description The command that is used to run the job.
      *
      * @example ./LammpsTest/lammps.pbs
      *
@@ -41,7 +41,7 @@ class jobTemplates extends Model
     public $commandLine;
 
     /**
-     * @description The maximum GPU usage required by a single compute node. Valid values: 1 to 8.
+     * @description The maximum GPU usage for individual compute nodes. Valid values: 1 to 8.
      *
      * The parameter takes effect only when the cluster uses PBS and a compute node is a GPU-accelerated instance.
      * @example 1
@@ -60,7 +60,7 @@ class jobTemplates extends Model
     public $id;
 
     /**
-     * @description The URL of the job files that were uploaded to an Object Storage Service (OSS) bucket.
+     * @description The URL of the job files that are uploaded to an Object Storage Service (OSS) bucket.
      *
      * @example https://test.oss-cn-beijing.aliyuncs.com/test.py
      *
@@ -87,7 +87,7 @@ class jobTemplates extends Model
     public $name;
 
     /**
-     * @description The number of the compute nodes. Valid values: 1 to 500.
+     * @description The number of compute nodes. Valid values: 1 to 500.
      *
      * @example 2
      *
@@ -96,7 +96,7 @@ class jobTemplates extends Model
     public $node;
 
     /**
-     * @description The path that was used to run the job.
+     * @description The path that is used to run the job.
      *
      * @example ./jobfolder
      *
@@ -105,7 +105,7 @@ class jobTemplates extends Model
     public $packagePath;
 
     /**
-     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
+     * @description The priority of the job. Valid values: 0 to 9. A larger value indicates a higher priority.
      *
      * @example 0
      *
@@ -123,7 +123,7 @@ class jobTemplates extends Model
     public $queue;
 
     /**
-     * @description Indicates whether the job can be rerun. Valid values:
+     * @description Specifies whether the job can be rerun. Valid values:
      *
      *   true: The job can be rerun.
      *   false: The job cannot be rerun.
@@ -135,7 +135,7 @@ class jobTemplates extends Model
     public $reRunable;
 
     /**
-     * @description The name of the user that ran the job.
+     * @description The name of the user that runs the job.
      *
      * @example user1
      *
@@ -171,7 +171,7 @@ class jobTemplates extends Model
     public $task;
 
     /**
-     * @description The number of threads required by a single compute node. Valid values: 1 to 1000.
+     * @description The number of threads required by a single task. Valid values: 1 to 1000.
      *
      * @example 1
      *
@@ -180,7 +180,7 @@ class jobTemplates extends Model
     public $thread;
 
     /**
-     * @description The command that was used to decompress the job files downloaded from an OSS bucket. The parameter takes effect only when WithUnzipCmd is set to true. Valid values:
+     * @description The command that is used to decompress the job files downloaded from an OSS bucket. The parameter takes effect only when WithUnzipCmd is set to true. Valid values:
      *
      *   tar xzf: decompresses GZIP files.
      *   tar xf: decompresses TAR files.
@@ -202,10 +202,10 @@ class jobTemplates extends Model
     public $variables;
 
     /**
-     * @description Indicates whether to decompress the job files downloaded from an OSS bucket. Valid values:
+     * @description Specifies whether to decompress the job files downloaded from an OSS bucket. Valid value:
      *
-     *   true: The job files are decompressed.
-     *   false: The job files are not decompressed.
+     *   true: decompresses the job file.
+     *   false: does not decompress the job file.
      *
      * @example true
      *

@@ -17,7 +17,7 @@ class seriesInfo extends Model
     public $roles;
 
     /**
-     * @description The ECS instance series ID. Valid values:
+     * @description The ID of the ECS instance series. Valid values:
      *
      *   HighCompute: compute-optimized instance families
      *   HighMem: memory-optimized instance families
@@ -31,7 +31,7 @@ class seriesInfo extends Model
     public $seriesId;
 
     /**
-     * @description The instance series name. Valid values:
+     * @description The name of the instance series. Valid values:
      *
      *   SeriesHighCompute
      *   SeriesHighMem

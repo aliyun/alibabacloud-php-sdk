@@ -27,9 +27,9 @@ class volumeInfo extends Model
     public $localDirectory;
 
     /**
-     * @description The location where the cluster was deployed. Valid values:
+     * @description The location where the cluster is deployed. Valid values:
      *
-     *   OnPremise: The cluster is deployed on a hybrid cloud.
+     *   OnPremise: The node is deployed on a hybrid cloud.
      *   PublicCloud: The cluster is deployed on a public cloud.
      *
      * @example PublicCloud

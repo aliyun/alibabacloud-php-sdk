@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageInfo extends Model
 {
     /**
-     * @description The ID of the image.
+     * @description The ID of the custom image.
      *
      * @example 353506****
      *
@@ -27,7 +27,7 @@ class imageInfo extends Model
     public $repository;
 
     /**
-     * @description The status of the image.
+     * @description The state of the image.
      *
      * @example READY
      *
@@ -45,7 +45,7 @@ class imageInfo extends Model
     public $system;
 
     /**
-     * @description The tag of the image.
+     * @description The tags of the image.
      *
      * @example latest
      *

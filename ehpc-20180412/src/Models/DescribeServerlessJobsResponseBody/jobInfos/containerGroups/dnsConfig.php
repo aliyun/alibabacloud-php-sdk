@@ -10,16 +10,22 @@ use AlibabaCloud\Tea\Model;
 class dnsConfig extends Model
 {
     /**
+     * @description The IP addresses of DNS servers.
+     *
      * @var string[]
      */
     public $nameServers;
 
     /**
+     * @description The options. Each option is a name-value pair. The value in the name-value pair is optional.
+     *
      * @var options[]
      */
     public $options;
 
     /**
+     * @description The search domains of the DNS server.
+     *
      * @var string[]
      */
     public $searches;

@@ -76,7 +76,7 @@ class volumeInfo extends Model
     /**
      * @description The address of the mount target.
      *
-     * @example 0e754****-kal90.cn-hangzhou.nas.aliyuncs.com<
+     * @example 0e754****-kal90.cn-hangzhou.nas.aliyuncs.com
      *
      * @var string
      */

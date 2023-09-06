@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class httpGet extends Model
 {
     /**
+     * @description The path to which HTTP GET requests are sent.
+     *
      * @example /usr/local
      *
      * @var string
@@ -16,6 +18,8 @@ class httpGet extends Model
     public $path;
 
     /**
+     * @description The port to which the system sends an HTTP GET request for a health check.
+     *
      * @example 8080
      *
      * @var int
@@ -23,7 +27,7 @@ class httpGet extends Model
     public $port;
 
     /**
-     * @description HTTP／HTTPS。
+     * @description The protocol type of the HTTP GET requests.
      *
      * @example HTTP
      *

@@ -10,13 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListUpgradeClientsResponseBody extends Model
 {
     /**
-     * @description The time when the operation was performed.
+     * @description The upgrade records of the cluster client.
      *
      * @var clientRecords[]
      */
     public $clientRecords;
 
     /**
+     * @description The current version of the E-HPC client.
+     *
      * @example 1.2.21
      *
      * @var string
@@ -24,7 +26,7 @@ class ListUpgradeClientsResponseBody extends Model
     public $currentVersion;
 
     /**
-     * @description The version of the E-HPC client after the upgrade.
+     * @description The latest version of the E-HPC client.
      *
      * @example 1.2.22
      *
@@ -33,7 +35,7 @@ class ListUpgradeClientsResponseBody extends Model
     public $latestVersion;
 
     /**
-     * @description The version of the E-HPC client before the upgrade.
+     * @description The request ID.
      *
      * @example 89A1AC0F-4A6C-4F3D-98F9-BEF9A823****
      *

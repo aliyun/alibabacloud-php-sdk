@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeGWSInstancesRequest extends Model
 {
     /**
-     * @description The ID of the visualization service.
+     * @description The ID of the visualization cluster.
      *
      * @example gws-rhz99q8rc****
      *

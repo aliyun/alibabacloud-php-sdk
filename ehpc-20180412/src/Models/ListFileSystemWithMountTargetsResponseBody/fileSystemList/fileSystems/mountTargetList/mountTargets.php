@@ -9,7 +9,12 @@ use AlibabaCloud\Tea\Model;
 class mountTargets extends Model
 {
     /**
-     * @description The name of the permission group that applied to the mount target.
+     * @description Specifies whether to use the user default permission group.
+     *
+     * Valid values:
+     *
+     *   true: ueses the default permission group. If you use the default permission group, access from all IP addresses are allowed. The default permission group and the permission rules in the default permission group cannot be deleted.
+     *   false: does not use the default permission group.
      *
      * @example DEFAULT_VPC_GROUP_NAME
      *
@@ -18,7 +23,7 @@ class mountTargets extends Model
     public $accessGroup;
 
     /**
-     * @description The domain name of the mount target.
+     * @description The domain where the mount target resides.
      *
      * @example 088b****-lj2.cn-hangzhou.nas.aliyuncs.com
      *
@@ -27,10 +32,10 @@ class mountTargets extends Model
     public $mountTargetDomain;
 
     /**
-     * @description The network type of the mount target. Valid values:
+     * @description The network type of the cluster. Valid values:
      *
-     *   Vpc: virtual private cloud (VPC)
-     *   Classic: the classic network
+     *   vpc: Virtual Private Cloud (VPC)
+     *   classic: the classic network
      *
      * @example vpc
      *
@@ -42,7 +47,7 @@ class mountTargets extends Model
      * @description The status of the mount target. Valid values:
      *
      *   Active: The mount target is available.
-     *   Inactive: The mount target is inactive.
+     *   Inactive: The mount target is unavailable.
      *   Pending: The mount target is being created or modified.
      *   Deleting: The mount target is being deleted.
      *

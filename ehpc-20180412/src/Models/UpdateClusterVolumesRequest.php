@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateClusterVolumesRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to UpdateClusterVolumes
+     * @description The list of file system information.
      *
      * @var additionalVolumes[]
      */
     public $additionalVolumes;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the cluster.
      *
      * @example ehpc-hz-FYUr32****
      *

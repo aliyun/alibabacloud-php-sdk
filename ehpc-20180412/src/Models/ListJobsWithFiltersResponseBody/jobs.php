@@ -29,7 +29,7 @@ class jobs extends Model
     public $comment;
 
     /**
-     * @description The ID of the job.
+     * @description The job ID.
      *
      * @example 8.scheduler
      *
@@ -74,7 +74,7 @@ class jobs extends Model
     public $owner;
 
     /**
-     * @description The priority of the job. Valid values: 0 to 9. A large value indicates a high priority.
+     * @description The priority of the job. Valid values: 0 to 9. A larger value indicates a higher priority.
      *
      * @example 0
      *
@@ -94,8 +94,8 @@ class jobs extends Model
     /**
      * @description Indicates whether the job can be run again. Valid values:
      *
-     *   true
-     *   false
+     *   true: yes
+     *   false: no
      *
      * @example true
      *
@@ -120,7 +120,7 @@ class jobs extends Model
     public $shellPath;
 
     /**
-     * @description The time when the job started to run.
+     * @description The time when the job was created.
      *
      * @example 1647427667
      *
@@ -129,10 +129,10 @@ class jobs extends Model
     public $startTime;
 
     /**
-     * @description The status of the job. Valid values:
+     * @description The status of the job. Valid value:
      *
      *   FINISHED: The job is completed.
-     *   RUNNING: The job connector is running.
+     *   RUNNING: The job is running.
      *   QUEUED: The job is pending in a queue.
      *
      * @example FINISHED

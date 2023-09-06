@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoScaleConfigResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The ID of the associated cluster.
      *
      * @example ehpc-hz-FYUr32****
      *
@@ -32,7 +32,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $clusterType;
 
     /**
-     * @description Indicates whether auto scale-out is enabled.
+     * @description Specifies whether to enable auto scale-out.
      *
      * @example true
      *
@@ -41,7 +41,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $enableAutoGrow;
 
     /**
-     * @description Indicates whether auto scale-in is enabled.
+     * @description Specifies whether to enable auto scale-in.
      *
      * @example true
      *
@@ -59,7 +59,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $excludeNodes;
 
     /**
-     * @description The ratio of added nodes to the original ones. Valid values: 0 to 100.
+     * @description The percentage of extra compute nodes. Valid values: 0 to 100.
      *
      * @example 0
      *
@@ -68,7 +68,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $extraNodesGrowRatio;
 
     /**
-     * @description The scale-out interval. The interval at which the compute nodes were scaled out. Valid values: 2 to 10.
+     * @description The interval between two consecutive rounds of scale-in. Valid values: 2 to 10.
      *
      * @example 10
      *
@@ -77,7 +77,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $growIntervalInMinutes;
 
     /**
-     * @description The percentage of the added nodes. Valid values: 1 to 100.
+     * @description The percentage of each round of scale-out. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -86,7 +86,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $growRatio;
 
     /**
-     * @description The timeout period before the node was started. Valid values: 10 to 60.
+     * @description The timeout period before the scale-out nodes were started. Valid values: 10 to 60.
      *
      * @example 20
      *
@@ -104,7 +104,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $maxNodesInCluster;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73
      *
@@ -113,7 +113,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of consecutive idle times of a node during a scale-in check. Valid values: 2 to 5.
+     * @description The number of consecutive idle times of a node during the resource shrink check. Valid values: 2 to 5.
      *
      * @example 3
      *
@@ -122,7 +122,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $shrinkIdleTimes;
 
     /**
-     * @description The scale-in interval. The interval at which the compute nodes were scaled in. Valid values: 2 to 10.
+     * @description The interval between two consecutive rounds of scale-out. Valid values: 2 to 10.
      *
      * @example 2
      *
@@ -131,7 +131,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $shrinkIntervalInMinutes;
 
     /**
-     * @description The maximum hourly rate of the instance. The value is accurate to three decimal places. It takes effect only when SpotStrategy is set to SpotWithPriceLimit.
+     * @description The maximum hourly price of the new ECS instance. The value is accurate to three decimal places. It takes effect only when SpotStrategy is set to SpotWithPriceLimit.
      *
      * @example 0.062
      *
@@ -140,11 +140,11 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $spotPriceLimit;
 
     /**
-     * @description The bidding policy for the compute nodes. Valid values:
+     * @description The bidding method of the compute nodes. Valid values:
      *
-     *   NoSpot: The instance is created as a regular pay-as-you-go instance.
-     *   SpotWithPriceLimit: The instance is a preemptible one with a user-defined maximum hourly rate.
-     *   SpotAsPriceGo: The instance is created as a pay-as-you-go instance that is automatically priced based on the Alibaba Cloud Marketplace.
+     *   NoSpot: The instances of the compute node are pay-as-you-go instances.
+     *   SpotWithPriceLimit: The instance is created as a preemptible instance with a user-defined maximum hourly price.
+     *   SpotAsPriceGo: The instance is a preemptible instance for which the market price at the time of purchase is automatically used as the bidding price.
      *
      * @example NoSpot
      *
@@ -153,7 +153,7 @@ class DescribeAutoScaleConfigResponseBody extends Model
     public $spotStrategy;
 
     /**
-     * @description The ID of the user.
+     * @description The user ID.
      *
      * @example testu****
      *

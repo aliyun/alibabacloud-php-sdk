@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class securityContext extends Model
 {
     /**
+     * @description The permissions specific to the processes in the container.
+     *
      * @var capability
      */
     public $capability;
 
     /**
+     * @description Indicates whether the root file system is set to the read-only mode. The only valid value is true.
+     *
      * @example true
      *
      * @var bool
@@ -22,6 +26,8 @@ class securityContext extends Model
     public $readOnlyRootFilesystem;
 
     /**
+     * @description The UID that is used to run the entry point of the container process.
+     *
      * @example 1558
      *
      * @var int
