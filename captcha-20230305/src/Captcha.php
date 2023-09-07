@@ -8,6 +8,8 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyCaptchaRequest;
 use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyCaptchaResponse;
+use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyIntelligentCaptchaRequest;
+use AlibabaCloud\SDK\Captcha\V20230305\Models\VerifyIntelligentCaptchaResponse;
 use AlibabaCloud\Tea\Utils\Utils;
 use AlibabaCloud\Tea\Utils\Utils\RuntimeOptions;
 use Darabonba\OpenApi\Models\OpenApiRequest;
@@ -88,5 +90,48 @@ class Captcha extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->verifyCaptchaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param VerifyIntelligentCaptchaRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return VerifyIntelligentCaptchaResponse
+     */
+    public function verifyIntelligentCaptchaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->captchaVerifyParam)) {
+            $body['CaptchaVerifyParam'] = $request->captchaVerifyParam;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'VerifyIntelligentCaptcha',
+            'version'     => '2023-03-05',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return VerifyIntelligentCaptchaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param VerifyIntelligentCaptchaRequest $request
+     *
+     * @return VerifyIntelligentCaptchaResponse
+     */
+    public function verifyIntelligentCaptcha($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->verifyIntelligentCaptchaWithOptions($request, $runtime);
     }
 }
