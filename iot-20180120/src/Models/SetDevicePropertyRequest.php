@@ -67,12 +67,18 @@ class SetDevicePropertyRequest extends Model
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var int
+     */
+    public $qos;
     protected $_name = [
         'deviceName'    => 'DeviceName',
         'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
         'items'         => 'Items',
         'productKey'    => 'ProductKey',
+        'qos'           => 'Qos',
     ];
 
     public function validate()
@@ -96,6 +102,9 @@ class SetDevicePropertyRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->qos) {
+            $res['Qos'] = $this->qos;
         }
 
         return $res;
@@ -123,6 +132,9 @@ class SetDevicePropertyRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['Qos'])) {
+            $model->qos = $map['Qos'];
         }
 
         return $model;

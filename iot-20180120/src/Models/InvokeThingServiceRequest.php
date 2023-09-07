@@ -77,6 +77,11 @@ class InvokeThingServiceRequest extends Model
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var int
+     */
+    public $qos;
     protected $_name = [
         'args'          => 'Args',
         'deviceName'    => 'DeviceName',
@@ -84,6 +89,7 @@ class InvokeThingServiceRequest extends Model
         'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
+        'qos'           => 'Qos',
     ];
 
     public function validate()
@@ -110,6 +116,9 @@ class InvokeThingServiceRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->qos) {
+            $res['Qos'] = $this->qos;
         }
 
         return $res;
@@ -140,6 +149,9 @@ class InvokeThingServiceRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['Qos'])) {
+            $model->qos = $map['Qos'];
         }
 
         return $model;

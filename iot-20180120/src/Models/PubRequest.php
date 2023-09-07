@@ -118,6 +118,11 @@ class PubRequest extends Model
     public $retained;
 
     /**
+     * @var int
+     */
+    public $topicAlias;
+
+    /**
      * @description The custom topic for the device that receives the message.
      *
      *   Topic format: `/${productKey}/${deviceName}/user/${TopicShortName}`.
@@ -148,6 +153,7 @@ class PubRequest extends Model
         'qos'                    => 'Qos',
         'responseTopic'          => 'ResponseTopic',
         'retained'               => 'Retained',
+        'topicAlias'             => 'TopicAlias',
         'topicFullName'          => 'TopicFullName',
         'userProp'               => 'UserProp',
     ];
@@ -191,6 +197,9 @@ class PubRequest extends Model
         }
         if (null !== $this->retained) {
             $res['Retained'] = $this->retained;
+        }
+        if (null !== $this->topicAlias) {
+            $res['TopicAlias'] = $this->topicAlias;
         }
         if (null !== $this->topicFullName) {
             $res['TopicFullName'] = $this->topicFullName;
@@ -248,6 +257,9 @@ class PubRequest extends Model
         }
         if (isset($map['Retained'])) {
             $model->retained = $map['Retained'];
+        }
+        if (isset($map['TopicAlias'])) {
+            $model->topicAlias = $map['TopicAlias'];
         }
         if (isset($map['TopicFullName'])) {
             $model->topicFullName = $map['TopicFullName'];

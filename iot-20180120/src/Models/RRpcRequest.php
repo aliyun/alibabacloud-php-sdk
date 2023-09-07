@@ -47,10 +47,6 @@ class RRpcRequest extends Model
     public $productKey;
 
     /**
-     * @description The string that is obtained by performing Base64 encoding on the message. Example: `dGhpcyBpcyBhbiBleGFtcGxl`.
-     *
-     * @example dGhpcyBpcyBhbiBleGFtcGxl
-     *
      * @var string
      */
     public $requestBase64Byte;

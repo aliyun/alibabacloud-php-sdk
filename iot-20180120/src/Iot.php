@@ -12339,6 +12339,9 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        if (!Utils::isUnset($request->qos)) {
+            $query['Qos'] = $request->qos;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -14394,6 +14397,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->retained)) {
             $query['Retained'] = $request->retained;
+        }
+        if (!Utils::isUnset($request->topicAlias)) {
+            $query['TopicAlias'] = $request->topicAlias;
         }
         if (!Utils::isUnset($request->topicFullName)) {
             $query['TopicFullName'] = $request->topicFullName;
@@ -20783,17 +20789,19 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
-        if (!Utils::isUnset($request->requestBase64Byte)) {
-            $query['RequestBase64Byte'] = $request->requestBase64Byte;
-        }
         if (!Utils::isUnset($request->timeout)) {
             $query['Timeout'] = $request->timeout;
         }
         if (!Utils::isUnset($request->topic)) {
             $query['Topic'] = $request->topic;
         }
+        $body = [];
+        if (!Utils::isUnset($request->requestBase64Byte)) {
+            $body['RequestBase64Byte'] = $request->requestBase64Byte;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
+            'body'  => OpenApiUtilClient::parseToMap($body),
         ]);
         $params = new Params([
             'action'      => 'RRpc',
@@ -21926,6 +21934,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->qos)) {
+            $query['Qos'] = $request->qos;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
