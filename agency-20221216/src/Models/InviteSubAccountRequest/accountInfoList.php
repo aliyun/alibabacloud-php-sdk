@@ -21,6 +21,11 @@ class accountInfoList extends Model
     public $creditLine;
 
     /**
+     * @var string
+     */
+    public $customerId;
+
+    /**
      * @example 12345@163.com
      *
      * @var string
@@ -55,6 +60,7 @@ class accountInfoList extends Model
     protected $_name = [
         'accountNickname'          => 'AccountNickname',
         'creditLine'               => 'CreditLine',
+        'customerId'               => 'CustomerId',
         'emailAddress'             => 'EmailAddress',
         'newBuyStatus'             => 'NewBuyStatus',
         'remark'                   => 'Remark',
@@ -74,6 +80,9 @@ class accountInfoList extends Model
         }
         if (null !== $this->creditLine) {
             $res['CreditLine'] = $this->creditLine;
+        }
+        if (null !== $this->customerId) {
+            $res['CustomerId'] = $this->customerId;
         }
         if (null !== $this->emailAddress) {
             $res['EmailAddress'] = $this->emailAddress;
@@ -107,6 +116,9 @@ class accountInfoList extends Model
         }
         if (isset($map['CreditLine'])) {
             $model->creditLine = $map['CreditLine'];
+        }
+        if (isset($map['CustomerId'])) {
+            $model->customerId = $map['CustomerId'];
         }
         if (isset($map['EmailAddress'])) {
             $model->emailAddress = $map['EmailAddress'];

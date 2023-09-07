@@ -9,29 +9,33 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @example 15
-     *
-     * @var int
-     */
-    public $days;
-
-    /**
-     * @example 12345
-     *
-     * @var int
-     */
-    public $inviteId;
-
-    /**
-     * @example http://agency-intl.console.aliyun.com/customer/register?intl=true&fxinfo=-4uT%2FMWHnnUdvr5GXVd1AYK8luTnGgH3M7Y3lSCd5M1fxRwAkViTWtDJDpckh0HL
+     * @example 200
      *
      * @var string
      */
-    public $regUrl;
+    public $code;
+
+    /**
+     * @var string
+     */
+    public $message;
+
+    /**
+     * @var \AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponseBody\results\result\result
+     */
+    public $result;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
-        'days'     => 'Days',
-        'inviteId' => 'InviteId',
-        'regUrl'   => 'RegUrl',
+        'code'    => 'Code',
+        'message' => 'Message',
+        'result'  => 'Result',
+        'success' => 'Success',
     ];
 
     public function validate()
@@ -41,14 +45,17 @@ class result extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->days) {
-            $res['Days'] = $this->days;
+        if (null !== $this->code) {
+            $res['Code'] = $this->code;
         }
-        if (null !== $this->inviteId) {
-            $res['InviteId'] = $this->inviteId;
+        if (null !== $this->message) {
+            $res['Message'] = $this->message;
         }
-        if (null !== $this->regUrl) {
-            $res['RegUrl'] = $this->regUrl;
+        if (null !== $this->result) {
+            $res['Result'] = null !== $this->result ? $this->result->toMap() : null;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -62,14 +69,17 @@ class result extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Days'])) {
-            $model->days = $map['Days'];
+        if (isset($map['Code'])) {
+            $model->code = $map['Code'];
         }
-        if (isset($map['InviteId'])) {
-            $model->inviteId = $map['InviteId'];
+        if (isset($map['Message'])) {
+            $model->message = $map['Message'];
         }
-        if (isset($map['RegUrl'])) {
-            $model->regUrl = $map['RegUrl'];
+        if (isset($map['Result'])) {
+            $model->result = \AlibabaCloud\SDK\Agency\V20221216\Models\InviteSubAccountResponseBody\results\result\result::fromMap($map['Result']);
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;
