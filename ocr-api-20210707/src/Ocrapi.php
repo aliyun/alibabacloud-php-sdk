@@ -10,6 +10,9 @@ use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAdvancedRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAdvancedResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAirItineraryRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAirItineraryResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextRequest;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextResponse;
+use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeAllTextShrinkRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAcceptanceRequest;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAcceptanceResponse;
 use AlibabaCloud\SDK\Ocrapi\V20210707\Models\RecognizeBankAccountLicenseRequest;
@@ -304,6 +307,104 @@ class Ocrapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->recognizeAirItineraryWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RecognizeAllTextRequest $tmpReq
+     * @param RuntimeOptions          $runtime
+     *
+     * @return RecognizeAllTextResponse
+     */
+    public function recognizeAllTextWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new RecognizeAllTextShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->advancedConfig)) {
+            $request->advancedConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->advancedConfig, 'AdvancedConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->idCardConfig)) {
+            $request->idCardConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->idCardConfig, 'IdCardConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->internationalIdCardConfig)) {
+            $request->internationalIdCardConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->internationalIdCardConfig, 'InternationalIdCardConfig', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->multiLanConfig)) {
+            $request->multiLanConfigShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->multiLanConfig, 'MultiLanConfig', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->advancedConfigShrink)) {
+            $query['AdvancedConfig'] = $request->advancedConfigShrink;
+        }
+        if (!Utils::isUnset($request->idCardConfigShrink)) {
+            $query['IdCardConfig'] = $request->idCardConfigShrink;
+        }
+        if (!Utils::isUnset($request->internationalIdCardConfigShrink)) {
+            $query['InternationalIdCardConfig'] = $request->internationalIdCardConfigShrink;
+        }
+        if (!Utils::isUnset($request->multiLanConfigShrink)) {
+            $query['MultiLanConfig'] = $request->multiLanConfigShrink;
+        }
+        if (!Utils::isUnset($request->outputBarCode)) {
+            $query['OutputBarCode'] = $request->outputBarCode;
+        }
+        if (!Utils::isUnset($request->outputCoordinate)) {
+            $query['OutputCoordinate'] = $request->outputCoordinate;
+        }
+        if (!Utils::isUnset($request->outputFigure)) {
+            $query['OutputFigure'] = $request->outputFigure;
+        }
+        if (!Utils::isUnset($request->outputKVExcel)) {
+            $query['OutputKVExcel'] = $request->outputKVExcel;
+        }
+        if (!Utils::isUnset($request->outputOricoord)) {
+            $query['OutputOricoord'] = $request->outputOricoord;
+        }
+        if (!Utils::isUnset($request->outputQrcode)) {
+            $query['OutputQrcode'] = $request->outputQrcode;
+        }
+        if (!Utils::isUnset($request->outputStamp)) {
+            $query['OutputStamp'] = $request->outputStamp;
+        }
+        if (!Utils::isUnset($request->pageNo)) {
+            $query['PageNo'] = $request->pageNo;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        if (!Utils::isUnset($request->url)) {
+            $query['Url'] = $request->url;
+        }
+        $req = new OpenApiRequest([
+            'query'  => OpenApiUtilClient::query($query),
+            'body'   => $request->body,
+            'stream' => $tmpReq->body,
+        ]);
+        $params = new Params([
+            'action'      => 'RecognizeAllText',
+            'version'     => '2021-07-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RecognizeAllTextResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RecognizeAllTextRequest $request
+     *
+     * @return RecognizeAllTextResponse
+     */
+    public function recognizeAllText($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->recognizeAllTextWithOptions($request, $runtime);
     }
 
     /**
