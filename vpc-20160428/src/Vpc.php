@@ -3373,6 +3373,9 @@ class Vpc extends OpenApiClient
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
         }
+        if (!Utils::isUnset($request->finishWork)) {
+            $query['FinishWork'] = $request->finishWork;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -3381,6 +3384,12 @@ class Vpc extends OpenApiClient
         }
         if (!Utils::isUnset($request->lineLabel)) {
             $query['LineLabel'] = $request->lineLabel;
+        }
+        if (!Utils::isUnset($request->lineSPContactInfo)) {
+            $query['LineSPContactInfo'] = $request->lineSPContactInfo;
+        }
+        if (!Utils::isUnset($request->lineServiceProvider)) {
+            $query['LineServiceProvider'] = $request->lineServiceProvider;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -7328,7 +7337,7 @@ class Vpc extends OpenApiClient
 
     /**
      * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     *   * *   When you create a destination-based route for an IPsec-VPN connection, do not create a route that meets the following conditions: The destination CIDR block is 100.64.0.0/10 or one of its subnets. The next hop is the IPsec-VPN connection. Such a route results in one of the following errors: The status of the IPsec-VPN connection cannot be displayed in the console. The negotiations of the IPsec-VPN connection fail.
+     *   * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail.
      *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
      *   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
      *   *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.
@@ -7396,7 +7405,7 @@ class Vpc extends OpenApiClient
 
     /**
      * *   You cannot create a destination-based route whose destination CIDR block is 0.0.0.0/0.
-     *   * *   When you create a destination-based route for an IPsec-VPN connection, do not create a route that meets the following conditions: The destination CIDR block is 100.64.0.0/10 or one of its subnets. The next hop is the IPsec-VPN connection. Such a route results in one of the following errors: The status of the IPsec-VPN connection cannot be displayed in the console. The negotiations of the IPsec-VPN connection fail.
+     *   * *   Do not add a route whose destination CIDR block is 100.64.0.0/10, a subset of 100.64.0.0/10, or a CIDR block that contains 100.64.0.0/10. If such a route is added, the status of the IPsec-VPN connection cannot be displayed in the console or IPsec negotiations fail.
      *   * *   **CreateVcoRouteEntry** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call the [DescribeVpnConnection](~~53046~~) operation to query the status of a route based on the status of the associated IPsec-VPN connection.
      *   *     *   If the IPsec-VPN connection is in the **updating** state, the route is being created.
      *   *     *   If the IPsec-VPN connection is in the **attached** state, the route is created.

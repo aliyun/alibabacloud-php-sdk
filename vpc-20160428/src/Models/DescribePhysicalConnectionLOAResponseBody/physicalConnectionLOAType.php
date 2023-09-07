@@ -64,6 +64,16 @@ class physicalConnectionLOAType extends Model
     public $lineLabel;
 
     /**
+     * @var string
+     */
+    public $lineSPContactInfo;
+
+    /**
+     * @var string
+     */
+    public $lineServiceProvider;
+
+    /**
      * @description The type of the Express Connect circuit. Valid values:
      *
      *   **MSTP**
@@ -125,6 +135,8 @@ class physicalConnectionLOAType extends Model
         'instanceId'           => 'InstanceId',
         'lineCode'             => 'LineCode',
         'lineLabel'            => 'LineLabel',
+        'lineSPContactInfo'    => 'LineSPContactInfo',
+        'lineServiceProvider'  => 'LineServiceProvider',
         'lineType'             => 'LineType',
         'loaUrl'               => 'LoaUrl',
         'PMInfo'               => 'PMInfo',
@@ -156,6 +168,12 @@ class physicalConnectionLOAType extends Model
         }
         if (null !== $this->lineLabel) {
             $res['LineLabel'] = $this->lineLabel;
+        }
+        if (null !== $this->lineSPContactInfo) {
+            $res['LineSPContactInfo'] = $this->lineSPContactInfo;
+        }
+        if (null !== $this->lineServiceProvider) {
+            $res['LineServiceProvider'] = $this->lineServiceProvider;
         }
         if (null !== $this->lineType) {
             $res['LineType'] = $this->lineType;
@@ -201,6 +219,12 @@ class physicalConnectionLOAType extends Model
         }
         if (isset($map['LineLabel'])) {
             $model->lineLabel = $map['LineLabel'];
+        }
+        if (isset($map['LineSPContactInfo'])) {
+            $model->lineSPContactInfo = $map['LineSPContactInfo'];
+        }
+        if (isset($map['LineServiceProvider'])) {
+            $model->lineServiceProvider = $map['LineServiceProvider'];
         }
         if (isset($map['LineType'])) {
             $model->lineType = $map['LineType'];

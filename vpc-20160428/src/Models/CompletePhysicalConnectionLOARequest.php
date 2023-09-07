@@ -21,6 +21,11 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $clientToken;
 
     /**
+     * @var bool
+     */
+    public $finishWork;
+
+    /**
      * @description The ID of the Express Connect circuit.
      *
      * @example pc-bp10tvlhnwkw****
@@ -46,6 +51,16 @@ class CompletePhysicalConnectionLOARequest extends Model
      * @var string
      */
     public $lineLabel;
+
+    /**
+     * @var string
+     */
+    public $lineSPContactInfo;
+
+    /**
+     * @var string
+     */
+    public $lineServiceProvider;
 
     /**
      * @var string
@@ -78,9 +93,12 @@ class CompletePhysicalConnectionLOARequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'clientToken'          => 'ClientToken',
+        'finishWork'           => 'FinishWork',
         'instanceId'           => 'InstanceId',
         'lineCode'             => 'LineCode',
         'lineLabel'            => 'LineLabel',
+        'lineSPContactInfo'    => 'LineSPContactInfo',
+        'lineServiceProvider'  => 'LineServiceProvider',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -98,6 +116,9 @@ class CompletePhysicalConnectionLOARequest extends Model
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
         }
+        if (null !== $this->finishWork) {
+            $res['FinishWork'] = $this->finishWork;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -106,6 +127,12 @@ class CompletePhysicalConnectionLOARequest extends Model
         }
         if (null !== $this->lineLabel) {
             $res['LineLabel'] = $this->lineLabel;
+        }
+        if (null !== $this->lineSPContactInfo) {
+            $res['LineSPContactInfo'] = $this->lineSPContactInfo;
+        }
+        if (null !== $this->lineServiceProvider) {
+            $res['LineServiceProvider'] = $this->lineServiceProvider;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -137,6 +164,9 @@ class CompletePhysicalConnectionLOARequest extends Model
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
         }
+        if (isset($map['FinishWork'])) {
+            $model->finishWork = $map['FinishWork'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }
@@ -145,6 +175,12 @@ class CompletePhysicalConnectionLOARequest extends Model
         }
         if (isset($map['LineLabel'])) {
             $model->lineLabel = $map['LineLabel'];
+        }
+        if (isset($map['LineSPContactInfo'])) {
+            $model->lineSPContactInfo = $map['LineSPContactInfo'];
+        }
+        if (isset($map['LineServiceProvider'])) {
+            $model->lineServiceProvider = $map['LineServiceProvider'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
