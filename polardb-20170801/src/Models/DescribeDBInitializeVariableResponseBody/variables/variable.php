@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class variable extends Model
 {
     /**
+     * @description The character set that is supported.
+     *
+     * @example EUC_CN
+     *
      * @var string
      */
     public $charset;
 
     /**
+     * @description The language that indicates the collation of the databases that are created.
+     *
+     * >- The language must be compatible with the character set that is specified by **CharacterSetName**.
+     * >- This parameter is optional for PolarDB for MySQL clusters.
+     *
+     * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+     * @example C
+     *
      * @var string
      */
     public $collate;
 
     /**
+     * @description The language that indicates the character type of the database.
+     *
+     * >- The language must be compatible with the character set that is specified by **CharacterSetName**.
+     * >- The specified value must be the same as the value of **Collate**.
+     * >- This parameter is optional for PolarDB for MySQL clusters.
+     *
+     * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+     * @example C
+     *
      * @var string
      */
     public $ctype;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAuditLogCollectorResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 22C0ACF0-DD29-4B67-9190-B7A48C******
+     *
      * @var string
      */
     public $requestId;

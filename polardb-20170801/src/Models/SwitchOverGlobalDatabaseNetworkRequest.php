@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class SwitchOverGlobalDatabaseNetworkRequest extends Model
 {
     /**
+     * @description The ID of the cluster that will become the primary cluster in the GDN.
+     *
+     * You can call the [DescribeGlobalDatabaseNetwork](~~264580~~) operation to query the ID of the cluster in the GDN.
+     * @example pc-wz9fb5nn44u1d****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to forcibly switch over the primary and secondary clusters in the GDN. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $forced;
 
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gdn-bp1fttxsrmv*****
+     *
      * @var string
      */
     public $GDNId;
@@ -34,11 +50,19 @@ class SwitchOverGlobalDatabaseNetworkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * @example cn-qingdao
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

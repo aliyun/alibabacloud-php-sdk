@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CancelScheduleTasksResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 7F2007D3-7E74-4ECB-89A8-BF130D******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

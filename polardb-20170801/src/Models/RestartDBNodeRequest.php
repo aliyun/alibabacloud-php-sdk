@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class RestartDBNodeRequest extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * >  You can call the [DescribeDBClusters](~~185342~~) operation to query the details of all clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+     * @example pi-*************
+     *
      * @var string
      */
     public $DBNodeId;

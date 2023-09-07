@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyPendingMaintenanceActionResponseBody extends Model
 {
     /**
+     * @description The ID of the task.
+     *
+     * @example 111111
+     *
      * @var string
      */
     public $ids;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 93061E17-B56A-4324-BC95-D0FFD2******
+     *
      * @var string
      */
     public $requestId;

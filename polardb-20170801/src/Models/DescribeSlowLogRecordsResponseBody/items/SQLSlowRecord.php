@@ -9,51 +9,91 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowRecord extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example pi-*****************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The time when the SQL statement was executed. The time is in the `yyyy-MM-ddTHH:mmZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-04-07T03:47Z
+     *
      * @var string
      */
     public $executionStartTime;
 
     /**
+     * @description The IP address of the client that is used to connect to the database.
+     *
+     * @example testdb[testdb] @  [100.**.**.242]
+     *
      * @var string
      */
     public $hostAddress;
 
     /**
+     * @description The period of time during which the SQL statement was locked. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $lockTimes;
 
     /**
+     * @description The number of rows parsed by the SQL statement.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $parseRowCounts;
 
     /**
+     * @description The time range for the query. Unit: milliseconds.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $queryTimeMS;
 
     /**
+     * @description The amount of time that was consumed to execute the SQL statement. Unit: seconds.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $queryTimes;
 
     /**
+     * @description The number of rows returned by the SQL statement.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $returnRowCounts;
 
     /**
+     * @description The SQL statement that is executed in the query.
+     *
+     * @example /* Query from *** by user 111 *\/ SELECT sleep(20)
+     *
      * @var string
      */
     public $SQLText;

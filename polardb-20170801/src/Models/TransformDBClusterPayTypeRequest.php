@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class TransformDBClusterPayTypeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 6000170000591aed949d0f5********************
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-bp10gr51qasnl****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,21 +37,44 @@ class TransformDBClusterPayTypeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The renewal cycle of the cluster. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * >  This parameter is required if you set the **PayType** parameter to **Prepaid**.
+     * @example Month
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm3f4un32****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,6 +90,14 @@ class TransformDBClusterPayTypeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The subscription duration of the cluster. Valid values:
+     *
+     *   If the **Period** parameter is set to **Year**, the **UsedTime** parameter can be set to 1, 2, or 3.
+     *   If the **Period** parameter is set to **Month**, the **UsedTime** parameter can be set to 1, 2, 3, 4, 5, 6, 7, 8, or 9.
+     *
+     * >  This parameter is required if you set the **PayType** parameter to **Prepaid**.
+     * @example 1
+     *
      * @var string
      */
     public $usedTime;

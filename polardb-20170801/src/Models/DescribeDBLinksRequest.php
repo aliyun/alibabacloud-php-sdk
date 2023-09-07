@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBLinksRequest extends Model
 {
     /**
+     * @description The ID of the cluster for which you want to query the database links.
+     *
+     * > You can call the [DescribeDBClusters](~~173433~~) operation to query PolarDB clusters.
+     * @example pc-a*************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database link. If you leave this parameter empty, the system returns all the database links.
+     *
+     * @example dblink_test
+     *
      * @var string
      */
     public $DBLinkName;

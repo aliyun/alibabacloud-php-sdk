@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterDeletionRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to.obtain the cluster ID.
+     * @example pc-bp1313h70cd5m****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +29,13 @@ class ModifyDBClusterDeletionRequest extends Model
     public $ownerId;
 
     /**
+     * @description Specifies whether to enable the cluster lock feature. Default value: false. Valid values:
+     *
+     *   **true**: enables the cluster lock feature. If you enable the cluster lock feature, you cannot directly release the cluster. You must disable the cluster lock feature before you can release the cluster.
+     *   **false**: disables the cluster lock feature.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $protection;

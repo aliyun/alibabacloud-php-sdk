@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePendingMaintenanceActionRequest extends Model
 {
     /**
+     * @description Specifies whether to return the historical tasks. Valid values:
+     *
+     *   **0**: returns the current task.
+     *   **1**: returns the historical tasks.
+     *
+     * Default value: **0**.
+     * @example 0
+     *
      * @var int
      */
     public $isHistory;
@@ -24,21 +32,39 @@ class DescribePendingMaintenanceActionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. The value of this parameter must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values: **30**, **50**, or **100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the pending event. You can call the [DescribeRegions](~~98041~~) operation to query the regions and zones that are supported by PolarDB.
+     * >- You can set this parameter to **all** to view all pending events within your account.
+     * >- If you set `Region` to **all**, you must set `TaskType` to **all**.
+     * @example all
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -59,6 +85,17 @@ class DescribePendingMaintenanceActionRequest extends Model
     public $securityToken;
 
     /**
+     * @description The task type of pending events. Valid values:
+     *
+     *   **DatabaseSoftwareUpgrading**: database software upgrades
+     *   **DatabaseHardwareMaintenance**: hardware maintenance and upgrades
+     *   **DatabaseStorageUpgrading**: database storage upgrades
+     *   **DatabaseProxyUpgrading**: minor version upgrades of the proxy
+     *   **all**: queries the details of the pending events of all preceding types.
+     *
+     * > If the `Region` parameter is set to **all**, the `TaskType` parameter must be set to **all**.
+     * @example all
+     *
      * @var string
      */
     public $taskType;

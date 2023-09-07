@@ -11,16 +11,24 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAccessWhitelistResponseBody extends Model
 {
     /**
+     * @description The Elastic Compute Service (ECS) security groups that are associated with the cluster.
+     *
      * @var DBClusterSecurityGroups
      */
     public $DBClusterSecurityGroups;
 
     /**
+     * @description The details about the cluster.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The request ID.
+     *
+     * @example 559E91A2-CDA3-4E9F-808B-29D738******
+     *
      * @var string
      */
     public $requestId;

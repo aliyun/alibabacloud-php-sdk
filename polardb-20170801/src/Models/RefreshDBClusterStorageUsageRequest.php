@@ -29,6 +29,13 @@ class RefreshDBClusterStorageUsageRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether to enable real-time synchronization. Valid values:
+     *
+     *   **true**
+     *   **false**: T + 1
+     *
+     * @example true
+     *
      * @var bool
      */
     public $syncRealTime;

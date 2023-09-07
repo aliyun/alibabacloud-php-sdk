@@ -9,31 +9,61 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterTDEResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Indicates whether automatic encryption is enabled for new tables. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * @example ON
+     *
      * @var string
      */
     public $encryptNewTables;
 
     /**
+     * @description The ID of the custom key.
+     *
+     * @example 2a4f4ac2-****-****-****-************
+     *
      * @var string
      */
     public $encryptionKey;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E37D1508-EC3B-4E06-A24A-C7AC31******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The region where the TDE key resides.
+     *
+     * @example cn-beijing
+     *
      * @var string
      */
     public $TDERegion;
 
     /**
+     * @description Indicates whether TDE encryption is enabled. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $TDEStatus;

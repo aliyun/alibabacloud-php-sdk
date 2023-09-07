@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBDescriptionRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The description of the database. The description must meet the following requirements:
+     *
+     *   It cannot start with `http://` or `https://`.
+     *   It must be 2 to 256 characters in length.
+     *
+     * @example DBDesc
+     *
      * @var string
      */
     public $DBDescription;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testDB
+     *
      * @var string
      */
     public $DBName;

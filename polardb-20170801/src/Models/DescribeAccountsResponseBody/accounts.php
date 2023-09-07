@@ -10,41 +10,81 @@ use AlibabaCloud\Tea\Model;
 class accounts extends Model
 {
     /**
+     * @description The description of the account.
+     *
+     * @example test
+     *
      * @var string
      */
     public $accountDescription;
 
     /**
+     * @description The locking state of the account. Valid values:
+     *
+     *   **UnLock**
+     *   **Lock**
+     *
+     * @example UnLock
+     *
      * @var string
      */
     public $accountLockState;
 
     /**
+     * @description The name of the account.
+     *
+     * @example test_acc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The password of the account that is used to log on to the database.
+     *
+     * @example Test1111
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @description The validity period of the password.
+     *
+     * @example undefined
+     *
      * @var string
      */
     public $accountPasswordValidTime;
 
     /**
+     * @description The state of the account. Valid values:
+     *
+     *   **Creating**: The account is being created.
+     *   **Available**: The account is available.
+     *   **Deleting**: The account is being deleted
+     *
+     * @example Available
+     *
      * @var string
      */
     public $accountStatus;
 
     /**
+     * @description The type of the account. Valid values:
+     *
+     *   **Normal**: a standard account
+     *   **Super**: a privileged account
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $accountType;
 
     /**
+     * @description The list of database permissions that are granted to the account.
+     *
      * @var databasePrivileges[]
      */
     public $databasePrivileges;

@@ -9,35 +9,94 @@ use AlibabaCloud\Tea\Model;
 class DBNode extends Model
 {
     /**
+     * @description The specifications of the node.
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example pi-****************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The role of the node. Valid values:
+     *
+     *   **Writer**: The node is the primary node.
+     *   **Reader**: The node is a read-only node.
+     *
+     * @example Reader
+     *
      * @var string
      */
     public $DBNodeRole;
 
     /**
+     * @description Indicates whether the hot standby feature is enabled. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * @example OFF
+     *
+     * @var string
+     */
+    public $hotReplicaMode;
+
+    /**
+     * @description Indicates whether the In-Memory Column Index (IMCI) feature is enabled. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * @example OFF
+     *
+     * @var string
+     */
+    public $imciSwitch;
+
+    /**
+     * @description The ID of the region in which the node resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description Indicates whether the serverless feature is enabled for the current node. **ON** indicates that the serverless feature is enabled. An empty value indicates that the serverless feature is disabled.
+     *
+     * @example ON
+     *
+     * @var string
+     */
+    public $serverless;
+
+    /**
+     * @description The zone ID of the node.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
-        'DBNodeClass' => 'DBNodeClass',
-        'DBNodeId'    => 'DBNodeId',
-        'DBNodeRole'  => 'DBNodeRole',
-        'regionId'    => 'RegionId',
-        'zoneId'      => 'ZoneId',
+        'DBNodeClass'    => 'DBNodeClass',
+        'DBNodeId'       => 'DBNodeId',
+        'DBNodeRole'     => 'DBNodeRole',
+        'hotReplicaMode' => 'HotReplicaMode',
+        'imciSwitch'     => 'ImciSwitch',
+        'regionId'       => 'RegionId',
+        'serverless'     => 'Serverless',
+        'zoneId'         => 'ZoneId',
     ];
 
     public function validate()
@@ -56,8 +115,17 @@ class DBNode extends Model
         if (null !== $this->DBNodeRole) {
             $res['DBNodeRole'] = $this->DBNodeRole;
         }
+        if (null !== $this->hotReplicaMode) {
+            $res['HotReplicaMode'] = $this->hotReplicaMode;
+        }
+        if (null !== $this->imciSwitch) {
+            $res['ImciSwitch'] = $this->imciSwitch;
+        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->serverless) {
+            $res['Serverless'] = $this->serverless;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -83,8 +151,17 @@ class DBNode extends Model
         if (isset($map['DBNodeRole'])) {
             $model->DBNodeRole = $map['DBNodeRole'];
         }
+        if (isset($map['HotReplicaMode'])) {
+            $model->hotReplicaMode = $map['HotReplicaMode'];
+        }
+        if (isset($map['ImciSwitch'])) {
+            $model->imciSwitch = $map['ImciSwitch'];
+        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Serverless'])) {
+            $model->serverless = $map['Serverless'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

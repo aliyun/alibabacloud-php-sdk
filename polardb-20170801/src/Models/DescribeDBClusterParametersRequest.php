@@ -9,9 +9,25 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterParametersRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-**********
+     *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @description The kernel parameter. Valid values:
+     *
+     *   **Normal**: the kernel parameters.
+     *   **MigrationFromRDS**: compares the current parameters with the parameters of the source RDS instance.
+     *
+     * @example Normal
+     *
+     * @var string
+     */
+    public $describeType;
 
     /**
      * @var string
@@ -34,6 +50,7 @@ class DescribeDBClusterParametersRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'describeType'         => 'DescribeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -49,6 +66,9 @@ class DescribeDBClusterParametersRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->describeType) {
+            $res['DescribeType'] = $this->describeType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -76,6 +96,9 @@ class DescribeDBClusterParametersRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DescribeType'])) {
+            $model->describeType = $map['DescribeType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

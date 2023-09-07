@@ -10,16 +10,29 @@ use AlibabaCloud\Tea\Model;
 class rdsEndpointList extends Model
 {
     /**
+     * @description Details about the endpoints.
+     *
      * @var addressItems[]
      */
     public $addressItems;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example rm-************-normal
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Normal**: the standard endpoint
+     *   **ReadWriteSplitting**: the read/write splitting endpoint
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $endpointType;

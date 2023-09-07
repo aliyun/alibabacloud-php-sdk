@@ -9,31 +9,86 @@ use AlibabaCloud\Tea\Model;
 class EvaluateRegionResourceRequest extends Model
 {
     /**
+     * @description The cluster link type. The backend randomly selects the default value. Valid values:
+     *
+     *   **lvs** :Linux virtual server
+     *   **proxy**: proxy server
+     *   **dns**: domain name system
+     *
+     * @example lvs
+     *
      * @var string
      */
     public $DBInstanceConnType;
 
     /**
+     * @description The specifications of the node. For information about node specifications, see the following topics:
+     *
+     *   PolarDB for MySQL: [Specifications of compute nodes](~~102542~~)
+     *   PolarDB for Oracle: [Specifications of compute nodes](~~207921~~)
+     *   PolarDB for PostgreSQL: [Specifications of compute nodes](~~209380~~)
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine
+     *
+     *   Valid values for the MySQL database engine:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     *   Valid values for the PostgreSQL database engine:
+     *
+     *   **11**
+     *   **14**
+     *
+     *   Valid value for the Oracle database engine: **11**
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description Specifies whether to return the zones in which the single-zone deployment method is supported. Default value: 0. Valid values:
+     *
+     *   **0**: no value returned
+     *   **1**: returns the zones.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $dispenseMode;
 
     /**
+     * @description Specifies whether Maxscale is created. Default value: true. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $needMaxScaleLink;
@@ -49,11 +104,20 @@ class EvaluateRegionResourceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -69,11 +133,20 @@ class EvaluateRegionResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The subdomain. It is the child domain of the top-level domain name or parent domain. For example, if the parent domain name is cn-beijing, its child domain can be cn-beijing-i-aliyun.
+     *
+     * @example cn-beijing-i-aliyun
+     *
      * @var string
      */
     public $subDomain;
 
     /**
+     * @description The zone ID.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query available zones.
+     * @example cn-hangzhou-g
+     *
      * @var string
      */
     public $zoneId;

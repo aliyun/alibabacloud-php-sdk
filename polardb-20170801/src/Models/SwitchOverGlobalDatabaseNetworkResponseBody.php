@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class SwitchOverGlobalDatabaseNetworkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 67F2E75F-AE67-4FB2-821F-A81237EACD15
+     *
      * @var string
      */
     public $requestId;

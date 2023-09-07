@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterMonitorRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +28,10 @@ class ModifyDBClusterMonitorRequest extends Model
     public $ownerId;
 
     /**
+     * @description The interval at which monitoring data is collected. Valid values: **5** and **60**. Unit: seconds.
+     *
+     * @example 5
+     *
      * @var string
      */
     public $period;

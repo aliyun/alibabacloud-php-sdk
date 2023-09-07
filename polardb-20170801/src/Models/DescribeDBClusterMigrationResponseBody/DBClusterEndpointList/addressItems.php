@@ -9,36 +9,71 @@ use AlibabaCloud\Tea\Model;
 class addressItems extends Model
 {
     /**
+     * @description The connection string.
+     *
+     * @example pc-**************.rwlb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The IP address of the endpoint.
+     *
+     * @example 192.***.***.10
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **Public**: the public endpoint
+     *   **Private**: the internal endpoint (VPC)
+     *   **Inner**: the internal endpoint (classic network)
+     *
+     * @example Private
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The port number.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $SSLEnabled;
 
     /**
+     * @description The VPC ID.
+     *
+     * @example vpc-**********
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The vSwitch ID.
+     *
+     * @example vsw-**********
+     *
      * @var string
      */
     public $vSwitchId;

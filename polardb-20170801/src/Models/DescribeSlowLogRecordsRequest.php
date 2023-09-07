@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The interval between the start time and end time must be within 24 hours. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * > This parameter must be set to a time value in UTC (UTC+0 time zone). If your service resides in another time zone, convert the time value. For example, if the local time in the time zone where your service resides is 12:00 (UTC +8) and you want to query slow query logs at 08:00 (UTC +8) to 12:00, set this parameter to a time value that ranges from 00:00, set this parameter to 04:00.
+     * @example 2022-11-16T04:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,16 +48,35 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is larger than 0.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query all regions that are available for your account, such as the region ID.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,11 +92,25 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
+     *
+     * @example U2FsdGVk****
+     *
      * @var string
      */
     public $SQLHASH;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * >
+     *
+     *   You can specify a time range of up to 30 days.
+     *
+     *   This parameter must be set to a time value in UTC (UTC+0 time zone). If your service resides in another time zone, convert the time value. For example, if the local time in the time zone where your service resides is 12:00 (UTC +8) and you want to query slow query logs at 08:00 (UTC +8) to 12:00, set this parameter to a time value that ranges from 00:00, set this parameter to 04:00.
+     *
+     * @example 2022-11-15T16:00Z
+     *
      * @var string
      */
     public $startTime;

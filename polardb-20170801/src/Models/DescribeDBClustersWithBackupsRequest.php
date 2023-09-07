@@ -9,26 +9,69 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClustersWithBackupsRequest extends Model
 {
     /**
+     * @description The name of the cluster. The name must meet the following requirements:
+     *
+     *   It cannot start with `http://` or `https://`.
+     *   It must be 2 to 256 characters in length.
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @description The ID of the cluster. If you need to specify multiple cluster IDs, separate the cluster IDs with commas (,).
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterIds;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine.
+     *
+     *   Valid values for the MySQL database engine:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     *   Valid values for the PostgreSQL database engine:
+     *
+     *   **11**
+     *   **14**
+     *
+     *   Valid value for the Oracle database engine: **11**
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description Specifies whether the cluster is deleted. Valid values:
+     *
+     *   **0**: not deleted
+     *   **1**: deleted
+     *
+     * @example 0
+     *
      * @var int
      */
     public $isDeleted;
@@ -44,21 +87,43 @@ class DescribeDBClustersWithBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: 30.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query information about regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDatabaseNetworksResponseBody extends Model
 {
     /**
+     * @description Details about the GDNs.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of records on the current page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69A85BAF-1089-4CDF-A82F-0A140F******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

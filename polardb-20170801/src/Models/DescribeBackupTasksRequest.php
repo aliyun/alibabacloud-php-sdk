@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupTasksRequest extends Model
 {
     /**
+     * @description The ID of the backup task.
+     *
+     * @example 11111111
+     *
      * @var string
      */
     public $backupJobId;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Manual
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;

@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterTDERequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;

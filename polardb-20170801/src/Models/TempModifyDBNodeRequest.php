@@ -10,26 +10,47 @@ use AlibabaCloud\Tea\Model;
 class TempModifyDBNodeRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 6000170000591aed949d0f5********************
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The information of the added node.
+     *
      * @var DBNode[]
      */
     public $DBNode;
 
     /**
+     * @description The type of configuration change. Set the value to **TempUpgrade**.
+     *
+     * @example TempUpgrade
+     *
      * @var string
      */
     public $modifyType;
 
     /**
+     * @description The type of operation performed on the cluster. Valid values:
+     *
+     *   **Add**: add one or more nodes to the cluster.
+     *   **Modify**: temporarily upgrade the configuration of the cluster.
+     *
+     * @example Modify
+     *
      * @var string
      */
     public $operationType;
@@ -55,6 +76,11 @@ class TempModifyDBNodeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The rollback time of the configuration for the temporary upgrade. Specify the time in the ISO 8601 standard in the YYYY-MM-DD hh:mm:ss format.
+     *
+     * >  The rollback time cannot be 1 hour earlier than the current time and cannot be later than one day before the time when the cluster expires.
+     * @example 2021-09-23 18:16:00
+     *
      * @var string
      */
     public $restoreTime;

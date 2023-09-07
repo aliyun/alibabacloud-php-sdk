@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyPendingMaintenanceActionRequest extends Model
 {
     /**
+     * @description The ID of the task. You can specify multiple task IDs at a time to modify the switching time of the tasks in a unified manner. The task IDs must be separated with commas (,).
+     *
+     * @example 111111
+     *
      * @var string
      */
     public $ids;
@@ -24,11 +28,20 @@ class ModifyPendingMaintenanceActionRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * >  You can call the [DescribeRegions](~~98041~~) operation to query the region ID details.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +62,10 @@ class ModifyPendingMaintenanceActionRequest extends Model
     public $securityToken;
 
     /**
+     * @description The time that you specify for the background to perform the action that corresponds to the pending event. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     *
+     * @example 2020-06-09T22:00:00Z
+     *
      * @var string
      */
     public $switchTime;

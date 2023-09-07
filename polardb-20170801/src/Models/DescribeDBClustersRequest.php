@@ -10,41 +10,80 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClustersRequest extends Model
 {
     /**
+     * @description The endpoint of the cluster.
+     *
+     * @example ********.rwlb.polardb-pg-public.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The description of the cluster. Fuzzy match is supported.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @description The ID of the cluster. Separate multiple cluster IDs with commas (,).
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterIds;
 
     /**
+     * @description The state of the cluster that you want to query. For information about valid values, see [Cluster states](~~99286~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBClusterStatus;
 
     /**
+     * @description The ID of the node. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+     *
+     * @example pi-***************
+     *
      * @var string
      */
     public $DBNodeIds;
 
     /**
+     * @description The database engine that the cluster runs. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The database engine version of the cluster.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description Specifies whether the cluster has expired. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $expired;
@@ -60,36 +99,69 @@ class DescribeDBClustersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 10
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return per page. Valid values: **30**, **50**, or **100**.
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The billing method. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description Filters clusters created in the last N days. Valid values: 0 to 15.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $recentCreationInterval;
 
     /**
+     * @description Filters clusters that expire after N days. Valid values: 0 to 15.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $recentExpirationInterval;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-**********
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -105,6 +177,8 @@ class DescribeDBClustersRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The tags of the cluster.
+     *
      * @var tag[]
      */
     public $tag;

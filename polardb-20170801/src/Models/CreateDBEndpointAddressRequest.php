@@ -4,26 +4,48 @@
 
 namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateDBEndpointAddressRequest\zoneInfo;
 use AlibabaCloud\Tea\Model;
 
 class CreateDBEndpointAddressRequest extends Model
 {
     /**
+     * @description The prefix of the new endpoint. The prefix of the endpoint must meet the following requirements:
+     *
+     *   The prefix can contain lowercase letters, digits, and hyphens (-).
+     *   The prefix must start with a letter and end with a digit or a letter.
+     *   The prefix must be 6 to 40 characters in length.
+     *
+     * @example test-1
+     *
      * @var string
      */
     public $connectionStringPrefix;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * >  You can call the [DescribeDBClusterEndpoints](~~98205~~) operation to query endpoint details.
+     * @example pe-**************
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The network type of the endpoint. Set the value to **Public**.
+     *
+     * @example Public
+     *
      * @var string
      */
     public $netType;
@@ -47,6 +69,31 @@ class CreateDBEndpointAddressRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The ID of the ECS security group.
+     *
+     * @example sg-bp**************
+     *
+     * @var string
+     */
+    public $securityGroupId;
+
+    /**
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-**********
+     *
+     * @var string
+     */
+    public $VPCId;
+
+    /**
+     * @description The details of the zones.
+     *
+     * @var zoneInfo[]
+     */
+    public $zoneInfo;
     protected $_name = [
         'connectionStringPrefix' => 'ConnectionStringPrefix',
         'DBClusterId'            => 'DBClusterId',
@@ -56,6 +103,9 @@ class CreateDBEndpointAddressRequest extends Model
         'ownerId'                => 'OwnerId',
         'resourceOwnerAccount'   => 'ResourceOwnerAccount',
         'resourceOwnerId'        => 'ResourceOwnerId',
+        'securityGroupId'        => 'SecurityGroupId',
+        'VPCId'                  => 'VPCId',
+        'zoneInfo'               => 'ZoneInfo',
     ];
 
     public function validate()
@@ -88,6 +138,21 @@ class CreateDBEndpointAddressRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityGroupId) {
+            $res['SecurityGroupId'] = $this->securityGroupId;
+        }
+        if (null !== $this->VPCId) {
+            $res['VPCId'] = $this->VPCId;
+        }
+        if (null !== $this->zoneInfo) {
+            $res['ZoneInfo'] = [];
+            if (null !== $this->zoneInfo && \is_array($this->zoneInfo)) {
+                $n = 0;
+                foreach ($this->zoneInfo as $item) {
+                    $res['ZoneInfo'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -124,6 +189,21 @@ class CreateDBEndpointAddressRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityGroupId'])) {
+            $model->securityGroupId = $map['SecurityGroupId'];
+        }
+        if (isset($map['VPCId'])) {
+            $model->VPCId = $map['VPCId'];
+        }
+        if (isset($map['ZoneInfo'])) {
+            if (!empty($map['ZoneInfo'])) {
+                $model->zoneInfo = [];
+                $n               = 0;
+                foreach ($map['ZoneInfo'] as $item) {
+                    $model->zoneInfo[$n++] = null !== $item ? zoneInfo::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

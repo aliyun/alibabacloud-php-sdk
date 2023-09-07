@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class supportedEngines extends Model
 {
     /**
+     * @description The available resources.
+     *
      * @var availableResources[]
      */
     public $availableResources;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example mysql57
+     *
      * @var string
      */
     public $engine;

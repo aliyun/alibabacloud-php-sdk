@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class addressItems extends Model
 {
     /**
+     * @description The endpoint.
+     *
+     * @example ********.rwlb.polardb-pg-public.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The IP address.
+     *
+     * @example 192.***.***.***
+     *
      * @var string
      */
     public $IPAddress;
 
     /**
+     * @description The network type of the endpoint. Valid values:
+     *
+     *   **Public**
+     *   **Private**
+     *
+     * @example Private
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The port.
+     *
+     * @example 1521
+     *
      * @var string
      */
     public $port;
 
     /**
+     * @description The private domain name that is bound to the endpoint.
+     *
+     * @example ***.***.**.com
+     *
      * @var string
      */
     public $privateZoneConnectionString;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * @example vpc-***************
+     *
      * @var string
      */
     public $VPCId;
 
     /**
+     * @description The ID of the vSwitch.
+     *
+     * @example vsw-************
+     *
      * @var string
      */
     public $vSwitchId;
 
     /**
+     * @description The ID of the virtual private cloud (VPC) instance.
+     *
+     * > This parameter is returned for only PolarDB for MySQL clusters.
+     * @example pe-*************
+     *
      * @var string
      */
     public $vpcInstanceId;

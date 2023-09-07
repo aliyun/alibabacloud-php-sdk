@@ -10,21 +10,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInitializeVariableResponseBody extends Model
 {
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   Oracle
+     *   PostgreSQL
+     *
+     * @example PostgreSQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 11
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 475F58B7-F394-4394-AA6E-4F1CBA******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The attributes that are returned.
+     *
      * @var variables
      */
     public $variables;

@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupPolicyResponseBody extends Model
 {
     /**
+     * @description Indicates whether the log backup feature was enabled. Valid values:
+     *
+     *   0: disabled.
+     *   1: enabled. By default, the log backup feature is enabled and cannot be disabled.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $enableBackupLog;
@@ -24,11 +31,22 @@ class DescribeLogBackupPolicyResponseBody extends Model
     public $logBackupAnotherRegionRetentionPeriod;
 
     /**
+     * @description The retention period of the logs. Valid values:
+     *
+     *   7 to 7300: The logs are retained for 7 to 7,300 days.
+     *   \-1: The logs are permanently retained.
+     *
+     * @example 7
+     *
      * @var int
      */
     public $logBackupRetentionPeriod;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 62EE0051-102B-488D-9C79-D607B8******
+     *
      * @var string
      */
     public $requestId;

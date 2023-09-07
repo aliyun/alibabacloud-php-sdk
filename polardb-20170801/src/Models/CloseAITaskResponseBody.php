@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CloseAITaskResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 936C7025-27A5-4CB1-BB31-540E1F0CCA12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the task for disabling the PolarDB for AI feature.
+     *
+     * @example 53879cdb-9a00-428e-acaf-ff4cff******
+     *
      * @var string
      */
     public $taskId;

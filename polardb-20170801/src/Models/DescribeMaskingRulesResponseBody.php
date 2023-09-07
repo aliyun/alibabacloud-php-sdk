@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeMaskingRulesResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-bp1s826a1up******
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The result data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned for the request.
+     *
+     * > If the request is successful, Successful is returned. If the request fails, an error message such as an error code is returned.
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F83D131-1C18-4599-889D-729A9D******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid value:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

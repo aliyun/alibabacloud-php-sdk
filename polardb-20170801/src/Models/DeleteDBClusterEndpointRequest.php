@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBClusterEndpointRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-******************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the custom cluster endpoint.
+     *
+     * @example pe-******************
+     *
      * @var string
      */
     public $DBEndpointId;

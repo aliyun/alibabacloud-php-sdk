@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Details about the masking rules.
+     *
      * @var string[]
      */
     public $ruleList;

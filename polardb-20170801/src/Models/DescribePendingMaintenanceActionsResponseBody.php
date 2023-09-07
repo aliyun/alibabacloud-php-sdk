@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribePendingMaintenanceActionsResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 314127C2-B6C1-4F58-B1F6-E6B645******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details of pending events.
+     *
      * @var typeList[]
      */
     public $typeList;

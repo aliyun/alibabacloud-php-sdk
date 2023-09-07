@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharacterSetNameRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can only query character sets that PolarDB for MySQL clusters support. If you enter the ID of a PolarDB for PostgreSQL or PolarDB for Oracle cluster, the returned value of the `CharacterSetNameItems` parameter is an empty string.
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +29,11 @@ class DescribeCharacterSetNameRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

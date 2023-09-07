@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CheckDBNameResponseBody extends Model
 {
     /**
+     * @description The name of the database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example CDB3258F-B5DE-43C4-8935-CBA0CA******
+     *
      * @var string
      */
     public $requestId;

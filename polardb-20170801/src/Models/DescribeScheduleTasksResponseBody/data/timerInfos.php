@@ -9,61 +9,113 @@ use AlibabaCloud\Tea\Model;
 class timerInfos extends Model
 {
     /**
+     * @description The type of the scheduled tasks.
+     *
+     * @example CreateDBNodes
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The description of the cluster.
+     *
+     * @example test_cluster
+     *
      * @var string
      */
     public $dbClusterDescription;
 
     /**
+     * @description The state of the cluster.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $dbClusterStatus;
 
     /**
+     * @description The ID of the order.
+     *
+     * >  This parameter is returned only when you set the `Action` parameter to **CreateDBNodes** or **ModifyDBNodeClass**.
+     * @example 208161753******
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The latest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+     *
+     * @example 2021-01-28T12:30Z
+     *
      * @var string
      */
     public $plannedEndTime;
 
     /**
+     * @description The earliest start time of the task that you specified when you created the scheduled task. The time is displayed in UTC.
+     *
+     * @example 2021-01-28T12:00Z
+     *
      * @var string
      */
     public $plannedStartTime;
 
     /**
+     * @description The expected start time of the task. The time is displayed in UTC.
+     *
+     * @example 2021-01-28T12:16Z
+     *
      * @var string
      */
     public $plannedTime;
 
     /**
+     * @description The ID of the region in which the scheduled task runs.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The state of the scheduled task.
+     *
+     * @example finish
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description Indicates whether the scheduled task can be canceled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $taskCancel;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 53879cdb-9a00-428e-acaf-ff4cff******
+     *
      * @var string
      */
     public $taskId;

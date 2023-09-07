@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Polardb\V20170801\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeStoragePlanResponse extends Model
+class CheckKMSAuthorizedResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DescribeStoragePlanResponse extends Model
     public $statusCode;
 
     /**
-     * @var DescribeStoragePlanResponseBody
+     * @var CheckKMSAuthorizedResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DescribeStoragePlanResponse extends Model
     /**
      * @param array $map
      *
-     * @return DescribeStoragePlanResponse
+     * @return CheckKMSAuthorizedResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DescribeStoragePlanResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DescribeStoragePlanResponseBody::fromMap($map['body']);
+            $model->body = CheckKMSAuthorizedResponseBody::fromMap($map['body']);
         }
 
         return $model;

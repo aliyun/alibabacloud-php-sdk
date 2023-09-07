@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DBNodeIds extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example pi-bp1r4qe3s534*****
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The parameters of the current node.
+     *
      * @var runningParameters[]
      */
     public $runningParameters;

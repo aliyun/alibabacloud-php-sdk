@@ -9,16 +9,29 @@ use AlibabaCloud\Tea\Model;
 class RevokeAccountPrivilegeRequest extends Model
 {
     /**
+     * @description The name of the account.
+     *
+     * >  You can specify only a standard account.
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the PolarDB cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The names of the databases. If you need to specify multiple database names, separate the names with commas (,).
+     *
+     * @example testdb
+     *
      * @var string
      */
     public $DBName;

@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterMigrationRequest extends Model
 {
     /**
+     * @description The endpoints to be switched. The endpoints are in the JSON format.
+     *
+     * > This parameter is valid when the SwapConnectionString parameter is set to true.
+     * @example {"rm-2ze73el581cs*****.mysql.pre.rds.aliyuncs.com":"pc-2ze8200s298e*****.mysql.polardb.pre.rds.aliyuncs.com","rm-2ze73el581cs86*****.mysql.pre.rds.aliyuncs.com":"test-p*****.mysql.polardb.pre.rds.aliyuncs.com"}
+     *
      * @var string
      */
     public $connectionStrings;
 
     /**
+     * @description The ID of cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the new instance or new cluster. Valid values:
+     *
+     *   To perform a data migration, enter the ID of the PolarDB cluster.
+     *   To perform a migration rollback, enter the ID of the ApsaraDB for RDS instance.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $newMasterInstanceId;
@@ -49,11 +65,23 @@ class ModifyDBClusterMigrationRequest extends Model
     public $securityToken;
 
     /**
+     * @description The ID of the source ApsaraDB RDS instance.
+     *
+     * @example rm-************
+     *
      * @var string
      */
     public $sourceRDSDBInstanceId;
 
     /**
+     * @description Specifies whether to switch the endpoints. Valid values:
+     *
+     *   **true**: switches the endpoints. If you select this option, you do not need the change the endpoint in your applications.
+     *   **false**: does not switch the endpoints. If you select this option, you must specify the endpoint of the PolarDB cluster in your applications.
+     *
+     * Default value: **false**.
+     * @example false
+     *
      * @var string
      */
     public $swapConnectionString;

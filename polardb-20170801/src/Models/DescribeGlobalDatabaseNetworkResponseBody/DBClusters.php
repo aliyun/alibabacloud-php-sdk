@@ -10,71 +10,137 @@ use AlibabaCloud\Tea\Model;
 class DBClusters extends Model
 {
     /**
+     * @description The description of the cluster.
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @description The ID of the cluster in the GDN.
+     *
+     * @example pc-wz9fb5nn44u1d****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The status of the cluster in the GDN. For more information, see [Cluster status table](~~99286~~).
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBClusterStatus;
 
     /**
+     * @description The specifications of the node in the cluster.
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @description The details of the node.
+     *
      * @var DBNodes[]
      */
     public $DBNodes;
 
     /**
+     * @description The type of the database engine. Only MySQL is supported.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine. Only version 8.0 is supported.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The expiration time of the cluster.
+     *
+     * > A specific value is returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, an empty string is returned.
+     * @example 2020-11-14T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description Indicates whether the cluster is expired. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > This parameter is returned only for subscription (**Prepaid**) clusters.
+     * @example false
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The ID of the region in which the cluster resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The latency of cross-region data replication between the primary cluster and secondary clusters. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $replicaLag;
 
     /**
+     * @description The role of the cluster. Valid values:
+     *
+     *   **Primary**: the primary cluster
+     *   **standby**: the secondary cluster
+     *
+     * > A GDN consists of one primary cluster and up to four secondary clusters.
+     * @example primary
+     *
      * @var string
      */
     public $role;
 
     /**
+     * @description The storage space that is occupied by the cluster. Unit: bytes.
+     *
+     * @example 3012558848
+     *
      * @var string
      */
     public $storageUsed;

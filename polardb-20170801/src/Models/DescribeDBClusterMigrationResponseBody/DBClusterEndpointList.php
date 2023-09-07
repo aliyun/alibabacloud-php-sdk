@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class DBClusterEndpointList extends Model
 {
     /**
+     * @description Details about the endpoints.
+     *
      * @var addressItems[]
      */
     public $addressItems;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example pe-***********
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Cluster**: the default cluster endpoint
+     *   **Primary**: the primary endpoint
+     *   **Custom**: the custom cluster endpoint
+     *
+     * @example Cluster
+     *
      * @var string
      */
     public $endpointType;

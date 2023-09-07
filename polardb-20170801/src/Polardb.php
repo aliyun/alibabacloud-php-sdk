@@ -12,6 +12,10 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckAccountNameResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckDBNameResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckKMSAuthorizedResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CheckServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseAITaskRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseAITaskResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CloseDBClusterMigrationRequest;
@@ -38,6 +42,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupRequest
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateGlobalSecurityIPGroupResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateParameterGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateServiceLinkedRoleResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\CreateStoragePlanResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DeleteAccountRequest;
@@ -92,6 +98,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAuditLogCollector
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAuditLogCollectorResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAvailableResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterAvailableResourcesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterConnectivityRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterConnectivityResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterEndpointsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeDBClusterMigrationRequest;
@@ -160,10 +168,12 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogRecordsResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeSlowLogsResponse;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeStoragePlanRequest;
-use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeStoragePlanResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeTasksRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeTasksResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeUserEncryptionKeyListRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeUserEncryptionKeyListResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchesRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EnableFirewallRulesResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\EvaluateRegionResourceRequest;
@@ -174,6 +184,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\GrantAccountPrivilegeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListTagResourcesRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ListTagResourcesResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ManuallyStartDBClusterRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ManuallyStartDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountDescriptionResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyAccountPasswordRequest;
@@ -204,12 +216,16 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterParametersRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterParametersResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterPrimaryZoneRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterPrimaryZoneResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterResourceGroupRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterResourceGroupResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterServerlessConfRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterServerlessConfResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterSSLRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterSSLResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterStorageSpaceRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterStorageSpaceResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterTDERequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBClusterTDEResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBDescriptionRequest;
@@ -218,6 +234,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBEndpointAddressResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeClassResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeHotReplicaModeRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodeHotReplicaModeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesClassResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ModifyDBNodesParametersRequest;
@@ -244,6 +262,8 @@ use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RemoveDBClusterFromGDNResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetAccountResponse;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkRequest;
+use AlibabaCloud\SDK\Polardb\V20170801\Models\ResetGlobalDatabaseNetworkResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeRequest;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestartDBNodeResponse;
 use AlibabaCloud\SDK\Polardb\V20170801\Models\RestoreTableRequest;
@@ -529,6 +549,119 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param CheckKMSAuthorizedRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckKMSAuthorizedResponse
+     */
+    public function checkKMSAuthorizedWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->TDERegion)) {
+            $query['TDERegion'] = $request->TDERegion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckKMSAuthorized',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckKMSAuthorizedResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckKMSAuthorizedRequest $request
+     *
+     * @return CheckKMSAuthorizedResponse
+     */
+    public function checkKMSAuthorized($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkKMSAuthorizedWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CheckServiceLinkedRoleResponse
+     */
+    public function checkServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckServiceLinkedRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckServiceLinkedRoleRequest $request
+     *
+     * @return CheckServiceLinkedRoleResponse
+     */
+    public function checkServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkServiceLinkedRoleWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CloseAITaskRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -587,10 +720,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CloseDBClusterMigrationRequest $request
-     * @param RuntimeOptions                 $runtime
+     * *   You can call this operation to cancel the migration task before data migration.
+     *   * *   You can call this operation to perform the migration task after data migration.
+     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+     *   *
+     * @param CloseDBClusterMigrationRequest $request CloseDBClusterMigrationRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CloseDBClusterMigrationResponse
+     * @return CloseDBClusterMigrationResponse CloseDBClusterMigrationResponse
      */
     public function closeDBClusterMigrationWithOptions($request, $runtime)
     {
@@ -633,9 +770,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CloseDBClusterMigrationRequest $request
+     * *   You can call this operation to cancel the migration task before data migration.
+     *   * *   You can call this operation to perform the migration task after data migration.
+     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+     *   *
+     * @param CloseDBClusterMigrationRequest $request CloseDBClusterMigrationRequest
      *
-     * @return CloseDBClusterMigrationResponse
+     * @return CloseDBClusterMigrationResponse CloseDBClusterMigrationResponse
      */
     public function closeDBClusterMigration($request)
     {
@@ -684,6 +825,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
         }
+        if (!Utils::isUnset($request->privForAllDB)) {
+            $query['PrivForAllDB'] = $request->privForAllDB;
+        }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
         }
@@ -721,10 +865,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request
-     * @param RuntimeOptions      $runtime
+     * >
+     *   * *   You can manually create up to three backups for each cluster.
+     *   * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
+     *   * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     *   *
+     * @param CreateBackupRequest $request CreateBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackupWithOptions($request, $runtime)
     {
@@ -767,9 +916,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateBackupRequest $request
+     * >
+     *   * *   You can manually create up to three backups for each cluster.
+     *   * *   The `Exceeding the daily backup times of this DB cluster` error message indicates that three manual backups already exist in your cluster. You must delete existing backups before you call this operation to manually create backups. For more information about how to delete backups, see [Delete backups](~~98101~~).
+     *   * *   After you call this operation, a backup task is created in the backend. The task may be time-consuming if you want to back up large amounts of data.
+     *   *
+     * @param CreateBackupRequest $request CreateBackupRequest
      *
-     * @return CreateBackupResponse
+     * @return CreateBackupResponse CreateBackupResponse
      */
     public function createBackup($request)
     {
@@ -790,6 +944,9 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->allowShutDown)) {
             $query['AllowShutDown'] = $request->allowShutDown;
+        }
+        if (!Utils::isUnset($request->architecture)) {
+            $query['Architecture'] = $request->architecture;
         }
         if (!Utils::isUnset($request->autoRenew)) {
             $query['AutoRenew'] = $request->autoRenew;
@@ -821,6 +978,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBNodeClass)) {
             $query['DBNodeClass'] = $request->DBNodeClass;
         }
+        if (!Utils::isUnset($request->DBNodeNum)) {
+            $query['DBNodeNum'] = $request->DBNodeNum;
+        }
         if (!Utils::isUnset($request->DBType)) {
             $query['DBType'] = $request->DBType;
         }
@@ -832,6 +992,18 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->GDNId)) {
             $query['GDNId'] = $request->GDNId;
+        }
+        if (!Utils::isUnset($request->hotStandbyCluster)) {
+            $query['HotStandbyCluster'] = $request->hotStandbyCluster;
+        }
+        if (!Utils::isUnset($request->loosePolarLogBin)) {
+            $query['LoosePolarLogBin'] = $request->loosePolarLogBin;
+        }
+        if (!Utils::isUnset($request->looseXEngine)) {
+            $query['LooseXEngine'] = $request->looseXEngine;
+        }
+        if (!Utils::isUnset($request->looseXEngineUseMemoryPct)) {
+            $query['LooseXEngineUseMemoryPct'] = $request->looseXEngineUseMemoryPct;
         }
         if (!Utils::isUnset($request->lowerCaseTableNames)) {
             $query['LowerCaseTableNames'] = $request->lowerCaseTableNames;
@@ -850,6 +1022,12 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->period)) {
             $query['Period'] = $request->period;
+        }
+        if (!Utils::isUnset($request->proxyClass)) {
+            $query['ProxyClass'] = $request->proxyClass;
+        }
+        if (!Utils::isUnset($request->proxyType)) {
+            $query['ProxyType'] = $request->proxyType;
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
@@ -884,8 +1062,26 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->sourceResourceId)) {
             $query['SourceResourceId'] = $request->sourceResourceId;
         }
+        if (!Utils::isUnset($request->standbyAZ)) {
+            $query['StandbyAZ'] = $request->standbyAZ;
+        }
+        if (!Utils::isUnset($request->storageAutoScale)) {
+            $query['StorageAutoScale'] = $request->storageAutoScale;
+        }
+        if (!Utils::isUnset($request->storagePayType)) {
+            $query['StoragePayType'] = $request->storagePayType;
+        }
+        if (!Utils::isUnset($request->storageSpace)) {
+            $query['StorageSpace'] = $request->storageSpace;
+        }
         if (!Utils::isUnset($request->storageType)) {
             $query['StorageType'] = $request->storageType;
+        }
+        if (!Utils::isUnset($request->storageUpperBound)) {
+            $query['StorageUpperBound'] = $request->storageUpperBound;
+        }
+        if (!Utils::isUnset($request->strictConsistency)) {
+            $query['StrictConsistency'] = $request->strictConsistency;
         }
         if (!Utils::isUnset($request->TDEStatus)) {
             $query['TDEStatus'] = $request->TDEStatus;
@@ -1012,10 +1208,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBEndpointAddressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *   *
+     * @param CreateDBEndpointAddressRequest $request CreateDBEndpointAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBEndpointAddressResponse
+     * @return CreateDBEndpointAddressResponse CreateDBEndpointAddressResponse
      */
     public function createDBEndpointAddressWithOptions($request, $runtime)
     {
@@ -1045,6 +1243,15 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->securityGroupId)) {
+            $query['SecurityGroupId'] = $request->securityGroupId;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
+        }
+        if (!Utils::isUnset($request->zoneInfo)) {
+            $query['ZoneInfo'] = $request->zoneInfo;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1064,9 +1271,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBEndpointAddressRequest $request
+     * > You can create a public endpoint for the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *   *
+     * @param CreateDBEndpointAddressRequest $request CreateDBEndpointAddressRequest
      *
-     * @return CreateDBEndpointAddressResponse
+     * @return CreateDBEndpointAddressResponse CreateDBEndpointAddressResponse
      */
     public function createDBEndpointAddress($request)
     {
@@ -1076,10 +1285,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBLinkRequest $request
-     * @param RuntimeOptions      $runtime
+     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+     *   * > *   You can create up to 10 database links for a cluster.
+     *   * > *   Each database link connects a source cluster and a destination cluster.
+     *   * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     *   *
+     * @param CreateDBLinkRequest $request CreateDBLinkRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDBLinkResponse
+     * @return CreateDBLinkResponse CreateDBLinkResponse
      */
     public function createDBLinkWithOptions($request, $runtime)
     {
@@ -1155,9 +1369,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDBLinkRequest $request
+     * A database link can be used to connect two PolarDB for PostgreSQL(Compatible with Oracle) clusters, or connect a PolarDB for PostgreSQL(Compatible with Oracle) cluster to a user-created PostgreSQL database that is hosted on an Elastic Compute Service (ECS) instance. You can use database links to query data across clusters.
+     *   * > *   You can create up to 10 database links for a cluster.
+     *   * > *   Each database link connects a source cluster and a destination cluster.
+     *   * > *   The source cluster and the destination cluster or the destination ECS instance must be located in the same region.
+     *   *
+     * @param CreateDBLinkRequest $request CreateDBLinkRequest
      *
-     * @return CreateDBLinkResponse
+     * @return CreateDBLinkResponse CreateDBLinkResponse
      */
     public function createDBLink($request)
     {
@@ -1184,6 +1403,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBNode)) {
             $query['DBNode'] = $request->DBNode;
+        }
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
         }
         if (!Utils::isUnset($request->endpointBindList)) {
             $query['EndpointBindList'] = $request->endpointBindList;
@@ -1243,10 +1465,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * Before you call this operation, make sure that the following requirements are met:
+     *   * *   The cluster is in the Running state.
+     *   * *   The cluster is unlocked.
+     *   *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabaseWithOptions($request, $runtime)
     {
@@ -1307,9 +1533,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateDatabaseRequest $request
+     * Before you call this operation, make sure that the following requirements are met:
+     *   * *   The cluster is in the Running state.
+     *   * *   The cluster is unlocked.
+     *   *
+     * @param CreateDatabaseRequest $request CreateDatabaseRequest
      *
-     * @return CreateDatabaseResponse
+     * @return CreateDatabaseResponse CreateDatabaseResponse
      */
     public function createDatabase($request)
     {
@@ -1319,10 +1549,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >  A cluster belongs to only one GDN.
+     *   *
+     * @param CreateGlobalDatabaseNetworkRequest $request CreateGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateGlobalDatabaseNetworkResponse
+     * @return CreateGlobalDatabaseNetworkResponse CreateGlobalDatabaseNetworkResponse
      */
     public function createGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
@@ -1371,9 +1603,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateGlobalDatabaseNetworkRequest $request
+     * >  A cluster belongs to only one GDN.
+     *   *
+     * @param CreateGlobalDatabaseNetworkRequest $request CreateGlobalDatabaseNetworkRequest
      *
-     * @return CreateGlobalDatabaseNetworkResponse
+     * @return CreateGlobalDatabaseNetworkResponse CreateGlobalDatabaseNetworkResponse
      */
     public function createGlobalDatabaseNetwork($request)
     {
@@ -1450,10 +1684,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * > You can call this operation only on a PolarDB for MySQL cluster.
+     *   *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateParameterGroupResponse
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
      */
     public function createParameterGroupWithOptions($request, $runtime)
     {
@@ -1511,15 +1748,70 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param CreateParameterGroupRequest $request
+     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * > You can call this operation only on a PolarDB for MySQL cluster.
+     *   *
+     * @param CreateParameterGroupRequest $request CreateParameterGroupRequest
      *
-     * @return CreateParameterGroupResponse
+     * @return CreateParameterGroupResponse CreateParameterGroupResponse
      */
     public function createParameterGroup($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->createParameterGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateServiceLinkedRoleRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRoleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateServiceLinkedRole',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateServiceLinkedRoleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateServiceLinkedRoleRequest $request
+     *
+     * @return CreateServiceLinkedRoleResponse
+     */
+    public function createServiceLinkedRole($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createServiceLinkedRoleWithOptions($request, $runtime);
     }
 
     /**
@@ -1590,10 +1882,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
-     * @param RuntimeOptions       $runtime
+     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *   *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccountWithOptions($request, $runtime)
     {
@@ -1636,9 +1930,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAccountRequest $request
+     * > Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *   *
+     * @param DeleteAccountRequest $request DeleteAccountRequest
      *
-     * @return DeleteAccountResponse
+     * @return DeleteAccountResponse DeleteAccountResponse
      */
     public function deleteAccount($request)
     {
@@ -1648,10 +1944,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteBackupRequest $request
-     * @param RuntimeOptions      $runtime
+     * Before you call this operation, make sure that the cluster meets the following requirements:
+     *   * *   The cluster is in the Running state.
+     *   * *   The backup sets are in the Success state.
+     *   * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
+     *   * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks.
+     *   *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackupWithOptions($request, $runtime)
     {
@@ -1694,9 +1996,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteBackupRequest $request
+     * Before you call this operation, make sure that the cluster meets the following requirements:
+     *   * *   The cluster is in the Running state.
+     *   * *   The backup sets are in the Success state.
+     *   * > *   You can call the [DescribeBackups](~~98102~~) operation to query the status of backup sets.
+     *   * >*   After you delete the backup set file, the storage space that is occupied by the file is released. The released storage space is smaller than the size of the file because your snapshots share some data blocks.
+     *   *
+     * @param DeleteBackupRequest $request DeleteBackupRequest
      *
-     * @return DeleteBackupResponse
+     * @return DeleteBackupResponse DeleteBackupResponse
      */
     public function deleteBackup($request)
     {
@@ -1822,10 +2130,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBEndpointAddressRequest $request
-     * @param RuntimeOptions                 $runtime
+     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *   * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     *   *
+     * @param DeleteDBEndpointAddressRequest $request DeleteDBEndpointAddressRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDBEndpointAddressResponse
+     * @return DeleteDBEndpointAddressResponse DeleteDBEndpointAddressResponse
      */
     public function deleteDBEndpointAddressWithOptions($request, $runtime)
     {
@@ -1871,9 +2182,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDBEndpointAddressRequest $request
+     * > *   You can delete a public-facing or classic network endpoint of the primary endpoint, the default cluster endpoint, or a custom cluster endpoint.
+     *   * > *   Classic network endpoints are supported only on the China site (aliyun.com). Therefore, you do not need to delete classic network endpoints on the International site (alibabacloud.com).
+     *   *
+     * @param DeleteDBEndpointAddressRequest $request DeleteDBEndpointAddressRequest
      *
-     * @return DeleteDBEndpointAddressResponse
+     * @return DeleteDBEndpointAddressResponse DeleteDBEndpointAddressResponse
      */
     public function deleteDBEndpointAddress($request)
     {
@@ -1959,6 +2273,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBNodeId)) {
             $query['DBNodeId'] = $request->DBNodeId;
         }
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -2002,10 +2319,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
-     * @param RuntimeOptions        $runtime
+     * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+     *   * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+     *   *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabaseWithOptions($request, $runtime)
     {
@@ -2048,9 +2368,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteDatabaseRequest $request
+     * >- The cluster must be in the Running state and unlocked. Otherwise, the specified database cannot be deleted.
+     *   * >- The delete operation is performed in an asynchronous manner. A long period of time may be required to delete a large database. A success response for this operation only indicates that the request to delete the database is sent. You must query the database to check whether the database is deleted.
+     *   *
+     * @param DeleteDatabaseRequest $request DeleteDatabaseRequest
      *
-     * @return DeleteDatabaseResponse
+     * @return DeleteDatabaseResponse DeleteDatabaseResponse
      */
     public function deleteDatabase($request)
     {
@@ -2060,10 +2383,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalDatabaseNetworkRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >  You can delete a GDN only when the GDN includes only a primary cluster.
+     *   *
+     * @param DeleteGlobalDatabaseNetworkRequest $request DeleteGlobalDatabaseNetworkRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteGlobalDatabaseNetworkResponse
+     * @return DeleteGlobalDatabaseNetworkResponse DeleteGlobalDatabaseNetworkResponse
      */
     public function deleteGlobalDatabaseNetworkWithOptions($request, $runtime)
     {
@@ -2109,9 +2434,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteGlobalDatabaseNetworkRequest $request
+     * >  You can delete a GDN only when the GDN includes only a primary cluster.
+     *   *
+     * @param DeleteGlobalDatabaseNetworkRequest $request DeleteGlobalDatabaseNetworkRequest
      *
-     * @return DeleteGlobalDatabaseNetworkResponse
+     * @return DeleteGlobalDatabaseNetworkResponse DeleteGlobalDatabaseNetworkResponse
      */
     public function deleteGlobalDatabaseNetwork($request)
     {
@@ -2234,10 +2561,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteParameterGroupRequest $request
-     * @param RuntimeOptions              $runtime
+     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     *   *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteParameterGroupResponse
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
      */
     public function deleteParameterGroupWithOptions($request, $runtime)
     {
@@ -2283,9 +2613,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DeleteParameterGroupRequest $request
+     * You can use parameter templates to manage multiple parameters at a time and quickly apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * >  When you delete a parameter template, the parameter settings that are applied to PolarDB clusters are not affected.
+     *   *
+     * @param DeleteParameterGroupRequest $request DeleteParameterGroupRequest
      *
-     * @return DeleteParameterGroupResponse
+     * @return DeleteParameterGroupResponse DeleteParameterGroupResponse
      */
     public function deleteParameterGroup($request)
     {
@@ -2801,6 +3134,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->commodityCode)) {
             $query['CommodityCode'] = $request->commodityCode;
         }
+        if (!Utils::isUnset($request->masterHa)) {
+            $query['MasterHa'] = $request->masterHa;
+        }
         if (!Utils::isUnset($request->orderType)) {
             $query['OrderType'] = $request->orderType;
         }
@@ -2919,6 +3255,9 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -3088,6 +3427,70 @@ class Polardb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBClusterConnectivityRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeDBClusterConnectivityResponse
+     */
+    public function describeDBClusterConnectivityWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->sourceIpAddress)) {
+            $query['SourceIpAddress'] = $request->sourceIpAddress;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterConnectivity',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterConnectivityResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterConnectivityRequest $request
+     *
+     * @return DescribeDBClusterConnectivityResponse
+     */
+    public function describeDBClusterConnectivity($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterConnectivityWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBClusterEndpointsRequest $request
      * @param RuntimeOptions                    $runtime
      *
@@ -3102,6 +3505,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->DBEndpointId)) {
             $query['DBEndpointId'] = $request->DBEndpointId;
+        }
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
         }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
@@ -3146,10 +3552,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterMigrationRequest $request
-     * @param RuntimeOptions                    $runtime
+     * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
+     *   * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+     *   *
+     * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterMigrationResponse
+     * @return DescribeDBClusterMigrationResponse DescribeDBClusterMigrationResponse
      */
     public function describeDBClusterMigrationWithOptions($request, $runtime)
     {
@@ -3189,9 +3598,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterMigrationRequest $request
+     * *   You can call this operation to query the status of data migration from an ApsaraDB RDS instance to a PolarDB cluster. For more information, see [Upgrade ApsaraDB RDS for MySQL to PolarDB for MySQL with one click](~~121582~~).
+     *   * *   Before you call this operation, make sure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**.
+     *   *
+     * @param DescribeDBClusterMigrationRequest $request DescribeDBClusterMigrationRequest
      *
-     * @return DescribeDBClusterMigrationResponse
+     * @return DescribeDBClusterMigrationResponse DescribeDBClusterMigrationResponse
      */
     public function describeDBClusterMigration($request)
     {
@@ -3268,6 +3680,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -3311,10 +3726,23 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterPerformanceRequest $request
-     * @param RuntimeOptions                      $runtime
+     * *   When the monitoring data is collected every 5 seconds:
+     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * *   When the monitoring data is collected every 60 seconds:
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+     *   *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformanceWithOptions($request, $runtime)
     {
@@ -3351,9 +3779,22 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterPerformanceRequest $request
+     * *   When the monitoring data is collected every 5 seconds:
+     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * *   When the monitoring data is collected every 60 seconds:
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+     *   *
+     * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
-     * @return DescribeDBClusterPerformanceResponse
+     * @return DescribeDBClusterPerformanceResponse DescribeDBClusterPerformanceResponse
      */
     public function describeDBClusterPerformance($request)
     {
@@ -3528,10 +3969,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterVersionRequest $request
-     * @param RuntimeOptions                  $runtime
+     * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+     *   *
+     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersionWithOptions($request, $runtime)
     {
@@ -3571,9 +4014,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBClusterVersionRequest $request
+     * > For more information, see [Engine versions](~~471239~~) and [PolarDB for MySQL](~~172561~~).
+     *   *
+     * @param DescribeDBClusterVersionRequest $request DescribeDBClusterVersionRequest
      *
-     * @return DescribeDBClusterVersionResponse
+     * @return DescribeDBClusterVersionResponse DescribeDBClusterVersionResponse
      */
     public function describeDBClusterVersion($request)
     {
@@ -3817,10 +4262,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBLinksRequest $request
-     * @param RuntimeOptions         $runtime
+     * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+     *   *
+     * @param DescribeDBLinksRequest $request DescribeDBLinksRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBLinksResponse
+     * @return DescribeDBLinksResponse DescribeDBLinksResponse
      */
     public function describeDBLinksWithOptions($request, $runtime)
     {
@@ -3863,9 +4310,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBLinksRequest $request
+     * > You can query only the database links that use a PolarDB for Oracle cluster as the source.
+     *   *
+     * @param DescribeDBLinksRequest $request DescribeDBLinksRequest
      *
-     * @return DescribeDBLinksResponse
+     * @return DescribeDBLinksResponse DescribeDBLinksResponse
      */
     public function describeDBLinks($request)
     {
@@ -3875,10 +4324,23 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodePerformanceRequest $request
-     * @param RuntimeOptions                   $runtime
+     * *   When the monitoring data is collected every 5 seconds:
+     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * *   When the monitoring data is collected every 60 seconds:
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+     *   *
+     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBNodePerformanceResponse
+     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformanceWithOptions($request, $runtime)
     {
@@ -3918,9 +4380,22 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBNodePerformanceRequest $request
+     * *   When the monitoring data is collected every 5 seconds:
+     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * *   When the monitoring data is collected every 60 seconds:
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * >  By default, the monitoring data is collected once every 60 seconds. You can call the [ModifyDBClusterMonitor](~~159557~~) operation to set the data collection interval to every 5 seconds.
+     *   *
+     * @param DescribeDBNodePerformanceRequest $request DescribeDBNodePerformanceRequest
      *
-     * @return DescribeDBNodePerformanceResponse
+     * @return DescribeDBNodePerformanceResponse DescribeDBNodePerformanceResponse
      */
     public function describeDBNodePerformance($request)
     {
@@ -3988,10 +4463,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBProxyPerformanceRequest $request
-     * @param RuntimeOptions                    $runtime
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDBProxyPerformanceResponse
+     * @return DescribeDBProxyPerformanceResponse DescribeDBProxyPerformanceResponse
      */
     public function describeDBProxyPerformanceWithOptions($request, $runtime)
     {
@@ -4028,9 +4505,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDBProxyPerformanceRequest $request
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeDBProxyPerformanceRequest $request DescribeDBProxyPerformanceRequest
      *
-     * @return DescribeDBProxyPerformanceResponse
+     * @return DescribeDBProxyPerformanceResponse DescribeDBProxyPerformanceResponse
      */
     public function describeDBProxyPerformance($request)
     {
@@ -4104,10 +4583,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDetachedBackupsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+     *   * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
+     *   *
+     * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDetachedBackupsResponse
+     * @return DescribeDetachedBackupsResponse DescribeDetachedBackupsResponse
      */
     public function describeDetachedBackupsWithOptions($request, $runtime)
     {
@@ -4171,9 +4653,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDetachedBackupsRequest $request
+     * Before you call this operation, make sure that the PolarDB cluster is in the **Released** state. You must also confirm that the **Retain All Backups Permanently** or **Retain Last Automatic Backup Permanently** backup retention policy takes effect after you release the cluster. If you delete all backup sets after the cluster is released, you cannot use this API operation to query the cluster.
+     *   * > You can call the [DescribeDBClusterAttribute](~~98181~~) operation to query the cluster status.
+     *   *
+     * @param DescribeDetachedBackupsRequest $request DescribeDetachedBackupsRequest
      *
-     * @return DescribeDetachedBackupsResponse
+     * @return DescribeDetachedBackupsResponse DescribeDetachedBackupsResponse
      */
     public function describeDetachedBackups($request)
     {
@@ -4255,6 +4740,9 @@ class Polardb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->filterRegion)) {
+            $query['FilterRegion'] = $request->filterRegion;
         }
         if (!Utils::isUnset($request->GDNDescription)) {
             $query['GDNDescription'] = $request->GDNDescription;
@@ -4619,10 +5107,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterGroupRequest $request
-     * @param RuntimeOptions                $runtime
+     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * > This parameter is valid only for a PolarDB for MySQL cluster.
+     *   *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterGroupResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
      */
     public function describeParameterGroupWithOptions($request, $runtime)
     {
@@ -4668,9 +5159,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterGroupRequest $request
+     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * > This parameter is valid only for a PolarDB for MySQL cluster.
+     *   *
+     * @param DescribeParameterGroupRequest $request DescribeParameterGroupRequest
      *
-     * @return DescribeParameterGroupResponse
+     * @return DescribeParameterGroupResponse DescribeParameterGroupResponse
      */
     public function describeParameterGroup($request)
     {
@@ -4680,10 +5174,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterGroupsRequest $request
-     * @param RuntimeOptions                 $runtime
+     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeParameterGroupsResponse
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
      */
     public function describeParameterGroupsWithOptions($request, $runtime)
     {
@@ -4732,9 +5229,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeParameterGroupsRequest $request
+     * You can use parameter templates to manage multiple parameters at a time and apply existing parameters to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeParameterGroupsRequest $request DescribeParameterGroupsRequest
      *
-     * @return DescribeParameterGroupsResponse
+     * @return DescribeParameterGroupsResponse DescribeParameterGroupsResponse
      */
     public function describeParameterGroups($request)
     {
@@ -5122,10 +5622,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
-     * @param RuntimeOptions                $runtime
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecordsWithOptions($request, $runtime)
     {
@@ -5186,9 +5688,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogRecordsRequest $request
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeSlowLogRecordsRequest $request DescribeSlowLogRecordsRequest
      *
-     * @return DescribeSlowLogRecordsResponse
+     * @return DescribeSlowLogRecordsResponse DescribeSlowLogRecordsResponse
      */
     public function describeSlowLogRecords($request)
     {
@@ -5198,10 +5702,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogsRequest $request
-     * @param RuntimeOptions          $runtime
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
+     * @param RuntimeOptions          $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSlowLogsResponse
+     * @return DescribeSlowLogsResponse DescribeSlowLogsResponse
      */
     public function describeSlowLogsWithOptions($request, $runtime)
     {
@@ -5259,9 +5765,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSlowLogsRequest $request
+     * > This operation is applicable only to PolarDB for MySQL clusters.
+     *   *
+     * @param DescribeSlowLogsRequest $request DescribeSlowLogsRequest
      *
-     * @return DescribeSlowLogsResponse
+     * @return DescribeSlowLogsResponse DescribeSlowLogsResponse
      */
     public function describeSlowLogs($request)
     {
@@ -5271,71 +5779,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeStoragePlanRequest $request
-     * @param RuntimeOptions             $runtime
+     * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
+     *   * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     *   *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeStoragePlanResponse
-     */
-    public function describeStoragePlanWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->ownerAccount)) {
-            $query['OwnerAccount'] = $request->ownerAccount;
-        }
-        if (!Utils::isUnset($request->ownerId)) {
-            $query['OwnerId'] = $request->ownerId;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->resourceGroupId)) {
-            $query['ResourceGroupId'] = $request->resourceGroupId;
-        }
-        if (!Utils::isUnset($request->resourceOwnerAccount)) {
-            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
-        }
-        if (!Utils::isUnset($request->resourceOwnerId)) {
-            $query['ResourceOwnerId'] = $request->resourceOwnerId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DescribeStoragePlan',
-            'version'     => '2017-08-01',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DescribeStoragePlanResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DescribeStoragePlanRequest $request
-     *
-     * @return DescribeStoragePlanResponse
-     */
-    public function describeStoragePlan($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->describeStoragePlanWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DescribeTasksRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasksWithOptions($request, $runtime)
     {
@@ -5393,15 +5843,155 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param DescribeTasksRequest $request
+     * *   You can call this operation to view the details of a task that is generated by a specific API operation or in the console. The system calls the specific API operation when you perform an operation in the console. For example, you can view the details of the task when you call the [CreateDBCluster](~~98169~~) operation or [create a cluster](~~58769~~) in the console.
+     *   * *   You can view the details of tasks that are generated only when you call the [CreateDBCluster](~~98169~~) operation to create a cluster and `CreationOption` is not set to `CreateGdnStandby`.
+     *   *
+     * @param DescribeTasksRequest $request DescribeTasksRequest
      *
-     * @return DescribeTasksResponse
+     * @return DescribeTasksResponse DescribeTasksResponse
      */
     public function describeTasks($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->describeTasksWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeUserEncryptionKeyListRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->TDERegion)) {
+            $query['TDERegion'] = $request->TDERegion;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserEncryptionKeyList',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserEncryptionKeyListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserEncryptionKeyListRequest $request
+     *
+     * @return DescribeUserEncryptionKeyListResponse
+     */
+    public function describeUserEncryptionKeyList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserEncryptionKeyListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeVSwitchesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dedicatedHostGroupId)) {
+            $query['DedicatedHostGroupId'] = $request->dedicatedHostGroupId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVSwitches',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVSwitchesRequest $request
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVSwitchesWithOptions($request, $runtime);
     }
 
     /**
@@ -5609,10 +6199,16 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param GrantAccountPrivilegeRequest $request
-     * @param RuntimeOptions               $runtime
+     * > *   An account can be authorized to access one or more databases.
+     *   * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+     *   * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *   * > *   You can call this operation only on a PolarDB for MySQL cluster.
+     *   * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     *   *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
+     * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
      *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilegeWithOptions($request, $runtime)
     {
@@ -5661,9 +6257,15 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param GrantAccountPrivilegeRequest $request
+     * > *   An account can be authorized to access one or more databases.
+     *   * > *   If the specified account already has the access permissions on the specified databases, the operation returns a successful response.
+     *   * > *   Before you call this operation, make sure that the cluster is in the Running state. Otherwise, the operation fails.
+     *   * > *   You can call this operation only on a PolarDB for MySQL cluster.
+     *   * > *   By default, a privileged account for a cluster has all the permissions on the databases in the cluster.
+     *   *
+     * @param GrantAccountPrivilegeRequest $request GrantAccountPrivilegeRequest
      *
-     * @return GrantAccountPrivilegeResponse
+     * @return GrantAccountPrivilegeResponse GrantAccountPrivilegeResponse
      */
     public function grantAccountPrivilege($request)
     {
@@ -5737,6 +6339,64 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ManuallyStartDBClusterRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ManuallyStartDBClusterResponse
+     */
+    public function manuallyStartDBClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ManuallyStartDBCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ManuallyStartDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ManuallyStartDBClusterRequest $request
+     *
+     * @return ManuallyStartDBClusterResponse
+     */
+    public function manuallyStartDBCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->manuallyStartDBClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -5932,10 +6592,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
-     * @param RuntimeOptions            $runtime
+     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
+     *   *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicyWithOptions($request, $runtime)
     {
@@ -6011,15 +6673,87 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyBackupPolicyRequest $request
+     * > You can also modify the automatic backup policy of a PolarDB cluster in the console. For more information, see [Backup settings](~~280422~~).
+     *   *
+     * @param ModifyBackupPolicyRequest $request ModifyBackupPolicyRequest
      *
-     * @return ModifyBackupPolicyResponse
+     * @return ModifyBackupPolicyResponse ModifyBackupPolicyResponse
      */
     public function modifyBackupPolicy($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyBackupPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBClusterRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ModifyDBClusterResponse
+     */
+    public function modifyDBClusterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->dataSyncMode)) {
+            $query['DataSyncMode'] = $request->dataSyncMode;
+        }
+        if (!Utils::isUnset($request->faultSimulateMode)) {
+            $query['FaultSimulateMode'] = $request->faultSimulateMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->standbyHAMode)) {
+            $query['StandbyHAMode'] = $request->standbyHAMode;
+        }
+        if (!Utils::isUnset($request->storageAutoScale)) {
+            $query['StorageAutoScale'] = $request->storageAutoScale;
+        }
+        if (!Utils::isUnset($request->storageUpperBound)) {
+            $query['StorageUpperBound'] = $request->storageUpperBound;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBCluster',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBClusterRequest $request
+     *
+     * @return ModifyDBClusterResponse
+     */
+    public function modifyDBCluster($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterWithOptions($request, $runtime);
     }
 
     /**
@@ -6416,10 +7150,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     *   *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTimeWithOptions($request, $runtime)
     {
@@ -6462,9 +7198,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMaintainTimeRequest $request
+     * >  We recommend that you set the routine maintenance window to off-peak hours. Alibaba Cloud maintains your cluster within the specified maintenance window to minimize the negative impacts on your business.
+     *   *
+     * @param ModifyDBClusterMaintainTimeRequest $request ModifyDBClusterMaintainTimeRequest
      *
-     * @return ModifyDBClusterMaintainTimeResponse
+     * @return ModifyDBClusterMaintainTimeResponse ModifyDBClusterMaintainTimeResponse
      */
     public function modifyDBClusterMaintainTime($request)
     {
@@ -6474,10 +7212,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMigrationRequest $request
-     * @param RuntimeOptions                  $runtime
+     * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *   * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+     *   *
+     * @param ModifyDBClusterMigrationRequest $request ModifyDBClusterMigrationRequest
+     * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterMigrationResponse
+     * @return ModifyDBClusterMigrationResponse ModifyDBClusterMigrationResponse
      */
     public function modifyDBClusterMigrationWithOptions($request, $runtime)
     {
@@ -6532,9 +7274,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMigrationRequest $request
+     * *   You can call this operation to switch the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *   * *   You can call this operation to roll back the task that migrates data from ApsaraDB for RDS to PolarDB.
+     *   * > Before you call this operation, ensure that a one-click upgrade task has been created for the cluster. You can call the [CreateDBCluster](~~98169~~) operation to create an upgrade task. Set the **CreationOption** parameter to **MigrationFromRDS**. For more information, see [Create a PolarDB for MySQL cluster by using the Migration from RDS method](~~121582~~).
+     *   *
+     * @param ModifyDBClusterMigrationRequest $request ModifyDBClusterMigrationRequest
      *
-     * @return ModifyDBClusterMigrationResponse
+     * @return ModifyDBClusterMigrationResponse ModifyDBClusterMigrationResponse
      */
     public function modifyDBClusterMigration($request)
     {
@@ -6544,10 +7290,22 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMonitorRequest $request
-     * @param RuntimeOptions                $runtime
+     * *   When the monitoring data is collected every 5 seconds:
+     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * *   When the monitoring data is collected every 60 seconds:
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   *
+     * @param ModifyDBClusterMonitorRequest $request ModifyDBClusterMonitorRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterMonitorResponse
+     * @return ModifyDBClusterMonitorResponse ModifyDBClusterMonitorResponse
      */
     public function modifyDBClusterMonitorWithOptions($request, $runtime)
     {
@@ -6590,9 +7348,21 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterMonitorRequest $request
+     * *   When the monitoring data is collected every 5 seconds:
+     *   *     *   If the query time range is less than or equal to 1 hour, the data is displayed at intervals of 5 seconds.
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   * *   When the monitoring data is collected every 60 seconds:
+     *   *     *   If the query time range is less than or equal to one day, the data is displayed at intervals of 1 minute.
+     *   *     *   If the query time range is less than or equal to seven days, the data is displayed at intervals of 10 minutes.
+     *   *     *   If the query time range is less than or equal to 30 days, the data is displayed at intervals of 1 hour.
+     *   *     *   When the query time range is greater than 30 days, the data is displayed at intervals of 1 day.
+     *   *
+     * @param ModifyDBClusterMonitorRequest $request ModifyDBClusterMonitorRequest
      *
-     * @return ModifyDBClusterMonitorResponse
+     * @return ModifyDBClusterMonitorResponse ModifyDBClusterMonitorResponse
      */
     public function modifyDBClusterMonitor($request)
     {
@@ -6602,10 +7372,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterParametersRequest $request
-     * @param RuntimeOptions                   $runtime
+     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * **
+     *   * **Only PolarDB for MySQL clusters support parameter templates.
+     *   *
+     * @param ModifyDBClusterParametersRequest $request ModifyDBClusterParametersRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return ModifyDBClusterParametersResponse
+     * @return ModifyDBClusterParametersResponse ModifyDBClusterParametersResponse
      */
     public function modifyDBClusterParametersWithOptions($request, $runtime)
     {
@@ -6660,9 +7434,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterParametersRequest $request
+     * PolarDB supports the parameter template feature to centrally manage clusters. You can configure a number of parameters at a time by using a parameter template and apply the template to a PolarDB cluster. For more information, see [Use a parameter template](~~207009~~).
+     *   * **
+     *   * **Only PolarDB for MySQL clusters support parameter templates.
+     *   *
+     * @param ModifyDBClusterParametersRequest $request ModifyDBClusterParametersRequest
      *
-     * @return ModifyDBClusterParametersResponse
+     * @return ModifyDBClusterParametersResponse ModifyDBClusterParametersResponse
      */
     public function modifyDBClusterParameters($request)
     {
@@ -6687,6 +7465,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->fromTimeService)) {
             $query['FromTimeService'] = $request->fromTimeService;
         }
+        if (!Utils::isUnset($request->isSwitchOverForDisaster)) {
+            $query['IsSwitchOverForDisaster'] = $request->isSwitchOverForDisaster;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -6704,6 +7485,9 @@ class Polardb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->VPCId)) {
+            $query['VPCId'] = $request->VPCId;
         }
         if (!Utils::isUnset($request->vSwitchId)) {
             $query['VSwitchId'] = $request->vSwitchId;
@@ -6943,10 +7727,83 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterTDERequest $request
-     * @param RuntimeOptions            $runtime
+     * @param ModifyDBClusterStorageSpaceRequest $request
+     * @param RuntimeOptions                     $runtime
      *
-     * @return ModifyDBClusterTDEResponse
+     * @return ModifyDBClusterStorageSpaceResponse
+     */
+    public function modifyDBClusterStorageSpaceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
+        }
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->storageSpace)) {
+            $query['StorageSpace'] = $request->storageSpace;
+        }
+        if (!Utils::isUnset($request->subCategory)) {
+            $query['SubCategory'] = $request->subCategory;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBClusterStorageSpace',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBClusterStorageSpaceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBClusterStorageSpaceRequest $request
+     *
+     * @return ModifyDBClusterStorageSpaceResponse
+     */
+    public function modifyDBClusterStorageSpace($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBClusterStorageSpaceWithOptions($request, $runtime);
+    }
+
+    /**
+     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
+     *   * > *   After TDE is enabled, you cannot disable TDE.
+     *   *
+     * @param ModifyDBClusterTDERequest $request ModifyDBClusterTDERequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
+     *
+     * @return ModifyDBClusterTDEResponse ModifyDBClusterTDEResponse
      */
     public function modifyDBClusterTDEWithOptions($request, $runtime)
     {
@@ -6998,9 +7855,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ModifyDBClusterTDERequest $request
+     * > *   To perform this operation, you must activate KMS first. For more information, see [Purchase a dedicated KMS instance](~~153781~~).
+     *   * > *   After TDE is enabled, you cannot disable TDE.
+     *   *
+     * @param ModifyDBClusterTDERequest $request ModifyDBClusterTDERequest
      *
-     * @return ModifyDBClusterTDEResponse
+     * @return ModifyDBClusterTDEResponse ModifyDBClusterTDEResponse
      */
     public function modifyDBClusterTDE($request)
     {
@@ -7214,6 +8074,67 @@ class Polardb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDBNodeClassWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyDBNodeHotReplicaModeRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ModifyDBNodeHotReplicaModeResponse
+     */
+    public function modifyDBNodeHotReplicaModeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->DBNodeId)) {
+            $query['DBNodeId'] = $request->DBNodeId;
+        }
+        if (!Utils::isUnset($request->hotReplicaMode)) {
+            $query['HotReplicaMode'] = $request->hotReplicaMode;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDBNodeHotReplicaMode',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDBNodeHotReplicaModeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDBNodeHotReplicaModeRequest $request
+     *
+     * @return ModifyDBNodeHotReplicaModeResponse
+     */
+    public function modifyDBNodeHotReplicaMode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDBNodeHotReplicaModeWithOptions($request, $runtime);
     }
 
     /**
@@ -7829,6 +8750,12 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->describeType)) {
+            $query['DescribeType'] = $request->describeType;
+        }
+        if (!Utils::isUnset($request->nodeType)) {
+            $query['NodeType'] = $request->nodeType;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
@@ -7939,10 +8866,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RemoveDBClusterFromGDNRequest $request
-     * @param RuntimeOptions                $runtime
+     * >  You cannot remove the primary cluster from a GDN.
+     *   *
+     * @param RemoveDBClusterFromGDNRequest $request RemoveDBClusterFromGDNRequest
+     * @param RuntimeOptions                $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveDBClusterFromGDNResponse
+     * @return RemoveDBClusterFromGDNResponse RemoveDBClusterFromGDNResponse
      */
     public function removeDBClusterFromGDNWithOptions($request, $runtime)
     {
@@ -7988,9 +8917,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param RemoveDBClusterFromGDNRequest $request
+     * >  You cannot remove the primary cluster from a GDN.
+     *   *
+     * @param RemoveDBClusterFromGDNRequest $request RemoveDBClusterFromGDNRequest
      *
-     * @return RemoveDBClusterFromGDNResponse
+     * @return RemoveDBClusterFromGDNResponse RemoveDBClusterFromGDNResponse
      */
     public function removeDBClusterFromGDN($request)
     {
@@ -8000,10 +8931,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountRequest $request
-     * @param RuntimeOptions      $runtime
+     * >- Only PolarDB for MySQL clusters support this operation.
+     *   * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     *   *
+     * @param ResetAccountRequest $request ResetAccountRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return ResetAccountResponse
+     * @return ResetAccountResponse ResetAccountResponse
      */
     public function resetAccountWithOptions($request, $runtime)
     {
@@ -8049,15 +8983,82 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param ResetAccountRequest $request
+     * >- Only PolarDB for MySQL clusters support this operation.
+     *   * >- If the privileged account of your cluster encounters exceptions, you can call this operation to reset the permissions. For example, the permissions are accidentally revoked.
+     *   *
+     * @param ResetAccountRequest $request ResetAccountRequest
      *
-     * @return ResetAccountResponse
+     * @return ResetAccountResponse ResetAccountResponse
      */
     public function resetAccount($request)
     {
         $runtime = new RuntimeOptions([]);
 
         return $this->resetAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ResetGlobalDatabaseNetworkRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return ResetGlobalDatabaseNetworkResponse
+     */
+    public function resetGlobalDatabaseNetworkWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->GDNId)) {
+            $query['GDNId'] = $request->GDNId;
+        }
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetGlobalDatabaseNetwork',
+            'version'     => '2017-08-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetGlobalDatabaseNetworkResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetGlobalDatabaseNetworkRequest $request
+     *
+     * @return ResetGlobalDatabaseNetworkResponse
+     */
+    public function resetGlobalDatabaseNetwork($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetGlobalDatabaseNetworkWithOptions($request, $runtime);
     }
 
     /**
@@ -8448,10 +9449,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param TransformDBClusterPayTypeRequest $request
-     * @param RuntimeOptions                   $runtime
+     * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
+     *   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+     *   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     *   *
+     * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return TransformDBClusterPayTypeResponse
+     * @return TransformDBClusterPayTypeResponse TransformDBClusterPayTypeResponse
      */
     public function transformDBClusterPayTypeWithOptions($request, $runtime)
     {
@@ -8509,9 +9514,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param TransformDBClusterPayTypeRequest $request
+     * > *   PolarDB clusters support the subscription and pay-as-you-go billing methods. You can change the billing method from subscription to pay-as-you-go or from pay-as-you-go to subscription based on your business requirements. For more information, see [Change the billing method from subscription to pay-as-you-go](~~172886~~) and [Change the billing method from pay-as-you-go to subscription](~~84076~~).
+     *   * >*   You cannot change the billing method from pay-as-you-go to subscription if your account balance is insufficient.
+     *   * >*   If you change the billing method from subscription to pay-as-you-go, the system automatically refunds the balance of the prepaid subscription fees.
+     *   *
+     * @param TransformDBClusterPayTypeRequest $request TransformDBClusterPayTypeRequest
      *
-     * @return TransformDBClusterPayTypeResponse
+     * @return TransformDBClusterPayTypeResponse TransformDBClusterPayTypeResponse
      */
     public function transformDBClusterPayType($request)
     {
@@ -8588,10 +9597,12 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBClusterMinorVersionRequest $request
-     * @param RuntimeOptions                      $runtime
+     * > You can upgrade only the revision version of a PolarDB for MySQL cluster. For example, you can upgrade the version 8.0.1.1.3 of a PolarDB for MySQL cluster to the version 8.0.1.1.4.
+     *   *
+     * @param UpgradeDBClusterMinorVersionRequest $request UpgradeDBClusterMinorVersionRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeDBClusterMinorVersionResponse
+     * @return UpgradeDBClusterMinorVersionResponse UpgradeDBClusterMinorVersionResponse
      */
     public function upgradeDBClusterMinorVersionWithOptions($request, $runtime)
     {
@@ -8640,9 +9651,11 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBClusterMinorVersionRequest $request
+     * > You can upgrade only the revision version of a PolarDB for MySQL cluster. For example, you can upgrade the version 8.0.1.1.3 of a PolarDB for MySQL cluster to the version 8.0.1.1.4.
+     *   *
+     * @param UpgradeDBClusterMinorVersionRequest $request UpgradeDBClusterMinorVersionRequest
      *
-     * @return UpgradeDBClusterMinorVersionResponse
+     * @return UpgradeDBClusterMinorVersionResponse UpgradeDBClusterMinorVersionResponse
      */
     public function upgradeDBClusterMinorVersion($request)
     {
@@ -8652,10 +9665,14 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBClusterVersionRequest $request
-     * @param RuntimeOptions                 $runtime
+     * >
+     *   * *   You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     *   * *   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     *   *
+     * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpgradeDBClusterVersionResponse
+     * @return UpgradeDBClusterVersionResponse UpgradeDBClusterVersionResponse
      */
     public function upgradeDBClusterVersionWithOptions($request, $runtime)
     {
@@ -8685,6 +9702,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->targetDBRevisionVersionCode)) {
+            $query['TargetDBRevisionVersionCode'] = $request->targetDBRevisionVersionCode;
+        }
         if (!Utils::isUnset($request->upgradeLabel)) {
             $query['UpgradeLabel'] = $request->upgradeLabel;
         }
@@ -8713,9 +9733,13 @@ class Polardb extends OpenApiClient
     }
 
     /**
-     * @param UpgradeDBClusterVersionRequest $request
+     * >
+     *   * *   You can update only the revision version of a PolarDB for MySQL cluster, for example, from 8.0.1.1.3 to 8.0.1.1.4.
+     *   * *   You can use only your Alibaba Cloud account to create scheduled tasks that update the kernel version of a PolarDB for MySQL cluster. RAM users are not authorized to update the kernel version of a PolarDB for MySQL cluster.
+     *   *
+     * @param UpgradeDBClusterVersionRequest $request UpgradeDBClusterVersionRequest
      *
-     * @return UpgradeDBClusterVersionResponse
+     * @return UpgradeDBClusterVersionResponse UpgradeDBClusterVersionResponse
      */
     public function upgradeDBClusterVersion($request)
     {

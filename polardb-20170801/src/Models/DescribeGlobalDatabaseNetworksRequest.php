@@ -9,16 +9,43 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDatabaseNetworksRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specify the region in which you want to query GDNs. You can create secondary clusters for the GDNs.
+     *
+     * @example cn-beijing
+     *
+     * @var string
+     */
+    public $filterRegion;
+
+    /**
+     * @description The description of the GDN. The description must meet the following requirements:
+     *
+     *   It cannot start with [http:// or https://.](http://https://。)
+     *   It must start with a letter.
+     *   It can contain letters, digits, underscores (\_), and hyphens (-).
+     *   It must be 2 to 126 characters in length.
+     *
+     * @example test
+     *
      * @var string
      */
     public $GDNDescription;
 
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gdn-****************
+     *
      * @var string
      */
     public $GDNId;
@@ -34,16 +61,32 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Default value: 1. The value must be an integer that is greater than 0.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: 30. Valid values:
+     *
+     *   30
+     *   50
+     *   100
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -64,6 +107,7 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
     public $securityToken;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'filterRegion'         => 'FilterRegion',
         'GDNDescription'       => 'GDNDescription',
         'GDNId'                => 'GDNId',
         'ownerAccount'         => 'OwnerAccount',
@@ -85,6 +129,9 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->filterRegion) {
+            $res['FilterRegion'] = $this->filterRegion;
         }
         if (null !== $this->GDNDescription) {
             $res['GDNDescription'] = $this->GDNDescription;
@@ -130,6 +177,9 @@ class DescribeGlobalDatabaseNetworksRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['FilterRegion'])) {
+            $model->filterRegion = $map['FilterRegion'];
         }
         if (isset($map['GDNDescription'])) {
             $model->GDNDescription = $map['GDNDescription'];

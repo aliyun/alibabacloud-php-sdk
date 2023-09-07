@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database.
+     *
+     * > You cannot specify multiple database names.
+     * @example test_db
+     *
      * @var string
      */
     public $DBName;
@@ -29,11 +38,24 @@ class DescribeDatabasesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

@@ -9,11 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupsRequest extends Model
 {
     /**
+     * @description The type of the database engine. Only **MySQL** is supported.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine. Valid values:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
@@ -29,11 +41,20 @@ class DescribeParameterGroupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query all regions that are available for your account, such as the region ID.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group to which the virtual node belongs.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterResourceGroupRequest extends Model
 {
     /**
+     * @example pc-*************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example rg-**********
+     *
      * @var string
      */
     public $newResourceGroupId;
@@ -29,6 +33,8 @@ class ModifyDBClusterResourceGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @example rg-**********
+     *
      * @var string
      */
     public $resourceGroupId;

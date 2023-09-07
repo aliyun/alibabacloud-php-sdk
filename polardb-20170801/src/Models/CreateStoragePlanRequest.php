@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateStoragePlanRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * @example 6000170000591aed949d0f5********************
+     *
      * @var string
      */
     public $clientToken;
@@ -24,6 +28,13 @@ class CreateStoragePlanRequest extends Model
     public $ownerId;
 
     /**
+     * @description The unit of the subscription duration for the storage plan. Valid values:
+     *
+     *   **Month**
+     *   **Year**
+     *
+     * @example Month
+     *
      * @var string
      */
     public $period;
@@ -39,16 +50,34 @@ class CreateStoragePlanRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The capacity of the storage plan. Unit: GB. Valid values: 50, 100, 200, 300, 500, 1000, 2000, 3000, 5000, 10000, 15000, 20000, 25000, 30000, 50000, 100000, and 200000
+     *
+     * @example 500
+     *
      * @var string
      */
     public $storageClass;
 
     /**
+     * @description The type of the storage plan. Valid values:
+     *
+     *   **Mainland**: The storage plan is used inside the Chinese mainland.
+     *   **Overseas**: The storage plan is used outside the Chinese mainland.
+     *
+     * @example Mainland
+     *
      * @var string
      */
     public $storageType;
 
     /**
+     * @description The subscription duration of the storage plan.
+     *
+     *   If **Period** is set to **Month**, the value ranges from 1 to 9.
+     *   If **Period** is set to **Year**, the value can be 1, 2, 3, or 5.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $usedTime;

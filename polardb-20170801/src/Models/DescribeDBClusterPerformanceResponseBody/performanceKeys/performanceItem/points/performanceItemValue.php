@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class performanceItemValue extends Model
 {
     /**
+     * @description The timestamp of the metric. This value is a UNIX timestamp. Unit: millisecond.
+     *
+     * @example 1600822800000
+     *
      * @var int
      */
     public $timestamp;
 
     /**
+     * @description The value of the metric.
+     *
+     * @example 42.38
+     *
      * @var string
      */
     public $value;

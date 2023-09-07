@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDetachedBackupsResponseBody extends Model
 {
     /**
+     * @description Details about the backup sets.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 15
+     *
      * @var string
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 717B2382-BB14-4DCB-BBC2-32DBE0******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 50
+     *
      * @var string
      */
     public $totalRecordCount;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
+     * @description The URL of the endpoint.
+     *
+     * @example abc.polardb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
+     * @description The network type of the endpoint.
+     *
+     * @example Private
+     *
      * @var string
      */
     public $netType;
 
     /**
+     * @description The port number of the endpoint.
+     *
+     * @example 3306
+     *
      * @var string
      */
     public $port;

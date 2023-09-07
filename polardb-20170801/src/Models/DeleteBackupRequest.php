@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupRequest extends Model
 {
     /**
+     * @description The backup ID. If you need to specify multiple backup IDs, separate the backup IDs with commas (,).
+     *
+     * >  You can call the [DescribeBackups](~~98102~~) operation to query the backup IDs.
+     * @example 11111111
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;

@@ -9,21 +9,57 @@ use AlibabaCloud\Tea\Model;
 class EvaluateRegionResourceResponseBody extends Model
 {
     /**
+     * @description Indicates whether sufficient resources are available. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $DBInstanceAvailable;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine
+     *
+     *   Valid values for the MySQL database engine:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     *   Valid values for the PostgreSQL database engine:
+     *
+     *   **11**
+     *   **14**
+     *
+     *   Valid value for the Oracle database engine: **11**
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 69A85BAF-1089-4CDF-A82F-0A140F******
+     *
      * @var string
      */
     public $requestId;

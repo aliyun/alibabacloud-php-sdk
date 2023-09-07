@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DBClusterSecurityGroup extends Model
 {
     /**
+     * @description The ID of the ECS security group.
+     *
+     * @example sg-bp**************
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description The name of the ECS security group.
+     *
+     * @example vpc-********************
+     *
      * @var string
      */
     public $securityGroupName;

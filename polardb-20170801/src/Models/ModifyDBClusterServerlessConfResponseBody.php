@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterServerlessConfResponseBody extends Model
 {
     /**
+     * @description The ID of the serverless cluster.
+     *
+     * @example pc-bp10gr51qasnl****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 5E71541A-6007-4DCC-A38A-F872C31FEB45
+     *
      * @var string
      */
     public $requestId;

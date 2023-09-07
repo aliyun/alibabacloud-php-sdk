@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DBNode extends Model
 {
     /**
+     * @description The instance type of the added node. The instance type of the added node must be the same as the instance type of the original node.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to view the instance types of original nodes.
+     * @example polar.mysql.x4.medium
+     *
      * @var string
      */
     public $targetClass;
 
     /**
+     * @description The ID of the zone in which the added node is deployed. The instance type of the added node must be the same as the instance type of the original node.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

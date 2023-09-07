@@ -10,36 +10,60 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetaListResponseBody extends Model
 {
     /**
+     * @example pc-bp1s826a1up******
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The details of databases and tables that can be restored.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var string
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example AA815DE7-B576-4B22-B33C-3FB31A******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned pages.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $totalPageCount;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $totalRecordCount;

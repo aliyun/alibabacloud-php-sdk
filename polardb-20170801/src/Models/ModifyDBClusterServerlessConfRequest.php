@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterServerlessConfRequest extends Model
 {
     /**
+     * @description Specifies whether to enable No-activity Suspension. Default value: false. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $allowShutDown;
 
     /**
+     * @description The ID of the serverless cluster.
+     *
+     * @example pc-bp10gr51qasnl****
+     *
      * @var string
      */
     public $DBClusterId;
@@ -39,26 +50,46 @@ class ModifyDBClusterServerlessConfRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The maximum number of PCUs per node for scaling. Valid values: 1 PCU to 32 PCUs.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $scaleMax;
 
     /**
+     * @description The minimum number of PCUs per node for scaling. Valid values: 1 PCU to 31 PCUs.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scaleMin;
 
     /**
+     * @description The maximum number of read-only nodes for scaling. Valid values: 0 to 15.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $scaleRoNumMax;
 
     /**
+     * @description The minimum number of read-only nodes for scaling. Valid values: 0 to 15.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $scaleRoNumMin;
 
     /**
+     * @description The detection period for No-activity Suspension. Valid values: 5 to 1440. Unit: minutes. The detection duration must be a multiple of 5 minutes.
+     *
+     * @example 10
+     *
      * @var string
      */
     public $secondsUntilAutoPause;

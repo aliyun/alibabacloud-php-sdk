@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeGlobalDatabaseNetworkRequest extends Model
 {
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gdn-bp1fttxsrmv*****
+     *
      * @var string
      */
     public $GDNId;
@@ -24,6 +28,10 @@ class DescribeGlobalDatabaseNetworkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

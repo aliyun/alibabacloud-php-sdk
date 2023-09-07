@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example pe-************
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The SSL connection string.
+     *
+     * @example pc-************.mysql.polardb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $SSLConnectionString;
 
     /**
+     * @description Indicates whether SSL encryption is enabled. Valid values:
+     *
+     *   **Enabled**: SSL is enabled.
+     *   **Disable**: SSL is disabled.
+     *
+     * @example Enabled
+     *
      * @var string
      */
     public $SSLEnabled;
 
     /**
+     * @description The time when the server certificate expires. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2021-11-13T07:14:22Z
+     *
      * @var string
      */
     public $SSLExpireTime;

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeLogBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query all the information about the available clusters in the target region, including the cluster ID.
+     * @example pc-*****************
+     *
      * @var string
      */
     public $DBClusterId;

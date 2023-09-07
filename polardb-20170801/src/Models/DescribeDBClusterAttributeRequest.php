@@ -9,9 +9,23 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAttributeRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+     * @example pc-*****************
+     *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @description Specifies whether to query information about AI-related nodes.
+     *
+     * @example AI
+     *
+     * @var string
+     */
+    public $describeType;
 
     /**
      * @var string
@@ -34,6 +48,7 @@ class DescribeDBClusterAttributeRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'describeType'         => 'DescribeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
@@ -49,6 +64,9 @@ class DescribeDBClusterAttributeRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->describeType) {
+            $res['DescribeType'] = $this->describeType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -76,6 +94,9 @@ class DescribeDBClusterAttributeRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DescribeType'])) {
+            $model->describeType = $map['DescribeType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

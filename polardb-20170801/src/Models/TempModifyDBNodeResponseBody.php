@@ -9,21 +9,35 @@ use AlibabaCloud\Tea\Model;
 class TempModifyDBNodeResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-xxxxxxxxxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The details of the nodes.
+     *
      * @var string[]
      */
     public $DBNodeIds;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2035638*******
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 69A85BAF-1089-4CDF-A82F-0A140F******
+     *
      * @var string
      */
     public $requestId;

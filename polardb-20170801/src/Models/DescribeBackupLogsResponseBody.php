@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupLogsResponseBody extends Model
 {
     /**
+     * @description The details of the backup logs.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the returned page.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $pageRecordCount;
 
     /**
+     * @description The request ID.
+     *
+     * @example ADAC63DB-0691-4ECE-949A-FAEA68******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 2
+     *
      * @var string
      */
     public $totalRecordCount;

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class EnableFirewallRulesRequest extends Model
 {
     /**
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $enable;
@@ -39,6 +43,8 @@ class EnableFirewallRulesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example test111
+     *
      * @var string
      */
     public $ruleNameList;

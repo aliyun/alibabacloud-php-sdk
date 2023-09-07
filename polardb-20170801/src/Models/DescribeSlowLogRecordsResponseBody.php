@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsResponseBody extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * @example pc-*****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example polardb_mysql
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description Details about slow query logs.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The number of the returned page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example A7E6A8FD-C50B-46B2-BA85-D8B8D3******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of SQL statements.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

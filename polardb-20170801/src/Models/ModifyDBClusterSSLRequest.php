@@ -9,16 +9,45 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterSSLRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * >
+     *
+     *   This parameter is required for a PolarDB for MySQL cluster.
+     *
+     *   This parameter is not required for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. By default, SSL encryption is enabled for all endpoints.
+     *   You can call the [DescribeDBClusterSSL](~~153414~~) operation to view the details of the endpoint.
+     *
+     * @example pe-******************
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The network type supported by the endpoint that is specified by **DBEndpointId**. Valid values:
+     *
+     *   **Public**
+     *   **Private**
+     *   **Inner**
+     *
+     * >
+     *
+     *   This parameter is required for a PolarDB for MySQL cluster.
+     *
+     *   This parameter is not required for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. By default, SSL encryption is enabled for all endpoints.
+     *
+     * @example Public
+     *
      * @var string
      */
     public $netType;
@@ -44,11 +73,27 @@ class ModifyDBClusterSSLRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description Specifies whether automatic rotation of SSL certificates is enabled.
+     *
+     *   **Enable**: The feature is enabled.
+     *   **Disable**: The feature is disabled.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $SSLAutoRotate;
 
     /**
+     * @description The SSL encryption status. Valid values:
+     *
+     *   **Disable**: SSL encryption is disabled.
+     *   **Enable**: SSL encryption is enabled.
+     *   **Update**: The SSL certificate is updated.
+     *
+     * > After you enable SSL encryption or update the SSL certificate, you must download and configure the certificate. For more information, see [Configure SSL encryption](~~153182~~).
+     * @example Enable
+     *
      * @var string
      */
     public $SSLEnabled;

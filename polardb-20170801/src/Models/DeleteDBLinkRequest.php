@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBLinkRequest extends Model
 {
     /**
+     * @description The ID of the source cluster where a database link is to be deleted.
+     *
+     * >  You can call the [DescribeDBClusters](~~173433~~) operation to query PolarDB clusters.
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database link to be deleted.
+     *
+     * @example dblink_test
+     *
      * @var string
      */
     public $DBLinkName;

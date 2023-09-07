@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBNodesParametersRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the node. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+     *
+     * @example pi-****************， pi-****************
+     *
      * @var string
      */
     public $DBNodeIds;
 
     /**
+     * @description Specifies whether to immediately run the task to modify parameters and restart the cluster. Valid values: false: runs the task on schedule. true: runs the task immediately. Default value: false.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $fromTimeService;
@@ -34,21 +46,37 @@ class ModifyDBNodesParametersRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the parameter template that is used for the cluster.
+     *
+     * @example pcpg-**************
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The JSON string that specifies the parameter and its value.
+     *
+     * @example {"wait_timeout":"86","innodb_old_blocks_time":"10"}
+     *
      * @var string
      */
     public $parameters;
 
     /**
+     * @description The latest start time to run the task. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2022-04-28T14:30:00Z
+     *
      * @var string
      */
     public $plannedEndTime;
 
     /**
+     * @description The earliest start time to run the task to upgrade the kernel version of the cluster. The task runs within a specified period of time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+     *
+     * @example 2022-04-28T14:00:00Z
+     *
      * @var string
      */
     public $plannedStartTime;

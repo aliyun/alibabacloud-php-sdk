@@ -9,66 +9,134 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
+     * @description The end time of the backup task. The time is displayed in UTC.
+     *
+     * @example 2020-05-12T03:25:55Z
+     *
      * @var string
      */
     public $backupEndTime;
 
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 111111111
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The backup method. Only snapshot backups are supported. The value is set to **Snapshot**.
+     *
+     * @example Snapshot
+     *
      * @var string
      */
     public $backupMethod;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Manual
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The size of the backup set. Unit: bytes.
+     *
+     * > After you delete the target snapshot backups, the storage space consumed by the backups is released. The released storage space is smaller than the size of the backup file, because the snapshots share certain data blocks.
+     * @example 7251056
+     *
      * @var string
      */
     public $backupSetSize;
 
     /**
+     * @description The start time of the backup task. The time is displayed in UTC.
+     *
+     * @example 2020-05-12T03:25:44Z
+     *
      * @var string
      */
     public $backupStartTime;
 
     /**
+     * @description The status of the backup set. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The type of the backup. Only full backups are supported. The value is set to **FullBackup**.
+     *
+     * @example FullBackup
+     *
      * @var string
      */
     public $backupType;
 
     /**
+     * @description The level of the backup set. Valid values:
+     *
+     *   **Level-1**: level-1 backup set
+     *   **Level-2**: level-2 backup set
+     *
+     * @example Level-2
+     *
      * @var string
      */
     public $backupsLevel;
 
     /**
+     * @description The snapshot checkpoint time. The value is a Unix timestamp.
+     *
+     * @example 1589253947
+     *
      * @var string
      */
     public $consistentTime;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Indicates whether the backup set is available. Valid values:
+     *
+     *   **0**: The data backup set is unavailable.
+     *   **1**: The data backup set is available.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isAvail;
 
     /**
+     * @description Indicates whether the backup set can be deleted. Valid values:
+     *
+     *   **Enabled**: The backup set can be deleted.
+     *   **Disabled**: The backup set cannot be deleted.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $storeStatus;

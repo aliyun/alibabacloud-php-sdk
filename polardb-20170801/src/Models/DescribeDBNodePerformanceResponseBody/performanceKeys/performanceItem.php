@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class performanceItem extends Model
 {
     /**
+     * @description The performance metrics that you want to query.
+     *
+     * @example PolarDBDiskUsage
+     *
      * @var string
      */
     public $measurement;
 
     /**
+     * @description The name of the performance metric.
+     *
+     * @example mean_sys_dir_size
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The performance metrics.
+     *
      * @var points
      */
     public $points;

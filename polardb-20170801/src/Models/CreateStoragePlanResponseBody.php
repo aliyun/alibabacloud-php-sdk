@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class CreateStoragePlanResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * @example POLARDB-cn-**************
+     *
      * @var string
      */
     public $DBInstanceId;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2035638*******
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 69A85BAF-1089-4CDF-A82F-0A140F******
+     *
      * @var string
      */
     public $requestId;

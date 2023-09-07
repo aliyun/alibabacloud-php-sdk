@@ -9,16 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetaListRequest extends Model
 {
     /**
+     * @description The ID of the data backup file.
+     *
+     * >
+     *   When you run a query, you must specify the `BackId` or `RestoreTime` parameter.
+     *   You can call the [DescribeBackups](~~98102~~) operation to query the ID of the backup set.
+     *
+     * @example 111111
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the details of all clusters under your account.
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specify the specific database name (such as `test_db`) to query the names of all data tables that can be restored in the desired database.
+     *
+     * >
+     *   You can specify only one database name each time.
+     *   If you do not specify this parameter, you can query the names of all databases that can be restored in the current backup set. However, you cannot query the names of data tables in each database.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $getDbName;
@@ -34,11 +55,26 @@ class DescribeMetaListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *
+     *   **50**
+     *
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,6 +90,11 @@ class DescribeMetaListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The point in time for the restoration. Specify the time in the YYYY-MM-DDThh:mmZ format. The time must be in UTC.
+     *
+     * >  When you run a query, you must specify the `BackId` or `RestoreTime` parameter. You can call the [DescribeBackups](~~98102~~) operation to query the point in time for the restoration.
+     * @example 2020-10-04T01:40:00Z
+     *
      * @var string
      */
     public $restoreTime;

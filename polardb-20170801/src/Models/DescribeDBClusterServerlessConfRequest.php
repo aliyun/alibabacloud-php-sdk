@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterServerlessConfRequest extends Model
 {
     /**
+     * @description The ID of the serverless cluster.
+     *
+     * @example pc-bp10gr51qasnl****
+     *
      * @var string
      */
     public $DBClusterId;

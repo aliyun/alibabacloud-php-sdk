@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class DescribePolarSQLCollectorPolicyResponseBody extends Model
 {
     /**
+     * @description The IDs of the clusters.
+     *
+     * @example pc-bp1s826a1up******
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 3655211B-4D74-4E13-91E6-FF2AFE******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the SQL Explorer feature is enabled. Valid values:
+     *
+     *   **Enable**
+     *   **Disabled**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $SQLCollectorStatus;

@@ -9,71 +9,160 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The time when the task was created. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-06-09T22:00:42Z
+     *
      * @var string
      */
     public $createdTime;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine.
+     *
+     *   Valid values for the MySQL database engine:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     *   Valid values for the PostgreSQL database engine:
+     *
+     *   **11**
+     *   **14**
+     *
+     *   Valid value for the Oracle database engine: **11**
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The deadline before which the task can be executed. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-06-11T15:59:59Z
+     *
      * @var string
      */
     public $deadline;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 111111
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The time when the parameter was modified. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-06-09T22:00:42Z
+     *
      * @var string
      */
     public $modifiedTime;
 
     /**
+     * @description The preparation time that is required before the pending event is switched. The time follows the `HH:mm:ss` format.
+     *
+     * @example 04:00:00
+     *
      * @var string
      */
     public $prepareInterval;
 
     /**
+     * @description The region ID of the pending event.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;
 
     /**
+     * @description The execution result of the task. Valid values:
+     *
+     *   **manualCancel**: The task is manually canceled.
+     *   **paramCheckNotPass**: The task fails to pass the parameter check.
+     *
+     * > This parameter is returned only when the value of the `Status` parameter is **6** or **7**. The value 6 indicates that the task is completed but fails to be executed. The value 7 indicates that the task is canceled.
+     * @example manualCancel
+     *
      * @var string
      */
     public $resultInfo;
 
     /**
+     * @description The time when the task was executed in the background. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-06-09T18:00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The status of the pending task.
+     *
+     *   If you set the `IsHistory` parameter to **0**, the status of the pending task is returned. Valid values:
+     *
+     *   **2**: The start time of the task is to be specified.
+     *   **3**: The task is pending.
+     *   **4**: The task is running. In this case, you cannot modify the execution time.
+     *
+     *   If you set the `IsHistory` parameter to **1**, the details of the historical tasks are returned. Valid values:
+     *
+     *   **5**: The task is completed and executed.
+     *   **6**: The task is completed but fails to be executed.
+     *   **7**: The task is canceled.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $status;
 
     /**
+     * @description The time when the pending event was switched. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-06-09T22:00:00Z
+     *
      * @var string
      */
     public $switchTime;
 
     /**
+     * @description The type of the pending event.
+     *
+     * @example DatabaseSoftwareUpgrading
+     *
      * @var string
      */
     public $taskType;

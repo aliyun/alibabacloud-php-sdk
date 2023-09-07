@@ -19,16 +19,31 @@ class DeleteParameterGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The parameter template ID.
+     *
+     *
+     * >  You can call the [DescribeParameterGroups](~~207178~~) operation to query the parameter template ID.
+     * @example pcpg-**************
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The region ID.
+     *
+     * >  You can call the [DescribeRegions](~~98041~~) operation to query available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

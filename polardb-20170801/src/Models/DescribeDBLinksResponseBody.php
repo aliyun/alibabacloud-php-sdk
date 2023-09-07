@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBLinksResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-a*************
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description Details about the database links.
+     *
      * @var DBLinkInfos[]
      */
     public $DBLinkInfos;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 45D24263-7E3A-4140-9472-************
+     *
      * @var string
      */
     public $requestId;

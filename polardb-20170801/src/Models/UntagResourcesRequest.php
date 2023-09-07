@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to unbinds all tags from the cluster. Valid values: **true** and **false**. Default value: **false**.
+     *
+     * >  This parameter takes effect only when the value of the `TagKey.n` parameter is empty.
+     * @example true
+     *
      * @var bool
      */
     public $all;
@@ -24,11 +29,20 @@ class UntagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * >  You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The IDs of the clusters.
+     *
+     * @example pc-***************
+     *
      * @var string[]
      */
     public $resourceId;
@@ -44,11 +58,19 @@ class UntagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **cluster**.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The keys of the tags.
+     *
+     * @example type
+     *
      * @var string[]
      */
     public $tagKey;

@@ -20,11 +20,17 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @example pc-*****************
+     *
      * @var string[]
      */
     public $resourceId;
@@ -40,6 +46,10 @@ class TagResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The type of the resource. Set the value to **cluster**.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;

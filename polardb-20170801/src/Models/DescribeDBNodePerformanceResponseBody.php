@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodePerformanceResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster node.
+     *
+     * @example pi-*****************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine.
+     *
+     * @example 8.0
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The end time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-09-23T01:01:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The cluster performance metrics.
+     *
      * @var performanceKeys
      */
     public $performanceKeys;
 
     /**
+     * @description The request ID.
+     *
+     * @example E2FDB684-751D-424D-98B9-704BEA******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the query. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-09-23T01:00:00Z
+     *
      * @var string
      */
     public $startTime;

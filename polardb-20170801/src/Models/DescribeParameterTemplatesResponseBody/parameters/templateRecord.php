@@ -9,41 +9,82 @@ use AlibabaCloud\Tea\Model;
 class templateRecord extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example [ROW|STATEMENT|MIXED]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description Indicates whether the parameter setting can be modified. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var string
      */
     public $forceModify;
 
     /**
+     * @description Indicates whether a cluster restart is required to make the parameter modification take effect. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var string
      */
     public $forceRestart;
 
     /**
+     * @description Indicates whether the parameter is a global parameter. Valid values:
+     *
+     *   **0**: yes. The modified parameter value is synchronized to other nodes by default.
+     *   **1**: no. You can customize the nodes to which the modified parameter value can be synchronized.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isNodeAvailable;
 
     /**
+     * @description The parameter dependencies.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $paramRelyRule;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example What form of binary logging the master will use.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example binlog_format
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The default value of the parameter.
+     *
+     * @example ROW
+     *
      * @var string
      */
     public $parameterValue;

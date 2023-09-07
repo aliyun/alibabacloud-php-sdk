@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click the **+** icon.
+     *
+     * > You can create up to 20 key-value pairs of tags at a time. Each value of the `Tag.N.Key` parameter is paired with a value of the `Tag.N.Value` parameter.
+     * @example type
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The value of the tag that you want to create for the cluster. To create multiple tags for a cluster at a time, click the **+** icon.
+     *
+     * > You can create up to 20 key-value pairs of tags at a time. Each value of the `Tag.N.Value` parameter is paired with a value of the `Tag.N.Key` parameter.
+     * @example test
+     *
      * @var string
      */
     public $value;

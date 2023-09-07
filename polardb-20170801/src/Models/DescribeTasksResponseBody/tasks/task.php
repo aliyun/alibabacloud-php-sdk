@@ -9,71 +9,130 @@ use AlibabaCloud\Tea\Model;
 class task extends Model
 {
     /**
+     * @description The time when the task was started. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-12-02T02:39:15Z
+     *
      * @var string
      */
     public $beginTime;
 
     /**
+     * @description The name of the current step.
+     *
+     * @example create_instance
+     *
      * @var string
      */
     public $currentStepName;
 
     /**
+     * @description The database name.
+     *
+     * >  This parameter is returned for only the tasks that involve database operations.
+     * @example test
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The estimated end time of the task. In most cases, this parameter is empty.
+     *
+     * @example null
+     *
      * @var string
      */
     public $expectedFinishTime;
 
     /**
+     * @description The time when the task was completed. The time follows the ISO 8601 standard in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-12-02T02:40:15Z
+     *
      * @var string
      */
     public $finishTime;
 
     /**
+     * @description The progress of the task in percentage.
+     *
+     * @example 100
+     *
      * @var int
      */
     public $progress;
 
     /**
+     * @description The description of the task progress. If no progress description is provided for the task, this parameter is empty.
+     *
+     * @example null
+     *
      * @var string
      */
     public $progressInfo;
 
     /**
+     * @description The estimated remaining duration of the task. Unit: seconds.
+     *
+     * @example 1767
+     *
      * @var int
      */
     public $remain;
 
     /**
+     * @description The progress of the subtasks. For example, the value `1/4` indicates that the task consists of four subtasks and the first subtask is in progress.
+     *
+     * @example 1/4
+     *
      * @var string
      */
     public $stepProgressInfo;
 
     /**
+     * @description The details of the subtasks.
+     *
+     * @example [{\"remain\":0,\"name\":\"init_task\",\"progress\":100},{\"remain\":1764,\"name\":\"create_instance\",\"progress\":0},{\"remain\":1,\"name\":\"init_cluster\",\"progress\":0},{\"remain\":2,\"name\":\"create_backup\",\"progress\":0}]
+     *
      * @var string
      */
     public $stepsInfo;
 
     /**
+     * @description The API operation that is used by the task. Example: `CreateDBInstance`.
+     *
+     * @example CreateDBInstance
+     *
      * @var string
      */
     public $taskAction;
 
     /**
+     * @description The error code that is returned when an error occurs.
+     *
+     * >  This parameter is returned only when the task is in the **Stop** state.
+     * @example null
+     *
      * @var string
      */
     public $taskErrorCode;
 
     /**
+     * @description The error message that is returned when an error occurs.
+     *
+     * >  This parameter is returned only when the task is in the **Stop** state.
+     * @example null
+     *
      * @var string
      */
     public $taskErrorMessage;
 
     /**
+     * @description The ID of the task.
+     *
+     * @example 111111111
+     *
      * @var string
      */
     public $taskId;

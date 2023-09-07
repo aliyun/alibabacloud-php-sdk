@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalSecurityIPGroupRelationRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-*****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the IP whitelist template.
+     *
+     * @example g-zsldxfiwjmti0kcm****
+     *
      * @var string
      */
     public $globalSecurityGroupId;
@@ -29,11 +37,19 @@ class ModifyGlobalSecurityIPGroupRelationRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-**********
+     *
      * @var string
      */
     public $resourceGroupId;

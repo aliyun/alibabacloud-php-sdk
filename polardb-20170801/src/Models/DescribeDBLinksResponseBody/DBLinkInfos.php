@@ -9,31 +9,56 @@ use AlibabaCloud\Tea\Model;
 class DBLinkInfos extends Model
 {
     /**
+     * @description The ID of the source cluster that the database link connects.
+     *
+     * @example pc-a*************
+     *
      * @var string
      */
     public $DBInstanceName;
 
     /**
+     * @description The name of the database link.
+     *
+     * @example dblink_test
+     *
      * @var string
      */
     public $DBLinkName;
 
     /**
+     * @description The name of the source database of the database link.
+     *
+     * @example testdb1
+     *
      * @var string
      */
     public $sourceDBName;
 
     /**
+     * @description The account of the destination database of the database link.
+     *
+     * @example testacc
+     *
      * @var string
      */
     public $targetAccount;
 
     /**
+     * @description The ID of the destination cluster that the database link connects.
+     *
+     * > If the destination cluster is not a PolarDB for Oracle cluster, the returned value is empty.
+     * @example pc-b************
+     *
      * @var string
      */
     public $targetDBInstanceName;
 
     /**
+     * @description The name of the destination database of the database link.
+     *
+     * @example testdb2
+     *
      * @var string
      */
     public $targetDBName;

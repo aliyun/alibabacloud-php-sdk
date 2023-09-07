@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribePendingMaintenanceActionsRequest extends Model
 {
     /**
+     * @description Specifies whether to return the historical tasks. Valid values:
+     *
+     *   **0**: returns the current task.
+     *   **1**: returns the historical tasks.
+     *
+     * Default value: **0**.
+     * @example 1
+     *
      * @var int
      */
     public $isHistory;
@@ -24,11 +32,19 @@ class DescribePendingMaintenanceActionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

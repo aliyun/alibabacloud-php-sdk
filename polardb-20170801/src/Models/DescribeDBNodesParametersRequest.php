@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodesParametersRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The node ID. You can specify multiple node IDs. Separate multiple node IDs with commas (,).
+     *
+     * @example pi-****************,pi-****************
+     *
      * @var string
      */
     public $DBNodeIds;

@@ -19,16 +19,30 @@ class DescribeParameterGroupRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the parameter template.
+     *
+     * > You can call the [DescribeParameterGroups](~~207178~~) operation to query the details of all parameter templates of a specified region, such as the ID of a parameter template.
+     * @example pcpg-**************
+     *
      * @var string
      */
     public $parameterGroupId;
 
     /**
+     * @description The region ID.
+     *
+     * >You can call the [DescribeRegions](~~98041~~) operation to query all regions that are available within your account, such as the region ID.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

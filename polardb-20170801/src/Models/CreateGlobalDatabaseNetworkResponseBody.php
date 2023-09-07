@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class CreateGlobalDatabaseNetworkResponseBody extends Model
 {
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gd-m5ex5wqfqbou*****
+     *
      * @var string
      */
     public $GDNId;
 
     /**
+     * @description The request ID.
+     *
+     * @example C61892A4-0850-4516-9E26-44D96C1782DE
+     *
      * @var string
      */
     public $requestId;

@@ -10,26 +10,48 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodesParametersResponseBody extends Model
 {
     /**
+     * @description The IDs of the nodes.
+     *
      * @var DBNodeIds[]
      */
     public $DBNodeIds;
 
     /**
+     * @description The type of the database engine. Set the value to **MySQL**.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the MySQL database engine. Valid values:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description The cluster engine.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The request ID.
+     *
+     * @example 9B7BFB11-C077-4FE3-B051-F69CEB******
+     *
      * @var string
      */
     public $requestId;

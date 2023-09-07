@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DeleteMaskingRulesResponseBody extends Model
 {
     /**
+     * @description The message that is returned for the request.
+     *
+     * > If the request is successful, `Successful` is returned. If the request fails, an error message such as an error code is returned.
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2BCEE25B-797C-426B-BA7B-D28CCF******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid value:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class performanceItem extends Model
 {
     /**
+     * @description The ID of the cluster node.
+     *
+     * >  The value of this parameter is not returned if the `Key` parameter is set to `PolarDBDiskUsage`.
+     * @example pi-*************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The performance metrics that are returned.
+     *
+     * @example PolarDBDiskUsage
+     *
      * @var string
      */
     public $measurement;
 
     /**
+     * @description The name of the performance metric.
+     *
+     * @example mean_data_size
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The performance metrics.
+     *
      * @var points
      */
     public $points;

@@ -9,26 +9,47 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBNodePerformanceRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the cluster node.
+     *
+     * @example pi-*************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-09-23T01:01Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The performance metrics that you want to query. Separate multiple metrics with commas (,). For more information, see [Performance parameters](~~141787~~).
+     *
+     * >  You can specify a maximum of five performance metrics.
+     * @example PolarDBDiskUsage
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-09-23T01:00Z
+     *
      * @var string
      */
     public $startTime;

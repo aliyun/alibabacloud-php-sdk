@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogsRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the database.
+     *
+     * @example PolarDB_MySQL
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. The time span between the start time and the end time cannot exceed 31 days. Specify the time in the yyyy-MM-ddZ format. The time must be in UTC.
+     *
+     * @example 2021-05-30Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,16 +46,29 @@ class DescribeSlowLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     *
+     * Default value: 1.
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 30 to 100. Default value: 30.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -59,6 +84,10 @@ class DescribeSlowLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddZ format. The time must be in UTC.
+     *
+     * @example 2021-05-01Z
+     *
      * @var string
      */
     public $startTime;

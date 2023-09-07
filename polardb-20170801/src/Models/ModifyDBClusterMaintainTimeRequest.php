@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterMaintainTimeRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The maintenance window of the cluster. Specify the maintenance window in the `HH:mmZ-HH:mmZ` format. For example, the value `16:00Z-17:00Z` indicates that the cluster can be maintained from 00:00 to 01:00 (UTC+8).
+     *
+     * >  The maintenance window must start on the hour and last for an hour.
+     * @example 02:00Z-03:00Z
+     *
      * @var string
      */
     public $maintainTime;

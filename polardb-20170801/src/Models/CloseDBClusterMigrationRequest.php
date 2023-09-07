@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class CloseDBClusterMigrationRequest extends Model
 {
     /**
+     * @description Specifies whether to continue to enable binary logging. Valid values:
+     *
+     *   **true**: continues to enable binary logging.
+     *   **false**: disables binary logging.
+     *
+     * Default value: **true**.
+     *
+     * > If binary logging is disabled, your PolarDB cluster is restarted.
+     * @example true
+     *
      * @var bool
      */
     public $continueEnableBinlog;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;

@@ -9,21 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogBackupPolicyRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the information of all clusters that are deployed in a specific region, such as the cluster IDs.
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The region in which you want to store cross-region log backups. For information about regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $logBackupAnotherRegionRegion;
 
     /**
+     * @description The retention period of cross-region log backups. Valid values:
+     *
+     *   **0**: The cross-region backup feature is disabled.
+     *   **30 to 7300**: Cross-region log backups are retained for 30 to 7,300 days.
+     *   **-1**: The log backups are permanently retained.
+     *
+     * >  When you create a cluster, the default value of this parameter is **0**.
+     * @example 30
+     *
      * @var string
      */
     public $logBackupAnotherRegionRetentionPeriod;
 
     /**
+     * @description The retention period of the log backups. Valid values:
+     *
+     *   3 to 7300: The log backups are retained for 3 to 7,300 days.
+     *   \-1: The log backups are permanently retained.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $logBackupRetentionPeriod;

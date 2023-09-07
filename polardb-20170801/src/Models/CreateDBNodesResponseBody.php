@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class CreateDBNodesResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Details about the nodes.
+     *
      * @var DBNodeIds
      */
     public $DBNodeIds;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 2148126708*****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E053E730-5755-4AA9-AA9D-A47867******
+     *
      * @var string
      */
     public $requestId;

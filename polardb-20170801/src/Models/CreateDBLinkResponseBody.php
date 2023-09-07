@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateDBLinkResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example F9F1CB1A-B1D5-4EF5-A53A-************
+     *
      * @var string
      */
     public $requestId;

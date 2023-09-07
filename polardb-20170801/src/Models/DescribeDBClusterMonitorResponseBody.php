@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterMonitorResponseBody extends Model
 {
     /**
+     * @description The interval at which monitoring data is collected. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var string
      */
     public $period;
 
     /**
+     * @description The request ID.
+     *
+     * @example 593AE1C5-B70C-463F-9207-074639******
+     *
      * @var string
      */
     public $requestId;

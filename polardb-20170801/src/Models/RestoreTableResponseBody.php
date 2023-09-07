@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RestoreTableResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 0C47508C-9DC8-455B-985E-2F2FA8******
+     *
      * @var string
      */
     public $requestId;

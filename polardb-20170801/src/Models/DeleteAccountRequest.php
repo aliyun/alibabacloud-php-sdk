@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteAccountRequest extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-*************
+     *
      * @var string
      */
     public $DBClusterId;

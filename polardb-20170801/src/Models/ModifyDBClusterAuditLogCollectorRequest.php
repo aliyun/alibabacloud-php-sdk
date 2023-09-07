@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterAuditLogCollectorRequest extends Model
 {
     /**
+     * @description Specifies whether to enable or disable SQL collector. Valid values:
+     *
+     *   Enable
+     *   Disable
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $collectorStatus;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;

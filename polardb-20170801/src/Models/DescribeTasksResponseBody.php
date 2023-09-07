@@ -10,41 +10,71 @@ use AlibabaCloud\Tea\Model;
 class DescribeTasksResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster for which the task was created.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end time of the query.
+     *
+     * @example 2020-12-02T03:00Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The page number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The request ID.
+     *
+     * @example 4352AD99-9FF5-41A6-A319-068089******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The start time of the query.
+     *
+     * @example 2020-11-30T00:00Z
+     *
      * @var string
      */
     public $startTime;
 
     /**
+     * @description The details of the task.
+     *
      * @var tasks
      */
     public $tasks;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupLogsRequest extends Model
 {
     /**
+     * @description The region for the backup data.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $backupRegion;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end of the time range to query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-02-12T15:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -34,11 +46,24 @@ class DescribeBackupLogsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return. The value must be an integer that is larger than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -54,6 +79,10 @@ class DescribeBackupLogsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-02-01T15:00Z
+     *
      * @var string
      */
     public $startTime;

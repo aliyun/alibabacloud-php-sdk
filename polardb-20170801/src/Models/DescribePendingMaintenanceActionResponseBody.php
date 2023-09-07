@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribePendingMaintenanceActionResponseBody extends Model
 {
     /**
+     * @description Details about tasks.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 2F029645-FED9-4FE8-A6D3-488954******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class OpenAITaskResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example 9B7BFB11-C077-4FE3-B051-F69CEB******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The task ID.
+     *
+     * @example 53879cdb-9a00-428e-acaf-ff4cff******
+     *
      * @var string
      */
     public $taskId;

@@ -9,11 +9,21 @@ use AlibabaCloud\Tea\Model;
 class RestoreTableRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * >  You must specify this parameter if you need to restore a database or a table by using a backup set. You can call the [DescribeBackups](~~98102~~) operation to query the ID of the backup set.
+     * @example 111111
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the details of all clusters within your account.
+     * @example pc-bp***************
+     *
      * @var string
      */
     public $DBClusterId;
@@ -39,6 +49,16 @@ class RestoreTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The point in time for the restoration. Specify the time in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time must be in UTC.
+     *
+     * >
+     *
+     *   You must specify this parameter if you need to restore the database or the table to a point in time.
+     *
+     *   You can restore your cluster to a particular time only over the past seven days.
+     *
+     * @example 2020-10-04T01:40:00Z
+     *
      * @var string
      */
     public $restoreTime;
@@ -49,6 +69,11 @@ class RestoreTableRequest extends Model
     public $securityToken;
 
     /**
+     * @description The JSON string that contains the information of the database and the table that you want to restore. All values of the database and table information are of the string type. Example: `[ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]`.
+     *
+     * >  You can call the [DescribeMetaList](~~194770~~) operation to query the names and details of databases and tables that can be restored and enter their information into the corresponding locations in the preceding example.
+     * @example [ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]
+     *
      * @var string
      */
     public $tableMeta;

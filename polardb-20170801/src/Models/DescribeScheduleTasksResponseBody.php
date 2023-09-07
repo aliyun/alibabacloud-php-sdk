@@ -10,21 +10,36 @@ use AlibabaCloud\Tea\Model;
 class DescribeScheduleTasksResponseBody extends Model
 {
     /**
+     * @description The result data that is returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The message that is returned for the request.
+     *
+     * >  If the request is successful, **Successful** is returned. If the request fails, an error message such as an error code is returned.
+     * @example Successful
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The request ID.
+     *
+     * @example 936C7025-27A5-4CB1-BB31-540E1F0CCA12
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $success;

@@ -9,61 +9,125 @@ use AlibabaCloud\Tea\Model;
 class runningParameters extends Model
 {
     /**
+     * @description The valid values of the parameter.
+     *
+     * @example [utf8|latin1|gbk|utf8mb4]
+     *
      * @var string
      */
     public $checkingCode;
 
     /**
+     * @description The data type of the parameter value. Valid values:
+     *
+     *   **INT**
+     *   **STRING**
+     *   **B**
+     *
+     * @example INT
+     *
      * @var string
      */
     public $dataType;
 
     /**
+     * @description The default value of the parameter.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $defaultParameterValue;
 
     /**
+     * @description A divisor of the parameter. For a parameter of the integer or byte type, the valid values must be a multiple of Factor unless you set Factor to 0.
+     *
+     * @example 20
+     *
      * @var string
      */
     public $factor;
 
     /**
+     * @description Indicates whether a cluster restart is required to allow the parameter modification to take effect. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $forceRestart;
 
     /**
+     * @description Indicates whether the parameter can be modified. Valid values:
+     *
+     *   **false**
+     *   **true**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isModifiable;
 
     /**
+     * @description Indicates whether the parameter is a global parameter. Valid values:
+     *
+     *   **0**: yes. The modified parameter value is synchronized to other nodes.
+     *   **1**: no. You can customize the nodes to which the modified parameter value can be synchronized to.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $isNodeAvailable;
 
     /**
+     * @description The dependencies of the parameter.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $paramRelyRule;
 
     /**
+     * @description The description of the parameter.
+     *
+     * @example The server\"s default character set.
+     *
      * @var string
      */
     public $parameterDescription;
 
     /**
+     * @description The name of the parameter.
+     *
+     * @example character_set_server
+     *
      * @var string
      */
     public $parameterName;
 
     /**
+     * @description The status of the parameter. Valid values:
+     *
+     *   **normal**
+     *   **modifying**
+     *
+     * @example normal
+     *
      * @var string
      */
     public $parameterStatus;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $parameterValue;

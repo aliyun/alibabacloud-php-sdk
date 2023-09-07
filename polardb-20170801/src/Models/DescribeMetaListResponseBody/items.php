@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The name of the database that can be restored.
+     *
+     * @example test_db
+     *
      * @var string
      */
     public $database;
 
     /**
+     * @description The name of the table that can be restored.
+     *
      * @var string[]
      */
     public $tables;

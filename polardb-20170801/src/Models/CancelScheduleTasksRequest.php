@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class CancelScheduleTasksRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the information of all clusters that are deployed in a specified region, such as the cluster IDs.
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +29,10 @@ class CancelScheduleTasksRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -39,6 +48,12 @@ class CancelScheduleTasksRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scheduled task that you want to cancel.
+     *
+     * > *   You can call the [DescribeScheduleTasks](~~199648~~) operation to query the details of all scheduled tasks that belong to the current account, such as the task IDs.
+     * >*   You can cancel only the tasks whose status is `pending`.``
+     * @example ec8c4723-eac5-4f12-becb-01ac08******
+     *
      * @var string
      */
     public $taskId;

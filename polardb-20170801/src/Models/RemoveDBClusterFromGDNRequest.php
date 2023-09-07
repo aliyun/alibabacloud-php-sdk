@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class RemoveDBClusterFromGDNRequest extends Model
 {
     /**
+     * @description The ID of the cluster in the GDN.
+     *
+     * >  You can call the [DescribeGlobalDatabaseNetwork](~~264580~~) operation to view the ID of the cluster in the GDN.
+     * @example pc-wz9fb5nn44u1d****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gdn-bp1fttxsrmv*****
+     *
      * @var string
      */
     public $GDNId;

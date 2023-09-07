@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class TransformDBClusterPayTypeResponseBody extends Model
 {
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $chargeType;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-bp10gr51qasnl****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The time when the cluster expires.
+     *
+     * >  This parameter is returned if you set the **PayType** parameter to **Prepaid**.
+     * @example 2020-04-20T10:00:00Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The ID of the order.
+     *
+     * @example 20515760028****
+     *
      * @var string
      */
     public $orderId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 5E71541A-6007-4DCC-A38A-F872C31FEB45
+     *
      * @var string
      */
     public $requestId;

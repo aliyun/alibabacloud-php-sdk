@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class DescribeParameterGroupResponseBody extends Model
 {
     /**
+     * @description Details about the parameter templates.
+     *
      * @var parameterGroup[]
      */
     public $parameterGroup;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F1F16757-D31B-49CA-9BF4-305BAF******
+     *
      * @var string
      */
     public $requestId;

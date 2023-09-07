@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBProxyPerformanceRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-09-24T02:08Z
+     *
      * @var string
      */
     public $endTime;
 
     /**
+     * @description The performance metrics that you want to query. Separate multiple indicators with commas (,). For more information, see [Performance parameters](~~141787~~).
+     *
+     * @example PolarProxy_CpuUsage
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-09-23T01:01Z
+     *
      * @var string
      */
     public $startTime;

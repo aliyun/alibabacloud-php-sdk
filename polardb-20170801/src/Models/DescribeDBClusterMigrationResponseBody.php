@@ -11,71 +11,143 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterMigrationResponseBody extends Model
 {
     /**
+     * @description The description of a migration exception. If no exception occurs during the migration, an empty string is returned.
+     *
+     * @example test
+     *
      * @var string
      */
     public $comment;
 
     /**
+     * @description The endpoints of the PolarDB cluster.
+     *
      * @var DBClusterEndpointList[]
      */
     public $DBClusterEndpointList;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The mode of the PolarDB cluster. Valid values:
+     *
+     *   **rw**: read and write mode
+     *   **ro**: read-only mode
+     *
+     * @example ro
+     *
      * @var string
      */
     public $DBClusterReadWriteMode;
 
     /**
+     * @description The replication latency between the ApsaraDB RDS instance and the PolarDB cluster. Unit: seconds.
+     *
+     * @example 0
+     *
      * @var int
      */
     public $delayedSeconds;
 
     /**
+     * @description The ID of the synchronous task.
+     *
+     * @example dts**********618bs
+     *
      * @var string
      */
     public $dtsInstanceId;
 
     /**
+     * @description The expiration time of the replication between ApsaraDB RDS and PolarDB. The time is in the `YYYY-MM-DDThh:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2020-06-17T01:56:36Z
+     *
      * @var string
      */
     public $expiredTime;
 
     /**
+     * @description The migration state of the PolarDB cluster. Valid values:
+     *
+     *   **NO_MIGRATION**: No migration task is running.
+     *   **RDS2POLARDB_CLONING**: Data is being replicated.
+     *   **RDS2POLARDB_SYNCING**: Data is being replicated. During the replication, the PolarDB cluster is running in read-only mode and the source ApsaraDB RDS instance is running in read and write mode.
+     *   **SWITCHING**: Databases are being switched.
+     *   **POLARDB2RDS_SYNCING**: Databases are switched. The PolarDB cluster is running in read and write mode and the source ApsaraDB RDS instance is running in read-only mode. In this state, you can modify the endpoints for your applications.
+     *   **ROLLBACK**: The migration is being rolled back. After the rollback is complete, the value **RDS2POLARDB_SYNCING** is returned.
+     *   **CLOSING_MIGRATION**: The migration task is being terminated.
+     *
+     * @example RDS2POLARDB_SYNCING
+     *
      * @var string
      */
     public $migrationStatus;
 
     /**
+     * @description The endpoints of the ApsaraDB RDS instance.
+     *
      * @var rdsEndpointList[]
      */
     public $rdsEndpointList;
 
     /**
+     * @description The mode of the source ApsaraDB RDS instance. Valid values:
+     *
+     *   **rw**: read and write mode
+     *   **ro**: read-only mode
+     *
+     * @example rw
+     *
      * @var string
      */
     public $rdsReadWriteMode;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example F2A9EFA7-915F-4572-8299-85A307******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The ID of the source ApsaraDB RDS instance.
+     *
+     * @example rm-************
+     *
      * @var string
      */
     public $sourceRDSDBInstanceId;
 
     /**
+     * @description The type of the source database. Valid values:
+     *
+     *   **PolarDBMySQL**: The source database is a PolarDB for MySQL database when the major version of your PolarDB cluster is upgraded.
+     *   **RDS**: The source database is an ApsaraDB RDS database when data is migrated from ApsaraDB RDS to PolarDB for MySQL.
+     *
+     * @example PolarDBMySQL
+     *
      * @var string
      */
     public $srcDbType;
 
     /**
+     * @description The synchronization direction. Valid values:
+     *
+     *   **RDS2POLARDB**: Data is replicated from an ApsaraDB RDS instance to a PolarDB cluster.
+     *   **POLARDB2RDS**: Data is replicated from a PolarDB cluster to an ApsaraDB RDS instance.
+     *
+     * @example RDS2POLARDB
+     *
      * @var string
      */
     public $topologies;

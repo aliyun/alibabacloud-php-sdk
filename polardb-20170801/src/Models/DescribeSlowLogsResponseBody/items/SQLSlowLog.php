@@ -9,71 +9,127 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowLog extends Model
 {
     /**
+     * @description The date when the data was generated.
+     *
+     * @example 2021-05-30Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The name of the database.
+     *
+     * @example PolarDB_MySQL
+     *
      * @var string
      */
     public $DBName;
 
     /**
+     * @description The ID of the node.
+     *
+     * @example pi-***************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The longest execution duration of a specific SQL statement in the query. Unit: seconds.
+     *
+     * @example 60
+     *
      * @var int
      */
     public $maxExecutionTime;
 
     /**
+     * @description The longest lock duration that was caused by a specific SQL statement in the query. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $maxLockTime;
 
     /**
+     * @description The largest number of rows that were parsed by a specific SQL statement in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $parseMaxRowCount;
 
     /**
+     * @description The total number of rows that were parsed by all SQL statements in the query.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $parseTotalRowCounts;
 
     /**
+     * @description The largest number of rows that were returned by a specific SQL statement in the query.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $returnMaxRowCount;
 
     /**
+     * @description The total number of rows that were returned by all SQL statements in the query.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $returnTotalRowCounts;
 
     /**
+     * @description The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
+     *
+     * @example U2FsdGVkxxxx
+     *
      * @var string
      */
     public $SQLHASH;
 
     /**
+     * @description The SQL statement that is executed in the query.
+     *
+     * @example select id,name from tb_table
+     *
      * @var string
      */
     public $SQLText;
 
     /**
+     * @description The total number of executions of the SQL statements.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalExecutionCounts;
 
     /**
+     * @description The total duration that was caused by all SQL statements in the query. Unit: seconds.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $totalExecutionTimes;
 
     /**
+     * @description The total lock duration that was caused by all SQL statements in the query. Unit: seconds.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalLockTimes;

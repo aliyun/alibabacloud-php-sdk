@@ -9,9 +9,25 @@ use AlibabaCloud\Tea\Model;
 class OpenAITaskRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
+
+    /**
+     * @var string
+     */
+    public $describeType;
+
+    /**
+     * @example DLNode
+     *
+     * @var string
+     */
+    public $nodeType;
 
     /**
      * @var string
@@ -24,16 +40,28 @@ class OpenAITaskRequest extends Model
     public $ownerId;
 
     /**
+     * @description The password used to access the database for which you want to enable the PolarDB for AI feature.
+     *
+     * @example testPassword
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,11 +77,17 @@ class OpenAITaskRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The username used to access the database for which you want to enable the PolarDB for AI feature.
+     *
+     * @example testAccountName
+     *
      * @var string
      */
     public $username;
     protected $_name = [
         'DBClusterId'          => 'DBClusterId',
+        'describeType'         => 'DescribeType',
+        'nodeType'             => 'NodeType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'password'             => 'Password',
@@ -73,6 +107,12 @@ class OpenAITaskRequest extends Model
         $res = [];
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
+        }
+        if (null !== $this->describeType) {
+            $res['DescribeType'] = $this->describeType;
+        }
+        if (null !== $this->nodeType) {
+            $res['NodeType'] = $this->nodeType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -112,6 +152,12 @@ class OpenAITaskRequest extends Model
         $model = new self();
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
+        }
+        if (isset($map['DescribeType'])) {
+            $model->describeType = $map['DescribeType'];
+        }
+        if (isset($map['NodeType'])) {
+            $model->nodeType = $map['NodeType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

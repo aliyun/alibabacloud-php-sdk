@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class parameterDetail extends Model
 {
     /**
+     * @description The name of the parameter.
+     *
+     * @example back_log
+     *
      * @var string
      */
     public $paramName;
 
     /**
+     * @description The value of the parameter.
+     *
+     * @example 3000
+     *
      * @var string
      */
     public $paramValue;

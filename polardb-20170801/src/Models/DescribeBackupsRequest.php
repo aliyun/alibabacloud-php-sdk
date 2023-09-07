@@ -9,31 +9,62 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupsRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * @example 11111111
+     *
      * @var string
      */
     public $backupId;
 
     /**
+     * @description The backup mode. Valid values:
+     *
+     *   **Automated**
+     *   **Manual**
+     *
+     * @example Automated
+     *
      * @var string
      */
     public $backupMode;
 
     /**
+     * @description The region where the cross-region data backup file of the instance is stored.
+     *
+     * > This parameter is valid only for PolarDB for MySQL clusters.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $backupRegion;
 
     /**
+     * @description The status of the backup set. Valid values:
+     *
+     *   **Success**
+     *   **Failed**
+     *
+     * @example Success
+     *
      * @var string
      */
     public $backupStatus;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The end of the time range to query. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC. The end time must be later than the start time.
+     *
+     * @example 2020-11-16T00:00Z
+     *
      * @var string
      */
     public $endTime;
@@ -49,11 +80,24 @@ class DescribeBackupsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. The value must be a positive integer that does not exceed the maximum value of the INTEGER data type. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;
@@ -69,6 +113,10 @@ class DescribeBackupsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     *
+     * @example 2020-11-14T00:00Z
+     *
      * @var string
      */
     public $startTime;

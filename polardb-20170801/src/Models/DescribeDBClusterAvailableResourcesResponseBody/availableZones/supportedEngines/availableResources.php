@@ -9,11 +9,26 @@ use AlibabaCloud\Tea\Model;
 class availableResources extends Model
 {
     /**
+     * @description The edition of the cluster. Valid values:
+     *
+     *   **Normal**: Cluster Edition.
+     *   **Basic**: Single Node Edition.
+     *   **ArchiveNormal**: X-Engine.
+     *   **NormalMultimaster**: Multi-master Cluster (Database/Table) Edition.
+     *   **SENormal**: Standard Edition.
+     *
+     * >- Only PolarDB for MySQL 8.0 supports X-Engine Edition and Multi-master Cluster (Database/Table) Edition.
+     * @example Normal
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The specifications of the node.
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $DBNodeClass;

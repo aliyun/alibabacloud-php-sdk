@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClustersResponseBody extends Model
 {
     /**
+     * @description The details of the cluster.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The number of the page to return.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of clusters returned per page.
+     *
+     * @example 5
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9B7BFB11-C077-4FE3-B051-F69CEB******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of returned entries.
+     *
+     * @example 16
+     *
      * @var int
      */
     public $totalRecordCount;

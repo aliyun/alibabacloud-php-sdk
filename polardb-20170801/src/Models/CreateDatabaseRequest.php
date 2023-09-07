@@ -9,41 +9,103 @@ use AlibabaCloud\Tea\Model;
 class CreateDatabaseRequest extends Model
 {
     /**
+     * @description The name of the account that is authorized to access the database. You can call the [DescribeAccounts](~~98107~~) operation to query account information.
+     * >- This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters. This parameter is optional for PolarDB for MySQL clusters.
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The permissions that are granted to the account. Valid values:
+     *
+     *   **ReadWrite**: read and write permissions.
+     *   **ReadOnly**: read-only permissions.
+     *   **DMLOnly**: the permissions to execute only DML statements.
+     *   **DDLOnly**: the permissions to execute only DDL statements.
+     *   **ReadIndex**: the read-only and index permissions.
+     *
+     * If you leave this parameter empty, the default value **ReadWrite** is used.
+     *
+     * >- This parameter is valid only if you specify **AccountName**.
+     * >- This parameter is optional for PolarDB for MySQL clusters.
+     * @example ReadWrite
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @description The character set that is used by the cluster. For more information, see [Character set tables](~~99716~~).
+     *
+     * @example utf8
+     *
      * @var string
      */
     public $characterSetName;
 
     /**
+     * @description The language that indicates the collation of the databases that are created.
+     *
+     * >
+     *
+     *   The language must be compatible with the character set that is specified by **CharacterSetName**.
+     *
+     *   This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters. This parameter is not supported by PolarDB for MySQL clusters.
+     *
+     * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+     * @example C
+     *
      * @var string
      */
     public $collate;
 
     /**
+     * @description The language that indicates the character type of the database.
+     *
+     * >- The language must be compatible with the character set that is specified by **CharacterSetName**.
+     * >- The value that you specify must be the same as the value of **Collate**.
+     * >- This parameter is required for PolarDB for PostgreSQL (Compatible with Oracle) clusters or PolarDB for PostgreSQL clusters. This parameter is optional for PolarDB for MySQL clusters.
+     *
+     * To view the valid values for this parameter, perform the following steps: Log on to the PolarDB console and click the ID of a cluster. In the left-side navigation pane, choose **Settings and Management** > **Databases**. Then, click **Create Database**.
+     * @example C
+     *
      * @var string
      */
     public $ctype;
 
     /**
+     * @description The ID of cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The description of the database. The description must meet the following requirements:
+     *
+     *   It cannot start with `http://` or `https://`.
+     *   It must be 2 to 256 characters in length.
+     *
+     * > This parameter is required for a PolarDB for Oracle or PolarDB for PostgreSQL cluster. This parameter is optional for a PolarDB for MySQL cluster.
+     * @example testdesc
+     *
      * @var string
      */
     public $DBDescription;
 
     /**
+     * @description The name of the database. The name must meet the following requirements:
+     *
+     *   The name can contain lowercase letters, digits, hyphens (-), and underscores (\_).
+     *   The name must start with a lowercase letter and end with a lowercase letter or a digit. The name must be 1 to 64 characters in length.
+     *
+     * > Do not use reserved words as database names, such as `test` or `mysql`.
+     * @example testDB
+     *
      * @var string
      */
     public $DBName;

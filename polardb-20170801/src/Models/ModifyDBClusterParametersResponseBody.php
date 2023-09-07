@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterParametersResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example C5D526E5-91B5-48B8-B980-FE07FF******
+     *
      * @var string
      */
     public $requestId;

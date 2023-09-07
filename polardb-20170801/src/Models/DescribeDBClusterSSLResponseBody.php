@@ -10,16 +10,30 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterSSLResponseBody extends Model
 {
     /**
+     * @description The list of SSL connections.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example C890995A-CF06-4F4D-8DB8-DD26C2******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description Indicates whether automatic rotation of SSL certificates is enabled. Valid values:
+     *
+     *   **Enable**: The feature is enabled.
+     *   **Disable**: The feature is disabled.
+     *
+     * > This parameter is valid only for a PolarDB for MySQL cluster.
+     * @example Enable
+     *
      * @var string
      */
     public $SSLAutoRotate;

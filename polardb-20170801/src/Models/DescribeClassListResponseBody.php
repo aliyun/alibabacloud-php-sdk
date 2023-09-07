@@ -10,16 +10,28 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassListResponseBody extends Model
 {
     /**
+     * @description The specifications of the cluster.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The price.
+     *
+     * Unit: cents (US dollars).
+     *
+     * > *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
+     * > *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
+     * @example 69A85BAF-1089-4CDF-A82F-0A140F******
+     *
      * @var string
      */
     public $requestId;

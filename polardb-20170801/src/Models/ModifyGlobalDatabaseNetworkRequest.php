@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyGlobalDatabaseNetworkRequest extends Model
 {
     /**
+     * @description The description of the GDN. The description must meet the following requirements:
+     *
+     *   It cannot start with `http://` or `https://`.
+     *   It must start with a letter.
+     *   It can contain letters, digits, underscores (\_), and hyphens (-).
+     *   It must be 2 to 126 characters in length.
+     *
+     * @example GDN-fortest
+     *
      * @var string
      */
     public $GDNDescription;
 
     /**
+     * @description The ID of the GDN.
+     *
+     * @example gdn-bp1fttxsrmv*****
+     *
      * @var string
      */
     public $GDNId;
@@ -29,6 +42,10 @@ class ModifyGlobalDatabaseNetworkRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

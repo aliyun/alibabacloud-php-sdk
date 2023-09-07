@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAITaskStatusRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
@@ -24,6 +28,10 @@ class DescribeAITaskStatusRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

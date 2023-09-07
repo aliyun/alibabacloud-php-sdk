@@ -11,135 +11,306 @@ use AlibabaCloud\Tea\Model;
 class DBCluster extends Model
 {
     /**
+     * @description The type of the AI node. Valid values:
+     *
+     *   SearchNode: Search node
+     *   DLNode: ai node
+     *
+     * Enumeration values:
+     *
+     *   SearchNode | DLNode
+     *
+     * .
+     *
+     *   DLNode
+     *
+     * .
+     *
+     *   DLNode
+     *
+     * .
+     * @example SearchNode
+     *
+     * @var string
+     */
+    public $aiType;
+
+    /**
+     * @description The edition of the cluster. Valid values:
+     *
+     *   **Normal**: Cluster Edition
+     *   **Basic**: Single Node Edition
+     *   **Archive**: X-Engine Edition
+     *   **NormalMultimaster**: Multi-master Cluster (Database/Table)
+     *
+     * @example Normal
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description The time when the cluster was created.
+     *
+     * @example 2020-08-14T05:58:42Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @description The description of the cluster.
+     *
+     * @example GDN-1
+     *
      * @var string
      */
     public $DBClusterDescription;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The network type of the cluster.
+     *
+     * @example VPC
+     *
      * @var string
      */
     public $DBClusterNetworkType;
 
     /**
+     * @description The status of the cluster.
+     *
+     * @example Running
+     *
      * @var string
      */
     public $DBClusterStatus;
 
     /**
+     * @description The specifications of the node.
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @description The number of nodes.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $DBNodeNumber;
 
     /**
+     * @description The nodes of the cluster.
+     *
      * @var DBNodes
      */
     public $DBNodes;
 
     /**
+     * @description The type of the database engine.
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database.
+     *
+     * @example 5.6
+     *
      * @var string
      */
     public $DBVersion;
 
     /**
+     * @description Indicates whether the cluster is protected from deletion. Valid values:
+     *
+     *   **0**: The cluster is not locked.
+     *   **1**: The cluster is locked.
+     *
+     * > If the cluster is locked, you cannot delete the cluster.
+     * @example 0
+     *
      * @var int
      */
     public $deletionLock;
 
     /**
+     * @description The engine of the cluster.
+     *
+     * @example POLARDB
+     *
      * @var string
      */
     public $engine;
 
     /**
+     * @description The expiration time of the cluster.
+     *
+     * > A specific value is returned only for subscription (**Prepaid**) clusters. For pay-as-you-go (**Postpaid**) clusters, an empty string is returned.
+     * @example 2020-11-14T16:00:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @description Indicates whether the cluster has expired. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > A specific value is returned only for subscription (**Prepaid**) clusters.
+     * @example false
+     *
      * @var string
      */
     public $expired;
 
     /**
+     * @description The lock status of the cluster. Valid values:
+     *
+     *   **Unlock**: The cluster is not locked.
+     *   **ManualLock**: The cluster is manually locked.
+     *   **LockByExpiration**: The cluster is automatically locked due to cluster expiration.
+     *
+     * @example Unlock
+     *
      * @var string
      */
     public $lockMode;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The ID of the region in which the node resides.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the cluster is a serverless cluster. **AgileServerless** indicates a serverless cluster. An empty value indicates a common cluster.
+     *
+     * @example AgileServerless
+     *
      * @var string
      */
     public $serverlessType;
 
     /**
+     * @description The billing method of the storage space. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * @example Prepaid
+     *
      * @var string
      */
     public $storagePayType;
 
     /**
+     * @description The storage space that is billed based on the subscription billing method. Unit: bytes.
+     *
+     * @example 50
+     *
      * @var int
      */
     public $storageSpace;
 
     /**
+     * @description The storage space this is occupied by the cluster. Unit: bytes.
+     *
+     * @example 3009413120
+     *
      * @var int
      */
     public $storageUsed;
 
     /**
+     * @description Indicates whether multi-zone data consistency is enabled for the cluster. Valid values:
+     *
+     *   **ON**: multi-zone data consistency is enabled, which is suitable for Standard Edition clusters of Multi-zone Edition.
+     *   **OFF**: multi-zone data consistency is disabled.
+     *
+     * @example ON
+     *
+     * @var string
+     */
+    public $strictConsistency;
+
+    /**
+     * @description The tags of the cluster.
+     *
      * @var tags
      */
     public $tags;
 
     /**
+     * @description The VPC ID of the cluster.
+     *
+     * @example vpc-****************
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description The vSwitch ID of the cluster.
+     *
+     * @example vsw-***************
+     *
+     * @var string
+     */
+    public $vswitchId;
+
+    /**
+     * @description The zone ID of the cluster.
+     *
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;
     protected $_name = [
+        'aiType'               => 'AiType',
         'category'             => 'Category',
         'createTime'           => 'CreateTime',
         'DBClusterDescription' => 'DBClusterDescription',
@@ -163,8 +334,10 @@ class DBCluster extends Model
         'storagePayType'       => 'StoragePayType',
         'storageSpace'         => 'StorageSpace',
         'storageUsed'          => 'StorageUsed',
+        'strictConsistency'    => 'StrictConsistency',
         'tags'                 => 'Tags',
         'vpcId'                => 'VpcId',
+        'vswitchId'            => 'VswitchId',
         'zoneId'               => 'ZoneId',
     ];
 
@@ -175,6 +348,9 @@ class DBCluster extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->aiType) {
+            $res['AiType'] = $this->aiType;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -244,11 +420,17 @@ class DBCluster extends Model
         if (null !== $this->storageUsed) {
             $res['StorageUsed'] = $this->storageUsed;
         }
+        if (null !== $this->strictConsistency) {
+            $res['StrictConsistency'] = $this->strictConsistency;
+        }
         if (null !== $this->tags) {
             $res['Tags'] = null !== $this->tags ? $this->tags->toMap() : null;
         }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswitchId) {
+            $res['VswitchId'] = $this->vswitchId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -265,6 +447,9 @@ class DBCluster extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AiType'])) {
+            $model->aiType = $map['AiType'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
@@ -334,11 +519,17 @@ class DBCluster extends Model
         if (isset($map['StorageUsed'])) {
             $model->storageUsed = $map['StorageUsed'];
         }
+        if (isset($map['StrictConsistency'])) {
+            $model->strictConsistency = $map['StrictConsistency'];
+        }
         if (isset($map['Tags'])) {
             $model->tags = tags::fromMap($map['Tags']);
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VswitchId'])) {
+            $model->vswitchId = $map['VswitchId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

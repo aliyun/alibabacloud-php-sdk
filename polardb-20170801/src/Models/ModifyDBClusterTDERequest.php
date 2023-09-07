@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBClusterTDERequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description Specifies whether to enable automatic encryption for new tables. Valid values:
+     *
+     *   **ON**
+     *   **OFF**
+     *
+     * @example ON
+     *
      * @var string
      */
     public $encryptNewTables;
 
     /**
+     * @description The ID of the custom key.
+     *
+     * @example 749c1df7-****-****-****-*********
+     *
      * @var string
      */
     public $encryptionKey;
@@ -44,11 +59,19 @@ class ModifyDBClusterTDERequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The Alibaba Cloud Resource Name (ARN) of the RAM role. A RAM role is a virtual identity that you can create within your Alibaba Cloud account. For more information, see [RAM role overview](~~93689~~).
+     *
+     * @example acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole
+     *
      * @var string
      */
     public $roleArn;
 
     /**
+     * @description Modifies the TDE status. Set the value to **Enable**.
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $TDEStatus;

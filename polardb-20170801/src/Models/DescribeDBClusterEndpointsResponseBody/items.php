@@ -10,51 +10,118 @@ use AlibabaCloud\Tea\Model;
 class items extends Model
 {
     /**
+     * @description The details of the endpoint.
+     *
      * @var addressItems[]
      */
     public $addressItems;
 
     /**
+     * @description Indicates whether new nodes are automatically associated with the default cluster endpoint. Valid values:
+     *
+     *   **Enable**
+     *   **Disable**
+     *
+     * @example Enable
+     *
      * @var string
      */
     public $autoAddNewNodes;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-bp1s826a1up******
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The name of the endpoint.
+     *
+     * @example test
+     *
      * @var string
      */
     public $DBEndpointDescription;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * @example pe-*************
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The advanced configurations of the endpoint.
+     *
+     *   **DistributedTransaction**: indicates whether transaction splitting is enabled. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     *   **ConsistLevel**: the consistency level of sessions. Valid values:
+     *
+     *   **0**: eventual consistency.
+     *   **1**: session consistency.
+     *   **2**: global consistency.
+     *
+     *   **LoadBalanceStrategy**: the load balancing policy that automatically schedules loads. Only **load** may be returned.
+     *
+     *   **MasterAcceptReads**: indicates whether the primary node processes read requests. Valid values:
+     *
+     *   **on**
+     *   **off**
+     *
+     * @example {\"DistributedTransaction\":\"off\",\"ConsistLevel\":\"0\",\"LoadBalanceStrategy\":\"load\",\"MasterAcceptReads\":\"on\"}
+     *
      * @var string
      */
     public $endpointConfig;
 
     /**
+     * @description The type of the endpoint. Valid values:
+     *
+     *   **Cluster**: the default endpoint.
+     *   **Primary**: the primary endpoint.
+     *   **Custom**: a custom cluster endpoint.
+     *
+     * @example Custom
+     *
      * @var string
      */
     public $endpointType;
 
     /**
+     * @description The role name of each node in the endpoint. The role name of the primary node is **Writer**. Multiple read-only nodes can be associated with an endpoint. Therefore, the role name of each read-only node is suffixed with a number, such as **Reader1** and **Reader2**.
+     *
+     * > This parameter is valid only for PolarDB for PostgreSQL clusters and PolarDB for PostgreSQL (Compatible with Oracle)) clusters.
+     * @example Reader1
+     *
      * @var string
      */
     public $nodeWithRoles;
 
     /**
+     * @description The nodes in the endpoint.
+     *
+     * @example pi-***************,pi-***************
+     *
      * @var string
      */
     public $nodes;
 
     /**
+     * @description The read/write mode. Valid values:
+     *
+     *   **ReadWrite**: handles read and write requests. Automatic read/write splitting is enabled.
+     *   **ReadOnly**: handles read-only requests.
+     *
+     * @example ReadOnly
+     *
      * @var string
      */
     public $readWriteMode;

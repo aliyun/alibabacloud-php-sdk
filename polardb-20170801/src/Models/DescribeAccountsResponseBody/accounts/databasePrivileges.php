@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class databasePrivileges extends Model
 {
     /**
+     * @description The permissions that the account is granted on the database. Valid values:
+     *
+     * @example ReadOnly
+     *
      * @var string
      */
     public $accountPrivilege;
 
     /**
+     * @description The name of the database.
+     *
+     * @example DBtest
+     *
      * @var string
      */
     public $DBName;

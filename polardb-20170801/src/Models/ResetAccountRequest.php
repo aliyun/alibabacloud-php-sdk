@@ -9,16 +9,33 @@ use AlibabaCloud\Tea\Model;
 class ResetAccountRequest extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * > You can reset only the permissions of a privileged account.
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The password of the account. The password must meet the following requirements:
+     *
+     *   It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   The password must be 8 to 32 characters in length.
+     *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+     *
+     * @example Pw123456
+     *
      * @var string
      */
     public $accountPassword;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-**************
+     *
      * @var string
      */
     public $DBClusterId;

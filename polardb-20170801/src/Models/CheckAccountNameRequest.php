@@ -9,11 +9,20 @@ use AlibabaCloud\Tea\Model;
 class CheckAccountNameRequest extends Model
 {
     /**
+     * @description The name of the account.
+     *
+     * @example test_acc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;

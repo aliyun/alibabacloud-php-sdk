@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAccessWhitelistRequest extends Model
 {
     /**
+     * @description The ID of the PolarDB cluster.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;

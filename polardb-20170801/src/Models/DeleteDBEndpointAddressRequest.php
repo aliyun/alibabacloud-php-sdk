@@ -9,16 +9,30 @@ use AlibabaCloud\Tea\Model;
 class DeleteDBEndpointAddressRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * >  You can call the [DescribeDBClusters](~~98094~~) operation to query the details of all clusters that belong to your account, such as the cluster ID.
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The ID of the endpoint.
+     *
+     * >  You can call the [DescribeDBClusterEndpoints](~~98205~~) operation to query the endpoints of a specified PolarDB cluster.
+     * @example pe-***************
+     *
      * @var string
      */
     public $DBEndpointId;
 
     /**
+     * @description The network type of the endpoint. Set the value to **Public** (public network).
+     *
+     * @example Public
+     *
      * @var string
      */
     public $netType;

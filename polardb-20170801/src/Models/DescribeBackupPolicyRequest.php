@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeBackupPolicyRequest extends Model
 {
     /**
+     * @description The ID of cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * @example pc-*************
+     *
      * @var string
      */
     public $DBClusterId;

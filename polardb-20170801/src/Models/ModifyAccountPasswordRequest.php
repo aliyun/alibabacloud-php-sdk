@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class ModifyAccountPasswordRequest extends Model
 {
     /**
+     * @description The username of the account.
+     *
+     * @example testacc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The new password of the account. The new password must meet the following requirements:
+     *
+     *   It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+     *   It must be 8 to 32 characters in length.
+     *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
+     *
+     * @example Pw123456
+     *
      * @var string
      */
     public $newAccountPassword;

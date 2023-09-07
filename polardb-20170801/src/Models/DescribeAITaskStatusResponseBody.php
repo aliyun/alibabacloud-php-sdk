@@ -9,21 +9,38 @@ use AlibabaCloud\Tea\Model;
 class DescribeAITaskStatusResponseBody extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-xxxxxxxxxx
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The request ID.
+     *
+     * @example 9B7BFB11-C077-4FE3-B051-F69CEB******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The state of the PolarDB for AI feature. Valid values:
+     *
+     *   **1**: The feature is enabled.
+     *   **2**: The feature is disabled.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $status;
 
     /**
+     * @description The state description of the PolarDB for AI feature.
+     *
      * @var string
      */
     public $statusName;

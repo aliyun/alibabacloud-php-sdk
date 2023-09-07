@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class RefreshDBClusterStorageUsageResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example E56531A4-E552-40BA-9C58-137B80******
+     *
      * @var string
      */
     public $requestId;

@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class ModifyAutoRenewAttributeRequest extends Model
 {
     /**
+     * @description The cluster ID. If you need to specify multiple cluster IDs, separate the cluster IDs with commas (,).
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterIds;
 
     /**
+     * @description The automatic renewal period.
+     *
+     *
+     *   Valid values when **PeriodUnit** is set to **Month**: `1, 2, 3, 6, and 12`.
+     *   Valid values when **PeriodUnit** is set to **Year**: `1, 2, and 3`.
+     *
+     * Default value: **1**.
+     * @example 1
+     *
      * @var string
      */
     public $duration;
@@ -29,21 +42,48 @@ class ModifyAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
+     * @description The unit of the renewal period. Valid values:
+     *
+     *   **Year**
+     *   **Month**
+     *
+     * Default value: **Month**.
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the region. The region ID can be up to 50 characters in length.
+     * >  You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The auto-renewal state of the cluster. Valid values:
+     *
+     *   **AutoRenewal:** The cluster are automatically renewed.
+     *   **Normal**: The cluster is manually renewed.
+     *   **NotRenewal:** The cluster is not renewed after expiration.
+     *
+     * Default value: **AutoRenewal**.
+     *
+     * >  If this parameter is set to **NotRenewal**, the system does not send a text message for the cluster expiration, but only sends a message three days before the cluster expires to remind you that the cluster is not renewed.
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;

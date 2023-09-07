@@ -9,16 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DBClusters extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The region ID of the cluster.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The role of the cluster. Valid values:
+     *
+     *   **Primary**: the primary cluster
+     *   **standby**: the secondary cluster
+     *
+     * > A GDN consists of one primary cluster and up to four secondary clusters. For more information, see [GDN](~~160381~~).
+     * @example primary
+     *
      * @var string
      */
     public $role;

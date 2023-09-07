@@ -9,16 +9,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAvailableResourcesRequest extends Model
 {
     /**
+     * @description The specifications of the node. For more information, see [Specifications of compute nodes](~~102542~~).
+     *
+     * @example polar.mysql.x4.large
+     *
      * @var string
      */
     public $DBNodeClass;
 
     /**
+     * @description The type of the database engine. Valid values:
+     *
+     *   **MySQL**
+     *   **PostgreSQL**
+     *   **Oracle**
+     *
+     * @example MySQL
+     *
      * @var string
      */
     public $DBType;
 
     /**
+     * @description The version of the database engine. Valid values for the MySQL database engine:
+     *
+     *   **5.6**
+     *   **5.7**
+     *   **8.0**
+     *
+     * Valid values for the PostgreSQL database engine:
+     *
+     *   **11**
+     *   **14**
+     *
+     * Valid value for the Oracle database engine: **11**
+     *
+     * > This parameter is required when you specify the **DBType** parameter.
+     * @example 5.6
+     *
      * @var string
      */
     public $DBVersion;
@@ -34,11 +62,23 @@ class DescribeDBClusterAvailableResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The billing method of the cluster. Valid values:
+     *
+     *   **Postpaid**: pay-as-you-go
+     *   **Prepaid**: subscription
+     *
+     * @example Postpaid
+     *
      * @var string
      */
     public $payType;
 
     /**
+     * @description The region ID of the cluster. Default value: **cn-hangzhou**.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query the available regions.
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
@@ -54,6 +94,11 @@ class DescribeDBClusterAvailableResourcesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~98041~~) operation to query the available zones.
+     * @example cn-hangzhou-i
+     *
      * @var string
      */
     public $zoneId;

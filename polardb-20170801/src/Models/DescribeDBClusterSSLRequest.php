@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterSSLRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query the details of the clusters that belong to your Alibaba Cloud account, such as cluster IDs.
+     * @example pc-************
+     *
      * @var string
      */
     public $DBClusterId;

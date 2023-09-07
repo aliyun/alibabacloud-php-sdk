@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabasesResponseBody extends Model
 {
     /**
+     * @description Details about databases.
+     *
      * @var databases
      */
     public $databases;
 
     /**
+     * @description The page number.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example E1DF8CA6-2300-448B-9ABF-760C4B******
+     *
      * @var string
      */
     public $requestId;

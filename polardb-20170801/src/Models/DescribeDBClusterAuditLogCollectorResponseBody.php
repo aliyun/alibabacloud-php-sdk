@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterAuditLogCollectorResponseBody extends Model
 {
     /**
+     * @description The status of SQL data collector. Valid values:
+     *
+     *   Enable: SQL data collector is enabled.
+     *   Disabled: SQL data collector is disabled.
+     *
+     * @example Disabled
+     *
      * @var string
      */
     public $collectorStatus;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 59011D2B-2A38-4207-A86C-72BC1F882D19
+     *
      * @var string
      */
     public $requestId;

@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class performanceItem extends Model
 {
     /**
+     * @description The ID of the node.
+     *
+     * @example pi-*************
+     *
      * @var string
      */
     public $DBNodeId;
 
     /**
+     * @description The performance metric.
+     *
+     * @example PolarProxy_CpuUsage
+     *
      * @var string
      */
     public $measurement;
 
     /**
+     * @description The name of the performance metric.
+     *
+     * @example service_connections_ps
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description The list of the performance metrics.
+     *
      * @var points
      */
     public $points;

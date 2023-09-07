@@ -9,56 +9,148 @@ use AlibabaCloud\Tea\Model;
 class ModifyBackupPolicyRequest extends Model
 {
     /**
+     * @description The backup frequency. Default value: Normal. Valid values:
+     *
+     *   **Normal**: standard backup. The system backs up data once a day.
+     *   **2/24H**: enhanced backup. The system backs up data every 2 hours.
+     *   **3/24H**: enhanced backup. The system backs up data every 3 hours.
+     *   **4/24H**: enhanced backup. The system backs up data every 4 hours.
+     *
+     * >- If you enable enhanced backup, all backups are retained for 24 hours. For backup files that are created earlier than the previous 24 hours, the system permanently retains only the first backup that is created after 00:00 every day and deletes the rest.
+     * >- If you enable enhanced backup, **PreferredBackupPeriod** is automatically set to all days in a week (from Monday to Sunday).
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed supports the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @example Normal
+     *
      * @var string
      */
     public $backupFrequency;
 
     /**
+     * @description Specifies whether to retain backups when you delete a cluster. Valid values:
+     *
+     *   **ALL**: permanently retains all backups.
+     *   **LATEST**: permanently retains only the last backup.
+     *   **NONE**: does not retain backups.
+     *
+     * > The default value is NONE.
+     * @example NONE
+     *
      * @var string
      */
     public $backupRetentionPolicyOnClusterDeletion;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * > You can call the [DescribeDBClusters](~~98094~~) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * @example pc-bp13wz9586voc****
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The frequency of level-1 backups. Default value: Normal. Valid values:
+     *
+     *   **Normal**: standard backup. The system backs up data once a day.
+     *   **2/24H**: enhanced backup. The system backs up data every 2 hours.
+     *   **3/24H**: enhanced backup. The system backs up data every 3 hours.
+     *   **4/24H**: enhanced backup. The system backs up data every 4 hours.
+     *
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @example Normal
+     *
      * @var string
      */
     public $dataLevel1BackupFrequency;
 
     /**
+     * @description The backup cycle of level-1 backups. Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @example Monday,Tuesday
+     *
      * @var string
      */
     public $dataLevel1BackupPeriod;
 
     /**
+     * @description The retention period of level-1 backups. Valid values: 3 to 14. Unit: days.
+     *
+     * @example 3
+     *
      * @var string
      */
     public $dataLevel1BackupRetentionPeriod;
 
     /**
+     * @description The time period during which automatic backup for level-1 backup is performed. The time period is in the `hh:mmZ-hh:mmZ` format and is displayed in UTC. The start time and end time are on the hour and have an interval of 1 hour. Example: `14:00Z-15:00Z`.
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @example 15:00Z-16:00Z
+     *
      * @var string
      */
     public $dataLevel1BackupTime;
 
     /**
+     * @description The region where the cross-region level-2 backup is stored. For information about regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $dataLevel2BackupAnotherRegionRegion;
 
     /**
+     * @description The retention period of cross-region level-2 backups. Valid values:
+     *
+     *   **0**: The cross-region level-2 backup feature is disabled.
+     *   **30 to 7300**: Cross-region level-2 backups are retained for 30 to 7,300 days.
+     *   **1**: Cross-region level-2 backups are permanently retained.
+     *
+     * > The default value is **0**. By default, the cross-region level-2 backup feature is disabled when you create a cluster.
+     * @example 30
+     *
      * @var string
      */
     public $dataLevel2BackupAnotherRegionRetentionPeriod;
 
     /**
+     * @description The backup cycle of level-2 backups. Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed does not support the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @example Monday,Tuesday
+     *
      * @var string
      */
     public $dataLevel2BackupPeriod;
 
     /**
+     * @description The retention period of level-2 backups. Valid values:
+     *
+     *   **0**: The level-2 backup feature is disabled.
+     *   **30 to 7300**: Cross-region level-2 backups are retained for 30 to 7,300 days.
+     *   **1**: Cross-region level-2 backups are permanently retained.
+     *
+     * > The default value is **0**. By default, the level-2 backup feature is disabled when you create a cluster.
+     * @example 0
+     *
      * @var string
      */
     public $dataLevel2BackupRetentionPeriod;
@@ -74,11 +166,28 @@ class ModifyBackupPolicyRequest extends Model
     public $ownerId;
 
     /**
+     * @description The backup cycle. Valid values:
+     *
+     *   **Monday**
+     *   **Tuesday**
+     *   **Wednesday**
+     *   **Thursday**
+     *   **Friday**
+     *   **Saturday**
+     *   **Sunday**
+     *
+     * >- This parameter is invalid if the region where your PolarDB for MySQL cluster is deployed supports the cross-region backup feature. For information about the regions that support the cross-region backup feature, see [Overview](~~72672~~).
+     * @example Monday,Tuesday
+     *
      * @var string
      */
     public $preferredBackupPeriod;
 
     /**
+     * @description The time period during which automatic backup for level-1 backup is performed. The format is `hh:mmZ-hh:mmZ` format. The time is displayed in UTC. The start time and end time are on the hour and with an interval of one hour. Example: `14:00Z-15:00Z`.
+     *
+     * @example 15:00Z-16:00Z
+     *
      * @var string
      */
     public $preferredBackupTime;

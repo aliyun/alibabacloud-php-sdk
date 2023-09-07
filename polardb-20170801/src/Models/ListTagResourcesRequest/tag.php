@@ -9,11 +9,25 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
+     * @description The key of the tag. To query the details of clusters to which multiple tags are bound, click **Add** to add tags.
+     *
+     * >
+     *
+     *   You must specify at least one of the `ResourceId.N` and `Tag.N.Key` parameters.
+     *
+     *   If you specify the `Tag.N.Key` parameter, you can create up to 20 tags at a time.
+     *
+     * @example type
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description The tag value that is paired with the tag key. This parameter can be set to an empty string.
+     *
+     * @example test
+     *
      * @var string
      */
     public $value;

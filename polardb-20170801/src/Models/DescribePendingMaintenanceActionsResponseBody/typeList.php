@@ -9,11 +9,24 @@ use AlibabaCloud\Tea\Model;
 class typeList extends Model
 {
     /**
+     * @description The number of pending events.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description The task type of pending events. Valid values:
+     *
+     *   **DatabaseSoftwareUpgrading**: database software upgrades
+     *   **DatabaseHardwareMaintenance**: hardware maintenance and upgrades
+     *   **DatabaseStorageUpgrading**: database storage upgrades
+     *   **DatabaseProxyUpgrading**: minor version upgrades of the proxy
+     *
+     * @example DatabaseSoftwareUpgrading
+     *
      * @var string
      */
     public $taskType;

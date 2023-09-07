@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
+     * @description The name of the account.
+     *
+     * @example test_acc
+     *
      * @var string
      */
     public $accountName;
 
     /**
+     * @description The cluster ID.
+     *
+     * @example pc-***************
+     *
      * @var string
      */
     public $DBClusterId;
@@ -29,11 +37,24 @@ class DescribeAccountsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return. Set this parameter to an integer that is larger than 0. Default value: **1**.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
+     * @example 30
+     *
      * @var int
      */
     public $pageSize;

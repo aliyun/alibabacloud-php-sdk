@@ -9,11 +9,32 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassListRequest extends Model
 {
     /**
+     * @description The maximum number of IOPS.
+     *
+     * @example polardb_sub
+     *
      * @var string
      */
     public $commodityCode;
 
     /**
+     * @description The number of nodes. Valid values:
+     *
+     *   single
+     *   cluster
+     *   all
+     *
+     * @example cluster
+     *
+     * @var string
+     */
+    public $masterHa;
+
+    /**
+     * @description The specification type of the cluster.
+     *
+     * @example BUY
+     *
      * @var string
      */
     public $orderType;
@@ -29,11 +50,19 @@ class DescribeClassListRequest extends Model
     public $ownerId;
 
     /**
+     * @description The number of CPU cores.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example rg-************
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -49,6 +78,7 @@ class DescribeClassListRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'commodityCode'        => 'CommodityCode',
+        'masterHa'             => 'MasterHa',
         'orderType'            => 'OrderType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -67,6 +97,9 @@ class DescribeClassListRequest extends Model
         $res = [];
         if (null !== $this->commodityCode) {
             $res['CommodityCode'] = $this->commodityCode;
+        }
+        if (null !== $this->masterHa) {
+            $res['MasterHa'] = $this->masterHa;
         }
         if (null !== $this->orderType) {
             $res['OrderType'] = $this->orderType;
@@ -103,6 +136,9 @@ class DescribeClassListRequest extends Model
         $model = new self();
         if (isset($map['CommodityCode'])) {
             $model->commodityCode = $map['CommodityCode'];
+        }
+        if (isset($map['MasterHa'])) {
+            $model->masterHa = $map['MasterHa'];
         }
         if (isset($map['OrderType'])) {
             $model->orderType = $map['OrderType'];

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class DescribeAutoRenewAttributeResponseBody extends Model
 {
     /**
+     * @description The renewal information about the clusters.
+     *
      * @var items
      */
     public $items;
 
     /**
+     * @description The page number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The total number of pages returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 65D7ACE6-4A61-4B6E-B357-8CB24A******
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of entries.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $totalRecordCount;

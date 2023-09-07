@@ -9,31 +9,65 @@ use AlibabaCloud\Tea\Model;
 class autoRenewAttribute extends Model
 {
     /**
+     * @description Indicates whether the auto-renewal feature is enabled. Valid values:
+     *
+     *   true: enabled
+     *   false: disabled
+     *
+     * @example true
+     *
      * @var bool
      */
     public $autoRenewEnabled;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example pc-*****************
+     *
      * @var string
      */
     public $DBClusterId;
 
     /**
+     * @description The renewal duration.
+     *
+     * @example 4
+     *
      * @var int
      */
     public $duration;
 
     /**
+     * @description The unit of the duration. Valid values:
+     *
+     *   Year
+     *   Month
+     *
+     * @example Month
+     *
      * @var string
      */
     public $periodUnit;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The renewal status. Valid values:
+     *
+     *   AutoRenewal: The cluster is automatically renewed.
+     *   Normal: The cluster is manually renewed. The system sends a text message to remind you before the cluster expires.
+     *   NotRenewal: The cluster is not renewed. The system does not send a reminder for expiration but only sends a text message three days before the cluster expires to remind you that the cluster is not renewed.
+     *
+     * @example AutoRenewal
+     *
      * @var string
      */
     public $renewalStatus;

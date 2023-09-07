@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsResponseBody extends Model
 {
     /**
+     * @description The details of the account.
+     *
      * @var accounts[]
      */
     public $accounts;
 
     /**
+     * @description The page number of the page returned.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $pageRecordCount;
 
     /**
+     * @description The request ID.
+     *
+     * @example 155462B9-205F-4FFC-BB43-4855FE******
+     *
      * @var string
      */
     public $requestId;
