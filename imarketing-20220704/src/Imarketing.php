@@ -17,6 +17,7 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\CreateDeviceShrinkRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\DeleteCreativeInfoRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\DeleteCreativeInfoResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetAdvertisingForE2Response;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBrandPageRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBrandPageResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\GetBusinessIdRequest;
@@ -384,6 +385,39 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCreativeInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAdvertisingForE2Response
+     */
+    public function getAdvertisingForE2WithOptions($runtime)
+    {
+        $req    = new OpenApiRequest([]);
+        $params = new Params([
+            'action'      => 'GetAdvertisingForE2',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAdvertisingForE2Response::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @return GetAdvertisingForE2Response
+     */
+    public function getAdvertisingForE2()
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getAdvertisingForE2WithOptions($runtime);
     }
 
     /**
