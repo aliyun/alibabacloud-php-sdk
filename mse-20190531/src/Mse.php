@@ -43,6 +43,7 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyGatewayRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\ApplyTagPoliciesShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CloneNacosConfigResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\CreateApplicationRequest;
@@ -1545,14 +1546,19 @@ class Mse extends OpenApiClient
     }
 
     /**
-     * @param ApplyTagPoliciesRequest $request
+     * @param ApplyTagPoliciesRequest $tmpReq
      * @param RuntimeOptions          $runtime
      *
      * @return ApplyTagPoliciesResponse
      */
-    public function applyTagPoliciesWithOptions($request, $runtime)
+    public function applyTagPoliciesWithOptions($tmpReq, $runtime)
     {
-        Utils::validateModel($request);
+        Utils::validateModel($tmpReq);
+        $request = new ApplyTagPoliciesShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->rules)) {
+            $request->rulesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->rules, 'Rules', 'json');
+        }
         $query = [];
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
@@ -1575,8 +1581,8 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->region)) {
             $query['Region'] = $request->region;
         }
-        if (!Utils::isUnset($request->rules)) {
-            $query['Rules'] = $request->rules;
+        if (!Utils::isUnset($request->rulesShrink)) {
+            $query['Rules'] = $request->rulesShrink;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

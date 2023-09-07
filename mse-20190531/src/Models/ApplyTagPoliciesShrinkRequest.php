@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ApplyTagPoliciesRequest extends Model
+class ApplyTagPoliciesShrinkRequest extends Model
 {
     /**
      * @description The language of the response. Valid values:
@@ -77,9 +77,9 @@ class ApplyTagPoliciesRequest extends Model
      *
      * @example { "blue": { # Tag key. "rate": 20, # Rate. A value of 20 indicates that 20% of the traffic is routed to the node identified by the tag. "name": "luoye-route-test", # Routing rule name. "carryData": false, # Specifies whether to enable pass-through. This parameter is applicable to end-to-end canary release. "rules": { # Rule information. "dubbo": \[{ # Dubbo rule. The system also supports Spring Cloud and Istio rule. "serviceName": "com.taobao.hsf.common.DemoService", # Service name (operation name). "group": "", # Group name. "version": "", # Service version. "methodName": "sayHello", # Method name. "condition": "AND", # Logical operator used by the following items. Valid values: AND and OR. "argumentItems": \[{ # Array of rule details. "index": 0, # Index field. "expr": "", # Expression. Its details is described below. "operator": "rawvalue", # The comparison mode. A value of rawvalue indicates direct comparison. A value of mode indicates the modulo operation. A value of list indicates using a whitelist. "value": "jim", # Base value. The value obtained by the expression will be compared with this value. If operator is set to list, separate the items specified for this parameter with commas (,). Example: 1,2,3. "cond": "==" # Comparison operator. Valid values: >=, <=, >, <, and ==. }] }] } }, "\_base": { # Another tag key. "rate": 80 # Rate. A value of 20 indicates that 20% of the traffic is routed to the node identified by the tag. } }
      *
-     * @var RulesValue[]
+     * @var string
      */
-    public $rules;
+    public $rulesShrink;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
@@ -88,7 +88,7 @@ class ApplyTagPoliciesRequest extends Model
         'namespace'      => 'Namespace',
         'namespaceId'    => 'NamespaceId',
         'region'         => 'Region',
-        'rules'          => 'Rules',
+        'rulesShrink'    => 'Rules',
     ];
 
     public function validate()
@@ -119,13 +119,8 @@ class ApplyTagPoliciesRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->rules) {
-            $res['Rules'] = [];
-            if (null !== $this->rules && \is_array($this->rules)) {
-                foreach ($this->rules as $key => $val) {
-                    $res['Rules'][$key] = null !== $val ? $val->toMap() : $val;
-                }
-            }
+        if (null !== $this->rulesShrink) {
+            $res['Rules'] = $this->rulesShrink;
         }
 
         return $res;
@@ -134,7 +129,7 @@ class ApplyTagPoliciesRequest extends Model
     /**
      * @param array $map
      *
-     * @return ApplyTagPoliciesRequest
+     * @return ApplyTagPoliciesShrinkRequest
      */
     public static function fromMap($map = [])
     {
@@ -161,7 +156,7 @@ class ApplyTagPoliciesRequest extends Model
             $model->region = $map['Region'];
         }
         if (isset($map['Rules'])) {
-            $model->rules = $map['Rules'];
+            $model->rulesShrink = $map['Rules'];
         }
 
         return $model;

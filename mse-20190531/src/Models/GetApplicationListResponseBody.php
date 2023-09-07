@@ -17,11 +17,6 @@ class GetApplicationListResponseBody extends Model
     public $data;
 
     /**
-     * @var string
-     */
-    public $errorCode;
-
-    /**
      * @description The message returned.
      *
      * @example The request is successfully processed.
@@ -52,7 +47,6 @@ class GetApplicationListResponseBody extends Model
     public $success;
     protected $_name = [
         'data'      => 'Data',
-        'errorCode' => 'ErrorCode',
         'message'   => 'Message',
         'requestId' => 'RequestId',
         'success'   => 'Success',
@@ -67,9 +61,6 @@ class GetApplicationListResponseBody extends Model
         $res = [];
         if (null !== $this->data) {
             $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
-        if (null !== $this->errorCode) {
-            $res['ErrorCode'] = $this->errorCode;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -94,9 +85,6 @@ class GetApplicationListResponseBody extends Model
         $model = new self();
         if (isset($map['Data'])) {
             $model->data = data::fromMap($map['Data']);
-        }
-        if (isset($map['ErrorCode'])) {
-            $model->errorCode = $map['ErrorCode'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

@@ -9,11 +9,8 @@ use AlibabaCloud\Tea\Model;
 class namespaces extends Model
 {
     /**
-     * @var string[]
-     */
-    public $labels;
-
-    /**
+     * @example default
+     *
      * @var string
      */
     public $mseNamespace;
@@ -27,7 +24,6 @@ class namespaces extends Model
      */
     public $name;
     protected $_name = [
-        'labels'       => 'Labels',
         'mseNamespace' => 'MseNamespace',
         'name'         => 'Name',
     ];
@@ -39,9 +35,6 @@ class namespaces extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->labels) {
-            $res['Labels'] = $this->labels;
-        }
         if (null !== $this->mseNamespace) {
             $res['MseNamespace'] = $this->mseNamespace;
         }
@@ -60,9 +53,6 @@ class namespaces extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Labels'])) {
-            $model->labels = $map['Labels'];
-        }
         if (isset($map['MseNamespace'])) {
             $model->mseNamespace = $map['MseNamespace'];
         }

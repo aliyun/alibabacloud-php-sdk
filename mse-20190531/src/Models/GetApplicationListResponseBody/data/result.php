@@ -54,6 +54,8 @@ class result extends Model
     public $language;
 
     /**
+     * @example default
+     *
      * @var string
      */
     public $namespace;
@@ -86,11 +88,6 @@ class result extends Model
     public $status;
 
     /**
-     * @var int
-     */
-    public $tagCount;
-
-    /**
      * @description The ID of the user.
      *
      * @example 1234567890
@@ -108,7 +105,6 @@ class result extends Model
         'regionId'        => 'RegionId',
         'source'          => 'Source',
         'status'          => 'Status',
-        'tagCount'        => 'TagCount',
         'userId'          => 'UserId',
     ];
 
@@ -145,9 +141,6 @@ class result extends Model
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
-        }
-        if (null !== $this->tagCount) {
-            $res['TagCount'] = $this->tagCount;
         }
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
@@ -190,9 +183,6 @@ class result extends Model
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
-        }
-        if (isset($map['TagCount'])) {
-            $model->tagCount = $map['TagCount'];
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];

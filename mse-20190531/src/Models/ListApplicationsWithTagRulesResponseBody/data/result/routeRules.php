@@ -4,19 +4,11 @@
 
 namespace AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesResponseBody\data\result;
 
+use AlibabaCloud\SDK\Mse\V20190531\Models\ListApplicationsWithTagRulesResponseBody\data\result\routeRules\rules;
 use AlibabaCloud\Tea\Model;
 
 class routeRules extends Model
 {
-    /**
-     * @description Indicates whether the field is a primary key.
-     *
-     * @example false
-     *
-     * @var bool
-     */
-    public $carryData;
-
     /**
      * @description Indicates whether the alert rule is enabled. Valid value:
      *
@@ -28,15 +20,6 @@ class routeRules extends Model
      * @var bool
      */
     public $enable;
-
-    /**
-     * @description The modification time.
-     *
-     * @example 2022-01-06T06:11:06.000+0000
-     *
-     * @var string
-     */
-    public $gmtModified;
 
     /**
      * @description The ID of the rule.
@@ -75,20 +58,11 @@ class routeRules extends Model
     public $rate;
 
     /**
-     * @description Indicates whether the routing rule is deleted.
-     *
-     * @example true
-     *
-     * @var bool
-     */
-    public $remove;
-
-    /**
      * @description The details of the routing rule.
      *
      * @example {
      * }
-     * @var string
+     * @var rules
      */
     public $rules;
 
@@ -110,14 +84,11 @@ class routeRules extends Model
      */
     public $tag;
     protected $_name = [
-        'carryData'   => 'CarryData',
         'enable'      => 'Enable',
-        'gmtModified' => 'GmtModified',
         'id'          => 'Id',
         'instanceNum' => 'InstanceNum',
         'name'        => 'Name',
         'rate'        => 'Rate',
-        'remove'      => 'Remove',
         'rules'       => 'Rules',
         'status'      => 'Status',
         'tag'         => 'Tag',
@@ -130,14 +101,8 @@ class routeRules extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->carryData) {
-            $res['CarryData'] = $this->carryData;
-        }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
-        }
-        if (null !== $this->gmtModified) {
-            $res['GmtModified'] = $this->gmtModified;
         }
         if (null !== $this->id) {
             $res['Id'] = $this->id;
@@ -151,11 +116,8 @@ class routeRules extends Model
         if (null !== $this->rate) {
             $res['Rate'] = $this->rate;
         }
-        if (null !== $this->remove) {
-            $res['Remove'] = $this->remove;
-        }
         if (null !== $this->rules) {
-            $res['Rules'] = $this->rules;
+            $res['Rules'] = null !== $this->rules ? $this->rules->toMap() : null;
         }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
@@ -175,14 +137,8 @@ class routeRules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CarryData'])) {
-            $model->carryData = $map['CarryData'];
-        }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
-        }
-        if (isset($map['GmtModified'])) {
-            $model->gmtModified = $map['GmtModified'];
         }
         if (isset($map['Id'])) {
             $model->id = $map['Id'];
@@ -196,11 +152,8 @@ class routeRules extends Model
         if (isset($map['Rate'])) {
             $model->rate = $map['Rate'];
         }
-        if (isset($map['Remove'])) {
-            $model->remove = $map['Remove'];
-        }
         if (isset($map['Rules'])) {
-            $model->rules = $map['Rules'];
+            $model->rules = rules::fromMap($map['Rules']);
         }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
