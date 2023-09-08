@@ -2254,8 +2254,8 @@ class Searchengine extends OpenApiClient
         if (!Utils::isUnset($request->config)) {
             $body['config'] = $request->config;
         }
-        if (!Utils::isUnset($request->dataSource)) {
-            $body['dataSource'] = $request->dataSource;
+        if (!Utils::isUnset($request->dataSourceName)) {
+            $body['dataSourceName'] = $request->dataSourceName;
         }
         if (!Utils::isUnset($request->dataSourceType)) {
             $body['dataSourceType'] = $request->dataSourceType;
@@ -2272,8 +2272,8 @@ class Searchengine extends OpenApiClient
         if (!Utils::isUnset($request->partition)) {
             $body['partition'] = $request->partition;
         }
-        if (!Utils::isUnset($request->triggerBuild)) {
-            $body['triggerBuild'] = $request->triggerBuild;
+        if (!Utils::isUnset($request->pushMode)) {
+            $body['pushMode'] = $request->pushMode;
         }
         $req = new OpenApiRequest([
             'headers' => $headers,

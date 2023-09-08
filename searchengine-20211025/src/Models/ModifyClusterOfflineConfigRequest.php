@@ -25,13 +25,9 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $config;
 
     /**
-     * @description The name of the data source.
-     *
-     * @example test1
-     *
      * @var string
      */
-    public $dataSource;
+    public $dataSourceName;
 
     /**
      * @description The type of the data source. Valid values: odps: MaxCompute. swift: Swift. unKnow: unknown type.
@@ -79,26 +75,19 @@ class ModifyClusterOfflineConfigRequest extends Model
     public $partition;
 
     /**
-     * @description Specifies whether to trigger reindexing.
-     *
-     *   true: synchronizes the configuration and triggers reindexing.
-     *   false: waits for the configuration to take effect next time when reindexing is triggered.
-     *
-     * @example true
-     *
-     * @var bool
+     * @var string
      */
-    public $triggerBuild;
+    public $pushMode;
     protected $_name = [
         'buildMode'      => 'buildMode',
         'config'         => 'config',
-        'dataSource'     => 'dataSource',
+        'dataSourceName' => 'dataSourceName',
         'dataSourceType' => 'dataSourceType',
         'dataTimeSec'    => 'dataTimeSec',
         'domain'         => 'domain',
         'generation'     => 'generation',
         'partition'      => 'partition',
-        'triggerBuild'   => 'triggerBuild',
+        'pushMode'       => 'pushMode',
     ];
 
     public function validate()
@@ -114,8 +103,8 @@ class ModifyClusterOfflineConfigRequest extends Model
         if (null !== $this->config) {
             $res['config'] = $this->config;
         }
-        if (null !== $this->dataSource) {
-            $res['dataSource'] = $this->dataSource;
+        if (null !== $this->dataSourceName) {
+            $res['dataSourceName'] = $this->dataSourceName;
         }
         if (null !== $this->dataSourceType) {
             $res['dataSourceType'] = $this->dataSourceType;
@@ -132,8 +121,8 @@ class ModifyClusterOfflineConfigRequest extends Model
         if (null !== $this->partition) {
             $res['partition'] = $this->partition;
         }
-        if (null !== $this->triggerBuild) {
-            $res['triggerBuild'] = $this->triggerBuild;
+        if (null !== $this->pushMode) {
+            $res['pushMode'] = $this->pushMode;
         }
 
         return $res;
@@ -153,8 +142,8 @@ class ModifyClusterOfflineConfigRequest extends Model
         if (isset($map['config'])) {
             $model->config = $map['config'];
         }
-        if (isset($map['dataSource'])) {
-            $model->dataSource = $map['dataSource'];
+        if (isset($map['dataSourceName'])) {
+            $model->dataSourceName = $map['dataSourceName'];
         }
         if (isset($map['dataSourceType'])) {
             $model->dataSourceType = $map['dataSourceType'];
@@ -171,8 +160,8 @@ class ModifyClusterOfflineConfigRequest extends Model
         if (isset($map['partition'])) {
             $model->partition = $map['partition'];
         }
-        if (isset($map['triggerBuild'])) {
-            $model->triggerBuild = $map['triggerBuild'];
+        if (isset($map['pushMode'])) {
+            $model->pushMode = $map['pushMode'];
         }
 
         return $model;
