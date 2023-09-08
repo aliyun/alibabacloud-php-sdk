@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\CreateArtifactShrinkRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateArtifactShrinkRequest extends Model
@@ -38,9 +39,19 @@ class CreateArtifactShrinkRequest extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string[]
      */
     public $supportRegionIds;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
 
     /**
      * @example v1
@@ -54,7 +65,9 @@ class CreateArtifactShrinkRequest extends Model
         'artifactType'           => 'ArtifactType',
         'description'            => 'Description',
         'name'                   => 'Name',
+        'resourceGroupId'        => 'ResourceGroupId',
         'supportRegionIds'       => 'SupportRegionIds',
+        'tag'                    => 'Tag',
         'versionName'            => 'VersionName',
     ];
 
@@ -80,8 +93,20 @@ class CreateArtifactShrinkRequest extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->supportRegionIds) {
             $res['SupportRegionIds'] = $this->supportRegionIds;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
@@ -113,9 +138,21 @@ class CreateArtifactShrinkRequest extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['SupportRegionIds'])) {
             if (!empty($map['SupportRegionIds'])) {
                 $model->supportRegionIds = $map['SupportRegionIds'];
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
             }
         }
         if (isset($map['VersionName'])) {

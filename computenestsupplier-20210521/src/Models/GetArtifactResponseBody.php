@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\GetArtifactResponseBody\tags;
 use AlibabaCloud\Tea\Model;
 
 class GetArtifactResponseBody extends Model
@@ -75,6 +76,11 @@ class GetArtifactResponseBody extends Model
     public $requestId;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example Available
      *
      * @var string
@@ -87,6 +93,11 @@ class GetArtifactResponseBody extends Model
      * @var string
      */
     public $supportRegionIds;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
 
     /**
      * @example v1
@@ -105,8 +116,10 @@ class GetArtifactResponseBody extends Model
         'name'             => 'Name',
         'progress'         => 'Progress',
         'requestId'        => 'RequestId',
+        'resourceGroupId'  => 'ResourceGroupId',
         'status'           => 'Status',
         'supportRegionIds' => 'SupportRegionIds',
+        'tags'             => 'Tags',
         'versionName'      => 'VersionName',
     ];
 
@@ -147,11 +160,23 @@ class GetArtifactResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
         }
         if (null !== $this->supportRegionIds) {
             $res['SupportRegionIds'] = $this->supportRegionIds;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
@@ -198,11 +223,23 @@ class GetArtifactResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
         }
         if (isset($map['SupportRegionIds'])) {
             $model->supportRegionIds = $map['SupportRegionIds'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];

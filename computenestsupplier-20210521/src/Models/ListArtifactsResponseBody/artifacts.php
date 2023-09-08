@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponseBody;
 
+use AlibabaCloud\SDK\ComputeNestSupplier\V20210521\Models\ListArtifactsResponseBody\artifacts\tags;
 use AlibabaCloud\Tea\Model;
 
 class artifacts extends Model
@@ -47,19 +48,31 @@ class artifacts extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @example Created
      *
      * @var string
      */
     public $status;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
-        'artifactId'   => 'ArtifactId',
-        'artifactType' => 'ArtifactType',
-        'description'  => 'Description',
-        'gmtModified'  => 'GmtModified',
-        'maxVersion'   => 'MaxVersion',
-        'name'         => 'Name',
-        'status'       => 'Status',
+        'artifactId'      => 'ArtifactId',
+        'artifactType'    => 'ArtifactType',
+        'description'     => 'Description',
+        'gmtModified'     => 'GmtModified',
+        'maxVersion'      => 'MaxVersion',
+        'name'            => 'Name',
+        'resourceGroupId' => 'ResourceGroupId',
+        'status'          => 'Status',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -87,8 +100,20 @@ class artifacts extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->status) {
             $res['Status'] = $this->status;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -120,8 +145,20 @@ class artifacts extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['Status'])) {
             $model->status = $map['Status'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -188,8 +188,14 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
         }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
         if (!Utils::isUnset($request->supportRegionIds)) {
             $query['SupportRegionIds'] = $request->supportRegionIds;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         if (!Utils::isUnset($request->versionName)) {
             $query['VersionName'] = $request->versionName;
@@ -1095,6 +1101,12 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
