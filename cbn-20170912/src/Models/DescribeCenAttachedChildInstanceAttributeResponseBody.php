@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-5mv960yjhja0dh****
      *
      * @var string
@@ -17,6 +19,9 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $cenId;
 
     /**
+     * @description The time when the network instance was attached to the CEN instance.
+     *
+     * The time follows the ISO 8601 standard in the yyyy-MM-ddThh:mmZ format. The time is displayed in UTC.
      * @example 2018-07-30T07:53Z
      *
      * @var string
@@ -24,11 +29,15 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $childInstanceAttachTime;
 
     /**
+     * @description The details about the network instance.
+     *
      * @var childInstanceAttributes
      */
     public $childInstanceAttributes;
 
     /**
+     * @description The ID of the network instance.
+     *
      * @example vpc-2zebdboka7d7t37vo****
      *
      * @var string
@@ -36,6 +45,8 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $childInstanceId;
 
     /**
+     * @description The name of the network instance.
+     *
      * @example defaultvpc
      *
      * @var string
@@ -43,6 +54,8 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $childInstanceName;
 
     /**
+     * @description The ID of the Alibaba Cloud account to which the network instance belongs.
+     *
      * @example 1688000000000000
      *
      * @var int
@@ -50,6 +63,8 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $childInstanceOwnerId;
 
     /**
+     * @description The region ID of the network instance.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -57,6 +72,12 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: VPC
+     *   **VBR**: VBR
+     *   **CCN**: CCN instance
+     *
      * @example VPC
      *
      * @var string
@@ -64,6 +85,8 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $childInstanceType;
 
     /**
+     * @description The ID of the request.
+     *
      * @example ADD98358-D265-4060-87CB-A2427F5A8944
      *
      * @var string
@@ -71,6 +94,12 @@ class DescribeCenAttachedChildInstanceAttributeResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the network instance is attached to the CEN instance.
+     *
+     *   **Attaching**: The network instance is being attached to the CEN instance.
+     *   **Attached**: The network instance is attached to the CEN instance.
+     *   **Detaching**: The network instance is being detached from the CEN instance.
+     *
      * @example Attached
      *
      * @var string

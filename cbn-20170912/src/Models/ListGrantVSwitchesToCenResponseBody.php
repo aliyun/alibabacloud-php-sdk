@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListGrantVSwitchesToCenResponseBody extends Model
 {
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListGrantVSwitchesToCenResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,6 +28,8 @@ class ListGrantVSwitchesToCenResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A9288C78-881A-5D30-A8A9-68E05EE0A086
      *
      * @var string
@@ -31,6 +37,8 @@ class ListGrantVSwitchesToCenResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int
@@ -38,6 +46,8 @@ class ListGrantVSwitchesToCenResponseBody extends Model
     public $totalCount;
 
     /**
+     * @description The list of vSwitches.
+     *
      * @var vSwitches[]
      */
     public $vSwitches;

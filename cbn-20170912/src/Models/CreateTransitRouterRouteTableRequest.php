@@ -11,6 +11,11 @@ use AlibabaCloud\Tea\Model;
 class CreateTransitRouterRouteTableRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must make sure that it is unique among different requests. ClientToken can contain only ASCII characters.
+     *
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 02fb3da4-130e-11e9-8e44-001****
      *
      * @var string
@@ -18,6 +23,11 @@ class CreateTransitRouterRouteTableRequest extends Model
     public $clientToken;
 
     /**
+     * @description Specifies whether to precheck the request. Check items include permissions and the status of the specified cloud resources. Valid values:
+     *
+     *   **false** (default): sends the request. If the request passes the precheck, the custom route table is created.
+     *   **true**: prechecks the request but does not create the custom route table. If you use this value, the system checks the required parameters and the request syntax. If the request fails to pass the precheck, an error message is returned. If the request passes the check, the system returns the ID of the request.
+     *
      * @example false
      *
      * @var bool
@@ -45,16 +55,23 @@ class CreateTransitRouterRouteTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The features of the route table.
+     *
      * @var routeTableOptions
      */
     public $routeTableOptions;
 
     /**
+     * @description The tags.
+     *
+     * You can specify at most 20 tags in each call.
      * @var tag[]
      */
     public $tag;
 
     /**
+     * @description The ID of the Enterprise Edition transit router.
+     *
      * @example tr-bp1su1ytdxtataupl****
      *
      * @var string
@@ -62,6 +79,9 @@ class CreateTransitRouterRouteTableRequest extends Model
     public $transitRouterId;
 
     /**
+     * @description The description of the custom route table.
+     *
+     * The description must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -. You can also leave the description empty.
      * @example testdesc
      *
      * @var string
@@ -69,6 +89,9 @@ class CreateTransitRouterRouteTableRequest extends Model
     public $transitRouterRouteTableDescription;
 
     /**
+     * @description The name of the custom route table.
+     *
+     * The name must be 1 to 128 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -. You can also leave the name empty.
      * @example testname
      *
      * @var string

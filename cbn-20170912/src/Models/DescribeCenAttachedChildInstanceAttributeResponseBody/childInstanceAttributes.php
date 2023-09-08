@@ -11,6 +11,8 @@ use AlibabaCloud\Tea\Model;
 class childInstanceAttributes extends Model
 {
     /**
+     * @description The IPv4 CIDR block of the VPC.
+     *
      * @example 192.168.0.0/16
      *
      * @var string
@@ -18,6 +20,8 @@ class childInstanceAttributes extends Model
     public $cidrBlock;
 
     /**
+     * @description The IPv6 CIDR block of the VPC.
+     *
      * @example 2408:XXXX:0:a600::/56
      *
      * @var string
@@ -25,11 +29,15 @@ class childInstanceAttributes extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The information about the IPv6 CIDR blocks of the VPC.
+     *
      * @var ipv6CidrBlocks
      */
     public $ipv6CidrBlocks;
 
     /**
+     * @description The secondary IPv4 CIDR block of the VPC.
+     *
      * @var secondaryCidrBlocks
      */
     public $secondaryCidrBlocks;

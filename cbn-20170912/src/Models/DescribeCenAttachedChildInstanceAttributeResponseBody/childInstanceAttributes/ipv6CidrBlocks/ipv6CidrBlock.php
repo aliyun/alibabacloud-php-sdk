@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ipv6CidrBlock extends Model
 {
     /**
+     * @description The IPv6 CIDR block of the VPC.
+     *
      * @example 2408:XXXX:0:6a::/56
      *
      * @var string
@@ -16,6 +18,14 @@ class ipv6CidrBlock extends Model
     public $ipv6CidrBlock;
 
     /**
+     * @description The type of the IPv6 CIDR block. Valid values:
+     *
+     * **BGP** (default): Alibaba Cloud Border Gateway Protocol (BGP) IPv6
+     * **ChinaMobile:** China Mobile (single line)
+     * **ChinaUnicom:** China Unicom (single line)
+     * **ChinaTelecom:** China Telecom (single line)
+     *
+     * > If your Alibaba Cloud account has the required permissions to activate single-ISP bandwidth, you can set Ipv6Isp to ChinaTelecom, ChinaUnicom, or ChinaMobile.
      * @example BGP
      *
      * @var string

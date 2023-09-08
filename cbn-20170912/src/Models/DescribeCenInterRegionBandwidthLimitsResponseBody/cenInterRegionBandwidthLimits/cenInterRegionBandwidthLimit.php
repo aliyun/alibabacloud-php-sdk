@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class cenInterRegionBandwidthLimit extends Model
 {
     /**
+     * @description The maximum bandwidth of the inter-region connection. Unit: Mbit/s.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class cenInterRegionBandwidthLimit extends Model
     public $bandwidthLimit;
 
     /**
+     * @description The ID of the bandwidth plan.
+     *
      * @example cenbwp-uenczwb592fnvv****
      *
      * @var string
@@ -23,6 +27,8 @@ class cenInterRegionBandwidthLimit extends Model
     public $bandwidthPackageId;
 
     /**
+     * @description The CEN instance ID.
+     *
      * @example cen-pfa6ugf3xl0qsd****
      *
      * @var string
@@ -30,6 +36,8 @@ class cenInterRegionBandwidthLimit extends Model
     public $cenId;
 
     /**
+     * @description The IDs of the local and peer regions.
+     *
      * @example china_china
      *
      * @var string
@@ -37,6 +45,9 @@ class cenInterRegionBandwidthLimit extends Model
     public $geographicSpanId;
 
     /**
+     * @description The ID of the local region.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example ccn-cn-shanghai
      *
      * @var string
@@ -44,6 +55,8 @@ class cenInterRegionBandwidthLimit extends Model
     public $localRegionId;
 
     /**
+     * @description The ID of the peer region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,7 +64,10 @@ class cenInterRegionBandwidthLimit extends Model
     public $oppositeRegionId;
 
     /**
-     * @description Queries the bandwidth limits of cross-region connections.
+     * @description The bandwidth status of the inter-region connection. Valid values:
+     *
+     *   **Active**
+     *   **Modifying**
      *
      * @example Active
      *

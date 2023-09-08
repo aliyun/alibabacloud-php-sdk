@@ -10,21 +10,33 @@ use AlibabaCloud\Tea\Model;
 class ListGrantVSwitchEnisResponseBody extends Model
 {
     /**
+     * @description The information about the ENI.
+     *
      * @var grantVSwitchEnis[]
      */
     public $grantVSwitchEnis;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
      * @example DBFE1736-2F33-5309-9954-875B11E9519D
      *
      * @var string
@@ -32,6 +44,9 @@ class ListGrantVSwitchEnisResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * > If MaxResults and NextToken are sued to query results by page, ignore this parameter.
      * @example 6
      *
      * @var string

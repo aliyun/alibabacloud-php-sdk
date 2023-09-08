@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class vSwitches extends Model
 {
     /**
+     * @description The ID of the vSwitch.
+     *
      * @example vsw-bp1194lh263wx1gsk****
      *
      * @var string
@@ -16,6 +18,8 @@ class vSwitches extends Model
     public $vSwitchId;
 
     /**
+     * @description The name of the vSwitch.
+     *
      * @example nametest
      *
      * @var string
@@ -23,6 +27,8 @@ class vSwitches extends Model
     public $vSwitchName;
 
     /**
+     * @description The ID of the VPC to which the vSwitch belongs.
+     *
      * @example vpc-bp12ge2tq5gzdc915****
      *
      * @var string
@@ -30,6 +36,8 @@ class vSwitches extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone to which the vSwitch belongs.
+     *
      * @example cn-hangzhou-h
      *
      * @var string

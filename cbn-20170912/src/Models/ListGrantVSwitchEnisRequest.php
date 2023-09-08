@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGrantVSwitchEnisRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance to which the VPC is attached.
+     *
      * @example cen-a7syd349kne38g****
      *
      * @var string
@@ -16,21 +18,40 @@ class ListGrantVSwitchEnisRequest extends Model
     public $cenId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 10 to 500.
+     *
+     * Default value:
+     *
+     *   If you do not specify a value, the default value is 20.
+     *   If this parameter is set to a value greater than 500, the default value is 500.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The ID of ENI N. Valid values of N: 1 to 100.
+     *
      * @var string[]
      */
     public $networkInterfaceId;
 
     /**
+     * @description The name of the ENI.
+     *
+     * @example test-eni-name
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @description The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. You must specify the token that is obtained from the previous query as the value of NextToken.
+     *
+     * @example AAAAAdDWBF2****
+     *
      * @var string
      */
     public $nextToken;
@@ -46,6 +67,10 @@ class ListGrantVSwitchEnisRequest extends Model
     public $ownerId;
 
     /**
+     * @description The primary private IPv4 address of the ENI.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $primaryIpAddress;
@@ -61,6 +86,8 @@ class ListGrantVSwitchEnisRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of a vSwitch in the VPC. You can specify only one vSwitch in each call.
+     *
      * @example vsw-p0w9s2ig1jnwgrbzl****
      *
      * @var string
@@ -68,6 +95,8 @@ class ListGrantVSwitchEnisRequest extends Model
     public $vSwitchId;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-p0w9alkte4w2htrqe****
      *
      * @var string

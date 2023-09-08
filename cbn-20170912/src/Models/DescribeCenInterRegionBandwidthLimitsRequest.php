@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenInterRegionBandwidthLimitsRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeCenInterRegionBandwidthLimits**.
+     * @description The ID of the Cloud Enterprise Network (CEN) instance.
      *
      * @example cen-pfa6ugf3xl0qsd****
      *
@@ -28,7 +28,7 @@ class DescribeCenInterRegionBandwidthLimitsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The connected areas.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -37,9 +37,8 @@ class DescribeCenInterRegionBandwidthLimitsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the local region.
+     * @description The number of entries to return on each page. Default value: **10**. Valid values: **1** to **50**.
      *
-     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example 10
      *
      * @var int
@@ -57,6 +56,11 @@ class DescribeCenInterRegionBandwidthLimitsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The region ID of the transit router.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
+     * @example ccn-cn-shanghai
+     *
      * @var string
      */
     public $trRegionId;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class grantVSwitchEnis extends Model
 {
     /**
+     * @description The ENI description.
+     *
      * @example created by CBN
      *
      * @var string
@@ -16,6 +18,8 @@ class grantVSwitchEnis extends Model
     public $description;
 
     /**
+     * @description The ENI ID.
+     *
      * @example eni-p0w172vv82kxzb49****
      *
      * @var string
@@ -23,16 +27,30 @@ class grantVSwitchEnis extends Model
     public $networkInterfaceId;
 
     /**
+     * @description The ENI name.
+     *
+     * @example my-eni-name
+     *
      * @var string
      */
     public $networkInterfaceName;
 
     /**
+     * @description The primary private IPv4 address of the ENI.
+     *
+     * @example 192.168.XX.XX
+     *
      * @var string
      */
     public $primaryIpAddress;
 
     /**
+     * @description Indicates whether the ENI is created by a transit router. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * ENIs that are created by transit routers cannot be used as multicast sources or members.
      * @example false
      *
      * @var bool
@@ -40,6 +58,8 @@ class grantVSwitchEnis extends Model
     public $transitRouterFlag;
 
     /**
+     * @description The vSwitch ID.
+     *
      * @example vsw-p0w9s2ig1jnwgrbzl****
      *
      * @var string
@@ -47,6 +67,8 @@ class grantVSwitchEnis extends Model
     public $vSwitchId;
 
     /**
+     * @description The VPC ID.
+     *
      * @example vpc-p0w9alkte4w2htrqe****
      *
      * @var string

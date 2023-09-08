@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListGrantVSwitchesToCenRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-44m0p68spvlrqq****
      *
      * @var string
@@ -26,6 +28,8 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +37,8 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **50**. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -40,6 +46,9 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the VPC.
+     *
+     * You can call the [DescribeChildInstanceRegions](~~132080~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -57,6 +66,8 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the VPC.
+     *
      * @example vpc-bp12ge2tq5gzdc915****
      *
      * @var string
@@ -64,6 +75,12 @@ class ListGrantVSwitchesToCenRequest extends Model
     public $vpcId;
 
     /**
+     * @description The ID of the zone.
+     *
+     *   If you specify a zone ID, the system queries the information about the vSwitches in the specified zone.
+     *   If you do not specify a zone ID, the system queries the information about the vSwitches in all zones.
+     *
+     * You can call the [DescribeZones](~~36064~~) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

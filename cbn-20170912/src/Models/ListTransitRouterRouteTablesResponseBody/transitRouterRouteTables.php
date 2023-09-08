@@ -21,7 +21,7 @@ class transitRouterRouteTables extends Model
     public $createTime;
 
     /**
-     * @description The ID of the region where the Enterprise Edition transit router is deployed.
+     * @description The region ID of the Enterprise Edition transit router.
      *
      * @example cn-beijing
      *
@@ -37,13 +37,15 @@ class transitRouterRouteTables extends Model
     public $routeTableOptions;
 
     /**
-     * @description A list of tags.
+     * @description The tags.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The transit router ID.
+     *
      * @example tr-8vb8bie2koduo5awz****
      *
      * @var string
@@ -80,9 +82,9 @@ class transitRouterRouteTables extends Model
     /**
      * @description The status of the route table. Valid values:
      *
-     *   **Creating**: The route table is being created.
-     *   **Deleting**: The route table is being deleted.
-     *   **Active**: The route table is available.
+     *   **Creating**
+     *   **Deleting**
+     *   **Active**
      *
      * @example Active
      *
@@ -91,10 +93,10 @@ class transitRouterRouteTables extends Model
     public $transitRouterRouteTableStatus;
 
     /**
-     * @description The type of the route table. Valid value:
+     * @description The type of the route table. Valid values:
      *
-     *   **Custom**: a custom route table
-     *   **System**: the default route table
+     *   **Custom**
+     *   **System**
      *
      * @example System
      *

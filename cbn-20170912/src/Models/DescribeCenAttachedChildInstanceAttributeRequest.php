@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenAttachedChildInstanceAttributeRequest extends Model
 {
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-5mv960yjhja0dh****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
     public $cenId;
 
     /**
+     * @description The ID of the network instance that is attached to the CEN instance.
+     *
      * @example vpc-2zebdboka7d7t37vo****
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
     public $childInstanceId;
 
     /**
+     * @description The region ID of the network instance.
+     *
+     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-beijing
      *
      * @var string
@@ -30,6 +37,12 @@ class DescribeCenAttachedChildInstanceAttributeRequest extends Model
     public $childInstanceRegionId;
 
     /**
+     * @description The type of the network instance. Valid values:
+     *
+     *   **VPC**: virtual private cloud (VPC)
+     *   **VBR**: virtual border router (VBR)
+     *   **CCN**: Cloud Connect Network (CCN) instance
+     *
      * @example VPC
      *
      * @var string

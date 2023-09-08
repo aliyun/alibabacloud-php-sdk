@@ -23,6 +23,8 @@ class transitRouterAttachments extends Model
     public $autoPublishRouteEnabled;
 
     /**
+     * @description The ID of the CEN instance.
+     *
      * @example cen-j3jzhw1zpau2km****
      *
      * @var string

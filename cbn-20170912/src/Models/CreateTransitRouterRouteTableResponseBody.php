@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateTransitRouterRouteTableResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 599904C8-A3DA-4E5F-83B6-D5364E664247
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateTransitRouterRouteTableResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the custom route table.
+     *
      * @example vtb-bp1xbcgpgcz9axl9m****
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCenInterRegionBandwidthLimitsResponseBody extends Model
 {
     /**
-     * @description The ID of the peer region.
+     * @description A list of inter-region connections.
      *
      * @var cenInterRegionBandwidthLimits
      */
     public $cenInterRegionBandwidthLimits;
 
     /**
-     * @description The ID of the CEN instance.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeCenInterRegionBandwidthLimitsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class DescribeCenInterRegionBandwidthLimitsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The bandwidth limit of the cross-region connection. Unit: Mbit/s.
+     * @description The request ID.
      *
      * @example 7A30C665-8766-5AAA-9274-C97380E2D850
      *
@@ -44,7 +44,7 @@ class DescribeCenInterRegionBandwidthLimitsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of cross-region connections.
+     * @description The total number of entries returned.
      *
      * @example 1
      *
