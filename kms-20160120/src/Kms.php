@@ -24,15 +24,25 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\CertificatePublicKeyEncryptRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CertificatePublicKeyEncryptResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CertificatePublicKeyVerifyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CertificatePublicKeyVerifyResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ConnectKmsInstanceRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ConnectKmsInstanceResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateAliasRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateAliasResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreateApplicationAccessPointRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreateApplicationAccessPointResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateCertificateRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateCertificateResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateCertificateShrinkRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreateClientKeyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreateClientKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateKeyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateKeyVersionRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateKeyVersionResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreateNetworkRuleRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreateNetworkRuleResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreatePolicyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\CreatePolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateSecretRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateSecretResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\CreateSecretShrinkRequest;
@@ -41,19 +51,33 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\DecryptResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DecryptShrinkRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteAliasRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteAliasResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteApplicationAccessPointRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteApplicationAccessPointResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteCertificateRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteCertificateResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteClientKeyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteClientKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteKeyMaterialRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteKeyMaterialResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteNetworkRuleRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteNetworkRuleResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeletePolicyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DeletePolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteSecretRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DeleteSecretResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeAccountKmsStatusResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeApplicationAccessPointRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeApplicationAccessPointResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeCertificateRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeCertificateResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeKeyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeKeyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeKeyVersionRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeKeyVersionResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeNetworkRuleRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeNetworkRuleResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DescribePolicyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\DescribePolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeRegionsResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeSecretRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\DescribeSecretResponse;
@@ -78,6 +102,10 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\GenerateDataKeyWithoutPlaintextRespons
 use AlibabaCloud\SDK\Kms\V20160120\Models\GenerateDataKeyWithoutPlaintextShrinkRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetCertificateRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetCertificateResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetClientKeyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetClientKeyResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\GetKmsInstanceResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetParametersForImportRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetParametersForImportResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\GetPublicKeyRequest;
@@ -92,10 +120,20 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesByKeyIdRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesByKeyIdResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListAliasesResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListApplicationAccessPointsRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListApplicationAccessPointsResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListClientKeysRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListClientKeysResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeysRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeysResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeyVersionsRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListKeyVersionsResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListKmsInstancesResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListNetworkRulesRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListNetworkRulesResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListPoliciesRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\ListPoliciesResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListResourceTagsRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListResourceTagsResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\ListSecretsRequest;
@@ -128,10 +166,18 @@ use AlibabaCloud\SDK\Kms\V20160120\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UntagResourcesResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateAliasRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateAliasResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateApplicationAccessPointRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateApplicationAccessPointResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateCertificateStatusRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateCertificateStatusResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateKeyDescriptionRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateKeyDescriptionResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateKmsInstanceBindVpcRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateKmsInstanceBindVpcResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateNetworkRuleRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateNetworkRuleResponse;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdatePolicyRequest;
+use AlibabaCloud\SDK\Kms\V20160120\Models\UpdatePolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateRotationPolicyRequest;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateRotationPolicyResponse;
 use AlibabaCloud\SDK\Kms\V20160120\Models\UpdateSecretRequest;
@@ -785,6 +831,61 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param ConnectKmsInstanceRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ConnectKmsInstanceResponse
+     */
+    public function connectKmsInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->KMProvider)) {
+            $query['KMProvider'] = $request->KMProvider;
+        }
+        if (!Utils::isUnset($request->kmsInstanceId)) {
+            $query['KmsInstanceId'] = $request->kmsInstanceId;
+        }
+        if (!Utils::isUnset($request->vSwitchIds)) {
+            $query['VSwitchIds'] = $request->vSwitchIds;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->zoneIds)) {
+            $query['ZoneIds'] = $request->zoneIds;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ConnectKmsInstance',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ConnectKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ConnectKmsInstanceRequest $request
+     *
+     * @return ConnectKmsInstanceResponse
+     */
+    public function connectKmsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->connectKmsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * *   Each alias can be bound to only one CMK at a time.
      *   * *   The aliases of CMKs in the same region must be unique.
      *   * In this topic, an alias named `alias/example` is created for a CMK named `7906979c-8e06-46a2-be2d-68e3ccbc****`.
@@ -836,6 +937,58 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createAliasWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateApplicationAccessPointRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return CreateApplicationAccessPointResponse
+     */
+    public function createApplicationAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->authenticationMethod)) {
+            $query['AuthenticationMethod'] = $request->authenticationMethod;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policies)) {
+            $query['Policies'] = $request->policies;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateApplicationAccessPoint',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateApplicationAccessPointRequest $request
+     *
+     * @return CreateApplicationAccessPointResponse
+     */
+    public function createApplicationAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createApplicationAccessPointWithOptions($request, $runtime);
     }
 
     /**
@@ -899,6 +1052,58 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateClientKeyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return CreateClientKeyResponse
+     */
+    public function createClientKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->aapName)) {
+            $query['AapName'] = $request->aapName;
+        }
+        if (!Utils::isUnset($request->notAfter)) {
+            $query['NotAfter'] = $request->notAfter;
+        }
+        if (!Utils::isUnset($request->notBefore)) {
+            $query['NotBefore'] = $request->notBefore;
+        }
+        if (!Utils::isUnset($request->password)) {
+            $query['Password'] = $request->password;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateClientKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateClientKeyRequest $request
+     *
+     * @return CreateClientKeyResponse
+     */
+    public function createClientKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createClientKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -1025,6 +1230,116 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createKeyVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateNetworkRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CreateNetworkRuleResponse
+     */
+    public function createNetworkRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourcePrivateIp)) {
+            $query['SourcePrivateIp'] = $request->sourcePrivateIp;
+        }
+        if (!Utils::isUnset($request->type)) {
+            $query['Type'] = $request->type;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateNetworkRule',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateNetworkRuleRequest $request
+     *
+     * @return CreateNetworkRuleResponse
+     */
+    public function createNetworkRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createNetworkRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreatePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreatePolicyResponse
+     */
+    public function createPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessControlRules)) {
+            $query['AccessControlRules'] = $request->accessControlRules;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->kmsInstance)) {
+            $query['KmsInstance'] = $request->kmsInstance;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->permissions)) {
+            $query['Permissions'] = $request->permissions;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreatePolicy',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreatePolicyRequest $request
+     *
+     * @return CreatePolicyResponse
+     */
+    public function createPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createPolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1215,6 +1530,49 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param DeleteApplicationAccessPointRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return DeleteApplicationAccessPointResponse
+     */
+    public function deleteApplicationAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteApplicationAccessPoint',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteApplicationAccessPointRequest $request
+     *
+     * @return DeleteApplicationAccessPointResponse
+     */
+    public function deleteApplicationAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteApplicationAccessPointWithOptions($request, $runtime);
+    }
+
+    /**
      * After the certificate and its private key and certificate chain are deleted, they cannot be restored. Proceed with caution.
      *   * In this example, the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` and its private key and certificate chain are deleted.
      *   *
@@ -1261,6 +1619,49 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteCertificateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteClientKeyRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return DeleteClientKeyResponse
+     */
+    public function deleteClientKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientKeyId)) {
+            $query['ClientKeyId'] = $request->clientKeyId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteClientKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteClientKeyRequest $request
+     *
+     * @return DeleteClientKeyResponse
+     */
+    public function deleteClientKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteClientKeyWithOptions($request, $runtime);
     }
 
     /**
@@ -1312,6 +1713,92 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteKeyMaterialWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteNetworkRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DeleteNetworkRuleResponse
+     */
+    public function deleteNetworkRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteNetworkRule',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteNetworkRuleRequest $request
+     *
+     * @return DeleteNetworkRuleResponse
+     */
+    public function deleteNetworkRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteNetworkRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeletePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeletePolicyResponse
+     */
+    public function deletePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeletePolicy',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeletePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeletePolicyRequest $request
+     *
+     * @return DeletePolicyResponse
+     */
+    public function deletePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deletePolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -1400,6 +1887,49 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeAccountKmsStatusWithOptions($runtime);
+    }
+
+    /**
+     * @param DescribeApplicationAccessPointRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return DescribeApplicationAccessPointResponse
+     */
+    public function describeApplicationAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeApplicationAccessPoint',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeApplicationAccessPointRequest $request
+     *
+     * @return DescribeApplicationAccessPointResponse
+     */
+    public function describeApplicationAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeApplicationAccessPointWithOptions($request, $runtime);
     }
 
     /**
@@ -1544,6 +2074,92 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->describeKeyVersionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribeNetworkRuleRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return DescribeNetworkRuleResponse
+     */
+    public function describeNetworkRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeNetworkRule',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeNetworkRuleRequest $request
+     *
+     * @return DescribeNetworkRuleResponse
+     */
+    public function describeNetworkRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeNetworkRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DescribePolicyRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return DescribePolicyResponse
+     */
+    public function describePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribePolicy',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribePolicyRequest $request
+     *
+     * @return DescribePolicyResponse
+     */
+    public function describePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describePolicyWithOptions($request, $runtime);
     }
 
     /**
@@ -2123,6 +2739,89 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param GetClientKeyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return GetClientKeyResponse
+     */
+    public function getClientKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClientKey',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClientKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetClientKeyRequest $request
+     *
+     * @return GetClientKeyResponse
+     */
+    public function getClientKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClientKeyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetKmsInstanceRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return GetKmsInstanceResponse
+     */
+    public function getKmsInstanceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->kmsInstanceId)) {
+            $query['KmsInstanceId'] = $request->kmsInstanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetKmsInstance',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetKmsInstanceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetKmsInstanceRequest $request
+     *
+     * @return GetKmsInstanceResponse
+     */
+    public function getKmsInstance($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getKmsInstanceWithOptions($request, $runtime);
+    }
+
+    /**
      * The returned parameters can be used to call the [ImportKeyMaterial](https://www.alibabacloud.com/help/en/key-management-service/latest/importkeymaterial) operation.
      *   * - You can import key material only for CMKs whose Origin parameter is set to EXTERNAL.
      *   * - The public key and token that are returned by the GetParametersForImport operation must be used together. The public key and token can be used to import key material only for the CMK that is specified when you call the operation.
@@ -2532,6 +3231,92 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param ListApplicationAccessPointsRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return ListApplicationAccessPointsResponse
+     */
+    public function listApplicationAccessPointsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListApplicationAccessPoints',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListApplicationAccessPointsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListApplicationAccessPointsRequest $request
+     *
+     * @return ListApplicationAccessPointsResponse
+     */
+    public function listApplicationAccessPoints($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listApplicationAccessPointsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListClientKeysRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return ListClientKeysResponse
+     */
+    public function listClientKeysWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListClientKeys',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListClientKeysResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListClientKeysRequest $request
+     *
+     * @return ListClientKeysResponse
+     */
+    public function listClientKeys($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listClientKeysWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListKeyVersionsRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -2627,6 +3412,144 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listKeysWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListKmsInstancesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListKmsInstancesResponse
+     */
+    public function listKmsInstancesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListKmsInstances',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListKmsInstancesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListKmsInstancesRequest $request
+     *
+     * @return ListKmsInstancesResponse
+     */
+    public function listKmsInstances($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listKmsInstancesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListNetworkRulesRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ListNetworkRulesResponse
+     */
+    public function listNetworkRulesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListNetworkRules',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListNetworkRulesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListNetworkRulesRequest $request
+     *
+     * @return ListNetworkRulesResponse
+     */
+    public function listNetworkRules($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listNetworkRulesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListPoliciesRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListPoliciesResponse
+     */
+    public function listPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListPolicies',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListPoliciesRequest $request
+     *
+     * @return ListPoliciesResponse
+     */
+    public function listPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listPoliciesWithOptions($request, $runtime);
     }
 
     /**
@@ -3536,6 +4459,55 @@ class Kms extends OpenApiClient
     }
 
     /**
+     * @param UpdateApplicationAccessPointRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return UpdateApplicationAccessPointResponse
+     */
+    public function updateApplicationAccessPointWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->policies)) {
+            $query['Policies'] = $request->policies;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateApplicationAccessPoint',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateApplicationAccessPointResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateApplicationAccessPointRequest $request
+     *
+     * @return UpdateApplicationAccessPointResponse
+     */
+    public function updateApplicationAccessPoint($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateApplicationAccessPointWithOptions($request, $runtime);
+    }
+
+    /**
      * In this example, the status of the certificate whose ID is `9a28de48-8d8b-484d-a766-dec4****` is updated to INACTIVE.
      *   *
      * @param UpdateCertificateStatusRequest $request UpdateCertificateStatusRequest
@@ -3633,6 +4605,150 @@ class Kms extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateKeyDescriptionWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateKmsInstanceBindVpcRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateKmsInstanceBindVpcResponse
+     */
+    public function updateKmsInstanceBindVpcWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateKmsInstanceBindVpc',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateKmsInstanceBindVpcResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateKmsInstanceBindVpcRequest $request
+     *
+     * @return UpdateKmsInstanceBindVpcResponse
+     */
+    public function updateKmsInstanceBindVpc($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateKmsInstanceBindVpcWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateNetworkRuleRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return UpdateNetworkRuleResponse
+     */
+    public function updateNetworkRuleWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->sourcePrivateIp)) {
+            $query['SourcePrivateIp'] = $request->sourcePrivateIp;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateNetworkRule',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateNetworkRuleResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateNetworkRuleRequest $request
+     *
+     * @return UpdateNetworkRuleResponse
+     */
+    public function updateNetworkRule($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateNetworkRuleWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdatePolicyRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return UpdatePolicyResponse
+     */
+    public function updatePolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->accessControlRules)) {
+            $query['AccessControlRules'] = $request->accessControlRules;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $query['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->permissions)) {
+            $query['Permissions'] = $request->permissions;
+        }
+        if (!Utils::isUnset($request->resources)) {
+            $query['Resources'] = $request->resources;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdatePolicy',
+            'version'     => '2016-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdatePolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdatePolicyRequest $request
+     *
+     * @return UpdatePolicyResponse
+     */
+    public function updatePolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updatePolicyWithOptions($request, $runtime);
     }
 
     /**
