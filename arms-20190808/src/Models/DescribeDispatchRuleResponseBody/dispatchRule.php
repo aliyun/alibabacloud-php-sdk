@@ -12,6 +12,9 @@ use AlibabaCloud\Tea\Model;
 class dispatchRule extends Model
 {
     /**
+     * @description Alarm handling method.
+     *
+     * DISCARD_ALERT: Discard the alarm event, that is, no alarm.
      * @example CREATE_ALERT
      *
      * @var string
@@ -19,13 +22,15 @@ class dispatchRule extends Model
     public $dispatchType;
 
     /**
-     * @description The ID of the region.
+     * @description The information about groups.
      *
      * @var groupRules[]
      */
     public $groupRules;
 
     /**
+     * @description Whether to send recovered alerts.
+     * false: do not send.
      * @example true
      *
      * @var bool
@@ -33,12 +38,14 @@ class dispatchRule extends Model
     public $isRecover;
 
     /**
+     * @description The information about the dispatch rule.
+     *
      * @var labelMatchExpressionGrid
      */
     public $labelMatchExpressionGrid;
 
     /**
-     * @description The grouping interval.
+     * @description The name of the dispatch policy.
      *
      * @example Prometheus Alert
      *
@@ -47,12 +54,14 @@ class dispatchRule extends Model
     public $name;
 
     /**
+     * @description The collection of notification methods.
+     *
      * @var notifyRules[]
      */
     public $notifyRules;
 
     /**
-     * @description The waiting time for grouping.
+     * @description The ID of the dispatch rule.
      *
      * @example 10282
      *
@@ -61,8 +70,9 @@ class dispatchRule extends Model
     public $ruleId;
 
     /**
-     * @description The grouping fields.
+     * @description Indicates whether the dispatch policy is enabled. Valid values:
      *
+     * - `false`: disabled
      * @example true
      *
      * @var string

@@ -81,6 +81,8 @@ class listAlerts extends Model
     /**
      * @description The Alert solution.
      *
+     * @example --
+     *
      * @var string
      */
     public $solution;

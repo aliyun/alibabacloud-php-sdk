@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class StopAlertResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   `true`: The request is successful.
+     *   `false`: The request fails.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class StopAlertResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID.
+     *
      * @example 27E653FA-5958-45BE-8AA9-14D884DC****
      *
      * @var string

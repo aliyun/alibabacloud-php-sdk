@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description Prometheus实例ID。
+     * @description Prometheus Instance ID.
      *
      * @example c589a1b8db05c4561aefbb898ca8fb1cf
      *
@@ -43,7 +43,7 @@ class data extends Model
     public $status;
 
     /**
-     * @description The type of the monitoring configuration. Valid values: ServiceMonitor, PodMonitor, CustomJob, and Probe.
+     * @description The type of the monitoring configuration. Valid values: serviceMonitor, podMonitor, customJob, and probe.
      *
      * @example serviceMonitor
      *

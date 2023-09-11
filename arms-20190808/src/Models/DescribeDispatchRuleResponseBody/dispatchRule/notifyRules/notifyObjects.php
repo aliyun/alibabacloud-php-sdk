@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class notifyObjects extends Model
 {
     /**
+     * @description The name of the contact or contact group.
+     *
      * @example JohnDoe
      *
      * @var string
@@ -16,6 +18,8 @@ class notifyObjects extends Model
     public $name;
 
     /**
+     * @description The ID of the contact or contact group.
+     *
      * @example 1
      *
      * @var string
@@ -23,6 +27,9 @@ class notifyObjects extends Model
     public $notifyObjectId;
 
     /**
+     * @description The type of the alert contact. Valid values:
+     *
+     * - `CONTACT_GROUP`: contact group
      * @example CONTACT
      *
      * @var string

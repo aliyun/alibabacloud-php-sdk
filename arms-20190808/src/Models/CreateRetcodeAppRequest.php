@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateRetcodeAppRequest extends Model
 {
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -17,6 +19,8 @@ class CreateRetcodeAppRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can obtain the resource group ID in the **Resource Management** console.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -24,6 +28,8 @@ class CreateRetcodeAppRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The name of the application that is monitored by Browser Monitoring.
+     *
      * @example SdkTest
      *
      * @var string
@@ -31,6 +37,8 @@ class CreateRetcodeAppRequest extends Model
     public $retcodeAppName;
 
     /**
+     * @description The site type.
+     *
      * @example mini_dd
      *
      * @var string
@@ -38,6 +46,8 @@ class CreateRetcodeAppRequest extends Model
     public $retcodeAppType;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

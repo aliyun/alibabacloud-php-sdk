@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class event extends Model
 {
     /**
+     * @description The ID of the alert rule that is associated with the event.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class event extends Model
     public $alertId;
 
     /**
+     * @description The name of the alert rule that is associated with the event.
+     *
      * @example alertName
      *
      * @var string
@@ -23,14 +27,25 @@ class event extends Model
     public $alertName;
 
     /**
-     * @description The ID of the request.
+     * @description The condition of the alert rule.
+     *
+     * @example {\"operator\":\"&\",\"rules\":[{\"aggregates\":\"AVG\",\"alias\":\"JVM_线程总数\",\"measure\":\"appstat.jvm.ThreadCount\",\"nValue\":1,\"operator\":\"HOH_DOWN\",\"value\":50.0}]}
      *
      * @var string
      */
     public $alertRule;
 
     /**
-     * @description The name of the alert rule that is associated with the event.
+     * @description The type of the alert rule. This parameter is not returned. Valid values:
+     *
+     *   `1`: custom alert rules to monitor drill-down data sets
+     *   `3`: custom alert rules to monitor tiled data sets
+     *   `4`: alert rules to monitor the frontend, including the default frontend alert rules
+     *   `5`: alert rules to monitor applications, including the default application alert rules
+     *   `6`: the default frontend alert rules
+     *   `7`: the default application alert rules
+     *   `8`: Tracing Analysis alert rules
+     *   `101`: Prometheus alert rules
      *
      * @example 4
      *
@@ -39,7 +54,7 @@ class event extends Model
     public $alertType;
 
     /**
-     * @description The number of entries to return on each page. Default value: `10`.
+     * @description The severity of the event.
      *
      * @example 1
      *
@@ -48,7 +63,7 @@ class event extends Model
     public $eventLevel;
 
     /**
-     * @description The struct returned.
+     * @description The timestamp when the event occurred.
      *
      * @example 1595569020000
      *
@@ -57,6 +72,8 @@ class event extends Model
     public $eventTime;
 
     /**
+     * @description The ID of the event record.
+     *
      * @example 123
      *
      * @var int
@@ -64,12 +81,16 @@ class event extends Model
     public $id;
 
     /**
+     * @description The list of event URLs.
+     *
      * @var string[]
      */
     public $links;
 
     /**
-     * @description The condition of the alert rule.
+     * @description The event content. The parameter value is a JSON string. Each key indicates a dimension and each value indicates the alert content in the dimension.
+     *
+     * @example unknow紧急报警\nip：172.27.XX.XX\n应用名 = test\nRegion = cn-shenzhen\n异常信息 = {\"timestamp\"：\"1615447972235\"}
      *
      * @var string
      */

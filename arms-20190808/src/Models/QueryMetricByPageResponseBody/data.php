@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description Whether the paging query ends.
+     *
+     * false: Need to continue pagination (continue to query after CurrentPage+1).
+     * @example false
+     *
      * @var bool
      */
     public $completed;

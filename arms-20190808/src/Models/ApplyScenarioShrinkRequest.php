@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyScenarioShrinkRequest extends Model
 {
     /**
+     * @description The ID of the application.
+     *
      * @example b590lhguqs@28f515462f******
      *
      * @var string
@@ -16,6 +18,8 @@ class ApplyScenarioShrinkRequest extends Model
     public $appId;
 
     /**
+     * @description The configuration of the business monitoring job. The value is a JSON string. For more information about this parameter, see the following additional information about the **Config** parameter.
+     *
      * @example {"rpcType":"0","nameMatchType":"EQUALS","service":"/api/pop/test","operator":"and","filterItems":[{"type":"HttpHeaders","key":"uid","opt":"==","value":"123456789"}],"group":{"type":"HttpRequestParameters","key":"name"}}
      *
      * @var string
@@ -23,16 +27,31 @@ class ApplyScenarioShrinkRequest extends Model
     public $configShrink;
 
     /**
+     * @description The name of the business monitoring job.
+     *
+     * @example ScenarioName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The ID of the region.
+     *
+     * @example cn-zhangjaikou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The scenario where you want to use the business monitoring job. Valid values:
+     *
+     *   `USER-DEFINED`: user-defined. This is the default value.
+     *   `EDAS-ROLLOUT`: application release in Enterprise Distributed Application Service (EDAS)
+     *   `OAM-ROLLOUT`: application release based on Open Application Model (OAM)
+     *   `MSC-CANARY`: canary release based on Microservice Engine (MSE)
+     *
      * @example USER-DEFINED
      *
      * @var string
@@ -40,6 +59,8 @@ class ApplyScenarioShrinkRequest extends Model
     public $scenario;
 
     /**
+     * @description The code of the business monitoring job. This parameter is not required when you create a business monitoring job. However, this parameter is required when you update a business monitoring job.
+     *
      * @example a9f8****
      *
      * @var string
@@ -47,6 +68,11 @@ class ApplyScenarioShrinkRequest extends Model
     public $sign;
 
     /**
+     * @description Specifies whether to record business parameters to the trace marked with the coloring sign.
+     *
+     *   `true`
+     *   `false`: This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -54,6 +80,11 @@ class ApplyScenarioShrinkRequest extends Model
     public $snDump;
 
     /**
+     * @description Specifies whether traffic in the trace marked with the coloring sign is all collected.
+     *
+     *   `true`
+     *   `false`: This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -61,6 +92,11 @@ class ApplyScenarioShrinkRequest extends Model
     public $snForce;
 
     /**
+     * @description Specifies whether to count traffic based on the coloring sign.
+     *
+     *   `true`
+     *   `false`: This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -68,6 +104,11 @@ class ApplyScenarioShrinkRequest extends Model
     public $snStat;
 
     /**
+     * @description Specifies whether the coloring sign is transparently passed down to downstream application nodes in the trace.
+     *
+     *   `true`
+     *   `false`: This is the default value.
+     *
      * @example false
      *
      * @var bool
@@ -75,6 +116,11 @@ class ApplyScenarioShrinkRequest extends Model
     public $snTransfer;
 
     /**
+     * @description Specifies whether the operation is an update operation.
+     *
+     *   `true`: update
+     *   `false`: insert
+     *
      * @example false
      *
      * @var bool

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StopAlertRequest extends Model
 {
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 1610***
      *
      * @var string
@@ -16,6 +18,8 @@ class StopAlertRequest extends Model
     public $alertId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

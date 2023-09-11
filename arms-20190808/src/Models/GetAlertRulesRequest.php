@@ -107,6 +107,8 @@ class GetAlertRulesRequest extends Model
     public $size;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

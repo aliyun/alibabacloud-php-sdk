@@ -28,6 +28,11 @@ class traceApps extends Model
     public $appName;
 
     /**
+     * @var string
+     */
+    public $clusterId;
+
+    /**
      * @description The time when the monitoring task was created. The value is a timestamp. Unit: milliseconds.
      *
      * @example 1529667762000
@@ -42,6 +47,11 @@ class traceApps extends Model
      * @var string[]
      */
     public $labels;
+
+    /**
+     * @var string
+     */
+    public $namespace;
 
     /**
      * @description The process identifier (PID) of the application.
@@ -127,11 +137,23 @@ class traceApps extends Model
      * @var string
      */
     public $userId;
+
+    /**
+     * @var string
+     */
+    public $workloadKind;
+
+    /**
+     * @var string
+     */
+    public $workloadName;
     protected $_name = [
         'appId'           => 'AppId',
         'appName'         => 'AppName',
+        'clusterId'       => 'ClusterId',
         'createTime'      => 'CreateTime',
         'labels'          => 'Labels',
+        'namespace'       => 'Namespace',
         'pid'             => 'Pid',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -141,6 +163,8 @@ class traceApps extends Model
         'type'            => 'Type',
         'updateTime'      => 'UpdateTime',
         'userId'          => 'UserId',
+        'workloadKind'    => 'WorkloadKind',
+        'workloadName'    => 'WorkloadName',
     ];
 
     public function validate()
@@ -156,11 +180,17 @@ class traceApps extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
+        if (null !== $this->clusterId) {
+            $res['ClusterId'] = $this->clusterId;
+        }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->labels) {
             $res['Labels'] = $this->labels;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->pid) {
             $res['Pid'] = $this->pid;
@@ -195,6 +225,12 @@ class traceApps extends Model
         if (null !== $this->userId) {
             $res['UserId'] = $this->userId;
         }
+        if (null !== $this->workloadKind) {
+            $res['WorkloadKind'] = $this->workloadKind;
+        }
+        if (null !== $this->workloadName) {
+            $res['WorkloadName'] = $this->workloadName;
+        }
 
         return $res;
     }
@@ -213,6 +249,9 @@ class traceApps extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
+        if (isset($map['ClusterId'])) {
+            $model->clusterId = $map['ClusterId'];
+        }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
         }
@@ -220,6 +259,9 @@ class traceApps extends Model
             if (!empty($map['Labels'])) {
                 $model->labels = $map['Labels'];
             }
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['Pid'])) {
             $model->pid = $map['Pid'];
@@ -253,6 +295,12 @@ class traceApps extends Model
         }
         if (isset($map['UserId'])) {
             $model->userId = $map['UserId'];
+        }
+        if (isset($map['WorkloadKind'])) {
+            $model->workloadKind = $map['WorkloadKind'];
+        }
+        if (isset($map['WorkloadName'])) {
+            $model->workloadName = $map['WorkloadName'];
         }
 
         return $model;

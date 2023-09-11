@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteIMRobotResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteIMRobotResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The request ID. You can use the ID to find logs and troubleshoot issues.
+     *
      * @example C21AB7CF-B7AF-410F-BD61-82D1567F****
      *
      * @var string

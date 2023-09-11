@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class QueryAppMetadataResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned for the request. Valid values:
+     *
+     *   2XX: The request is successful.
+     *   3XX: A redirection message is returned.
+     *   4XX: The request is invalid.
+     *   5XX: A server error occurs.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +23,8 @@ class QueryAppMetadataResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @example {\"408d5533\": \"SELECT * FROM user_base_info\"}
      *
      * @var mixed[]
@@ -23,6 +32,8 @@ class QueryAppMetadataResponseBody extends Model
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -30,6 +41,8 @@ class QueryAppMetadataResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 51877BAC-330C-5845-BDFD-C7859AD33FB7
      *
      * @var string
@@ -37,6 +50,11 @@ class QueryAppMetadataResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
      * @example True
      *
      * @var bool

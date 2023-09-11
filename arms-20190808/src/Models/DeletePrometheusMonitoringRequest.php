@@ -36,8 +36,8 @@ class DeletePrometheusMonitoringRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the monitoring configuration. Valid values for a Prometheus instance for Container Service: ServiceMonitor, PodMonitor, CustomJob, and Probe. Valid values for a Prometheus instance for ECS: CustomJob and Probe.
-     *
+     * @description The type of the monitoring configuration.
+     * Valid values for a Prometheus instance for ECS: customJob and probe.
      * @example probe
      *
      * @var string

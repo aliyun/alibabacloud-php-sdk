@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ApplyScenarioResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example EA24D522-AD35-47B8-8CB2-ADBC38******
      *
      * @var string
@@ -16,6 +18,8 @@ class ApplyScenarioResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The code of the business monitoring job, which is the coloring sign.
+     *
      * @example 2b97****
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateAlertContactRequest extends Model
 {
     /**
+     * @description The name of the alert contact.
+     *
      * @example JohnDoe
      *
      * @var string
@@ -16,6 +18,9 @@ class CreateAlertContactRequest extends Model
     public $contactName;
 
     /**
+     * @description The webhook URL of the DingTalk chatbot. For more information about how to obtain the URL, see [Configure a DingTalk chatbot to send alert notifications](https://www.alibabacloud.com/help/zh/doc-detail/106247.htm). You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     *
+     * >  Enter `alert` in the custom keyword field of DingTalk chatbot security settings.
      * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
      *
      * @var string
@@ -23,6 +28,8 @@ class CreateAlertContactRequest extends Model
     public $dingRobotWebhookUrl;
 
     /**
+     * @description The email address of the alert contact. You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -30,6 +37,8 @@ class CreateAlertContactRequest extends Model
     public $email;
 
     /**
+     * @description The mobile number of the alert contact. You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     *
      * @example 1381111****
      *
      * @var string
@@ -37,6 +46,8 @@ class CreateAlertContactRequest extends Model
     public $phoneNum;
 
     /**
+     * @description The ID of the region. Set the value to `cn-hangzhou`.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +55,8 @@ class CreateAlertContactRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can obtain the resource group ID in the **Resource Management** console.
+     *
      * @example rg-aek2eq4peca****
      *
      * @var string
@@ -51,6 +64,11 @@ class CreateAlertContactRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description Specifies whether the alert contact receives system notifications. Valid values:
+     *
+     *   `true`: The alert contact receives system notifications.
+     *   `false`: The alert contact does not receive system notifications.
+     *
      * @example true
      *
      * @var bool

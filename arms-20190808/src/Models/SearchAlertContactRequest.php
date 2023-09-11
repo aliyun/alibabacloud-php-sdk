@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertContactRequest extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
      * @example [12345]
      *
      * @var string
@@ -16,6 +18,8 @@ class SearchAlertContactRequest extends Model
     public $contactIds;
 
     /**
+     * @description The name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -23,6 +27,8 @@ class SearchAlertContactRequest extends Model
     public $contactName;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var string
@@ -30,6 +36,8 @@ class SearchAlertContactRequest extends Model
     public $currentPage;
 
     /**
+     * @description The email address of the alert contact.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class SearchAlertContactRequest extends Model
     public $email;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var string
@@ -44,6 +54,8 @@ class SearchAlertContactRequest extends Model
     public $pageSize;
 
     /**
+     * @description The mobile number of the alert contact.
+     *
      * @example 1381111*****
      *
      * @var string
@@ -51,6 +63,8 @@ class SearchAlertContactRequest extends Model
     public $phone;
 
     /**
+     * @description The ID of the region. Set the value to `cn-hangzhou`.
+     *
      * @example cn-hangzhou
      *
      * @var string

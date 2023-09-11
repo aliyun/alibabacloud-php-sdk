@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SearchEventsRequest extends Model
 {
     /**
-     * @description The ID of the region.
+     * @description The ID of the alert rule. You can call the SearchAlertRules operation and view the `Id` parameter in the response. For more information, see [SearchAlertRules](~~175825~~).
      *
      * @example 123
      *
@@ -18,16 +18,7 @@ class SearchEventsRequest extends Model
     public $alertId;
 
     /**
-     * @description The total number of entries returned.
-     *
-     * @example 4
-     *
-     * @var int
-     */
-    public $alertType;
-
-    /**
-     * @description The type of the alert rule. This parameter is not returned. Valid values:
+     * @description The type of the alert rule. Valid values:
      *
      *   `1`: custom alert rules to monitor drill-down data sets
      *   `3`: custom alert rules to monitor tiled data sets
@@ -38,6 +29,18 @@ class SearchEventsRequest extends Model
      *   `8`: Tracing Analysis alert rules
      *   `101`: Prometheus alert rules
      *
+     * @example 4
+     *
+     * @var int
+     */
+    public $alertType;
+
+    /**
+     * @description The type of the application that is associated with the alert rule. Valid values:
+     *
+     *   `TRACE`: application monitoring
+     *   `RETCODE`: frontend monitoring
+     *
      * @example TRACE
      *
      * @var string
@@ -45,7 +48,7 @@ class SearchEventsRequest extends Model
     public $appType;
 
     /**
-     * @description The ID of the alert rule. You can call the SearchAlertRules operation and view the `Id` parameter in the response. For more information, see [SearchAlertRules](~~175825~~).
+     * @description The number of the page to return. Default value: `1`.
      *
      * @example 1
      *
@@ -54,10 +57,7 @@ class SearchEventsRequest extends Model
     public $currentPage;
 
     /**
-     * @description Specifies whether the alert event is triggered. If you do not set this parameter, all alert events are queried. Valid values:
-     *
-     *   `1`: The event is triggered.
-     *   `0`: The event is not triggered.
+     * @description The end of the time range to query. Specify a UNIX timestamp of the LONG data type, in milliseconds. The default value is the current time.
      *
      * @example 1595568970000
      *
@@ -66,7 +66,10 @@ class SearchEventsRequest extends Model
     public $endTime;
 
     /**
-     * @description The timestamp when the event occurred.
+     * @description Specifies whether the alert event is triggered. If you do not set this parameter, all alert events are queried. Valid values:
+     *
+     *   `1`: The event is triggered.
+     *   `0`: The event is not triggered.
      *
      * @example 1
      *
@@ -75,7 +78,7 @@ class SearchEventsRequest extends Model
     public $isTrigger;
 
     /**
-     * @description The information about the alert events.
+     * @description The number of entries to return on each page. Default value: `10`.
      *
      * @example 10
      *
@@ -84,10 +87,7 @@ class SearchEventsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The type of the application that is associated with the alert rule. Valid values:
-     *
-     *   `TRACE`: application monitoring
-     *   `RETCODE`: frontend monitoring
+     * @description The process identifier (PID) of the application that is associated with the alert rule.
      *
      * @example atc889zkcf@d8deedfa9bf****
      *
@@ -96,10 +96,7 @@ class SearchEventsRequest extends Model
     public $pid;
 
     /**
-     * @description Specifies whether the alert event is triggered. If you do not set this parameter, all alert events are queried. Valid values:
-     *
-     *   `1`: The event is triggered.
-     *   `0`: The event is not triggered.
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -108,7 +105,7 @@ class SearchEventsRequest extends Model
     public $regionId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The beginning of the time range to query. Specify a UNIX timestamp of the LONG data type, in milliseconds. The default value is 10 minutes before the current time.
      *
      * @example 1595565300000
      *

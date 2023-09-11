@@ -72,6 +72,8 @@ class alertRules extends Model
     public $alertVersion;
 
     /**
+     * @description Sending method of alarm notification.
+     *
      * @var string[]
      */
     public $alertWays;
@@ -168,6 +170,8 @@ class alertRules extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class retcodeAppDataBean extends Model
 {
     /**
+     * @description The application ID.
+     *
      * @example 135143
      *
      * @var int
@@ -26,6 +28,9 @@ class retcodeAppDataBean extends Model
     public $pid;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * If this parameter is left empty, the default resource group is used. You can view the resource group ID on the Resource Group page in the Resource Management console.
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -33,6 +38,8 @@ class retcodeAppDataBean extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags.
+     *
      * @var tags
      */
     public $tags;

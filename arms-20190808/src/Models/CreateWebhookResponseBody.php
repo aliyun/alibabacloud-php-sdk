@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateWebhookResponseBody extends Model
 {
     /**
+     * @description The ID of the contact for webhook alerts.
+     *
      * @example 48716
      *
      * @var string
@@ -16,6 +18,8 @@ class CreateWebhookResponseBody extends Model
     public $contactId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 16AF921B-8187-489F-9913-43C808B4****
      *
      * @var string

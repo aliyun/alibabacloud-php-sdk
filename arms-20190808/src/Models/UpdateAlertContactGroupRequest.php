@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactGroupRequest extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateAlertContactGroupRequest extends Model
     public $contactGroupId;
 
     /**
+     * @description The name of the alert contact group.
+     *
      * @example TestGroup
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdateAlertContactGroupRequest extends Model
     public $contactGroupName;
 
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 123 234 345
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdateAlertContactGroupRequest extends Model
     public $contactIds;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

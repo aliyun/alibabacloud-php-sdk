@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alerts extends Model
 {
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 3888704
      *
      * @var string
@@ -17,16 +19,26 @@ class alerts extends Model
     public $alertId;
 
     /**
+     * @description The name of the alert rule.
+     *
+     * @example Container CPU usage is greater than 80%
+     *
      * @var string
      */
     public $alertName;
 
     /**
+     * @description The type of the alert.
+     *
+     * @example PROMETHEUS_MONITORING_ALERT_RULE
+     *
      * @var string
      */
     public $alertType;
 
     /**
+     * @description The number of times that the alert event was received.
+     *
      * @example 598
      *
      * @var int
@@ -34,6 +46,8 @@ class alerts extends Model
     public $count;
 
     /**
+     * @description The timestamp when the alert rule was created.
+     *
      * @example 1616466300000
      *
      * @var int
@@ -41,11 +55,15 @@ class alerts extends Model
     public $createTime;
 
     /**
+     * @description The notification policies.
+     *
      * @var dispatchRules[]
      */
     public $dispatchRules;
 
     /**
+     * @description The timestamp when the alert was ended.
+     *
      * @example 1616502540000
      *
      * @var int
@@ -53,11 +71,19 @@ class alerts extends Model
     public $endsAt;
 
     /**
+     * @description The extended fields that indicate the following tags:
+     *
+     *   The tags that are carried in the metrics of the alert rule expression.
+     *   The tags that are created based on the alert rule.
+     *   The default tags of Application Real-Time Monitoring Service (ARMS).
+     *
      * @var mixed[]
      */
     public $expandFields;
 
     /**
+     * @description The name of the object that is associated with the alert.
+     *
      * @example testphp2
      *
      * @var string
@@ -65,6 +91,8 @@ class alerts extends Model
     public $integrationName;
 
     /**
+     * @description The type of the service integration that generated the alert.
+     *
      * @example PROMETHEUS
      *
      * @var string
@@ -72,6 +100,8 @@ class alerts extends Model
     public $integrationType;
 
     /**
+     * @description The type of the object that is associated with the alert.
+     *
      * @example cluster
      *
      * @var string
@@ -79,16 +109,31 @@ class alerts extends Model
     public $involvedObjectKind;
 
     /**
+     * @description The name of the service integration that generated the alert.
+     *
+     * @example Test integration-prometheus
+     *
      * @var string
      */
     public $involvedObjectName;
 
     /**
+     * @description The description of the alert.
+     *
+     * @example Alarm name: PodRestart_testphp2,\n Pod night-test-group-1-1-5f5d6f4d84-pszns is restart, Value: 133.33%, 1.33%
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The level of the alert. Valid values:
+     *
+     *   `critical`
+     *   `error`
+     *   `warn`
+     *   `page`
+     *
      * @example critical
      *
      * @var string
@@ -96,6 +141,8 @@ class alerts extends Model
     public $severity;
 
     /**
+     * @description The timestamp when the alert was generated.
+     *
      * @example 1616466300000
      *
      * @var int
@@ -103,6 +150,13 @@ class alerts extends Model
     public $startsAt;
 
     /**
+     * @description The status of the alert. Valid values:
+     *
+     *   `Active`
+     *   `Inhibited`
+     *   `Silenced`
+     *   `Resolved`
+     *
      * @example Active
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactRequest extends Model
 {
     /**
+     * @description The ID of the alert contact to be updated. You can call the SearchAlertContact operation to query the contact ID. For more information, see [SearchAlertContact](~~130703~~).
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class UpdateAlertContactRequest extends Model
     public $contactId;
 
     /**
+     * @description The new name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -23,6 +27,9 @@ class UpdateAlertContactRequest extends Model
     public $contactName;
 
     /**
+     * @description The new webhook URL of the DingTalk chatbot. For more information, see [Configure a DingTalk chatbot to send alert notifications](~~106247~~). You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     *
+     * >  If you do not specify this parameter, the original parameter value is deleted. If you specify this parameter, the original parameter value is updated.
      * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
      *
      * @var string
@@ -30,6 +37,9 @@ class UpdateAlertContactRequest extends Model
     public $dingRobotWebhookUrl;
 
     /**
+     * @description The new email address of the alert contact. You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     *
+     * >  If you do not specify this parameter, the original parameter value is deleted. If you specify this parameter, the original parameter value is updated.
      * @example someone@example.com
      *
      * @var string
@@ -37,6 +47,9 @@ class UpdateAlertContactRequest extends Model
     public $email;
 
     /**
+     * @description The new mobile phone number of the alert contact. You must specify at least one of the following parameters: PhoneNum, Email, and DingRobotWebhookUrl.
+     *
+     * >  If you do not specify this parameter, the original parameter value is deleted. If you specify this parameter, the original parameter value is updated.
      * @example 1381111****
      *
      * @var string
@@ -44,6 +57,8 @@ class UpdateAlertContactRequest extends Model
     public $phoneNum;
 
     /**
+     * @description The ID of the region. Set the value to `cn-hangzhou`.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -51,6 +66,11 @@ class UpdateAlertContactRequest extends Model
     public $regionId;
 
     /**
+     * @description Specifies whether the alert contact receives system notifications. Valid values:
+     *
+     *   `true`: The alert contact receives system notifications.
+     *   `false`: The alert contact does not receive system notifications.
+     *
      * @example true
      *
      * @var bool

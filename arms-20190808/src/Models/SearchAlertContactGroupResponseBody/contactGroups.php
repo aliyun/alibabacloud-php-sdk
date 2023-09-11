@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class contactGroups extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 746
      *
      * @var int
@@ -17,6 +19,8 @@ class contactGroups extends Model
     public $contactGroupId;
 
     /**
+     * @description The name of the alert contact group.
+     *
      * @example TestGroup
      *
      * @var string
@@ -24,11 +28,15 @@ class contactGroups extends Model
     public $contactGroupName;
 
     /**
+     * @description The alert contact list.
+     *
      * @var contacts[]
      */
     public $contacts;
 
     /**
+     * @description The time when the alert contact group list was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1529668855000
      *
      * @var int
@@ -36,6 +44,8 @@ class contactGroups extends Model
     public $createTime;
 
     /**
+     * @description The time when the alert contact group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1529668855000
      *
      * @var int
@@ -43,6 +53,8 @@ class contactGroups extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 113197164949****
      *
      * @var string

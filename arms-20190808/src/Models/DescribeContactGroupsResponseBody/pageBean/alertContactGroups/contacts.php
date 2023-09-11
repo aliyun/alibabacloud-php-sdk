@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contacts extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 100117
      *
      * @var int
@@ -16,6 +18,8 @@ class contacts extends Model
     public $armsContactId;
 
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 456
      *
      * @var float
@@ -23,6 +27,8 @@ class contacts extends Model
     public $contactId;
 
     /**
+     * @description The name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -30,6 +36,8 @@ class contacts extends Model
     public $contactName;
 
     /**
+     * @description The email address of the alert contact.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class contacts extends Model
     public $email;
 
     /**
+     * @description The mobile number of the alert contact.
+     *
      * @example 1381111****
      *
      * @var string

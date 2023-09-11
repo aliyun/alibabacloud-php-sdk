@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListActivatedAlertsResponseBody extends Model
 {
     /**
+     * @description The struct returned.
+     *
      * @var page
      */
     public $page;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BDB74B8F-4123-482A-ABB7-7F440349****
      *
      * @var string

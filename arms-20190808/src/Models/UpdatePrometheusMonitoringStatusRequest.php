@@ -45,8 +45,8 @@ class UpdatePrometheusMonitoringStatusRequest extends Model
     public $status;
 
     /**
-     * @description The type of the monitoring configuration. Valid values for a Prometheus instance for Container Service: ServiceMonitor, PodMonitor, and CustomJob. Valid value for a Prometheus instance for ECS: CustomJob. The status of Probe cannot be modified.
-     *
+     * @description The type of the monitoring configuration.
+     * The status of probe cannot be modified.
      * @example customJob
      *
      * @var string

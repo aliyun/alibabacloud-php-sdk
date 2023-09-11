@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class EnableMetricResponseBody extends Model
 {
     /**
+     * @description The HTTP status code returned for the request. Valid values:
+     *
+     *   2XX: The request is successful.
+     *   3XX: A redirection message is returned.
+     *   4XX: The request is invalid.
+     *   5XX: A server error occurs.
+     *
      * @example 200
      *
      * @var int
@@ -16,6 +23,8 @@ class EnableMetricResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned struct.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +32,8 @@ class EnableMetricResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -39,6 +50,11 @@ class EnableMetricResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
      * @example true
      *
      * @var bool

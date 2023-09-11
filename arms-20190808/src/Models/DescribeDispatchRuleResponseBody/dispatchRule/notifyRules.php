@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class notifyRules extends Model
 {
     /**
+     * @description The notification method Array.
+     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
+     * @description The collection of alert contacts.
+     *
      * @var notifyObjects[]
      */
     public $notifyObjects;

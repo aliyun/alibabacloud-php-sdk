@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class page extends Model
 {
     /**
+     * @description The alerts that have been triggered.
+     *
      * @var alerts[]
      */
     public $alerts;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class page extends Model
     public $page;
 
     /**
+     * @description The number of entries returned per page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class page extends Model
     public $pageSize;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 5
      *
      * @var int

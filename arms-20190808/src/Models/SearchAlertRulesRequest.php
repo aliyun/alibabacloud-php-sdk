@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertRulesRequest extends Model
 {
     /**
+     * @description The id of AlertRule.
+     *
      * @example 12345
      *
      * @var string
@@ -65,6 +67,8 @@ class SearchAlertRulesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can obtain the resource group ID in the **Resource Management** console.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string

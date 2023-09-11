@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactsRequest extends Model
 {
     /**
+     * @description The ID of the alert contact that you want to query. Separate multiple contact IDs with spaces.
+     *
      * @example 123,321
      *
      * @var string
@@ -16,7 +18,7 @@ class DescribeContactsRequest extends Model
     public $contactIds;
 
     /**
-     * @description Indicates whether the email address was verified.
+     * @description The name of the alert contact.
      *
      * @example John Doe
      *
@@ -25,6 +27,8 @@ class DescribeContactsRequest extends Model
     public $contactName;
 
     /**
+     * @description The email address of the alert contact.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -32,6 +36,8 @@ class DescribeContactsRequest extends Model
     public $email;
 
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -39,7 +45,7 @@ class DescribeContactsRequest extends Model
     public $page;
 
     /**
-     * @description The ID of the alert contact.
+     * @description The mobile number of the alert contact.
      *
      * @example 1381111*****
      *
@@ -48,11 +54,17 @@ class DescribeContactsRequest extends Model
     public $phone;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of alert contacts to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -60,6 +72,8 @@ class DescribeContactsRequest extends Model
     public $size;
 
     /**
+     * @description Specifies whether to return redundant information.
+     *
      * @example true
      *
      * @var string

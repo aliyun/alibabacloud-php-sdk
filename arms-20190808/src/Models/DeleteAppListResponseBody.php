@@ -4,18 +4,12 @@
 
 namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
-use AlibabaCloud\SDK\ARMS\V20190808\Models\GetAppApiByPageResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetAppApiByPageResponseBody extends Model
+class DeleteAppListResponseBody extends Model
 {
     /**
-     * @description The HTTP status code returned for the request. Valid values:
-     *
-     *   2XX: The request was successful.
-     *   3XX: A redirection message was returned.
-     *   4XX: The request was invalid.
-     *   5XX: A server error occurred.
+     * @description The HTTP status code. 2XX indicates that the request was successful. 3XX indicates that the request was redirected. 4XX indicates that a request error occurred. 5XX indicates that a server error occurred.
      *
      * @example 200
      *
@@ -24,35 +18,37 @@ class GetAppApiByPageResponseBody extends Model
     public $code;
 
     /**
-     * @description The struct returned.
+     * @description The returned message.
      *
-     * @var data
+     * @example "{\"code\":200,\"data\":\"{\\\"code\\\":200,\\\"data\\\":true,\\\"errorCode\\ \":\\\"Deletion of application successful\\\",\\\"Message\\\":\\\"Deletion of application successful\\\",\\\"Successful\\\":true,\ \\"traceId\\\":\\\"0bc1667516940677164677396d0088\\\"}\",\"errorCode\":\"Batch deletion of applications successful\",\"message\":\"Batch deletion of applications successful\ ",\"Success\":true,\"traceId\":\"210f470416940677161213505e0e7a\"}"
+     *
+     * @var string
      */
     public $data;
 
     /**
-     * @description The message returned.
+     * @description The error message returned when the request parameters are invalid.
      *
-     * @example message
+     * @example "Deletion of application successful"
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
-     * @example B6A00968-82A8-4F14-9D1B-B53827DB****
+     * @example 4B446DF2-3DDD-4B5B-8E3F-D5225120****
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the specified applications are deleted. Valid values:
      *
-     *   `true`: The call was successful.
-     *   `false`: The call failed.
+     *   `true`: The applications are deleted.
+     *   `false`: The applications failed to be deleted.
      *
      * @example true
      *
@@ -78,7 +74,7 @@ class GetAppApiByPageResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = $this->data;
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -96,7 +92,7 @@ class GetAppApiByPageResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetAppApiByPageResponseBody
+     * @return DeleteAppListResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -105,7 +101,7 @@ class GetAppApiByPageResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            $model->data = $map['Data'];
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

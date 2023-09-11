@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateWebhookResponseBody extends Model
 {
     /**
+     * @description The result returned. Valid values:
+     *
+     *   `true`: The modification is successful.
+     *   `false`: The modification fails.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UpdateWebhookResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 16AF921B-8187-489F-9913-43C808B4****
      *
      * @var string

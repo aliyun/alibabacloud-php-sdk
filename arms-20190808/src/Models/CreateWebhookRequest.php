@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class CreateWebhookRequest extends Model
 {
     /**
+     * @description The notification template that is sent when an alert is triggered. This parameter is required if the **Method** parameter is set to **Post**. You can use the $content placeholder to specify the notification content. The content cannot exceed 500 characters in length.
+     *
+     * @example { "Alert Name": "{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster Name": "{{ .commonLabels.clustername }} {{ end }}{{if eq " app" .commonLabels._aliyun_arms_involvedObject_kind }}", "Application Name": "{{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}", "Notification Policy": "{{ .dispatchRuleName }}", "Alarm Time": "{{ .startTime }}", "Alert Content": "{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @description The name of the contact.
+     *
+     * @example WebhookAlert
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @description The HTTP request header.
+     *
      * @example [{"Content-Type":"application/json"}]
      *
      * @var string
@@ -26,6 +36,8 @@ class CreateWebhookRequest extends Model
     public $httpHeaders;
 
     /**
+     * @description The parameters in the HTTP request.
+     *
      * @example [{"name":"mike"}]
      *
      * @var string
@@ -33,6 +45,11 @@ class CreateWebhookRequest extends Model
     public $httpParams;
 
     /**
+     * @description The HTTP request method.
+     *
+     *   `Get`
+     *   `Post`
+     *
      * @example Post
      *
      * @var string
@@ -40,11 +57,17 @@ class CreateWebhookRequest extends Model
     public $method;
 
     /**
+     * @description The notification template that is sent when an alert is resolved. This parameter is required if the **Method** parameter is set to **Post**. You can use the $content placeholder to specify the notification content. The content cannot exceed 500 characters in length.
+     *
+     * @example { "Alert Name": "{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster Name": "{{ .commonLabels.clustername }} {{ end }}{{if eq " app" .commonLabels._aliyun_arms_involvedObject_kind }}", "Application Name": "{{ .commonLabels._aliyun_arms_involvedObject_name }} {{ end }}", "Notification Policy": "{{ .dispatchRuleName }}", "Alarm Time": "{{ .startTime }}", "Alert Content": "{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $recoverBody;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -52,6 +75,8 @@ class CreateWebhookRequest extends Model
     public $regionId;
 
     /**
+     * @description The URL of the request **method**.
+     *
      * @example https://oapi.dingtalk.com/robot/send?access_token=e1a049121ddbfce1ca963d115ef88cc7219583c4fb79fe6e398fbfb688******
      *
      * @var string

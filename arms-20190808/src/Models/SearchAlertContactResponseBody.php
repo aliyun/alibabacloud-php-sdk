@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertContactResponseBody extends Model
 {
     /**
+     * @description The returned struct.
+     *
      * @var pageBean
      */
     public $pageBean;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 21E85B16-75A6-429A-9F65-8AAC9A54****
      *
      * @var string

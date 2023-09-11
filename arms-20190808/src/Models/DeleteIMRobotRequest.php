@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteIMRobotRequest extends Model
 {
     /**
+     * @description The ID of the IM chatbot.
+     *
      * @example 123
      *
      * @var int

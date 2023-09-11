@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contacts extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class contacts extends Model
     public $contactId;
 
     /**
+     * @description The name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -23,6 +27,8 @@ class contacts extends Model
     public $contactName;
 
     /**
+     * @description The time when the alert contact group list was created. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1572349025000
      *
      * @var int
@@ -30,6 +36,8 @@ class contacts extends Model
     public $createTime;
 
     /**
+     * @description The webhook URL of the DingTalk chatbot.
+     *
      * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
      *
      * @var string
@@ -37,6 +45,8 @@ class contacts extends Model
     public $dingRobot;
 
     /**
+     * @description The email address of the alert contact.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -44,6 +54,8 @@ class contacts extends Model
     public $email;
 
     /**
+     * @description The mobile number of the alert contact.
+     *
      * @example 1381111*****
      *
      * @var string
@@ -51,6 +63,11 @@ class contacts extends Model
     public $phone;
 
     /**
+     * @description Indicates whether the alert contact receives system notifications. Valid values:
+     *
+     *   true: receives system notifications.
+     *   false: does not receive system notifications.
+     *
      * @example false
      *
      * @var bool
@@ -58,6 +75,8 @@ class contacts extends Model
     public $systemNoc;
 
     /**
+     * @description The time when the alert contact group was last modified. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+     *
      * @example 1580258717000
      *
      * @var int
@@ -65,6 +84,8 @@ class contacts extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 113197164949****
      *
      * @var string

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactResponseBody extends Model
 {
     /**
+     * @description Indicates whether the alert contact was updated. Valid values:
+     *
+     *   true: The alert contact was updated.
+     *   false: The alert contact failed to be updated.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UpdateAlertContactResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 1A474FF8-7861-4D00-81B5-5BC3DA4E****
      *
      * @var string

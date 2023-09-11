@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class labelMatchExpressionGroups extends Model
 {
     /**
+     * @description The collection of conditions of the dispatch rule.
+     *
      * @var labelMatchExpressions[]
      */
     public $labelMatchExpressions;

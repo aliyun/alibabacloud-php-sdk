@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class SearchAlertContactGroupRequest extends Model
 {
     /**
+     * @description The ID of the alert contact group. You can query multiple alert contact groups at a time. Separate multiple group IDs with commas (,).
+     *
      * @example 746
      *
      * @var string
@@ -16,6 +18,8 @@ class SearchAlertContactGroupRequest extends Model
     public $contactGroupIds;
 
     /**
+     * @description The name of the alert contact group.
+     *
      * @example TestGroup
      *
      * @var string
@@ -23,6 +27,8 @@ class SearchAlertContactGroupRequest extends Model
     public $contactGroupName;
 
     /**
+     * @description The ID of the alert contact. You can call the SearchAlertContact operation to query the contact IDs. For more information, see [SearchAlertContact](~~130703~~).
+     *
      * @example 123
      *
      * @var int
@@ -30,6 +36,8 @@ class SearchAlertContactGroupRequest extends Model
     public $contactId;
 
     /**
+     * @description The name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -37,6 +45,8 @@ class SearchAlertContactGroupRequest extends Model
     public $contactName;
 
     /**
+     * @description Specifies whether to return all alert contacts in the queried alert contact group. By default, not all alert contacts are returned.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,8 @@ class SearchAlertContactGroupRequest extends Model
     public $isDetail;
 
     /**
+     * @description The ID of the region. Default value: `cn-hangzhou`.
+     *
      * @example cn-hangzhou
      *
      * @var string

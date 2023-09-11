@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupRules extends Model
 {
     /**
-     * @description The struct returned.
+     * @description The ID of the group.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class groupRules extends Model
     public $groupId;
 
     /**
-     * @description The information about the dispatch rule.
+     * @description The grouping interval.
      *
      * @example 15
      *
@@ -27,7 +27,7 @@ class groupRules extends Model
     public $groupInterval;
 
     /**
-     * @description The information about groups.
+     * @description The waiting time for grouping.
      *
      * @example 10
      *
@@ -36,13 +36,15 @@ class groupRules extends Model
     public $groupWaitTime;
 
     /**
-     * @description Queries the information about a dispatch policy.
+     * @description The grouping fields.
      *
      * @var string[]
      */
     public $groupingFields;
 
     /**
+     * @description The time interval at which a notification is resent for a long-lasting unresolved alert. Unit: seconds.
+     *
      * @example 20
      *
      * @var int

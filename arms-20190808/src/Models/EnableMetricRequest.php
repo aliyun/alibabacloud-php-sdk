@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class EnableMetricRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
      * @example ccfa5e34a5c1f4ce6b916a40a12151d88
      *
      * @var string
@@ -16,6 +18,8 @@ class EnableMetricRequest extends Model
     public $clusterId;
 
     /**
+     * @description Enable metric name.
+     *
      * @example kube_pod_container_status_ready
      *
      * @var string
@@ -23,6 +27,8 @@ class EnableMetricRequest extends Model
     public $dropMetric;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string

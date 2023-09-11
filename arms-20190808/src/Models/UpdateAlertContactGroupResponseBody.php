@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateAlertContactGroupResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class UpdateAlertContactGroupResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 9319A57D-2D9E-472A-B69B-CF3CD16D****
      *
      * @var string

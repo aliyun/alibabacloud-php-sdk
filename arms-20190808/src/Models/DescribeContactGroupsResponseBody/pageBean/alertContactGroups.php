@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class alertContactGroups extends Model
 {
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 83261
      *
      * @var int
@@ -17,6 +19,8 @@ class alertContactGroups extends Model
     public $armsContactGroupId;
 
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 123
      *
      * @var float
@@ -24,6 +28,8 @@ class alertContactGroups extends Model
     public $contactGroupId;
 
     /**
+     * @description The name of the alert contact group.
+     *
      * @example TestGroup
      *
      * @var string
@@ -31,6 +37,8 @@ class alertContactGroups extends Model
     public $contactGroupName;
 
     /**
+     * @description The contact information. If the **IsDetail** parameter is set to `false`, no **contact** information is displayed.
+     *
      * @var contacts[]
      */
     public $contacts;

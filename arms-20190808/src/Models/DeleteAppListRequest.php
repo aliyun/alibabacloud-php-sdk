@@ -6,16 +6,14 @@ namespace AlibabaCloud\SDK\ARMS\V20190808\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetAuthTokenRequest extends Model
+class DeleteAppListRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The PIDs of the applications monitored by ARMS Application Monitoring.
      *
-     * @example cc7a37ee31aea4ed1a059eff8034b****
-     *
-     * @var string
+     * @var string[]
      */
-    public $clusterId;
+    public $pids;
 
     /**
      * @description The region ID.
@@ -26,8 +24,8 @@ class GetAuthTokenRequest extends Model
      */
     public $regionId;
     protected $_name = [
-        'clusterId' => 'ClusterId',
-        'regionId'  => 'RegionId',
+        'pids'     => 'Pids',
+        'regionId' => 'RegionId',
     ];
 
     public function validate()
@@ -37,8 +35,8 @@ class GetAuthTokenRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->clusterId) {
-            $res['ClusterId'] = $this->clusterId;
+        if (null !== $this->pids) {
+            $res['Pids'] = $this->pids;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -50,13 +48,15 @@ class GetAuthTokenRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetAuthTokenRequest
+     * @return DeleteAppListRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ClusterId'])) {
-            $model->clusterId = $map['ClusterId'];
+        if (isset($map['Pids'])) {
+            if (!empty($map['Pids'])) {
+                $model->pids = $map['Pids'];
+            }
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

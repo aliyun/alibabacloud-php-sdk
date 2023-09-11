@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertContactResponseBody extends Model
 {
     /**
+     * @description Indicates whether the call was successful.
+     *
+     *   `true`: The call was successful.
+     *   `false`: The call failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class DeleteAlertContactResponseBody extends Model
     public $isSuccess;
 
     /**
+     * @description The ID of the request. You can query logs and troubleshoot issues based on the ID.
+     *
      * @example 78901766-3806-4E96-8E47-CFEF59E4****
      *
      * @var string

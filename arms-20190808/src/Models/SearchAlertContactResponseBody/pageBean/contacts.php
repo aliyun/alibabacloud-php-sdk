@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class contacts extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class contacts extends Model
     public $contactId;
 
     /**
+     * @description The name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -23,11 +27,17 @@ class contacts extends Model
     public $contactName;
 
     /**
+     * @description The contact group to which the contact belongs. If your contacts are added to multiple contact groups, the contact groups are separated by vertical bars (|).
+     *
+     * @example Default Group | SRE Group
+     *
      * @var string
      */
     public $content;
 
     /**
+     * @description The timestamp generated when the alert contact was created.
+     *
      * @example 1572349025000
      *
      * @var int
@@ -35,6 +45,8 @@ class contacts extends Model
     public $createTime;
 
     /**
+     * @description The webhook URL of the DingTalk chatbot.
+     *
      * @example https://oapi.dingtalk.com/robot/send?access_token=91f2f6****
      *
      * @var string
@@ -42,6 +54,8 @@ class contacts extends Model
     public $dingRobot;
 
     /**
+     * @description The email address of the alert contact.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -49,6 +63,8 @@ class contacts extends Model
     public $email;
 
     /**
+     * @description The mobile number of the alert contact.
+     *
      * @example 1381111*****
      *
      * @var string
@@ -56,6 +72,8 @@ class contacts extends Model
     public $phone;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmxyexli2****
      *
      * @var string
@@ -63,6 +81,11 @@ class contacts extends Model
     public $resourceGroupId;
 
     /**
+     * @description Indicates whether the alert contact receives system notifications. Valid values:
+     *
+     *   `true`: The alert contact receives system notifications.
+     *   `false`: The alert contact does not receive system notifications.
+     *
      * @example false
      *
      * @var bool
@@ -70,6 +93,8 @@ class contacts extends Model
     public $systemNoc;
 
     /**
+     * @description The timestamp generated when the alert contact was updated.
+     *
      * @example 1580258717000
      *
      * @var int
@@ -77,6 +102,8 @@ class contacts extends Model
     public $updateTime;
 
     /**
+     * @description The ID of the user.
+     *
      * @example 113197164949****
      *
      * @var string
@@ -84,6 +111,8 @@ class contacts extends Model
     public $userId;
 
     /**
+     * @description The information about the webhook.
+     *
      * @example {\"body\":\"{   \\\"msg_type\\\": \\\"text\\\",   \\\"content\\\": {     \\\"text\\\": \\\"$content\\\"   } }\",\"header\":{\"Arms-Content-Type\":\"json\"},\"method\":\"post\",\"params\":{},\"url\":\"https://***",\"userId\":\"1131971649***\"}",
      *
      * @var string

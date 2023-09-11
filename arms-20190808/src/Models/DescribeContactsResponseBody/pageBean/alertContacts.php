@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class alertContacts extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 100147
      *
      * @var int
@@ -16,6 +18,8 @@ class alertContacts extends Model
     public $armsContactId;
 
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 123
      *
      * @var float
@@ -23,6 +27,8 @@ class alertContacts extends Model
     public $contactId;
 
     /**
+     * @description The name of the alert contact.
+     *
      * @example John Doe
      *
      * @var string
@@ -30,6 +36,8 @@ class alertContacts extends Model
     public $contactName;
 
     /**
+     * @description The email address of the alert contact.
+     *
      * @example someone@example.com
      *
      * @var string
@@ -37,6 +45,8 @@ class alertContacts extends Model
     public $email;
 
     /**
+     * @description Indicates whether the email address was verified.
+     *
      * @example true
      *
      * @var bool
@@ -44,6 +54,11 @@ class alertContacts extends Model
     public $isEmailVerify;
 
     /**
+     * @description Indicates whether the mobile number was verified. Valid values:
+     *
+     *   `false`: no
+     *   `true`: yes
+     *
      * @example false
      *
      * @var bool
@@ -51,6 +66,8 @@ class alertContacts extends Model
     public $isVerify;
 
     /**
+     * @description The mobile number of the alert contact.
+     *
      * @example 1381111****
      *
      * @var string
@@ -58,6 +75,13 @@ class alertContacts extends Model
     public $phone;
 
     /**
+     * @description The operation that you want to perform if phone calls fail to be answered. Valid values:
+     *
+     *   0: No operation is performed.
+     *   1: A phone call is made again.
+     *   2: A text message is sent.
+     *   3 (default value): The global default value is used.
+     *
      * @example 3
      *
      * @var int

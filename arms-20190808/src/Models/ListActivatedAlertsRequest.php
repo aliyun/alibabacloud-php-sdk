@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListActivatedAlertsRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: `1`.
+     *
      * @example 1
      *
      * @var int
@@ -16,11 +18,17 @@ class ListActivatedAlertsRequest extends Model
     public $currentPage;
 
     /**
+     * @description The filter condition in the `{"key":"value"}`format. You must specify the `key` and `value` of the filter condition.
+     *
+     * @example {"alertname":"Container CPU usage is greater than 80%"}
+     *
      * @var string
      */
     public $filter;
 
     /**
+     * @description The number of entries to return on each page. Default value: `10`.
+     *
      * @example 10
      *
      * @var int
@@ -28,6 +36,8 @@ class ListActivatedAlertsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

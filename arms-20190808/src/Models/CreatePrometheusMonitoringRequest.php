@@ -46,7 +46,7 @@ class CreatePrometheusMonitoringRequest extends Model
 
     /**
      * @description The type of the monitoring configuration.
-     * Valid values for a Prometheus instance for ECS: CustomJob and Probe.
+     * Valid values for a Prometheus instance for ECS: customJob and probe.
      * @example serviceMonitor
      *
      * @var string

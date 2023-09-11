@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeContactGroupsRequest extends Model
 {
     /**
-     * @description The ID of the alert contact.
+     * @description The name of the alert contact group.
      *
      * @example TestGroup
      *
@@ -18,6 +18,8 @@ class DescribeContactGroupsRequest extends Model
     public $contactGroupName;
 
     /**
+     * @description The ID of the alert contact group.
+     *
      * @example 12345
      *
      * @var string
@@ -25,6 +27,11 @@ class DescribeContactGroupsRequest extends Model
     public $groupIds;
 
     /**
+     * @description Specifies whether to return all the alert contacts in the queried alert contact group. Valid values:
+     *
+     *   `false`
+     *   `true`
+     *
      * @example true
      *
      * @var bool
@@ -32,7 +39,7 @@ class DescribeContactGroupsRequest extends Model
     public $isDetail;
 
     /**
-     * @description The ID of the alert contact group.
+     * @description The number of the page to return.
      *
      * @example 1
      *
@@ -41,11 +48,17 @@ class DescribeContactGroupsRequest extends Model
     public $page;
 
     /**
+     * @description The region ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The number of alert contact groups displayed on each page.
+     *
      * @example 20
      *
      * @var int

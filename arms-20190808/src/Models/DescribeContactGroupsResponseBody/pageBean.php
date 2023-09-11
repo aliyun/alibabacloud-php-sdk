@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
+     * @description The name of the alert contact group.
+     *
      * @var alertContactGroups[]
      */
     public $alertContactGroups;
 
     /**
+     * @description The page number of the returned page.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class pageBean extends Model
     public $page;
 
     /**
+     * @description The number of alert contact groups displayed on each page.
+     *
      * @example 20
      *
      * @var int
@@ -29,6 +35,8 @@ class pageBean extends Model
     public $size;
 
     /**
+     * @description The total number of alert contact groups.
+     *
      * @example 1
      *
      * @var int

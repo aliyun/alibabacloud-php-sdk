@@ -228,6 +228,8 @@ class alertRules extends Model
     public $regionId;
 
     /**
+     * @description The list of tags.
+     *
      * @var tags[]
      */
     public $tags;

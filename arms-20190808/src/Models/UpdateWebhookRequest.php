@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class UpdateWebhookRequest extends Model
 {
     /**
+     * @description The notification template that is sent when an alert is triggered. This parameter is required if the **Method** parameter is set to **Post**. You can use the $content placeholder to specify the notification content. The content cannot exceed 500 characters in length.
+     *
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels.\_aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels.\_aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Alert time":"{{ .startTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $body;
 
     /**
+     * @description The ID of the webhook alert contact. You can call the **SearchAlertContact** operation to obtain the ID.
+     *
      * @example 48716
      *
      * @var int
@@ -21,11 +27,17 @@ class UpdateWebhookRequest extends Model
     public $contactId;
 
     /**
+     * @description The name of the webhook alert contact.
+     *
+     * @example Webhook alert
+     *
      * @var string
      */
     public $contactName;
 
     /**
+     * @description The HTTP request headers.
+     *
      * @example [{"Content-Type":"application/json"}]
      *
      * @var string
@@ -33,6 +45,8 @@ class UpdateWebhookRequest extends Model
     public $httpHeaders;
 
     /**
+     * @description The parameters in the HTTP request.
+     *
      * @example [{"name":"mike"}]
      *
      * @var string
@@ -40,6 +54,11 @@ class UpdateWebhookRequest extends Model
     public $httpParams;
 
     /**
+     * @description The HTTP request method. Valid values:
+     *
+     *   `Get`
+     *   `Post`
+     *
      * @example Post
      *
      * @var string
@@ -47,11 +66,17 @@ class UpdateWebhookRequest extends Model
     public $method;
 
     /**
+     * @description The notification template that is sent when an alert is resolved. This parameter is required if the **Method** parameter is set to **Post**. You can use the $content placeholder to specify the notification content. The content cannot exceed 500 characters in length.
+     *
+     * @example { "Alert name":"{{ .commonLabels.alertname }}{{if .commonLabels.clustername }}", "Cluster name":"{{ .commonLabels.clustername }} {{ end }}{{if eq "app" .commonLabels.\_aliyun_arms_involvedObject_kind }}", "Application name":"{{ .commonLabels.\_aliyun_arms_involvedObject_name }} {{ end }}", "Notification policy":"{{ .dispatchRuleName }}", "Recovery time":"{{ .endTime }}", "Alert content":"{{ for .alerts }} {{ .annotations.message }} {{ end }}" }
+     *
      * @var string
      */
     public $recoverBody;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -59,6 +84,8 @@ class UpdateWebhookRequest extends Model
     public $regionId;
 
     /**
+     * @description The URL of the HTTP request method.
+     *
      * @example https://oapi.dingtalk.com/robot/send?access_token=e1a049121ddbfce1ca963d115ef88cc7219583c4fb79fe6e398fbfb688******
      *
      * @var string

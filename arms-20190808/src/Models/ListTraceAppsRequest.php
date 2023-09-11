@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class ListTraceAppsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $appType;
+
+    /**
      * @description The region ID.
      *
      * @example cn-hangzhou
@@ -43,6 +48,7 @@ class ListTraceAppsRequest extends Model
      */
     public $tags;
     protected $_name = [
+        'appType'         => 'AppType',
         'region'          => 'Region',
         'regionId'        => 'RegionId',
         'resourceGroupId' => 'ResourceGroupId',
@@ -56,6 +62,9 @@ class ListTraceAppsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appType) {
+            $res['AppType'] = $this->appType;
+        }
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
@@ -86,6 +95,9 @@ class ListTraceAppsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppType'])) {
+            $model->appType = $map['AppType'];
+        }
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteAlertContactRequest extends Model
 {
     /**
+     * @description The ID of the alert contact.
+     *
      * @example 123
      *
      * @var int
@@ -16,6 +18,8 @@ class DeleteAlertContactRequest extends Model
     public $contactId;
 
     /**
+     * @description The ID of the region.
+     *
      * @example cn-hangzhou
      *
      * @var string

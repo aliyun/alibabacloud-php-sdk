@@ -10,21 +10,35 @@ use AlibabaCloud\Tea\Model;
 class CreateRetcodeAppResponseBody extends Model
 {
     /**
+     * @description The status code. The status code 200 indicates that the request was successful. If another status code is returned, the request failed.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $code;
 
     /**
+     * @description The response parameters.
+     *
+     * @example cs80w0n7u3@6455f403dba2f0a
+     *
      * @var string
      */
     public $data;
 
     /**
+     * @description The message returned.
+     *
+     * @example message
+     *
      * @var string
      */
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example A5EC8221-08F2-4C95-9AF1-49FD998C647A
      *
      * @var string
@@ -32,11 +46,20 @@ class CreateRetcodeAppResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The return detail.
+     *
      * @var retcodeAppDataBean
      */
     public $retcodeAppDataBean;
 
     /**
+     * @description Indicates whether the call was successful. Valid values:
+     *
+     *   true: The call was successful.
+     *   false: The call failed.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $success;

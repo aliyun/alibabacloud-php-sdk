@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAppApiByPageRequest extends Model
 {
     /**
-     * @description The number of entries to return on each page.
+     * @description The page number of the returned page.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class GetAppApiByPageRequest extends Model
     public $currentPage;
 
     /**
-     * @description The operation that you want to perform. Set the value to `GetAppApiByPage`.
+     * @description The end of the time range to query. Unit: milliseconds.
      *
      * @example 1600066800000
      *
@@ -27,7 +27,7 @@ class GetAppApiByPageRequest extends Model
     public $endTime;
 
     /**
-     * @description The time interval between the data shards to be queried. Unit: milliseconds. Minimum value: 60000.
+     * @description The time interval between the data shards to be queried. Unit: milliseconds. Minimum value: 60000. Maximum value: 2147483647.
      *
      * @example 60000
      *
@@ -36,7 +36,7 @@ class GetAppApiByPageRequest extends Model
     public $intervalMills;
 
     /**
-     * @description The ID of the region.
+     * @description The process identifier (PID) of the application. For information about how to obtain a PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
      *
      * @example a2n80plglh@745eddxxx
      *
@@ -45,7 +45,7 @@ class GetAppApiByPageRequest extends Model
     public $PId;
 
     /**
-     * @description The message returned.
+     * @description The number of entries to return on each page. This parameter is no longer supported. The number of entries to return on each page. Default value: 10.
      *
      * @example 10
      *
@@ -54,7 +54,7 @@ class GetAppApiByPageRequest extends Model
     public $pageSize;
 
     /**
-     * @description The process identifier (PID) of the application. For more information about how to obtain the PID, see [Obtain the PID of an application](https://www.alibabacloud.com/help/zh/doc-detail/186100.htm?spm=a2cdw.13409063.0.0.7a72281f0bkTfx#title-imy-7gj-qhr).
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -63,12 +63,7 @@ class GetAppApiByPageRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code returned for the request. Valid values:
-     *
-     *   2XX: The request is successful.
-     *   3XX: A redirection message is returned.
-     *   4XX: The request is invalid.
-     *   5XX: A server error occurs.
+     * @description The beginning of the time range to query. Unit: milliseconds.
      *
      * @example 1600063200000
      *
