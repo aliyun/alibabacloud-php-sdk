@@ -157,6 +157,8 @@ use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceResourceGroupResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyDBInstanceSSLResponse;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyMasterSpecRequest;
+use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyMasterSpecResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersRequest;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifyParametersResponse;
 use AlibabaCloud\SDK\Gpdb\V20160503\Models\ModifySecurityIpsRequest;
@@ -689,10 +691,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a plan for an AnalyticDB for PostgreSQL instance. For example, you can create a plan to pause and resume an instance, change the number of compute nodes, or change compute node specifications.
-     *   * >  This operation is applicable only to pay-as-you-go instances.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * *   The plan management feature is supported only for pay-as-you-go instances.
+     *   * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
+     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *   *
      * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
      * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
@@ -749,10 +750,9 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to create a plan for an AnalyticDB for PostgreSQL instance. For example, you can create a plan to pause and resume an instance, change the number of compute nodes, or change compute node specifications.
-     *   * >  This operation is applicable only to pay-as-you-go instances.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * *   The plan management feature is supported only for pay-as-you-go instances.
+     *   * *   When you change the compute node specifications or change the number of compute nodes, transient connections may occur. We recommend that you perform these operations during off-peak hours.
+     *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
      *   *
      * @param CreateDBInstancePlanRequest $request CreateDBInstancePlanRequest
      *
@@ -1424,9 +1424,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a specific zone.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
      *   *
      * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -1465,9 +1463,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a specific zone.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * When you create an AnalyticDB for PostgreSQL instance, you can call this operation to query the available resources within a zone.
      *   *
      * @param DescribeAvailableResourcesRequest $request DescribeAvailableResourcesRequest
      *
@@ -1590,9 +1586,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the information of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ##
+     *   * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
      * @param RuntimeOptions               $runtime runtime options for this request RuntimeOptions
@@ -1628,9 +1625,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the information of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
+     * ##
+     *   * You can call this operation to query the information about coordinator and compute nodes in an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeDBClusterNodeRequest $request DescribeDBClusterNodeRequest
      *
@@ -1644,10 +1642,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the performance metrics of an AnalyticDB for PostgreSQL instance, such as the number of connections, memory usage, CPU utilization, I/O throughput, read IOPS, write IOPS, and disk space usage.
-     *   * You can query monitoring information only within the last 30 days.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * You can query monitoring information only within the last 30 days.
      *   *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -1695,10 +1690,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * This operation is called to query the performance metrics of an AnalyticDB for PostgreSQL instance, such as the number of connections, memory usage, CPU utilization, I/O throughput, read IOPS, write IOPS, and disk space usage.
-     *   * You can query monitoring information only within the last 30 days.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
+     * You can query monitoring information only within the last 30 days.
      *   *
      * @param DescribeDBClusterPerformanceRequest $request DescribeDBClusterPerformanceRequest
      *
@@ -1712,9 +1704,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+     * ##
+     *   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
      *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
@@ -1753,9 +1746,10 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
+     * ##
+     *   * You can call this operation to query the information about an AnalyticDB for PostgreSQL instance, such as the instance type, network type, and instance state.
      *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds a limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limits when you call this operation.
+     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param DescribeDBInstanceAttributeRequest $request DescribeDBInstanceAttributeRequest
      *
@@ -1883,9 +1877,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the distribution and states of coordinator and compute nodes on an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
      *   *
      * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
      * @param RuntimeOptions                            $runtime runtime options for this request RuntimeOptions
@@ -1933,9 +1925,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the distribution and states of coordinator and compute nodes on an AnalyticDB for PostgreSQL instance.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the distribution and states of coordinator and compute nodes in an AnalyticDB for PostgreSQL instance.
      *   *
      * @param DescribeDBInstanceDiagnosisSummaryRequest $request DescribeDBInstanceDiagnosisSummaryRequest
      *
@@ -2081,10 +2071,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Appropriate indexes can improve the database query speed. You can call this operation to query the details of index usage on an AnalyticDB for PostgreSQL instance.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
      * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
      * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
@@ -2123,10 +2111,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * Appropriate indexes can improve the database query speed. You can call this operation to query the details of index usage on an AnalyticDB for PostgreSQL instance.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Appropriate indexes can accelerate database queries. You can call this operation to query the index usage of an AnalyticDB for PostgreSQL instance.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
      * @param DescribeDBInstanceIndexUsageRequest $request DescribeDBInstanceIndexUsageRequest
      *
@@ -2353,7 +2339,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a specific region.
+     * ##
+     *   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
      *   * ## Limits
      *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -2438,7 +2425,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a specific region.
+     * ##
+     *   * You can call this operation to query the instance types, network types, and states of AnalyticDB for PostgreSQL instances within a region.
      *   * ## Limits
      *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
@@ -2454,10 +2442,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataBackupsRequest $request
-     * @param RuntimeOptions             $runtime
+     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     *   *
+     * @param DescribeDataBackupsRequest $request DescribeDataBackupsRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeDataBackupsResponse
+     * @return DescribeDataBackupsResponse DescribeDataBackupsResponse
      */
     public function describeDataBackupsWithOptions($request, $runtime)
     {
@@ -2509,9 +2499,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeDataBackupsRequest $request
+     * You can call this operation to query a list of backup sets and backup details only for instances in elastic storage mode.
+     *   *
+     * @param DescribeDataBackupsRequest $request DescribeDataBackupsRequest
      *
-     * @return DescribeDataBackupsResponse
+     * @return DescribeDataBackupsResponse DescribeDataBackupsResponse
      */
     public function describeDataBackups($request)
     {
@@ -2567,9 +2559,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the state of data sharing for AnalyticDB for PostgreSQL instances in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Data sharing is supported only for instances in Serverless mode.
      *   *
      * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
      * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
@@ -2617,9 +2607,7 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the state of data sharing for AnalyticDB for PostgreSQL instances in Serverless mode.
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * Data sharing is supported only for instances in Serverless mode.
      *   *
      * @param DescribeDataShareInstancesRequest $request DescribeDataShareInstancesRequest
      *
@@ -2891,10 +2879,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of a specified query on an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
      * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -2933,10 +2919,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to query the details of a specified query on an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You can call this operation to query the information about a query for an AnalyticDB for PostgreSQL instance, including the SQL statement, execution plan text, and execution plan tree.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
      * @param DescribeDiagnosisSQLInfoRequest $request DescribeDiagnosisSQLInfoRequest
      *
@@ -2950,10 +2934,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to obtain a download record before you can call this operation to query and download the query diagnostic information.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
      * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2986,10 +2968,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to obtain a download record before you can call this operation to query and download the query diagnostic information.
-     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For more information about how to view and update the minor engine version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+     * You must call the [DownloadDiagnosisRecords](~~447700~~) operation to download the query diagnostic information before you can call this operation to query the download records and download URLs.
+     *   * This operation is available only for instances of V6.3.10.1 or later in elastic storage mode. For information about how to view and update the minor version of an instance, see [View the minor engine version](~~277424~~) and [Update the minor engine version](~~139271~~).
      *   *
      * @param DescribeDownloadRecordsRequest $request DescribeDownloadRecordsRequest
      *
@@ -3511,10 +3491,12 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLLogCountRequest $request
-     * @param RuntimeOptions             $runtime
+     * This operation is not available for instances in reserved storage mode.
+     *   *
+     * @param DescribeSQLLogCountRequest $request DescribeSQLLogCountRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return DescribeSQLLogCountResponse
+     * @return DescribeSQLLogCountResponse DescribeSQLLogCountResponse
      */
     public function describeSQLLogCountWithOptions($request, $runtime)
     {
@@ -3578,9 +3560,11 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * @param DescribeSQLLogCountRequest $request
+     * This operation is not available for instances in reserved storage mode.
+     *   *
+     * @param DescribeSQLLogCountRequest $request DescribeSQLLogCountRequest
      *
-     * @return DescribeSQLLogCountResponse
+     * @return DescribeSQLLogCountResponse DescribeSQLLogCountResponse
      */
     public function describeSQLLogCount($request)
     {
@@ -4936,6 +4920,58 @@ class Gpdb extends OpenApiClient
     }
 
     /**
+     * @param ModifyMasterSpecRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return ModifyMasterSpecResponse
+     */
+    public function modifyMasterSpecWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBInstanceDescription)) {
+            $query['DBInstanceDescription'] = $request->DBInstanceDescription;
+        }
+        if (!Utils::isUnset($request->DBInstanceId)) {
+            $query['DBInstanceId'] = $request->DBInstanceId;
+        }
+        if (!Utils::isUnset($request->masterCU)) {
+            $query['MasterCU'] = $request->masterCU;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyMasterSpec',
+            'version'     => '2016-05-03',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyMasterSpecResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyMasterSpecRequest $request
+     *
+     * @return ModifyMasterSpecResponse
+     */
+    public function modifyMasterSpec($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyMasterSpecWithOptions($request, $runtime);
+    }
+
+    /**
      * This operation can be called to modify parameters of an AnalyticDB for PostgreSQL instance in elastic storage mode or Serverless mode.
      *   * ## Limits
      *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered and may affect your business. We recommend that you take note of the limit when you call this operation.
@@ -6055,11 +6091,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to change the configurations of an AnalyticDB for PostgreSQL instance.
-     *   * >  This operation is not supported for instances in reserved storage mode.
+     * This operation is not available for instances in reserved storage mode.
      *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
      * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
@@ -6131,11 +6164,8 @@ class Gpdb extends OpenApiClient
     }
 
     /**
-     * You can call this operation to change the configurations of an AnalyticDB for PostgreSQL instance.
-     *   * >  This operation is not supported for instances in reserved storage mode.
+     * This operation is not available for instances in reserved storage mode.
      *   * Before you call this operation, make sure that you are familiar with the billing of AnalyticDB for PostgreSQL. For more information, see [Billing methods](~~35406~~) and [AnalyticDB for PostgreSQL pricing](https://www.alibabacloud.com/zh/product/hybriddb-postgresql/pricing).
-     *   * ## Limits
-     *   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param UpgradeDBInstanceRequest $request UpgradeDBInstanceRequest
      *

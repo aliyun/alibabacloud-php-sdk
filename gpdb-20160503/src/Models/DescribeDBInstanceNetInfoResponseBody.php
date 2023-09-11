@@ -17,10 +17,10 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $DBInstanceNetInfos;
 
     /**
-     * @description The network type of the instance.
+     * @description The network type of the instance. Valid values:
      *
-     *   **VPC**: a virtual private cloud (VPC)
-     *   **Classic**: classic network
+     *   Classic: classic network.
+     *   VPC: VPC.
      *
      * @example Classic
      *
@@ -29,7 +29,7 @@ class DescribeDBInstanceNetInfoResponseBody extends Model
     public $instanceNetworkType;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
      *

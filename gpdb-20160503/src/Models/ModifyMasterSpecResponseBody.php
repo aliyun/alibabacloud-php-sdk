@@ -6,58 +6,38 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CreateDBInstancePlanResponseBody extends Model
+class ModifyMasterSpecResponseBody extends Model
 {
     /**
-     * @description The instance ID.
-     *
      * @example gp-bp12ga6v69h86****
      *
      * @var string
      */
-    public $DBInstanceId;
+    public $dbInstanceId;
 
     /**
-     * @description The error message.
-     *
-     * This parameter is returned only if the request fails.
-     * @example ****
+     * @example ******
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description The plan ID.
-     *
-     * @example 1234
-     *
-     * @var string
-     */
-    public $planId;
-
-    /**
-     * @description The request ID.
-     *
-     * @example 34b32a0a-08ef-4a87-b6be-cdd9f56fc3ad
+     * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description Indicates whether the request was successful.
+     * @example true
      *
-     * If the request was successful, **success** is returned. If the request failed, this parameter is not returned.
-     * @example success
-     *
-     * @var string
+     * @var bool
      */
     public $status;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
+        'dbInstanceId' => 'DbInstanceId',
         'errorMessage' => 'ErrorMessage',
-        'planId'       => 'PlanId',
         'requestId'    => 'RequestId',
         'status'       => 'Status',
     ];
@@ -69,14 +49,11 @@ class CreateDBInstancePlanResponseBody extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBInstanceId) {
-            $res['DBInstanceId'] = $this->DBInstanceId;
+        if (null !== $this->dbInstanceId) {
+            $res['DbInstanceId'] = $this->dbInstanceId;
         }
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
-        }
-        if (null !== $this->planId) {
-            $res['PlanId'] = $this->planId;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -91,19 +68,16 @@ class CreateDBInstancePlanResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateDBInstancePlanResponseBody
+     * @return ModifyMasterSpecResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBInstanceId'])) {
-            $model->DBInstanceId = $map['DBInstanceId'];
+        if (isset($map['DbInstanceId'])) {
+            $model->dbInstanceId = $map['DbInstanceId'];
         }
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
-        }
-        if (isset($map['PlanId'])) {
-            $model->planId = $map['PlanId'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DownloadSQLLogsRecordsResponseBody extends Model
 {
     /**
+     * @description The ID of the download task.
+     *
      * @example 11
      *
      * @var int
@@ -16,6 +18,8 @@ class DownloadSQLLogsRecordsResponseBody extends Model
     public $downloadId;
 
     /**
+     * @description The request ID.
+     *
      * @example 7565770E-7C45-462D-BA4A-8A5396F2CAD1
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccountsRequest extends Model
 {
     /**
-     * @description The name of the account.
+     * @description The name of the database account.
      *
      * @example testuser
      *
@@ -18,9 +18,9 @@ class DescribeAccountsRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string

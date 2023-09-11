@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataBackupsRequest extends Model
 {
     /**
-     * @description The ID of the backup set. If you specify the BackupId parameter, the details of the backup set are returned.
+     * @description The ID of the backup set. If you specify BackupId, the details of the backup set are returned.
      *
+     * > You can call the [DescribeDataBackups](~~210093~~) operation to query the information about all backup sets of an instance, including backup set IDs.
      * @example 327329803
      *
      * @var string
@@ -20,10 +21,10 @@ class DescribeDataBackupsRequest extends Model
     /**
      * @description The backup mode. Valid values:
      *
-     *   Automated: automatic backup
-     *   Manual: manual backup
+     *   Automated
+     *   Manual
      *
-     * If you do not specify this parameter, the records of the backup sets in all modes are returned.
+     * If you do not specify this parameter, all backup sets are returned.
      * @example Automated
      *
      * @var string
@@ -31,12 +32,12 @@ class DescribeDataBackupsRequest extends Model
     public $backupMode;
 
     /**
-     * @description The status of the backup set. Valid values:
+     * @description The state of the backup set. Valid values:
      *
-     *   Success: The backup is complete.
-     *   Failed: The backup task fails.
+     *   Success
+     *   Failed
      *
-     * If you do not specify this parameter, the records of the backup sets in all states are returned.
+     * If you do not specify this parameter, all backup sets are returned.
      * @example Success
      *
      * @var string
@@ -44,8 +45,9 @@ class DescribeDataBackupsRequest extends Model
     public $backupStatus;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string
@@ -53,12 +55,12 @@ class DescribeDataBackupsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The type of the backup. Valid values:
+     * @description The backup type. Valid values:
      *
-     *   DATA: full backup
-     *   RESTOREPOI: point-in-time backup
+     *   **DATA**: full backup.
+     *   **RESTOREPOI**: point-in-time recovery backup.
      *
-     * If you do not specify this parameter, the records of the full backup set are returned.
+     * If you do not specify this parameter, the backup sets of full backup are returned.
      * @example DATA
      *
      * @var string
@@ -75,7 +77,7 @@ class DescribeDataBackupsRequest extends Model
     public $endTime;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is larger than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1
      *
      * @example 1
      *
@@ -84,7 +86,7 @@ class DescribeDataBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   30
      *   50

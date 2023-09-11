@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DownloadSQLLogsRecordsRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -16,6 +19,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example testdb
      *
      * @var string
@@ -23,6 +28,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $database;
 
     /**
+     * @description The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The end time must be later than the start time.
+     *
      * @example 2023-05-08T06:59Z
      *
      * @var string
@@ -30,6 +37,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The execution duration of the SQL statement. Unit: seconds.
+     *
      * @example 1
      *
      * @var string
@@ -37,6 +46,11 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $executeCost;
 
     /**
+     * @description The execution state of the SQL statement.
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string
@@ -44,6 +58,13 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $executeState;
 
     /**
+     * @description The language of the file that contains the query diagnostic information. Valid values:
+     *
+     *   **zh**: simplified Chinese.
+     *   **en**: English.
+     *   **ja**: Japanese.
+     *   **zh-tw**: traditional Chinese.
+     *
      * @example zh
      *
      * @var string
@@ -51,6 +72,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $lang;
 
     /**
+     * @description The maximum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+     *
      * @example 999
      *
      * @var string
@@ -58,6 +81,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $maxExecuteCost;
 
     /**
+     * @description The minimum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+     *
      * @example 1
      *
      * @var string
@@ -65,6 +90,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $minExecuteCost;
 
     /**
+     * @description The type of the query language. Example: DQL, DML, or DDL.
+     *
      * @example DQL
      *
      * @var string
@@ -72,6 +99,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $operationClass;
 
     /**
+     * @description The type of the SQL statement. Example: SELECT.
+     *
      * @example SELECT
      *
      * @var string
@@ -79,6 +108,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $operationType;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -86,6 +117,13 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid values:
+     *
+     *   **30**
+     *   **50**
+     *   **100**
+     *
+     * Default value: **30**.
      * @example 30
      *
      * @var int
@@ -93,6 +131,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The keywords that are used for query.
+     *
      * @example select 1
      *
      * @var string
@@ -100,6 +140,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $queryKeywords;
 
     /**
+     * @description The source IP address.
+     *
      * @example 100.XX.XX.90
      *
      * @var string
@@ -107,6 +149,8 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $sourceIP;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format. The time must be in UTC.
+     *
      * @example 2023-05-07T06:59Z
      *
      * @var string
@@ -114,6 +158,10 @@ class DownloadSQLLogsRecordsRequest extends Model
     public $startTime;
 
     /**
+     * @description The name of the database account.
+     *
+     * @example testuser
+     *
      * @var string
      */
     public $user;

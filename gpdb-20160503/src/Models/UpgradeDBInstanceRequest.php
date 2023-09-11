@@ -29,7 +29,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
      * @example gp-rj***************
      *
      * @var string
@@ -39,7 +39,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The specifications of each compute node. For information about the supported specifications, see [Instance specifications](~~35406~~).
      *
-     * >  This parameter is available only for instances in elastic storage mode.
+     * > This parameter is available only for instances in elastic storage mode.
      * @example 4C16G
      *
      * @var string
@@ -49,7 +49,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The number of coordinator nodes. Valid values: 1 and 2.
      *
-     * >  This parameter is available only on the China site (aliyun.com).
+     * > This parameter is available only for China site (aliyun.com).
      * @example 2
      *
      * @var string
@@ -73,7 +73,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The region ID of the instance.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -81,7 +81,7 @@ class UpgradeDBInstanceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
      *
      * @example rg-bp67acfmxazb4p****
      *
@@ -105,9 +105,9 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The number of compute nodes. The number of compute nodes varies based on the instance resource type and edition.
      *
-     *   Valid values for High-availability Edition instances in elastic storage mode: 4 to 512, in 4 increments
-     *   Valid values for High-performance Edition instances in elastic storage mode: 2 to 512, in 2 increments
-     *   Valid values for instances in manual Serverless mode: 2 to 512, in 2 increments
+     *   Valid values for High-availability Edition instances in elastic storage mode: 4 to 512, in 4 increments.
+     *   Valid values for High-performance Edition instances in elastic storage mode: 2 to 512, in 2 increments.
+     *   Valid values for instances in manual Serverless mode: 2 to 512, in 2 increments.
      *
      * @example 2
      *
@@ -127,7 +127,7 @@ class UpgradeDBInstanceRequest extends Model
     /**
      * @description The storage capacity of each compute node. Unit: GB. Valid values: 50 to 6000, in 50 increments.
      *
-     * >  This parameter is available only for instances in elastic storage mode.
+     * > This parameter is available only for instances in elastic storage mode.
      * @example 100
      *
      * @var string
@@ -142,10 +142,14 @@ class UpgradeDBInstanceRequest extends Model
      *   **2**: changes the number of coordinator nodes.
      *   **3**: changes the disk storage type and ESSD performance level of the instance.
      *
-     * > *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "[Precautions](~~50956~~)" section of the Change compute node configurations topic.
-     * > *   After you specify a change type, only the corresponding parameters take effect. For example, if you set **UpgradeType** to 0, the parameter that is used to change the number of compute nodes takes effect, but the parameter that is used to change the number of coordinator nodes does not.
-     * > *   The number of coordinator nodes can be changed only on the China site (aliyun.com).
-     * > *   The disk storage type can be changed only from ultra disks to ESSDs.
+     * >
+     *
+     *   The supported changes to compute node configurations vary based on the instance resource type. For more information, see the "[Usage notes](~~50956~~)" section of the Change compute node configurations topic.
+     *
+     *   After you specify a change type, only the corresponding parameters take effect. For example, if you set **UpgradeType** to 0, the parameter that is used to change the number of compute nodes takes effect, but the parameter that is used to change the number of coordinator nodes does not.
+     *   The number of coordinator nodes can be changed only on the China site (aliyun.com).
+     *   The disk storage type can be changed only from ultra disks to ESSDs.
+     *
      * @example 0
      *
      * @var int

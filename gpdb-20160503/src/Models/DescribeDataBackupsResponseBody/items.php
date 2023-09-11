@@ -27,6 +27,14 @@ class items extends Model
     public $backupEndTimeLocal;
 
     /**
+     * @description The method that is used to generate the backup set. Valid values:
+     *
+     *   **Logical**: logical backup
+     *   **Physical**: physical backup
+     *   **Snapshot**: snapshot backup
+     *
+     * @example Physical
+     *
      * @var string
      */
     public $backupMethod;

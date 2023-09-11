@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogCountResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example gp-xxxxxxxx
      *
@@ -28,14 +28,14 @@ class DescribeSQLLogCountResponseBody extends Model
     public $endTime;
 
     /**
-     * @description Details of the audit logs of the instance.
+     * @description The name of the instance.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 7565770E-7C45-462D-BA4A-8A**********
      *

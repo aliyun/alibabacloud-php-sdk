@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDataReDistributeInfoResponseBody extends Model
 {
     /**
+     * @description The data redistribution information.
+     *
      * @var dataReDistributeInfo
      */
     public $dataReDistributeInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 04836A02-ADC9-1AA7-AC36-DE5E048BF505
      *
      * @var string

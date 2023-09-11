@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBClusterPerformanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example gp-bp12ga6v69h86****
      *
@@ -28,14 +28,14 @@ class DescribeDBClusterPerformanceResponseBody extends Model
     public $endTime;
 
     /**
-     * @description Details of the performance metrics of the instance.
+     * @description The name of the performance metric. For more information, see [Performance parameters](~~86943~~).
      *
      * @var performanceKeys[]
      */
     public $performanceKeys;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8E8990F0-C81E-4C94-8F51-5F**********
      *

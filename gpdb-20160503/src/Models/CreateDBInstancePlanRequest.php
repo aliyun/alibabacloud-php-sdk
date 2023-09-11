@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstancePlanRequest extends Model
 {
     /**
-     * @description The ID of instance.
+     * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -24,7 +24,7 @@ class CreateDBInstancePlanRequest extends Model
     public $ownerId;
 
     /**
-     * @description The execution information of the plan. Specify the parameter in the JSON format. The parameter value varies based on the values of the **PlanType** and **PlanScheduleType** parameters. The following section describes the PlanConfig parameter.
+     * @description The execution information of the plan. Specify the parameter in the JSON format. The parameter value varies based on the values of **PlanType** and **PlanScheduleType**. The following section describes the PlanConfig parameter.
      *
      * @example {"pause":{"planCronTime":"0 0 12 1/1 * ? "},"resume":{"planCronTime":"0 0 0 1/1 * ? "}}
      *
@@ -44,8 +44,12 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @description The end time of the plan. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
-     * > *   This parameter is required only if the **PlanScheduleType** parameter is set to **Regular**.
-     * > *   If you do not specify this parameter, the plan does not end.
+     * >
+     *
+     *   This parameter must be specified only when **PlanScheduleType** is set to **Regular**.
+     *
+     *   If you do not specify this parameter, the plan does not end.
+     *
      * @example 2023-04-17T23:00Z
      *
      * @var string
@@ -76,8 +80,12 @@ class CreateDBInstancePlanRequest extends Model
     /**
      * @description The start time of the plan. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * >  *   This parameter is required only if the **PlanScheduleType** parameter is set to **Regular**.
-     * >  *   If you do not specify this parameter, the plan is executed immediately.
+     * >
+     *
+     *   This parameter must be specified only when **PlanScheduleType** is set to **Regular**.
+     *
+     *   If you do not specify this parameter, the plan is executed immediately.
+     *
      * @example 2022-04-17T23:00Z
      *
      * @var string
@@ -91,8 +99,12 @@ class CreateDBInstancePlanRequest extends Model
      *   **Resize**: changes the number of compute nodes.
      *   **ModifySpec**: changes compute node specifications.
      *
-     * > *   You can specify the value to Resize only for instances in Serverless mode.
-     * > *   You can specify the value to ModifySpec only for instances in elastic storage mode.
+     * >
+     *
+     *   You can specify the value to Resize only for instances in Serverless mode.
+     *
+     *   You can specify the value to ModifySpec only for instances in elastic storage mode.
+     *
      * @example PauseResume
      *
      * @var string

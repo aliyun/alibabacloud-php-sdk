@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLLogCountRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxx
      *
      * @var string
@@ -28,9 +28,9 @@ class DescribeSQLLogCountRequest extends Model
     public $database;
 
     /**
-     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time. Their interval cannot be more than seven days.
+     * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
      * @example 2020-12-14T11:22Z
      *
      * @var string
@@ -38,7 +38,7 @@ class DescribeSQLLogCountRequest extends Model
     public $endTime;
 
     /**
-     * @description The execution duration of the query. Unit: seconds.
+     * @description The execution duration of the SQL statement. Unit: seconds.
      *
      * @example 100
      *
@@ -47,7 +47,7 @@ class DescribeSQLLogCountRequest extends Model
     public $executeCost;
 
     /**
-     * @description The execution state of the query. Valid values:
+     * @description The execution state of the SQL statement. Valid values:
      *
      *   **success**
      *   **fail**
@@ -59,7 +59,7 @@ class DescribeSQLLogCountRequest extends Model
     public $executeState;
 
     /**
-     * @description The maximum amount of time consumed by a slow query. Minimum value: 0. Unit: seconds.
+     * @description The maximum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
      *
      * @example 1000
      *
@@ -68,7 +68,7 @@ class DescribeSQLLogCountRequest extends Model
     public $maxExecuteCost;
 
     /**
-     * @description The minimum amount of time consumed by a slow query. Minimum value: 0. Unit: seconds.
+     * @description The minimum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
      *
      * @example 10
      *
@@ -94,9 +94,13 @@ class DescribeSQLLogCountRequest extends Model
     /**
      * @description The type of the SQL statement.
      *
-     * > *   If the **OperationClass** parameter is specified, the **OperationType** value must belong to the corresponding query language. For example, if the **OperationClass** value is **DQL**, the **OperationType** value must be a **DQL** SQL statement such as **SELECT**.
-     * >*   If the **OperationClass** parameter is not specified, the **OperationType** value can be an SQL statement of all query languages.
-     * >*   If neither of the **OperationClass** and **OperationType** parameters is specified, all types of SQL statements are returned.
+     * >
+     *
+     *   If **OperationClass** is specified, the value of **OperationType** must belong to the corresponding query language. For example, if **OperationClass** is set to **DQL**, the value of **OperationType** must be a **DQL** statement such as **SELECT**.
+     *
+     *   If **OperationClass** is not specified, the value of **OperationType** can be an SQL statement of any query language.
+     *   If **OperationClass** and **OperationType** are not specified, all types of SQL statements are returned.
+     *
      * @example SELECT
      *
      * @var string
@@ -104,7 +108,7 @@ class DescribeSQLLogCountRequest extends Model
     public $operationType;
 
     /**
-     * @description The keywords used to query.
+     * @description The keywords that are used to query audit logs.
      *
      * @example test
      *
@@ -122,7 +126,7 @@ class DescribeSQLLogCountRequest extends Model
     public $sourceIP;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mmZ` format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2020-12-12T11:22Z
      *
@@ -131,7 +135,7 @@ class DescribeSQLLogCountRequest extends Model
     public $startTime;
 
     /**
-     * @description The username that is used to log on to the database.
+     * @description The name of the database account that is used to connect to the database.
      *
      * @example adbpgadmin
      *

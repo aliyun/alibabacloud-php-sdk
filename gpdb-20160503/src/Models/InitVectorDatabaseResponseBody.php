@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InitVectorDatabaseResponseBody extends Model
 {
     /**
+     * @description The error message returned if the request fails.
+     *
      * @example failed to connect database, detailMsg: getConnection fail::SQL State: 28P01, Error Code: 0, Error Message: FATAL: password
      *
      * @var string
@@ -16,6 +18,8 @@ class InitVectorDatabaseResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -23,6 +27,11 @@ class InitVectorDatabaseResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **Success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

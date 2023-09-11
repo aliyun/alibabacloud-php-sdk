@@ -36,7 +36,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $maxOutputRows;
 
     /**
-     * @description The ID of the query.
+     * @description The query ID.
      *
      * @example 71403480878****
      *
@@ -45,7 +45,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $queryID;
 
     /**
-     * @description The information of the operator.
+     * @description The information about the operator.
      *
      * @example {\"children\":********\"startTime\":1660719602199}
      *
@@ -54,7 +54,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $queryPlan;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 425AAA6A-63E0-1929-A1CE-3D9036CBC463
      *
@@ -90,7 +90,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $sortedMetrics;
 
     /**
-     * @description The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @description The start time of the query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1660719602199
      *
@@ -101,8 +101,8 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     /**
      * @description The execution state of the query. Valid values:
      *
-     *   **running**: The query is being executed.
-     *   **finished**: The query execution is complete.
+     *   **running**
+     *   **finished**
      *
      * @example finished
      *
@@ -111,7 +111,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $status;
 
     /**
-     * @description The information of the execution plan.
+     * @description The information about the execution plan.
      *
      * @example ******
      *
@@ -120,7 +120,7 @@ class DescribeDiagnosisSQLInfoResponseBody extends Model
     public $textPlan;
 
     /**
-     * @description The name of the database account.
+     * @description The username.
      *
      * @example adbpguser
      *

@@ -19,7 +19,7 @@ class DescribeWaitingSQLInfoResponseBody extends Model
     public $database;
 
     /**
-     * @description Details of the lock-waiting query.
+     * @description The queried lock-waiting query.
      *
      * @var items[]
      */

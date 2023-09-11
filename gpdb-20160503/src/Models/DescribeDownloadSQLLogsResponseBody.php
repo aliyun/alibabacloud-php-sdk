@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadSQLLogsResponseBody extends Model
 {
     /**
+     * @description The URL that is used to download the file.
+     *
      * @var records[]
      */
     public $records;
 
     /**
+     * @description The request ID.
+     *
      * @example FDE9942A-D919-527B-B559-5D0F6F20CCEC
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceErrorLogResponseBody extends Model
 {
     /**
-     * @description Details of the error logs.
+     * @description The content of the error log.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeDBInstanceErrorLogResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
@@ -35,7 +35,7 @@ class DescribeDBInstanceErrorLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

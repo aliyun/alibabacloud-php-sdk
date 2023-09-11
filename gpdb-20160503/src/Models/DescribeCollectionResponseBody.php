@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCollectionResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeCollectionResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The number of vector dimensions.
+     *
      * @example 1024
      *
      * @var int
@@ -23,6 +27,8 @@ class DescribeCollectionResponseBody extends Model
     public $dimension;
 
     /**
+     * @description The fields that are used for full-text search. Multiple fields are separated by commas (,).
+     *
      * @example title,content
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribeCollectionResponseBody extends Model
     public $fullTextRetrievalFields;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -37,12 +45,18 @@ class DescribeCollectionResponseBody extends Model
     public $message;
 
     /**
+     * @description The metadata of vector data, which is a JSON string in the MAP format. The key specifies the field name, and the value specifies the data type.
+     *
+     **
+     *
+     **Warning** Reserved fields such as id, vector, and to_tsvector cannot be used.
+     *
      * @var string[]
      */
     public $metadata;
 
     /**
-     * @description Distance Metrics。
+     * @description The distance metrics.
      *
      * @example cosine
      *
@@ -51,6 +65,8 @@ class DescribeCollectionResponseBody extends Model
     public $metrics;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -58,6 +74,8 @@ class DescribeCollectionResponseBody extends Model
     public $namespace;
 
     /**
+     * @description The analyzer that is used for full-text search.
+     *
      * @example zh_cn
      *
      * @var string
@@ -65,6 +83,8 @@ class DescribeCollectionResponseBody extends Model
     public $parser;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -72,6 +92,8 @@ class DescribeCollectionResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -79,6 +101,11 @@ class DescribeCollectionResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

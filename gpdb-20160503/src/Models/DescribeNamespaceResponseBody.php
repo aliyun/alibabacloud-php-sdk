@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeNamespaceResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -23,6 +27,8 @@ class DescribeNamespaceResponseBody extends Model
     public $message;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -30,11 +36,15 @@ class DescribeNamespaceResponseBody extends Model
     public $namespace;
 
     /**
+     * @description The queried namespace.
+     *
      * @var string[]
      */
     public $namespaceInfo;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +52,8 @@ class DescribeNamespaceResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -49,6 +61,11 @@ class DescribeNamespaceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

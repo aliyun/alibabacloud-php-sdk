@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePlansResponseBody extends Model
 {
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
-     * This parameter is returned only when the operation fails.
+     * This parameter is returned only if the request fails.
      * @example ****
      *
      * @var string
@@ -20,14 +20,14 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $errorMessage;
 
     /**
-     * @description Details of the plans.
+     * @description The instance ID.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -36,7 +36,7 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -45,7 +45,7 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 34b32a0a-08ef-4a87-b6be-cdd988888888
      *
@@ -54,9 +54,9 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The state of the operation.
+     * @description Indicates whether the request was successful.
      *
-     * If the operation is successful, **success** is returned. If the operation fails, this parameter is not returned.
+     * If the request was successful, **success** is returned. If the request failed, this parameter is not returned.
      * @example success
      *
      * @var string
@@ -64,7 +64,7 @@ class DescribeDBInstancePlansResponseBody extends Model
     public $status;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

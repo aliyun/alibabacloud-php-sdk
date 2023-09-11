@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListCollectionsResponseBody extends Model
 {
     /**
+     * @description The queried vector collections.
+     *
      * @var collections
      */
     public $collections;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -22,6 +26,8 @@ class ListCollectionsResponseBody extends Model
     public $count;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -29,6 +35,8 @@ class ListCollectionsResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -36,6 +44,8 @@ class ListCollectionsResponseBody extends Model
     public $message;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -43,6 +53,8 @@ class ListCollectionsResponseBody extends Model
     public $namespace;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -50,6 +62,8 @@ class ListCollectionsResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -57,6 +71,11 @@ class ListCollectionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

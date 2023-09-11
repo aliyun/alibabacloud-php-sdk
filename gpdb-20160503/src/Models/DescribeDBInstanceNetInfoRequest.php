@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoRequest extends Model
 {
     /**
+     * @description The endpoint that is used to connect to the instance.
+     *
+     * >  If you do not specify this parameter, the information about all endpoints of the instance is returned.
+     * @example gp-0xin9q82c33xc****-master.gpdb.rds.aliyuncs.com
+     *
      * @var string
      */
     public $connectionString;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query details about all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxxx
      *
      * @var string

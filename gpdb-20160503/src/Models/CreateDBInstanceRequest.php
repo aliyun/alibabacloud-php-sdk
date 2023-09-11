@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @example 1111111111
+     *
      * @var string
      */
     public $backupId;
@@ -183,6 +185,8 @@ class CreateDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
+     * @example 8 CU
+     *
      * @var int
      */
     public $masterCU;
@@ -205,9 +209,15 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     * - **Postpaid**: pay-as-you-go.
-     * - **Prepaid**: subscription.
-     * - You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *
+     * >
+     *
+     *   If you do not specify this parameter, Postpaid is used.
+     *
+     *   You can obtain more cost savings if you create a subscription instance for one year or longer. We recommend that you select the billing method that best suits your needs.
+     *
      * @example Prepaid
      *
      * @var string
@@ -266,10 +276,16 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The performance level of ESSDs. Valid values:
      *
-     * - **pl0**
-     * - **pl1**
-     * - **pl2**
-     * - If you do not specify this parameter, pl1 is used.
+     *   **pl0**
+     *   **pl1**
+     *   **pl2**
+     *
+     * >
+     *
+     *   This parameter takes effect only when SegStorageType is set to cloud_essd.
+     *
+     *   If you do not specify this parameter, pl1 is used.
+     *
      * @example pl1
      *
      * @var string
@@ -320,6 +336,8 @@ class CreateDBInstanceRequest extends Model
     public $serverlessResource;
 
     /**
+     * @example gp-bp***************
+     *
      * @var string
      */
     public $srcDbInstanceName;

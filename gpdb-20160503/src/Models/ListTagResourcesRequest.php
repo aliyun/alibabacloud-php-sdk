@@ -69,7 +69,7 @@ class ListTagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The list of tags.
+     * @description The queried tags.
      *
      * @var tag[]
      */

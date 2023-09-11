@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
-     * @description Details of the parameters.
+     * @description The queried configuration parameters.
      *
      * @var parameters[]
      */

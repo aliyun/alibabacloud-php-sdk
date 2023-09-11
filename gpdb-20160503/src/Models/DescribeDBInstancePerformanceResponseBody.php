@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example gp-bp12ga6v69h86****
      *
@@ -36,14 +36,14 @@ class DescribeDBInstancePerformanceResponseBody extends Model
     public $engine;
 
     /**
-     * @description Details of the performance metrics. Format: {perf1, perf2, perf3, …}.
+     * @description The queried performance metrics.
      *
      * @var string[]
      */
     public $performanceKeys;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5E85244A-AB47-46A3-A3AD-5F307DCB407E
      *

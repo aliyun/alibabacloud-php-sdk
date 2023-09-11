@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
-     * @description The current value of the parameter.
+     * @description The current value of the configuration parameter.
      *
      * @example 10800000
      *
@@ -30,7 +30,7 @@ class parameters extends Model
     public $forceRestartInstance;
 
     /**
-     * @description Indicates whether the parameter can be modified. Valid values:
+     * @description Indicates whether the configuration parameter can be modified. Valid values:
      *
      *   **true**
      *   **false**
@@ -42,7 +42,7 @@ class parameters extends Model
     public $isChangeableConfig;
 
     /**
-     * @description The valid values of the parameter.
+     * @description The valid values of the configuration parameter.
      *
      * @example [0-2147483647]
      *
@@ -51,7 +51,7 @@ class parameters extends Model
     public $optionalRange;
 
     /**
-     * @description The description of the parameter.
+     * @description The description of the configuration parameter.
      *
      * @example Sets the maximum allowed duration of any statement, A value of 0 turns off the timeout.
      *
@@ -60,7 +60,7 @@ class parameters extends Model
     public $parameterDescription;
 
     /**
-     * @description The name of the parameter.
+     * @description The name of the configuration parameter.
      *
      * @example statement_timeout
      *
@@ -69,7 +69,7 @@ class parameters extends Model
     public $parameterName;
 
     /**
-     * @description The default value of the parameter.
+     * @description The default value of the configuration parameter.
      *
      * @example 10800000
      *

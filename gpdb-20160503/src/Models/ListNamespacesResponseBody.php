@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListNamespacesResponseBody extends Model
 {
     /**
+     * @description The total number of entries returned.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,8 @@ class ListNamespacesResponseBody extends Model
     public $count;
 
     /**
+     * @description The instance ID.
+     *
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -24,6 +28,8 @@ class ListNamespacesResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The returned message.
+     *
      * @example Successful
      *
      * @var string
@@ -31,11 +37,15 @@ class ListNamespacesResponseBody extends Model
     public $message;
 
     /**
+     * @description The queried namespaces.
+     *
      * @var namespaces
      */
     public $namespaces;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -43,6 +53,8 @@ class ListNamespacesResponseBody extends Model
     public $regionId;
 
     /**
+     * @description The request ID.
+     *
      * @example ABB39CC3-4488-4857-905D-2E4A051D0521
      *
      * @var string
@@ -50,6 +62,11 @@ class ListNamespacesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **success**
+     *   **fail**
+     *
      * @example success
      *
      * @var string

@@ -11,7 +11,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     /**
      * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
      * @example gp-bp13ue79qk8y1****
      *
      * @var string
@@ -24,7 +24,7 @@ class DescribeDBInstanceAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
      *
      * @example rg-bp67acfmxazb4p****
      *

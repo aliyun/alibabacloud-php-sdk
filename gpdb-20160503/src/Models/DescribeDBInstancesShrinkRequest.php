@@ -10,11 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesShrinkRequest extends Model
 {
     /**
-     * @description The edition of the instance. Separate multiple values with commas (,). Valid values:
-     *
-     *   **basic**: Basic Edition
-     *   **highavailability**: High-availability Edition
-     *   **finance**: Enterprise Edition
+     * @description The edition of the instance. Separate multiple values with commas (,).
      *
      * @var string
      */
@@ -30,7 +26,7 @@ class DescribeDBInstancesShrinkRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance. Separate multiple IDs with commas (,).
+     * @description The instance ID. Separate multiple values with commas (,).
      *
      * @example gp-bp12ga6v69h86****
      *
@@ -39,20 +35,15 @@ class DescribeDBInstancesShrinkRequest extends Model
     public $DBInstanceIds;
 
     /**
-     * @description The resource type of the instance. Separate multiple values with commas (,). Valid values:
-     *
-     *   **serverless**: Serverless mode
-     *   **storageelastic**: elastic storage mode
-     *   **classic**: reserved storage mode
+     * @description The resource type of the instance. Separate multiple values with commas (,).
      *
      * @var string
      */
     public $DBInstanceModesShrink;
 
     /**
-     * @description The state of the instance. Separate multiple values with commas (,). For more information, see [Instance statuses](~~86944~~).
+     * @description The state of the instance.
      *
-     * >  The value of this parameter must be in lowercase.
      * @var string
      */
     public $DBInstanceStatusesShrink;
@@ -67,10 +58,10 @@ class DescribeDBInstancesShrinkRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **VPC**
-     *   **Classic**
+     *   **VPC**: virtual private cloud (VPC).
+     *   **Classic**: classic network.
      *
-     * >  If you do not specify this parameter, instances of both network types are returned.
+     * > If you do not specify this parameter, instances of all network types are returned.
      * @example VPC
      *
      * @var string
@@ -83,7 +74,7 @@ class DescribeDBInstancesShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -92,7 +83,7 @@ class DescribeDBInstancesShrinkRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**
@@ -106,9 +97,9 @@ class DescribeDBInstancesShrinkRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -125,7 +116,7 @@ class DescribeDBInstancesShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The list of tags.
+     * @description The tag value.
      *
      * @var tag[]
      */

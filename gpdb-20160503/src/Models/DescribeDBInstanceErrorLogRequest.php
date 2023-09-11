@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceErrorLogRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
-     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-bp12ga6v69h86****
      *
      * @var string
@@ -28,7 +28,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $database;
 
     /**
-     * @description The end of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
      *
      * @example 2022-04-25T06:59Z
      *
@@ -46,7 +46,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $host;
 
     /**
-     * @description One or more keywords that can be used to query error logs.
+     * @description One or more keywords that are used to query error logs.
      *
      * @example error
      *
@@ -58,9 +58,9 @@ class DescribeDBInstanceErrorLogRequest extends Model
      * @description The level of the logs to query. Valid values:
      *
      *   **ALL**: queries all error logs.
-     *   **PANIC**: queries only abnormal-level logs.
-     *   **FATAL**: queries only critical-level logs.
-     *   **ERROR**: queries only error-level logs.
+     *   **PANIC**: queries only abnormal logs.
+     *   **FATAL**: queries only critical logs.
+     *   **ERROR**: queries only error logs.
      *
      * @example ALL
      *
@@ -69,7 +69,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $logLevel;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -78,7 +78,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **20**
      *   **50**
@@ -92,7 +92,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $pageSize;
 
     /**
-     * @description The beginning of the time range to query. Specify the time in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * @example 2022-04-24T06:59Z
      *
@@ -101,7 +101,7 @@ class DescribeDBInstanceErrorLogRequest extends Model
     public $startTime;
 
     /**
-     * @description The name of the database account.
+     * @description The username.
      *
      * @example adbpguser
      *

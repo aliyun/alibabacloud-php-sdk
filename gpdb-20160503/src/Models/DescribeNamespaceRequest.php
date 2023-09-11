@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeNamespaceRequest extends Model
 {
     /**
+     * @description The instance ID.
+     *
+     * > You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-xxxxxxxxx
      *
      * @var string
@@ -16,6 +19,8 @@ class DescribeNamespaceRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the manager account that has the rds_superuser permission.
+     *
      * @example testaccount
      *
      * @var string
@@ -23,6 +28,8 @@ class DescribeNamespaceRequest extends Model
     public $managerAccount;
 
     /**
+     * @description The password of the manager account.
+     *
      * @example testpassword
      *
      * @var string
@@ -30,6 +37,8 @@ class DescribeNamespaceRequest extends Model
     public $managerAccountPassword;
 
     /**
+     * @description The name of the namespace.
+     *
      * @example mynamespace
      *
      * @var string
@@ -42,6 +51,9 @@ class DescribeNamespaceRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance.
+     *
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

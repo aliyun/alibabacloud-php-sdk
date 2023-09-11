@@ -10,14 +10,18 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesResponseBody extends Model
 {
     /**
-     * @description Details of the instance.
+     * @description The type of the Serverless mode. Valid values:
      *
+     *   **Manual**: manual scheduling.
+     *   **Auto**: automatic scheduling.
+     *
+     * > This parameter is returned only for instances in Serverless mode.
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +30,7 @@ class DescribeDBInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -35,7 +39,7 @@ class DescribeDBInstancesResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 53EA07B7-FC2A-521B-AB7C-27**********
      *

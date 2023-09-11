@@ -11,8 +11,8 @@ class DescribeAvailableResourcesRequest extends Model
     /**
      * @description The billing method. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
      * @example PostPaid
      *
@@ -21,9 +21,9 @@ class DescribeAvailableResourcesRequest extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -31,9 +31,9 @@ class DescribeAvailableResourcesRequest extends Model
     public $region;
 
     /**
-     * @description The ID of the zone.
+     * @description The zone ID.
      *
-     * >  You can call the [DescribeRegions](~~86912~~) operation to query the most recent zone list.
+     * > You can call the [DescribeRegions](~~86912~~)operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

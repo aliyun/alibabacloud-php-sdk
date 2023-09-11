@@ -6,29 +6,40 @@ namespace AlibabaCloud\SDK\Gpdb\V20160503\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeDBInstanceIPArrayListRequest extends Model
+class ModifyMasterSpecRequest extends Model
 {
     /**
-     * @description The instance ID.
+     * @example test
      *
-     * > You can call the [DescribeDBInstances](~~86911~~) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
-     * @example gp-bp***************
+     * @var string
+     */
+    public $DBInstanceDescription;
+
+    /**
+     * @example gp-xxxxxxxxx
      *
      * @var string
      */
     public $DBInstanceId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](~~151181~~).
+     * @example 8 CU
      *
+     * @var int
+     */
+    public $masterCU;
+
+    /**
      * @example rg-bp67acfmxazb4p****
      *
      * @var string
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'DBInstanceDescription' => 'DBInstanceDescription',
+        'DBInstanceId'          => 'DBInstanceId',
+        'masterCU'              => 'MasterCU',
+        'resourceGroupId'       => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -38,8 +49,14 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceDescription) {
+            $res['DBInstanceDescription'] = $this->DBInstanceDescription;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->masterCU) {
+            $res['MasterCU'] = $this->masterCU;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -51,13 +68,19 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeDBInstanceIPArrayListRequest
+     * @return ModifyMasterSpecRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceDescription'])) {
+            $model->DBInstanceDescription = $map['DBInstanceDescription'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['MasterCU'])) {
+            $model->masterCU = $map['MasterCU'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

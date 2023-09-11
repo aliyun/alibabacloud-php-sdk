@@ -28,7 +28,7 @@ class DescribeHealthStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The information of performance metrics. Each performance metric consists of the parameter name, status, and metric value. The metric information is returned only for the performance parameters specified by **Key**. For example, if you set **Key** to **adbpg_status**, only the metric information of **adbpg_status** is returned.
+     * @description The queried performance metrics. Each performance metric consists of the parameter name, status, and metric value. The metric information is returned only for the performance parameters specified by **Key**. For example, if you set **Key** to **adbpg_status**, only the metric information of **adbpg_status** is returned.
      *
      * For more information about performance parameters, see [Performance parameters](~~86943~~).
      * @example {"node_master_connection_status":{"Status":"healthy","Value":1.6}}

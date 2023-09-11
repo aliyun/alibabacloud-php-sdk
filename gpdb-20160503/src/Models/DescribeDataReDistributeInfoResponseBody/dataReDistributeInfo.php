@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class dataReDistributeInfo extends Model
 {
     /**
+     * @description The execution information. If an error occurs, the error message is returned.
+     *
      * @example redistributing
      *
      * @var string
@@ -16,6 +18,8 @@ class dataReDistributeInfo extends Model
     public $message;
 
     /**
+     * @description The progress of data redistribution. Unit: %.
+     *
      * @example 33
      *
      * @var int
@@ -23,6 +27,8 @@ class dataReDistributeInfo extends Model
     public $progress;
 
     /**
+     * @description The estimated remaining time for data redistribution.
+     *
      * @example 00:01:28
      *
      * @var string
@@ -30,6 +36,8 @@ class dataReDistributeInfo extends Model
     public $remainTime;
 
     /**
+     * @description This parameter is not supported.
+     *
      * @example null
      *
      * @var string
@@ -37,6 +45,8 @@ class dataReDistributeInfo extends Model
     public $startTime;
 
     /**
+     * @description The status of data redistribution.
+     *
      * @example RUNNING
      *
      * @var string
@@ -44,6 +54,8 @@ class dataReDistributeInfo extends Model
     public $status;
 
     /**
+     * @description The execution type. The value **immediate** is returned, indicating immediate execution.
+     *
      * @example immediate
      *
      * @var string

@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDiagnosisDimensionsResponseBody extends Model
 {
     /**
-     * @description The name of the database.
+     * @description The names of the databases.
      *
      * @var string[]
      */
     public $databases;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 9ADCAACA-E0E8-5319-AE3B-E260E957BDF9
      *
@@ -25,7 +25,7 @@ class DescribeDiagnosisDimensionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the database account.
+     * @description The names of the database accounts.
      *
      * @var string[]
      */

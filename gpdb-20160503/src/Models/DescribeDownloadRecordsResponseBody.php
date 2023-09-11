@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeDownloadRecordsResponseBody extends Model
 {
     /**
-     * @description Details of the download records.
+     * @description The URL that is used to download the file.
      *
      * @var records[]
      */
     public $records;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
      *
