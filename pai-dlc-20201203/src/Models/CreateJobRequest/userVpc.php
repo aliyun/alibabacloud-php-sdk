@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class userVpc extends Model
 {
     /**
+     * @var string
+     */
+    public $defaultRoute;
+
+    /**
      * @var string[]
      */
     public $extendedCIDRs;
@@ -34,6 +39,7 @@ class userVpc extends Model
      */
     public $vpcId;
     protected $_name = [
+        'defaultRoute'    => 'DefaultRoute',
         'extendedCIDRs'   => 'ExtendedCIDRs',
         'securityGroupId' => 'SecurityGroupId',
         'switchId'        => 'SwitchId',
@@ -47,6 +53,9 @@ class userVpc extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->defaultRoute) {
+            $res['DefaultRoute'] = $this->defaultRoute;
+        }
         if (null !== $this->extendedCIDRs) {
             $res['ExtendedCIDRs'] = $this->extendedCIDRs;
         }
@@ -71,6 +80,9 @@ class userVpc extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DefaultRoute'])) {
+            $model->defaultRoute = $map['DefaultRoute'];
+        }
         if (isset($map['ExtendedCIDRs'])) {
             if (!empty($map['ExtendedCIDRs'])) {
                 $model->extendedCIDRs = $map['ExtendedCIDRs'];
