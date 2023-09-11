@@ -18,7 +18,7 @@ class GetDefaultDomainResponseBody extends Model
     public $defaultDomainName;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 66815255-7CCE-4759-AC37-9755794C3626
      *

@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class accessKeyPreference extends Model
 {
     /**
-     * @description Specifies whether RAM users can manage their AccessKey pairs. Valid values:
+     * @description Indicates whether RAM users can manage their AccessKey pairs. Valid values:
      *
-     *   true: yes
-     *   false: no
+     *   true
+     *   false
      *
      * @example false
      *

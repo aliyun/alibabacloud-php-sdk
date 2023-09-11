@@ -28,7 +28,17 @@ class GetCredentialReportResponseBody extends Model
     public $generatedTime;
 
     /**
-     * @description The ID of the request.
+     * @var string
+     */
+    public $isTruncated;
+
+    /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
+     * @description The request ID.
      *
      * @example 7A01826E-7601-44B0-B4DF-2B0C509836DE
      *
@@ -38,6 +48,8 @@ class GetCredentialReportResponseBody extends Model
     protected $_name = [
         'content'       => 'Content',
         'generatedTime' => 'GeneratedTime',
+        'isTruncated'   => 'IsTruncated',
+        'nextToken'     => 'NextToken',
         'requestId'     => 'RequestId',
     ];
 
@@ -53,6 +65,12 @@ class GetCredentialReportResponseBody extends Model
         }
         if (null !== $this->generatedTime) {
             $res['GeneratedTime'] = $this->generatedTime;
+        }
+        if (null !== $this->isTruncated) {
+            $res['IsTruncated'] = $this->isTruncated;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -74,6 +92,12 @@ class GetCredentialReportResponseBody extends Model
         }
         if (isset($map['GeneratedTime'])) {
             $model->generatedTime = $map['GeneratedTime'];
+        }
+        if (isset($map['IsTruncated'])) {
+            $model->isTruncated = $map['IsTruncated'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];

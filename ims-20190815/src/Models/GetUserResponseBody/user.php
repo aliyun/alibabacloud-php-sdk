@@ -39,7 +39,7 @@ class user extends Model
     /**
      * @description The email address of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example alice@example.com
      *
      * @var string
@@ -58,7 +58,7 @@ class user extends Model
     /**
      * @description The mobile phone number of the RAM user.
      *
-     * >  This parameter is valid only on the China site (aliyun.com).
+     * > This parameter is valid only on the China site (aliyun.com).
      * @example 86-1868888****
      *
      * @var string
@@ -66,7 +66,7 @@ class user extends Model
     public $mobilePhone;
 
     /**
-     * @description The source of the RAM user. Valid values:
+     * @description The source of the RAM user. Valid value:
      *
      *   Manual: The RAM user is manually created in the RAM console.
      *   SCIM: The RAM user is mapped by using System for Cross-domain Identity Management (SCIM).
@@ -79,7 +79,7 @@ class user extends Model
     public $provisionType;
 
     /**
-     * @description An array that consists of tags.
+     * @description The tags.
      *
      * @var tags
      */

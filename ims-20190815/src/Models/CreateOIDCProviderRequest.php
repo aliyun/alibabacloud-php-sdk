@@ -39,12 +39,16 @@ class CreateOIDCProviderRequest extends Model
     public $fingerprints;
 
     /**
+     * @description The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $issuanceLimitTime;
 
     /**
-     * @description The URL of the issuer, which is provided by the external IdP Okta. The URL of the issuer must be unique within an Alibaba Cloud account.
+     * @description The URL of the issuer, which is provided by the external IdP. The URL of the issuer must be unique within an Alibaba Cloud account.
      *
      * The URL can be up to 255 characters in length.
      * @example https://dev-xxxxxx.okta.com

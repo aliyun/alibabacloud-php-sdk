@@ -31,7 +31,7 @@ class ListOIDCProvidersResponseBody extends Model
     public $marker;
 
     /**
-     * @description The timestamp when the OIDC IdP was modified.
+     * @description The information about the OIDC IdP.
      *
      * @var OIDCProviders
      */

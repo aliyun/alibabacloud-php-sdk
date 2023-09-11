@@ -17,7 +17,7 @@ class GetLoginProfileResponseBody extends Model
     public $loginProfile;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E517F18B-632C-48FC-93F1-CDCBCC6F8444
      *

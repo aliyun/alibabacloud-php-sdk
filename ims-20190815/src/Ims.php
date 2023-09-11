@@ -64,6 +64,7 @@ use AlibabaCloud\SDK\Ims\V20190815\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAppSecretRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetAppSecretResponse;
+use AlibabaCloud\SDK\Ims\V20190815\Models\GetCredentialReportRequest;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetCredentialReportResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetDefaultDomainResponse;
 use AlibabaCloud\SDK\Ims\V20190815\Models\GetGroupRequest;
@@ -690,14 +691,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
+     * ### [](#)Prerequisite
      *   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-     *   * ### Limits
+     *   * ### [](#)Limits
      *   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
      *   * *   You can add a maximum of 20 client IDs to an OIDC IdP.
      *   * *   You can add a maximum of five fingerprints to an OIDC IdP.
-     *   * ###
-     *   * ``.
+     *   * ### [](#)
+     *   * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
      *   *
      * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
@@ -745,14 +746,14 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * ### Prerequisites
+     * ### [](#)Prerequisite
      *   * Before you call this operation, make sure that the information such as the URL of the issuer, the fingerprints of HTTPS certificates, and the client IDs are obtained from an external IdP, such as Google G Suite or Okta.
-     *   * ### Limits
+     *   * ### [](#)Limits
      *   * *   You can create a maximum of 100 OIDC IdPs in an Alibaba Cloud account.
      *   * *   You can add a maximum of 20 client IDs to an OIDC IdP.
      *   * *   You can add a maximum of five fingerprints to an OIDC IdP.
-     *   * ###
-     *   * ``.
+     *   * ### [](#)
+     *   * This topic provides an example on how to create an IdP named `TestOIDCProvider` to configure a trust relationship between the external IdP and Alibaba Cloud.
      *   *
      * @param CreateOIDCProviderRequest $request CreateOIDCProviderRequest
      *
@@ -1640,13 +1641,24 @@ class Ims extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param GetCredentialReportRequest $request
+     * @param RuntimeOptions             $runtime
      *
      * @return GetCredentialReportResponse
      */
-    public function getCredentialReportWithOptions($runtime)
+    public function getCredentialReportWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->maxItems)) {
+            $query['MaxItems'] = $request->maxItems;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'GetCredentialReport',
             'version'     => '2019-08-15',
@@ -1663,13 +1675,15 @@ class Ims extends OpenApiClient
     }
 
     /**
+     * @param GetCredentialReportRequest $request
+     *
      * @return GetCredentialReportResponse
      */
-    public function getCredentialReport()
+    public function getCredentialReport($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->getCredentialReportWithOptions($runtime);
+        return $this->getCredentialReportWithOptions($request, $runtime);
     }
 
     /**

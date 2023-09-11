@@ -17,7 +17,7 @@ class GetAppSecretResponseBody extends Model
     public $appSecret;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EE46FC3C-3BDE-4771-B531-27B7B6EB533D
      *

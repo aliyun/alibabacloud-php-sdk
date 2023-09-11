@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class loginProfilePreference extends Model
 {
     /**
-     * @description Specifies whether RAM users can change their passwords. Valid values:
+     * @description Indicates whether RAM users can change their passwords. Valid values:
      *
-     *   true: yes
-     *   false: no
+     *   true
+     *   false
      *
      * @example true
      *
@@ -21,10 +21,10 @@ class loginProfilePreference extends Model
     public $allowUserToChangePassword;
 
     /**
-     * @description Specifies whether to remember the multi-factor authentication (MFA) devices for seven days. Valid values:
+     * @description Indicates whether RAM users can remember the multi-factor authentication (MFA) devices for seven days. Valid values:
      *
-     *   true: yes
-     *   false: no
+     *   true
+     *   false
      *
      * @example false
      *
@@ -51,10 +51,10 @@ class loginProfilePreference extends Model
     public $loginSessionDuration;
 
     /**
-     * @description Specifies whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. This parameter is used to replace the EnforceMFAForLogin parameter. The EnforceMFAForLogin parameter is still valid. However, we recommend that you use the MFAOperationForLogin parameter. Valid values:
+     * @description Indicates whether MFA is required for all RAM users when they log on to the Alibaba Cloud Management Console. Valid values:
      *
-     *   mandatory: MFA is required for all RAM users. If you use the EnforceMFAForLogin parameter, set the value to true.
-     *   independent: User-specific settings are applied. This is the default value. If you use the EnforceMFAForLogin parameter, set the value to false.
+     *   mandatory: MFA is required for all RAM users. If you use EnforceMFAForLogin, set the value to true.
+     *   independent (default): User-specific settings are applied. If you use EnforceMFAForLogin, set the value to false.
      *   adaptive: MFA is required only for RAM users who initiated unusual logons.
      *
      * @example adaptive
@@ -64,10 +64,10 @@ class loginProfilePreference extends Model
     public $MFAOperationForLogin;
 
     /**
-     * @description Specifies whether to enable MFA for RAM users who initiated unusual logons. Valid values:
+     * @description Indicates whether to enable MFA for RAM users who initiated unusual logons. Valid values:
      *
-     *   autonomous: yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA. This is the default value.
-     *   enforceVerify: no.
+     *   autonomous (default): yes. MFA is prompted for RAM users who initiated unusual logons. However, the RAM users are allowed to skip MFA.
+     *   enforceVerify: MFA is prompted for RAM users who initiated unusual logons and the RAM users cannot skip MFA.
      *
      * @example autonomous
      *

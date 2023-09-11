@@ -72,12 +72,16 @@ class OIDCProvider extends Model
     public $gmtModified;
 
     /**
+     * @description The earliest time when an external IdP can issue an ID token. If the value of the iat field in the ID token is later than the current time, the request is rejected. Unit: hours. Valid values: 1 to 168.
+     *
+     * @example 6
+     *
      * @var int
      */
     public $issuanceLimitTime;
 
     /**
-     * @description The URL of the issuer.
+     * @description The URL of the issuer,
      *
      * @example https://dev-xxxxxx.okta.com
      *

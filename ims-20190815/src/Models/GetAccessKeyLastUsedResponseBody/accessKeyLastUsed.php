@@ -18,7 +18,7 @@ class accessKeyLastUsed extends Model
     public $lastUsedDate;
 
     /**
-     * @description The Alibaba Cloud service that was last accessed.
+     * @description The Alibaba Cloud service that was last accessed by using the AccessKey pair.
      *
      * @example Ram
      *

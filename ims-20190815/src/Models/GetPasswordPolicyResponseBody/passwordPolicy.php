@@ -45,7 +45,7 @@ class passwordPolicy extends Model
     public $minimumPasswordDifferentCharacter;
 
     /**
-     * @description The minimum number of characters in the password.
+     * @description The minimum required number of characters in a password.
      *
      * @example 8
      *
