@@ -99,6 +99,10 @@ class ModifyDBInstanceNetworkTypeRequest extends Model
     public $vpcId;
 
     /**
+     * @description The zone ID of the instance. You can call the [DescribeRegions](~~468365~~) operation to query the most recent zone list.
+     *
+     * @example cn-hangzhou-b
+     *
      * @var string
      */
     public $zoneId;
