@@ -34,6 +34,9 @@ use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitContainerLoadPlanExtractJ
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitExportDeclarationSheetExtractJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitExportDeclarationSheetExtractJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitExportDeclarationSheetExtractJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitGeneralContractExtractJobAdvanceRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitGeneralContractExtractJobRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitGeneralContractExtractJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitImportDeclarationSheetExtractJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitImportDeclarationSheetExtractJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220729\Models\SubmitImportDeclarationSheetExtractJobResponse;
@@ -1194,6 +1197,133 @@ class Docmindapi extends OpenApiClient
         }
 
         return $this->submitExportDeclarationSheetExtractJobWithOptions($submitExportDeclarationSheetExtractJobReq, $runtime);
+    }
+
+    /**
+     * @param SubmitGeneralContractExtractJobRequest $request
+     * @param RuntimeOptions                         $runtime
+     *
+     * @return SubmitGeneralContractExtractJobResponse
+     */
+    public function submitGeneralContractExtractJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileNameExtension)) {
+            $query['FileNameExtension'] = $request->fileNameExtension;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitGeneralContractExtractJob',
+            'version'     => '2022-07-29',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitGeneralContractExtractJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitGeneralContractExtractJobRequest $request
+     *
+     * @return SubmitGeneralContractExtractJobResponse
+     */
+    public function submitGeneralContractExtractJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitGeneralContractExtractJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitGeneralContractExtractJobAdvanceRequest $request
+     * @param RuntimeOptions                                $runtime
+     *
+     * @return SubmitGeneralContractExtractJobResponse
+     */
+    public function submitGeneralContractExtractJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'docmind-api',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $submitGeneralContractExtractJobReq = new SubmitGeneralContractExtractJobRequest([]);
+        OpenApiUtilClient::convert($request, $submitGeneralContractExtractJobReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $submitGeneralContractExtractJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->submitGeneralContractExtractJobWithOptions($submitGeneralContractExtractJobReq, $runtime);
     }
 
     /**
