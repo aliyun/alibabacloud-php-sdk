@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class Notification extends Model
 {
     /**
+     * @var string
+     */
+    public $extendedMessageURI;
+
+    /**
      * @var MNS
      */
     public $MNS;
@@ -18,8 +23,9 @@ class Notification extends Model
      */
     public $rocketMQ;
     protected $_name = [
-        'MNS'      => 'MNS',
-        'rocketMQ' => 'RocketMQ',
+        'extendedMessageURI' => 'ExtendedMessageURI',
+        'MNS'                => 'MNS',
+        'rocketMQ'           => 'RocketMQ',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class Notification extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->extendedMessageURI) {
+            $res['ExtendedMessageURI'] = $this->extendedMessageURI;
+        }
         if (null !== $this->MNS) {
             $res['MNS'] = null !== $this->MNS ? $this->MNS->toMap() : null;
         }
@@ -47,6 +56,9 @@ class Notification extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ExtendedMessageURI'])) {
+            $model->extendedMessageURI = $map['ExtendedMessageURI'];
+        }
         if (isset($map['MNS'])) {
             $model->MNS = MNS::fromMap($map['MNS']);
         }

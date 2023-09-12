@@ -26,11 +26,6 @@ class UpdateBatchShrinkRequest extends Model
     public $inputShrink;
 
     /**
-     * @var string
-     */
-    public $notificationShrink;
-
-    /**
      * @example test-project
      *
      * @var string
@@ -44,12 +39,11 @@ class UpdateBatchShrinkRequest extends Model
      */
     public $tagsShrink;
     protected $_name = [
-        'actionsShrink'      => 'Actions',
-        'id'                 => 'Id',
-        'inputShrink'        => 'Input',
-        'notificationShrink' => 'Notification',
-        'projectName'        => 'ProjectName',
-        'tagsShrink'         => 'Tags',
+        'actionsShrink' => 'Actions',
+        'id'            => 'Id',
+        'inputShrink'   => 'Input',
+        'projectName'   => 'ProjectName',
+        'tagsShrink'    => 'Tags',
     ];
 
     public function validate()
@@ -67,9 +61,6 @@ class UpdateBatchShrinkRequest extends Model
         }
         if (null !== $this->inputShrink) {
             $res['Input'] = $this->inputShrink;
-        }
-        if (null !== $this->notificationShrink) {
-            $res['Notification'] = $this->notificationShrink;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -97,9 +88,6 @@ class UpdateBatchShrinkRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->inputShrink = $map['Input'];
-        }
-        if (isset($map['Notification'])) {
-            $model->notificationShrink = $map['Notification'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

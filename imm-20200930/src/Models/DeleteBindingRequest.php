@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DeleteBindingRequest extends Model
 {
     /**
-     * @example false
-     *
-     * @var bool
-     */
-    public $cleanup;
-
-    /**
      * @example dataset001
      *
      * @var string
@@ -36,7 +29,6 @@ class DeleteBindingRequest extends Model
      */
     public $URI;
     protected $_name = [
-        'cleanup'     => 'Cleanup',
         'datasetName' => 'DatasetName',
         'projectName' => 'ProjectName',
         'URI'         => 'URI',
@@ -49,9 +41,6 @@ class DeleteBindingRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->cleanup) {
-            $res['Cleanup'] = $this->cleanup;
-        }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
         }
@@ -73,9 +62,6 @@ class DeleteBindingRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Cleanup'])) {
-            $model->cleanup = $map['Cleanup'];
-        }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
         }

@@ -22,8 +22,6 @@ class AddImageMosaicRequest extends Model
     public $imageFormat;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
@@ -36,15 +34,11 @@ class AddImageMosaicRequest extends Model
     public $quality;
 
     /**
-     * @example oss://bucketname/objectname
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @example oss://bucketname/objectname
-     *
      * @var string
      */
     public $targetURI;

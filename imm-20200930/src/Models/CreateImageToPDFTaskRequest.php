@@ -15,8 +15,6 @@ class CreateImageToPDFTaskRequest extends Model
     public $credentialConfig;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
-     *
      * @var Notification
      */
     public $notification;
@@ -34,22 +32,16 @@ class CreateImageToPDFTaskRequest extends Model
     public $sources;
 
     /**
-     * @example {"test":"val1"}
-     *
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @example oss://test-bucket/test-target-object.pdf
-     *
      * @var string
      */
     public $targetURI;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $userData;

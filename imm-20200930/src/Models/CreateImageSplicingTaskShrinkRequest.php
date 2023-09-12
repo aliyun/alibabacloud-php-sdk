@@ -49,8 +49,6 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $margin;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
-     *
      * @var string
      */
     public $notificationShrink;
@@ -89,22 +87,16 @@ class CreateImageSplicingTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
-     * @example {"key":"val"}
-     *
      * @var string
      */
     public $tagsShrink;
 
     /**
-     * @example oss://test-bucket/test-target-object.jpg
-     *
      * @var string
      */
     public $targetURI;
 
     /**
-     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
-     *
      * @var string
      */
     public $userData;

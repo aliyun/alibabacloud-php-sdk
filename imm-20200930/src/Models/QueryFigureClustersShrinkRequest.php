@@ -64,6 +64,8 @@ class QueryFigureClustersShrinkRequest extends Model
     public $updateTimeRangeShrink;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withTotalCount;

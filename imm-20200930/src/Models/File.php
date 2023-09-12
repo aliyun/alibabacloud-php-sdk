@@ -114,16 +114,6 @@ class File extends Model
     public $datasetName;
 
     /**
-     * @var string
-     */
-    public $documentContent;
-
-    /**
-     * @var string
-     */
-    public $documentLanguage;
-
-    /**
      * @var float
      */
     public $duration;
@@ -424,8 +414,6 @@ class File extends Model
         'customId'                              => 'CustomId',
         'customLabels'                          => 'CustomLabels',
         'datasetName'                           => 'DatasetName',
-        'documentContent'                       => 'DocumentContent',
-        'documentLanguage'                      => 'DocumentLanguage',
         'duration'                              => 'Duration',
         'ETag'                                  => 'ETag',
         'EXIF'                                  => 'EXIF',
@@ -577,12 +565,6 @@ class File extends Model
         }
         if (null !== $this->datasetName) {
             $res['DatasetName'] = $this->datasetName;
-        }
-        if (null !== $this->documentContent) {
-            $res['DocumentContent'] = $this->documentContent;
-        }
-        if (null !== $this->documentLanguage) {
-            $res['DocumentLanguage'] = $this->documentLanguage;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -880,12 +862,6 @@ class File extends Model
         }
         if (isset($map['DatasetName'])) {
             $model->datasetName = $map['DatasetName'];
-        }
-        if (isset($map['DocumentContent'])) {
-            $model->documentContent = $map['DocumentContent'];
-        }
-        if (isset($map['DocumentLanguage'])) {
-            $model->documentLanguage = $map['DocumentLanguage'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];

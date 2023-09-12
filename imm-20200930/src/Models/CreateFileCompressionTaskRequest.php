@@ -27,13 +27,6 @@ class CreateFileCompressionTaskRequest extends Model
     public $notification;
 
     /**
-     * @example 123456
-     *
-     * @var string
-     */
-    public $password;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -69,7 +62,6 @@ class CreateFileCompressionTaskRequest extends Model
         'compressedFormat'  => 'CompressedFormat',
         'credentialConfig'  => 'CredentialConfig',
         'notification'      => 'Notification',
-        'password'          => 'Password',
         'projectName'       => 'ProjectName',
         'sourceManifestURI' => 'SourceManifestURI',
         'sources'           => 'Sources',
@@ -92,9 +84,6 @@ class CreateFileCompressionTaskRequest extends Model
         }
         if (null !== $this->notification) {
             $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -137,9 +126,6 @@ class CreateFileCompressionTaskRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notification = Notification::fromMap($map['Notification']);
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -16,8 +16,6 @@ class sources extends Model
     public $rotate;
 
     /**
-     * @example oss://test-bucket/test-object.jpg
-     *
      * @var string
      */
     public $URI;

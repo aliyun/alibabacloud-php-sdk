@@ -21,8 +21,6 @@ class AddImageMosaicShrinkRequest extends Model
     public $imageFormat;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
@@ -35,15 +33,11 @@ class AddImageMosaicShrinkRequest extends Model
     public $quality;
 
     /**
-     * @example oss://bucketname/objectname
-     *
      * @var string
      */
     public $sourceURI;
 
     /**
-     * @example oss://bucketname/objectname
-     *
      * @var string
      */
     public $targetURI;

@@ -35,13 +35,13 @@ class ListTasksRequest extends Model
     public $order;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
+     * @example True
+     *
      * @var bool
      */
     public $requestDefinition;

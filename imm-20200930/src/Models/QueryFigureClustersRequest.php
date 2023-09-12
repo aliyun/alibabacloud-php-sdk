@@ -64,6 +64,8 @@ class QueryFigureClustersRequest extends Model
     public $updateTimeRange;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $withTotalCount;

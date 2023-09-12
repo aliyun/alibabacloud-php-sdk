@@ -50,8 +50,6 @@ class CreateImageSplicingTaskRequest extends Model
     public $margin;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
-     *
      * @var Notification
      */
     public $notification;
@@ -90,22 +88,16 @@ class CreateImageSplicingTaskRequest extends Model
     public $sources;
 
     /**
-     * @example {"key":"val"}
-     *
      * @var mixed[]
      */
     public $tags;
 
     /**
-     * @example oss://test-bucket/test-target-object.jpg
-     *
      * @var string
      */
     public $targetURI;
 
     /**
-     * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
-     *
      * @var string
      */
     public $userData;

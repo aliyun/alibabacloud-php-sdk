@@ -4,7 +4,6 @@
 
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
-use AlibabaCloud\SDK\Imm\V20200930\Models\CreateFileUncompressionTaskRequest\target;
 use AlibabaCloud\Tea\Model;
 
 class CreateFileUncompressionTaskRequest extends Model
@@ -46,9 +45,9 @@ class CreateFileUncompressionTaskRequest extends Model
     public $sourceURI;
 
     /**
-     * @var target
+     * @var string
      */
-    public $target;
+    public $targetURI;
 
     /**
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
@@ -63,7 +62,7 @@ class CreateFileUncompressionTaskRequest extends Model
         'projectName'      => 'ProjectName',
         'selectedFiles'    => 'SelectedFiles',
         'sourceURI'        => 'SourceURI',
-        'target'           => 'Target',
+        'targetURI'        => 'TargetURI',
         'userData'         => 'UserData',
     ];
 
@@ -92,8 +91,8 @@ class CreateFileUncompressionTaskRequest extends Model
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
         }
-        if (null !== $this->target) {
-            $res['Target'] = null !== $this->target ? $this->target->toMap() : null;
+        if (null !== $this->targetURI) {
+            $res['TargetURI'] = $this->targetURI;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -130,8 +129,8 @@ class CreateFileUncompressionTaskRequest extends Model
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
         }
-        if (isset($map['Target'])) {
-            $model->target = target::fromMap($map['Target']);
+        if (isset($map['TargetURI'])) {
+            $model->targetURI = $map['TargetURI'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

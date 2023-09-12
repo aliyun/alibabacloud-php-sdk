@@ -5,7 +5,6 @@
 namespace AlibabaCloud\SDK\Imm\V20200930\Models;
 
 use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest\actions;
-use AlibabaCloud\SDK\Imm\V20200930\Models\UpdateBatchRequest\notification;
 use AlibabaCloud\Tea\Model;
 
 class UpdateBatchRequest extends Model
@@ -28,11 +27,6 @@ class UpdateBatchRequest extends Model
     public $input;
 
     /**
-     * @var notification
-     */
-    public $notification;
-
-    /**
      * @example test-project
      *
      * @var string
@@ -46,12 +40,11 @@ class UpdateBatchRequest extends Model
      */
     public $tags;
     protected $_name = [
-        'actions'      => 'Actions',
-        'id'           => 'Id',
-        'input'        => 'Input',
-        'notification' => 'Notification',
-        'projectName'  => 'ProjectName',
-        'tags'         => 'Tags',
+        'actions'     => 'Actions',
+        'id'          => 'Id',
+        'input'       => 'Input',
+        'projectName' => 'ProjectName',
+        'tags'        => 'Tags',
     ];
 
     public function validate()
@@ -75,9 +68,6 @@ class UpdateBatchRequest extends Model
         }
         if (null !== $this->input) {
             $res['Input'] = null !== $this->input ? $this->input->toMap() : null;
-        }
-        if (null !== $this->notification) {
-            $res['Notification'] = null !== $this->notification ? $this->notification->toMap() : null;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -111,9 +101,6 @@ class UpdateBatchRequest extends Model
         }
         if (isset($map['Input'])) {
             $model->input = Input::fromMap($map['Input']);
-        }
-        if (isset($map['Notification'])) {
-            $model->notification = notification::fromMap($map['Notification']);
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

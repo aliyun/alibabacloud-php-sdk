@@ -28,6 +28,8 @@ class QueryFigureClustersResponseBody extends Model
     public $requestId;
 
     /**
+     * @example 100
+     *
      * @var int
      */
     public $totalCount;

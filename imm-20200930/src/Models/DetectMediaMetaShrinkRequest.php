@@ -14,15 +14,11 @@ class DetectMediaMetaShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;
 
     /**
-     * @example oss://imm-test/testcases/video.mp4
-     *
      * @var string
      */
     public $sourceURI;

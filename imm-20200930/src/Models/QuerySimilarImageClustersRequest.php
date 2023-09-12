@@ -16,8 +16,6 @@ class QuerySimilarImageClustersRequest extends Model
     public $customLabels;
 
     /**
-     * @example dataset001
-     *
      * @var string
      */
     public $datasetName;
@@ -44,8 +42,6 @@ class QuerySimilarImageClustersRequest extends Model
     public $order;
 
     /**
-     * @example immtest
-     *
      * @var string
      */
     public $projectName;

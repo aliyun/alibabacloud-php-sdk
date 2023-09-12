@@ -14,8 +14,6 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $credentialConfigShrink;
 
     /**
-     * @description 消息通知配置，支持使用MNS、RocketMQ接收异步消息通知。
-     *
      * @var string
      */
     public $notificationShrink;
@@ -33,22 +31,16 @@ class CreateImageToPDFTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
-     * @example {"test":"val1"}
-     *
      * @var string
      */
     public $tagsShrink;
 
     /**
-     * @example oss://test-bucket/test-target-object.pdf
-     *
      * @var string
      */
     public $targetURI;
 
     /**
-     * @example test
-     *
      * @var string
      */
     public $userData;

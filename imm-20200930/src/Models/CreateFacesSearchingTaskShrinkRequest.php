@@ -18,7 +18,7 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     /**
      * @example 100
      *
-     * @var string
+     * @var int
      */
     public $maxResult;
 
@@ -40,13 +40,6 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
     public $sourcesShrink;
 
     /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $topK;
-
-    /**
      * @example {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
      *
      * @var string
@@ -58,7 +51,6 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
         'notificationShrink' => 'Notification',
         'projectName'        => 'ProjectName',
         'sourcesShrink'      => 'Sources',
-        'topK'               => 'TopK',
         'userData'           => 'UserData',
     ];
 
@@ -83,9 +75,6 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
         }
         if (null !== $this->sourcesShrink) {
             $res['Sources'] = $this->sourcesShrink;
-        }
-        if (null !== $this->topK) {
-            $res['TopK'] = $this->topK;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -116,9 +105,6 @@ class CreateFacesSearchingTaskShrinkRequest extends Model
         }
         if (isset($map['Sources'])) {
             $model->sourcesShrink = $map['Sources'];
-        }
-        if (isset($map['TopK'])) {
-            $model->topK = $map['TopK'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

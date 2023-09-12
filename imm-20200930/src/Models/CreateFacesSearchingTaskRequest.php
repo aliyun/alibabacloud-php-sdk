@@ -19,7 +19,7 @@ class CreateFacesSearchingTaskRequest extends Model
     /**
      * @example 100
      *
-     * @var string
+     * @var int
      */
     public $maxResult;
 
@@ -41,13 +41,6 @@ class CreateFacesSearchingTaskRequest extends Model
     public $sources;
 
     /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $topK;
-
-    /**
      * @example {"ID": "testuid","Name": "test-user","Avatar": "http://test.com/testuid"}
      *
      * @var string
@@ -59,7 +52,6 @@ class CreateFacesSearchingTaskRequest extends Model
         'notification' => 'Notification',
         'projectName'  => 'ProjectName',
         'sources'      => 'Sources',
-        'topK'         => 'TopK',
         'userData'     => 'UserData',
     ];
 
@@ -90,9 +82,6 @@ class CreateFacesSearchingTaskRequest extends Model
                     $res['Sources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->topK) {
-            $res['TopK'] = $this->topK;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -129,9 +118,6 @@ class CreateFacesSearchingTaskRequest extends Model
                     $model->sources[$n++] = null !== $item ? sources::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['TopK'])) {
-            $model->topK = $map['TopK'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

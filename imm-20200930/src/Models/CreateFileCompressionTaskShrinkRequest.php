@@ -26,13 +26,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
     public $notificationShrink;
 
     /**
-     * @example 123456
-     *
-     * @var string
-     */
-    public $password;
-
-    /**
      * @example immtest
      *
      * @var string
@@ -68,7 +61,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         'compressedFormat'       => 'CompressedFormat',
         'credentialConfigShrink' => 'CredentialConfig',
         'notificationShrink'     => 'Notification',
-        'password'               => 'Password',
         'projectName'            => 'ProjectName',
         'sourceManifestURI'      => 'SourceManifestURI',
         'sourcesShrink'          => 'Sources',
@@ -91,9 +83,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         }
         if (null !== $this->notificationShrink) {
             $res['Notification'] = $this->notificationShrink;
-        }
-        if (null !== $this->password) {
-            $res['Password'] = $this->password;
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
@@ -130,9 +119,6 @@ class CreateFileCompressionTaskShrinkRequest extends Model
         }
         if (isset($map['Notification'])) {
             $model->notificationShrink = $map['Notification'];
-        }
-        if (isset($map['Password'])) {
-            $model->password = $map['Password'];
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];

@@ -40,13 +40,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
     public $sourceURI;
 
     /**
-     * @example oss://bucket/bucket.json
-     *
-     * @var string
-     */
-    public $targetURI;
-
-    /**
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
      *
      * @var string
@@ -58,7 +51,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
         'password'               => 'Password',
         'projectName'            => 'ProjectName',
         'sourceURI'              => 'SourceURI',
-        'targetURI'              => 'TargetURI',
         'userData'               => 'UserData',
     ];
 
@@ -83,9 +75,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
         }
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
-        }
-        if (null !== $this->targetURI) {
-            $res['TargetURI'] = $this->targetURI;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -116,9 +105,6 @@ class CreateArchiveFileInspectionTaskShrinkRequest extends Model
         }
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
-        }
-        if (isset($map['TargetURI'])) {
-            $model->targetURI = $map['TargetURI'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];

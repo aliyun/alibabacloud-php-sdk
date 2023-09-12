@@ -42,13 +42,6 @@ class CreateVideoModerationTaskShrinkRequest extends Model
     public $projectName;
 
     /**
-     * @example auto
-     *
-     * @var string
-     */
-    public $reviewer;
-
-    /**
      * @var string
      */
     public $scenesShrink;
@@ -79,7 +72,6 @@ class CreateVideoModerationTaskShrinkRequest extends Model
         'maxFrames'              => 'MaxFrames',
         'notificationShrink'     => 'Notification',
         'projectName'            => 'ProjectName',
-        'reviewer'               => 'Reviewer',
         'scenesShrink'           => 'Scenes',
         'sourceURI'              => 'SourceURI',
         'tagsShrink'             => 'Tags',
@@ -107,9 +99,6 @@ class CreateVideoModerationTaskShrinkRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->reviewer) {
-            $res['Reviewer'] = $this->reviewer;
         }
         if (null !== $this->scenesShrink) {
             $res['Scenes'] = $this->scenesShrink;
@@ -149,9 +138,6 @@ class CreateVideoModerationTaskShrinkRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['Reviewer'])) {
-            $model->reviewer = $map['Reviewer'];
         }
         if (isset($map['Scenes'])) {
             $model->scenesShrink = $map['Scenes'];

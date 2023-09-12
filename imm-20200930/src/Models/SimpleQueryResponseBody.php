@@ -32,11 +32,17 @@ class SimpleQueryResponseBody extends Model
      * @var string
      */
     public $requestId;
+
+    /**
+     * @var int
+     */
+    public $totalHits;
     protected $_name = [
         'aggregations' => 'Aggregations',
         'files'        => 'Files',
         'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
+        'totalHits'    => 'TotalHits',
     ];
 
     public function validate()
@@ -69,6 +75,9 @@ class SimpleQueryResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->totalHits) {
+            $res['TotalHits'] = $this->totalHits;
         }
 
         return $res;
@@ -105,6 +114,9 @@ class SimpleQueryResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TotalHits'])) {
+            $model->totalHits = $map['TotalHits'];
         }
 
         return $model;

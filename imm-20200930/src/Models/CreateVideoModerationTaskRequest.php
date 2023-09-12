@@ -42,13 +42,6 @@ class CreateVideoModerationTaskRequest extends Model
     public $projectName;
 
     /**
-     * @example auto
-     *
-     * @var string
-     */
-    public $reviewer;
-
-    /**
      * @var string[]
      */
     public $scenes;
@@ -79,7 +72,6 @@ class CreateVideoModerationTaskRequest extends Model
         'maxFrames'        => 'MaxFrames',
         'notification'     => 'Notification',
         'projectName'      => 'ProjectName',
-        'reviewer'         => 'Reviewer',
         'scenes'           => 'Scenes',
         'sourceURI'        => 'SourceURI',
         'tags'             => 'Tags',
@@ -107,9 +99,6 @@ class CreateVideoModerationTaskRequest extends Model
         }
         if (null !== $this->projectName) {
             $res['ProjectName'] = $this->projectName;
-        }
-        if (null !== $this->reviewer) {
-            $res['Reviewer'] = $this->reviewer;
         }
         if (null !== $this->scenes) {
             $res['Scenes'] = $this->scenes;
@@ -149,9 +138,6 @@ class CreateVideoModerationTaskRequest extends Model
         }
         if (isset($map['ProjectName'])) {
             $model->projectName = $map['ProjectName'];
-        }
-        if (isset($map['Reviewer'])) {
-            $model->reviewer = $map['Reviewer'];
         }
         if (isset($map['Scenes'])) {
             if (!empty($map['Scenes'])) {

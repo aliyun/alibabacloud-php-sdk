@@ -47,7 +47,7 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
     /**
      * @var string
      */
-    public $targetShrink;
+    public $targetURI;
 
     /**
      * @example {"ID": "user1","Name": "test-user1","Avatar": "http://example.com?id=user1"}
@@ -62,7 +62,7 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
         'projectName'            => 'ProjectName',
         'selectedFilesShrink'    => 'SelectedFiles',
         'sourceURI'              => 'SourceURI',
-        'targetShrink'           => 'Target',
+        'targetURI'              => 'TargetURI',
         'userData'               => 'UserData',
     ];
 
@@ -91,8 +91,8 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
         if (null !== $this->sourceURI) {
             $res['SourceURI'] = $this->sourceURI;
         }
-        if (null !== $this->targetShrink) {
-            $res['Target'] = $this->targetShrink;
+        if (null !== $this->targetURI) {
+            $res['TargetURI'] = $this->targetURI;
         }
         if (null !== $this->userData) {
             $res['UserData'] = $this->userData;
@@ -127,8 +127,8 @@ class CreateFileUncompressionTaskShrinkRequest extends Model
         if (isset($map['SourceURI'])) {
             $model->sourceURI = $map['SourceURI'];
         }
-        if (isset($map['Target'])) {
-            $model->targetShrink = $map['Target'];
+        if (isset($map['TargetURI'])) {
+            $model->targetURI = $map['TargetURI'];
         }
         if (isset($map['UserData'])) {
             $model->userData = $map['UserData'];
