@@ -899,11 +899,20 @@ class Servicemesh extends OpenApiClient
         if (!Utils::isUnset($request->ingressType)) {
             $body['IngressType'] = $request->ingressType;
         }
+        if (!Utils::isUnset($request->isPermissive)) {
+            $body['IsPermissive'] = $request->isPermissive;
+        }
+        if (!Utils::isUnset($request->routeHeader)) {
+            $body['RouteHeader'] = $request->routeHeader;
+        }
         if (!Utils::isUnset($request->serviceMeshId)) {
             $body['ServiceMeshId'] = $request->serviceMeshId;
         }
         if (!Utils::isUnset($request->servicesList)) {
             $body['ServicesList'] = $request->servicesList;
+        }
+        if (!Utils::isUnset($request->traceHeader)) {
+            $body['TraceHeader'] = $request->traceHeader;
         }
         $req = new OpenApiRequest([
             'body' => OpenApiUtilClient::parseToMap($body),
@@ -4878,6 +4887,9 @@ class Servicemesh extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->fallbackTarget)) {
+            $body['FallbackTarget'] = $request->fallbackTarget;
+        }
         if (!Utils::isUnset($request->groupName)) {
             $body['GroupName'] = $request->groupName;
         }

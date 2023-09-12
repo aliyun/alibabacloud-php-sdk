@@ -36,6 +36,16 @@ class CreateSwimLaneGroupRequest extends Model
     public $ingressType;
 
     /**
+     * @var bool
+     */
+    public $isPermissive;
+
+    /**
+     * @var string
+     */
+    public $routeHeader;
+
+    /**
      * @description The ID of the Alibaba Cloud Service Mesh (ASM) instance.
      *
      * @example xxx
@@ -52,12 +62,20 @@ class CreateSwimLaneGroupRequest extends Model
      * @var string
      */
     public $servicesList;
+
+    /**
+     * @var string
+     */
+    public $traceHeader;
     protected $_name = [
         'groupName'          => 'GroupName',
         'ingressGatewayName' => 'IngressGatewayName',
         'ingressType'        => 'IngressType',
+        'isPermissive'       => 'IsPermissive',
+        'routeHeader'        => 'RouteHeader',
         'serviceMeshId'      => 'ServiceMeshId',
         'servicesList'       => 'ServicesList',
+        'traceHeader'        => 'TraceHeader',
     ];
 
     public function validate()
@@ -76,11 +94,20 @@ class CreateSwimLaneGroupRequest extends Model
         if (null !== $this->ingressType) {
             $res['IngressType'] = $this->ingressType;
         }
+        if (null !== $this->isPermissive) {
+            $res['IsPermissive'] = $this->isPermissive;
+        }
+        if (null !== $this->routeHeader) {
+            $res['RouteHeader'] = $this->routeHeader;
+        }
         if (null !== $this->serviceMeshId) {
             $res['ServiceMeshId'] = $this->serviceMeshId;
         }
         if (null !== $this->servicesList) {
             $res['ServicesList'] = $this->servicesList;
+        }
+        if (null !== $this->traceHeader) {
+            $res['TraceHeader'] = $this->traceHeader;
         }
 
         return $res;
@@ -103,11 +130,20 @@ class CreateSwimLaneGroupRequest extends Model
         if (isset($map['IngressType'])) {
             $model->ingressType = $map['IngressType'];
         }
+        if (isset($map['IsPermissive'])) {
+            $model->isPermissive = $map['IsPermissive'];
+        }
+        if (isset($map['RouteHeader'])) {
+            $model->routeHeader = $map['RouteHeader'];
+        }
         if (isset($map['ServiceMeshId'])) {
             $model->serviceMeshId = $map['ServiceMeshId'];
         }
         if (isset($map['ServicesList'])) {
             $model->servicesList = $map['ServicesList'];
+        }
+        if (isset($map['TraceHeader'])) {
+            $model->traceHeader = $map['TraceHeader'];
         }
 
         return $model;

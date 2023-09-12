@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateSwimLaneGroupRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $fallbackTarget;
+
+    /**
      * @description The name of the lane group.
      *
      * @example test
@@ -35,9 +40,10 @@ class UpdateSwimLaneGroupRequest extends Model
      */
     public $servicesList;
     protected $_name = [
-        'groupName'     => 'GroupName',
-        'serviceMeshId' => 'ServiceMeshId',
-        'servicesList'  => 'ServicesList',
+        'fallbackTarget' => 'FallbackTarget',
+        'groupName'      => 'GroupName',
+        'serviceMeshId'  => 'ServiceMeshId',
+        'servicesList'   => 'ServicesList',
     ];
 
     public function validate()
@@ -47,6 +53,9 @@ class UpdateSwimLaneGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->fallbackTarget) {
+            $res['FallbackTarget'] = $this->fallbackTarget;
+        }
         if (null !== $this->groupName) {
             $res['GroupName'] = $this->groupName;
         }
@@ -68,6 +77,9 @@ class UpdateSwimLaneGroupRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['FallbackTarget'])) {
+            $model->fallbackTarget = $map['FallbackTarget'];
+        }
         if (isset($map['GroupName'])) {
             $model->groupName = $map['GroupName'];
         }
