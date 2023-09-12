@@ -19,6 +19,11 @@ class itemInfoLists extends Model
     public $lmItemId;
 
     /**
+     * @var int
+     */
+    public $price;
+
+    /**
      * @example 1
      *
      * @var int
@@ -34,6 +39,7 @@ class itemInfoLists extends Model
     protected $_name = [
         'distributionMallId' => 'DistributionMallId',
         'lmItemId'           => 'LmItemId',
+        'price'              => 'Price',
         'quantity'           => 'Quantity',
         'skuId'              => 'SkuId',
     ];
@@ -50,6 +56,9 @@ class itemInfoLists extends Model
         }
         if (null !== $this->lmItemId) {
             $res['LmItemId'] = $this->lmItemId;
+        }
+        if (null !== $this->price) {
+            $res['Price'] = $this->price;
         }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
@@ -74,6 +83,9 @@ class itemInfoLists extends Model
         }
         if (isset($map['LmItemId'])) {
             $model->lmItemId = $map['LmItemId'];
+        }
+        if (isset($map['Price'])) {
+            $model->price = $map['Price'];
         }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];

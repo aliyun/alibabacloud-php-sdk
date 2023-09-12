@@ -24,10 +24,16 @@ class goods extends Model
      * @var int
      */
     public $quantity;
+
+    /**
+     * @var string
+     */
+    public $skuId;
     protected $_name = [
         'goodName' => 'GoodName',
         'itemId'   => 'ItemId',
         'quantity' => 'Quantity',
+        'skuId'    => 'SkuId',
     ];
 
     public function validate()
@@ -45,6 +51,9 @@ class goods extends Model
         }
         if (null !== $this->quantity) {
             $res['Quantity'] = $this->quantity;
+        }
+        if (null !== $this->skuId) {
+            $res['SkuId'] = $this->skuId;
         }
 
         return $res;
@@ -66,6 +75,9 @@ class goods extends Model
         }
         if (isset($map['Quantity'])) {
             $model->quantity = $map['Quantity'];
+        }
+        if (isset($map['SkuId'])) {
+            $model->skuId = $map['SkuId'];
         }
 
         return $model;

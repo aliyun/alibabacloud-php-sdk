@@ -1224,6 +1224,9 @@ class Linkedmall extends OpenApiClient
         if (!Utils::isUnset($request->mainDistributionOrderId)) {
             $body['MainDistributionOrderId'] = $request->mainDistributionOrderId;
         }
+        if (!Utils::isUnset($request->requestId)) {
+            $body['RequestId'] = $request->requestId;
+        }
         if (!Utils::isUnset($request->tenantId)) {
             $body['TenantId'] = $request->tenantId;
         }
