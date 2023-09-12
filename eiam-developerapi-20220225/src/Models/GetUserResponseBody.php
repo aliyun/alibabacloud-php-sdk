@@ -59,6 +59,8 @@ class GetUserResponseBody extends Model
     public $emailVerified;
 
     /**
+     * @description 账户所属组列表。
+     *
      * @var groups[]
      */
     public $groups;

@@ -11,6 +11,8 @@ class GetUserInfoHeaders extends Model
     public $commonHeaders;
 
     /**
+     * @description The authentication information. Format: Bearer ${access_token}. Example: Bearer ATxxxx.
+     *
      * @example Bearer xxxx
      *
      * @var string

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
+     * @description 组描述。
+     *
      * @example description_demo
      *
      * @var string
@@ -16,6 +18,8 @@ class groups extends Model
     public $description;
 
     /**
+     * @description 组ID。
+     *
      * @example group_ufdsasn35ea5lmthk267xxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class groups extends Model
     public $groupId;
 
     /**
+     * @description 组名称。
+     *
      * @example name_test
      *
      * @var string
