@@ -36,6 +36,11 @@ class ModifyDBNodeClassRequest extends Model
     public $DBNodeTargetClass;
 
     /**
+     * @var string
+     */
+    public $DBNodeType;
+
+    /**
      * @description The type of the configuration change. Valid values:
      *
      *   **Upgrade**
@@ -105,6 +110,7 @@ class ModifyDBNodeClassRequest extends Model
         'clientToken'          => 'ClientToken',
         'DBClusterId'          => 'DBClusterId',
         'DBNodeTargetClass'    => 'DBNodeTargetClass',
+        'DBNodeType'           => 'DBNodeType',
         'modifyType'           => 'ModifyType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -130,6 +136,9 @@ class ModifyDBNodeClassRequest extends Model
         }
         if (null !== $this->DBNodeTargetClass) {
             $res['DBNodeTargetClass'] = $this->DBNodeTargetClass;
+        }
+        if (null !== $this->DBNodeType) {
+            $res['DBNodeType'] = $this->DBNodeType;
         }
         if (null !== $this->modifyType) {
             $res['ModifyType'] = $this->modifyType;
@@ -175,6 +184,9 @@ class ModifyDBNodeClassRequest extends Model
         }
         if (isset($map['DBNodeTargetClass'])) {
             $model->DBNodeTargetClass = $map['DBNodeTargetClass'];
+        }
+        if (isset($map['DBNodeType'])) {
+            $model->DBNodeType = $map['DBNodeType'];
         }
         if (isset($map['ModifyType'])) {
             $model->modifyType = $map['ModifyType'];

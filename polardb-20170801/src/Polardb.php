@@ -8022,6 +8022,9 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBNodeTargetClass)) {
             $query['DBNodeTargetClass'] = $request->DBNodeTargetClass;
         }
+        if (!Utils::isUnset($request->DBNodeType)) {
+            $query['DBNodeType'] = $request->DBNodeType;
+        }
         if (!Utils::isUnset($request->modifyType)) {
             $query['ModifyType'] = $request->modifyType;
         }

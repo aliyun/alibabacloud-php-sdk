@@ -23,6 +23,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $aiType;
 
     /**
+     * @var string
+     */
+    public $architecture;
+
+    /**
      * @description Maximum blktags in file system.
      *
      * @example 7,864,320
@@ -221,6 +226,11 @@ class DescribeDBClusterAttributeResponseBody extends Model
      * @var bool
      */
     public $hasCompleteStandbyRes;
+
+    /**
+     * @var string
+     */
+    public $hotStandbyCluster;
 
     /**
      * @description Maximum inodes in file system.
@@ -520,6 +530,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
     public $zoneIds;
     protected $_name = [
         'aiType'                    => 'AiType',
+        'architecture'              => 'Architecture',
         'blktagTotal'               => 'BlktagTotal',
         'blktagUsed'                => 'BlktagUsed',
         'category'                  => 'Category',
@@ -541,6 +552,7 @@ class DescribeDBClusterAttributeResponseBody extends Model
         'expireTime'                => 'ExpireTime',
         'expired'                   => 'Expired',
         'hasCompleteStandbyRes'     => 'HasCompleteStandbyRes',
+        'hotStandbyCluster'         => 'HotStandbyCluster',
         'inodeTotal'                => 'InodeTotal',
         'inodeUsed'                 => 'InodeUsed',
         'isLatestVersion'           => 'IsLatestVersion',
@@ -581,6 +593,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         $res = [];
         if (null !== $this->aiType) {
             $res['AiType'] = $this->aiType;
+        }
+        if (null !== $this->architecture) {
+            $res['Architecture'] = $this->architecture;
         }
         if (null !== $this->blktagTotal) {
             $res['BlktagTotal'] = $this->blktagTotal;
@@ -650,6 +665,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (null !== $this->hasCompleteStandbyRes) {
             $res['HasCompleteStandbyRes'] = $this->hasCompleteStandbyRes;
+        }
+        if (null !== $this->hotStandbyCluster) {
+            $res['HotStandbyCluster'] = $this->hotStandbyCluster;
         }
         if (null !== $this->inodeTotal) {
             $res['InodeTotal'] = $this->inodeTotal;
@@ -759,6 +777,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         if (isset($map['AiType'])) {
             $model->aiType = $map['AiType'];
         }
+        if (isset($map['Architecture'])) {
+            $model->architecture = $map['Architecture'];
+        }
         if (isset($map['BlktagTotal'])) {
             $model->blktagTotal = $map['BlktagTotal'];
         }
@@ -827,6 +848,9 @@ class DescribeDBClusterAttributeResponseBody extends Model
         }
         if (isset($map['HasCompleteStandbyRes'])) {
             $model->hasCompleteStandbyRes = $map['HasCompleteStandbyRes'];
+        }
+        if (isset($map['HotStandbyCluster'])) {
+            $model->hotStandbyCluster = $map['HotStandbyCluster'];
         }
         if (isset($map['InodeTotal'])) {
             $model->inodeTotal = $map['InodeTotal'];
