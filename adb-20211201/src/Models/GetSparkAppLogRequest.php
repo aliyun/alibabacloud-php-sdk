@@ -11,7 +11,7 @@ class GetSparkAppLogRequest extends Model
     /**
      * @description The Spark application ID.
      *
-     * > You can call the [ListSparkApps](~~~~) operation to query the Spark application ID.
+     * > You can call the [ListSparkApps](~~612475~~) operation to query the Spark application ID.
      * @example s202206061441hz22a35ab000****
      *
      * @var string

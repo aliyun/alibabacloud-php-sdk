@@ -6,19 +6,16 @@ namespace AlibabaCloud\SDK\Adb\V20211201\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetSparkAppInfoRequest extends Model
+class AttachUserENIResponseBody extends Model
 {
     /**
-     * @description The ID of the application.
-     *
-     * >  You can call the [ListSparkApps](~~612475~~) operation to query the Spark application ID.
-     * @example s202205201533hz1209892000****
+     * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string
      */
-    public $appId;
+    public $requestId;
     protected $_name = [
-        'appId' => 'AppId',
+        'requestId' => 'RequestId',
     ];
 
     public function validate()
@@ -28,8 +25,8 @@ class GetSparkAppInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->appId) {
-            $res['AppId'] = $this->appId;
+        if (null !== $this->requestId) {
+            $res['RequestId'] = $this->requestId;
         }
 
         return $res;
@@ -38,13 +35,13 @@ class GetSparkAppInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetSparkAppInfoRequest
+     * @return AttachUserENIResponseBody
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['AppId'])) {
-            $model->appId = $map['AppId'];
+        if (isset($map['RequestId'])) {
+            $model->requestId = $map['RequestId'];
         }
 
         return $model;

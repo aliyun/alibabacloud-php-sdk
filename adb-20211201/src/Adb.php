@@ -8,10 +8,16 @@ use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AllocateClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\AllocateClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\AttachUserENIRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\AttachUserENIResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\BindAccountResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\BindDBResourceGroupWithUserRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\BindDBResourceGroupWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CheckBindRamUserResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\CheckSampleDataSetResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateAccountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\CreateDBClusterRequest;
@@ -74,6 +80,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterPerformanceRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterPerformanceResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClustersResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterStatusRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBClusterStatusResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDBResourceGroupResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeDiagnosisDimensionsRequest;
@@ -114,12 +122,18 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableAccessCountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTableAccessCountResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablesRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeTablesResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeUserQuotaRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DescribeUserQuotaResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DetachUserENIRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\DetachUserENIResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DisableElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DisableElasticPlanResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\DownloadDiagnosisRecordsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\EnableElasticPlanRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\EnableElasticPlanResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\ExistRunningSQLEngineResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetDatabaseObjectsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\GetSparkAppAttemptLogRequest;
@@ -199,6 +213,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\PreloadSparkAppMetricsResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ReleaseClusterPublicConnectionResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSparkTemplateFileRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\RenameSparkTemplateFileResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ResetAccountPasswordRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\ResetAccountPasswordResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SetSparkAppLogRootPathRequest;
@@ -211,6 +227,8 @@ use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkLogAnalyzeTaskRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\SubmitSparkLogAnalyzeTaskResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindAccountResponse;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserRequest;
+use AlibabaCloud\SDK\Adb\V20211201\Models\UnbindDBResourceGroupWithUserResponse;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileRequest;
 use AlibabaCloud\SDK\Adb\V20211201\Models\UpdateSparkTemplateFileResponse;
 use AlibabaCloud\Tea\Utils\Utils;
@@ -345,6 +363,49 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param AttachUserENIRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return AttachUserENIResponse
+     */
+    public function attachUserENIWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AttachUserENI',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AttachUserENIResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AttachUserENIRequest $request
+     *
+     * @return AttachUserENIResponse
+     */
+    public function attachUserENI($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->attachUserENIWithOptions($request, $runtime);
+    }
+
+    /**
      * @param BindAccountRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -394,6 +455,55 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param BindDBResourceGroupWithUserRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return BindDBResourceGroupWithUserResponse
+     */
+    public function bindDBResourceGroupWithUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupUser)) {
+            $query['GroupUser'] = $request->groupUser;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'BindDBResourceGroupWithUser',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return BindDBResourceGroupWithUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param BindDBResourceGroupWithUserRequest $request
+     *
+     * @return BindDBResourceGroupWithUserResponse
+     */
+    public function bindDBResourceGroupWithUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->bindDBResourceGroupWithUserWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CheckBindRamUserRequest $request
      * @param RuntimeOptions          $runtime
      *
@@ -437,6 +547,49 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->checkBindRamUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CheckSampleDataSetRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckSampleDataSetResponse
+     */
+    public function checkSampleDataSetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckSampleDataSet',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckSampleDataSetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckSampleDataSetRequest $request
+     *
+     * @return CheckSampleDataSetResponse
+     */
+    public function checkSampleDataSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSampleDataSetWithOptions($request, $runtime);
     }
 
     /**
@@ -2093,6 +2246,49 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeDBClusterStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DescribeDBClusterStatusResponse
+     */
+    public function describeDBClusterStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeDBClusterStatus',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeDBClusterStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeDBClusterStatusRequest $request
+     *
+     * @return DescribeDBClusterStatusResponse
+     */
+    public function describeDBClusterStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeDBClusterStatusWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DescribeDBClustersRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3254,6 +3450,89 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeUserQuotaRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeUserQuotaResponse
+     */
+    public function describeUserQuotaWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeUserQuota',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeUserQuotaResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeUserQuotaRequest $request
+     *
+     * @return DescribeUserQuotaResponse
+     */
+    public function describeUserQuota($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeUserQuotaWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DetachUserENIRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return DetachUserENIResponse
+     */
+    public function detachUserENIWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DetachUserENI',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DetachUserENIResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DetachUserENIRequest $request
+     *
+     * @return DetachUserENIResponse
+     */
+    public function detachUserENI($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->detachUserENIWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DisableElasticPlanRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -3428,6 +3707,52 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableElasticPlanWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ExistRunningSQLEngineRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ExistRunningSQLEngineResponse
+     */
+    public function existRunningSQLEngineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $body['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->resourceGroupName)) {
+            $body['ResourceGroupName'] = $request->resourceGroupName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ExistRunningSQLEngine',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ExistRunningSQLEngineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ExistRunningSQLEngineRequest $request
+     *
+     * @return ExistRunningSQLEngineResponse
+     */
+    public function existRunningSQLEngine($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->existRunningSQLEngineWithOptions($request, $runtime);
     }
 
     /**
@@ -5383,6 +5708,55 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param RenameSparkTemplateFileRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return RenameSparkTemplateFileResponse
+     */
+    public function renameSparkTemplateFileWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->id)) {
+            $query['Id'] = $request->id;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $query['Name'] = $request->name;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'RenameSparkTemplateFile',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return RenameSparkTemplateFileResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param RenameSparkTemplateFileRequest $request
+     *
+     * @return RenameSparkTemplateFileResponse
+     */
+    public function renameSparkTemplateFile($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->renameSparkTemplateFileWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ResetAccountPasswordRequest $request
      * @param RuntimeOptions              $runtime
      *
@@ -5695,6 +6069,55 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unbindAccountWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UnbindDBResourceGroupWithUserRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return UnbindDBResourceGroupWithUserResponse
+     */
+    public function unbindDBResourceGroupWithUserWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->DBClusterId)) {
+            $query['DBClusterId'] = $request->DBClusterId;
+        }
+        if (!Utils::isUnset($request->groupName)) {
+            $query['GroupName'] = $request->groupName;
+        }
+        if (!Utils::isUnset($request->groupUser)) {
+            $query['GroupUser'] = $request->groupUser;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UnbindDBResourceGroupWithUser',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UnbindDBResourceGroupWithUserResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UnbindDBResourceGroupWithUserRequest $request
+     *
+     * @return UnbindDBResourceGroupWithUserResponse
+     */
+    public function unbindDBResourceGroupWithUser($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->unbindDBResourceGroupWithUserWithOptions($request, $runtime);
     }
 
     /**

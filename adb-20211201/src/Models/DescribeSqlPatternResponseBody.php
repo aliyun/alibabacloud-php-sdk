@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlPatternResponseBody extends Model
 {
     /**
+     * @description The average number of tasks.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The page number.
+     *
      * @example 2
      *
      * @var int
@@ -22,6 +26,8 @@ class DescribeSqlPatternResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 30
      *
      * @var int
@@ -29,6 +35,8 @@ class DescribeSqlPatternResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description The request ID.
+     *
      * @example DB1F6C23-CBCA-5260-9366-BA7BB5EBF6F1
      *
      * @var string
@@ -36,6 +44,8 @@ class DescribeSqlPatternResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 50
      *
      * @var int

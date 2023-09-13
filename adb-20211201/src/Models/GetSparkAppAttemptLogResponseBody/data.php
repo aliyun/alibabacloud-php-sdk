@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @var string
+     */
+    public $appId;
+
+    /**
      * @description The ID of the Data Lakehouse Edition (V3.0) cluster.
      *
      * @example amv-clusterxxx
@@ -35,6 +40,7 @@ class data extends Model
      */
     public $message;
     protected $_name = [
+        'appId'       => 'AppId',
         'DBClusterId' => 'DBClusterId',
         'logContent'  => 'LogContent',
         'message'     => 'Message',
@@ -47,6 +53,9 @@ class data extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appId) {
+            $res['AppId'] = $this->appId;
+        }
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
@@ -68,6 +77,9 @@ class data extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AppId'])) {
+            $model->appId = $map['AppId'];
+        }
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }

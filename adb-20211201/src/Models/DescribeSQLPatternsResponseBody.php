@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPatternsResponseBody extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 2
      *
      * @var int
@@ -17,6 +19,8 @@ class DescribeSQLPatternsResponseBody extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page.
+     *
      * @example 10
      *
      * @var int
@@ -24,11 +28,19 @@ class DescribeSQLPatternsResponseBody extends Model
     public $pageSize;
 
     /**
+     * @description Indicates whether the execution of the SQL pattern can be blocked. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > Only SELECT and INSERT statements can be blocked.
      * @var patternDetails[]
      */
     public $patternDetails;
 
     /**
+     * @description The request ID.
+     *
      * @example F3174013-5B7A-5A47-9FE0-6B5D397BD86B
      *
      * @var string
@@ -36,6 +48,8 @@ class DescribeSQLPatternsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 20
      *
      * @var int
