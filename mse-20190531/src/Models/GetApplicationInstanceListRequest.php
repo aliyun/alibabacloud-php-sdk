@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Mse\V20190531\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetServiceListPageRequest extends Model
+class GetApplicationInstanceListRequest extends Model
 {
     /**
      * @example zh
@@ -16,7 +16,9 @@ class GetServiceListPageRequest extends Model
     public $acceptLanguage;
 
     /**
-     * @example dez4xxxxx@f3f75ed8ffxxxxx
+     * @example abcde@12345
+     *
+     * @deprecated
      *
      * @var string
      */
@@ -30,13 +32,6 @@ class GetServiceListPageRequest extends Model
     public $appName;
 
     /**
-     * @example 223.5.5.5
-     *
-     * @var string
-     */
-    public $ip;
-
-    /**
      * @example default
      *
      * @var string
@@ -46,14 +41,14 @@ class GetServiceListPageRequest extends Model
     /**
      * @example 1
      *
-     * @var int
+     * @var string
      */
     public $pageNumber;
 
     /**
-     * @example 10
+     * @example 20
      *
-     * @var int
+     * @var string
      */
     public $pageSize;
 
@@ -65,29 +60,20 @@ class GetServiceListPageRequest extends Model
     public $region;
 
     /**
-     * @example sc-A
+     * @example gray
      *
      * @var string
      */
-    public $serviceName;
-
-    /**
-     * @example springCloud
-     *
-     * @var string
-     */
-    public $serviceType;
+    public $tag;
     protected $_name = [
         'acceptLanguage' => 'AcceptLanguage',
         'appId'          => 'AppId',
         'appName'        => 'AppName',
-        'ip'             => 'Ip',
         'namespace'      => 'Namespace',
         'pageNumber'     => 'PageNumber',
         'pageSize'       => 'PageSize',
         'region'         => 'Region',
-        'serviceName'    => 'ServiceName',
-        'serviceType'    => 'ServiceType',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -106,9 +92,6 @@ class GetServiceListPageRequest extends Model
         if (null !== $this->appName) {
             $res['AppName'] = $this->appName;
         }
-        if (null !== $this->ip) {
-            $res['Ip'] = $this->ip;
-        }
         if (null !== $this->namespace) {
             $res['Namespace'] = $this->namespace;
         }
@@ -121,11 +104,8 @@ class GetServiceListPageRequest extends Model
         if (null !== $this->region) {
             $res['Region'] = $this->region;
         }
-        if (null !== $this->serviceName) {
-            $res['ServiceName'] = $this->serviceName;
-        }
-        if (null !== $this->serviceType) {
-            $res['ServiceType'] = $this->serviceType;
+        if (null !== $this->tag) {
+            $res['Tag'] = $this->tag;
         }
 
         return $res;
@@ -134,7 +114,7 @@ class GetServiceListPageRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetServiceListPageRequest
+     * @return GetApplicationInstanceListRequest
      */
     public static function fromMap($map = [])
     {
@@ -148,9 +128,6 @@ class GetServiceListPageRequest extends Model
         if (isset($map['AppName'])) {
             $model->appName = $map['AppName'];
         }
-        if (isset($map['Ip'])) {
-            $model->ip = $map['Ip'];
-        }
         if (isset($map['Namespace'])) {
             $model->namespace = $map['Namespace'];
         }
@@ -163,11 +140,8 @@ class GetServiceListPageRequest extends Model
         if (isset($map['Region'])) {
             $model->region = $map['Region'];
         }
-        if (isset($map['ServiceName'])) {
-            $model->serviceName = $map['ServiceName'];
-        }
-        if (isset($map['ServiceType'])) {
-            $model->serviceType = $map['ServiceType'];
+        if (isset($map['Tag'])) {
+            $model->tag = $map['Tag'];
         }
 
         return $model;

@@ -127,6 +127,8 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\ExportZookeeperDataResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\FetchLosslessRuleListResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListWithMetircsRequest;
@@ -4088,6 +4090,70 @@ class Mse extends OpenApiClient
     }
 
     /**
+     * @param GetApplicationInstanceListRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return GetApplicationInstanceListResponse
+     */
+    public function getApplicationInstanceListWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
+        }
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['PageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->region)) {
+            $query['Region'] = $request->region;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetApplicationInstanceList',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetApplicationInstanceListResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetApplicationInstanceListRequest $request
+     *
+     * @return GetApplicationInstanceListResponse
+     */
+    public function getApplicationInstanceList($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getApplicationInstanceListWithOptions($request, $runtime);
+    }
+
+    /**
      * @param GetApplicationListRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -5343,6 +5409,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->appId)) {
             $query['AppId'] = $request->appId;
         }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
         if (!Utils::isUnset($request->ip)) {
             $query['Ip'] = $request->ip;
         }
@@ -5497,6 +5566,9 @@ class Mse extends OpenApiClient
         }
         if (!Utils::isUnset($request->name)) {
             $query['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->namespace_)) {
+            $query['Namespace'] = $request->namespace_;
         }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['PageNumber'] = $request->pageNumber;

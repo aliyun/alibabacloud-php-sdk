@@ -51,6 +51,13 @@ class GetServiceMethodPageRequest extends Model
     public $name;
 
     /**
+     * @example default
+     *
+     * @var string
+     */
+    public $namespace;
+
+    /**
      * @example 1
      *
      * @var int
@@ -110,6 +117,7 @@ class GetServiceMethodPageRequest extends Model
         'ip'               => 'Ip',
         'methodController' => 'MethodController',
         'name'             => 'Name',
+        'namespace'        => 'Namespace',
         'pageNumber'       => 'PageNumber',
         'pageSize'         => 'PageSize',
         'path'             => 'Path',
@@ -144,6 +152,9 @@ class GetServiceMethodPageRequest extends Model
         }
         if (null !== $this->name) {
             $res['Name'] = $this->name;
+        }
+        if (null !== $this->namespace) {
+            $res['Namespace'] = $this->namespace;
         }
         if (null !== $this->pageNumber) {
             $res['PageNumber'] = $this->pageNumber;
@@ -198,6 +209,9 @@ class GetServiceMethodPageRequest extends Model
         }
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
+        }
+        if (isset($map['Namespace'])) {
+            $model->namespace = $map['Namespace'];
         }
         if (isset($map['PageNumber'])) {
             $model->pageNumber = $map['PageNumber'];

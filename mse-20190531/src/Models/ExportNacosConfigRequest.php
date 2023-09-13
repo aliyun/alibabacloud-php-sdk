@@ -44,6 +44,10 @@ class ExportNacosConfigRequest extends Model
     public $dataId;
 
     /**
+     * @description The configuration group name and the ID of the data that you want to export. Separate multiple configurations with comma (,).
+     *
+     * @example testGroup+testDataId1,testGroup+testDataId2
+     *
      * @var string
      */
     public $dataIds;
