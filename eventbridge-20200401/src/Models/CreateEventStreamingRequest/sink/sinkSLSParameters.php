@@ -1,0 +1,110 @@
+<?php
+
+// This file is auto-generated, don't edit it. Thanks.
+
+namespace AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink;
+
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\body;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\logStore;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\project;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\roleName;
+use AlibabaCloud\SDK\Eventbridge\V20200401\Models\CreateEventStreamingRequest\sink\sinkSLSParameters\topic;
+use AlibabaCloud\Tea\Model;
+
+class sinkSLSParameters extends Model
+{
+    /**
+     * @description The message body that is sent to Log Service.
+     *
+     * @var body
+     */
+    public $body;
+
+    /**
+     * @description The information about the Log Service Logstore.
+     *
+     * @var logStore
+     */
+    public $logStore;
+
+    /**
+     * @description The information about the Log Service project.
+     *
+     * @var project
+     */
+    public $project;
+
+    /**
+     * @description If you want to authorize EventBridge to use this role to read logs in Log Service, you must select Alibaba Cloud Service for Selected Trusted Entity and EventBridge for Select Trusted Service when you create the role in the RAM console.
+     *
+     * @var roleName
+     */
+    public $roleName;
+
+    /**
+     * @description The information about the topic in which logs are stored. The topic corresponds to the **topic** reserved field in Log Service.
+     *
+     * @var topic
+     */
+    public $topic;
+    protected $_name = [
+        'body'     => 'Body',
+        'logStore' => 'LogStore',
+        'project'  => 'Project',
+        'roleName' => 'RoleName',
+        'topic'    => 'Topic',
+    ];
+
+    public function validate()
+    {
+    }
+
+    public function toMap()
+    {
+        $res = [];
+        if (null !== $this->body) {
+            $res['Body'] = null !== $this->body ? $this->body->toMap() : null;
+        }
+        if (null !== $this->logStore) {
+            $res['LogStore'] = null !== $this->logStore ? $this->logStore->toMap() : null;
+        }
+        if (null !== $this->project) {
+            $res['Project'] = null !== $this->project ? $this->project->toMap() : null;
+        }
+        if (null !== $this->roleName) {
+            $res['RoleName'] = null !== $this->roleName ? $this->roleName->toMap() : null;
+        }
+        if (null !== $this->topic) {
+            $res['Topic'] = null !== $this->topic ? $this->topic->toMap() : null;
+        }
+
+        return $res;
+    }
+
+    /**
+     * @param array $map
+     *
+     * @return sinkSLSParameters
+     */
+    public static function fromMap($map = [])
+    {
+        $model = new self();
+        if (isset($map['Body'])) {
+            $model->body = body::fromMap($map['Body']);
+        }
+        if (isset($map['LogStore'])) {
+            $model->logStore = logStore::fromMap($map['LogStore']);
+        }
+        if (isset($map['Project'])) {
+            $model->project = project::fromMap($map['Project']);
+        }
+        if (isset($map['RoleName'])) {
+            $model->roleName = roleName::fromMap($map['RoleName']);
+        }
+        if (isset($map['Topic'])) {
+            $model->topic = topic::fromMap($map['Topic']);
+        }
+
+        return $model;
+    }
+}
