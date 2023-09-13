@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody;
 
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody\instance\defaultEndpoint;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetInstanceResponseBody\instance\domainConfig;
 use AlibabaCloud\Tea\Model;
 
 class instance extends Model
@@ -28,9 +29,18 @@ class instance extends Model
     /**
      * @description The description of the instance.
      *
+     * @example test_description
+     *
      * @var string
      */
     public $description;
+
+    /**
+     * @description The default domain of the instance.
+     *
+     * @var domainConfig
+     */
+    public $domainConfig;
 
     /**
      * @description The outbound public CIDR blocks of the instance. For example, when you synchronize Active Directory (AD) accounts, the IDaaS EIAM instance accesses your AD service by using the outbound public CIDR blocks.
@@ -63,6 +73,7 @@ class instance extends Model
         'createTime'      => 'CreateTime',
         'defaultEndpoint' => 'DefaultEndpoint',
         'description'     => 'Description',
+        'domainConfig'    => 'DomainConfig',
         'egressAddresses' => 'EgressAddresses',
         'instanceId'      => 'InstanceId',
         'status'          => 'Status',
@@ -83,6 +94,9 @@ class instance extends Model
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->domainConfig) {
+            $res['DomainConfig'] = null !== $this->domainConfig ? $this->domainConfig->toMap() : null;
         }
         if (null !== $this->egressAddresses) {
             $res['EgressAddresses'] = $this->egressAddresses;
@@ -113,6 +127,9 @@ class instance extends Model
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['DomainConfig'])) {
+            $model->domainConfig = domainConfig::fromMap($map['DomainConfig']);
         }
         if (isset($map['EgressAddresses'])) {
             if (!empty($map['EgressAddresses'])) {

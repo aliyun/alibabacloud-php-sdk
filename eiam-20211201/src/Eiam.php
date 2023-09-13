@@ -20,6 +20,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationClientSecretResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\CreateInstanceRequest;
@@ -34,6 +38,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationClientSecretResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteApplicationResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteGroupRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteGroupResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DeleteInstanceRequest;
@@ -54,6 +62,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableApplicationSsoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\DisableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationApiInvokeRequest;
@@ -66,6 +78,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableApplicationSsoResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableDomainProxyTokenResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableInitDomainAutoRedirectResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\EnableUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationGrantScopeRequest;
@@ -78,6 +94,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetApplicationSsoConfigResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainDnsChallengeResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\GetDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetForgetPasswordConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\GetGroupRequest;
@@ -108,6 +128,10 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForUserRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsForUserResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListApplicationsResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainProxyTokensResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ListDomainsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForApplicationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListGroupsForUserRequest;
@@ -138,6 +162,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ListUsersResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainApplicationClientSecretResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\ObtainDomainProxyTokenResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUserFromOrganizationalUnitsResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\RemoveUsersFromGroupRequest;
@@ -156,6 +182,8 @@ use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningScopeReques
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationProvisioningScopeResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetApplicationSsoConfigResponse;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainRequest;
+use AlibabaCloud\SDK\Eiam\V20211201\Models\SetDefaultDomainResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationRequest;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetForgetPasswordConfigurationResponse;
 use AlibabaCloud\SDK\Eiam\V20211201\Models\SetPasswordComplexityConfigurationRequest;
@@ -590,6 +618,101 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @param CreateDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->filing)) {
+            $query['Filing'] = $request->filing;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomain',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDomainRequest $request
+     *
+     * @return CreateDomainResponse
+     */
+    public function createDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateDomainProxyTokenResponse
+     */
+    public function createDomainProxyTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateDomainProxyToken',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateDomainProxyTokenRequest $request
+     *
+     * @return CreateDomainProxyTokenResponse
+     */
+    public function createDomainProxyToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateGroupRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -979,6 +1102,101 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteApplicationClientSecretWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDomainRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomain',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDomainRequest $request
+     *
+     * @return DeleteDomainResponse
+     */
+    public function deleteDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DeleteDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return DeleteDomainProxyTokenResponse
+     */
+    public function deleteDomainProxyTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->domainProxyTokenId)) {
+            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDomainProxyToken',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDomainProxyTokenRequest $request
+     *
+     * @return DeleteDomainProxyTokenResponse
+     */
+    public function deleteDomainProxyToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDomainProxyTokenWithOptions($request, $runtime);
     }
 
     /**
@@ -1450,6 +1668,98 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @param DisableDomainProxyTokenRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return DisableDomainProxyTokenResponse
+     */
+    public function disableDomainProxyTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->domainProxyTokenId)) {
+            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableDomainProxyToken',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableDomainProxyTokenRequest $request
+     *
+     * @return DisableDomainProxyTokenResponse
+     */
+    public function disableDomainProxyToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param DisableInitDomainAutoRedirectRequest $request
+     * @param RuntimeOptions                       $runtime
+     *
+     * @return DisableInitDomainAutoRedirectResponse
+     */
+    public function disableInitDomainAutoRedirectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableInitDomainAutoRedirect',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DisableInitDomainAutoRedirectRequest $request
+     *
+     * @return DisableInitDomainAutoRedirectResponse
+     */
+    public function disableInitDomainAutoRedirect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableInitDomainAutoRedirectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DisableUserRequest $request
      * @param RuntimeOptions     $runtime
      *
@@ -1729,6 +2039,98 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @param EnableDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return EnableDomainProxyTokenResponse
+     */
+    public function enableDomainProxyTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->domainProxyTokenId)) {
+            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableDomainProxyToken',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableDomainProxyTokenRequest $request
+     *
+     * @return EnableDomainProxyTokenResponse
+     */
+    public function enableDomainProxyToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param EnableInitDomainAutoRedirectRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return EnableInitDomainAutoRedirectResponse
+     */
+    public function enableInitDomainAutoRedirectWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableInitDomainAutoRedirect',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableInitDomainAutoRedirectResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableInitDomainAutoRedirectRequest $request
+     *
+     * @return EnableInitDomainAutoRedirectResponse
+     */
+    public function enableInitDomainAutoRedirect($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableInitDomainAutoRedirectWithOptions($request, $runtime);
+    }
+
+    /**
      * @param EnableUserRequest $request
      * @param RuntimeOptions    $runtime
      *
@@ -2002,6 +2404,98 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationSsoConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDomainRequest $request
+     * @param RuntimeOptions   $runtime
+     *
+     * @return GetDomainResponse
+     */
+    public function getDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDomain',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDomainRequest $request
+     *
+     * @return GetDomainResponse
+     */
+    public function getDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetDomainDnsChallengeRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetDomainDnsChallengeResponse
+     */
+    public function getDomainDnsChallengeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domain)) {
+            $query['Domain'] = $request->domain;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetDomainDnsChallenge',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetDomainDnsChallengeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetDomainDnsChallengeRequest $request
+     *
+     * @return GetDomainDnsChallengeResponse
+     */
+    public function getDomainDnsChallenge($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getDomainDnsChallengeWithOptions($request, $runtime);
     }
 
     /**
@@ -2711,6 +3205,95 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listApplicationsForUserWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDomainProxyTokensRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListDomainProxyTokensResponse
+     */
+    public function listDomainProxyTokensWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDomainProxyTokens',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDomainProxyTokensResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDomainProxyTokensRequest $request
+     *
+     * @return ListDomainProxyTokensResponse
+     */
+    public function listDomainProxyTokens($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainProxyTokensWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListDomainsRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomainsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListDomains',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListDomainsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListDomainsRequest $request
+     *
+     * @return ListDomainsResponse
+     */
+    public function listDomains($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listDomainsWithOptions($request, $runtime);
     }
 
     /**
@@ -3553,6 +4136,55 @@ class Eiam extends OpenApiClient
     }
 
     /**
+     * @param ObtainDomainProxyTokenRequest $request
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ObtainDomainProxyTokenResponse
+     */
+    public function obtainDomainProxyTokenWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->domainProxyTokenId)) {
+            $query['DomainProxyTokenId'] = $request->domainProxyTokenId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ObtainDomainProxyToken',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ObtainDomainProxyTokenResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ObtainDomainProxyTokenRequest $request
+     *
+     * @return ObtainDomainProxyTokenResponse
+     */
+    public function obtainDomainProxyToken($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->obtainDomainProxyTokenWithOptions($request, $runtime);
+    }
+
+    /**
      * @param RemoveUserFromOrganizationalUnitsRequest $request
      * @param RuntimeOptions                           $runtime
      *
@@ -4013,6 +4645,52 @@ class Eiam extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->setApplicationSsoConfigWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SetDefaultDomainRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return SetDefaultDomainResponse
+     */
+    public function setDefaultDomainWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->domainId)) {
+            $query['DomainId'] = $request->domainId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SetDefaultDomain',
+            'version'     => '2021-12-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SetDefaultDomainResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SetDefaultDomainRequest $request
+     *
+     * @return SetDefaultDomainResponse
+     */
+    public function setDefaultDomain($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->setDefaultDomainWithOptions($request, $runtime);
     }
 
     /**
