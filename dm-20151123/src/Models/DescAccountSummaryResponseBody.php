@@ -72,6 +72,11 @@ class DescAccountSummaryResponseBody extends Model
     public $receivers;
 
     /**
+     * @var int
+     */
+    public $remainFreeQuota;
+
+    /**
      * @example 82B295BB-7E69-491F-9896-ECEAFF09E1A4
      *
      * @var string
@@ -120,22 +125,23 @@ class DescAccountSummaryResponseBody extends Model
      */
     public $userStatus;
     protected $_name = [
-        'dailyQuota'    => 'DailyQuota',
-        'dayuStatus'    => 'DayuStatus',
-        'domains'       => 'Domains',
-        'enableTimes'   => 'EnableTimes',
-        'mailAddresses' => 'MailAddresses',
-        'maxQuotaLevel' => 'MaxQuotaLevel',
-        'monthQuota'    => 'MonthQuota',
-        'quotaLevel'    => 'QuotaLevel',
-        'receivers'     => 'Receivers',
-        'requestId'     => 'RequestId',
-        'smsRecord'     => 'SmsRecord',
-        'smsSign'       => 'SmsSign',
-        'smsTemplates'  => 'SmsTemplates',
-        'tags'          => 'Tags',
-        'templates'     => 'Templates',
-        'userStatus'    => 'UserStatus',
+        'dailyQuota'      => 'DailyQuota',
+        'dayuStatus'      => 'DayuStatus',
+        'domains'         => 'Domains',
+        'enableTimes'     => 'EnableTimes',
+        'mailAddresses'   => 'MailAddresses',
+        'maxQuotaLevel'   => 'MaxQuotaLevel',
+        'monthQuota'      => 'MonthQuota',
+        'quotaLevel'      => 'QuotaLevel',
+        'receivers'       => 'Receivers',
+        'remainFreeQuota' => 'RemainFreeQuota',
+        'requestId'       => 'RequestId',
+        'smsRecord'       => 'SmsRecord',
+        'smsSign'         => 'SmsSign',
+        'smsTemplates'    => 'SmsTemplates',
+        'tags'            => 'Tags',
+        'templates'       => 'Templates',
+        'userStatus'      => 'UserStatus',
     ];
 
     public function validate()
@@ -171,6 +177,9 @@ class DescAccountSummaryResponseBody extends Model
         }
         if (null !== $this->receivers) {
             $res['Receivers'] = $this->receivers;
+        }
+        if (null !== $this->remainFreeQuota) {
+            $res['RemainFreeQuota'] = $this->remainFreeQuota;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -231,6 +240,9 @@ class DescAccountSummaryResponseBody extends Model
         }
         if (isset($map['Receivers'])) {
             $model->receivers = $map['Receivers'];
+        }
+        if (isset($map['RemainFreeQuota'])) {
+            $model->remainFreeQuota = $map['RemainFreeQuota'];
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
