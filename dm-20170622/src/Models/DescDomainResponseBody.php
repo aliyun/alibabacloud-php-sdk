@@ -36,6 +36,21 @@ class DescDomainResponseBody extends Model
     /**
      * @var string
      */
+    public $dkimAuthStatus;
+
+    /**
+     * @var string
+     */
+    public $dkimPublicKey;
+
+    /**
+     * @var string
+     */
+    public $dkimRR;
+
+    /**
+     * @var string
+     */
     public $dnsMx;
 
     /**
@@ -71,6 +86,11 @@ class DescDomainResponseBody extends Model
     /**
      * @var string
      */
+    public $hostRecord;
+
+    /**
+     * @var string
+     */
     public $icpStatus;
 
     /**
@@ -101,6 +121,11 @@ class DescDomainResponseBody extends Model
     /**
      * @var string
      */
+    public $spfRecordV2;
+
+    /**
+     * @var string
+     */
     public $tlDomainName;
 
     /**
@@ -113,6 +138,9 @@ class DescDomainResponseBody extends Model
         'cnameRecord'        => 'CnameRecord',
         'createTime'         => 'CreateTime',
         'defaultDomain'      => 'DefaultDomain',
+        'dkimAuthStatus'     => 'DkimAuthStatus',
+        'dkimPublicKey'      => 'DkimPublicKey',
+        'dkimRR'             => 'DkimRR',
         'dnsMx'              => 'DnsMx',
         'dnsSpf'             => 'DnsSpf',
         'dnsTxt'             => 'DnsTxt',
@@ -120,12 +148,14 @@ class DescDomainResponseBody extends Model
         'domainName'         => 'DomainName',
         'domainStatus'       => 'DomainStatus',
         'domainType'         => 'DomainType',
+        'hostRecord'         => 'HostRecord',
         'icpStatus'          => 'IcpStatus',
         'mxAuthStatus'       => 'MxAuthStatus',
         'mxRecord'           => 'MxRecord',
         'requestId'          => 'RequestId',
         'spfAuthStatus'      => 'SpfAuthStatus',
         'spfRecord'          => 'SpfRecord',
+        'spfRecordV2'        => 'SpfRecordV2',
         'tlDomainName'       => 'TlDomainName',
         'tracefRecord'       => 'TracefRecord',
     ];
@@ -152,6 +182,15 @@ class DescDomainResponseBody extends Model
         if (null !== $this->defaultDomain) {
             $res['DefaultDomain'] = $this->defaultDomain;
         }
+        if (null !== $this->dkimAuthStatus) {
+            $res['DkimAuthStatus'] = $this->dkimAuthStatus;
+        }
+        if (null !== $this->dkimPublicKey) {
+            $res['DkimPublicKey'] = $this->dkimPublicKey;
+        }
+        if (null !== $this->dkimRR) {
+            $res['DkimRR'] = $this->dkimRR;
+        }
         if (null !== $this->dnsMx) {
             $res['DnsMx'] = $this->dnsMx;
         }
@@ -173,6 +212,9 @@ class DescDomainResponseBody extends Model
         if (null !== $this->domainType) {
             $res['DomainType'] = $this->domainType;
         }
+        if (null !== $this->hostRecord) {
+            $res['HostRecord'] = $this->hostRecord;
+        }
         if (null !== $this->icpStatus) {
             $res['IcpStatus'] = $this->icpStatus;
         }
@@ -190,6 +232,9 @@ class DescDomainResponseBody extends Model
         }
         if (null !== $this->spfRecord) {
             $res['SpfRecord'] = $this->spfRecord;
+        }
+        if (null !== $this->spfRecordV2) {
+            $res['SpfRecordV2'] = $this->spfRecordV2;
         }
         if (null !== $this->tlDomainName) {
             $res['TlDomainName'] = $this->tlDomainName;
@@ -224,6 +269,15 @@ class DescDomainResponseBody extends Model
         if (isset($map['DefaultDomain'])) {
             $model->defaultDomain = $map['DefaultDomain'];
         }
+        if (isset($map['DkimAuthStatus'])) {
+            $model->dkimAuthStatus = $map['DkimAuthStatus'];
+        }
+        if (isset($map['DkimPublicKey'])) {
+            $model->dkimPublicKey = $map['DkimPublicKey'];
+        }
+        if (isset($map['DkimRR'])) {
+            $model->dkimRR = $map['DkimRR'];
+        }
         if (isset($map['DnsMx'])) {
             $model->dnsMx = $map['DnsMx'];
         }
@@ -245,6 +299,9 @@ class DescDomainResponseBody extends Model
         if (isset($map['DomainType'])) {
             $model->domainType = $map['DomainType'];
         }
+        if (isset($map['HostRecord'])) {
+            $model->hostRecord = $map['HostRecord'];
+        }
         if (isset($map['IcpStatus'])) {
             $model->icpStatus = $map['IcpStatus'];
         }
@@ -262,6 +319,9 @@ class DescDomainResponseBody extends Model
         }
         if (isset($map['SpfRecord'])) {
             $model->spfRecord = $map['SpfRecord'];
+        }
+        if (isset($map['SpfRecordV2'])) {
+            $model->spfRecordV2 = $map['SpfRecordV2'];
         }
         if (isset($map['TlDomainName'])) {
             $model->tlDomainName = $map['TlDomainName'];

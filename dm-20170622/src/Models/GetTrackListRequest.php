@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetTrackListRequest extends Model
 {
     /**
+     * @example 2022-09-29
+     *
      * @var string
      */
     public $endTime;
@@ -34,11 +36,15 @@ class GetTrackListRequest extends Model
     public $ownerId;
 
     /**
+     * @example 1
+     *
      * @var string
      */
     public $pageNumber;
 
     /**
+     * @example 10
+     *
      * @var string
      */
     public $pageSize;
@@ -54,6 +60,8 @@ class GetTrackListRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 2022-09-29
+     *
      * @var string
      */
     public $startTime;

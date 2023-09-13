@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class AddIpfilterResponseBody extends Model
 {
     /**
+     * @example 10795
+     *
      * @var string
      */
     public $ipFilterId;
 
     /**
+     * @example F814E960-5AEE-5CB1-881B-6F1A3250B55A
+     *
      * @var string
      */
     public $requestId;

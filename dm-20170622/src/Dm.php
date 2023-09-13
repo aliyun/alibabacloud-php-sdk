@@ -1132,10 +1132,14 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetMailAddressMsgCallBackUrlRequest $request
-     * @param RuntimeOptions                      $runtime
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetMailAddressMsgCallBackUrlResponse
+     * @param GetMailAddressMsgCallBackUrlRequest $request GetMailAddressMsgCallBackUrlRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
+     *
+     * @return GetMailAddressMsgCallBackUrlResponse GetMailAddressMsgCallBackUrlResponse
      */
     public function getMailAddressMsgCallBackUrlWithOptions($request, $runtime)
     {
@@ -1172,9 +1176,13 @@ class Dm extends OpenApiClient
     }
 
     /**
-     * @param GetMailAddressMsgCallBackUrlRequest $request
+     * @deprecated
+     *   *
+     * Deprecated
      *
-     * @return GetMailAddressMsgCallBackUrlResponse
+     * @param GetMailAddressMsgCallBackUrlRequest $request GetMailAddressMsgCallBackUrlRequest
+     *
+     * @return GetMailAddressMsgCallBackUrlResponse GetMailAddressMsgCallBackUrlResponse
      */
     public function getMailAddressMsgCallBackUrl($request)
     {
