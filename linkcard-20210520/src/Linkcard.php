@@ -62,6 +62,9 @@ use AlibabaCloud\SDK\Linkcard\V20210520\Models\RenewResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ResumeSingleCardRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ResumeSingleCardResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\ResumeSingleCardShrinkRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\SendMessageRequest;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\SendMessageResponse;
+use AlibabaCloud\SDK\Linkcard\V20210520\Models\SendMessageShrinkRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\SetCardStopRuleRequest;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\SetCardStopRuleResponse;
 use AlibabaCloud\SDK\Linkcard\V20210520\Models\StopSingleCardRequest;
@@ -1468,6 +1471,69 @@ class Linkcard extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->resumeSingleCardWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendMessageRequest $tmpReq
+     * @param RuntimeOptions     $runtime
+     *
+     * @return SendMessageResponse
+     */
+    public function sendMessageWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new SendMessageShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->msisdns)) {
+            $request->msisdnsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->msisdns, 'Msisdns', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->apiProduct)) {
+            $body['ApiProduct'] = $request->apiProduct;
+        }
+        if (!Utils::isUnset($request->messageSendTime)) {
+            $body['MessageSendTime'] = $request->messageSendTime;
+        }
+        if (!Utils::isUnset($request->messageTemplateId)) {
+            $body['MessageTemplateId'] = $request->messageTemplateId;
+        }
+        if (!Utils::isUnset($request->messageVariableParam)) {
+            $body['MessageVariableParam'] = $request->messageVariableParam;
+        }
+        if (!Utils::isUnset($request->msisdnsShrink)) {
+            $body['Msisdns'] = $request->msisdnsShrink;
+        }
+        if (!Utils::isUnset($request->taskName)) {
+            $body['TaskName'] = $request->taskName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'SendMessage',
+            'version'     => '2021-05-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendMessageResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendMessageRequest $request
+     *
+     * @return SendMessageResponse
+     */
+    public function sendMessage($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendMessageWithOptions($request, $runtime);
     }
 
     /**
