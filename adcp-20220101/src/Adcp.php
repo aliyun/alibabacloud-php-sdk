@@ -1161,6 +1161,9 @@ class Adcp extends OpenApiClient
         if (!Utils::isUnset($request->argoCDHAEnabled)) {
             $query['ArgoCDHAEnabled'] = $request->argoCDHAEnabled;
         }
+        if (!Utils::isUnset($request->argoEventsEnabled)) {
+            $query['ArgoEventsEnabled'] = $request->argoEventsEnabled;
+        }
         if (!Utils::isUnset($request->argoServerEnabled)) {
             $query['ArgoServerEnabled'] = $request->argoServerEnabled;
         }

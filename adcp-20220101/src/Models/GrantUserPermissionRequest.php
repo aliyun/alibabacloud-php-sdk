@@ -16,6 +16,10 @@ class GrantUserPermissionRequest extends Model
     public $clusterId;
 
     /**
+     * @description The entity to which the permissions are granted. A value of `true` indicates that the permissions are granted to a RAM user. A value of `false` indicates that the permissions are granted to a RAM role.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $isRamRole;
@@ -28,6 +32,24 @@ class GrantUserPermissionRequest extends Model
     public $namespace;
 
     /**
+     * @description The predefined role that you want to assign. Valid values:
+     *
+     *   admin: the administrator role.
+     *   dev: the developer role.
+     *
+     * Enumerated values:
+     *
+     *   arms-admin
+     *
+     * <!-- -->
+     *
+     *   dev
+     *
+     * <!-- -->
+     *
+     *   admin
+     *
+     * <!-- -->
      * @example admin
      *
      * @var string
@@ -42,6 +64,8 @@ class GrantUserPermissionRequest extends Model
     public $roleType;
 
     /**
+     * @description The ID of the RAM user or RAM role.
+     *
      * @example 2176****
      *
      * @var string

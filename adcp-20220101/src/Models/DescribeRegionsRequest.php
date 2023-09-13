@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The language. Valid values: zh and en.
      *
-     * @example The operation that you want to perform. Set the value to **DescribeRegions**.
+     * @example en
      *
      * @var string
      */

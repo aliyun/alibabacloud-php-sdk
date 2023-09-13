@@ -35,6 +35,11 @@ class UpdateHubClusterFeatureRequest extends Model
     public $argoCDHAEnabled;
 
     /**
+     * @var bool
+     */
+    public $argoEventsEnabled;
+
+    /**
      * @example true
      *
      * @var bool
@@ -140,6 +145,7 @@ class UpdateHubClusterFeatureRequest extends Model
         'apiServerEipId'         => 'ApiServerEipId',
         'argoCDEnabled'          => 'ArgoCDEnabled',
         'argoCDHAEnabled'        => 'ArgoCDHAEnabled',
+        'argoEventsEnabled'      => 'ArgoEventsEnabled',
         'argoServerEnabled'      => 'ArgoServerEnabled',
         'auditLogEnabled'        => 'AuditLogEnabled',
         'clusterId'              => 'ClusterId',
@@ -172,6 +178,9 @@ class UpdateHubClusterFeatureRequest extends Model
         }
         if (null !== $this->argoCDHAEnabled) {
             $res['ArgoCDHAEnabled'] = $this->argoCDHAEnabled;
+        }
+        if (null !== $this->argoEventsEnabled) {
+            $res['ArgoEventsEnabled'] = $this->argoEventsEnabled;
         }
         if (null !== $this->argoServerEnabled) {
             $res['ArgoServerEnabled'] = $this->argoServerEnabled;
@@ -234,6 +243,9 @@ class UpdateHubClusterFeatureRequest extends Model
         }
         if (isset($map['ArgoCDHAEnabled'])) {
             $model->argoCDHAEnabled = $map['ArgoCDHAEnabled'];
+        }
+        if (isset($map['ArgoEventsEnabled'])) {
+            $model->argoEventsEnabled = $map['ArgoEventsEnabled'];
         }
         if (isset($map['ArgoServerEnabled'])) {
             $model->argoServerEnabled = $map['ArgoServerEnabled'];
