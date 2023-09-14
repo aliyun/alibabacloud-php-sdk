@@ -15,6 +15,11 @@ class MergeVideoModelFaceRequest extends Model
     public $addWatermark;
 
     /**
+     * @var bool
+     */
+    public $enhance;
+
+    /**
      * @example https://invi-label.oss-cn-shanghai.aliyuncs.com/label/temp/faceswap/ref/ref.jpg
      *
      * @var string
@@ -34,6 +39,7 @@ class MergeVideoModelFaceRequest extends Model
     public $templateId;
     protected $_name = [
         'addWatermark' => 'AddWatermark',
+        'enhance'      => 'Enhance',
         'faceImageURL' => 'FaceImageURL',
         'mergeInfos'   => 'MergeInfos',
         'templateId'   => 'TemplateId',
@@ -48,6 +54,9 @@ class MergeVideoModelFaceRequest extends Model
         $res = [];
         if (null !== $this->addWatermark) {
             $res['AddWatermark'] = $this->addWatermark;
+        }
+        if (null !== $this->enhance) {
+            $res['Enhance'] = $this->enhance;
         }
         if (null !== $this->faceImageURL) {
             $res['FaceImageURL'] = $this->faceImageURL;
@@ -78,6 +87,9 @@ class MergeVideoModelFaceRequest extends Model
         $model = new self();
         if (isset($map['AddWatermark'])) {
             $model->addWatermark = $map['AddWatermark'];
+        }
+        if (isset($map['Enhance'])) {
+            $model->enhance = $map['Enhance'];
         }
         if (isset($map['FaceImageURL'])) {
             $model->faceImageURL = $map['FaceImageURL'];
