@@ -19,7 +19,7 @@ class retcodeAppDataBean extends Model
     public $appId;
 
     /**
-     * @description PID。
+     * @description PID.
      *
      * @example aokcdqn3ly@a195c6d6421****
      *

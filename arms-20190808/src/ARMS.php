@@ -1484,6 +1484,9 @@ class ARMS extends OpenApiClient
         if (!Utils::isUnset($request->alertName)) {
             $body['AlertName'] = $request->alertName;
         }
+        if (!Utils::isUnset($request->alertPiplines)) {
+            $body['AlertPiplines'] = $request->alertPiplines;
+        }
         if (!Utils::isUnset($request->alertRuleContent)) {
             $body['AlertRuleContent'] = $request->alertRuleContent;
         }
@@ -1501,6 +1504,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->clusterId)) {
             $body['ClusterId'] = $request->clusterId;
+        }
+        if (!Utils::isUnset($request->dataConfig)) {
+            $body['DataConfig'] = $request->dataConfig;
         }
         if (!Utils::isUnset($request->duration)) {
             $body['Duration'] = $request->duration;
@@ -1525,6 +1531,9 @@ class ARMS extends OpenApiClient
         }
         if (!Utils::isUnset($request->metricsType)) {
             $body['MetricsType'] = $request->metricsType;
+        }
+        if (!Utils::isUnset($request->notice)) {
+            $body['Notice'] = $request->notice;
         }
         if (!Utils::isUnset($request->notifyStrategy)) {
             $body['NotifyStrategy'] = $request->notifyStrategy;

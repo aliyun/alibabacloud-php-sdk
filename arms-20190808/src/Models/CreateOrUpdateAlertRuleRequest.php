@@ -57,6 +57,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $alertName;
 
     /**
+     * @var string
+     */
+    public $alertPiplines;
+
+    /**
      * @description The content of the Application Monitoring or Browser Monitoring alert rule. The following code provides an example of the **AlertRuleContent** parameter. For more information about the meaning of each field, see the supplementary description.
      *
      * ```
@@ -131,6 +136,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
      * @var string
      */
     public $clusterId;
+
+    /**
+     * @var string
+     */
+    public $dataConfig;
 
     /**
      * @description The duration of the Prometheus alert rule. Unit: minutes.
@@ -216,6 +226,11 @@ class CreateOrUpdateAlertRuleRequest extends Model
     public $metricsType;
 
     /**
+     * @var string
+     */
+    public $notice;
+
+    /**
      * @description The notification policy.
      *
      *   If you set this parameter to null, no notification policy is specified. After you create an alert rule, you can create a notification policy and specify match rules and match conditions. For example, you can specify the name of the alert rule as the match condition. When the alert rule is triggered, an alert event is generated and an alert notification is sent to the contacts or contact groups that are specified in the notification policy.
@@ -263,12 +278,14 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'alertGroup'            => 'AlertGroup',
         'alertId'               => 'AlertId',
         'alertName'             => 'AlertName',
+        'alertPiplines'         => 'AlertPiplines',
         'alertRuleContent'      => 'AlertRuleContent',
         'alertStatus'           => 'AlertStatus',
         'alertType'             => 'AlertType',
         'annotations'           => 'Annotations',
         'autoAddNewApplication' => 'AutoAddNewApplication',
         'clusterId'             => 'ClusterId',
+        'dataConfig'            => 'DataConfig',
         'duration'              => 'Duration',
         'filters'               => 'Filters',
         'labels'                => 'Labels',
@@ -277,6 +294,7 @@ class CreateOrUpdateAlertRuleRequest extends Model
         'message'               => 'Message',
         'metricsKey'            => 'MetricsKey',
         'metricsType'           => 'MetricsType',
+        'notice'                => 'Notice',
         'notifyStrategy'        => 'NotifyStrategy',
         'pids'                  => 'Pids',
         'promQL'                => 'PromQL',
@@ -303,6 +321,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         if (null !== $this->alertName) {
             $res['AlertName'] = $this->alertName;
         }
+        if (null !== $this->alertPiplines) {
+            $res['AlertPiplines'] = $this->alertPiplines;
+        }
         if (null !== $this->alertRuleContent) {
             $res['AlertRuleContent'] = $this->alertRuleContent;
         }
@@ -320,6 +341,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (null !== $this->clusterId) {
             $res['ClusterId'] = $this->clusterId;
+        }
+        if (null !== $this->dataConfig) {
+            $res['DataConfig'] = $this->dataConfig;
         }
         if (null !== $this->duration) {
             $res['Duration'] = $this->duration;
@@ -350,6 +374,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (null !== $this->metricsType) {
             $res['MetricsType'] = $this->metricsType;
+        }
+        if (null !== $this->notice) {
+            $res['Notice'] = $this->notice;
         }
         if (null !== $this->notifyStrategy) {
             $res['NotifyStrategy'] = $this->notifyStrategy;
@@ -396,6 +423,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         if (isset($map['AlertName'])) {
             $model->alertName = $map['AlertName'];
         }
+        if (isset($map['AlertPiplines'])) {
+            $model->alertPiplines = $map['AlertPiplines'];
+        }
         if (isset($map['AlertRuleContent'])) {
             $model->alertRuleContent = $map['AlertRuleContent'];
         }
@@ -413,6 +443,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (isset($map['ClusterId'])) {
             $model->clusterId = $map['ClusterId'];
+        }
+        if (isset($map['DataConfig'])) {
+            $model->dataConfig = $map['DataConfig'];
         }
         if (isset($map['Duration'])) {
             $model->duration = $map['Duration'];
@@ -443,6 +476,9 @@ class CreateOrUpdateAlertRuleRequest extends Model
         }
         if (isset($map['MetricsType'])) {
             $model->metricsType = $map['MetricsType'];
+        }
+        if (isset($map['Notice'])) {
+            $model->notice = $map['Notice'];
         }
         if (isset($map['NotifyStrategy'])) {
             $model->notifyStrategy = $map['NotifyStrategy'];
