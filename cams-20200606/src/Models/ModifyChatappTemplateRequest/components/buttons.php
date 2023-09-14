@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
+     * @description The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
+     *
      * @example Autofill
      *
      * @var string
@@ -16,6 +18,8 @@ class buttons extends Model
     public $autofillText;
 
     /**
+     * @description The unsubscribe button. This parameter is valid only when Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY in a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages will not be sent to customers if they click this button.
+     *
      * @example false
      *
      * @var bool
@@ -23,6 +27,8 @@ class buttons extends Model
     public $isOptOut;
 
     /**
+     * @description The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
+     *
      * @example com.demo
      *
      * @var string
@@ -30,6 +36,8 @@ class buttons extends Model
     public $packageName;
 
     /**
+     * @description The phone number.
+     *
      * @example +8613888887889
      *
      * @var string
@@ -37,6 +45,8 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
+     * @description The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
+     *
      * @example 29dkeke
      *
      * @var string
@@ -44,6 +54,8 @@ class buttons extends Model
     public $signatureHash;
 
     /**
+     * @description The text of the button.
+     *
      * @example phone-button-text
      *
      * @var string
@@ -51,6 +63,24 @@ class buttons extends Model
     public $text;
 
     /**
+     * @description The type of the button. Valid values:
+     *
+     *   **PHONE_NUMBER**: the phone call button
+     *   **URL**: the URL button
+     *   **QUICK_REPLY**: the quick reply button
+     *   **COPY_CODE**: the copy code button if Category is set to AUTHENTICATION
+     *   **ONE_TAP**: the one-tap autofill button if Category is set to AUTHENTICATION
+     *
+     * >
+     *
+     *   In a WhatsApp message template, the quick reply button cannot be used together with the phone call button or the URL button.
+     *
+     *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a WhatsApp message template.
+     *
+     *   If Category is set to AUTHENTICATION in a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If the Type sub-parameter of the Buttons parameter is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If the Type sub-parameter of the Buttons parameter is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value indicates that you must manually copy the verification code.
+     *
+     *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -58,6 +88,8 @@ class buttons extends Model
     public $type;
 
     /**
+     * @description The URL to which you are redirected when you click the URL button.
+     *
      * @example https://www.website.com/
      *
      * @var string
@@ -65,6 +97,11 @@ class buttons extends Model
     public $url;
 
     /**
+     * @description The type of the URL. Valid values:
+     *
+     *   **static**
+     *   **dynamic**
+     *
      * @example dynamic
      *
      * @var string

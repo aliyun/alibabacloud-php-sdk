@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateMetricResponseBody\data;
 use AlibabaCloud\Tea\Model;
 
-class GetChatappTemplateDetailResponseBody extends Model
+class GetChatappTemplateMetricResponseBody extends Model
 {
     /**
      * @var string
@@ -15,11 +15,6 @@ class GetChatappTemplateDetailResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description The HTTP status code.
-     *
-     *   Example: OK. This value indicates that the request is successful.
-     *   Other codes indicate that the request fails. For more information, see [Error codes](~~196974~~).
-     *
      * @example OK
      *
      * @var string
@@ -27,27 +22,19 @@ class GetChatappTemplateDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
-     *
-     * @example { 		"category": "ACCOUNT_UPDATE", 		"name": "account_notice", 		"language": "en_US", 		"templateCode": "744c4b5c79c9432497a075bdfca3****", 		"auditStatus": "APPROVED", 		"components": "[{\"type\":\"BODY\",\"text\":\"body_text$(textVariable)\"},{\"type\":\"HEADER\",\"formate\":\"IMAGE\",\"url\":\"$(linkVariable)\"},{\"type\":\"FOOTER\",\"text\":\"footer-text\"},{\"type\":\"BUTTONS\",\"buttons\":[{\"type\":\"PHONE_NUMBER\",\"text\":\"phone-button-text\",\"phone_number\":\"+861388888****\"},{\"type\":\"URL\",\"text\":\"url-button-text\",\"url\":\"https://www.website.com/\"}]}]", 		"example": "{\"textVariable\": \"text\", \"linkVariable\": \"link\"}" 	}
-     *
-     * @var data
+     * @var data[]
      */
     public $data;
 
     /**
-     * @description The error message.
-     *
-     * @example User not authorized to operate on the specified resource.
+     * @example None
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 744c4b5c79c9432497a075bdfca3****
+     * @example 90E63D28-E31D-1EB2-8939-A9486641****
      *
      * @var string
      */
@@ -74,7 +61,13 @@ class GetChatappTemplateDetailResponseBody extends Model
             $res['Code'] = $this->code;
         }
         if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
+            $res['Data'] = [];
+            if (null !== $this->data && \is_array($this->data)) {
+                $n = 0;
+                foreach ($this->data as $item) {
+                    $res['Data'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
@@ -89,7 +82,7 @@ class GetChatappTemplateDetailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetChatappTemplateDetailResponseBody
+     * @return GetChatappTemplateMetricResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -101,7 +94,13 @@ class GetChatappTemplateDetailResponseBody extends Model
             $model->code = $map['Code'];
         }
         if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
+            if (!empty($map['Data'])) {
+                $model->data = [];
+                $n           = 0;
+                foreach ($map['Data'] as $item) {
+                    $model->data[$n++] = null !== $item ? data::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];

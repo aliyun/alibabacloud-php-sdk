@@ -19,11 +19,17 @@ class components extends Model
     public $addSecretRecommendation;
 
     /**
+     * @description This parameter applies only to components of the **BUTTONS** type. This parameter is passed in by converting its original JSON structure into a string.
+     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
+     * @description The description of the file.
+     *
+     * @example The new file has been uploaded.
+     *
      * @var string
      */
     public $caption;
@@ -38,6 +44,8 @@ class components extends Model
     public $codeExpirationMinutes;
 
     /**
+     * @description The length of the video in the Viber message template. Valid values: 0 to 600. Unit: seconds.
+     *
      * @example 50
      *
      * @var int
@@ -45,11 +53,17 @@ class components extends Model
     public $duration;
 
     /**
+     * @description The name of the file.
+     *
+     * @example Express file
+     *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The type of the file attached in the Viber message template.
+     *
      * @example docx
      *
      * @var string
@@ -57,6 +71,8 @@ class components extends Model
     public $fileType;
 
     /**
+     * @description The type of the media resources that are included in the message.
+     *
      * @example TEXT
      *
      * @var string
@@ -100,13 +116,17 @@ class components extends Model
     public $longitude;
 
     /**
-     * @example button
+     * @description The text of the message that you want to send.
+     *
+     * @example Hello
      *
      * @var string
      */
     public $text;
 
     /**
+     * @description The thumbnail URL of the video in the Viber message template.
+     *
      * @example https://img.png
      *
      * @var string
@@ -114,6 +134,25 @@ class components extends Model
     public $thumbUrl;
 
     /**
+     * @description The type of the component. Valid values:
+     *
+     *   **BODY**
+     *   **HEADER**
+     *   **FOOTER**
+     *   **BUTTONS**
+     *
+     * >
+     *
+     *   The following limits apply to components in WhatsApp message templates: A component of the **BODY** type cannot exceed 1,024 characters. A component of the **HEADER** or **FOOTER** type cannot exceed 60 characters in length.
+     *
+     * >
+     *
+     *   **FOOTER** components are not supported in Viber message templates.
+     *
+     * >
+     *
+     *   In a Viber message template, a media resource, such as an image, a video, or a file, is placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a device.
+     *
      * @example BODY
      *
      * @var string
@@ -121,6 +160,8 @@ class components extends Model
     public $type;
 
     /**
+     * @description The URL of the material.
+     *
      * @example https://image.developer.aliyundoc.com
      *
      * @var string

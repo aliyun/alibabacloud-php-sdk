@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
-     * @description The prompt message indicating that the verification code must be kept secret. This parameter is valid if Category is set to AUTHENTICATION in a WhatsApp message template and the Type sub-parameter of the Components parameter is set to BODY. The prompt message is displayed in the BODY component.
+     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid if Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY in a WhatsApp message template.
      *
      * @example true
      *
@@ -35,7 +35,7 @@ class components extends Model
     public $caption;
 
     /**
-     * @description The validity period of the verification code in a WhatsApp message template. Unit: minutes. This parameter is valid if Category is set to AUTHENTICATION in a WhatsApp message template and the Type sub-parameter of the Components parameter is set to FOOTER. The value of CodeExpirationMinutes is displayed in the FOOTER component.
+     * @description The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
      *
      * @example 5
      *
@@ -44,7 +44,7 @@ class components extends Model
     public $codeExpirationMinutes;
 
     /**
-     * @description The length of the video in the Viber message template. Valid values: 0 to 600. Unit: seconds.
+     * @description The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
      *
      * @example 120
      *
@@ -110,9 +110,15 @@ class components extends Model
      *   **HEADER**
      *   **FOOTER**
      *   **BUTTONS**
-     * > - The following limits apply to components in WhatsApp message templates: A **BODY** component cannot exceed 1,024 characters in length. A **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
-     * > - **FOOTER** components are not supported in Viber message templates.
-     * > - In a Viber message template, a media resource, such as an image, a video, or a document, is placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a terminal.
+     *
+     * >
+     *
+     *   In WhatsApp message templates, a **BODY** component cannot exceed 1,024 characters in length, and a **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+     *
+     *   **FOOTER** components are not supported in Viber message templates.
+     *
+     *   In a Viber message template, media resources, such as images, videos, or documents, are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a device.
+     *
      * @example BODY
      *
      * @var string
@@ -122,7 +128,7 @@ class components extends Model
     /**
      * @description The URL of the media resource.
      *
-     * > We recommend that the resolution of the image in the Viber message template is 800 × 800.
+     * > We recommend that the resolution of the image is 800 × 800 in a Viber message template.
      * @example https://image.developer.aliyundoc.com
      *
      * @var string

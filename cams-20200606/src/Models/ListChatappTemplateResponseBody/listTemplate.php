@@ -45,6 +45,13 @@ class listTemplate extends Model
     public $language;
 
     /**
+     * @example None
+     *
+     * @var string
+     */
+    public $reason;
+
+    /**
      * @description The code of the message template.
      *
      * @example 744c4b5c79c9432497a075bdfca3****
@@ -74,6 +81,7 @@ class listTemplate extends Model
         'auditStatus'  => 'AuditStatus',
         'category'     => 'Category',
         'language'     => 'Language',
+        'reason'       => 'Reason',
         'templateCode' => 'TemplateCode',
         'templateName' => 'TemplateName',
         'templateType' => 'TemplateType',
@@ -94,6 +102,9 @@ class listTemplate extends Model
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -124,6 +135,9 @@ class listTemplate extends Model
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

@@ -6,31 +6,30 @@ namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetChatappTemplateDetailRequest extends Model
+class GetChatappTemplateMetricRequest extends Model
 {
     /**
-     * @description The space ID of the user under the ISV account.
-     *
-     * @example 28251486512358****
+     * @example 293483938849493
      *
      * @var string
      */
     public $custSpaceId;
 
     /**
-     * @description The ID of the WhatsApp account that you registered.
+     * @example 1693407714687
      *
-     * @example 65921621816****
-     *
-     * @deprecated
+     * @var int
+     */
+    public $end;
+
+    /**
+     * @example DAILY
      *
      * @var string
      */
-    public $custWabaId;
+    public $granularity;
 
     /**
-     * @description The independent software vendor (ISV) verification code. This parameter is used to verify whether the user is authorized by the ISV account.
-     *
      * @example skdi3kksloslikdkkdk
      *
      * @var string
@@ -38,30 +37,27 @@ class GetChatappTemplateDetailRequest extends Model
     public $isvCode;
 
     /**
-     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
-     *
-     * @example en_US
+     * @example en
      *
      * @var string
      */
     public $language;
 
     /**
-     * @description The code of the message template.
+     * @example 1693107714687
      *
-     * @example ****4b5c79c9432497a075bdfca36bf5
+     * @var int
+     */
+    public $start;
+
+    /**
+     * @example 744c4b5c79c9432497a075bdfca36bf5
      *
      * @var string
      */
     public $templateCode;
 
     /**
-     * @description The type of the message template. Valid values:
-     *
-     *   **WHATSAPP**
-     *   **VIBER**
-     *   LINE (developing)
-     *
      * @example WHATSAPP
      *
      * @var string
@@ -69,9 +65,11 @@ class GetChatappTemplateDetailRequest extends Model
     public $templateType;
     protected $_name = [
         'custSpaceId'  => 'CustSpaceId',
-        'custWabaId'   => 'CustWabaId',
+        'end'          => 'End',
+        'granularity'  => 'Granularity',
         'isvCode'      => 'IsvCode',
         'language'     => 'Language',
+        'start'        => 'Start',
         'templateCode' => 'TemplateCode',
         'templateType' => 'TemplateType',
     ];
@@ -86,14 +84,20 @@ class GetChatappTemplateDetailRequest extends Model
         if (null !== $this->custSpaceId) {
             $res['CustSpaceId'] = $this->custSpaceId;
         }
-        if (null !== $this->custWabaId) {
-            $res['CustWabaId'] = $this->custWabaId;
+        if (null !== $this->end) {
+            $res['End'] = $this->end;
+        }
+        if (null !== $this->granularity) {
+            $res['Granularity'] = $this->granularity;
         }
         if (null !== $this->isvCode) {
             $res['IsvCode'] = $this->isvCode;
         }
         if (null !== $this->language) {
             $res['Language'] = $this->language;
+        }
+        if (null !== $this->start) {
+            $res['Start'] = $this->start;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -108,7 +112,7 @@ class GetChatappTemplateDetailRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetChatappTemplateDetailRequest
+     * @return GetChatappTemplateMetricRequest
      */
     public static function fromMap($map = [])
     {
@@ -116,14 +120,20 @@ class GetChatappTemplateDetailRequest extends Model
         if (isset($map['CustSpaceId'])) {
             $model->custSpaceId = $map['CustSpaceId'];
         }
-        if (isset($map['CustWabaId'])) {
-            $model->custWabaId = $map['CustWabaId'];
+        if (isset($map['End'])) {
+            $model->end = $map['End'];
+        }
+        if (isset($map['Granularity'])) {
+            $model->granularity = $map['Granularity'];
         }
         if (isset($map['IsvCode'])) {
             $model->isvCode = $map['IsvCode'];
         }
         if (isset($map['Language'])) {
             $model->language = $map['Language'];
+        }
+        if (isset($map['Start'])) {
+            $model->start = $map['Start'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

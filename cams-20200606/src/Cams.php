@@ -6,6 +6,8 @@ namespace AlibabaCloud\SDK\Cams\V20200606;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatappPhoneNumberRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\AddChatappPhoneNumberResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\BeeBotAssociateShrinkRequest;
@@ -20,6 +22,8 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationRegisterRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationRegisterResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationVerifiedRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappMigrationVerifiedResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappPhoneNumberDeregisterRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappPhoneNumberDeregisterResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappPhoneNumberRegisterRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappPhoneNumberRegisterResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ChatappSyncPhoneNumberRequest;
@@ -33,8 +37,14 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\CreateChatappTemplateShrinkRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\DeleteChatappTemplateResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\EnableWhatsappROIMetricRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\EnableWhatsappROIMetricResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappPhoneNumberMetricRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappPhoneNumberMetricResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateMetricRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateMetricResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappUploadAuthorizationResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappVerifyCodeRequest;
@@ -45,11 +55,17 @@ use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusReque
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPhoneNumberVerificationStatusResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\GetPreValidatePhoneIdResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappConnectionCatalogRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\GetWhatsappConnectionCatalogResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\IsvGetAppIdResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ListChatappTemplateShrinkRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductCatalogResponse;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductRequest;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateRequest;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateResponse;
 use AlibabaCloud\SDK\Cams\V20200606\Models\ModifyChatappTemplateShrinkRequest;
@@ -113,6 +129,61 @@ class Cams extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AddChatappPhoneNumberRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return AddChatappPhoneNumberResponse
+     */
+    public function addChatappPhoneNumberWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cc)) {
+            $body['Cc'] = $request->cc;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->preValidateId)) {
+            $body['PreValidateId'] = $request->preValidateId;
+        }
+        if (!Utils::isUnset($request->verifiedName)) {
+            $body['VerifiedName'] = $request->verifiedName;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'AddChatappPhoneNumber',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AddChatappPhoneNumberResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AddChatappPhoneNumberRequest $request
+     *
+     * @return AddChatappPhoneNumberResponse
+     */
+    public function addChatappPhoneNumber($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->addChatappPhoneNumberWithOptions($request, $runtime);
     }
 
     /**
@@ -468,6 +539,52 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param ChatappPhoneNumberDeregisterRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return ChatappPhoneNumberDeregisterResponse
+     */
+    public function chatappPhoneNumberDeregisterWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $body['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $body['PhoneNumber'] = $request->phoneNumber;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'ChatappPhoneNumberDeregister',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChatappPhoneNumberDeregisterResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChatappPhoneNumberDeregisterRequest $request
+     *
+     * @return ChatappPhoneNumberDeregisterResponse
+     */
+    public function chatappPhoneNumberDeregister($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->chatappPhoneNumberDeregisterWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param ChatappPhoneNumberRegisterRequest $request ChatappPhoneNumberRegisterRequest
@@ -814,7 +931,112 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The type of the file attached in the Viber message template.
+     * @param EnableWhatsappROIMetricRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return EnableWhatsappROIMetricResponse
+     */
+    public function enableWhatsappROIMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableWhatsappROIMetric',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableWhatsappROIMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param EnableWhatsappROIMetricRequest $request
+     *
+     * @return EnableWhatsappROIMetricResponse
+     */
+    public function enableWhatsappROIMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableWhatsappROIMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetChatappPhoneNumberMetricRequest $request
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetChatappPhoneNumberMetricResponse
+     */
+    public function getChatappPhoneNumberMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatappPhoneNumberMetric',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatappPhoneNumberMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetChatappPhoneNumberMetricRequest $request
+     *
+     * @return GetChatappPhoneNumberMetricResponse
+     */
+    public function getChatappPhoneNumberMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatappPhoneNumberMetricWithOptions($request, $runtime);
+    }
+
+    /**
+     * ### QPS limit
+     *   * You can call this API operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
      * @param RuntimeOptions                  $runtime runtime options for this request RuntimeOptions
@@ -862,7 +1084,8 @@ class Cams extends OpenApiClient
     }
 
     /**
-     * The type of the file attached in the Viber message template.
+     * ### QPS limit
+     *   * You can call this API operation up to five times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param GetChatappTemplateDetailRequest $request GetChatappTemplateDetailRequest
      *
@@ -873,6 +1096,70 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getChatappTemplateDetailWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetChatappTemplateMetricRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return GetChatappTemplateMetricResponse
+     */
+    public function getChatappTemplateMetricWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->end)) {
+            $query['End'] = $request->end;
+        }
+        if (!Utils::isUnset($request->granularity)) {
+            $query['Granularity'] = $request->granularity;
+        }
+        if (!Utils::isUnset($request->isvCode)) {
+            $query['IsvCode'] = $request->isvCode;
+        }
+        if (!Utils::isUnset($request->language)) {
+            $query['Language'] = $request->language;
+        }
+        if (!Utils::isUnset($request->start)) {
+            $query['Start'] = $request->start;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateType)) {
+            $query['TemplateType'] = $request->templateType;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetChatappTemplateMetric',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetChatappTemplateMetricResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetChatappTemplateMetricRequest $request
+     *
+     * @return GetChatappTemplateMetricResponse
+     */
+    public function getChatappTemplateMetric($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getChatappTemplateMetricWithOptions($request, $runtime);
     }
 
     /**
@@ -1131,6 +1418,61 @@ class Cams extends OpenApiClient
     }
 
     /**
+     * @param GetWhatsappConnectionCatalogRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return GetWhatsappConnectionCatalogResponse
+     */
+    public function getWhatsappConnectionCatalogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetWhatsappConnectionCatalog',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetWhatsappConnectionCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetWhatsappConnectionCatalogRequest $request
+     *
+     * @return GetWhatsappConnectionCatalogResponse
+     */
+    public function getWhatsappConnectionCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getWhatsappConnectionCatalogWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation up to 10 times per second per account. If the number of calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
      *   *
      * @param IsvGetAppIdRequest $request IsvGetAppIdRequest
@@ -1250,6 +1592,143 @@ class Cams extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listChatappTemplateWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProductRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ListProductResponse
+     */
+    public function listProductWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->after)) {
+            $query['After'] = $request->after;
+        }
+        if (!Utils::isUnset($request->before)) {
+            $query['Before'] = $request->before;
+        }
+        if (!Utils::isUnset($request->catalogId)) {
+            $query['CatalogId'] = $request->catalogId;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $query['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->wabaId)) {
+            $query['WabaId'] = $request->wabaId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProduct',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProductResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProductRequest $request
+     *
+     * @return ListProductResponse
+     */
+    public function listProduct($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProductWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListProductCatalogRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListProductCatalogResponse
+     */
+    public function listProductCatalogWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->after)) {
+            $query['After'] = $request->after;
+        }
+        if (!Utils::isUnset($request->before)) {
+            $query['Before'] = $request->before;
+        }
+        if (!Utils::isUnset($request->businessId)) {
+            $query['BusinessId'] = $request->businessId;
+        }
+        if (!Utils::isUnset($request->custSpaceId)) {
+            $query['CustSpaceId'] = $request->custSpaceId;
+        }
+        if (!Utils::isUnset($request->fields)) {
+            $query['Fields'] = $request->fields;
+        }
+        if (!Utils::isUnset($request->limit)) {
+            $query['Limit'] = $request->limit;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListProductCatalog',
+            'version'     => '2020-06-06',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListProductCatalogResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListProductCatalogRequest $request
+     *
+     * @return ListProductCatalogResponse
+     */
+    public function listProductCatalog($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listProductCatalogWithOptions($request, $runtime);
     }
 
     /**

@@ -10,11 +10,20 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateResponseBody extends Model
 {
     /**
+     * @description 访问被拒绝详细信息。
+     *
+     * @example 无
+     *
      * @var string
      */
     public $accessDeniedDetail;
 
     /**
+     * @description The HTTP status code returned.
+     *
+     *   A value of OK indicates that the call is successful.
+     *   Other values indicate that the call fails. For more information, see [Error codes](~~196974~~).
+     *
      * @example OK
      *
      * @var string
@@ -22,6 +31,8 @@ class CreateChatappTemplateResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @example {"templateCode": "****4b5c79c9432497a075bdfca36bf5"，"templateName": "hello_whatsapp"}
      *
      * @var data
@@ -29,6 +40,8 @@ class CreateChatappTemplateResponseBody extends Model
     public $data;
 
     /**
+     * @description The error message returned.
+     *
      * @example User not authorized to operate on the specified resource.
      *
      * @var string

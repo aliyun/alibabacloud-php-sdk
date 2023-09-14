@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description The note indicating that customers cannot share verification codes with others. The note is displayed in the message body. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to BODY in a WhatsApp message template.
+     *
      * @example false
      *
      * @var bool
@@ -17,18 +19,25 @@ class components extends Model
     public $addSecretRecommendation;
 
     /**
+     * @description The buttons. This parameter applies only to **BUTTONS** components.
+     *
      * @var buttons[]
      */
     public $buttons;
 
     /**
-     * @example 这是一个视频
+     * @description The description of the media resource.
+     *
+     * > If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format sub-parameter of the Components parameter is set to **IMAGE, DOCUMENT, or VIDEO**, you can specify this parameter.
+     * @example This is a video
      *
      * @var string
      */
     public $caption;
 
     /**
+     * @description The validity period of the verification code in the WhatsApp authentication template. Unit: minutes. This parameter is valid only when Category is set to AUTHENTICATION and the Type sub-parameter of the Components parameter is set to FOOTER in a WhatsApp message template. The validity period of the verification code is displayed in the footer.
+     *
      * @example 5
      *
      * @var int
@@ -36,6 +45,8 @@ class components extends Model
     public $codeExpirationMinutes;
 
     /**
+     * @description The length of the video in the Viber message template. Unit: seconds. Valid values: 0 to 600.
+     *
      * @example 120
      *
      * @var int
@@ -43,13 +54,18 @@ class components extends Model
     public $duration;
 
     /**
-     * @example 视频
+     * @description The name of the document.
+     *
+     * > If the Type sub-parameter of the Components parameter is set to **HEADER** and the Format sub-parameter of the Components parameter is set to **DOCUMENT**, you can specify this parameter.
+     * @example video name
      *
      * @var string
      */
     public $fileName;
 
     /**
+     * @description The type of the document attached in the Viber message template.
+     *
      * @example docx
      *
      * @var string
@@ -57,6 +73,13 @@ class components extends Model
     public $fileType;
 
     /**
+     * @description The type of the media resources that are included in the message. Valid values:
+     *
+     *   **TEXT**
+     *   **IMAGE**
+     *   **DOCUMENT**
+     *   **VIDEO**
+     *
      * @example TEXT
      *
      * @var string
@@ -64,6 +87,9 @@ class components extends Model
     public $format;
 
     /**
+     * @description The text of the message that you want to send.
+     *
+     * > If Category is set to AUTHENTICATION, the Text sub-parameter of the Components parameter is empty.
      * @example hello chatapp
      *
      * @var string
@@ -71,6 +97,8 @@ class components extends Model
     public $text;
 
     /**
+     * @description The thumbnail URL of the video in the Viber message template.
+     *
      * @example https://cdn.multiplymall.mobiapp.cloud/cloudcode/yc-165407506207478-165511576113195/20220905/ec5b9737-1507-4208-bb27-8da3958da961.jpg?x-oss-process=image/resize,w_100
      *
      * @var string
@@ -78,6 +106,21 @@ class components extends Model
     public $thumbUrl;
 
     /**
+     * @description The type of the component. Valid values:
+     *
+     *   **BODY**
+     *   **HEADER**
+     *   **FOOTER**
+     *   **BUTTONS**
+     *
+     * >
+     *
+     *   In WhatsApp message templates, a **BODY** component cannot exceed 1,024 characters in length, and a **HEADER** or **FOOTER** component cannot exceed 60 characters in length.
+     *
+     *   **FOOTER** components are not supported in Viber message templates.
+     *
+     *   In a Viber message template, media resources, such as images, videos, or documents, are placed in the **HEADER** component. If a Viber message contains text and an image, the image is placed under the text in the message received on a device.
+     *
      * @example BODY
      *
      * @var string
@@ -85,6 +128,8 @@ class components extends Model
     public $type;
 
     /**
+     * @description The URL of the media resource.
+     *
      * @example https://img.tukuppt.com/png_preview/00/10/24/1GygxVK3F4.jpg
      *
      * @var string

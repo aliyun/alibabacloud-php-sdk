@@ -10,6 +10,13 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The review status of the message template. Valid values:
+     *
+     *   **pass**: The message template is approved.
+     *   **fail**: The message template is rejected.
+     *   **auditing**: The message template is being reviewed.
+     *   **unaudit**: The review is suspended.
+     *
      * @example pass
      *
      * @var string
@@ -17,23 +24,48 @@ class data extends Model
     public $auditStatus;
 
     /**
-     * @example OTP
+     * @description The category of the template when the returned value of TemplateType is WHATSAPP. Valid values:
+     *
+     *   **UTILITY**: a transactional template
+     *   **MARKETING**: a marketing template
+     *   **AUTHENTICATION**: an identity authentication template
+     *
+     * The category of the template when the returned value of the TemplateType parameter is VIBER. Valid values:
+     *
+     *   **text**: a template that contains only text
+     *   **image**: a template that contains only images
+     *   **text_image_button**: a template that contains text, images, and buttons
+     *   **text_button**: a template that contains text and buttons
+     *   **document**: a template that contains only files
+     *   **video**: a template that contains only videos
+     *   **text_video**: a template that contains text and videos
+     *   **text_video_button**: a template that contains text, videos, and buttons
+     *   **text_image**: a template that contains text and images
+     *
+     * > If Category is set to text_video_button, users cannot open a web page by clicking the button. Users can open only the video in the message. In this case, you do not need to specify the Url parameter for the URL button in the template.
+     * @example TRANSACTIONAL
      *
      * @var string
      */
     public $category;
 
     /**
+     * @description The components of the message template.
+     *
      * @var components[]
      */
     public $components;
 
     /**
+     * @description The examples of variables.
+     *
      * @var string[]
      */
     public $example;
 
     /**
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     *
      * @example en_US
      *
      * @var string
@@ -41,6 +73,8 @@ class data extends Model
     public $language;
 
     /**
+     * @description Whatsapp中Authentication类型模板发送消息时的消息有效期
+     *
      * @example 120
      *
      * @var int
@@ -48,6 +82,8 @@ class data extends Model
     public $messageSendTtlSeconds;
 
     /**
+     * @description The name of the message template.
+     *
      * @example hello_whatsapp
      *
      * @var string
@@ -55,6 +91,8 @@ class data extends Model
     public $name;
 
     /**
+     * @description 模板质量
+     *
      * @example GREEN
      *
      * @var string
@@ -62,6 +100,15 @@ class data extends Model
     public $qualityScore;
 
     /**
+     * @example None
+     *
+     * @var string
+     */
+    public $reason;
+
+    /**
+     * @description The code of the message template.
+     *
      * @example 744c4b5c79c9432497a075bdfca3****
      *
      * @var string
@@ -69,6 +116,12 @@ class data extends Model
     public $templateCode;
 
     /**
+     * @description The type of the message template. Valid values:
+     *
+     *   **WHATSAPP**
+     *   **VIBER**
+     *   LINE (developing)
+     *
      * @example WHATSAPP
      *
      * @var string
@@ -83,6 +136,7 @@ class data extends Model
         'messageSendTtlSeconds' => 'MessageSendTtlSeconds',
         'name'                  => 'Name',
         'qualityScore'          => 'QualityScore',
+        'reason'                => 'Reason',
         'templateCode'          => 'TemplateCode',
         'templateType'          => 'TemplateType',
     ];
@@ -123,6 +177,9 @@ class data extends Model
         }
         if (null !== $this->qualityScore) {
             $res['QualityScore'] = $this->qualityScore;
+        }
+        if (null !== $this->reason) {
+            $res['Reason'] = $this->reason;
         }
         if (null !== $this->templateCode) {
             $res['TemplateCode'] = $this->templateCode;
@@ -171,6 +228,9 @@ class data extends Model
         }
         if (isset($map['QualityScore'])) {
             $model->qualityScore = $map['QualityScore'];
+        }
+        if (isset($map['Reason'])) {
+            $model->reason = $map['Reason'];
         }
         if (isset($map['TemplateCode'])) {
             $model->templateCode = $map['TemplateCode'];

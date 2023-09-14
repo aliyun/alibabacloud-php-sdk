@@ -44,6 +44,8 @@ class buttons extends Model
     public $packageName;
 
     /**
+     * @description The phone number. This parameter is valid only if the returned value of the Type parameter is **PHONE_NUMBER**.
+     *
      * @example 861398745****
      *
      * @var string
@@ -60,11 +62,29 @@ class buttons extends Model
     public $signatureHash;
 
     /**
+     * @description The display name of the button.
+     *
+     * @example Call
+     *
      * @var string
      */
     public $text;
 
     /**
+     * @description The type of the button. Valid values:
+     *
+     *   **PHONE_NUMBER**: a phone call button
+     *   **URL**: a URL button
+     *   **QUICK_REPLY**: a quick reply button
+     *
+     * >
+     *
+     *   A quick reply button cannot coexist with a phone call button or a URL button in a message template.
+     *
+     *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a message template.
+     *
+     *   You can add only one button to a Viber message template, and the button must be a URL button.
+     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -72,6 +92,8 @@ class buttons extends Model
     public $type;
 
     /**
+     * @description The URL to be accessed when you click the URL button.
+     *
      * @example https://example.com
      *
      * @var string
@@ -79,6 +101,11 @@ class buttons extends Model
     public $url;
 
     /**
+     * @description The type of the URL. Valid values:
+     *
+     *   **static**: a static URL
+     *   **dynamic**: a dynamic URL
+     *
      * @example static
      *
      * @var string

@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Cams\V20200606\Models;
 
-use AlibabaCloud\SDK\Cams\V20200606\Models\GetChatappTemplateDetailResponseBody\data;
+use AlibabaCloud\SDK\Cams\V20200606\Models\ListProductResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
-class GetChatappTemplateDetailResponseBody extends Model
+class ListProductResponseBody extends Model
 {
     /**
      * @var string
@@ -15,11 +15,6 @@ class GetChatappTemplateDetailResponseBody extends Model
     public $accessDeniedDetail;
 
     /**
-     * @description The HTTP status code.
-     *
-     *   Example: OK. This value indicates that the request is successful.
-     *   Other codes indicate that the request fails. For more information, see [Error codes](~~196974~~).
-     *
      * @example OK
      *
      * @var string
@@ -27,37 +22,37 @@ class GetChatappTemplateDetailResponseBody extends Model
     public $code;
 
     /**
-     * @description The returned data.
-     *
-     * @example { 		"category": "ACCOUNT_UPDATE", 		"name": "account_notice", 		"language": "en_US", 		"templateCode": "744c4b5c79c9432497a075bdfca3****", 		"auditStatus": "APPROVED", 		"components": "[{\"type\":\"BODY\",\"text\":\"body_text$(textVariable)\"},{\"type\":\"HEADER\",\"formate\":\"IMAGE\",\"url\":\"$(linkVariable)\"},{\"type\":\"FOOTER\",\"text\":\"footer-text\"},{\"type\":\"BUTTONS\",\"buttons\":[{\"type\":\"PHONE_NUMBER\",\"text\":\"phone-button-text\",\"phone_number\":\"+861388888****\"},{\"type\":\"URL\",\"text\":\"url-button-text\",\"url\":\"https://www.website.com/\"}]}]", 		"example": "{\"textVariable\": \"text\", \"linkVariable\": \"link\"}" 	}
-     *
-     * @var data
-     */
-    public $data;
-
-    /**
-     * @description The error message.
-     *
-     * @example User not authorized to operate on the specified resource.
+     * @example None
      *
      * @var string
      */
     public $message;
 
     /**
-     * @description The request ID.
-     *
-     * @example 744c4b5c79c9432497a075bdfca3****
+     * @var model_
+     */
+    public $model;
+
+    /**
+     * @example 90E63D28-E31D-1EB2-8939-A94866411B2O
      *
      * @var string
      */
     public $requestId;
+
+    /**
+     * @example true
+     *
+     * @var bool
+     */
+    public $success;
     protected $_name = [
         'accessDeniedDetail' => 'AccessDeniedDetail',
         'code'               => 'Code',
-        'data'               => 'Data',
         'message'            => 'Message',
+        'model'              => 'Model',
         'requestId'          => 'RequestId',
+        'success'            => 'Success',
     ];
 
     public function validate()
@@ -73,14 +68,17 @@ class GetChatappTemplateDetailResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->data) {
-            $res['Data'] = null !== $this->data ? $this->data->toMap() : null;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
         }
+        if (null !== $this->model) {
+            $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
+        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->success) {
+            $res['Success'] = $this->success;
         }
 
         return $res;
@@ -89,7 +87,7 @@ class GetChatappTemplateDetailResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return GetChatappTemplateDetailResponseBody
+     * @return ListProductResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -100,14 +98,17 @@ class GetChatappTemplateDetailResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['Data'])) {
-            $model->data = data::fromMap($map['Data']);
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
         }
+        if (isset($map['Model'])) {
+            $model->model = model_::fromMap($map['Model']);
+        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['Success'])) {
+            $model->success = $map['Success'];
         }
 
         return $model;

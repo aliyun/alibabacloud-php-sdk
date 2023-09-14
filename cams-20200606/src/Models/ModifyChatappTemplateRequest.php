@@ -10,6 +10,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyChatappTemplateRequest extends Model
 {
     /**
+     * @description The category of the Viber message template. Valid values:
+     *
+     *   **text**: the template that contains only text
+     *   **image**: the template that contains only images
+     *   **text_image_button**: the template that contains text, images, and buttons
+     *   **text_button**: the template that contains text and buttons
+     *   **document**: the template that contains only documents
+     *   **video**: the template that contains only videos
+     *   **text_video**: the template that contains text and videos
+     *   **text_video_button**: the template that contains text, videos, and buttons
+     *   **text_image**: the template that contains text and images
+     *
+     * > This parameter applies only to Viber message templates.
      * @example text
      *
      * @var string
@@ -17,11 +30,16 @@ class ModifyChatappTemplateRequest extends Model
     public $category;
 
     /**
+     * @description The components of the message template.
+     *
+     * > If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty and text in the body or footer is automatically generated.
      * @var components[]
      */
     public $components;
 
     /**
+     * @description The space ID of the user within the ISV account.
+     *
      * @example 28251486512358****
      *
      * @var string
@@ -29,6 +47,9 @@ class ModifyChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+     *
+     * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 659216218162179
      *
      * @deprecated
@@ -38,11 +59,15 @@ class ModifyChatappTemplateRequest extends Model
     public $custWabaId;
 
     /**
+     * @description The examples of variables that are used when you create the message template.
+     *
      * @var string[]
      */
     public $example;
 
     /**
+     * @description The ISV verification code, which is used to verify whether the user is authorized by the ISV account.
+     *
      * @example ksiekdki39ksks93939
      *
      * @var string
@@ -50,6 +75,8 @@ class ModifyChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     *
      * @example en
      *
      * @var string
@@ -57,6 +84,9 @@ class ModifyChatappTemplateRequest extends Model
     public $language;
 
     /**
+     * @description Validity period of authentication template message sending in WhatsApp
+     *
+     * >This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
      * @example 120
      *
      * @var int
@@ -64,6 +94,8 @@ class ModifyChatappTemplateRequest extends Model
     public $messageSendTtlSeconds;
 
     /**
+     * @description The message template code.
+     *
      * @example 8472929283883
      *
      * @var string
@@ -71,6 +103,12 @@ class ModifyChatappTemplateRequest extends Model
     public $templateCode;
 
     /**
+     * @description The type of the message template.
+     *
+     *   **WHATSAPP**
+     *   **VIBER**
+     *   LINE: the Line message template. This type of message template will be released later.
+     *
      * @example WHATSAPP
      *
      * @var string

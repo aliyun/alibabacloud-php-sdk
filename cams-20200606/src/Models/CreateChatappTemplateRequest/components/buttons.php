@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class buttons extends Model
 {
     /**
-     * @description The text of the one-tap autofill button. AutofillText is required if Category is set to AUTHENTICATION in a WhatsApp message template and the Type sub-parameter of the Buttons parameter is set to ONE_TAP.
+     * @description The text of the one-tap autofill button. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example Autofill
      *
@@ -18,7 +18,7 @@ class buttons extends Model
     public $autofillText;
 
     /**
-     * @description The unsubscribe button in a WhatsApp marketing template. This parameter is valid if Category is set to MARKETING in a WhatsApp message template and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY. After you tap this button and customers configure the feature for unsubscribing from a WhatsApp marketing template in the ChatAPP console, subsequent marketing messages are not sent to you.
+     * @description The unsubscribe button. This parameter is valid if Category is set to MARKETING and the Type sub-parameter of the Buttons parameter is set to QUICK_REPLY in a WhatsApp message template. After you configure message sending in the ChatApp Message Service console, marketing messages will not be sent to customers if they click this button.
      *
      * @example false
      *
@@ -27,7 +27,7 @@ class buttons extends Model
     public $isOptOut;
 
     /**
-     * @description The package name of the app. PackageName is required if Category is set to AUTHENTICATION in a WhatsApp message template and the Type sub-parameter of the Buttons parameter is set to ONE_TAP.
+     * @description The app package name that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example com.demo
      *
@@ -36,7 +36,7 @@ class buttons extends Model
     public $packageName;
 
     /**
-     * @description The phone number. This parameter is valid only if the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
+     * @description The phone number. This parameter is valid only when the Type sub-parameter of the Buttons parameter is set to **PHONE_NUMBER**.
      *
      * @example +861368897****
      *
@@ -45,7 +45,7 @@ class buttons extends Model
     public $phoneNumber;
 
     /**
-     * @description The hash value of the app signing key. SignatureHash is required if Category is set to AUTHENTICATION in a WhatsApp message template and the Type sub-parameter of the Buttons parameter is set to ONE_TAP.
+     * @description The app signing key hash that WhatsApp uses to load your app. This parameter is required if Category is set to AUTHENTICATION and the Type sub-parameter of the Buttons parameter is set to ONE_TAP in a WhatsApp message template.
      *
      * @example wi299382
      *
@@ -71,7 +71,16 @@ class buttons extends Model
      *   **COPY_CODE**: the copy code button if Category is set to AUTHENTICATION
      *   **ONE_TAP**: the one-tap autofill button if Category is set to AUTHENTICATION
      *
-     * > - You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+     * >
+     *
+     *   In a WhatsApp message template, the quick reply button cannot be used together with the phone call button or the URL button.
+     *
+     *   You can add a combination of two URL buttons or a combination of a URL button and a phone call button to a WhatsApp message template.
+     *
+     *   If Category is set to AUTHENTICATION in a WhatsApp message template, you can add only one button to the WhatsApp message template and you must set the Type sub-parameter of the Buttons parameter to COPY_CODE or ONE_TAP. If the Type sub-parameter of the Buttons parameter is set to COPY_CODE, the Text sub-parameter of the Buttons parameter is required. If the Type sub-parameter of the Buttons parameter is set to ONE_TAP, the Text, SignatureHash, PackageName, and AutofillText sub-parameters of the Buttons parameter are required. The value of Text is displayed if the desired app is not installed on the device. The value indicates that you must manually copy the verification code.
+     *
+     *   You can add only one button to a Viber message template, and you must set the Type sub-parameter of the Buttons parameter to URL.
+     *
      * @example PHONE_NUMBER
      *
      * @var string
@@ -79,7 +88,7 @@ class buttons extends Model
     public $type;
 
     /**
-     * @description The URL to be accessed when you click the URL button.
+     * @description The URL to which you are redirected when you click the URL button.
      *
      * @example https://example.com
      *

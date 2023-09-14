@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class CreateChatappTemplateRequest extends Model
 {
     /**
-     * @description Specifies whether to allow Facebook to automatically change the directory of the template. If you set this parameter to true, the review success rate of the template is improved. This parameter is valid only if TemplateType is set to WHATSAPP.
+     * @description Specifies whether to allow Facebook to automatically change the directory of the template. If you set this parameter to true, the review success rate of the template is improved. This parameter is valid only when TemplateType is set to WHATSAPP.
      *
      * @example true
      *
@@ -46,13 +46,13 @@ class CreateChatappTemplateRequest extends Model
     /**
      * @description The components of the message template.
      *
-     * > If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the value of Type is BODY or FOOTER, the Text sub-parameter of the Components parameter is empty.
+     * > If Category is set to AUTHENTICATION, the Type sub-parameter of the Components parameter cannot be set to HEADER. If the Type sub-parameter is set to BODY or FOOTER, the Text sub-parameter of the Components parameter is empty.
      * @var components[]
      */
     public $components;
 
     /**
-     * @description The space ID of the user within the independent software vendor (ISV) account.
+     * @description The space ID of the user within the ISV account.
      *
      * @example 293483938849493
      *
@@ -61,6 +61,9 @@ class CreateChatappTemplateRequest extends Model
     public $custSpaceId;
 
     /**
+     * @description The WhatsApp Business account (WABA) ID of the user within the independent software vendor (ISV) account.
+     *
+     * > CustWabaId is an obsolete parameter. Use CustSpaceId instead.
      * @example 65921621816****
      *
      * @deprecated
@@ -77,6 +80,8 @@ class CreateChatappTemplateRequest extends Model
     public $example;
 
     /**
+     * @description The independent software vendor (ISV) verification code, which is used to verify whether the user is authorized by the ISV account.
+     *
      * @example skdi3kksloslikdkkdk
      *
      * @var string
@@ -84,6 +89,8 @@ class CreateChatappTemplateRequest extends Model
     public $isvCode;
 
     /**
+     * @description The language that is used in the message template. For more information, see [Language codes](~~463420~~).
+     *
      * @example en
      *
      * @var string
@@ -91,6 +98,9 @@ class CreateChatappTemplateRequest extends Model
     public $language;
 
     /**
+     * @description Validity period of authentication template message sending in WhatsApp
+     *
+     * > This attribute requires providing waba in advance to Alibaba operators to open the whitelist, otherwise it will result in template submission failure
      * @example 120
      *
      * @var int
@@ -98,6 +108,8 @@ class CreateChatappTemplateRequest extends Model
     public $messageSendTtlSeconds;
 
     /**
+     * @description The name of the message template.
+     *
      * @example hello_whatsapp
      *
      * @var string
@@ -105,6 +117,12 @@ class CreateChatappTemplateRequest extends Model
     public $name;
 
     /**
+     * @description The type of the message template.
+     *
+     *   **WHATSAPP**
+     *   **VIBER**
+     *   LINE: the Line message template. This type of message template will be released later.
+     *
      * @example WHATSAPP
      *
      * @var string
