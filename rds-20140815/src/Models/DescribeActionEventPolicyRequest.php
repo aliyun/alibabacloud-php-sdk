@@ -14,7 +14,7 @@ class DescribeActionEventPolicyRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -23,7 +23,7 @@ class DescribeActionEventPolicyRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy*****
      *

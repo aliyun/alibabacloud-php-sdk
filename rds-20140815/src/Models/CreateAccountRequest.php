@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateAccountRequest extends Model
 {
     /**
-     * @description The description of the account. The value must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-). The value must start with a letter.
+     * @description The description of the account. The value must be 2 to 256 characters in length. The value can contain letters, digits, underscores (\_), and hyphens (-), and must start with a letter.
      *
-     * > The value cannot start with http:// or https://.
+     * > : The name cannot start with http:// or https://.
      * @example Test Account A
      *
      * @var string
@@ -77,7 +77,7 @@ class CreateAccountRequest extends Model
     public $accountType;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
 {
     /**
-     * @description The ID of the read-only instance.
+     * @description The ID of the read-only instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rr-bpxxxxx
      *
@@ -23,7 +23,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The latency at which to replicate data from the primary instance to the read-only instance. Unit: seconds.
+     * @description The replication latency of the data replication. Unit: seconds.
      *
      * @example 100
      *
@@ -32,7 +32,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeRequest extends Model
     public $readSQLReplicationTime;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *

@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceTDEResponseBody extends Model
 {
     /**
-     * @description The details of the TDE status at the database level.
+     * @description The TDE status at the database level.
      *
-     * > For the instances that run SQL Server 2019 SE or SQL Server EE, you can specify whether to enable TDE at the database level when you enable TDE at the instance level.
+     * >  If your instance runs SQL Server 2019 SE or SQL Server EE, you can specify whether to enable TDE at the database level when you enable TDE at the instance level.
      * @var databases
      */
     public $databases;
@@ -27,7 +27,21 @@ class DescribeDBInstanceTDEResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The TDE status at the instance level. Valid values: **Enabled and Disabled**.
+     * @description The key method for instance level TDE encryption, with values:
+     * - **Aliyun_Generate_Key**
+     * - **Customer_Provided_Key**
+     * - **Unknown**
+     * @example Aliyun_Generate_Key
+     *
+     * @var string
+     */
+    public $TDEMode;
+
+    /**
+     * @description The TDE status of the instance. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example Enabled
      *
@@ -37,6 +51,7 @@ class DescribeDBInstanceTDEResponseBody extends Model
     protected $_name = [
         'databases' => 'Databases',
         'requestId' => 'RequestId',
+        'TDEMode'   => 'TDEMode',
         'TDEStatus' => 'TDEStatus',
     ];
 
@@ -52,6 +67,9 @@ class DescribeDBInstanceTDEResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
+        }
+        if (null !== $this->TDEMode) {
+            $res['TDEMode'] = $this->TDEMode;
         }
         if (null !== $this->TDEStatus) {
             $res['TDEStatus'] = $this->TDEStatus;
@@ -73,6 +91,9 @@ class DescribeDBInstanceTDEResponseBody extends Model
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
+        }
+        if (isset($map['TDEMode'])) {
+            $model->TDEMode = $map['TDEMode'];
         }
         if (isset($map['TDEStatus'])) {
             $model->TDEStatus = $map['TDEStatus'];

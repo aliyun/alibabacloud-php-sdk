@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeletePostgresExtensionsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -16,6 +18,8 @@ class DeletePostgresExtensionsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example pgm-bp156o9ti493****
      *
      * @var string
@@ -23,6 +27,8 @@ class DeletePostgresExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The database on which the extension is installed. If you want to specify multiple databases, separate the databases with commas (,).
+     *
      * @example test_db
      *
      * @var string
@@ -30,6 +36,8 @@ class DeletePostgresExtensionsRequest extends Model
     public $DBNames;
 
     /**
+     * @description The name of the extension. If you want to specify multiple extensions, separate the extension names with commas (,).
+     *
      * @example citext
      *
      * @var string
@@ -47,6 +55,8 @@ class DeletePostgresExtensionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmy****
      *
      * @var string

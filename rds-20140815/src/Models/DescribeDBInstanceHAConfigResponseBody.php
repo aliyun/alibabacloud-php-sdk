@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceHAConfigResponseBody extends Model
 {
     /**
+     * @description The instance ID.
+     *
      * @example rm-uf6wjk5xxxxxx
      *
      * @var string
@@ -17,6 +19,12 @@ class DescribeDBInstanceHAConfigResponseBody extends Model
     public $DBInstanceId;
 
     /**
+     * @description The high availability mode of the instance. Valid values:
+     *
+     *   **RPO**: Data consistency is preferred. The instance ensures data reliability to minimize data losses. If you have high requirements on data consistency, select this mode.
+     *   **RTO**: Service availability is preferred. The instance restores the database service at the earliest opportunity to ensure service availability. If you have high requirements on instance availability, select this mode.
+     *
+     * > This parameter is returned only for instances that run MySQL.
      * @example RPO
      *
      * @var string
@@ -24,11 +32,15 @@ class DescribeDBInstanceHAConfigResponseBody extends Model
     public $HAMode;
 
     /**
+     * @description An array that consists of the information of the primary and secondary instances.
+     *
      * @var hostInstanceInfos
      */
     public $hostInstanceInfos;
 
     /**
+     * @description The request ID.
+     *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *
      * @var string
@@ -36,6 +48,13 @@ class DescribeDBInstanceHAConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The data replication mode of the instance. Valid values:
+     *
+     *   **Sync**: the synchronous mode
+     *   **Semi-sync**: the semi-synchronous replication mode
+     *   **Async**: the asynchronous mode
+     *
+     * > This parameter is returned only for instances that run MySQL.
      * @example Sync
      *
      * @var string

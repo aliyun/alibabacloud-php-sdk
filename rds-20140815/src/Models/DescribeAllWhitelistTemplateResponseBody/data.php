@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -17,6 +19,11 @@ class data extends Model
     public $currPageNumbers;
 
     /**
+     * @description Indicates whether the data that meets the conditions is displayed on the next page. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -24,6 +31,11 @@ class data extends Model
     public $hasNext;
 
     /**
+     * @description Indicates whether the data that meets the conditions is displayed on the previous page. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -31,6 +43,8 @@ class data extends Model
     public $hasPrev;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -38,11 +52,15 @@ class data extends Model
     public $maxRecordsPerPage;
 
     /**
+     * @description The information about whitelist templates that are returned by page.
+     *
      * @var templates[]
      */
     public $templates;
 
     /**
+     * @description The total number of pages returned.
+     *
      * @example 3
      *
      * @var int
@@ -50,6 +68,8 @@ class data extends Model
     public $totalPageNumbers;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 402
      *
      * @var int

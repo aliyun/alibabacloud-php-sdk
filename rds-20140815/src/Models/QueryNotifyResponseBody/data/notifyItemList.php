@@ -18,7 +18,7 @@ class notifyItemList extends Model
     public $aliUid;
 
     /**
-     * @description Indicates whether the notification has been confirmed. You can call the ConfirmNotify operation to mark the notification as confirmed. Valid values:
+     * @description Indicates whether the notification has been confirmed. You can call the [ConfirmNotify](~~610444~~) operation to mark the notification as confirmed. Valid values:
      *
      *   **true**
      *   **false**
@@ -30,7 +30,7 @@ class notifyItemList extends Model
     public $confirmFlag;
 
     /**
-     * @description The UID of the contact who called the ConfirmNotify operation to mark the notification as confirmed. The contact belongs to the current Alibaba Cloud account.
+     * @description The UID of the contact who called the [ConfirmNotify](~~610444~~) operation to mark the notification as confirmed. The contact belongs to the current Alibaba Cloud account.
      *
      * The value **0** indicates that the notification is automatically confirmed by the system.
      * @example 0

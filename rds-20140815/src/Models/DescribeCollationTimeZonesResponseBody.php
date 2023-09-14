@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeCollationTimeZonesResponseBody extends Model
 {
     /**
-     * @description An array that consists of the character set collations and time zones that are available for use in ApsaraDB RDS.
+     * @description The list of the character set collations and time zones that are available.
      *
      * @var collationTimeZones
      */
     public $collationTimeZones;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 4EAED246-DB18-4C8D-9EB5-C319626F2A77
      *

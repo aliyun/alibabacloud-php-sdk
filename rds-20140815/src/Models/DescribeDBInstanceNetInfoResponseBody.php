@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceNetInfoResponseBody extends Model
 {
     /**
-     * @description Details of the endpoints of the instance.
+     * @description The information about the endpoints of the instance.
      *
      * @var DBInstanceNetInfos
      */

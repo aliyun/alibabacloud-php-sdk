@@ -18,7 +18,7 @@ class binLogFile extends Model
     public $checksum;
 
     /**
-     * @description The HTTP-based download URL of the binary log file. If the return value of this parameter is NULL, ApsaraDB RDS does not provide a download URL for the file.
+     * @description The HTTP-based download URL of the log file. If the return value of this parameter is NULL, ApsaraDB RDS does not provide a download URL for the log file.
      *
      * @example http://rdsxxxxx.oss.aliyuncs.com/xxxxxx
      *
@@ -27,8 +27,9 @@ class binLogFile extends Model
     public $downloadLink;
 
     /**
-     * @description The size of the binary log file. Unit: bytes.
+     * @description The size of the log file.
      *
+     * Unit: bytes.
      * @example 2269410
      *
      * @var int
@@ -36,8 +37,9 @@ class binLogFile extends Model
     public $fileSize;
 
     /**
-     * @description The ID of the instance to which the binary log file belongs. This parameter is used to distinguish between the binary log files that are generated on a primary instance and those that are generated on a secondary instance.
+     * @description The ID of the instance to which the log file belongs. This parameter helps determine whether the log file is generated on the primary instance or the secondary instance.
      *
+     * > You can log on to the ApsaraDB RDS console and go to the instance details page. In the left-side navigation pane, click **Service Availability** to view the values of **Primary Instance No.** and **Secondary Instance No.**.
      * @example 5841973
      *
      * @var string
@@ -45,7 +47,7 @@ class binLogFile extends Model
     public $hostInstanceID;
 
     /**
-     * @description The download URL that is used over an internal network.
+     * @description The URL that is used to download files over an internal network.
      *
      * @example http://rdslog-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/xxxxxx
      *
@@ -54,8 +56,9 @@ class binLogFile extends Model
     public $intranetDownloadLink;
 
     /**
-     * @description The expiration time of the URL. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The expiration time of the URL.
      *
+     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      * @example 2013-06-09T18:00:00Z
      *
      * @var string
@@ -63,8 +66,9 @@ class binLogFile extends Model
     public $linkExpiredTime;
 
     /**
-     * @description The start time of the log data recorded in the binary log file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The start time of the log file.
      *
+     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      * @example 2019-02-09T17:45:21Z
      *
      * @var string
@@ -72,8 +76,9 @@ class binLogFile extends Model
     public $logBeginTime;
 
     /**
-     * @description The end time of the log data recorded in the binary log file. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The end time of the log file.
      *
+     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      * @example 2019-02-15T13:10:28Z
      *
      * @var string
@@ -81,7 +86,7 @@ class binLogFile extends Model
     public $logEndTime;
 
     /**
-     * @description The name of the binary log file.
+     * @description The log file name.
      *
      * @example 000000040000000000000019
      *
@@ -90,7 +95,9 @@ class binLogFile extends Model
     public $logFileName;
 
     /**
-     * @description The status of the binary log file that is stored in the Object Storage Service (OSS) bucket. Valid values:
+     * @description The status of the log file that is stored in the Object Storage Service (OSS) bucket.
+     *
+     * Valid values:
      *
      *   **Uploading**
      *   **Completed**

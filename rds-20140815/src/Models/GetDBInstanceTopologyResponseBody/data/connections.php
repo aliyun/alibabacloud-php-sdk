@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class connections extends Model
 {
     /**
-     * @description The endpoint of the instance.
+     * @description The endpoint that is used to connect to the database instance.
      *
      * @example rm-m5ezban**********.mysql.rds.aliyuncs.com
      *
@@ -18,7 +18,7 @@ class connections extends Model
     public $connectionString;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-m5ezban**********
      *

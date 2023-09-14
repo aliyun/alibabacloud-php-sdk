@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeVSwitchesRequest extends Model
 {
     /**
-     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster. If you configure this parameter, the details about all vSwitches in the VPC to which the dedicated cluster belongs are returned.
+     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~610640~~) operation to query the ID of the dedicated cluster. If you configure this parameter, the details of all vSwitches in the VPC to which the dedicated cluster belongs are returned.
      *
-     **
-     *
-     * You must configure this parameter or the **VpcId** parameter.
+     * > You must configure this parameter or **VpcId**.
      * @example dhg-7a9********
      *
      * @var string
@@ -49,7 +47,7 @@ class DescribeVSwitchesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the vSwitch. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -82,11 +80,9 @@ class DescribeVSwitchesRequest extends Model
     public $securityToken;
 
     /**
-     * @description The ID of the VPC to which the vSwitches belong.
+     * @description The ID of the VPC to which the vSwitch belongs.
      *
-     **
-     *
-     * You must configure this parameter or the **DedicatedHostGroupId** parameter.
+     * > You must configure this parameter or **DedicatedHostGroupId**.
      * @example vpc-bp1opxu1zkhn**********
      *
      * @var string
@@ -94,7 +90,7 @@ class DescribeVSwitchesRequest extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone to which the vSwitches belong. You can call the [DescribeAvailableZones](~~169126~~) operation to query the ID of the zone. If you configure this parameter, the query results are filtered based on the value of this parameter and only the details about the vSwitches that are deployed in the specified zone are returned.
+     * @description The ID of the zone to which the vSwitch belongs. You can call the [DescribeAvailableZones](~~610392~~) operation to query the ID of the zone. If you specify this parameter, the query results are filtered based on the value of this parameter and only the details of the vSwitch that is deployed in the specified zone is returned.
      *
      * @example cn-hangzhou-i
      *

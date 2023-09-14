@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBProxyEndpointAddressRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-t4n3a****
      *
@@ -34,7 +34,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBProxyConnectStringNetType;
 
     /**
-     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~140955~~) operation to query the ID of the proxy endpoint.
+     * @description The ID of the proxy endpoint. You can call the [DescribeDBProxyEndpoint](~~610507~~) operation to query the ID of the proxy endpoint.
      *
      * @example ta9um4****
      *
@@ -43,7 +43,7 @@ class ModifyDBProxyEndpointAddressRequest extends Model
     public $DBProxyEndpointId;
 
     /**
-     * @description An internal parameter. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example normal
      *

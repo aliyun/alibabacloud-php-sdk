@@ -9,6 +9,20 @@ use AlibabaCloud\Tea\Model;
 class installedExtensions extends Model
 {
     /**
+     * @description The category of the extension.
+     *
+     *   **external_access**
+     *   **index_support**
+     *   **information_stat**
+     *   **geography_space**
+     *   **vector_engine**
+     *   **timing_engine**
+     *   **data_type**
+     *   **encrypt_secure**
+     *   **text_process**
+     *   **operation_maintenance**
+     *   **self_develop**
+     *
      * @example information_stat
      *
      * @var string
@@ -16,6 +30,8 @@ class installedExtensions extends Model
     public $category;
 
     /**
+     * @description The purpose of the extension.
+     *
      * @example PostgreSQL load profile repository and report builder
      *
      * @var string
@@ -23,6 +39,8 @@ class installedExtensions extends Model
     public $comment;
 
     /**
+     * @description The default version of the extension.
+     *
      * @example 4.1
      *
      * @var string
@@ -30,6 +48,8 @@ class installedExtensions extends Model
     public $defaultVersion;
 
     /**
+     * @description The current version of the extension.
+     *
      * @example 4.1
      *
      * @var string
@@ -37,6 +57,8 @@ class installedExtensions extends Model
     public $installedVersion;
 
     /**
+     * @description The name of the extension.
+     *
      * @example pg_profile
      *
      * @var string
@@ -44,6 +66,8 @@ class installedExtensions extends Model
     public $name;
 
     /**
+     * @description The user of the extension.
+     *
      * @example test_user
      *
      * @var string
@@ -51,6 +75,11 @@ class installedExtensions extends Model
     public $owner;
 
     /**
+     * @description The priority of the extension.
+     *
+     *   **0**: The extension is displayed by default.
+     *   **1**: The extension is preferentially displayed.
+     *
      * @example 0
      *
      * @var string
@@ -58,6 +87,8 @@ class installedExtensions extends Model
     public $priority;
 
     /**
+     * @description The extensions on which the current extension depends when it is installed.
+     *
      * @example {dblink,plpgsql}
      *
      * @var string

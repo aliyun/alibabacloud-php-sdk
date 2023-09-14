@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
+     * @description The primary key of the data table.
+     *
      * @example 1013
      *
      * @var int
@@ -16,6 +18,8 @@ class template extends Model
     public $id;
 
     /**
+     * @description The IP addresses.
+     *
      * @example 10.1.X.X,2.3.X.X
      *
      * @var string
@@ -23,6 +27,8 @@ class template extends Model
     public $ips;
 
     /**
+     * @description The ID of the whitelist template.
+     *
      * @example 424
      *
      * @var int
@@ -30,6 +36,8 @@ class template extends Model
     public $templateId;
 
     /**
+     * @description The name of the IP whitelist template.
+     *
      * @example template_123
      *
      * @var string
@@ -37,6 +45,8 @@ class template extends Model
     public $templateName;
 
     /**
+     * @description The user ID.
+     *
      * @example 16****
      *
      * @var int

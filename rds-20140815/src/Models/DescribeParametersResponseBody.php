@@ -12,8 +12,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeParametersResponseBody extends Model
 {
     /**
-     * @description The list of parameters that are being synchronized. After you modify and submit the parameter settings, you must wait for the parameter modifications to be synchronized to the instance. After the synchronization, you can delete the parameters from the list.
+     * @description The list of parameters that are being synchronized.
      *
+     * > After you modify and submit the parameters, you must wait for the parameters to be synchronized to the instance. After the synchronization, you can delete the parameters from the list.
      * @var configParameters
      */
     public $configParameters;
@@ -28,7 +29,7 @@ class DescribeParametersResponseBody extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The version of the database engine.
      *
      * @example 5.5
      *
@@ -37,7 +38,7 @@ class DescribeParametersResponseBody extends Model
     public $engineVersion;
 
     /**
-     * @description Parameter template information.
+     * @description The information about the parameter template.
      *
      * @var paramGroupInfo
      */

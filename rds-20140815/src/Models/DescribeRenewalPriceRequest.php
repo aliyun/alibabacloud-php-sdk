@@ -36,7 +36,7 @@ class DescribeRenewalPriceRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5xxxxxx
      *
@@ -85,7 +85,7 @@ class DescribeRenewalPriceRequest extends Model
     public $quantity;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -94,7 +94,7 @@ class DescribeRenewalPriceRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acfmx****
      *

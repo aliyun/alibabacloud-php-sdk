@@ -18,7 +18,7 @@ class DescribeDBMiniEngineVersionsRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the dedicated cluster. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
+     * @description The dedicated cluster ID. You can call the [DescribeDedicatedHostGroups](~~141946~~) operation to query the ID of the dedicated cluster.
      *
      * @example dhg-4n*****
      *
@@ -36,10 +36,10 @@ class DescribeDBMiniEngineVersionsRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version of the instance. Valid values:
      *
      *   Valid values when you set the Engine parameter to MySQL: **8.0**, **5.7**, **5.6**, and **5.5**
-     *   Valid values when you set the Engine parameter to PostgreSQL: **14.0**, **13.0**, **12.0**, **11.0**, and **10.0**
+     *   Valid values when you set the Engine parameter to PostgreSQL: **15.0**, **14.0**, **13.0**, **12.0**, **11.0**, and **10.0**
      *
      * @example 5.7
      *
@@ -70,7 +70,7 @@ class DescribeDBMiniEngineVersionsRequest extends Model
     public $nodeType;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

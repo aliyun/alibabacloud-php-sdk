@@ -18,7 +18,10 @@ class database extends Model
     public $DBName;
 
     /**
-     * @description The TDE status at the database level. Valid values: **Enabled and Disabled**.
+     * @description The TDE status at the database level. Valid values:
+     *
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example Enabled
      *

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The status code returned. Valid values:
+     *
+     *   **ok**: The request is successful.
+     *   **error**: The request fails.
+     *
      * @example ok
      *
      * @var string

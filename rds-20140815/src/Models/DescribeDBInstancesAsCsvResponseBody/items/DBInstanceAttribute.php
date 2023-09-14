@@ -48,8 +48,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The connection mode of the instance. Valid values:
      *
-     *   **Performance**: standard mode
-     *   **Safety**: enhanced mode
+     *   **Performance**: standard mode.
+     *   **Safety**: safe mode.
      *
      * @example Performance
      *
@@ -67,7 +67,7 @@ class DBInstanceAttribute extends Model
     public $connectionString;
 
     /**
-     * @description The time when the audio or video file was created.
+     * @description The creation time.
      *
      * @example 2011-05-30T12:11:04Z
      *
@@ -76,7 +76,7 @@ class DBInstanceAttribute extends Model
     public $creationTime;
 
     /**
-     * @description The number of cores that are configured for the instance.
+     * @description The number of CPU cores.
      *
      * @example 2
      *
@@ -112,7 +112,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -121,7 +121,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceId;
 
     /**
-     * @description The memory size of the instance. Unit: MB.
+     * @description The memory capacity of the instance. Unit: MB.
      *
      * @example 4096
      *
@@ -132,8 +132,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Internet**
-     *   **Intranet**
+     *   **Internet**: Internet
+     *   **Intranet**: internal network
      *
      * @example Internet
      *
@@ -183,7 +183,7 @@ class DBInstanceAttribute extends Model
     public $DBMaxQuantity;
 
     /**
-     * @description The type of the database engine.
+     * @description The database engine of the instance.
      *
      * @example MySQL
      *
@@ -210,6 +210,10 @@ class DBInstanceAttribute extends Model
     public $expireTime;
 
     /**
+     * @description A deprecated parameter. You do not need to configure this parameter.
+     *
+     * @example API
+     *
      * @var string
      */
     public $exportKey;
@@ -233,7 +237,7 @@ class DBInstanceAttribute extends Model
     public $incrementSourceDBInstanceId;
 
     /**
-     * @description The type of the network.
+     * @description The network type.
      *
      * @example VPC
      *
@@ -278,7 +282,7 @@ class DBInstanceAttribute extends Model
     public $masterInstanceId;
 
     /**
-     * @description The maximum number of concurrent connections that are allowed by the instance.
+     * @description The maximum number of concurrent connections.
      *
      * @example 60
      *
@@ -287,7 +291,7 @@ class DBInstanceAttribute extends Model
     public $maxConnections;
 
     /**
-     * @description The maximum number of I/O requests that is processed by the instance per second.
+     * @description The maximum number of I/O requests per second.
      *
      * @example 150
      *
@@ -323,7 +327,7 @@ class DBInstanceAttribute extends Model
     public $readDelayTime;
 
     /**
-     * @description The ID of the region in which the instance resides.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -332,7 +336,7 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
-     * @description The IP address whitelist of the instance.
+     * @description The IP address whitelist.
      *
      * @example 42.xx.xx.xx
      *
@@ -341,12 +345,14 @@ class DBInstanceAttribute extends Model
     public $securityIPList;
 
     /**
+     * @description A deprecated parameter. You do not need to configure this parameter.
+     *
      * @var slaveZones
      */
     public $slaveZones;
 
     /**
-     * @description None.
+     * @description N/A.
      *
      * @example No
      *
@@ -355,7 +361,7 @@ class DBInstanceAttribute extends Model
     public $supportUpgradeAccountType;
 
     /**
-     * @description The tag.
+     * @description The tags.
      *
      * @example 0
      *
@@ -373,7 +379,7 @@ class DBInstanceAttribute extends Model
     public $tempDBInstanceId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-uf6adz52c2pxxxxxxxxxx
      *
@@ -382,7 +388,7 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-uf6f7l4fg90xxxxxxxxxx
      *
@@ -391,7 +397,7 @@ class DBInstanceAttribute extends Model
     public $vpcId;
 
     /**
-     * @description The ID of the zone in which the instance resides.
+     * @description The zone ID.
      *
      * @example cn-hangzhou-h
      *

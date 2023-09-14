@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class nodeItems extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-****
      *
@@ -18,7 +18,7 @@ class nodeItems extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example rn-xxxx-****
      *

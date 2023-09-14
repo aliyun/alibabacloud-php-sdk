@@ -51,7 +51,7 @@ class ListUserBackupFilesRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy*****
      *

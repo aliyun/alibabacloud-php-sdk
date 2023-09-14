@@ -18,7 +18,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-bpxxxxx
      *
@@ -67,7 +67,7 @@ class DescibeImportsFromDatabaseRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1
@@ -91,6 +91,10 @@ class DescibeImportsFromDatabaseRequest extends Model
     public $pageSize;
 
     /**
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

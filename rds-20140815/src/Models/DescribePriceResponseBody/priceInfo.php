@@ -19,7 +19,7 @@ class priceInfo extends Model
     public $activityInfo;
 
     /**
-     * @description An array that consists of information about the coupon.
+     * @description The information about the coupon.
      *
      * @var coupons
      */

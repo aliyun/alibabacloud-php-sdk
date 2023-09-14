@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class serverlessConfig extends Model
 {
     /**
+     * @description The maximum number of RDS Capacity Units (RCUs).
+     *
+     * @example 8
+     *
      * @var float
      */
     public $maxCapacity;
 
     /**
+     * @description The minimum number of RCUs.
+     *
+     * @example 0.5
+     *
      * @var float
      */
     public $minCapacity;

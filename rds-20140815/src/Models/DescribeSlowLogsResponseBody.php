@@ -19,7 +19,7 @@ class DescribeSlowLogsResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end date of the time range that was queried.
+     * @description The end date of the query.
      *
      * @example 2011-05-30Z
      *
@@ -37,14 +37,14 @@ class DescribeSlowLogsResponseBody extends Model
     public $engine;
 
     /**
-     * @description An array that consists of the information about each slow query.
+     * @description An array that consists of the information about each slow query log.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of the page returned.
      *
      * @example 1
      *
@@ -62,7 +62,7 @@ class DescribeSlowLogsResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2553A660-E4EB-4AF4-A402-8AFF70A49143
      *
@@ -71,7 +71,7 @@ class DescribeSlowLogsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start date of the time range that was queried.
+     * @description The start date of the query.
      *
      * @example 2011-05-30Z
      *

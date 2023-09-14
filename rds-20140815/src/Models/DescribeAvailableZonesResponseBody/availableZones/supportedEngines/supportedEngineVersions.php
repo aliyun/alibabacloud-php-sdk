@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class supportedEngineVersions extends Model
 {
     /**
-     * @description An array that consists of the RDS editions available in the zone.
+     * @description The RDS editions that are available that are available for purchase.
      *
      * @var supportedCategorys[]
      */
     public $supportedCategorys;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 8.0
      *

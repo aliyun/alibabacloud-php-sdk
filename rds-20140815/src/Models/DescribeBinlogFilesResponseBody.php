@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeBinlogFilesResponseBody extends Model
 {
     /**
-     * @description An array that consists of information about the binary log file.
+     * @description The details of the log file.
      *
      * @var items
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeBinlogFilesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of binary log files returned on the current page.
+     * @description The number of log files on the current page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeBinlogFilesResponseBody extends Model
     public $pageRecordCount;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example ED169A3E-1657-4104-82AB-24EA8CD0DB75
      *
@@ -44,7 +44,7 @@ class DescribeBinlogFilesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total size of the binary log files.
+     * @description The total size of the log file.
      *
      * @example 2269410
      *
@@ -53,7 +53,7 @@ class DescribeBinlogFilesResponseBody extends Model
     public $totalFileSize;
 
     /**
-     * @description The total number of binary log files returned.
+     * @description The total number of log files.
      *
      * @example 100
      *

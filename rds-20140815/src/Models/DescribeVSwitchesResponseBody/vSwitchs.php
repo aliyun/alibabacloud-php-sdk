@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vSwitchs extends Model
 {
     /**
-     * @description 交换机中可用的IP地址数量。
+     * @description The number of available IP addresses in the vSwitch.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class vSwitchs extends Model
     public $availableIpAddressCount;
 
     /**
-     * @description The CIDR blocks of the vSwitches.
+     * @description The CIDR block of the vSwitch.
      *
      * @example 172.16.0.0/24
      *
@@ -27,7 +27,7 @@ class vSwitchs extends Model
     public $cidrBlock;
 
     /**
-     * @description The descriptions of the vSwitches.
+     * @description The description of the vSwitch.
      *
      * @example VSwitchDescription
      *
@@ -38,8 +38,8 @@ class vSwitchs extends Model
     /**
      * @description Indicates whether the vSwitch is the default vSwitch. Valid values:
      *
-     *   **true**: The vSwitch is the default vSwitch.
-     *   **false**: The vSwitch is not the default vSwitch.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -48,7 +48,7 @@ class vSwitchs extends Model
     public $isDefault;
 
     /**
-     * @description The ID of the zone to which the vSwitches belong.
+     * @description The ID of the zone to which the vSwitch belongs.
      *
      * @example cn-hangzhou-h
      *
@@ -57,7 +57,7 @@ class vSwitchs extends Model
     public $izNo;
 
     /**
-     * @description The status of a vSwitch. Valid values:
+     * @description The status of the vSwitch. Valid values:
      *
      *   **Pending**: The vSwitch is being configured.
      *   **Available**: The vSwitch is available.
@@ -69,7 +69,7 @@ class vSwitchs extends Model
     public $status;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-bp1pnaz94xc**********
      *
@@ -78,7 +78,7 @@ class vSwitchs extends Model
     public $vSwitchId;
 
     /**
-     * @description The name of the vSwitch.
+     * @description The vSwitch name.
      *
      * @example test
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class nodeInfo extends Model
 {
     /**
+     * @description The time when the secondary instance completed the synchronization of data from the primary instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-05T15:15:00Z
      *
      * @var string
@@ -16,6 +18,8 @@ class nodeInfo extends Model
     public $dataSyncTime;
 
     /**
+     * @description The time when the secondary instance received logs from the primary instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2018-05-05T15:15:00Z
      *
      * @var string
@@ -23,6 +27,8 @@ class nodeInfo extends Model
     public $logSyncTime;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example 3397027
      *
      * @var string
@@ -30,6 +36,11 @@ class nodeInfo extends Model
     public $nodeId;
 
     /**
+     * @description The type of the node. Valid values:
+     *
+     *   **Master**: the primary node
+     *   **Slave**: the secondary node
+     *
      * @example Master
      *
      * @var string
@@ -37,6 +48,8 @@ class nodeInfo extends Model
     public $nodeType;
 
     /**
+     * @description The region ID of the instance.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -44,6 +57,13 @@ class nodeInfo extends Model
     public $regionId;
 
     /**
+     * @description The synchronization status. Valid values:
+     *
+     *   **NotAvailable**: The synchronization fails. This means that faults occur.
+     *   **Syncing**: The synchronization is in process. In this case, a primary/secondary switchover may cause data losses.
+     *   **Synchronized**: The synchronization is completed.
+     *   **NotSupport**: The database engine or database engine version does not involve the synchronization between the primary and secondary instances.
+     *
      * @example NotAvailable
      *
      * @var string
@@ -51,6 +71,8 @@ class nodeInfo extends Model
     public $syncStatus;
 
     /**
+     * @description The ID of the zone.
+     *
      * @example cn-hangzhou-b
      *
      * @var string

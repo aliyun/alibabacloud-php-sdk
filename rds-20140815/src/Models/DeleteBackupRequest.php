@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteBackupRequest extends Model
 {
     /**
-     * @description The ID of the backup set. You can call the [DescribeBackups](~~26273~~) operation to query backup set IDs. Separate multiple values with commas (,). You can specify a maximum of 100 values in a single request.
+     * @description The ID of the backup set. You can call the [DescribeBackups](~~610544~~) operation to query backup set IDs. Separate multiple values with commas (,). You can specify a maximum of 100 values in a single request.
      *
-     * > After you call the [DescribeBackups](~~26273~~) operation, the returned backup sets whose **StoreStatus** is **Enabled** can be deleted.
+     * > After you call the [DescribeBackups](~~610544~~) operation, the returned backup sets whose **StoreStatus** is **Enabled** can be deleted.
      * @example 324909958
      *
      * @var string
@@ -19,7 +19,7 @@ class DeleteBackupRequest extends Model
     public $backupId;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

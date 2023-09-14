@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class AllocateInstancePublicConnectionResponseBody extends Model
 {
     /**
-     * @description The endpoint of the instance.
+     * @description The endpoint that is used to connect to the database instance.
      *
      * @example test*****.mysql.rds.aliyuncs.com
      *

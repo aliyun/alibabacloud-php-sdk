@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpgradeDBProxyInstanceKernelVersionRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5****
      *
@@ -18,7 +18,7 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description An internal parameter. You do not need to specify this parameter.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example normal
      *
@@ -54,9 +54,9 @@ class UpgradeDBProxyInstanceKernelVersionRequest extends Model
     /**
      * @description The time when you want to upgrade the database proxy version of the instance. Valid values:
      *
-     *   **MaintainTime**: ApsaraDB RDS performs the upgrade during the maintenance window that you specified. This is the default value. For more information, see [Modify the maintenance window](~~26249~~).
-     *   **Immediate**: ApsaraDB RDS immediately performs the upgrade.
-     *   **SpecificTime**: ApsaraDB RDS performs the upgrade at a specified point in time.
+     *   **MaintainTime** (default): performs the upgrade during the maintenance window that you specified. For more information, see [Modify the maintenance window](~~610402~~).
+     *   **Immediate**: performs the upgrade immediately.
+     *   **SpecificTime**: performs the upgrade at a specified point in time.
      *
      * >
      *

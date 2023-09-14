@@ -24,7 +24,7 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The IDs of the instances. You can specify up to 50 instance IDs.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -52,7 +52,7 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
-     * @description The tags to be added to the resources. You can specify up to 20 tags.
+     * @description The list of tags.
      *
      * @var tag[]
      */

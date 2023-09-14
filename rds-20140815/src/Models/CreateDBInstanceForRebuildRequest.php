@@ -19,9 +19,9 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $clientToken;
 
     /**
-     * @description The name of the destination instance. The value must be 2 to 256 characters in length. The value must start with a letter and can contain letters, digits, underscores (\_), and hyphens (-).
+     * @description The name of the instance. The name must be 2 to 256 characters in length. The name can contain letters, digits, underscores (\_), and hyphens (-). The name must start with a letter.
      *
-     * > The value cannot start with http:// or https://.
+     * > : The name cannot start with http:// or https://.
      * @example Test database
      *
      * @var string
@@ -29,7 +29,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance that you want to rebuild.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -50,14 +50,14 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $DBInstanceNetType;
 
     /**
-     * @description The network type of the destination instance. Valid values:
+     * @description The network type of the instance. Valid values:
      *
      *   **VPC**
      *   **Classic**
      *
      * Default value: Classic.
      *
-     * > If you set this parameter to **VPC**, you must also specify **VpcId** and **VSwitchId**.
+     * > : If you set this parameter to **VPC**, you must also specify **VpcId** and **VSwitchId**.
      * @example VPC
      *
      * @var string
@@ -92,7 +92,7 @@ class CreateDBInstanceForRebuildRequest extends Model
      *   **Year**
      *   **Month**
      *
-     * > If you set PayType to **Prepaid**, you must also specify this parameter.
+     * > : If you set PayType to **Prepaid**, you must also specify this parameter.
      * @example Month
      *
      * @var string
@@ -100,7 +100,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $period;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -109,7 +109,7 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group. You can leave this parameter empty.
+     * @description The ID of the resource group. The value of this parameter can be NULL.
      *
      * @example rg-acfmy*****
      *
@@ -128,11 +128,12 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The IP address whitelist of the instance. For more information, see [Use a database client or the CLI to connect to an ApsaraDB RDS for MySQL instance](~~43185~~). If you want to add more than one entry to the IP address whitelist, separate the entries with commas (,). Each entry must be unique. You can add up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
+     * @description The IP address whitelist of the serverless instance. For more information, see [Use a database client or the CLI to connect to an ApsaraDB RDS for PostgreSQL instance](~~43185~~). If the IP address whitelist contains more than one entry, separate the entries with commas (,). Each entry must be unique. You can specify up to 1,000 entries. The entries in the IP address whitelist must be in one of the following formats:
      *
      *   IP addresses, such as 10.10.XX.XX.
      *   CIDR blocks, such as 10.10.XX.XX/24. In this example, 24 indicates that the prefix of each IP address in the IP address whitelist is 24 bits in length. You can replace 24 with a value within the range of 1 to 32.
      *
+     * If this parameter is not specified, the default IP address whitelist is used.
      * @example 127.0.0.1
      *
      * @var string
@@ -158,9 +159,9 @@ class CreateDBInstanceForRebuildRequest extends Model
     public $usedTime;
 
     /**
-     * @description The VPC ID of the destination instance. This parameter is available only when you set **InstanceNetworkType** to **VPC**.
+     * @description The VPC ID of the instance. If you set **InstanceNetworkType** to **VPC**, you must specify this parameter.
      *
-     * > If you specify this parameter, you must also specify **ZoneId**.
+     * > : If you specify this parameter, you must also specify **ZoneId**.
      * @example vpc-uf6f7l4fg90xxxxxx
      *
      * @var string
@@ -174,7 +175,7 @@ class CreateDBInstanceForRebuildRequest extends Model
      *
      *   If you set **InstanceNetworkType** to **VPC**, you must also specify this parameter.
      *
-     *   If you specify ZoneSlaveId1, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
+     *   If you specify the ZoneSlaveId1 parameter, you must specify the IDs of two vSwitches for this parameter and separate the IDs with a comma (,).
      *
      * @example vsw-uf6adz52c2pxxxxx
      *

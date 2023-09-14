@@ -73,6 +73,14 @@ class DescribeBackupPolicyResponseBody extends Model
     public $backupMethod;
 
     /**
+     * @description The backup settings of the secondary instance. Valid values:
+     *
+     *   **1**: Secondary instance preferred
+     *   **2**: Primary instance preferred
+     *
+     * > This parameter is valid only when the instance runs SQL Server on RDS Cluster Edition. This parameter is returned only when SupportModifyBackupPriority is set to True.
+     * @example 2
+     *
      * @var int
      */
     public $backupPriority;
@@ -257,6 +265,13 @@ class DescribeBackupPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the backup settings of a secondary instance can be modified. Valid values:
+     *
+     *   **True**
+     *   **False**
+     *
+     * @example False
+     *
      * @var bool
      */
     public $supportModifyBackupPriority;

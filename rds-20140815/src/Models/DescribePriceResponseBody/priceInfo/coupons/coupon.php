@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class coupon extends Model
 {
     /**
-     * @description The ID of the coupon.
+     * @description The coupon ID.
      *
      * @example 123456
      *

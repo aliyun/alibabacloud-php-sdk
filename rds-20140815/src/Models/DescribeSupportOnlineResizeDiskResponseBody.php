@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeSupportOnlineResizeDiskResponseBody extends Model
 {
     /**
-     * @description The error code returned.
+     * @description The response code returned.
      *
      * @example NotExists.InstanceId
      *
@@ -18,7 +18,7 @@ class DescribeSupportOnlineResizeDiskResponseBody extends Model
     public $code;
 
     /**
-     * @description The result data that is returned.
+     * @description The response result set.
      *
      * @example {"SupportOnlineResizeDisk":true,"DBInstanceName":"rm-uf6wjk5xxxxxxx"}
      *
@@ -27,7 +27,7 @@ class DescribeSupportOnlineResizeDiskResponseBody extends Model
     public $data;
 
     /**
-     * @description The returned message.
+     * @description The response code.
      *
      * @example successful
      *
@@ -45,7 +45,7 @@ class DescribeSupportOnlineResizeDiskResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the request is successful.
+     * @description Indicates whether the request was successful.
      *
      * @example true
      *

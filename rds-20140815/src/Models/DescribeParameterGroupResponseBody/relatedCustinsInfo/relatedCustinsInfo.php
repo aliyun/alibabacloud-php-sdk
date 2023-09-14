@@ -18,7 +18,7 @@ class relatedCustinsInfo extends Model
     public $appliedTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-bp170****
      *

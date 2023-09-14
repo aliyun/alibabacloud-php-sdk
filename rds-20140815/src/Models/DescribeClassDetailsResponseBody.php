@@ -9,6 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassDetailsResponseBody extends Model
 {
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **AlwaysOn**: RDS Cluster Edition
+     *   **Finance**: RDS Enterprise Edition
+     *
      * @example Basic
      *
      * @var string
@@ -16,6 +23,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $category;
 
     /**
+     * @description The code of the instance type.
+     *
      * @example mysql.n2.medium.1
      *
      * @var string
@@ -23,6 +32,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $classCode;
 
     /**
+     * @description The instance family of the instance.
+     *
      * @example x
      *
      * @var string
@@ -30,6 +41,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $classGroup;
 
     /**
+     * @description The number of CPU cores that are supported by the instance type. Unit: cores.
+     *
      * @example 4
      *
      * @var string
@@ -37,6 +50,14 @@ class DescribeClassDetailsResponseBody extends Model
     public $cpu;
 
     /**
+     * @description The storage type of the instance. Valid values:
+     *
+     *   **local_ssd**: local SSDs
+     *   **cloud_ssd**: standard SSDs
+     *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
+     *   **cloud_essd2**: ESSDs of PL2
+     *   **cloud_essd3**: ESSD of PL3
+     *
      * @example local_ssd
      *
      * @var string
@@ -44,6 +65,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $DBInstanceStorageType;
 
     /**
+     * @description The architecture of the instance.
+     *
      * @example x86
      *
      * @var string
@@ -51,6 +74,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $instructionSetArch;
 
     /**
+     * @description The maximum number of connections.
+     *
      * @example 4000
      *
      * @var string
@@ -58,6 +83,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $maxConnections;
 
     /**
+     * @description The maximum I/O bandwidth that is supported by the instance type. Unit: Mbit/s.
+     *
      * @example 1024
      *
      * @var string
@@ -65,6 +92,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $maxIOMBPS;
 
     /**
+     * @description The maximum input/output operations per second (IOPS) that is supported by the instance type. Unit: operations per second.
+     *
      * @example N/A
      *
      * @var string
@@ -72,6 +101,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $maxIOPS;
 
     /**
+     * @description The memory size. Unit: GB.
+     *
      * @example 2GB
      *
      * @var string
@@ -79,6 +110,14 @@ class DescribeClassDetailsResponseBody extends Model
     public $memoryClass;
 
     /**
+     * @description The price.
+     *
+     * >
+     *
+     *   If you set the CommodityCode parameter to a value that indicates the pay-as-you-go billing method, the ReferencePrice parameter specifies the hourly fee that you must pay.
+     *
+     *   If you set the CommodityCode parameter to a value that indicates the subscription billing method, the ReferencePrice parameter specifies the monthly fee that you must pay.
+     *
      * @example 13400
      *
      * @var string
@@ -86,6 +125,8 @@ class DescribeClassDetailsResponseBody extends Model
     public $referencePrice;
 
     /**
+     * @description The request ID.
+     *
      * @example E9DD55F4-1A5F-48CA-BA57-DFB3CA8C4C34
      *
      * @var string

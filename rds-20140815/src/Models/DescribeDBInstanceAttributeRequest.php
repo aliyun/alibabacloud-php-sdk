@@ -9,7 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceAttributeRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can specify up to 30 instance IDs in a single request. If you specify multiple instance IDs, separate the instance IDs with commas (,).
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
+     **
+     *
+     **Warning**: Do not query the details of multiple instances at a time by using multiple instance IDs. Otherwise, the query times out and fails.
      *
      * @example rm-uf6wjk5*****
      *

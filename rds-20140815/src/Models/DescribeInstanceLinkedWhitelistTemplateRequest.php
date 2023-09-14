@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
 {
     /**
+     * @description The instance name.
+     *
      * @example rm-bp191w771kd3****
      *
      * @var string
      */
     public $insName;
+
+    /**
+     * @description 资源组ID，可以为空。
+     *
+     * @example rg-aek3dbzqbh6owgy
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -26,6 +37,7 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
     public $resourceOwnerId;
     protected $_name = [
         'insName'              => 'InsName',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
     ];
@@ -39,6 +51,9 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
         $res = [];
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -60,6 +75,9 @@ class DescribeInstanceLinkedWhitelistTemplateRequest extends Model
         $model = new self();
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

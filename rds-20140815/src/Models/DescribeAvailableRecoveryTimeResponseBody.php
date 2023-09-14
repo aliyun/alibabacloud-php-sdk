@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableRecoveryTimeResponseBody extends Model
 {
     /**
-     * @description The ID of the cross-region backup file.
+     * @description The ID of the cross-region data backup file.
      *
      * @example 14377
      *
@@ -36,7 +36,7 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     public $recoveryEndTime;
 
     /**
-     * @description The region ID of the source instance.
+     * @description The region where the source instance resides.
      *
      * @example cn-hangzhou
      *
@@ -45,7 +45,7 @@ class DescribeAvailableRecoveryTimeResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 8CCBF4BA-7CE1-47E1-B49F-E97EA200A40D
      *

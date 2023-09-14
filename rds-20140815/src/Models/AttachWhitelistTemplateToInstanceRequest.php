@@ -9,11 +9,22 @@ use AlibabaCloud\Tea\Model;
 class AttachWhitelistTemplateToInstanceRequest extends Model
 {
     /**
+     * @description The name of the instance.
+     *
      * @example rm-bp191w771kd3****
      *
      * @var string
      */
     public $insName;
+
+    /**
+     * @description The ID of the resource group. For more information about resource groups, see Resource groups.
+     *
+     * @example rg-acfmy*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
 
     /**
      * @var string
@@ -26,6 +37,8 @@ class AttachWhitelistTemplateToInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID of the whitelist template.
+     *
      * @example 412
      *
      * @var int
@@ -33,6 +46,7 @@ class AttachWhitelistTemplateToInstanceRequest extends Model
     public $templateId;
     protected $_name = [
         'insName'              => 'InsName',
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'templateId'           => 'TemplateId',
@@ -47,6 +61,9 @@ class AttachWhitelistTemplateToInstanceRequest extends Model
         $res = [];
         if (null !== $this->insName) {
             $res['InsName'] = $this->insName;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -71,6 +88,9 @@ class AttachWhitelistTemplateToInstanceRequest extends Model
         $model = new self();
         if (isset($map['InsName'])) {
             $model->insName = $map['InsName'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

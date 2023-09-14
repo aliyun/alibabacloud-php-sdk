@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeClassDetailsRequest extends Model
 {
     /**
+     * @description The code of the instance type.
+     *
      * @example rds.mysql.s3.large
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeClassDetailsRequest extends Model
     public $classCode;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz*****
      *
      * @var string
@@ -23,6 +27,14 @@ class DescribeClassDetailsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The commodity code of the instance. Valid values:
+     *
+     *   ****
+     *   **bards_intl**: The instance is a pay-as-you-go primary instance.
+     *   **rds_intl**: The instance is a subscription primary instance.
+     *   **rords_intl**: The instance is a pay-as-you-go read-only instance.
+     *   **rds_rordspre_public_intl**: The instance is a subscription read-only instance.
+     *
      * @example rds
      *
      * @var string
@@ -30,6 +42,8 @@ class DescribeClassDetailsRequest extends Model
     public $commodityCode;
 
     /**
+     * @description The type of the database engine.
+     *
      * @example MySQL
      *
      * @var string
@@ -37,6 +51,8 @@ class DescribeClassDetailsRequest extends Model
     public $engine;
 
     /**
+     * @description The database engine version of the instance.
+     *
      * @example 5.6
      *
      * @var string
@@ -49,6 +65,8 @@ class DescribeClassDetailsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -56,6 +74,10 @@ class DescribeClassDetailsRequest extends Model
     public $regionId;
 
     /**
+     * @description 资源组ID。可调用[DescribeDBInstanceAttribute](~~610394~~)获取。
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -97,7 +97,7 @@ class items extends Model
     public $deadline;
 
     /**
-     * @description The ID of the precheck task.
+     * @description The task ID.
      *
      * @example 11111
      *
@@ -194,7 +194,7 @@ class items extends Model
     public $startTime;
 
     /**
-     * @description The status of the task.
+     * @description The task status.
      *
      *   **3**: pending
      *   **4**: being processed
@@ -225,6 +225,10 @@ class items extends Model
     public $switchTime;
 
     /**
+     * @description The task parameters.
+     *
+     * @example {
+     * }
      * @var string
      */
     public $taskParams;
@@ -235,7 +239,7 @@ class items extends Model
      *   **rds_apsaradb_ha**: primary/secondary switchover
      *   **rds_apsaradb_transfer**: instance migration
      *   **rds_apsaradb_upgrade**: update of the minor engine version
-     *   **rds_apsaradb_maxscale**: update of the minor version of the proxy
+     *   **rds_apsaradb_maxscale**: upgrade of the database proxy version
      *
      * @example rds_apsaradb_upgrade
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RemoveTagsFromResourceResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example AE00ACCD-1CF9-4920-9BB9-0175EFF43405
      *

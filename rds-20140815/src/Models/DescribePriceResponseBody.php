@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePriceResponseBody extends Model
 {
     /**
-     * @description The information about the price.
+     * @description The price information.
      *
      * @var priceInfo
      */
@@ -27,23 +27,35 @@ class DescribePriceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the details of the promotion rule.
+     * @description The details of the promotion rule.
      *
      * @var rules
      */
     public $rules;
 
     /**
+     * @description Indicates whether discounts can be used.
+     *
+     * @example True
+     *
      * @var bool
      */
     public $showDiscount;
 
     /**
+     * @description The estimated hourly fee that is calculated based on the maximum number of RCUs.
+     *
+     * @example 2**
+     *
      * @var float
      */
     public $tradeMaxRCUAmount;
 
     /**
+     * @description The estimated hourly fee that is calculated based on the minimum number of RCUs.
+     *
+     * @example 1**
+     *
      * @var float
      */
     public $tradeMinRCUAmount;

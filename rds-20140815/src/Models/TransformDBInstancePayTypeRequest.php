@@ -45,7 +45,7 @@ class TransformDBInstancePayTypeRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxx
      *
@@ -102,9 +102,9 @@ class TransformDBInstancePayTypeRequest extends Model
      * @description The subscription duration of the instance. Valid values:
      *
      *   If you set **Period** to **Year**, the value of UsedTime ranges from **1 to 5**.
-     *   If you set **Period** to **Month**, the value of UsedTime ranges from **1 to 9**.
+     *   If you set **Period** to **Month**, the value of UsedTime ranges from **1 to 11**.
      *
-     * > This parameter must be specified if you set **PayType** to **Prepaid**.
+     * > This parameter must be specified when **PayType** is set to **Prepaid**.
      * @example 1
      *
      * @var int

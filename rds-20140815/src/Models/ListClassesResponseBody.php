@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListClassesResponseBody extends Model
 {
     /**
-     * @description An array that consists of available instance types.
+     * @description The list of instance specifications.
      *
      * @var items[]
      */

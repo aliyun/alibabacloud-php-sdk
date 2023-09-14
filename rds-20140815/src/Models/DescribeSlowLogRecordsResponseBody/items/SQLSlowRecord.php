@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class SQLSlowRecord extends Model
 {
     /**
+     * @description The name of the application that is connected to the instance.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example example
      *
      * @var string
@@ -16,6 +19,9 @@ class SQLSlowRecord extends Model
     public $applicationName;
 
     /**
+     * @description The hostname of the client.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example example
      *
      * @var string
@@ -23,6 +29,9 @@ class SQLSlowRecord extends Model
     public $clientHostName;
 
     /**
+     * @description The duration during which the SQL statement is processed by the CPU. Unit: milliseconds.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example 0.002
      *
      * @var int
@@ -30,6 +39,8 @@ class SQLSlowRecord extends Model
     public $cpuTime;
 
     /**
+     * @description The name of the database.
+     *
      * @example testDB
      *
      * @var string
@@ -37,6 +48,8 @@ class SQLSlowRecord extends Model
     public $DBName;
 
     /**
+     * @description The time when the execution of the SQL statement started. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     *
      * @example 2020-06-18T01:40:44Z
      *
      * @var string
@@ -44,6 +57,8 @@ class SQLSlowRecord extends Model
     public $executionStartTime;
 
     /**
+     * @description The name and IP address of the client that is connected to the database.
+     *
      * @example xxx[xxx] @  [1xx.xxx.xxx.xx]
      *
      * @var string
@@ -51,6 +66,9 @@ class SQLSlowRecord extends Model
     public $hostAddress;
 
     /**
+     * @description The number of rows that are affected by the last SQL statement.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example 2
      *
      * @var int
@@ -58,6 +76,8 @@ class SQLSlowRecord extends Model
     public $lastRowsAffectedCount;
 
     /**
+     * @description The lock duration of the query. Unit: seconds.
+     *
      * @example 0
      *
      * @var int
@@ -65,6 +85,9 @@ class SQLSlowRecord extends Model
     public $lockTimes;
 
     /**
+     * @description The number of logical reads.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example 383
      *
      * @var int
@@ -72,6 +95,8 @@ class SQLSlowRecord extends Model
     public $logicalIORead;
 
     /**
+     * @description The number of parsed rows.
+     *
      * @example 1
      *
      * @var int
@@ -79,6 +104,9 @@ class SQLSlowRecord extends Model
     public $parseRowCounts;
 
     /**
+     * @description The number of physical reads.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example 200
      *
      * @var int
@@ -86,6 +114,8 @@ class SQLSlowRecord extends Model
     public $physicalIORead;
 
     /**
+     * @description The execution duration of the query. Unit: milliseconds.
+     *
      * @example 2001
      *
      * @var int
@@ -93,6 +123,8 @@ class SQLSlowRecord extends Model
     public $queryTimeMS;
 
     /**
+     * @description The execution duration of the query. Unit: seconds.
+     *
      * @example 2
      *
      * @var int
@@ -100,6 +132,8 @@ class SQLSlowRecord extends Model
     public $queryTimes;
 
     /**
+     * @description The number of rows returned.
+     *
      * @example 1
      *
      * @var int
@@ -107,6 +141,9 @@ class SQLSlowRecord extends Model
     public $returnRowCounts;
 
     /**
+     * @description The number of affected rows.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example 34
      *
      * @var int
@@ -114,6 +151,8 @@ class SQLSlowRecord extends Model
     public $rowsAffectedCount;
 
     /**
+     * @description The unique ID of the SQL statement.
+     *
      * @example U2FsdGVk****
      *
      * @var string
@@ -121,6 +160,8 @@ class SQLSlowRecord extends Model
     public $SQLHash;
 
     /**
+     * @description The details of the SQL statement.
+     *
      * @example select sleep(2)
      *
      * @var string
@@ -128,6 +169,9 @@ class SQLSlowRecord extends Model
     public $SQLText;
 
     /**
+     * @description The name of the user.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example user
      *
      * @var string
@@ -135,6 +179,9 @@ class SQLSlowRecord extends Model
     public $userName;
 
     /**
+     * @description The number of I/O writes.
+     *
+     * > This parameter is returned only for instances that run SQL Server.
      * @example 22
      *
      * @var int

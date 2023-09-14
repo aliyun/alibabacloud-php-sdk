@@ -10,11 +10,25 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
+     * @description Indicates whether the buffer pool extension (BPE) feature is enabled. Valid values:
+     *
+     *   **1**: The feature is enabled.
+     *   **0**: The feature is disabled.
+     *
+     * @example 0
+     *
      * @var string
      */
     public $bpeEnabled;
 
     /**
+     * @description Indicates whether the I/O burst feature is enabled. Valid values:
+     *
+     *   **true**: The feature is enabled.
+     *   **false**: The feature is disabled.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
@@ -23,7 +37,7 @@ class DBInstance extends Model
      * @description The RDS edition of the instance. Valid values:
      *
      *   **Basic**: RDS Basic Edition
-     *   **HighAvailability**: RDS High-availability Edition
+     *   **HighAvailability**: High-availability Edition
      *   **Finance**: RDS Enterprise Edition
      *
      * > This parameter is returned only when **InstanceLevel** is set to **1**.
@@ -73,7 +87,7 @@ class DBInstance extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The description of the instance.
+     * @description The instance description.
      *
      * @example Test database
      *
@@ -82,7 +96,7 @@ class DBInstance extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -135,7 +149,7 @@ class DBInstance extends Model
     public $DBInstanceType;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The dedicated cluster ID.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -255,7 +269,7 @@ class DBInstance extends Model
     public $destroyTime;
 
     /**
-     * @description The database engine of the instance.
+     * @description The database engine of the serverless instance.
      *
      * @example MySQL
      *
@@ -264,7 +278,7 @@ class DBInstance extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 5.7
      *
@@ -316,8 +330,8 @@ class DBInstance extends Model
      * @description The lock mode of the instance. Valid values:
      *
      *   **Unlock**: The instance is not locked.
-     *   \*\* ManualLock\*\*: The instance is manually locked.
-     *   **LockByExpiration**: The instance is automatically locked after it expires.
+     *   **ManualLock**: The instance is manually locked.
+     *   **LockByExpiration**: The instance is automatically locked due to instance expiration.
      *   **LockByRestoration**: The instance is automatically locked before it is rolled back.
      *   **LockByDiskQuota**: The instance is automatically locked due to exhausted storage capacity.
      *   **Released**: The instance is released. After an instance is released, the instance cannot be unlocked. You can only restore the backup data of the instance to a new instance. This process requires a long period of time.
@@ -347,7 +361,10 @@ class DBInstance extends Model
     public $masterInstanceId;
 
     /**
-     * @description Indicates whether the multi-zone deployment method is used for the instance. Valid values: **true and false**.
+     * @description Indicates whether the multi-zone deployment method is used for the instance. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * > If the multi-zone deployment method is used for the instance, the zone ID of the instance contains MAZ. Example: `cn-hangzhou-MAZ10(h,i)`.
      * @example true
@@ -376,7 +393,7 @@ class DBInstance extends Model
     public $readOnlyDBInstanceIds;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -436,7 +453,7 @@ class DBInstance extends Model
     public $tipsLevel;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The vSwitch ID.
      *
      * @example vsw-uf6adz52c2pxxxxxxx
      *
@@ -445,7 +462,7 @@ class DBInstance extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID of the instance. This parameter is returned only when the instance resides in a VPC.
+     * @description The VPC ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -454,7 +471,7 @@ class DBInstance extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The VPC ID.
      *
      * @example vpc-uf6f7l4fg90xxxxxxx
      *
@@ -463,7 +480,7 @@ class DBInstance extends Model
     public $vpcId;
 
     /**
-     * @description The name of the VPC.
+     * @description The VPC name.
      *
      * @example test-huadong
      *

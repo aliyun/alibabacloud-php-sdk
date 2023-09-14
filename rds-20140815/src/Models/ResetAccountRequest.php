@@ -35,7 +35,7 @@ class ResetAccountRequest extends Model
     public $accountPassword;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

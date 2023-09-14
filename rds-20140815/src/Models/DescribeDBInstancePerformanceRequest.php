@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancePerformanceRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,7 +18,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end of the time range to query. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      *
      * >  The time span between the beginning time and the end time must be longer than the monitoring frequency. Otherwise, this operation may return an empty array.
      * @example 2012-06-18T15:00Z
@@ -28,9 +28,9 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $endTime;
 
     /**
-     * @description The performance metric that you want to query. If you enter more than one performance metric, separate them with commas (,). You can enter up to 30 performance metrics. For more information, see [Performance parameters](~~26316~~).
+     * @description The performance metrics that you want to query. Separate multiple values with commas (,). You can specify up to 30 values. For more information, see [Performance parameters](~~26316~~).
      *
-     * >  If you set the **Key** parameter to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, you can query the performance metric only over one day.
+     * >  If you set **Key** to **MySQL_SpaceUsage** or **SQLServer_SpaceUsage**, you can only query the monitoring data within one day.
      * @example MySQL_Sessions
      *
      * @var string
@@ -38,7 +38,7 @@ class DescribeDBInstancePerformanceRequest extends Model
     public $key;
 
     /**
-     * @description The unique ID of the instance.
+     * @description The ID of the instance.
      *
      * @example 339****
      *

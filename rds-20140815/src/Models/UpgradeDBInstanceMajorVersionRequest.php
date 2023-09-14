@@ -158,12 +158,12 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $switchTime;
 
     /**
-     * @description The time at which the system switches your workloads over to the new instance. This parameter is used together with SwitchOver and takes effect only when you set SwitchOver to true.
+     * @description The cutover time. This parameter is used together with SwitchOver. This parameter is available only when **SwitchOver** is set to **true**.
      *
      * Valid values:
      *
-     *   Immediate: After data is migrated to the new instance, the system immediately switches your workloads over to the new instance.
-     *   MaintainTime: After data is migrated to the new instance, the system switches your workloads over to the new instance during the maintenance window that you specify. You can call the [ModifyDBInstanceMaintainTime](~~26249~~) operation to change the maintenance window of an instance.
+     *   Immediate: The settings immediately take effect.
+     *   MaintainTime: The settings take effect during the maintenance window of the instance. You can call the [ModifyDBInstanceMaintainTime](~~610402~~) operation to change the maintenance window of an instance.
      *
      * @example Immediate
      *
@@ -174,7 +174,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     /**
      * @description The major engine version of the new instance. The value of this parameter must be the major engine version on which an upgrade check is performed.
      *
-     * > You can call the [UpgradeDBInstanceMajorVersionPrecheck](~~330050~~) operation to perform an upgrade check.
+     * > You can call the [UpgradeDBInstanceMajorVersionPrecheck](~~610417~~) operation to perform an upgrade check.
      * @example 13.0
      *
      * @var string
@@ -191,7 +191,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $usedTime;
 
     /**
-     * @description The ID of the VPC in which the original instance resides. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to query the VPC ID of the instance.
+     * @description The VPC ID. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the VPC ID of the original instance.
      *
      * @example vpc-bp1opxu1zkhn00gzv****
      *
@@ -211,7 +211,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the new instance. You can call the [DescribeRegions](~~26243~~) operation to query the zone ID.
+     * @description The zone ID of the new instance. You can call the [DescribeRegions](~~610399~~) operation to query the zone ID.
      *
      * You can select a zone that belongs to the region in which the original instance resides. The zone can be different from the zone of the original instance.
      * @example cn-hangzhou-h
@@ -223,7 +223,7 @@ class UpgradeDBInstanceMajorVersionRequest extends Model
     /**
      * @description The zone ID of the secondary instance for the new instance. You can specify this parameter only when the original instance runs RDS High-availability Edition.
      *
-     * You can call the [DescribeRegions](~~26243~~) operation to query the zone ID.
+     * You can call the [DescribeRegions](~~610399~~) operation to query the zone ID.
      * @example cn-hangzhou-h
      *
      * @var string

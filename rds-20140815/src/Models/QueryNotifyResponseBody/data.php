@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The details of the notification.
+     * @description The details of notifications.
      *
      * @var notifyItemList[]
      */
     public $notifyItemList;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number of the page returned.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class data extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries returned on each page.
      *
      * @example 25
      *
@@ -35,7 +35,7 @@ class data extends Model
     public $pageSize;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

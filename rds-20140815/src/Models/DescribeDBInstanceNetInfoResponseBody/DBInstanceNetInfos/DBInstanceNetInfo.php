@@ -21,7 +21,7 @@ class DBInstanceNetInfo extends Model
     public $babelfishPort;
 
     /**
-     * @description The endpoint of the instance.
+     * @description The endpoints of the instance.
      *
      * @example rm-uf6w*****.mysql.rds.aliyuncs.com
      *
@@ -30,10 +30,10 @@ class DBInstanceNetInfo extends Model
     public $connectionString;
 
     /**
-     * @description The type of the endpoint. Valid values:
+     * @description The types of the endpoints. Valid values:
      *
-     *   **Normal**: regular endpoint
-     *   **ReadWriteSplitting**: read/write splitting endpoint
+     *   **Normal**: regular endpoints
+     *   **ReadWriteSplitting**: read/write splitting endpoints
      *
      * @example Normal
      *
@@ -42,8 +42,9 @@ class DBInstanceNetInfo extends Model
     public $connectionStringType;
 
     /**
-     * @description Details of the weight. This parameter is returned only when the read/write splitting feature is enabled for the instance.
+     * @description The information about the instance weight.
      *
+     * > This parameter is returned only for instances that have read/write splitting endpoints.
      * @var DBInstanceWeights
      */
     public $DBInstanceWeights;
@@ -52,7 +53,7 @@ class DBInstanceNetInfo extends Model
      * @description The policy that is used to assign read weights. This parameter is returned only for a read/write splitting endpoint. Valid values:
      *
      *   **Standard**: The system automatically assigns read weights to the instance and its read-only instances based on the specifications of these instances.
-     *   **Custom**: You must manually allocate read weights to the instance and its read-only instances.
+     *   **Custom**: You must manually assign read weights to the instance and its read-only instances.
      *
      * @example Standard
      *
@@ -61,7 +62,7 @@ class DBInstanceNetInfo extends Model
     public $distributionType;
 
     /**
-     * @description The remaining validity period of the instance of the classic network in hybrid access mode. Unit: seconds.
+     * @description The remaining validity period of the instance in the classic network in hybrid access mode. Unit: seconds.
      *
      * @example 1209534
      *
@@ -70,7 +71,7 @@ class DBInstanceNetInfo extends Model
     public $expiredTime;
 
     /**
-     * @description The IP address of the endpoint.
+     * @description The IP address.
      *
      * @example 192.168.XX.XX
      *
@@ -79,12 +80,15 @@ class DBInstanceNetInfo extends Model
     public $IPAddress;
 
     /**
-     * @description The type of the network.
+     * @description The network type.
      *
      *   Valid values when the instance resides in the classic network:
+     *
      *   **Inner:**: internal network
      *   **Public**: Internet
-     *   Valid values when the instance resides in a VPC:
+     *
+     *   Valid values when the instance resides in a virtual private cloud (VPC):
+     *
      *   **Private**: internal network
      *   **Public**: Internet
      *
@@ -105,6 +109,11 @@ class DBInstanceNetInfo extends Model
     public $maxDelayTime;
 
     /**
+     * @description The PgBouncer port.
+     *
+     * > This parameter is returned only when PgBouncer is enabled for the instance that runs PostgreSQL.
+     * @example 6432
+     *
      * @var string
      */
     public $PGBouncerPort;
@@ -119,7 +128,7 @@ class DBInstanceNetInfo extends Model
     public $port;
 
     /**
-     * @description An array that consists of the details about the IP address whitelists.
+     * @description The details of the IP address whitelist.
      *
      * @var securityIPGroups
      */
@@ -139,7 +148,7 @@ class DBInstanceNetInfo extends Model
     public $upgradeable;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-uf6f7l4fg90*****
      *
@@ -148,7 +157,7 @@ class DBInstanceNetInfo extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-uf6adz52c2p*****
      *

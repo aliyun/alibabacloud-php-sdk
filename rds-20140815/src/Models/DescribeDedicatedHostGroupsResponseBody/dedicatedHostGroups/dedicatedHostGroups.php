@@ -69,8 +69,8 @@ class dedicatedHostGroups extends Model
     /**
      * @description The type of storage media that is used for the hosts in the dedicated cluster. Valid values:
      *
-     *   **dhg_cloud_ssd**: standard or enhanced solid-state drive (SSD)
-     *   **dhg_local_ssd**: local SSD
+     *   **dhg_cloud_ssd**: cloud disks
+     *   **dhg_local_ssd**: local disks
      *
      * @example dhg_cloud_ssd
      *
@@ -115,7 +115,7 @@ class dedicatedHostGroups extends Model
     public $diskAllocatedAmount;
 
     /**
-     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the disk overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The disk overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
      *
      * @example 200
      *
@@ -142,7 +142,7 @@ class dedicatedHostGroups extends Model
     public $diskUtility;
 
     /**
-     * @description The database engine that is run on the instances in the dedicated cluster.
+     * @description The database engine of the instances in the dedicated cluster.
      *
      * @example MySQL
      *
@@ -160,7 +160,7 @@ class dedicatedHostGroups extends Model
     public $hostNumber;
 
     /**
-     * @description The policy based on which the system handles host failures. Valid values:
+     * @description The policy that is used to handle host failures. Valid values:
      *
      *   **Auto**: The system automatically replaces faulty hosts.
      *   **Manual**: You must manually replace faulty hosts.
@@ -199,7 +199,7 @@ class dedicatedHostGroups extends Model
     public $memAllocatedAmount;
 
     /**
-     * @description The memory overcommitment ratio of the dedicated cluster. Unit: %. For more information about the memory overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
+     * @description The memory overcommitment ratio of the dedicated cluster. Unit: %. For more information about the core overcommitment ratio, see [Manage a dedicated cluster](~~182328~~).
      *
      * @example 90
      *
@@ -226,7 +226,7 @@ class dedicatedHostGroups extends Model
     public $memUtility;
 
     /**
-     * @description Indicates whether the operating system permissions of the hosts in the dedicated cluster can be granted. Valid values:
+     * @description Indicates whether the feature that allows you to have the OS permissions on the host is enabled. Valid values:
      *
      *   **0** or **null**: The permissions cannot be granted.
      *   **1**: The permissions can be granted.
@@ -239,7 +239,7 @@ class dedicatedHostGroups extends Model
     public $openPermission;
 
     /**
-     * @description The name and ID of the dedicated cluster. The value of this parameter consists of two parts: the value of the **DedicatedHostGroupDesc** parameter and the value of the **DedicatedHostGroupId** parameter. Format: DedicatedHostGroupDesc/DedicatedHostGroupId.
+     * @description The name and ID of the dedicated cluster. The value consists of **DedicatedHostGroupDesc** and **DedicatedHostGroupId**. Format: DedicatedHostGroupDesc/DedicatedHostGroupId.
      *
      * @example testHostGroup/dhg-7a9xxxxxxxx
      *
@@ -257,7 +257,7 @@ class dedicatedHostGroups extends Model
     public $VPCId;
 
     /**
-     * @description A list of zones to which the hosts of the dedicated cluster belong.
+     * @description The zones to which the hosts of the dedicated cluster belong.
      *
      * @var zoneIDList
      */

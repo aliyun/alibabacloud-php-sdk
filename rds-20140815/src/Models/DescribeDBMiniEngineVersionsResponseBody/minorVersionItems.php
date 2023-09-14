@@ -11,7 +11,7 @@ class minorVersionItems extends Model
     /**
      * @description The PostgreSQL version to which the minor engine version corresponds. For more information, see [Release notes for AliPG](~~126002~~).
      *
-     * >  This parameter is valid only when the Engine parameter is set to **PostgreSQL**.
+     * > This parameter is valid only when the instance runs **PostgreSQL**.
      * @example 13.6
      *
      * @var string
@@ -37,7 +37,16 @@ class minorVersionItems extends Model
     public $engineVersion;
 
     /**
-     * @description An internal parameter. You can ignore this parameter.
+     * @description 内核版本过期状态：vaild-有效；expired-过期
+     *
+     * @example vaild
+     *
+     * @var string
+     */
+    public $expireStatus;
+
+    /**
+     * @description An internal parameter. You do not need to specify this parameter.
      *
      * @example True
      *
@@ -46,7 +55,7 @@ class minorVersionItems extends Model
     public $isHotfixVersion;
 
     /**
-     * @description The version of the minor engine.
+     * @description The minor engine version.
      *
      * @example rds_20220731
      *
@@ -100,10 +109,10 @@ class minorVersionItems extends Model
     /**
      * @description The tag that corresponds to the minor engine version. Valid values:
      *
-     *   **pgsql_docker_image**: tag of common instances
+     *   **pgsql_docker_image**: tag of the common instance
      *   **pgsql_babelfish_image**: tag of the instance for which Babelfish is enabled
      *
-     * >  This parameter is valid only when the Engine parameter is set to **PostgreSQL**.
+     * > This parameter is valid only when the instance runs **PostgreSQL**.
      * @example pgsql_babelfish_image
      *
      * @var string
@@ -113,6 +122,7 @@ class minorVersionItems extends Model
         'communityMinorVersion' => 'CommunityMinorVersion',
         'engine'                => 'Engine',
         'engineVersion'         => 'EngineVersion',
+        'expireStatus'          => 'ExpireStatus',
         'isHotfixVersion'       => 'IsHotfixVersion',
         'minorVersion'          => 'MinorVersion',
         'nodeType'              => 'NodeType',
@@ -137,6 +147,9 @@ class minorVersionItems extends Model
         }
         if (null !== $this->engineVersion) {
             $res['EngineVersion'] = $this->engineVersion;
+        }
+        if (null !== $this->expireStatus) {
+            $res['ExpireStatus'] = $this->expireStatus;
         }
         if (null !== $this->isHotfixVersion) {
             $res['IsHotfixVersion'] = $this->isHotfixVersion;
@@ -179,6 +192,9 @@ class minorVersionItems extends Model
         }
         if (isset($map['EngineVersion'])) {
             $model->engineVersion = $map['EngineVersion'];
+        }
+        if (isset($map['ExpireStatus'])) {
+            $model->expireStatus = $map['ExpireStatus'];
         }
         if (isset($map['IsHotfixVersion'])) {
             $model->isHotfixVersion = $map['IsHotfixVersion'];

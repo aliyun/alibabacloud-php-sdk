@@ -18,7 +18,7 @@ class ReceiveDBInstanceResponseBody extends Model
     public $guardDBInstanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EFB6083A-7699-489B-8278-C0CB4793A96E
      *

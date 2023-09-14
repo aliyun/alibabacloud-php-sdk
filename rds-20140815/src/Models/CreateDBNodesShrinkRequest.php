@@ -19,7 +19,7 @@ class CreateDBNodesShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance ID.
      *
      * @example rm-2ze450g4ctg6t****
      *
@@ -45,7 +45,7 @@ class CreateDBNodesShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~26231~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy*****
      *

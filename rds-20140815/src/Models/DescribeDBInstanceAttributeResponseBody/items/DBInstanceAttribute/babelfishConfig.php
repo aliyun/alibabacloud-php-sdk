@@ -11,7 +11,7 @@ class babelfishConfig extends Model
     /**
      * @description The switch to enable or disable Babelfish.
      *
-     * > If Babelfish is enabled when you purchase an ApsaraDB RDS for PostgreSQL instance, this parameter is fixed as **true**.
+     * >  If Babelfish is enabled when you purchase an ApsaraDB RDS for PostgreSQL instance, this parameter is fixed as **true**.
      * @example true
      *
      * @var string
@@ -24,7 +24,7 @@ class babelfishConfig extends Model
      *   **single-db**
      *   **multi-db**
      *
-     * > For more information about migration modes for Babelfish, see [Migration mode](~~428613~~).
+     * >  For more information about migration modes for Babelfish, see [Migration modes](~~428613~~).
      * @example single-db
      *
      * @var string

@@ -18,7 +18,7 @@ class items extends Model
     public $classCode;
 
     /**
-     * @description The instance family. For more information, see [Instance families](~~57184~~).
+     * @description The instance family. For more information, see [Overview of instance families](~~57184~~).
      *
      * @example General
      *
@@ -27,7 +27,7 @@ class items extends Model
     public $classGroup;
 
     /**
-     * @description The number of cores that are supported by the instance type. Unit: core.
+     * @description The number of CPU cores that are supported by the instance type. Unit: cores.
      *
      * @example 1
      *
@@ -57,7 +57,7 @@ class items extends Model
     public $instructionSetArch;
 
     /**
-     * @description The maximum number of connections that are supported by the instance type. Unit: core.
+     * @description The maximum number of connections that are supported by the instance type. Unit: connections.
      *
      * @example 2000
      *
@@ -84,7 +84,7 @@ class items extends Model
     public $maxIOPS;
 
     /**
-     * @description The memory capacity that is supported by the instance type. Unit: GB.
+     * @description The memory size that is supported by the instance type. Unit: GB.
      *
      * @example 1 GB (RDS Basic Edition)
      *
@@ -95,7 +95,7 @@ class items extends Model
     /**
      * @description The fee that you must pay for the instance type.
      *
-     *   Unit: cent (USD).
+     *   Unit: cents (USD).
      *
      * >
      *

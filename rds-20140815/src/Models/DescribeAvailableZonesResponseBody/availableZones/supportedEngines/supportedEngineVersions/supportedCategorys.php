@@ -19,7 +19,7 @@ class supportedCategorys extends Model
     public $category;
 
     /**
-     * @description An array that consists of the storage types available in the zone.
+     * @description The storage types that are available for purchase.
      *
      * @var supportedStorageTypes[]
      */

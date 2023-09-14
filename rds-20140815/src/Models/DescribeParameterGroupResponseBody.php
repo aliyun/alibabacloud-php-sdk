@@ -20,13 +20,13 @@ class DescribeParameterGroupResponseBody extends Model
     /**
      * @description The instance to which the parameter template was applied.
      *
-     * >  The RelatedCustinsInfo parameter is available only for ApsaraDB RDS for PostgreSQL instances.
+     * > This parameter is available only for ApsaraDB RDS for PostgreSQL instances.
      * @var relatedCustinsInfo
      */
     public $relatedCustinsInfo;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 498AE8CA-8C81-4A01-AF37-2B902014ED30
      *

@@ -18,7 +18,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The latency at which data is replicated from the primary instance to the read-only instance. Unit: seconds.
+     * @description The latency at which to replicate data from the primary instance to the read-only instance. Unit: seconds.
      *
      * @example 100
      *
@@ -27,7 +27,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public $readSQLReplicationTime;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example BBB11B5A-7B37-493A-87E6-490BCB7BDF98
      *
@@ -36,7 +36,7 @@ class ModifyReadonlyInstanceDelayReplicationTimeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the replication task.
+     * @description The task ID.
      *
      * @example 241535739
      *

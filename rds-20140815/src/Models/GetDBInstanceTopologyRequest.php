@@ -9,15 +9,27 @@ use AlibabaCloud\Tea\Model;
 class GetDBInstanceTopologyRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5*******
      *
      * @var string
      */
     public $DBInstanceId;
+
+    /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
     protected $_name = [
-        'DBInstanceId' => 'DBInstanceId',
+        'DBInstanceId'    => 'DBInstanceId',
+        'ownerId'         => 'OwnerId',
+        'resourceOwnerId' => 'ResourceOwnerId',
     ];
 
     public function validate()
@@ -29,6 +41,12 @@ class GetDBInstanceTopologyRequest extends Model
         $res = [];
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
 
         return $res;
@@ -44,6 +62,12 @@ class GetDBInstanceTopologyRequest extends Model
         $model = new self();
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
 
         return $model;

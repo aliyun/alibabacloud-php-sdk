@@ -33,7 +33,7 @@ class DeleteBackupFileRequest extends Model
     public $backupTime;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-bp6wjk5******
      *
@@ -56,7 +56,7 @@ class DeleteBackupFileRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID of the instance. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

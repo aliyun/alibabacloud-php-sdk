@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
 {
     /**
+     * @description 资源组ID，可以为空。
+     *
+     * @example rg-acfmy*****
+     *
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
      * @var string
      */
     public $resourceOwnerAccount;
@@ -19,12 +28,15 @@ class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the whitelist template. You can call the DescribeAllWhitelistTemplate operation to obtain the ID of the whitelist template.
+     *
      * @example 412
      *
      * @var int
      */
     public $templateId;
     protected $_name = [
+        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'templateId'           => 'TemplateId',
@@ -37,6 +49,9 @@ class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
@@ -58,6 +73,9 @@ class DescribeWhitelistTemplateLinkedInstanceRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }

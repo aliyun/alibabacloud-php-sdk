@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class uninstalledExtensions extends Model
 {
     /**
+     * @description The category of the extension.
+     *
      * @example information_stat
      *
      * @var string
@@ -16,6 +18,8 @@ class uninstalledExtensions extends Model
     public $category;
 
     /**
+     * @description The purpose of the extension.
+     *
      * @example PostgreSQL load profile repository and report builder
      *
      * @var string
@@ -23,6 +27,8 @@ class uninstalledExtensions extends Model
     public $comment;
 
     /**
+     * @description The default version of the extension.
+     *
      * @example 4.1
      *
      * @var string
@@ -30,6 +36,8 @@ class uninstalledExtensions extends Model
     public $defaultVersion;
 
     /**
+     * @description The current version of the extension.
+     *
      * @example 4.1
      *
      * @var string
@@ -37,6 +45,8 @@ class uninstalledExtensions extends Model
     public $installedVersion;
 
     /**
+     * @description The name of the extension.
+     *
      * @example pg_cron
      *
      * @var string
@@ -44,6 +54,8 @@ class uninstalledExtensions extends Model
     public $name;
 
     /**
+     * @description The user of the extension.
+     *
      * @example test_user
      *
      * @var string
@@ -51,6 +63,8 @@ class uninstalledExtensions extends Model
     public $owner;
 
     /**
+     * @description The priority of the extension.
+     *
      * @example 0
      *
      * @var string
@@ -58,6 +72,8 @@ class uninstalledExtensions extends Model
     public $priority;
 
     /**
+     * @description The extensions on which the current extension depends when it is installed.
+     *
      * @example {dblink,plpgsql}
      *
      * @var string

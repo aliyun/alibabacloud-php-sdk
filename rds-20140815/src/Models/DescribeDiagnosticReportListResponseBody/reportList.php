@@ -18,7 +18,7 @@ class reportList extends Model
     public $diagnosticTime;
 
     /**
-     * @description The URL that is used to download the diagnostic report over the Internet. If the diagnostic report cannot be downloaded, an empty string is returned.
+     * @description The URL that is used to download the backup set over the Internet. If the backup set cannot be downloaded, an empty string is returned.
      *
      * @example http://rdsreport-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
      *

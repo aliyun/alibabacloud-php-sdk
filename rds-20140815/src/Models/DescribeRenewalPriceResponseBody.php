@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRenewalPriceResponseBody extends Model
 {
     /**
-     * @description An array that consists of price information.
+     * @description Details of price information.
      *
      * @var priceInfo
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDedicatedHostGroupsRequest extends Model
 {
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The dedicated cluster ID.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -20,9 +20,9 @@ class DescribeDedicatedHostGroupsRequest extends Model
     /**
      * @description The image based on which the hosts in the dedicated clusters are created. Valid values:
      *
-     *   **WindowsWithMssqlStdLicense**: a Windows image, which contains the licenses of the SQL Server Standard Edition
-     *   **WindowsWithMssqlEntLisence**: a Windows image, which contains the licenses of the SQL Server Enterprise Edition
-     *   **WindowsWithMssqlWebLisence**: a Windows image, which contains the licenses of the SQL Server Web Edition
+     *   **WindowsWithMssqlStdLicense**: a Windows image that contains the licenses of SQL Server Standard Edition
+     *   **WindowsWithMssqlEntLisence**: a Windows image that contains the licenses of SQL Server Enterprise Edition
+     *   **WindowsWithMssqlWebLisence**: a Windows image that contains the licenses of SQL Server Web Edition
      *   **AliLinux**: a Linux image
      *
      * @example WindowsWithMssqlStdLicense
@@ -37,7 +37,7 @@ class DescribeDedicatedHostGroupsRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the dedicated clusters. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

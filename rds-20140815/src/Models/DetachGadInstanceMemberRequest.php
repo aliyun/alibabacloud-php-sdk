@@ -27,7 +27,7 @@ class DetachGadInstanceMemberRequest extends Model
     public $memberInstanceName;
 
     /**
-     * @description The region ID of the central node. You can call the [DescribeGadInstances](~~330105~~) operation to query the most recent region list.
+     * @description The region ID of the central node. You can call the [DescribeGadInstances](~~330105~~) operation to query the information.
      *
      * @example cn-hangzhou
      *

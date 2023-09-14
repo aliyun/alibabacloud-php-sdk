@@ -19,7 +19,7 @@ class supportedEngines extends Model
     public $engine;
 
     /**
-     * @description An array that consists of the database engine versions available in the zone.
+     * @description The database engine versions that are available for purchase.
      *
      * @var supportedEngineVersions[]
      */

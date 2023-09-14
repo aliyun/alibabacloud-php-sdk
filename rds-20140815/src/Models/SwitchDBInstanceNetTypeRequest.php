@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceNetTypeRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxx
      *
@@ -40,7 +40,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
     public $connectionStringType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-bp1**************
      *
@@ -59,7 +59,7 @@ class SwitchDBInstanceNetTypeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The port associated with the endpoint. Valid values: **3001 to 3999**.
+     * @description The number of the port that is used to connect to the instance. Valid values: **3001 to 3999**.
      *
      * @example 3306
      *

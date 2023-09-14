@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class collationTimeZone extends Model
 {
     /**
-     * @description The description of the character set collations and time zones.
+     * @description The description.
      *
      * @example Kabul
      *
@@ -18,7 +18,7 @@ class collationTimeZone extends Model
     public $description;
 
     /**
-     * @description The offset of the UTC time. The offset is in the following format: (UTC+\<i>HH:mm\</i>).
+     * @description The offset of the UTC time. The offset is in the following format: (UTC+*HH:mm*).
      *
      * @example (UTC+04:30)
      *
@@ -27,7 +27,7 @@ class collationTimeZone extends Model
     public $standardTimeOffset;
 
     /**
-     * @description The time zone that is available for use in ApsaraDB RDS.
+     * @description The time zone.
      *
      * @example Afghanistan Standard Time
      *

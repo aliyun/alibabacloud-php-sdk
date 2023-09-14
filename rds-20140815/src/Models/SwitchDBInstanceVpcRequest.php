@@ -9,17 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchDBInstanceVpcRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
-     * >
-     *
-     *   The instance must run one of the following database engines:
-     *
-     * - PostgreSQL with standard SSDs or ESSDs
-     *
-     *   The instance must be in the Running state.
-     *   The instance must reside in a VPC.
-     *   The instance cannot be a temporary instance or use an instance type that belongs to the shared instance family.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5*****
      *
@@ -43,9 +33,9 @@ class SwitchDBInstanceVpcRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
-     * > The VPC must belong to the same region as the instance.
+     * > The VPC must reside in the same region as the instance.
      * @example vpc-uf6f7l4fg90*****
      *
      * @var string
@@ -53,7 +43,7 @@ class SwitchDBInstanceVpcRequest extends Model
     public $VPCId;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID of the instance.
      *
      * > The vSwitch must belong to the same zone as the instance.
      * @example vsw-uf6adz52c2p*****

@@ -18,7 +18,7 @@ class TransformDBInstancePayTypeResponseBody extends Model
     public $chargeType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxx
      *
@@ -37,7 +37,7 @@ class TransformDBInstancePayTypeResponseBody extends Model
     public $expiredTime;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 205157600280623
      *

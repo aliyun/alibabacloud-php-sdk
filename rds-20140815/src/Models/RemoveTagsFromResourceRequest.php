@@ -15,7 +15,7 @@ class RemoveTagsFromResourceRequest extends Model
     public $tag;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
      *
@@ -24,7 +24,7 @@ class RemoveTagsFromResourceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -43,7 +43,7 @@ class RemoveTagsFromResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -52,6 +52,10 @@ class RemoveTagsFromResourceRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can call the [ListResourceGroups](~~158855~~) operation to obtain the ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -69,7 +73,7 @@ class RemoveTagsFromResourceRequest extends Model
     /**
      * @description A set of a TagKey and a TagValue that you use to unbind the tag. Format: {"key1":"value1"}.
      *
-     * >  The TagKey is required, and the TagValue is optional.
+     * >  You cannot specify an empty string for TagKey. You can specify an empty string for TagValue.
      * @example {"key1":"value1"}
      *
      * @var string
@@ -77,7 +81,7 @@ class RemoveTagsFromResourceRequest extends Model
     public $tags;
 
     /**
-     * @description The ID of the proxy pattern.
+     * @description The ID of the proxy mode.
      *
      * @example API
      *

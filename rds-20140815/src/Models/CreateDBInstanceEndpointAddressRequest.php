@@ -28,7 +28,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $connectionStringPrefix;
 
     /**
-     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~464397~~) operation to query the endpoint ID of the instance.
+     * @description The endpoint ID of the instance. You can call the [DescribeDBInstanceEndpoints](~~610488~~) operation to query the endpoint ID of the instance.
      *
      * @example ep-****
      *
@@ -37,7 +37,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $DBInstanceEndpointId;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-****
      *
@@ -64,7 +64,7 @@ class CreateDBInstanceEndpointAddressRequest extends Model
     public $port;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *

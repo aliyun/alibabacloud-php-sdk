@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RestoreDdrTableRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
      * @example 279563
      *
      * @var string
@@ -16,6 +18,8 @@ class RestoreDdrTableRequest extends Model
     public $backupId;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
      *
      * @var string
@@ -23,6 +27,8 @@ class RestoreDdrTableRequest extends Model
     public $clientToken;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example rm-bpxxxxx
      *
      * @var string
@@ -35,6 +41,8 @@ class RestoreDdrTableRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -42,6 +50,8 @@ class RestoreDdrTableRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmy*****
      *
      * @var string
@@ -59,6 +69,9 @@ class RestoreDdrTableRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The point in time to which you want to restore data. The point in time that you specify must be earlier than the current time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
+     * > If **RestoreType** is set to **BackupTime**, you must specify this parameter.
      * @example 2020-04-25T16:00:00Z
      *
      * @var string
@@ -66,6 +79,12 @@ class RestoreDdrTableRequest extends Model
     public $restoreTime;
 
     /**
+     * @description The method that is used to restore data. Valid values:
+     *
+     *   **0**: restores data from a backup set. If you set this parameter to 0, you must also specify the **BackupSetId** parameter.
+     *   **1**: restores data to a point in time. If you set this parameter to 1, you must also specify the **RestoreTime**, **SourceRegion**, and **SourceDBInstanceName** parameters.
+     *
+     * Default value: **0**.
      * @example 0
      *
      * @var string
@@ -73,6 +92,9 @@ class RestoreDdrTableRequest extends Model
     public $restoreType;
 
     /**
+     * @description The ID of the source instance if you want to restore data to a point in time.
+     *
+     * > : If you set **RestoreType** to **1**, you must also specify this parameter.
      * @example rm-bpxxxxx
      *
      * @var string
@@ -80,6 +102,9 @@ class RestoreDdrTableRequest extends Model
     public $sourceDBInstanceName;
 
     /**
+     * @description The region ID of the source instance if you want to restore data to a point in time.
+     *
+     * > : If you set **RestoreType** to **1**, you must also specify this parameter.
      * @example cn-beijing
      *
      * @var string
@@ -87,6 +112,8 @@ class RestoreDdrTableRequest extends Model
     public $sourceRegion;
 
     /**
+     * @description The names of the databases and tables that you want to restore. The value is in the following format: `[{"type":"db","name":"<The name of Database 1 on the source instance>","newname":"<The name of Database 1 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 1 in Database 1 on the source instance>","newname":"<The name of Table 1 in Database 1 on the destination instance>"},{"type":"table","name":"<The name of Table 2 in Database 1 on the source instance>","newname":"<The name of Table 2 in Database 1 on the destination instance>"}]},{"type":"db","name":"<The name of Database 2 on the source instance>","newname":"<The name of Database 2 on the destination instance>","tables":[{"type":"table","name":"<The name of Table 3 in Database 2 on the source instance>","newname":"<The name of Table 3 in Database 2 on the destination instance>"},{"type":"table","name":"<The name of Table 4 in Database 2 on the source instance>","newname":"<The name of Table 4 in Database 2 on the destination instance>"}]}]`
+     *
      * @example [{"type":"db","name":"testdb1","newname":"testdb1","tables":[{"type":"table","name":"test1","newname":"test1_backup"},{"type":"table","name":"test2","newname":"test2_backup"}]}]
      *
      * @var string

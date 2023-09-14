@@ -18,7 +18,7 @@ class DBClusterNode extends Model
     public $classCode;
 
     /**
-     * @description The ID of the node.
+     * @description The node ID.
      *
      * @example rn-****
      *
@@ -27,7 +27,7 @@ class DBClusterNode extends Model
     public $nodeId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-beijing
      *
@@ -48,7 +48,7 @@ class DBClusterNode extends Model
     public $nodeRole;
 
     /**
-     * @description The zone ID of the instance.
+     * @description The zone ID.
      *
      * @example cn-beijing-h
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the IP whitelist template.
+     *
      * @var template
      */
     public $template;

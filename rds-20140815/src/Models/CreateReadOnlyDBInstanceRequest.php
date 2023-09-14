@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class CreateReadOnlyDBInstanceRequest extends Model
 {
     /**
-     * @description Specifies whether payment is automatically made during renewal. Valid values:
+     * @description Specifies whether to enable the automatic payment feature. Valid values:
      *
-     *   **True**: enables automatic payment. Make sure that your Alibaba Cloud account has adequate balance.
-     *   **False** (default): disables automatic payment. You have to manually pay the order in the console. Log on to the ApsaraDB RDS console. In the upper-right corner, choose **Expenses > User Center**. In the left-side navigation pane, click **Orders**. On the page that appears, find your order and complete the payment.
+     * 1.  **true**: enables the feature. You must make sure that your account balance is sufficient.
+     * 2.  **false**: disables the feature. An unpaid order is generated.
      *
+     * >  The default value is true. If your account balance is insufficient, you can set the AutoPay parameter to false to generate an unpaid order. Then, you can log on to the ApsaraDB RDS console to complete the payment.
      * @example false
      *
      * @var bool
@@ -35,7 +36,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $autoRenew;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -44,7 +45,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $bpeEnabled;
 
     /**
-     * @description This parameter is not publicly available.
+     * @description A reserved parameter. You do not need to specify this parameter.
      *
      * @example false
      *
@@ -53,11 +54,11 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $burstingEnabled;
 
     /**
-     * @description The RDS edition of the read-only instance. Valid values:
+     * @description The RDS edition of the instance. Valid values:
      *
-     *   **Basic**: RDS Basic Edition.
-     *   **HighAvailability**: RDS High-availability Edition. This is the default value.
-     *   **AlwaysOn**: RDS Cluster Edition.
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability** (default): RDS High-availability Edition
+     *   **AlwaysOn**: RDS Cluster Edition
      *
      * > If the primary instance runs PostgreSQL with cloud disks, you must set this parameter to **Basic**.
      * @example HighAvailability
@@ -87,7 +88,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     /**
      * @description The description of the read-only instance. The description must be 2 to 256 characters in length and can contain letters, digits, underscores (\_), and hyphens (-). The value must start with a letter
      *
-     * > The value cannot start with `http://` or `https://`.
+     * > The value cannot start with [http:// or https://.](http://https://。)
      * @example Test read-only instance
      *
      * @var string
@@ -95,7 +96,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the primary instance.
+     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the instance IDs.
      *
      * @example rm-uf6wjk5****
      *
@@ -113,16 +114,20 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The storage type of the read-only instance. Valid values:
+     * @description The storage type of the instance. Valid values:
      *
-     *   **local_ssd**: local SSD
-     *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1)
-     *   **cloud_essd2**: ESSD of PL2
-     *   **cloud_essd3**: ESSD of PL3
+     *   **local_ssd**: local SSDs
+     *   **cloud_ssd**: standard SSDs
+     *   **cloud_essd**: enhanced SSDs (ESSDs) of performance level 1 (PL1)
+     *   **cloud_essd2**: ESSDs of PL2
+     *   **cloud_essd3**: ESSDs of PL3
      *
-     * > * If the primary instance runs MySQL with local disks, you must set this parameter to **local\_ssd**. If the primary instance runs MySQL with cloud disks, you must set this parameter to cloud\_ssd, cloud\_essd, cloud\_essd2, or cloud\_essd3.
-     * > * If the primary instance runs SQL Server, you must set this parameter to cloud\_ssd, cloud\_essd, cloud\_essd2, or cloud\_essd3.
+     * >
+     *
+     *   If the primary instance runs MySQL with local disks, you must set this parameter to **local_ssd**. If the primary instance runs MySQL with cloud disks, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
+     *
+     *   If the primary instance runs SQL Server, you must set this parameter to cloud_ssd, cloud_essd, cloud_essd2, or cloud_essd3.
+     *
      * @example local_ssd
      *
      * @var string
@@ -142,7 +147,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
      * @description Specifies whether to enable the release protection feature for the read-only instance. Valid values:
      *
      *   **true**: enables the feature.
-     *   **false**: disables the feature. This is the default value.
+     *   **false** (default): disables the feature.
      *
      * > This feature can be enabled only when you set the **PayType** parameter to **Postpaid**.
      * @example true
@@ -232,6 +237,15 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $period;
 
     /**
+     * @description Supports initializing the port when creating a read-only instance on the RDS MySQL master instance. Valid values: **1000 to 65534**.
+     *
+     * @example 3306
+     *
+     * @var string
+     */
+    public $port;
+
+    /**
      * @description The private IP address of the read-only instance. The private IP address must be within the CIDR block that is supported by the specified vSwitch. The system assigns a private IP address to the read-only instance based on the values of the **VPCId** and **VSwitchId** parameters.
      *
      * @example 172.16.XX.XX
@@ -241,7 +255,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The region ID of the read-only instance. The read-only instance and the primary instance must reside in the same region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. The read-only instance and the primary instance must reside in the same region. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -329,7 +343,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The zone ID of the read-only instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent zone list.
+     * @description The zone ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent zone list.
      *
      * @example cn-hangzhou-b
      *
@@ -358,6 +372,7 @@ class CreateReadOnlyDBInstanceRequest extends Model
         'ownerId'                        => 'OwnerId',
         'payType'                        => 'PayType',
         'period'                         => 'Period',
+        'port'                           => 'Port',
         'privateIpAddress'               => 'PrivateIpAddress',
         'regionId'                       => 'RegionId',
         'resourceGroupId'                => 'ResourceGroupId',
@@ -441,6 +456,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (null !== $this->period) {
             $res['Period'] = $this->period;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->privateIpAddress) {
             $res['PrivateIpAddress'] = $this->privateIpAddress;
@@ -552,6 +570,9 @@ class CreateReadOnlyDBInstanceRequest extends Model
         }
         if (isset($map['Period'])) {
             $model->period = $map['Period'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['PrivateIpAddress'])) {
             $model->privateIpAddress = $map['PrivateIpAddress'];

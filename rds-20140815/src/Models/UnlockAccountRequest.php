@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UnlockAccountRequest extends Model
 {
     /**
-     * @description The account that you want to unlock. You can unlock only one account at a time.
+     * @description The account that you want to unlock. You can unlock a single account at a time.
      *
      * @example testaccount
      *
@@ -18,7 +18,7 @@ class UnlockAccountRequest extends Model
     public $accountName;
 
     /**
-     * @description The ID of the ApsaraDB RDS for PostgreSQL instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example pgm-bpxxxxx
      *

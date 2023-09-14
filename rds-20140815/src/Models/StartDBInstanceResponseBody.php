@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class StartDBInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the migration task.
+     * @description The migration task ID. This parameter is available only for instances that are created in dedicated clusters.
      *
-     * > This parameter is returned only for the instances that are created in dedicated clusters.
      * @example 740
      *
      * @var int

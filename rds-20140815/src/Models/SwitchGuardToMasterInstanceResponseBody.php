@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchGuardToMasterInstanceResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -18,7 +18,7 @@ class SwitchGuardToMasterInstanceResponseBody extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EFB6083A-7699-489B-8278-C0CB4793A96E
      *

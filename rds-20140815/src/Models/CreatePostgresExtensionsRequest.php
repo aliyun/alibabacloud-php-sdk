@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreatePostgresExtensionsRequest extends Model
 {
     /**
+     * @description The account of the user who owns the extension. Only privileged accounts are supported.
+     *
      * @example test_user
      *
      * @var string
@@ -16,6 +18,8 @@ class CreatePostgresExtensionsRequest extends Model
     public $accountName;
 
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -23,6 +27,8 @@ class CreatePostgresExtensionsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example pgm-gc7f1****
      *
      * @var string
@@ -30,6 +36,8 @@ class CreatePostgresExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database. You can call the [DescribeDatabases](~~610471~~) to obtain the name of the database.
+     *
      * @example test_db
      *
      * @var string
@@ -37,6 +45,8 @@ class CreatePostgresExtensionsRequest extends Model
     public $DBNames;
 
     /**
+     * @description The extension that you want to install. If you want to install multiple extensions, separate them with commas (,). If you do not specify the **SourceDatabase** parameter, you must specify this parameter.
+     *
      * @example citext,pg_profile
      *
      * @var string
@@ -54,6 +64,8 @@ class CreatePostgresExtensionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmy****
      *
      * @var string
@@ -71,6 +83,8 @@ class CreatePostgresExtensionsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source database from which you want to synchronize the extension to the destination database. If you do not specify the **Extensions** parameter, you must specify this parameter.
+     *
      * @example source_db
      *
      * @var string

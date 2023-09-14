@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The information about the instance.
+     *
      * @var string[]
      */
     public $insName;
 
     /**
+     * @description The ID of the whitelist template.
+     *
      * @example 412
      *
      * @var int

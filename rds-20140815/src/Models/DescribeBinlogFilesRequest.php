@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeBinlogFilesRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -18,8 +18,9 @@ class DescribeBinlogFilesRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The end time of the query. The end time must be later than the start time. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The end of the time range to query. The end time must be later than the start time.
      *
+     * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      * @example 2011-06-20T15:00:00Z
      *
      * @var string
@@ -37,7 +38,7 @@ class DescribeBinlogFilesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
      * Default value: **1**.
      * @example 1
@@ -47,8 +48,11 @@ class DescribeBinlogFilesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30** to **100**. Default value: **30**.
+     * @description The number of entries per page.
      *
+     * Valid values: **30** to **100**.
+     *
+     * Default value: **30**.
      * @example 30
      *
      * @var int
@@ -66,8 +70,9 @@ class DescribeBinlogFilesRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The start time of the query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The beginning of the time range to query.
      *
+     * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
      * @example 2011-06-01T15:00:00Z
      *
      * @var string

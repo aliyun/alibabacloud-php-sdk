@@ -39,7 +39,7 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $currentConnectionString;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5****
      *
@@ -67,6 +67,9 @@ class ModifyDBInstanceConnectionStringRequest extends Model
     public $ownerId;
 
     /**
+     * @description The PgBouncer port.
+     *
+     * > This parameter is suitable only for ApsaraDB RDS for PostgreSQL instances. If you enable PgBouncer for your instance, you can change the PgBouncer port of the instance.
      * @example 6432
      *
      * @var string

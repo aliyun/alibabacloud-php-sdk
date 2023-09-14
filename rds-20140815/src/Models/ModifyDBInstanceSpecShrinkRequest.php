@@ -9,16 +9,46 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceSpecShrinkRequest extends Model
 {
     /**
+     * @description Specifies whether to use vouchers to offset fees. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoUseCoupon;
 
     /**
+     * @description An invalid parameter. You do not need to specify this parameter.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $burstingEnabled;
 
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   Regular instance
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *
+     *   Serverless instance
+     *
+     *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
+     *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
+     *   **serverless_ha** RDS Serverless High-availability Edition for SQL Server.
+     *
+     **
+     *
+     **Note**If you set **EngineVersion** to an SQL Server version number, you must also specify this parameter.
+     *
      * @example HighAvailability
      *
      * @var string
@@ -26,8 +56,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $category;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The new instance type of the instance. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can also call the [DescribeAvailableClasses](~~610393~~) operation to query the instance types that are supported by an instance.
      *
+     * - You must specify at least one of DBInstanceClass and **DBInstanceStorage**.
+     * - You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the current instance type of the instance.
      * @example rds.mys2.small
      *
      * @var string
@@ -35,7 +67,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description N/A
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5*******
      *
@@ -44,7 +76,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The ID of the zone.
+     * @description The new storage capacity of the instance. Unit: GB. You can increase the storage capacity in increments of 5 GB. For more information, see [Primary ApsaraDB RDS instance types](~~26312~~). You can call the [DescribeAvailableClasses](~~610393~~) operation to query the storage capacity range that is supported by the new instance type.
+     *
+     *   You must specify at least one of the DBInstanceStorage and **DBInstanceClass** parameters.
+     *   You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to query the current storage capacity of the instance.
      *
      * @example 20
      *
@@ -53,8 +88,15 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The specification changes of a serverless ApsaraDB RDS for MySQL instance.
+     * @description The storage type of the instance. Valid values:
      *
+     *   **local_ssd**: local SSD.
+     *   **cloud_ssd**: standard SSD. This storage type is not recommended and is unavailable in some Alibaba Cloud regions.
+     *   **cloud_essd**: enhanced SSD (ESSD) of performance level 1 (PL1).
+     *   **cloud_essd2**: ESSDs of PL2.
+     *   **cloud_essd3**: ESSD of PL3.
+     *
+     * If the instance runs PostgreSQL, you can upgrade the storage type of the instance from standard SSD to ESSD. However, you cannot downgrade the storage type of the instance from ESSD to standard SSD. ESSDs provide the following PLs: PL1, PL2, and PL3. You can upgrade or downgrade the storage type between ESSD of PL1, ESSD of PL2, and ESSD of PL3. For more information, see [Configuration items](~~96750~~).
      * @example local_ssd
      *
      * @var string
@@ -62,10 +104,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $DBInstanceStorageType;
 
     /**
-     * @description Specifies whether to enable the forced scaling feature for the serverless instance. Valid values:
-     *
-     *   **true**
-     *   **false** (default)
+     * @description The ID of the dedicated cluster.
      *
      * @example dhg-7a9********
      *
@@ -74,8 +113,14 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description The maximum number of RDS Capacity Units (RCUs).
+     * @description The type of the change that you want to perform on the instance. Valid values:
      *
+     *   **Up** (default): upgrades a subscription instance, or upgrades or downgrades a pay-as-you-go instance.
+     *   **Down**: downgrades a subscription instance.
+     *   **TempUpgrade**: performs auto scaling on a subscription instance that runs SQL Server. This value is required for auto scaling.
+     *   **Serverless**: modifies the auto scaling settings of a serverless instance This value is required if you want to modify the auto scaling settings of a serverless instance.
+     *
+     * > If you want to change only the value of the **DBInstanceStorageType** parameter, you can leave the Direction parameter empty. For example, if you want to change the storage type of the instance from standard SSD to ESSD, you do not need to specify the Direction parameter.
      * @example Up
      *
      * @var string
@@ -83,7 +128,10 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $direction;
 
     /**
-     * @description The ID of the resource group.
+     * @description The effective time. Valid values:
+     *
+     *   **Immediately**: This is the default value.
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~610402~~).
      *
      * @example MaintainTime
      *
@@ -92,7 +140,24 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The validity period of the specification changes on an ApsaraDB RDS for SQL Server instance. Unit: day.
+     * @description The database engine version of the instance.
+     *
+     *   Regular instance
+     *
+     *   Valid values if you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
+     *   Valid values if you set Engine to SQLServer: **2008r2**, **08r2\_ent_ha**, **2012**, **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_std_ha**, **2017\_ent**, **2019\_std_ha**, and **2019\_ent**
+     *   Valid values if you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
+     *   Valid value if you set Engine to MariaDB: **10.3**
+     *
+     *   Serverless instance
+     *
+     *   Valid values if you set Engine to MySQL: **5.7** and **8.0**
+     *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
+     *   Valid value if you set Engine to PostgreSQL: **14.0**
+     *
+     **
+     *
+     **Note**ApsaraDB RDS for MariaDB does not support serverless instances.
      *
      * @example 5.6
      *
@@ -111,13 +176,11 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $ownerId;
 
     /**
-     * @description The time at which you want to change the specifications. We recommend that you apply the specification during off-peak hours. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     * @description The billing method of the instance. Valid values:
      *
-     * >
-     *
-     *   You must specify a point in time later than the current time. Otherwise, the specification change task fails. The current time refers to the time to call this operation. If the specification change task fails, you must wait for the order to be automatically canceled, and then call this operation again.
-     *
-     *   If you want to increase the storage capacity or change the ESSD storage type between different PLs, the specification change immediately takes effect and does not affect your workloads. You do not need to configure this parameter.
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
+     *   **Serverless**: serverless. This value is not supported for instances that run MariaDB. If you set the value to Serverless, you must specify the scaling range of computing resources, configure the automatic start and stop feature, and configure auto scaling policies for your serverless instance. For more information, see [Overview of serverless ApsaraDB RDS for MySQL instances](~~411291~~), [Overview of serverless ApsaraDB RDS for SQL Server instances](~~604344~~), and [Overview of serverless ApsaraDB RDS for PostgreSQL instances](~~607742~~).
      *
      * @example Postpaid
      *
@@ -126,7 +189,7 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $payType;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmy**********
      *
@@ -145,12 +208,14 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The serverless instance on which you want to perform the specification change.
+     *
      * @var string
      */
     public $serverlessConfigurationShrink;
 
     /**
-     * @description The minimum number of RCUs.
+     * @description A deprecated parameter. You do not need to specify this parameter.
      *
      * @example Specifies whether to enable the automatic suspension feature.
      *
@@ -168,6 +233,11 @@ class ModifyDBInstanceSpecShrinkRequest extends Model
     public $switchTime;
 
     /**
+     * @description The minor engine version of the instance. This parameter is required only when you create an instance that runs PostgreSQL.
+     *
+     * > For more information about minor engine versions, see [Release notes for AliPG](~~126002~~).
+     * @example rds_postgres_1200_20200830
+     *
      * @var string
      */
     public $targetMinorVersion;

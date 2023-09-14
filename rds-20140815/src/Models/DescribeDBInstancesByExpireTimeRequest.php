@@ -60,7 +60,7 @@ class DescribeDBInstancesByExpireTimeRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -97,7 +97,7 @@ class DescribeDBInstancesByExpireTimeRequest extends Model
     public $tags;
 
     /**
-     * @description A deprecated parameter.
+     * @description A deprecated parameter. You do not need to configure this parameter.
      *
      * @example None
      *

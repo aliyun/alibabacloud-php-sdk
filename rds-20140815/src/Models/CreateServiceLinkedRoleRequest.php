@@ -14,7 +14,7 @@ class CreateServiceLinkedRoleRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the instance resides. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -35,8 +35,8 @@ class CreateServiceLinkedRoleRequest extends Model
     /**
      * @description The name of the service-linked role.
      *
-     *   **AliyunServiceRoleForRdsPgsqlOnEcs**: the service-linked role for ApsaraDB RDS for PostgreSQL instances.
-     *   **AliyunServiceRoleForRDSProxyOnEcs**: the service-linked role for the database proxy feature of ApsaraDB RDS instances.
+     *   **AliyunServiceRoleForRdsPgsqlOnEcs**: the service-linked role for ApsaraDB RDS for PostgreSQL.
+     *   **AliyunServiceRoleForRDSProxyOnEcs**: the service-linked role for the database proxy feature of ApsaraDB RDS for PostgreSQL.
      *
      * @example AliyunServiceRoleForRdsPgsqlOnEcs
      *

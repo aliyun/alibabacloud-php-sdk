@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class PurgeDBInstanceLogRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the generated token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxxxxxx
      *
@@ -18,7 +18,7 @@ class PurgeDBInstanceLogRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

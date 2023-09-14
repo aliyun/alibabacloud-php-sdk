@@ -63,6 +63,15 @@ class slots extends Model
     public $slotType;
 
     /**
+     * @description The current Replication Slot corresponds to the specific delay of the logical subscription of the subscriber, in seconds (s)
+     *
+     * @example 0
+     *
+     * @var string
+     */
+    public $subReplayLag;
+
+    /**
      * @description Indicates whether the replication slot is temporary.
      *
      * Valid values:
@@ -89,13 +98,14 @@ class slots extends Model
      */
     public $walDelay;
     protected $_name = [
-        'database'   => 'Database',
-        'plugin'     => 'Plugin',
-        'slotName'   => 'SlotName',
-        'slotStatus' => 'SlotStatus',
-        'slotType'   => 'SlotType',
-        'temporary'  => 'Temporary',
-        'walDelay'   => 'WalDelay',
+        'database'     => 'Database',
+        'plugin'       => 'Plugin',
+        'slotName'     => 'SlotName',
+        'slotStatus'   => 'SlotStatus',
+        'slotType'     => 'SlotType',
+        'subReplayLag' => 'SubReplayLag',
+        'temporary'    => 'Temporary',
+        'walDelay'     => 'WalDelay',
     ];
 
     public function validate()
@@ -119,6 +129,9 @@ class slots extends Model
         }
         if (null !== $this->slotType) {
             $res['SlotType'] = $this->slotType;
+        }
+        if (null !== $this->subReplayLag) {
+            $res['SubReplayLag'] = $this->subReplayLag;
         }
         if (null !== $this->temporary) {
             $res['Temporary'] = $this->temporary;
@@ -152,6 +165,9 @@ class slots extends Model
         }
         if (isset($map['SlotType'])) {
             $model->slotType = $map['SlotType'];
+        }
+        if (isset($map['SubReplayLag'])) {
+            $model->subReplayLag = $map['SubReplayLag'];
         }
         if (isset($map['Temporary'])) {
             $model->temporary = $map['Temporary'];

@@ -11,14 +11,14 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The network connection of the instance.
+     * @description The network connection information of the instance.
      *
      * @var connections[]
      */
     public $connections;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-m5ezban**********
      *
@@ -27,7 +27,7 @@ class data extends Model
     public $DBInstanceName;
 
     /**
-     * @description The node information.
+     * @description The queried nodes.
      *
      * @var nodes[]
      */

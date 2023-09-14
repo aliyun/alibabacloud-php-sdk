@@ -50,7 +50,7 @@ class CloneParameterGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can leave this parameter empty.
      *
      * @example rg-acfmy****
      *

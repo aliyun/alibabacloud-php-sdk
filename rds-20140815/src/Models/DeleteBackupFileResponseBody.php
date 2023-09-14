@@ -17,7 +17,7 @@ class DeleteBackupFileResponseBody extends Model
     public $deletedBaksetIds;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C7B3A91C-0ACD-4948-ACAE-xxxxxxxD4069
      *

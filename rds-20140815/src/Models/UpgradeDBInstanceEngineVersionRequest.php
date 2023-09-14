@@ -18,7 +18,7 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -27,12 +27,11 @@ class UpgradeDBInstanceEngineVersionRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The time at which you want the specification change to take effect. Valid values:
+     * @description The effective time. Valid values:
      *
-     *   **Immediate**: The specification change takes effect immediately.
-     *   **MaintainTime**: The change is applied during the specified maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~26249~~).
+     *   **Immediate**: This is the default value.
+     *   **MaintainTime**: The effective time is within the maintenance window. For more information, see [ModifyDBInstanceMaintainTime](~~610402~~).
      *
-     * Default value: **Immediate**.
      * @example Immediate
      *
      * @var string

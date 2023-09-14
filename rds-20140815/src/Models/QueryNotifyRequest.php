@@ -56,7 +56,7 @@ class QueryNotifyRequest extends Model
      *   **true**
      *   **false**
      *
-     * > A confirmed notification is a notification that has been marked as confirmed by calling the ConfirmNotify operation.
+     * > You can call the [ConfirmNotify](~~610444~~) operation to confirm notifications of an instance.
      * @example false
      *
      * @var bool

@@ -9,12 +9,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesAsCsvRequest extends Model
 {
     /**
+     * @description A deprecated parameter. You do not need to configure this parameter.
+     *
+     * @example API
+     *
      * @var bool
      */
     public $cachedAsync;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
@@ -23,6 +27,10 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description A deprecated parameter. You do not need to configure this parameter.
+     *
+     * @example API
+     *
      * @var string
      */
     public $exportKey;
@@ -33,7 +41,7 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -42,7 +50,7 @@ class DescribeDBInstancesAsCsvRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs.
+     * @description The ID of the resource group.
      *
      * @example rg-acfmy*****
      *

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBMiniEngineVersionsResponseBody extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -28,14 +28,14 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
     public $maxRecordsPerPage;
 
     /**
-     * @description An array that consists of details of the minor engine versions.
+     * @description An array that consists of details of the minor engine version.
      *
      * @var minorVersionItems[]
      */
     public $minorVersionItems;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number returned.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
     public $pageNumbers;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example EFB6083A-7699-489B-8278-C0CB4793A96E
      *
@@ -53,7 +53,7 @@ class DescribeDBMiniEngineVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of returned entries.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

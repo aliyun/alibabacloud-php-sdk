@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceResponseBody extends Model
 {
     /**
-     * @description The endpoint of the instance.
+     * @description The internal endpoint of the instance.
      *
-     * > The **DBInstanceNetType** parameter indicates whether the endpoint is internal or public.
      * @example rm-uf6wjk5*****.mysql.rds.aliyuncs.com
      *
      * @var string
@@ -19,9 +18,9 @@ class CreateDBInstanceResponseBody extends Model
     public $connectionString;
 
     /**
-     * @description The ID of the instance If the value of the **Amount** parameter is greater than **1**, more than one instance ID is returned. The number of instance IDs that are returned is the same as the value of the Amount parameter. The returned instance IDs are separated by commas (,).
+     * @description The instance ID. If the value of the **Amount** parameter is greater than **1**, more than one instance ID is returned. The number of instance IDs that are returned is the same as the value of the Amount parameter. The returned instance IDs are separated by commas (,).
      *
-     * For example, if the value of the **Amount** parameter is **3**, three instance IDs are returned. Example: `rm-uf6wjk5*****1,rm-uf6wjk5*****2,rm-uf6wjk5*****3`
+     * For example, if the value of the **Amount** parameter is **3**, three instance IDs are returned. Examples: `rm-uf6wjk5*****1,rm-uf6wjk5*****2,rm-uf6wjk5*****3`
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -46,7 +45,10 @@ class CreateDBInstanceResponseBody extends Model
      *   **true**
      *   **false**
      *
+     * >
+     *
      *   If the system does not perform a dry run, this parameter is not returned.
+     *
      *   If the request failed the dry run, an error message is returned.
      *
      * @example true
@@ -66,7 +68,7 @@ class CreateDBInstanceResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the order.
+     * @description The order ID.
      *
      * @example 1007893702*****
      *
@@ -75,9 +77,8 @@ class CreateDBInstanceResponseBody extends Model
     public $orderId;
 
     /**
-     * @description The port that is used to connect to the instance.
+     * @description The internal IP address and port number that are used to connect to the instance.
      *
-     * > The **DBInstanceNetType** parameter indicates whether the port number is internal or public.
      * @example 3306
      *
      * @var string
@@ -110,7 +111,7 @@ class CreateDBInstanceResponseBody extends Model
      * @description The ID of the task that is run to create multiple instances.
      *
      *   This parameter is returned only when the value of **Amount** is greater than 1.
-     *   **TaskID** cannot be used to query a task.
+     *   The **TaskID** parameter cannot be used to query a task.
      *
      * @example s2365879-a9d0-55af-fgae-f2*****
      *

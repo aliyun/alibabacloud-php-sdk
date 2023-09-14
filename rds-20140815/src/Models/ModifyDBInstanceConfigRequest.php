@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyDBInstanceConfigRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example 6000170000591aed949d0f****
      *
      * @var string
@@ -16,6 +18,10 @@ class ModifyDBInstanceConfigRequest extends Model
     public $clientToken;
 
     /**
+     * @description The name of the configuration item that you want to modify.
+     *
+     *   **pgbouncer**
+     *
      * @example pgbouncer
      *
      * @var string
@@ -23,6 +29,11 @@ class ModifyDBInstanceConfigRequest extends Model
     public $configName;
 
     /**
+     * @description The value of the configuration item that you want to modify.
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var string
@@ -30,6 +41,8 @@ class ModifyDBInstanceConfigRequest extends Model
     public $configValue;
 
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example rm-uf6wjk5xxxxxxxxxx
      *
      * @var string
@@ -47,6 +60,8 @@ class ModifyDBInstanceConfigRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     *
      * @example rg-bp67acfmxazb4p****
      *
      * @var string

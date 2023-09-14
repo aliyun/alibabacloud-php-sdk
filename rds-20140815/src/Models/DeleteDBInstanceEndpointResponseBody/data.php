@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The endpoint ID of the instance.
+     *
      * @example ep-****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $DBInstanceEndpointId;
 
     /**
+     * @description The ID of the instance.
+     *
      * @example rm-****
      *
      * @var string

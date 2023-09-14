@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesByExpireTimeResponseBody extends Model
 {
     /**
-     * @description An array that consists of the details about the instances.
+     * @description The details of the instances.
      *
      * @var items
      */

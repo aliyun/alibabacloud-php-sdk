@@ -10,6 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeWhitelistTemplateResponseBody extends Model
 {
     /**
+     * @description The response code returned. Valid values:
+     *
+     *   **200**: success
+     *   **400**: client error
+     *   **401**: identity authentication failed
+     *   **404**: request page not found
+     *   **500**: server error
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +25,19 @@ class DescribeWhitelistTemplateResponseBody extends Model
     public $code;
 
     /**
+     * @description The data returned.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned. Valid values:
+     *
+     *   **200**: success
+     *   **400**: client error
+     *   **500**: server error
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +45,8 @@ class DescribeWhitelistTemplateResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The response parameters.
+     *
      * @example success
      *
      * @var string
@@ -36,6 +54,8 @@ class DescribeWhitelistTemplateResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example ED169A3E-1657-4104-82AB-24EA8CD0DB75
      *
      * @var string
@@ -43,6 +63,11 @@ class DescribeWhitelistTemplateResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request is successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool

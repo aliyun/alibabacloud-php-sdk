@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The instance name.
+     *
      * @example rm-bp191w771kd3****
      *
      * @var string
@@ -17,6 +19,8 @@ class data extends Model
     public $insName;
 
     /**
+     * @description The information about whitelists that are returned by page.
+     *
      * @var templates[]
      */
     public $templates;

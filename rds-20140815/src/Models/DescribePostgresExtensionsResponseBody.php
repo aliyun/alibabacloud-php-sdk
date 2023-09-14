@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class DescribePostgresExtensionsResponseBody extends Model
 {
     /**
+     * @description The extensions that are installed on the database.
+     *
      * @var installedExtensions[]
      */
     public $installedExtensions;
 
     /**
+     * @description The overview of the extension.
+     *
      * @example None
      *
      * @var mixed[]
@@ -23,6 +27,8 @@ class DescribePostgresExtensionsResponseBody extends Model
     public $overview;
 
     /**
+     * @description The request ID.
+     *
      * @example 7E4448A6-9FE6-4474-A0C1-AA7CFC772CAC
      *
      * @var string
@@ -30,6 +36,8 @@ class DescribePostgresExtensionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The extensions that are not installed on the database.
+     *
      * @var uninstalledExtensions[]
      */
     public $uninstalledExtensions;

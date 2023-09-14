@@ -19,7 +19,7 @@ class parameterGroup extends Model
     public $createTime;
 
     /**
-     * @description The database engine.
+     * @description The database engine of the instance.
      *
      * @example mysql
      *
@@ -28,7 +28,7 @@ class parameterGroup extends Model
     public $engine;
 
     /**
-     * @description The database engine version.
+     * @description The version of the database engine.
      *
      * @example 5.6
      *
@@ -58,7 +58,7 @@ class parameterGroup extends Model
     public $paramCounts;
 
     /**
-     * @description The array of parameters.
+     * @description The details of the parameters.
      *
      * @var paramDetail
      */

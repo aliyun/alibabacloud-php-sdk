@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateUserBackupFileRequest extends Model
 {
     /**
-     * @description The ID of the backup file. You can call the [ListUserBackupFiles](~~257821~~) operation to query the ID of the backup file.
+     * @description The ID of the backup file. You can call the [ListUserBackupFiles](~~610600~~) operation to query the ID of the file.
      *
      * @example b-kwwvr7v8t7of********
      *
@@ -41,6 +41,10 @@ class UpdateUserBackupFileRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
+     *
+     * @example rg-acfmy*****
+     *
      * @var string
      */
     public $resourceGroupId;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ReleaseReadWriteSplittingConnectionRequest extends Model
 {
     /**
-     * @description The ID of the primary instance.
+     * @description The ID of the primary instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

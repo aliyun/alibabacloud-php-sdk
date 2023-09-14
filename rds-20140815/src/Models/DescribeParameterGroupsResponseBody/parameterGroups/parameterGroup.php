@@ -18,7 +18,7 @@ class parameterGroup extends Model
     public $createTime;
 
     /**
-     * @description The database engine.
+     * @description The database engine of the instance.
      *
      * @example mysql
      *
@@ -27,7 +27,7 @@ class parameterGroup extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The version of the database engine.
      *
      * @example 5.7
      *

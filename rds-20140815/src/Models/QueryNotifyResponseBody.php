@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class QueryNotifyResponseBody extends Model
 {
     /**
-     * @description The details of the returned parameters.
+     * @description The response parameters.
      *
      * @var data
      */
     public $data;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 94CB8D93-017A-5AE7-A118-6E0F89D93C0A
      *

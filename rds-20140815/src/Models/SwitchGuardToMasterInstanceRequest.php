@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SwitchGuardToMasterInstanceRequest extends Model
 {
     /**
-     * @description The ID of the disaster recovery instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The ID of the disaster recovery instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -28,7 +28,7 @@ class SwitchGuardToMasterInstanceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *

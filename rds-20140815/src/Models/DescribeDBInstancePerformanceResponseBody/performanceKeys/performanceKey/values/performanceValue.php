@@ -18,7 +18,7 @@ class performanceValue extends Model
     public $date;
 
     /**
-     * @description The value of the performance metric.
+     * @description The queried values of the performance metric.
      *
      * @example 0.0&13.6
      *

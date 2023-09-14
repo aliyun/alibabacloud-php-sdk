@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeCharacterSetNameRequest extends Model
 {
     /**
-     * @description The database engine that is run on the instance. Valid values:
+     * @description The type of the database engine. Valid values:
      *
-     *   **mysql**: MySQL
-     *   **mssql**: SQL Server
-     *   **PostgreSQL**: PostgreSQL
-     *   **MariaDB**: MariaDB
+     *   **mysql**
+     *   **mssql**
+     *   **PostgreSQL**
+     *   **MariaDB**
      *
      * @example mysql
      *
@@ -33,7 +33,7 @@ class DescribeCharacterSetNameRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -42,7 +42,7 @@ class DescribeCharacterSetNameRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acfmy*****
      *

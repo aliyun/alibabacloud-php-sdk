@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstancesRequest extends Model
 {
     /**
+     * @description The RDS edition of the instance. Valid values:
+     *
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **cluster**: RDS Cluster Edition
+     *   **serverless_basic**: RDS Serverless Basic Edition
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $category;
@@ -54,7 +63,7 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -87,7 +96,7 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceType;
 
     /**
-     * @description The ID of the dedicated cluster.
+     * @description The dedicated cluster ID.
      *
      * @example dhg-7a9xxxxxxxx
      *
@@ -120,7 +129,7 @@ class DescribeDBInstancesRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance.
+     * @description The database engine version.
      *
      * @example 5.7
      *
@@ -141,7 +150,7 @@ class DescribeDBInstancesRequest extends Model
     public $expired;
 
     /**
-     * @description 实例过滤条件参数及其值的JSON串
+     * @description The JSON string that consists of filter condition parameters and their values.
      *
      * @example {"babelfishEnabled":"true"}
      *
@@ -206,7 +215,7 @@ class DescribeDBInstancesRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Valid values: any non-zero positive integer.
      *
      * Default value: **1**.
      * @example 1
@@ -238,7 +247,7 @@ class DescribeDBInstancesRequest extends Model
     public $payType;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *
@@ -284,7 +293,7 @@ class DescribeDBInstancesRequest extends Model
     public $tags;
 
     /**
-     * @description The vSwitch ID of the instance.
+     * @description The vSwitch ID.
      *
      * @example vsw-uf6adz52c2pxxxxxxxxxx
      *
@@ -293,7 +302,7 @@ class DescribeDBInstancesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID of the instance.
+     * @description The VPC ID.
      *
      * @example vpc-uf6f7l4fg90xxxxxxxxxx
      *
@@ -311,7 +320,7 @@ class DescribeDBInstancesRequest extends Model
     public $zoneId;
 
     /**
-     * @description The ID of the proxy mode.
+     * @description A deprecated parameter. You do not need to configure this parameter.
      *
      * @example API
      *

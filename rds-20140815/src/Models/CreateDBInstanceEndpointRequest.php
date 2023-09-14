@@ -51,7 +51,7 @@ class CreateDBInstanceEndpointRequest extends Model
     public $DBInstanceEndpointType;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-****
      *
@@ -60,7 +60,7 @@ class CreateDBInstanceEndpointRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The node that is configured for the endpoint.
+     * @description The information about the node that is configured for the endpoint.
      *
      * @var nodeItems[]
      */
@@ -86,7 +86,7 @@ class CreateDBInstanceEndpointRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the resource group.
+     * @description The ID of the resource group. You can call the [DescribeDBInstanceAttribute](~~610394~~) to obtain the ID of the resource group.
      *
      * @example rg-acfmy****
      *

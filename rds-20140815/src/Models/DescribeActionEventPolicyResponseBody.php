@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeActionEventPolicyResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeActionEventPolicy**.
+     * @description Indicates whether the event history feature is enabled.
      *
      * @example True
      *
@@ -18,7 +18,7 @@ class DescribeActionEventPolicyResponseBody extends Model
     public $enableEventLog;
 
     /**
-     * @description Indicates whether the event history feature is enabled.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class DescribeActionEventPolicyResponseBody extends Model
     public $regionId;
 
     /**
-     * @description The ID of the region. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The request ID.
      *
      * @example CCECD3CD-AB2D-4F6D-BEDE-47BC90A398D2
      *

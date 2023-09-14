@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UpdatePostgresExtensionsRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+     *
      * @example ETnLKlblzczshOTUbOCz****
      *
      * @var string
@@ -16,6 +18,8 @@ class UpdatePostgresExtensionsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example pgm-gc7f1****
      *
      * @var string
@@ -23,6 +27,8 @@ class UpdatePostgresExtensionsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database. You can call the [DescribeDatabases](~~610471~~) operation to obtain the database name.
+     *
      * @example test_db
      *
      * @var string
@@ -30,6 +36,8 @@ class UpdatePostgresExtensionsRequest extends Model
     public $DBNames;
 
     /**
+     * @description The name of the extension. Separate multiple extensions with commas (,).
+     *
      * @example citext
      *
      * @var string
@@ -47,6 +55,8 @@ class UpdatePostgresExtensionsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmy****
      *
      * @var string

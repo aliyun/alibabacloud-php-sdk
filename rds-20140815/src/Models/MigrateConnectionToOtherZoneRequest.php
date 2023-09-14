@@ -27,6 +27,16 @@ class MigrateConnectionToOtherZoneRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @var int
+     */
+    public $ownerId;
+
+    /**
+     * @var int
+     */
+    public $resourceOwnerId;
+
+    /**
      * @description The ID of the zone.
      *
      * @example cn-hangzhou-i
@@ -37,6 +47,8 @@ class MigrateConnectionToOtherZoneRequest extends Model
     protected $_name = [
         'connectionString' => 'ConnectionString',
         'DBInstanceId'     => 'DBInstanceId',
+        'ownerId'          => 'OwnerId',
+        'resourceOwnerId'  => 'ResourceOwnerId',
         'zoneId'           => 'ZoneId',
     ];
 
@@ -52,6 +64,12 @@ class MigrateConnectionToOtherZoneRequest extends Model
         }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
+        }
+        if (null !== $this->ownerId) {
+            $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->resourceOwnerId) {
+            $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
         if (null !== $this->zoneId) {
             $res['ZoneId'] = $this->zoneId;
@@ -73,6 +91,12 @@ class MigrateConnectionToOtherZoneRequest extends Model
         }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
+        }
+        if (isset($map['OwnerId'])) {
+            $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['ResourceOwnerId'])) {
+            $model->resourceOwnerId = $map['ResourceOwnerId'];
         }
         if (isset($map['ZoneId'])) {
             $model->zoneId = $map['ZoneId'];

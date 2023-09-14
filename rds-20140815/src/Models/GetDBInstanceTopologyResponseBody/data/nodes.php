@@ -20,7 +20,7 @@ class nodes extends Model
     /**
      * @description The ID of the dedicated cluster.
      *
-     * > If the instance does not reside in the specified dedicated cluster, no value is returned.
+     * > : If the instance does not reside in the specified dedicated cluster, no value is returned.
      * @example dhg-4n*****
      *
      * @var string
@@ -28,9 +28,9 @@ class nodes extends Model
     public $dedicatedHostGroupId;
 
     /**
-     * @description The ID of the host on which the instance resides in the dedicated cluster.
+     * @description The host ID of the instance in the dedicated cluster.
      *
-     * > If the instance does not reside in the specified dedicated cluster, no value is returned.
+     * > : If the instance does not reside in the specified dedicated cluster, no value is returned.
      * @example i-bpxxxxxxx
      *
      * @var string
@@ -38,9 +38,9 @@ class nodes extends Model
     public $dedicatedHostId;
 
     /**
-     * @description The unique identifier of the instance.
+     * @description The ID of the instance.
      *
-     * > The value \*\*-1\*\* is returned for an instance that does not reside in a dedicated cluster.
+     * > : The value \*\*-1\*\* is returned for an instance that does not reside in a dedicated cluster.
      * @example 349054
      *
      * @var string
@@ -48,7 +48,7 @@ class nodes extends Model
     public $nodeId;
 
     /**
-     * @description The type of the node. Valid values:
+     * @description The type of the node. The following result is returned:
      *
      *   **Master**: a primary node
      *   **Slave**: a secondary node

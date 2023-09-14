@@ -18,7 +18,7 @@ class DBInstanceExpireTime extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -36,9 +36,9 @@ class DBInstanceExpireTime extends Model
     public $DBInstanceStatus;
 
     /**
-     * @description The expiration date and time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
+     * @description The expiration time of the instance. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * > Pay-as-you-go instances never expire.
+     * > : Pay-as-you-go instances never expire.
      * @example 2019-03-27T16:00:00Z
      *
      * @var string
@@ -64,8 +64,8 @@ class DBInstanceExpireTime extends Model
     /**
      * @description The billing method of the instance. Valid values:
      *
-     *   **Postpaid**: pay-as-you-go
-     *   **Prepaid**: subscription
+     *   **Postpaid**: pay-as-you-go.
+     *   **Prepaid**: subscription.
      *
      * @example Prepaid
      *

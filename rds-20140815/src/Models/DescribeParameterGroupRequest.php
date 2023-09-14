@@ -14,7 +14,7 @@ class DescribeParameterGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~144491~~) operation to query the IDs of parameter templates.
+     * @description The ID of the parameter template. You can call the [DescribeParameterGroups](~~144491~~) operation to query the parameter template ID.
      *
      * @example rpg-dp****
      *
@@ -23,7 +23,7 @@ class DescribeParameterGroupRequest extends Model
     public $parameterGroupId;
 
     /**
-     * @description The region ID of the parameter template. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

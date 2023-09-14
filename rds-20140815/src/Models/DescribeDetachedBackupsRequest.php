@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDetachedBackupsRequest extends Model
 {
     /**
-     * @description The ID of the data backup file.
+     * @description The ID of the backup set.
      *
      * @example 327xxxxx3
      *
@@ -18,7 +18,7 @@ class DescribeDetachedBackupsRequest extends Model
     public $backupId;
 
     /**
-     * @description The backup mode of the data backup file. Valid values:
+     * @description The backup method. Valid values:
      *
      *   **Automated**
      *   **Manual**
@@ -30,7 +30,7 @@ class DescribeDetachedBackupsRequest extends Model
     public $backupMode;
 
     /**
-     * @description The status of the data backup file. Valid values:
+     * @description The status of the backup set. Valid values:
      *
      *   **Success**
      *   **Failed**
@@ -42,7 +42,7 @@ class DescribeDetachedBackupsRequest extends Model
     public $backupStatus;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -53,7 +53,7 @@ class DescribeDetachedBackupsRequest extends Model
     /**
      * @description The end of the time range to query. The end time must be later than the start time.
      *
-     * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
+     * Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
      * @example 2021-03-15T16:00Z
      *
      * @var string
@@ -61,9 +61,9 @@ class DescribeDetachedBackupsRequest extends Model
     public $endTime;
 
     /**
-     * @description The number of the page to return. Valid values: any non-zero positive integer.
+     * @description The page number. Pages start from page 1.
      *
-     * >  Default value: 1.
+     * > The default value is 1.
      * @example 1
      *
      * @var int
@@ -71,13 +71,13 @@ class DescribeDetachedBackupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values:
+     * @description The number of entries per page. Valid values:
      *
      *   **30**
      *   **50**
      *   **100**
      *
-     * >  Default value: **30**.
+     * > The default value is **30**.
      * @example 30
      *
      * @var int

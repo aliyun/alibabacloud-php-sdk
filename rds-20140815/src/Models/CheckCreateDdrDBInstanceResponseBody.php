@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CheckCreateDdrDBInstanceResponseBody extends Model
 {
     /**
-     * @description Indicates whether the data of the source instance can be restored across regions. Valid values:** true and false**
+     * @description Indicates whether the data of the source instance can be restored across regions. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -18,7 +21,7 @@ class CheckCreateDdrDBInstanceResponseBody extends Model
     public $isValid;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1E43AAE0-BEE8-43DA-860D-EAF2AA0724DC
      *

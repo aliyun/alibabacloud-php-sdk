@@ -39,7 +39,7 @@ class DBInstanceAttribute extends Model
      * @description The method that is used to update the minor engine version of the instance. Valid values:
      *
      *   **Auto:** automatic update.
-     *   **Manual**: manual update. ApsaraDB RDS automatically updates the minor engine version of the instance only when the minor engine version is phased out.
+     *   **Manual**: manual update. The minor engine version of the instance is forcefully updated only when the in-use minor engine version is phased out.
      *
      * @example Auto
      *
@@ -59,14 +59,14 @@ class DBInstanceAttribute extends Model
     /**
      * @description The configuration of the Babelfish feature for the ApsaraDB RDS for PostgreSQL instance.
      *
-     * > This parameter applies only to ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see [Introduction to Babelfish](~~428613~~).
+     * >  This parameter is suitable only for ApsaraDB RDS for PostgreSQL instances for which Babelfish is enabled. For more information, see Introduction to Babelfish.[](~~428613~~)
      * @var babelfishConfig
      */
     public $babelfishConfig;
 
     /**
-     * @description <props="china">预留参数，无需配置。</props>
-     * <props="intl">无效参数，无需配置。</props>
+     * @description An invalid parameter. You can ignore this parameter.
+     *
      * @example false
      *
      * @var string
@@ -74,8 +74,8 @@ class DBInstanceAttribute extends Model
     public $bpeEnabled;
 
     /**
-     * @description <props="china">预留参数，无需配置。</props>
-     * <props="intl">无效参数，无需配置。</props>
+     * @description An invalid parameter. You can ignore this parameter.
+     *
      * @example false
      *
      * @var bool
@@ -134,7 +134,7 @@ class DBInstanceAttribute extends Model
      *   **1**: shared proxy
      *   **2**: dedicated proxy
      *
-     * > We recommend that you use the **ProxyType** parameter instead of this parameter.
+     * >  We recommend that you use the ProxyType parameter instead of this parameter.
      * @example 2
      *
      * @var string
@@ -151,7 +151,7 @@ class DBInstanceAttribute extends Model
     public $creationTime;
 
     /**
-     * @description The minor engine version of the instance.
+     * @description The version of the database engine.
      *
      * @example rds_20181010
      *
@@ -167,7 +167,7 @@ class DBInstanceAttribute extends Model
     public $DBClusterNodes;
 
     /**
-     * @description The number of cores that are configured for the instance.
+     * @description The number of CPU cores.
      *
      * @example 2
      *
@@ -208,7 +208,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5*****
      *
@@ -217,7 +217,7 @@ class DBInstanceAttribute extends Model
     public $DBInstanceId;
 
     /**
-     * @description The memory size of the instance. Unit: MB.
+     * @description The memory capacity of the instance. Unit: MB.
      *
      * @example 4096
      *
@@ -260,7 +260,7 @@ class DBInstanceAttribute extends Model
      *
      *   **local_ssd** and **ephemeral_ssd**: local SSD
      *   **cloud_ssd**: standard SSD
-     *   **cloud_essd**: enhanced SSD
+     *   **cloud_essd**: enhanced SSD (ESSD)
      *
      * @example local_ssd
      *
@@ -327,7 +327,7 @@ class DBInstanceAttribute extends Model
     public $engine;
 
     /**
-     * @description The version of the database engine.
+     * @description The database engine version of the serverless instance.
      *
      * @example 5.5
      *
@@ -338,7 +338,10 @@ class DBInstanceAttribute extends Model
     /**
      * @description The expiration time. The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * > Pay-as-you-go instances never expire.
+     **
+     *
+     **Description** Pay-as-you-go instances never expire.
+     *
      * @example 2019-03-27T16:00:00Z
      *
      * @var string
@@ -380,7 +383,7 @@ class DBInstanceAttribute extends Model
     public $IPType;
 
     /**
-     * @description The ID of the instance from which incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
+     * @description The ID of the instance from which the incremental data comes. The incremental data of a disaster recovery instance or read-only instance comes from its primary instance. If this parameter is not returned, the instance is a primary instance.
      *
      * @example rm-uf6wjk5*****
      *
@@ -391,8 +394,8 @@ class DBInstanceAttribute extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**: classic network
-     *   **VPC**: virtual private cloud (VPC)
+     *   **Classic**
+     *   **VPC**
      *
      * @example Classic
      *
@@ -458,7 +461,10 @@ class DBInstanceAttribute extends Model
     /**
      * @description The ID of the primary instance.
      *
-     * > If this parameter is not returned, the instance is the primary instance.
+     **
+     *
+     **Description** If this parameter is not returned, the instance is the primary instance.
+     *
      * @example rm-uf6wjk5*****
      *
      * @var string
@@ -493,7 +499,7 @@ class DBInstanceAttribute extends Model
     public $maxIOMBPS;
 
     /**
-     * @description The maximum number of I/O requests that is processed by the instance per second.
+     * @description The maximum number of I/O requests per second.
      *
      * @example 150
      *
@@ -502,6 +508,11 @@ class DBInstanceAttribute extends Model
     public $maxIOPS;
 
     /**
+     * @description Indicates whether PgBouncer is enabled.
+     *
+     * >  This parameter is returned only for RDS instances that run PostgreSQL. If PgBouncer is enabled, the return value is **true**.
+     * @example true
+     *
      * @var string
      */
     public $PGBouncerEnabled;
@@ -541,7 +552,7 @@ class DBInstanceAttribute extends Model
     public $proxyType;
 
     /**
-     * @description An array consisting of the IDs of the read-only instances that are attached to the primary instance.
+     * @description The IDs of the read-only instances that are attached to the primary instance.
      *
      * @var readOnlyDBInstanceIds
      */
@@ -557,7 +568,7 @@ class DBInstanceAttribute extends Model
     public $readonlyInstanceSQLDelayedTime;
 
     /**
-     * @description The region ID of the instance.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -566,7 +577,7 @@ class DBInstanceAttribute extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmy*****
      *
@@ -603,17 +614,17 @@ class DBInstanceAttribute extends Model
     public $serverlessConfig;
 
     /**
-     * @description An array that consists of the details about the secondary zones.
+     * @description Information about the zone of the secondary instance.
      *
      * @var slaveZones
      */
     public $slaveZones;
 
     /**
-     * @description Indicates whether the instance supports superuser accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account.
+     * @description Indicates whether the instance supports privileged accounts, such as the system administrator (SA) account, the Active Directory (AD) account, and the host account.
      *
-     *   **Enable**: Superuser accounts are supported.
-     *   **Disabled**: Superuser accounts are not supported.
+     *   **Enable**: Privileged accounts are supported.
+     *   **Disabled**: Privileged accounts are not supported.
      *
      * @example Disabled
      *
@@ -661,7 +672,7 @@ class DBInstanceAttribute extends Model
     public $tipsLevel;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID.
      *
      * @example vsw-*****
      *
@@ -670,7 +681,7 @@ class DBInstanceAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The VPC ID of the instance. This parameter is returned only when the instance resides in a VPC.
+     * @description The VPC ID.
      *
      * @example vpc-23rsxdf*****
      *
@@ -679,7 +690,7 @@ class DBInstanceAttribute extends Model
     public $vpcCloudInstanceId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The ID of the virtual private cloud (VPC).
      *
      * @example vpc-*****
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyResourceGroupRequest extends Model
 {
     /**
-     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
      *
      * @example ETnLKlblzczshOTUbOCzxxxxxx
      *
@@ -18,7 +18,7 @@ class ModifyResourceGroupRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-bpxxxxx
      *
@@ -37,7 +37,7 @@ class ModifyResourceGroupRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the resource group to which the instance belongs. For more information, see [View basic information of a resource group](~~151181~~).
+     * @description The ID of the resource group. You can call the [ListResourceGroups](~~158855~~) operation to obtain the ID of the resource group.
      *
      * @example rg-acxxxxx
      *

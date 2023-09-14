@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeSlowLogRecordsRequest extends Model
 {
     /**
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
+     *
      * @example rm-uf6wjk5******
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $DBInstanceId;
 
     /**
+     * @description The name of the database.
+     *
      * @example RDS_MySQL
      *
      * @var string
@@ -23,6 +27,9 @@ class DescribeSlowLogRecordsRequest extends Model
     public $DBName;
 
     /**
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mm:ssZ* format. The time must be in UTC.**
+     *
+     * > The end time must be later than the start time.
      * @example 2020-06-18T16:00Z
      *
      * @var string
@@ -30,6 +37,11 @@ class DescribeSlowLogRecordsRequest extends Model
     public $endTime;
 
     /**
+     * @description The ID of the node.
+     *
+     * > This parameter is available only for instances that run RDS Cluster Edition. You can specify this parameter to query the logs of a specified node. If this parameter is not specified, the logs of the primary node are returned by default.
+     * @example rn-p1fm78s90x5****
+     *
      * @var string
      */
     public $nodeId;
@@ -45,6 +57,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The page number. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -52,6 +66,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Valid value: **30 to 200**. Default value: **30**.
+     *
      * @example 30
      *
      * @var int
@@ -69,6 +85,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The unique ID of the SQL statement. The ID is used to obtain the slow query logs of the SQL statement.
+     *
      * @example U2FsdGVk****
      *
      * @var string
@@ -76,6 +94,8 @@ class DescribeSlowLogRecordsRequest extends Model
     public $SQLHASH;
 
     /**
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time must be in UTC.
+     *
      * @example 2020-06-17T16:00Z
      *
      * @var string

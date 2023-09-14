@@ -18,7 +18,7 @@ class RestartDBInstanceRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxx
      *
@@ -27,8 +27,9 @@ class RestartDBInstanceRequest extends Model
     public $DBInstanceId;
 
     /**
-     * @description The unique ID of the secondary instance. You can call [DescribeDBInstanceHAConfig](~~26244~~) to query the secondary instance ID.
+     * @description The node ID, which can be used to restart a specified node. You can call the [DescribeDBInstanceHAConfig](~~610434~~) operation to obtain the node ID.
      *
+     * > : The secondary instance restart feature is supported for RDS instances that run SQL Server EE on RDS Cluster Edition. For more information, see [Restart a secondary database](~~2411880~~).
      * @example 2614****
      *
      * @var string

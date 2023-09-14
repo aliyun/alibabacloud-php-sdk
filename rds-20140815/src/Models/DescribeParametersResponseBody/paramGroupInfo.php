@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class paramGroupInfo extends Model
 {
     /**
-     * @description Parameter template ID.
+     * @description The ID of the parameter template.
      *
      * @example rpg-sys-01040401010200
      *
@@ -18,7 +18,7 @@ class paramGroupInfo extends Model
     public $paramGroupId;
 
     /**
-     * @description Parameter template description.
+     * @description The description of the parameter template.
      *
      * @example sync_binlog=1000, innodb_flush_log_at_trx_commit=2, async
      *
@@ -27,7 +27,7 @@ class paramGroupInfo extends Model
     public $parameterGroupDesc;
 
     /**
-     * @description Parameter template name.
+     * @description The name of the parameter template.
      *
      * @example mysql_innodb_8.0_basic_normal_high
      *
@@ -36,7 +36,7 @@ class paramGroupInfo extends Model
     public $parameterGroupName;
 
     /**
-     * @description Parameter template type.
+     * @description The type of the parameter template.
      *
      * @example 0
      *

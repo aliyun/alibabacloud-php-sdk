@@ -129,6 +129,19 @@ class ModifyBackupPolicyRequest extends Model
     public $backupPolicyMode;
 
     /**
+     * @description Specifies whether the backup settings of a secondary instance are configured. Valid values:
+     *
+     *   **1**: secondary instance preferred
+     *   **2**: primary instance preferred
+     *
+     * >
+     *
+     *   This parameter is suitable only for instances that run SQL Server on RDS Cluster Edition.
+     *
+     *   This parameter takes effect only when **BackupMethod** is set to **Physical**. If **BackupMethod** is set to **Snapshot**, backups are forcefully performed on the primary instance that runs SQL Server on RDS Cluster Edition.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $backupPriority;
@@ -178,7 +191,7 @@ class ModifyBackupPolicyRequest extends Model
     public $compressType;
 
     /**
-     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the ID of the instance.
+     * @description The instance ID. You can call the [DescribeDBInstances](~~610396~~) operation to query the ID of the instance.
      *
      * @example rm-uf6wjk5xxxxxxx
      *
@@ -205,7 +218,7 @@ class ModifyBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
-     * @description Specifies whether to enable the incremental backup feature. Valid values:
+     * @description Specifies whether to enable incremental backup. Valid values:
      *
      *   **false** (default): disables the feature.
      *   **true**: enables the feature.

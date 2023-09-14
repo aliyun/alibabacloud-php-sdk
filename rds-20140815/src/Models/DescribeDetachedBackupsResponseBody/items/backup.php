@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class backup extends Model
 {
     /**
-     * @description The URL that is used to download the data backup file over the Internet. If the data backup file cannot be downloaded, an empty string is returned.
+     * @description The URL that is used to download the diagnostic report over the Internet. If the diagnostic report cannot be downloaded, an empty string is returned.
      *
      * @example http://rdsbak-hz-v3.oss-cn-hangzhou.aliyuncs.com/xxxxx
      *
@@ -18,7 +18,7 @@ class backup extends Model
     public $backupDownloadURL;
 
     /**
-     * @description The end time of the backup.
+     * @description The end time of the backup task.
      *
      * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      * @example 2019-02-13T12:20:00Z
@@ -28,7 +28,7 @@ class backup extends Model
     public $backupEndTime;
 
     /**
-     * @description The ID of the data backup file.
+     * @description The ID of the backup set.
      *
      * @example 321020562
      *
@@ -37,7 +37,7 @@ class backup extends Model
     public $backupId;
 
     /**
-     * @description The URL that is used to download the data backup file over an internal network. If the data backup file cannot be downloaded, an empty string is returned.
+     * @description The URL that is used to download the log file over an internal network. If the log file cannot be downloaded, an empty string is returned.
      *
      * @example http://rdsbak-hz-v3.oss-cn-hangzhou-internal.aliyuncs.com/xxxxx
      *
@@ -58,7 +58,7 @@ class backup extends Model
     public $backupMethod;
 
     /**
-     * @description The backup mode of the data backup file. Valid values:
+     * @description The backup method. Valid values:
      *
      *   **Automated**
      *   **Manual**
@@ -70,7 +70,7 @@ class backup extends Model
     public $backupMode;
 
     /**
-     * @description The size of the data backup file. Unit: bytes.
+     * @description The backup size. Unit: bytes.
      *
      * @example 2167808
      *
@@ -79,7 +79,7 @@ class backup extends Model
     public $backupSize;
 
     /**
-     * @description The start time of the backup.
+     * @description The start time of the backup task.
      *
      * The time follows the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time is displayed in UTC.
      * @example 2019-02-03T12:20:00Z
@@ -89,7 +89,7 @@ class backup extends Model
     public $backupStartTime;
 
     /**
-     * @description The status of the data backup file. Valid values:
+     * @description The status of the backup set. Valid values:
      *
      *   **Success**
      *   **Failed**
@@ -101,7 +101,7 @@ class backup extends Model
     public $backupStatus;
 
     /**
-     * @description The backup type. Valid values:
+     * @description The backup type of the backup file. Valid values:
      *
      *   **FullBackup**
      *   **IncrementalBackup**
@@ -113,9 +113,9 @@ class backup extends Model
     public $backupType;
 
     /**
-     * @description The point in time at which the data in the data backup file is consistent. The return value of this parameter is a timestamp.
+     * @description The point in time at which the data in the backup set is consistent. The return value of this parameter is a timestamp.
      *
-     * >  If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
+     * > If the instance runs MySQL 5.6, a timestamp is returned. Otherwise, the value 0 is returned.
      * @example 1576506856
      *
      * @var int
@@ -141,7 +141,7 @@ class backup extends Model
     public $DBInstanceId;
 
     /**
-     * @description The No. of the instance that generates the data backup file. This parameter is used to indicate whether the instance that generates the data backup file is a primary instance or a secondary instance.
+     * @description The ID of the instance that generates the backup set. This parameter is used to indicate whether the instance that generates the backup set is a primary instance or a secondary instance.
      *
      * @example 5882781
      *
@@ -150,10 +150,10 @@ class backup extends Model
     public $hostInstanceID;
 
     /**
-     * @description Indicates whether the data backup file is available. Valid values:
+     * @description Indicates whether the backup set is available. Valid values:
      *
-     *   **0**: The data backup file is unavailable.
-     *   **1**: The data backup file is available.
+     *   **0**: The backup set is unavailable.
+     *   **1**: The backup set is available.
      *
      * @example 1
      *
@@ -162,11 +162,11 @@ class backup extends Model
     public $isAvail;
 
     /**
-     * @description The status of the data backup file that is used to restore individual databases or tables. Valid values:
+     * @description The status of the backup set that is used to restore individual databases or tables. Valid values:
      *
-     *   **OK**: The data backup file is normal.
-     *   **LARGE**: The data backup file contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
-     *   **EMPTY**: The data backup file is generated from a failed backup task.
+     *   **OK**: The backup set is normal.
+     *   **LARGE**: The backup set contains an abnormally large number of tables. It cannot be used to restore individual databases or tables.
+     *   **EMPTY**: The backup set is generated from a failed backup task.
      *
      * @example OK
      *
@@ -177,8 +177,8 @@ class backup extends Model
     /**
      * @description Indicates whether the data backup file can be deleted. Valid values:
      *
-     *   **Enabled**: The data backup file can be deleted.
-     *   **Disabled**: The data backup file cannot be deleted.
+     *   **Enabled**
+     *   **Disabled**
      *
      * @example Disabled
      *

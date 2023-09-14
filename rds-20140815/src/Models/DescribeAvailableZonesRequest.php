@@ -11,13 +11,15 @@ class DescribeAvailableZonesRequest extends Model
     /**
      * @description The RDS edition of the instance. Valid values:
      *
-     *   **Basic**: RDS Basic Edition.
-     *   **HighAvailability**: RDS High-availability Edition.
-     *   **cluster**: RDS Cluster Edition for MySQL.
-     *   **AlwaysOn**: RDS Cluster Edition for SQL Server.
-     *   **Finance**: RDS Enterprise Edition.
+     *   Regular instance
      *
-     **Serverless instances**
+     *   **Basic**: RDS Basic Edition
+     *   **HighAvailability**: RDS High-availability Edition
+     *   **cluster**: RDS Cluster Edition for MySQL
+     *   **AlwaysOn**: RDS Cluster Edition for SQL Server
+     *   **Finance**: RDS Enterprise Edition
+     *
+     *   Serverless instance
      *
      *   **serverless_basic**: RDS Serverless Basic Edition. This edition is available only for instances that run MySQL and PostgreSQL.
      *   **serverless_standard**: RDS Serverless High-availability Edition for MySQL.
@@ -93,20 +95,25 @@ class DescribeAvailableZonesRequest extends Model
     public $engine;
 
     /**
-     * @description The database engine version of the instance. Valid values:
+     * @description The database engine version. Valid values:
+     *
+     *   Regular instance
      *
      *   Valid values if you set Engine to MySQL: **5.5**, **5.6**, **5.7**, and **8.0**
      *   Valid values if you set Engine to SQLServer: **2008r2**, **08r2\_ent_ha**, **2012**, **2012\_ent_ha**, **2012\_std_ha**, **2012\_web**, **2014\_std_ha**, **2016\_ent_ha**, **2016\_std_ha**, **2016\_web**, **2017\_std_ha**, **2017\_ent**, **2019\_std_ha**, and **2019\_ent**
      *   Valid values if you set Engine to PostgreSQL: **10.0**, **11.0**, **12.0**, **13.0**, **14.0**, and **15.0**
-     *   Valid value if you set Engine to MariaDB: **10.3**
+     *   Valid value when you set Engine to MariaDB: **10.3**
      *
-     **Serverless instances**
+     *   Serverless instance
      *
      *   Valid values if you set Engine to MySQL: **5.7** and **8.0**
      *   Valid values if you set Engine to SQLServer: **2016\_std_sl**, **2017\_std_sl**, and **2019\_std_sl**
      *   Valid value if you set Engine to PostgreSQL: **14.0**
      *
-     * > ApsaraDB RDS for MariaDB does not support serverless instances.
+     **
+     *
+     **Note**ApsaraDB RDS for MariaDB does not support serverless instances.
+     *
      * @example 8.0
      *
      * @var string
@@ -114,7 +121,7 @@ class DescribeAvailableZonesRequest extends Model
     public $engineVersion;
 
     /**
-     * @description The region ID of the instance. You can call the [DescribeRegions](~~26243~~) operation to query the most recent region list.
+     * @description The region ID. You can call the [DescribeRegions](~~610399~~) operation to query the most recent region list.
      *
      * @example cn-hangzhou
      *

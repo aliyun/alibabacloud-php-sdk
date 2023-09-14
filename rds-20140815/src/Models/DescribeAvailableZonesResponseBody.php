@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAvailableZonesResponseBody extends Model
 {
     /**
-     * @description An array that consists of available zones and resources available in the zones.
+     * @description The available zones in the region.
      *
      * @var availableZones[]
      */

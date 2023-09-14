@@ -24,7 +24,7 @@ class ModifyBackupPolicyResponseBody extends Model
     public $compressType;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example rm-uf6wjk5xxxxxxx
      *

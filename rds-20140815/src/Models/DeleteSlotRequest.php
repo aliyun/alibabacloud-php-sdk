@@ -19,7 +19,7 @@ class DeleteSlotRequest extends Model
     public $clientToken;
 
     /**
-     * @description 目标实例ID。可调用[DescribeDBInstances](~~26232~~)接口查询。
+     * @description The ID of the instance. You can call the [DescribeDBInstances](~~26232~~) operation to query the IDs of instances.
      *
      * @example pgm-bp102g323jd4****
      *
@@ -38,7 +38,7 @@ class DeleteSlotRequest extends Model
     public $ownerId;
 
     /**
-     * @description 资源组ID，可以为空。
+     * @description The ID of the resource group. You can leave this parameter empty.
      *
      * @example rg-acfmy*****
      *
@@ -57,7 +57,7 @@ class DeleteSlotRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The name of the replication slot.
+     * @description The name of the replication slot. You can call the [DescribeSlots](~~613399~~) operation to query the name of the replication slot.
      *
      * @example slot_test01
      *
@@ -66,7 +66,7 @@ class DeleteSlotRequest extends Model
     public $slotName;
 
     /**
-     * @description The status of the replication slot.
+     * @description The status of the replication slot. You can call the [DescribeSlots](~~613399~~) operation to query the status of the replication slot.
      *
      * Valid values:
      *

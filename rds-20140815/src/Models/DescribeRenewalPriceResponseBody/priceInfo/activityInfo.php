@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class activityInfo extends Model
 {
     /**
-     * @description The description of the error.
+     * @description The returned message.
      *
      * @example Error description
      *
