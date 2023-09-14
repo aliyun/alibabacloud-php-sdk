@@ -15,6 +15,7 @@ use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\organizer;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\originStart;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\recurrence;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\reminders;
+use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\richTextDescription;
 use AlibabaCloud\SDK\Aliding\V20230426\Models\GetEventResponseBody\start;
 use AlibabaCloud\Tea\Model;
 
@@ -113,6 +114,11 @@ class GetEventResponseBody extends Model
     public $requestId;
 
     /**
+     * @var richTextDescription
+     */
+    public $richTextDescription;
+
+    /**
      * @example cnNTbW1YbxxxxvdlQrQT09
      *
      * @var string
@@ -145,27 +151,28 @@ class GetEventResponseBody extends Model
      */
     public $updateTime;
     protected $_name = [
-        'attendees'          => 'attendees',
-        'categories'         => 'categories',
-        'createTime'         => 'createTime',
-        'description'        => 'description',
-        'end'                => 'end',
-        'extendedProperties' => 'extendedProperties',
-        'id'                 => 'id',
-        'isAllDay'           => 'isAllDay',
-        'location'           => 'location',
-        'meetingRooms'       => 'meetingRooms',
-        'onlineMeetingInfo'  => 'onlineMeetingInfo',
-        'organizer'          => 'organizer',
-        'originStart'        => 'originStart',
-        'recurrence'         => 'recurrence',
-        'reminders'          => 'reminders',
-        'requestId'          => 'requestId',
-        'seriesMasterId'     => 'seriesMasterId',
-        'start'              => 'start',
-        'status'             => 'status',
-        'summary'            => 'summary',
-        'updateTime'         => 'updateTime',
+        'attendees'           => 'attendees',
+        'categories'          => 'categories',
+        'createTime'          => 'createTime',
+        'description'         => 'description',
+        'end'                 => 'end',
+        'extendedProperties'  => 'extendedProperties',
+        'id'                  => 'id',
+        'isAllDay'            => 'isAllDay',
+        'location'            => 'location',
+        'meetingRooms'        => 'meetingRooms',
+        'onlineMeetingInfo'   => 'onlineMeetingInfo',
+        'organizer'           => 'organizer',
+        'originStart'         => 'originStart',
+        'recurrence'          => 'recurrence',
+        'reminders'           => 'reminders',
+        'requestId'           => 'requestId',
+        'richTextDescription' => 'richTextDescription',
+        'seriesMasterId'      => 'seriesMasterId',
+        'start'               => 'start',
+        'status'              => 'status',
+        'summary'             => 'summary',
+        'updateTime'          => 'updateTime',
     ];
 
     public function validate()
@@ -246,6 +253,9 @@ class GetEventResponseBody extends Model
         }
         if (null !== $this->requestId) {
             $res['requestId'] = $this->requestId;
+        }
+        if (null !== $this->richTextDescription) {
+            $res['richTextDescription'] = null !== $this->richTextDescription ? $this->richTextDescription->toMap() : null;
         }
         if (null !== $this->seriesMasterId) {
             $res['seriesMasterId'] = $this->seriesMasterId;
@@ -345,6 +355,9 @@ class GetEventResponseBody extends Model
         }
         if (isset($map['requestId'])) {
             $model->requestId = $map['requestId'];
+        }
+        if (isset($map['richTextDescription'])) {
+            $model->richTextDescription = richTextDescription::fromMap($map['richTextDescription']);
         }
         if (isset($map['seriesMasterId'])) {
             $model->seriesMasterId = $map['seriesMasterId'];
