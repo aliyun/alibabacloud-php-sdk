@@ -17,6 +17,9 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreatePrivateAccessTagResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\CreateRegistrationPolicyShrinkRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\CreateUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteDynamicRouteRequest;
@@ -27,6 +30,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessTagRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeletePrivateAccessTagResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteRegistrationPoliciesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DeleteUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\DetachApplication2ConnectorRequest;
@@ -38,6 +43,10 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetPrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetRegistrationPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserDeviceResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\GetUserGroupResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListApplicationsForPrivateAccessPolicyRequest;
@@ -49,6 +58,8 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListConnectorsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRouteRegionsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListDynamicRoutesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListExcessiveDeviceRegistrationApplicationsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPolicesForPrivateAccessTagRequest;
@@ -65,20 +76,39 @@ use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteR
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsForDynamicRouteResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListPrivateAccessTagsResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesForUserGroupRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesForUserGroupResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListRegistrationPoliciesResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListSoftwareForUserDeviceResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListTagsForPrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserDevicesRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserDevicesResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForPrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsForRegistrationPolicyResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\ListUserGroupsResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateDynamicRouteResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateExcessiveDeviceRegistrationApplicationsStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessApplicationResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdatePrivateAccessPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateRegistrationPolicyShrinkRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesSharingStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesSharingStatusResponse;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusRequest;
+use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserDevicesStatusResponse;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupRequest;
 use AlibabaCloud\SDK\Csas\V20230120\Models\UpdateUserGroupResponse;
 use AlibabaCloud\Tea\Tea;
@@ -429,6 +459,89 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param CreateRegistrationPolicyRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return CreateRegistrationPolicyResponse
+     */
+    public function createRegistrationPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateRegistrationPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->companyLimitCount)) {
+            $request->companyLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->companyLimitCount, 'CompanyLimitCount', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->personalLimitCount)) {
+            $request->personalLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->personalLimitCount, 'PersonalLimitCount', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->companyLimitCountShrink)) {
+            $body['CompanyLimitCount'] = $request->companyLimitCountShrink;
+        }
+        if (!Utils::isUnset($request->companyLimitType)) {
+            $body['CompanyLimitType'] = $request->companyLimitType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->matchMode)) {
+            $body['MatchMode'] = $request->matchMode;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->personalLimitCountShrink)) {
+            $body['PersonalLimitCount'] = $request->personalLimitCountShrink;
+        }
+        if (!Utils::isUnset($request->personalLimitType)) {
+            $body['PersonalLimitType'] = $request->personalLimitType;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->whitelist)) {
+            $bodyFlat['Whitelist'] = $request->whitelist;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateRegistrationPolicy',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateRegistrationPolicyRequest $request
+     *
+     * @return CreateRegistrationPolicyResponse
+     */
+    public function createRegistrationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param CreateUserGroupRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -652,6 +765,51 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param DeleteRegistrationPoliciesRequest $request
+     * @param RuntimeOptions                    $runtime
+     *
+     * @return DeleteRegistrationPoliciesResponse
+     */
+    public function deleteRegistrationPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->policyIds)) {
+            $bodyFlat['PolicyIds'] = $request->policyIds;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteRegistrationPolicies',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteRegistrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteRegistrationPoliciesRequest $request
+     *
+     * @return DeleteRegistrationPoliciesResponse
+     */
+    public function deleteRegistrationPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteRegistrationPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
      * @param DeleteUserGroupRequest $request
      * @param RuntimeOptions         $runtime
      *
@@ -863,6 +1021,86 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getPrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetRegistrationPolicyRequest $request
+     * @param RuntimeOptions               $runtime
+     *
+     * @return GetRegistrationPolicyResponse
+     */
+    public function getRegistrationPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetRegistrationPolicy',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetRegistrationPolicyRequest $request
+     *
+     * @return GetRegistrationPolicyResponse
+     */
+    public function getRegistrationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetUserDeviceRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return GetUserDeviceResponse
+     */
+    public function getUserDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetUserDevice',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetUserDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetUserDeviceRequest $request
+     *
+     * @return GetUserDeviceResponse
+     */
+    public function getUserDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getUserDeviceWithOptions($request, $runtime);
     }
 
     /**
@@ -1096,6 +1334,46 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listDynamicRoutesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
+     * @param RuntimeOptions                                     $runtime
+     *
+     * @return ListExcessiveDeviceRegistrationApplicationsResponse
+     */
+    public function listExcessiveDeviceRegistrationApplicationsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListExcessiveDeviceRegistrationApplications',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListExcessiveDeviceRegistrationApplicationsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListExcessiveDeviceRegistrationApplicationsRequest $request
+     *
+     * @return ListExcessiveDeviceRegistrationApplicationsResponse
+     */
+    public function listExcessiveDeviceRegistrationApplications($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listExcessiveDeviceRegistrationApplicationsWithOptions($request, $runtime);
     }
 
     /**
@@ -1419,6 +1697,126 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param ListRegistrationPoliciesRequest $request
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return ListRegistrationPoliciesResponse
+     */
+    public function listRegistrationPoliciesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRegistrationPolicies',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRegistrationPoliciesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRegistrationPoliciesRequest $request
+     *
+     * @return ListRegistrationPoliciesResponse
+     */
+    public function listRegistrationPolicies($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRegistrationPoliciesWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListRegistrationPoliciesForUserGroupRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ListRegistrationPoliciesForUserGroupResponse
+     */
+    public function listRegistrationPoliciesForUserGroupWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListRegistrationPoliciesForUserGroup',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListRegistrationPoliciesForUserGroupResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListRegistrationPoliciesForUserGroupRequest $request
+     *
+     * @return ListRegistrationPoliciesForUserGroupResponse
+     */
+    public function listRegistrationPoliciesForUserGroup($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listRegistrationPoliciesForUserGroupWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSoftwareForUserDeviceRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSoftwareForUserDeviceResponse
+     */
+    public function listSoftwareForUserDeviceWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSoftwareForUserDevice',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSoftwareForUserDeviceResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSoftwareForUserDeviceRequest $request
+     *
+     * @return ListSoftwareForUserDeviceResponse
+     */
+    public function listSoftwareForUserDevice($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSoftwareForUserDeviceWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListTagsForPrivateAccessApplicationRequest $request
      * @param RuntimeOptions                             $runtime
      *
@@ -1496,6 +1894,46 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listTagsForPrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListUserDevicesRequest $request
+     * @param RuntimeOptions         $runtime
+     *
+     * @return ListUserDevicesResponse
+     */
+    public function listUserDevicesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserDevices',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserDevicesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserDevicesRequest $request
+     *
+     * @return ListUserDevicesResponse
+     */
+    public function listUserDevices($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserDevicesWithOptions($request, $runtime);
     }
 
     /**
@@ -1579,6 +2017,46 @@ class Csas extends OpenApiClient
     }
 
     /**
+     * @param ListUserGroupsForRegistrationPolicyRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return ListUserGroupsForRegistrationPolicyResponse
+     */
+    public function listUserGroupsForRegistrationPolicyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListUserGroupsForRegistrationPolicy',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListUserGroupsForRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListUserGroupsForRegistrationPolicyRequest $request
+     *
+     * @return ListUserGroupsForRegistrationPolicyResponse
+     */
+    public function listUserGroupsForRegistrationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listUserGroupsForRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param UpdateDynamicRouteRequest $request
      * @param RuntimeOptions            $runtime
      *
@@ -1654,6 +2132,54 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateDynamicRouteWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
+     * @param RuntimeOptions                                             $runtime
+     *
+     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+     */
+    public function updateExcessiveDeviceRegistrationApplicationsStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->applicationIds)) {
+            $bodyFlat['ApplicationIds'] = $request->applicationIds;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateExcessiveDeviceRegistrationApplicationsStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateExcessiveDeviceRegistrationApplicationsStatusRequest $request
+     *
+     * @return UpdateExcessiveDeviceRegistrationApplicationsStatusResponse
+     */
+    public function updateExcessiveDeviceRegistrationApplicationsStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateExcessiveDeviceRegistrationApplicationsStatusWithOptions($request, $runtime);
     }
 
     /**
@@ -1798,6 +2324,188 @@ class Csas extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updatePrivateAccessPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateRegistrationPolicyRequest $tmpReq
+     * @param RuntimeOptions                  $runtime
+     *
+     * @return UpdateRegistrationPolicyResponse
+     */
+    public function updateRegistrationPolicyWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateRegistrationPolicyShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->companyLimitCount)) {
+            $request->companyLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->companyLimitCount, 'CompanyLimitCount', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->personalLimitCount)) {
+            $request->personalLimitCountShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->personalLimitCount, 'PersonalLimitCount', 'json');
+        }
+        $body = [];
+        if (!Utils::isUnset($request->companyLimitCountShrink)) {
+            $body['CompanyLimitCount'] = $request->companyLimitCountShrink;
+        }
+        if (!Utils::isUnset($request->companyLimitType)) {
+            $body['CompanyLimitType'] = $request->companyLimitType;
+        }
+        if (!Utils::isUnset($request->description)) {
+            $body['Description'] = $request->description;
+        }
+        if (!Utils::isUnset($request->matchMode)) {
+            $body['MatchMode'] = $request->matchMode;
+        }
+        if (!Utils::isUnset($request->name)) {
+            $body['Name'] = $request->name;
+        }
+        if (!Utils::isUnset($request->personalLimitCountShrink)) {
+            $body['PersonalLimitCount'] = $request->personalLimitCountShrink;
+        }
+        if (!Utils::isUnset($request->personalLimitType)) {
+            $body['PersonalLimitType'] = $request->personalLimitType;
+        }
+        if (!Utils::isUnset($request->policyId)) {
+            $body['PolicyId'] = $request->policyId;
+        }
+        if (!Utils::isUnset($request->priority)) {
+            $body['Priority'] = $request->priority;
+        }
+        if (!Utils::isUnset($request->status)) {
+            $body['Status'] = $request->status;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->userGroupIds)) {
+            $bodyFlat['UserGroupIds'] = $request->userGroupIds;
+        }
+        if (!Utils::isUnset($request->whitelist)) {
+            $bodyFlat['Whitelist'] = $request->whitelist;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateRegistrationPolicy',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateRegistrationPolicyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateRegistrationPolicyRequest $request
+     *
+     * @return UpdateRegistrationPolicyResponse
+     */
+    public function updateRegistrationPolicy($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateRegistrationPolicyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUserDevicesSharingStatusRequest $request
+     * @param RuntimeOptions                        $runtime
+     *
+     * @return UpdateUserDevicesSharingStatusResponse
+     */
+    public function updateUserDevicesSharingStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body     = [];
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
+        }
+        if (!Utils::isUnset($request->sharingStatus)) {
+            $body['SharingStatus'] = $request->sharingStatus;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserDevicesSharingStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUserDevicesSharingStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserDevicesSharingStatusRequest $request
+     *
+     * @return UpdateUserDevicesSharingStatusResponse
+     */
+    public function updateUserDevicesSharingStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserDevicesSharingStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateUserDevicesStatusRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateUserDevicesStatusResponse
+     */
+    public function updateUserDevicesStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->deviceAction)) {
+            $body['DeviceAction'] = $request->deviceAction;
+        }
+        $bodyFlat = [];
+        if (!Utils::isUnset($request->deviceTags)) {
+            $bodyFlat['DeviceTags'] = $request->deviceTags;
+        }
+        $body = Tea::merge($body, OpenApiUtilClient::query($bodyFlat));
+        $req  = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateUserDevicesStatus',
+            'version'     => '2023-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateUserDevicesStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateUserDevicesStatusRequest $request
+     *
+     * @return UpdateUserDevicesStatusResponse
+     */
+    public function updateUserDevicesStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateUserDevicesStatusWithOptions($request, $runtime);
     }
 
     /**
