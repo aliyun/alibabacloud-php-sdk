@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetHealthCheckTemplateAttributeRequest extends Model
 {
     /**
-     * @description 健康检查模板Id
+     * @description The ID of the health check template.
+     *
+     * @example hct-x4jazoyi6tvsq9****
      *
      * @var string
      */

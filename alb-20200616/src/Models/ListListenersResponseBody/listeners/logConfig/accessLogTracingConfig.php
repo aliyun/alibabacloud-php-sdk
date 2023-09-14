@@ -9,21 +9,33 @@ use AlibabaCloud\Tea\Model;
 class accessLogTracingConfig extends Model
 {
     /**
-     * @description Xtrace功能状态
+     * @description Indicates whether Xtrace is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > You can set this parameter to **true** only if the access log feature is enabled by specifying **AccessLogEnabled**.
+     * @example true
      *
      * @var bool
      */
     public $tracingEnabled;
 
     /**
-     * @description Xtrace功能状态
+     * @description The sampling rate of Xtrace. Valid values: **1 to 10000**.
+     *
+     * > This parameter takes effect only if **TracingEnabled** is set to **true**.
+     * @example 100
      *
      * @var int
      */
     public $tracingSample;
 
     /**
-     * @description xtrace的类型
+     * @description The Xtrace type. This parameter can be set to **Zipkin**.
+     *
+     * > This parameter takes effect only if **TracingEnabled** is set to **true**.
+     * @example Zipkin
      *
      * @var string
      */

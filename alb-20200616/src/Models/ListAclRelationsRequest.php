@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListAclRelationsRequest extends Model
 {
     /**
-     * @description 访问控制策略Id
+     * @description The ACL IDs.
      *
      * @var string[]
      */

@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorConfig extends Model
 {
     /**
-     * @description 镜像至服务器组
+     * @description The configuration of the server group to which traffic is mirrored.
      *
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
 
     /**
-     * @description 镜像目标类型
+     * @description The type of destination to which network traffic is mirrored. Valid values:
+     *
+     *   **ForwardGroupMirror**: a server group
+     *   **SlsMirror**: Log Service
+     *
+     * @example ForwardGroupMirror
      *
      * @var string
      */

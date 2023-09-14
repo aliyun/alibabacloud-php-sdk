@@ -11,28 +11,35 @@ use AlibabaCloud\Tea\Model;
 class GetListenerHealthStatusResponseBody extends Model
 {
     /**
-     * @description 监听健康检查结果
+     * @description The health check status of the server groups that are associated with the listener.
      *
      * @var listenerHealthStatus[]
      */
     public $listenerHealthStatus;
 
     /**
-     * @description 下一页标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 请求Id
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 转发规则健康检查结果
+     * @description The health check status of the forwarding rules.
      *
      * @var ruleHealthStatus[]
      */

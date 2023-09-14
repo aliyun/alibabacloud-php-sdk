@@ -6,66 +6,108 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRuleRequest\ruleActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRuleRequest\ruleConditions;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRuleRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateRuleRequest extends Model
 {
     /**
-     * @description 幂等标识
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description  是否只预检此次请求
+     * @description The direction to which the forwarding rule is applied. Valid values:
+     *
+     *   **Request** (default): The forwarding rule is applied to the requests received by ALB.
+     *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
+     *
+     * > Basic ALB instances do not support the **Response** value.
+     * @example Request
+     *
+     * @var string
+     */
+    public $direction;
+
+    /**
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+     *
+     * @example false
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 监听标识
+     * @description The listener ID of the ALB instance.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description 转发规则优先级
+     * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
+     *
+     * > The priorities of the forwarding rules created for the same listener must be unique.
+     * @example 10
      *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 转发规则动作
+     * @description The maximum cache time of dry run requests in the browser. Unit: seconds.
      *
+     * Valid values: **-1** to **172800**.
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description 转发规则条件
+     * @description The configuration of the source IP-based forwarding rule.
      *
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description 转发规则名称
+     * @description The name of the forwarding rule.
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   It can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *
+     * @example rule-doc
      *
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'clientToken'    => 'ClientToken',
+        'direction'      => 'Direction',
         'dryRun'         => 'DryRun',
         'listenerId'     => 'ListenerId',
         'priority'       => 'Priority',
         'ruleActions'    => 'RuleActions',
         'ruleConditions' => 'RuleConditions',
         'ruleName'       => 'RuleName',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -77,6 +119,9 @@ class CreateRuleRequest extends Model
         $res = [];
         if (null !== $this->clientToken) {
             $res['ClientToken'] = $this->clientToken;
+        }
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
         }
         if (null !== $this->dryRun) {
             $res['DryRun'] = $this->dryRun;
@@ -108,6 +153,15 @@ class CreateRuleRequest extends Model
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -122,6 +176,9 @@ class CreateRuleRequest extends Model
         $model = new self();
         if (isset($map['ClientToken'])) {
             $model->clientToken = $map['ClientToken'];
+        }
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
         }
         if (isset($map['DryRun'])) {
             $model->dryRun = $map['DryRun'];
@@ -152,6 +209,15 @@ class CreateRuleRequest extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

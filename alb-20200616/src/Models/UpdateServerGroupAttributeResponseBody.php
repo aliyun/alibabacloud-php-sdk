@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateServerGroupAttributeResponseBody extends Model
 {
     /**
-     * @description 异步任务Id
+     * @description The ID of the asynchronous job.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */

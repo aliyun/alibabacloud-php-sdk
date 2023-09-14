@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerBillingConfig extends Model
 {
     /**
-     * @description 实例的计费类型
+     * @description The billing method.
+     *
+     * Only **PostPay** may be returned. The value indicates the pay-as-you-go billing method.
+     * @example PostPay
      *
      * @var string
      */

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class sourceIpConfig extends Model
 {
     /**
-     * @description 基于源IP业务流量匹配
+     * @description The IP addresses or CIDR blocks.
      *
      * @var string[]
      */

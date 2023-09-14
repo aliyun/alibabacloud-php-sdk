@@ -9,35 +9,53 @@ use AlibabaCloud\Tea\Model;
 class ListTagValuesRequest extends Model
 {
     /**
-     * @description 查询数量
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 资源实例Id
+     * @description The resource ID.
+     *
+     * @example eip-resource-test
      *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @description The type of the resource. Valid values:
+     *
+     *   **loadbalancer**: an Application Load Balancer (ALB) instance
+     *   **acl**: an access control list (ACL)
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example loadbalancer
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 具体的标签Key
+     * @description The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     *
+     * @example test
      *
      * @var string
      */

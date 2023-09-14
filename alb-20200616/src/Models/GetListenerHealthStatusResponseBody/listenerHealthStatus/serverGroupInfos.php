@@ -10,28 +10,34 @@ use AlibabaCloud\Tea\Model;
 class serverGroupInfos extends Model
 {
     /**
-     * @description 服务器组使用类型
+     * @description The action specified for the server group.
+     *
+     * @example TrafficMirror
      *
      * @var string
      */
     public $actionType;
 
     /**
-     * @description 健康检查开启/关闭
+     * @description Indicates whether health checks are enabled. If **on** is returned, it indicates that health checks are enabled.
+     *
+     * @example on
      *
      * @var string
      */
     public $healthCheckEnabled;
 
     /**
-     * @description 处于非正常状态的后端服务器
+     * @description A list of unhealthy backend servers.
      *
      * @var nonNormalServers[]
      */
     public $nonNormalServers;
 
     /**
-     * @description 服务器组ID
+     * @description The ID of the server group that is associated with the listener.
+     *
+     * @example vsp-bp1qjwo61pqz3ahltv****
      *
      * @var string
      */

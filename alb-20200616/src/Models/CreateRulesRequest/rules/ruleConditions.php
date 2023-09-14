@@ -17,63 +17,49 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description Cookie条件配置
-     *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
-     * @description HTTP标头条件配置
-     *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
-     * @description 主机名条件配置
-     *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description HTTP请求方法条件配置
-     *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description 路径条件配置
-     *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description 查询字符串条件配置
-     *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
-     * @description 返回HTTP标头
-     *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
-     * @description 基于源IP业务流量匹配
-     *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description 条件类型
+     * @description The ID of the asynchronous task.
+     *
+     * @example Host
      *
      * @var string
      */

@@ -9,21 +9,23 @@ use AlibabaCloud\Tea\Model;
 class securityPolicies extends Model
 {
     /**
-     * @description 加密套件
+     * @description The supported encryption algorithms.
      *
      * @var string[]
      */
     public $ciphers;
 
     /**
-     * @description 安全策略Id
+     * @description The ID of the security policy.
+     *
+     * @example spy-n0kn923****
      *
      * @var string
      */
     public $securityPolicyId;
 
     /**
-     * @description 协议版本
+     * @description The TLS versions that are supported.
      *
      * @var string[]
      */

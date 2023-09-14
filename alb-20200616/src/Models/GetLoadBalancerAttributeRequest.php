@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetLoadBalancerAttributeRequest extends Model
 {
     /**
-     * @description 实例标识
+     * @description The ALB instance ID.
+     *
+     * @example alb-o9ulmq5hgn68jk****
      *
      * @var string
      */

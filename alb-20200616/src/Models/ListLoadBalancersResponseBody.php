@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListLoadBalancersResponseBody extends Model
 {
     /**
-     * @description 实例列表
+     * @description The list of ALB instances.
      *
      * @var loadBalancers[]
      */
     public $loadBalancers;
 
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The number of entries returned per page.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 用来表示当前调用返回读取到的位置，空代表数据已经读取完毕。
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is used to retrieve a new page of results.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total number of entries returned.
+     *
+     * @example 100
      *
      * @var int
      */

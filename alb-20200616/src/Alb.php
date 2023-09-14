@@ -20,6 +20,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\AttachCommonBandwidthPackageToLoadBala
 use AlibabaCloud\SDK\Alb\V20200616\Models\AttachCommonBandwidthPackageToLoadBalancerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAclResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAScriptsRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateAScriptsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateHealthCheckTemplateRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateHealthCheckTemplateResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest;
@@ -36,6 +38,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateServerGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateServerGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteAclRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteAclResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteAScriptsRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteAScriptsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteHealthCheckTemplatesRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteHealthCheckTemplatesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteListenerRequest;
@@ -52,6 +56,7 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteServerGroupRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DeleteServerGroupResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeRegionsRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeRegionsResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeZonesRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DescribeZonesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DetachCommonBandwidthPackageFromLoadBalancerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DetachCommonBandwidthPackageFromLoadBalancerResponse;
@@ -59,6 +64,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\DisableDeletionProtectionRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DisableDeletionProtectionResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DisableLoadBalancerAccessLogRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DisableLoadBalancerAccessLogResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DisableLoadBalancerIpv6InternetRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\DisableLoadBalancerIpv6InternetResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DissociateAclsFromListenerRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DissociateAclsFromListenerResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\DissociateAdditionalCertificatesFromListenerRequest;
@@ -67,6 +74,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\EnableDeletionProtectionRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\EnableDeletionProtectionResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\EnableLoadBalancerAccessLogRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\EnableLoadBalancerAccessLogResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\EnableLoadBalancerIpv6InternetRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\EnableLoadBalancerIpv6InternetResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetHealthCheckTemplateAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetHealthCheckTemplateAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\GetListenerAttributeRequest;
@@ -81,6 +90,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\ListAclRelationsRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAclRelationsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAclsRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAclsResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListAScriptsRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListAScriptsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAsynJobsRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListAsynJobsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListHealthCheckTemplatesRequest;
@@ -126,6 +137,8 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\UnTagResourcesRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UnTagResourcesResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAclAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAclAttributeResponse;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAScriptsRequest;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateAScriptsResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateHealthCheckTemplateAttributeRequest;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateHealthCheckTemplateAttributeResponse;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateListenerAttributeRequest;
@@ -190,10 +203,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AddEntriesToAclRequest $request
-     * @param RuntimeOptions         $runtime
+     * *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+     *   *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
+     *   *     *   The maximum number of IP entries that each ACL can contain: 1,000
+     *   * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
+     *   *     *   If the ACL is in the **Adding** state, the IP entries are being added.
+     *   *     *   If the ACL is in the **Available** state, the IP entries are added.
+     *   *
+     * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
+     * @param RuntimeOptions         $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddEntriesToAclResponse
+     * @return AddEntriesToAclResponse AddEntriesToAclResponse
      */
     public function addEntriesToAclWithOptions($request, $runtime)
     {
@@ -230,9 +250,16 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AddEntriesToAclRequest $request
+     * *   Each ACL can contain IP addresses or CIDR blocks. Take note of the following limits on ACLs:
+     *   *     *   The maximum number of IP entries that can be added to an ACL with each Alibaba Cloud account at a time: 20
+     *   *     *   The maximum number of IP entries that each ACL can contain: 1,000
+     *   * *   **AddEntriesToAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
+     *   *     *   If the ACL is in the **Adding** state, the IP entries are being added.
+     *   *     *   If the ACL is in the **Available** state, the IP entries are added.
+     *   *
+     * @param AddEntriesToAclRequest $request AddEntriesToAclRequest
      *
-     * @return AddEntriesToAclResponse
+     * @return AddEntriesToAclResponse AddEntriesToAclResponse
      */
     public function addEntriesToAcl($request)
     {
@@ -242,10 +269,18 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AddServersToServerGroupRequest $request
-     * @param RuntimeOptions                 $runtime
+     * **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   * *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
+     *   * *   If a backend server is in the **Available** state, it indicates that the server is running.
+     *   *
+     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return AddServersToServerGroupResponse
+     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
      */
     public function addServersToServerGroupWithOptions($request, $runtime)
     {
@@ -282,9 +317,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AddServersToServerGroupRequest $request
+     * **AddServersToServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   * *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   * *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   * *   If a backend server is in the **Adding** state, it indicates that the backend server is being added to a server group.
+     *   * *   If a backend server is in the **Available** state, it indicates that the server is running.
+     *   *
+     * @param AddServersToServerGroupRequest $request AddServersToServerGroupRequest
      *
-     * @return AddServersToServerGroupResponse
+     * @return AddServersToServerGroupResponse AddServersToServerGroupResponse
      */
     public function addServersToServerGroup($request)
     {
@@ -346,10 +389,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AssociateAclsWithListenerRequest $request
-     * @param RuntimeOptions                   $runtime
+     * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
+     *   * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
+     *   *
+     * @param AssociateAclsWithListenerRequest $request AssociateAclsWithListenerRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAclsWithListenerResponse
+     * @return AssociateAclsWithListenerResponse AssociateAclsWithListenerResponse
      */
     public function associateAclsWithListenerWithOptions($request, $runtime)
     {
@@ -389,9 +436,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AssociateAclsWithListenerRequest $request
+     * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Associating** state, the ACL is being associated with a listener.
+     *   * *   If an ACL is in the **Associated** state, the ACL is associated with a listener.
+     *   *
+     * @param AssociateAclsWithListenerRequest $request AssociateAclsWithListenerRequest
      *
-     * @return AssociateAclsWithListenerResponse
+     * @return AssociateAclsWithListenerResponse AssociateAclsWithListenerResponse
      */
     public function associateAclsWithListener($request)
     {
@@ -401,10 +452,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request
-     * @param RuntimeOptions                                     $runtime
+     * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
+     *   * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
+     *   * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
+     *   *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
+     * @param RuntimeOptions                                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse
+     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListenerWithOptions($request, $runtime)
     {
@@ -441,9 +496,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AssociateAdditionalCertificatesWithListenerRequest $request
+     * **AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
+     *   * *   If the HTTPS or QUIC listener is in the **Associating** state, the additional certificates are being associated.
+     *   * *   If the HTTPS or QUIC listener is in the **Associated** state, the additional certificates are associated.
+     *   *
+     * @param AssociateAdditionalCertificatesWithListenerRequest $request AssociateAdditionalCertificatesWithListenerRequest
      *
-     * @return AssociateAdditionalCertificatesWithListenerResponse
+     * @return AssociateAdditionalCertificatesWithListenerResponse AssociateAdditionalCertificatesWithListenerResponse
      */
     public function associateAdditionalCertificatesWithListener($request)
     {
@@ -453,10 +512,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
-     * @param RuntimeOptions                                    $runtime
+     * **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
+     *   * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
+     *   *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
+     * @param RuntimeOptions                                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancerWithOptions($request, $runtime)
     {
@@ -496,9 +559,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request
+     * **AttachCommonBandwidthPackageToLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If the ALB instance is in the **Configuring** state, the EIP bandwidth plan is being associated with the ALB instance.
+     *   * *   If the ALB instance is in the **Active** state, the EIP bandwidth plan is associated with the ALB instance.
+     *   *
+     * @param AttachCommonBandwidthPackageToLoadBalancerRequest $request AttachCommonBandwidthPackageToLoadBalancerRequest
      *
-     * @return AttachCommonBandwidthPackageToLoadBalancerResponse
+     * @return AttachCommonBandwidthPackageToLoadBalancerResponse AttachCommonBandwidthPackageToLoadBalancerResponse
      */
     public function attachCommonBandwidthPackageToLoadBalancer($request)
     {
@@ -508,10 +575,84 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * ### Prerequisites
+     *   * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](~~214358~~).
+     *   * *   By default, the feature to create and manage AScript rules is unavailable. Log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/alb/quotas?spm=a2c4g.11186623.0.0.6e8834f6IFiF2I). On the **Privileges** page, enter the quota ID `slb_user_visible_gray_label/ascript` and apply for the quota.
+     *   * ### Usage notes
+     *   * *   **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
+     *   *     *   If an AScript rule is in the **Creating** state, the AScript rule is being created.
+     *   *     *   If an AScript rule is in the **Available** state, the AScript rule is created.
+     *   * *   In the following table, the value of **N** is **1**.
+     *   *
+     * @param CreateAScriptsRequest $request CreateAScriptsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateAclResponse
+     * @return CreateAScriptsResponse CreateAScriptsResponse
+     */
+    public function createAScriptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AScripts)) {
+            $query['AScripts'] = $request->AScripts;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->listenerId)) {
+            $query['ListenerId'] = $request->listenerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAScripts',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ### Prerequisites
+     *   * *   A standard or WAF-enabled Application Load Balancer (ALB) instance is created. For more information, see [CreateLoadBalancer](~~214358~~).
+     *   * *   By default, the feature to create and manage AScript rules is unavailable. Log on to the [Quota Center console](https://quotas.console.aliyun.com/white-list-products/alb/quotas?spm=a2c4g.11186623.0.0.6e8834f6IFiF2I). On the **Privileges** page, enter the quota ID `slb_user_visible_gray_label/ascript` and apply for the quota.
+     *   * ### Usage notes
+     *   * *   **CreateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
+     *   *     *   If an AScript rule is in the **Creating** state, the AScript rule is being created.
+     *   *     *   If an AScript rule is in the **Available** state, the AScript rule is created.
+     *   * *   In the following table, the value of **N** is **1**.
+     *   *
+     * @param CreateAScriptsRequest $request CreateAScriptsRequest
+     *
+     * @return CreateAScriptsResponse CreateAScriptsResponse
+     */
+    public function createAScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createAScriptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * **CreateAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](~~213617~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Creating** state, the ACL is being created.
+     *   * *   If an ACL is in the **Available** state, the ACL is created.
+     *   *
+     * @param CreateAclRequest $request CreateAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return CreateAclResponse CreateAclResponse
      */
     public function createAclWithOptions($request, $runtime)
     {
@@ -528,6 +669,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -548,9 +692,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateAclRequest $request
+     * **CreateAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](~~213617~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Creating** state, the ACL is being created.
+     *   * *   If an ACL is in the **Available** state, the ACL is created.
+     *   *
+     * @param CreateAclRequest $request CreateAclRequest
      *
-     * @return CreateAclResponse
+     * @return CreateAclResponse CreateAclResponse
      */
     public function createAcl($request)
     {
@@ -608,6 +756,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->healthyThreshold)) {
             $query['HealthyThreshold'] = $request->healthyThreshold;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->unhealthyThreshold)) {
             $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
         }
@@ -642,10 +793,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
-     * @param RuntimeOptions        $runtime
+     * **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task.
+     *   * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, the listener is being created.
+     *   * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, the listener is created.
+     *   *
+     * @param CreateListenerRequest $request CreateListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateListenerResponse
+     * @return CreateListenerResponse CreateListenerResponse
      */
     public function createListenerWithOptions($request, $runtime)
     {
@@ -699,6 +854,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->securityPolicyId)) {
             $query['SecurityPolicyId'] = $request->securityPolicyId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->XForwardedForConfig)) {
             $query['XForwardedForConfig'] = $request->XForwardedForConfig;
         }
@@ -721,9 +879,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateListenerRequest $request
+     * **CreateListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task.
+     *   * *   If the HTTP, HTTPS, or QUIC listener is in the **Provisioning** state, the listener is being created.
+     *   * *   If the HTTP, HTTPS, or QUIC listener is in the **Running** state, the listener is created.
+     *   *
+     * @param CreateListenerRequest $request CreateListenerRequest
      *
-     * @return CreateListenerResponse
+     * @return CreateListenerResponse CreateListenerResponse
      */
     public function createListener($request)
     {
@@ -733,10 +895,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
+     * **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of an ALB instance.
+     *   * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
+     *   * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
+     *   *
+     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateLoadBalancerResponse
+     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
      */
     public function createLoadBalancerWithOptions($request, $runtime)
     {
@@ -744,6 +910,9 @@ class Alb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->addressAllocatedMode)) {
             $query['AddressAllocatedMode'] = $request->addressAllocatedMode;
+        }
+        if (!Utils::isUnset($request->addressIpVersion)) {
+            $query['AddressIpVersion'] = $request->addressIpVersion;
         }
         if (!Utils::isUnset($request->addressType)) {
             $query['AddressType'] = $request->addressType;
@@ -772,6 +941,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -797,9 +969,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateLoadBalancerRequest $request
+     * **CreateLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of an ALB instance.
+     *   * *   If an ALB instance is in the **Provisioning** state, it indicates that the ALB instance is being created.
+     *   * *   If an ALB instance is in the **Active** state, it indicates that the ALB instance is created.
+     *   *
+     * @param CreateLoadBalancerRequest $request CreateLoadBalancerRequest
      *
-     * @return CreateLoadBalancerResponse
+     * @return CreateLoadBalancerResponse CreateLoadBalancerResponse
      */
     public function createLoadBalancer($request)
     {
@@ -809,10 +985,20 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * Take note of the following limits:
+     *   * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
+     *   * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
+     *   * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule.
+     *   *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
+     *   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
+     *   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+     *   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+     *   *
+     * @param CreateRuleRequest $request CreateRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRuleWithOptions($request, $runtime)
     {
@@ -820,6 +1006,9 @@ class Alb extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->clientToken)) {
             $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
         }
         if (!Utils::isUnset($request->dryRun)) {
             $query['DryRun'] = $request->dryRun;
@@ -838,6 +1027,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ruleName)) {
             $query['RuleName'] = $request->ruleName;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -858,9 +1050,19 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateRuleRequest $request
+     * Take note of the following limits:
+     *   * *   When you configure the **Redirect** action, you can use the default value only for the **HttpCode** parameter. Do not use the default values for the other parameters.
+     *   * *   If you specify the **Rewrite** action together with other actions in a forwarding rule, make sure that the **ForwardGroup** action is specified.
+     *   * *   **CreateRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule.
+     *   *     *   If a forwarding rule is in the **Provisioning** state, the forwarding rule is being created.
+     *   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is created.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. The limits on conditions and actions are:
+     *   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+     *   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+     *   *
+     * @param CreateRuleRequest $request CreateRuleRequest
      *
-     * @return CreateRuleResponse
+     * @return CreateRuleResponse CreateRuleResponse
      */
     public function createRule($request)
     {
@@ -870,10 +1072,20 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateRulesRequest $request
-     * @param RuntimeOptions     $runtime
+     * When you call this operation, take note of the following limits:
+     *   * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
+     *   * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
+     *   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
+     *   *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+     *   *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+     *   *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
+     *   *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
+     *   *
+     * @param CreateRulesRequest $request CreateRulesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateRulesResponse
+     * @return CreateRulesResponse CreateRulesResponse
      */
     public function createRulesWithOptions($request, $runtime)
     {
@@ -910,9 +1122,19 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateRulesRequest $request
+     * When you call this operation, take note of the following limits:
+     *   * *   When you configure the **Redirect** action, you can use the default value for the **HttpCode** parameter but you cannot use the default values for all of the other parameters.
+     *   * *   If you specify the **Rewrite** action and other actions in a forwarding rule, make sure that one of the actions is **ForwardGroup**.
+     *   * *   **CreateRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
+     *   *     *   If forwarding rules are in the **Provisioning** state, the forwarding rules are being created.
+     *   *     *   If forwarding rules are in the **Available** state, the forwarding rules have been created.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+     *   *     *   Limits on conditions: You can specify at most 5 conditions if you use a basic Application Load Balancer (ALB) instance, at most 10 conditions if you use a standard ALB instance, and at most 10 conditions if you use a WAF-enabled ALB instance.
+     *   *     *   Limits on actions: You can specify at most 3 actions if you use a basic ALB instance, at most 5 actions if you use a standard ALB instance, and at most 10 actions if you use a WAF-enabled ALB instance.
+     *   *
+     * @param CreateRulesRequest $request CreateRulesRequest
      *
-     * @return CreateRulesResponse
+     * @return CreateRulesResponse CreateRulesResponse
      */
     public function createRules($request)
     {
@@ -949,6 +1171,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->TLSVersions)) {
             $query['TLSVersions'] = $request->TLSVersions;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -980,10 +1205,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateServerGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of the task.
+     *   * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
+     *   * *   If a server group is in the **Available** state, it indicates that the server group is created.
+     *   *
+     * @param CreateServerGroupRequest $request CreateServerGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return CreateServerGroupResponse
+     * @return CreateServerGroupResponse CreateServerGroupResponse
      */
     public function createServerGroupWithOptions($request, $runtime)
     {
@@ -1019,6 +1248,12 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->stickySessionConfig)) {
             $query['StickySessionConfig'] = $request->stickySessionConfig;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
+        if (!Utils::isUnset($request->uchConfig)) {
+            $query['UchConfig'] = $request->uchConfig;
+        }
         if (!Utils::isUnset($request->vpcId)) {
             $query['VpcId'] = $request->vpcId;
         }
@@ -1041,9 +1276,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param CreateServerGroupRequest $request
+     * **CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of the task.
+     *   * *   If a server group is in the **Creating** state, it indicates that the server group is being created.
+     *   * *   If a server group is in the **Available** state, it indicates that the server group is created.
+     *   *
+     * @param CreateServerGroupRequest $request CreateServerGroupRequest
      *
-     * @return CreateServerGroupResponse
+     * @return CreateServerGroupResponse CreateServerGroupResponse
      */
     public function createServerGroup($request)
     {
@@ -1053,10 +1292,71 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAclRequest $request
-     * @param RuntimeOptions   $runtime
+     * **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
+     *   * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
+     *   * *   If an AScript rule cannot be found, the AScript rule is deleted.
+     *   *
+     * @param DeleteAScriptsRequest $request DeleteAScriptsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteAclResponse
+     * @return DeleteAScriptsResponse DeleteAScriptsResponse
+     */
+    public function deleteAScriptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AScriptIds)) {
+            $query['AScriptIds'] = $request->AScriptIds;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAScripts',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * **DeleteAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task:
+     *   * *   If an AScript rule is in the **Deleting** state, the AScript rule is being deleted.
+     *   * *   If an AScript rule cannot be found, the AScript rule is deleted.
+     *   *
+     * @param DeleteAScriptsRequest $request DeleteAScriptsRequest
+     *
+     * @return DeleteAScriptsResponse DeleteAScriptsResponse
+     */
+    public function deleteAScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteAScriptsWithOptions($request, $runtime);
+    }
+
+    /**
+     * **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](~~213617~~) operation to query the status of the task.
+     *   * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
+     *   * *   If the ACL cannot be found, the ACL is deleted.
+     *   *
+     * @param DeleteAclRequest $request DeleteAclRequest
+     * @param RuntimeOptions   $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DeleteAclResponse DeleteAclResponse
      */
     public function deleteAclWithOptions($request, $runtime)
     {
@@ -1090,9 +1390,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteAclRequest $request
+     * **DeleteAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAcls](~~213617~~) operation to query the status of the task.
+     *   * *   If the ACL is in the **Deleting** state, the ACL is being deleted.
+     *   * *   If the ACL cannot be found, the ACL is deleted.
+     *   *
+     * @param DeleteAclRequest $request DeleteAclRequest
      *
-     * @return DeleteAclResponse
+     * @return DeleteAclResponse DeleteAclResponse
      */
     public function deleteAcl($request)
     {
@@ -1151,10 +1455,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteListenerRequest $request
-     * @param RuntimeOptions        $runtime
+     * **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
+     *   * *   If the listener is in the **Deleting** state, the listener is being deleted.
+     *   * *   If the listener cannot be found, the listener is deleted.
+     *   *
+     * @param DeleteListenerRequest $request DeleteListenerRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteListenerResponse
+     * @return DeleteListenerResponse DeleteListenerResponse
      */
     public function deleteListenerWithOptions($request, $runtime)
     {
@@ -1188,9 +1496,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteListenerRequest $request
+     * **DeleteListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
+     *   * *   If the listener is in the **Deleting** state, the listener is being deleted.
+     *   * *   If the listener cannot be found, the listener is deleted.
+     *   *
+     * @param DeleteListenerRequest $request DeleteListenerRequest
      *
-     * @return DeleteListenerResponse
+     * @return DeleteListenerResponse DeleteListenerResponse
      */
     public function deleteListener($request)
     {
@@ -1200,10 +1512,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
-     * @param RuntimeOptions            $runtime
+     * **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
+     *   * *   If an ALB instance cannot be found, the ALB instance is deleted.
+     *   *
+     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
+     * @param RuntimeOptions            $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteLoadBalancerResponse
+     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancerWithOptions($request, $runtime)
     {
@@ -1237,9 +1553,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteLoadBalancerRequest $request
+     * **DeleteLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If an ALB instance is in the **Deleting** state, the ALB instance is being deleted.
+     *   * *   If an ALB instance cannot be found, the ALB instance is deleted.
+     *   *
+     * @param DeleteLoadBalancerRequest $request DeleteLoadBalancerRequest
      *
-     * @return DeleteLoadBalancerResponse
+     * @return DeleteLoadBalancerResponse DeleteLoadBalancerResponse
      */
     public function deleteLoadBalancer($request)
     {
@@ -1249,10 +1569,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
-     * @param RuntimeOptions    $runtime
+     * **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
+     *   * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
+     *   * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
+     *   *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
+     * @param RuntimeOptions    $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRuleWithOptions($request, $runtime)
     {
@@ -1286,9 +1610,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteRuleRequest $request
+     * **DeleteRule** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
+     *   * *   If the forwarding rule is in the **Deleting** state, the forwarding rule is being deleted.
+     *   * *   If the forwarding rule cannot be found, the forwarding rule is deleted.
+     *   *
+     * @param DeleteRuleRequest $request DeleteRuleRequest
      *
-     * @return DeleteRuleResponse
+     * @return DeleteRuleResponse DeleteRuleResponse
      */
     public function deleteRule($request)
     {
@@ -1298,10 +1626,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteRulesRequest $request
-     * @param RuntimeOptions     $runtime
+     * **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
+     *   * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
+     *   * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
+     *   *
+     * @param DeleteRulesRequest $request DeleteRulesRequest
+     * @param RuntimeOptions     $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteRulesResponse
+     * @return DeleteRulesResponse DeleteRulesResponse
      */
     public function deleteRulesWithOptions($request, $runtime)
     {
@@ -1335,9 +1667,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteRulesRequest $request
+     * **DeleteRules** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of forwarding rules.
+     *   * *   If the forwarding rules are in the **Deleting** state, the forwarding rules are being deleted.
+     *   * *   If the forwarding rules cannot be found, the forwarding rules are deleted.
+     *   *
+     * @param DeleteRulesRequest $request DeleteRulesRequest
      *
-     * @return DeleteRulesResponse
+     * @return DeleteRulesResponse DeleteRulesResponse
      */
     public function deleteRules($request)
     {
@@ -1396,10 +1732,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerGroupRequest $request
-     * @param RuntimeOptions           $runtime
+     * **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of the task.
+     *   * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
+     *   * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
+     *   *
+     * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
+     * @param RuntimeOptions           $runtime runtime options for this request RuntimeOptions
      *
-     * @return DeleteServerGroupResponse
+     * @return DeleteServerGroupResponse DeleteServerGroupResponse
      */
     public function deleteServerGroupWithOptions($request, $runtime)
     {
@@ -1433,9 +1773,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DeleteServerGroupRequest $request
+     * **DeleteServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of the task.
+     *   * *   If a server group is in the **Deleting** state, it indicates that the server group is being deleted.
+     *   * *   If a specified server group cannot be found, it indicates that the server group has been deleted.
+     *   *
+     * @param DeleteServerGroupRequest $request DeleteServerGroupRequest
      *
-     * @return DeleteServerGroupResponse
+     * @return DeleteServerGroupResponse DeleteServerGroupResponse
      */
     public function deleteServerGroup($request)
     {
@@ -1488,13 +1832,21 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param RuntimeOptions $runtime
+     * @param DescribeZonesRequest $request
+     * @param RuntimeOptions       $runtime
      *
      * @return DescribeZonesResponse
      */
-    public function describeZonesWithOptions($runtime)
+    public function describeZonesWithOptions($request, $runtime)
     {
-        $req    = new OpenApiRequest([]);
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
         $params = new Params([
             'action'      => 'DescribeZones',
             'version'     => '2020-06-16',
@@ -1511,20 +1863,26 @@ class Alb extends OpenApiClient
     }
 
     /**
+     * @param DescribeZonesRequest $request
+     *
      * @return DescribeZonesResponse
      */
-    public function describeZones()
+    public function describeZones($request)
     {
         $runtime = new RuntimeOptions([]);
 
-        return $this->describeZonesWithOptions($runtime);
+        return $this->describeZonesWithOptions($request, $runtime);
     }
 
     /**
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214359~~) operation to query the status of the task.
+     *   * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
+     *   * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
+     *   *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancerWithOptions($request, $runtime)
     {
@@ -1564,9 +1922,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request
+     * **DetachCommonBandwidthPackageFromLoadBalancer** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214359~~) operation to query the status of the task.
+     *   * *   If an ALB instance is in the **Configuring** state, the EIP bandwidth plan is being disassociated from the ALB instance.
+     *   * *   If an ALB instance is in the **Active** state, the EIP bandwidth plan is disassociated from the ALB instance.
+     *   *
+     * @param DetachCommonBandwidthPackageFromLoadBalancerRequest $request DetachCommonBandwidthPackageFromLoadBalancerRequest
      *
-     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse
+     * @return DetachCommonBandwidthPackageFromLoadBalancerResponse DetachCommonBandwidthPackageFromLoadBalancerResponse
      */
     public function detachCommonBandwidthPackageFromLoadBalancer($request)
     {
@@ -1674,10 +2036,85 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DissociateAclsFromListenerRequest $request
-     * @param RuntimeOptions                    $runtime
+     * ### Prerequisites
+     *   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+     *   * > If you set **AddressIpVersion** to **DualStack**:
+     *   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+     *   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+     *   * ### Description
+     *   * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
+     *   * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
+     *   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+     *   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+     *   *
+     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
+     * @param RuntimeOptions                         $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateAclsFromListenerResponse
+     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
+     */
+    public function disableLoadBalancerIpv6InternetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DisableLoadBalancerIpv6Internet',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DisableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ### Prerequisites
+     *   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+     *   * > If you set **AddressIpVersion** to **DualStack**:
+     *   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+     *   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+     *   * ### Description
+     *   * *   After the DisableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Intranet** and the type of the IPv6 address of the ALB instance is changed from public to private. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, private IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
+     *   * *   **DisableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
+     *   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+     *   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+     *   *
+     * @param DisableLoadBalancerIpv6InternetRequest $request DisableLoadBalancerIpv6InternetRequest
+     *
+     * @return DisableLoadBalancerIpv6InternetResponse DisableLoadBalancerIpv6InternetResponse
+     */
+    public function disableLoadBalancerIpv6Internet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->disableLoadBalancerIpv6InternetWithOptions($request, $runtime);
+    }
+
+    /**
+     * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
+     *   * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
+     *   *
+     * @param DissociateAclsFromListenerRequest $request DissociateAclsFromListenerRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
+     *
+     * @return DissociateAclsFromListenerResponse DissociateAclsFromListenerResponse
      */
     public function dissociateAclsFromListenerWithOptions($request, $runtime)
     {
@@ -1714,9 +2151,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DissociateAclsFromListenerRequest $request
+     * **DeleteDhcpOptionsSet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclRelations](~~213618~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Dissociating** state, the ACL is being disassociated from the listener.
+     *   * *   If an ACL is in the **Dissociated** state, the ACL is disassociated from the listener.
+     *   *
+     * @param DissociateAclsFromListenerRequest $request DissociateAclsFromListenerRequest
      *
-     * @return DissociateAclsFromListenerResponse
+     * @return DissociateAclsFromListenerResponse DissociateAclsFromListenerResponse
      */
     public function dissociateAclsFromListener($request)
     {
@@ -1726,10 +2167,12 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request
-     * @param RuntimeOptions                                      $runtime
+     * **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~214354~~) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *   *
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request DissociateAdditionalCertificatesFromListenerRequest
+     * @param RuntimeOptions                                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return DissociateAdditionalCertificatesFromListenerResponse
+     * @return DissociateAdditionalCertificatesFromListenerResponse DissociateAdditionalCertificatesFromListenerResponse
      */
     public function dissociateAdditionalCertificatesFromListenerWithOptions($request, $runtime)
     {
@@ -1766,9 +2209,11 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param DissociateAdditionalCertificatesFromListenerRequest $request
+     * **DissociateAdditionalCertificatesFromListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](~~214354~~) operation to query the status of the task. - If an additional certificate is in the **Dissociating** state, the additional certificate is being disassociated. - If an additional certificate is in the **Dissociated** state, the additional certificate is disassociated.
+     *   *
+     * @param DissociateAdditionalCertificatesFromListenerRequest $request DissociateAdditionalCertificatesFromListenerRequest
      *
-     * @return DissociateAdditionalCertificatesFromListenerResponse
+     * @return DissociateAdditionalCertificatesFromListenerResponse DissociateAdditionalCertificatesFromListenerResponse
      */
     public function dissociateAdditionalCertificatesFromListener($request)
     {
@@ -1879,6 +2324,77 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->enableLoadBalancerAccessLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * ### Prerequisites
+     *   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+     *   * > If you set **AddressIpVersion** to **DualStack**:
+     *   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+     *   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+     *   * ### Description
+     *   * *   After the EnableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Internet** and the type of the IPv6 address of the ALB instance is changed from private to public. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, public IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
+     *   * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
+     *   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+     *   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+     *   *
+     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
+     * @param RuntimeOptions                        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
+     */
+    public function enableLoadBalancerIpv6InternetWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        if (!Utils::isUnset($request->loadBalancerId)) {
+            $query['LoadBalancerId'] = $request->loadBalancerId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'EnableLoadBalancerIpv6Internet',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return EnableLoadBalancerIpv6InternetResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * ### Prerequisites
+     *   * An ALB instance is created and IPv4/IPv6 dual stack is enabled for the instance. You can call the [CreateLoadBalancer](~~214358~~) operation and set **AddressIpVersion** to **DualStack** to create a dual-stack ALB instance.
+     *   * > If you set **AddressIpVersion** to **DualStack**:
+     *   * *   If you set **AddressType** to **Internet**, the ALB instance uses a public IPv4 IP address and a private IPv6 address.
+     *   * *   If you set **AddressType** to **Intranet**, the ALB instance uses a private IPv4 IP address and a private IPv6 address.
+     *   * ### Description
+     *   * *   After the EnableLoadBalancerIpv6Internet operation is called, the value of **Ipv6AddressType** is changed to **Internet** and the type of the IPv6 address of the ALB instance is changed from private to public. If you upgrade the instance or the instance scales elastic network interfaces (ENIs) along with workloads, public IPv6 addresses are automatically enabled for the instance and the new ENIs. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the value of **Ipv6AddressType**.
+     *   * *   **EnableLoadBalancerIpv6Internet** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
+     *   *     *   If the ALB instance is in the **Configuring** state, the network type of the IPv6 address that is used by the ALB instance is being changed.
+     *   *     *   If the ALB instance is in the **Active** state, the network type of the IPv6 address that is used by the ALB instance is changed.
+     *   *
+     * @param EnableLoadBalancerIpv6InternetRequest $request EnableLoadBalancerIpv6InternetRequest
+     *
+     * @return EnableLoadBalancerIpv6InternetResponse EnableLoadBalancerIpv6InternetResponse
+     */
+    public function enableLoadBalancerIpv6Internet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->enableLoadBalancerIpv6InternetWithOptions($request, $runtime);
     }
 
     /**
@@ -2063,6 +2579,61 @@ class Alb extends OpenApiClient
     }
 
     /**
+     * @param ListAScriptsRequest $request
+     * @param RuntimeOptions      $runtime
+     *
+     * @return ListAScriptsResponse
+     */
+    public function listAScriptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AScriptIds)) {
+            $query['AScriptIds'] = $request->AScriptIds;
+        }
+        if (!Utils::isUnset($request->AScriptNames)) {
+            $query['AScriptNames'] = $request->AScriptNames;
+        }
+        if (!Utils::isUnset($request->listenerIds)) {
+            $query['ListenerIds'] = $request->listenerIds;
+        }
+        if (!Utils::isUnset($request->maxResults)) {
+            $query['MaxResults'] = $request->maxResults;
+        }
+        if (!Utils::isUnset($request->nextToken)) {
+            $query['NextToken'] = $request->nextToken;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAScripts',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAScriptsRequest $request
+     *
+     * @return ListAScriptsResponse
+     */
+    public function listAScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listAScriptsWithOptions($request, $runtime);
+    }
+
+    /**
      * @param ListAclEntriesRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -2178,6 +2749,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2295,6 +2869,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
         }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -2401,6 +2978,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->nextToken)) {
             $query['NextToken'] = $request->nextToken;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2518,6 +3098,9 @@ class Alb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->direction)) {
+            $query['Direction'] = $request->direction;
+        }
         if (!Utils::isUnset($request->listenerIds)) {
             $query['ListenerIds'] = $request->listenerIds;
         }
@@ -2532,6 +3115,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->ruleIds)) {
             $query['RuleIds'] = $request->ruleIds;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -2587,6 +3173,9 @@ class Alb extends OpenApiClient
         }
         if (!Utils::isUnset($request->securityPolicyNames)) {
             $query['SecurityPolicyNames'] = $request->securityPolicyNames;
+        }
+        if (!Utils::isUnset($request->tag)) {
+            $query['Tag'] = $request->tag;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
@@ -3025,10 +3614,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param RemoveEntriesFromAclRequest $request
-     * @param RuntimeOptions              $runtime
+     * **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Removing** state, the entries are being removed.
+     *   * *   If an ACL cannot be found, the entries are removed.
+     *   *
+     * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveEntriesFromAclResponse
+     * @return RemoveEntriesFromAclResponse RemoveEntriesFromAclResponse
      */
     public function removeEntriesFromAclWithOptions($request, $runtime)
     {
@@ -3065,9 +3658,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param RemoveEntriesFromAclRequest $request
+     * **RemoveEntriesFromAcl** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAclEntries](~~213616~~) operation to query the status of the task.
+     *   * *   If an ACL is in the **Removing** state, the entries are being removed.
+     *   * *   If an ACL cannot be found, the entries are removed.
+     *   *
+     * @param RemoveEntriesFromAclRequest $request RemoveEntriesFromAclRequest
      *
-     * @return RemoveEntriesFromAclResponse
+     * @return RemoveEntriesFromAclResponse RemoveEntriesFromAclResponse
      */
     public function removeEntriesFromAcl($request)
     {
@@ -3077,10 +3674,18 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param RemoveServersFromServerGroupRequest $request
-     * @param RuntimeOptions                      $runtime
+     * **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
+     *   *     *   If a backend server cannot be found, the server is no longer in the server group.
+     *   *
+     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
+     * @param RuntimeOptions                      $runtime runtime options for this request RuntimeOptions
      *
-     * @return RemoveServersFromServerGroupResponse
+     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroupWithOptions($request, $runtime)
     {
@@ -3117,9 +3722,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param RemoveServersFromServerGroupRequest $request
+     * **RemoveServersFromServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   *     *   If a backend server is in the **Removing** state, the server is being removed from the server group.
+     *   *     *   If a backend server cannot be found, the server is no longer in the server group.
+     *   *
+     * @param RemoveServersFromServerGroupRequest $request RemoveServersFromServerGroupRequest
      *
-     * @return RemoveServersFromServerGroupResponse
+     * @return RemoveServersFromServerGroupResponse RemoveServersFromServerGroupResponse
      */
     public function removeServersFromServerGroup($request)
     {
@@ -3129,10 +3742,18 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param ReplaceServersInServerGroupRequest $request
-     * @param RuntimeOptions                     $runtime
+     * **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
+     *   *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
+     *   *
+     * @param ReplaceServersInServerGroupRequest $request ReplaceServersInServerGroupRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return ReplaceServersInServerGroupResponse
+     * @return ReplaceServersInServerGroupResponse ReplaceServersInServerGroupResponse
      */
     public function replaceServersInServerGroupWithOptions($request, $runtime)
     {
@@ -3172,9 +3793,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param ReplaceServersInServerGroupRequest $request
+     * **ReplaceServersInServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   *     *   If a backend server is in the **Replacing** state, it indicates that the server is being removed from the server group and a new server is added to the server group.
+     *   *     *   If a backend server is in the \\*\\*Available\\*\\* state, it indicates that the server is running.
+     *   *
+     * @param ReplaceServersInServerGroupRequest $request ReplaceServersInServerGroupRequest
      *
-     * @return ReplaceServersInServerGroupResponse
+     * @return ReplaceServersInServerGroupResponse ReplaceServersInServerGroupResponse
      */
     public function replaceServersInServerGroup($request)
     {
@@ -3184,10 +3813,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param StartListenerRequest $request
-     * @param RuntimeOptions       $runtime
+     * **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
+     *   * *   If a listener is in the **Configuring** state, the listener is being enabled.
+     *   * *   If a listener is in the **Running** state, the listener is enabled.
+     *   *
+     * @param StartListenerRequest $request StartListenerRequest
+     * @param RuntimeOptions       $runtime runtime options for this request RuntimeOptions
      *
-     * @return StartListenerResponse
+     * @return StartListenerResponse StartListenerResponse
      */
     public function startListenerWithOptions($request, $runtime)
     {
@@ -3221,9 +3854,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param StartListenerRequest $request
+     * **StartListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task.
+     *   * *   If a listener is in the **Configuring** state, the listener is being enabled.
+     *   * *   If a listener is in the **Running** state, the listener is enabled.
+     *   *
+     * @param StartListenerRequest $request StartListenerRequest
      *
-     * @return StartListenerResponse
+     * @return StartListenerResponse StartListenerResponse
      */
     public function startListener($request)
     {
@@ -3233,10 +3870,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param StopListenerRequest $request
-     * @param RuntimeOptions      $runtime
+     * **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
+     *   * *   If a listener is in the **Configuring** state, the listener is being disabled.
+     *   * *   If a listener is in the **Stopped** state, the listener is disabled.
+     *   *
+     * @param StopListenerRequest $request StopListenerRequest
+     * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
      *
-     * @return StopListenerResponse
+     * @return StopListenerResponse StopListenerResponse
      */
     public function stopListenerWithOptions($request, $runtime)
     {
@@ -3270,9 +3911,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param StopListenerRequest $request
+     * **StopListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task:
+     *   * *   If a listener is in the **Configuring** state, the listener is being disabled.
+     *   * *   If a listener is in the **Stopped** state, the listener is disabled.
+     *   *
+     * @param StopListenerRequest $request StopListenerRequest
      *
-     * @return StopListenerResponse
+     * @return StopListenerResponse StopListenerResponse
      */
     public function stopListener($request)
     {
@@ -3340,6 +3985,9 @@ class Alb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->all)) {
+            $query['All'] = $request->all;
+        }
         if (!Utils::isUnset($request->resourceId)) {
             $query['ResourceId'] = $request->resourceId;
         }
@@ -3380,6 +4028,65 @@ class Alb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->unTagResourcesWithOptions($request, $runtime);
+    }
+
+    /**
+     * *   **UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task.
+     *   *     *   If an AScript rule is in the **Configuring** state, the AScript rule is being updated.
+     *   *     *   If an AScript rule is in the **Available** state, the AScript rule is updated.
+     *   * *   In the following table, the maximum value of **N** is **4**.
+     *   *
+     * @param UpdateAScriptsRequest $request UpdateAScriptsRequest
+     * @param RuntimeOptions        $runtime runtime options for this request RuntimeOptions
+     *
+     * @return UpdateAScriptsResponse UpdateAScriptsResponse
+     */
+    public function updateAScriptsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->AScripts)) {
+            $query['AScripts'] = $request->AScripts;
+        }
+        if (!Utils::isUnset($request->clientToken)) {
+            $query['ClientToken'] = $request->clientToken;
+        }
+        if (!Utils::isUnset($request->dryRun)) {
+            $query['DryRun'] = $request->dryRun;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAScripts',
+            'version'     => '2020-06-16',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateAScriptsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * *   **UpdateAScripts** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListAScripts](~~472574~~) operation to query the status of the task.
+     *   *     *   If an AScript rule is in the **Configuring** state, the AScript rule is being updated.
+     *   *     *   If an AScript rule is in the **Available** state, the AScript rule is updated.
+     *   * *   In the following table, the maximum value of **N** is **4**.
+     *   *
+     * @param UpdateAScriptsRequest $request UpdateAScriptsRequest
+     *
+     * @return UpdateAScriptsResponse UpdateAScriptsResponse
+     */
+    public function updateAScripts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateAScriptsWithOptions($request, $runtime);
     }
 
     /**
@@ -3520,10 +4227,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerAttributeRequest $request
-     * @param RuntimeOptions                 $runtime
+     * **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task.
+     *   * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
+     *   * *   If a listener is in the **Running** state, the configuration of the listener is modified.
+     *   *
+     * @param UpdateListenerAttributeRequest $request UpdateListenerAttributeRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateListenerAttributeResponse
+     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
      */
     public function updateListenerAttributeWithOptions($request, $runtime)
     {
@@ -3593,9 +4304,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerAttributeRequest $request
+     * **UpdateListenerAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetListenerAttribute](~~2254865~~) operation to query the status of the task.
+     *   * *   If a listener is in the **Configuring** state, the configuration of the listener is being modified.
+     *   * *   If a listener is in the **Running** state, the configuration of the listener is modified.
+     *   *
+     * @param UpdateListenerAttributeRequest $request UpdateListenerAttributeRequest
      *
-     * @return UpdateListenerAttributeResponse
+     * @return UpdateListenerAttributeResponse UpdateListenerAttributeResponse
      */
     public function updateListenerAttribute($request)
     {
@@ -3605,10 +4320,15 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerLogConfigRequest $request
-     * @param RuntimeOptions                 $runtime
+     * **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task:
+     *   * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
+     *   * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
+     *   * > You can update the log configuration of a listener only after you enable the access log feature.
+     *   *
+     * @param UpdateListenerLogConfigRequest $request UpdateListenerLogConfigRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateListenerLogConfigResponse
+     * @return UpdateListenerLogConfigResponse UpdateListenerLogConfigResponse
      */
     public function updateListenerLogConfigWithOptions($request, $runtime)
     {
@@ -3648,9 +4368,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateListenerLogConfigRequest $request
+     * **UpdateListenerLogConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetListenerAttribute](~~2254865~~) to query the status of the task:
+     *   * *   If a listener is in the **Configuring** state, the log configuration of the listener is being modified.
+     *   * *   If a listener is in the **Running** state, the log configuration of the listener is modified.
+     *   * > You can update the log configuration of a listener only after you enable the access log feature.
+     *   *
+     * @param UpdateListenerLogConfigRequest $request UpdateListenerLogConfigRequest
      *
-     * @return UpdateListenerLogConfigResponse
+     * @return UpdateListenerLogConfigResponse UpdateListenerLogConfigResponse
      */
     public function updateListenerLogConfig($request)
     {
@@ -3660,10 +4385,18 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
-     * @param RuntimeOptions                             $runtime
+     * ## Prerequisites
+     *   * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](~~214358~~).
+     *   * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](~~120192~~).
+     *   * ## Usage notes
+     *   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
+     *   * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
+     *   * *   If an ALB instance is in the **Active** state, the network type has been changed.
+     *   *
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
+     * @param RuntimeOptions                             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerAddressTypeConfigResponse
+     * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
      */
     public function updateLoadBalancerAddressTypeConfigWithOptions($request, $runtime)
     {
@@ -3703,9 +4436,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerAddressTypeConfigRequest $request
+     * ## Prerequisites
+     *   * *   An ALB instance is created. For more information about how to create an ALB instance, see [CreateLoadBalancer](~~214358~~).
+     *   * *   If you want to change the network type from internal-facing to Internet-facing, you must first create an elastic IP address (EIP). For more information, see [AllocateEipAddress](~~120192~~).
+     *   * ## Usage notes
+     *   * **UpdateLoadBalancerAddressTypeConfig** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetLoadBalancerAttribute](~~214362~~) operation to query the status of the task.
+     *   * *   If an ALB instance is in the **Configuring** state, the network type is being changed.
+     *   * *   If an ALB instance is in the **Active** state, the network type has been changed.
+     *   *
+     * @param UpdateLoadBalancerAddressTypeConfigRequest $request UpdateLoadBalancerAddressTypeConfigRequest
      *
-     * @return UpdateLoadBalancerAddressTypeConfigResponse
+     * @return UpdateLoadBalancerAddressTypeConfigResponse UpdateLoadBalancerAddressTypeConfigResponse
      */
     public function updateLoadBalancerAddressTypeConfig($request)
     {
@@ -3715,10 +4456,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerAttributeRequest $request
-     * @param RuntimeOptions                     $runtime
+     * **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
+     *   * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
+     *   *
+     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
+     * @param RuntimeOptions                     $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerAttributeResponse
+     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttributeWithOptions($request, $runtime)
     {
@@ -3758,9 +4503,13 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerAttributeRequest $request
+     * **UpdateLoadBalancerAttribute** is an asynchronous operation. After you send a request, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If the ALB instance is in the **Configuring** state, the ALB instance is being modified.
+     *   * *   If the ALB instance is in the **Active** state, the ALB instance is modified.
+     *   *
+     * @param UpdateLoadBalancerAttributeRequest $request UpdateLoadBalancerAttributeRequest
      *
-     * @return UpdateLoadBalancerAttributeResponse
+     * @return UpdateLoadBalancerAttributeResponse UpdateLoadBalancerAttributeResponse
      */
     public function updateLoadBalancerAttribute($request)
     {
@@ -3770,10 +4519,16 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerEditionRequest $request
-     * @param RuntimeOptions                   $runtime
+     * ##
+     *   * *   You can upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance but you cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](~~214654~~).
+     *   * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
+     *   *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance has been modified.
+     *   *
+     * @param UpdateLoadBalancerEditionRequest $request UpdateLoadBalancerEditionRequest
+     * @param RuntimeOptions                   $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerEditionResponse
+     * @return UpdateLoadBalancerEditionResponse UpdateLoadBalancerEditionResponse
      */
     public function updateLoadBalancerEditionWithOptions($request, $runtime)
     {
@@ -3810,9 +4565,15 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerEditionRequest $request
+     * ##
+     *   * *   You can upgrade a basic ALB instance to a standard ALB instance or a WAF-enabled ALB instance but you cannot downgrade a standard ALB instance or a WAF-enabled ALB instance to a basic ALB instance. For more information, see [Upgrade an ALB instance](~~214654~~).
+     *   * *   **UpdateLoadBalancerEdition** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   *     *   If the ALB instance is in the **Configuring** state, the edition of the ALB instance is being modified.
+     *   *     *   If the ALB instance is in the **Active** state, the edition of the ALB instance has been modified.
+     *   *
+     * @param UpdateLoadBalancerEditionRequest $request UpdateLoadBalancerEditionRequest
      *
-     * @return UpdateLoadBalancerEditionResponse
+     * @return UpdateLoadBalancerEditionResponse UpdateLoadBalancerEditionResponse
      */
     public function updateLoadBalancerEdition($request)
     {
@@ -3822,10 +4583,15 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerZonesRequest $request
-     * @param RuntimeOptions                 $runtime
+     * **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
+     *   * *   If an ALB instance is in the **Active** state, the zones are modified.
+     *   * > You may be charged after you call UpdateLoadBalancerZones.
+     *   *
+     * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
+     * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateLoadBalancerZonesResponse
+     * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
      */
     public function updateLoadBalancerZonesWithOptions($request, $runtime)
     {
@@ -3862,9 +4628,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateLoadBalancerZonesRequest $request
+     * **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [GetLoadBalancerAttribute](~~214362~~) to query the status of the task.
+     *   * *   If an ALB instance is in the **Configuring** state, the zones are being modified.
+     *   * *   If an ALB instance is in the **Active** state, the zones are modified.
+     *   * > You may be charged after you call UpdateLoadBalancerZones.
+     *   *
+     * @param UpdateLoadBalancerZonesRequest $request UpdateLoadBalancerZonesRequest
      *
-     * @return UpdateLoadBalancerZonesResponse
+     * @return UpdateLoadBalancerZonesResponse UpdateLoadBalancerZonesResponse
      */
     public function updateLoadBalancerZones($request)
     {
@@ -3874,10 +4645,18 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleAttributeRequest $request
-     * @param RuntimeOptions             $runtime
+     * ## Description
+     *   * *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
+     *   *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+     *   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+     *   *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
+     *   *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
+     *   *
+     * @param UpdateRuleAttributeRequest $request UpdateRuleAttributeRequest
+     * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRuleAttributeResponse
+     * @return UpdateRuleAttributeResponse UpdateRuleAttributeResponse
      */
     public function updateRuleAttributeWithOptions($request, $runtime)
     {
@@ -3923,9 +4702,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateRuleAttributeRequest $request
+     * ## Description
+     *   * *   **UpdateRuleAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of a forwarding rule:
+     *   *     *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+     *   *     *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the number of conditions and the number of actions in each forwarding rule:
+     *   *     *   Number of conditions: You can specify at most 5 for a basic Application Load Balancer (ALB) instance, at most 10 for a standard ALB instance, and at most 10 for a WAF-enabled ALB instance.
+     *   *     *   Number of actions: You can specify at most 3 for a basic ALB instance, at most 5 for a standard ALB instance, and at most 5 for a WAF-enabled ALB instance.
+     *   *
+     * @param UpdateRuleAttributeRequest $request UpdateRuleAttributeRequest
      *
-     * @return UpdateRuleAttributeResponse
+     * @return UpdateRuleAttributeResponse UpdateRuleAttributeResponse
      */
     public function updateRuleAttribute($request)
     {
@@ -3935,10 +4722,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateRulesAttributeRequest $request
-     * @param RuntimeOptions              $runtime
+     * **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of the task.
+     *   * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+     *   * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
+     *   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+     *   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+     *   *
+     * @param UpdateRulesAttributeRequest $request UpdateRulesAttributeRequest
+     * @param RuntimeOptions              $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateRulesAttributeResponse
+     * @return UpdateRulesAttributeResponse UpdateRulesAttributeResponse
      */
     public function updateRulesAttributeWithOptions($request, $runtime)
     {
@@ -3972,9 +4766,16 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateRulesAttributeRequest $request
+     * **UpdateRulesAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListRules](~~214379~~) operation to query the status of the task.
+     *   * *   If a forwarding rule is in the **Configuring** state, the forwarding rule is being updated.
+     *   * *   If a forwarding rule is in the **Available** state, the forwarding rule is updated.
+     *   * *   You can set **RuleConditions** and **RuleActions** to add conditions and actions to a forwarding rule. Take note of the following limits on the maximum number of conditions and the maximum number of actions in each forwarding rule:
+     *   *     *   Limits on conditions: 5 for a basic Application Load Balancer (ALB) instance, 10 for a standard ALB instance, and 10 for a WAF-enabled ALB instance.
+     *   *     *   Limits on actions: 3 for a basic ALB instance, 5 for a standard ALB instance, and 5 for a WAF-enabled ALB instance.
+     *   *
+     * @param UpdateRulesAttributeRequest $request UpdateRulesAttributeRequest
      *
-     * @return UpdateRulesAttributeResponse
+     * @return UpdateRulesAttributeResponse UpdateRulesAttributeResponse
      */
     public function updateRulesAttribute($request)
     {
@@ -3984,10 +4785,15 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecurityPolicyAttributeRequest $request
-     * @param RuntimeOptions                       $runtime
+     * ##
+     *   * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](~~213609~~) to query the status of the task.
+     *   * *   If a security policy is in the **Configuring** state, the security policy is being updated.
+     *   * *   If a security policy is in the **Available** state, the security policy is updated.
+     *   *
+     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
+     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateSecurityPolicyAttributeResponse
+     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttributeWithOptions($request, $runtime)
     {
@@ -4030,9 +4836,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateSecurityPolicyAttributeRequest $request
+     * ##
+     *   * **UpdateSecurityPolicyAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call [ListSecurityPolicies](~~213609~~) to query the status of the task.
+     *   * *   If a security policy is in the **Configuring** state, the security policy is being updated.
+     *   * *   If a security policy is in the **Available** state, the security policy is updated.
+     *   *
+     * @param UpdateSecurityPolicyAttributeRequest $request UpdateSecurityPolicyAttributeRequest
      *
-     * @return UpdateSecurityPolicyAttributeResponse
+     * @return UpdateSecurityPolicyAttributeResponse UpdateSecurityPolicyAttributeResponse
      */
     public function updateSecurityPolicyAttribute($request)
     {
@@ -4042,10 +4853,15 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateServerGroupAttributeRequest $request
-     * @param RuntimeOptions                    $runtime
+     * ## Description
+     *   * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group:
+     *   * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
+     *   * *   If a server group is in the **Available** state, the configuration of the server group is modified.
+     *   *
+     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
+     * @param RuntimeOptions                    $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServerGroupAttributeResponse
+     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttributeWithOptions($request, $runtime)
     {
@@ -4075,6 +4891,9 @@ class Alb extends OpenApiClient
         if (!Utils::isUnset($request->stickySessionConfig)) {
             $query['StickySessionConfig'] = $request->stickySessionConfig;
         }
+        if (!Utils::isUnset($request->uchConfig)) {
+            $query['UchConfig'] = $request->uchConfig;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -4094,9 +4913,14 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateServerGroupAttributeRequest $request
+     * ## Description
+     *   * **UpdateServerGroupAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group:
+     *   * *   If a server group is in the **Configuring** state, the configuration of the server group is being modified.
+     *   * *   If a server group is in the **Available** state, the configuration of the server group is modified.
+     *   *
+     * @param UpdateServerGroupAttributeRequest $request UpdateServerGroupAttributeRequest
      *
-     * @return UpdateServerGroupAttributeResponse
+     * @return UpdateServerGroupAttributeResponse UpdateServerGroupAttributeResponse
      */
     public function updateServerGroupAttribute($request)
     {
@@ -4106,10 +4930,18 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateServerGroupServersAttributeRequest $request
-     * @param RuntimeOptions                           $runtime
+     * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+     *   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+     *   *
+     * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
+     * @param RuntimeOptions                           $runtime runtime options for this request RuntimeOptions
      *
-     * @return UpdateServerGroupServersAttributeResponse
+     * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse
      */
     public function updateServerGroupServersAttributeWithOptions($request, $runtime)
     {
@@ -4146,9 +4978,17 @@ class Alb extends OpenApiClient
     }
 
     /**
-     * @param UpdateServerGroupServersAttributeRequest $request
+     * **UpdateServerGroupServersAttribute** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background.
+     *   * 1.  You can call the [ListServerGroups](~~213627~~) operation to query the status of a server group.
+     *   *     *   If a server group is in the **Configuring** state, it indicates that the server group is being modified.
+     *   *     *   If a server group is in the **Available** state, it indicates that the server group is running.
+     *   * 2.  You can call the [ListServerGroupServers](~~213628~~) operation to query the status of a backend server.
+     *   *     *   If a backend server is in the **Configuring** state, it indicates that the backend server is being modified.
+     *   *     *   If a backend server is in the **Available** state, it indicates that the backend server is running.
+     *   *
+     * @param UpdateServerGroupServersAttributeRequest $request UpdateServerGroupServersAttributeRequest
      *
-     * @return UpdateServerGroupServersAttributeResponse
+     * @return UpdateServerGroupServersAttributeResponse UpdateServerGroupServersAttributeResponse
      */
     public function updateServerGroupServersAttribute($request)
     {

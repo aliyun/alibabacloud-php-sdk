@@ -9,15 +9,18 @@ use AlibabaCloud\Tea\Model;
 class responseHeaderConfig extends Model
 {
     /**
-     * @description 返回HTTP标头键
+     * @description The name of the forwarding rule. You can name at most 20 forwarding rules.
+     *
+     *   The name must be 2 to 128 characters in length.
+     *   It can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *
+     * @example Port
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 返回HTTP标头值
-     *
      * @var string[]
      */
     public $values;

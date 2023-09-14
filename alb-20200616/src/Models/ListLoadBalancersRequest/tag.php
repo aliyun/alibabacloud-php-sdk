@@ -9,14 +9,20 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description 实例的标签键
+     * @description The tag key. You can specify at most 20 tag keys. The tag key cannot be an empty string.
+     *
+     * The tag key can be up to 64 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+     * @example KeyTest
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 实例的标签值
+     * @description The tag value. You can specify at most 20 tag values. The tag value can be an empty string.
+     *
+     * The tag value can be up to 128 characters in length and cannot contain `http://` or `https://`. It cannot start with `aliyun` or `acs:`.
+     * @example alueTest
      *
      * @var string
      */

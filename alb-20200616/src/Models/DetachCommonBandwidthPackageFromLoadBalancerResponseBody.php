@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DetachCommonBandwidthPackageFromLoadBalancerResponseBody extends Model
 {
     /**
-     * @description 异步任务ID
+     * @description The asynchronous task ID.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 2EF39708-974B-5E74-AFF5-3445263035A8
      *
      * @var string
      */

@@ -4,103 +4,187 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateHealthCheckTemplateRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class CreateHealthCheckTemplateRequest extends Model
 {
     /**
-     * @description 幂等参数
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description dryRun
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a **2xx** HTTP status code is returned and the operation is performed.
+     *
+     * @example true
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 状态码
+     * @description The interval at which health checks are performed.
+     *
+     * Valid values: **1 to 50**.
+     *
+     * Default value: **2**.
+     * @example 5
      *
      * @var string[]
      */
     public $healthCheckCodes;
 
     /**
-     * @description 端口号
+     * @description The port that is used for health checks.
+     *
+     * Valid values: **0 to 65535**.
+     *
+     * Default value: **0**. If you set the value to 0, the port of a backend server is used for health checks.
+     * @example 80
      *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
-     * @description 域名
+     * @description The domain name that you want to use for the health check.
+     *
+     * Default value: **$SERVER_IP**. The domain name must be 1 to 80 characters in length. The domain name must meet the following requirements:
+     *
+     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+     *   The domain name must contain at least one period (.) but cannot start or end with a period (.).
+     *   The rightmost domain label can contain only letters but cannot contain digits or hyphens (-).
+     *   Other fields cannot start or end with a hyphen (-).
+     *
+     * This parameter is required only if the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * @example $_ip
      *
      * @var string
      */
     public $healthCheckHost;
 
     /**
-     * @description 版本
+     * @description The HTTP version that is used for health checks.
+     *
+     * Valid values: **HTTP 1.0** and **HTTP 1.1**.
+     *
+     * Default value: **HTTP 1.1**.
+     *
+     * > This parameter is valid only if the `HealthCheckProtocol` parameter is set to **HTTP**.
+     * @example HTTP 1.0
      *
      * @var string
      */
     public $healthCheckHttpVersion;
 
     /**
-     * @description 时间间隔
+     * @description The interval at which health checks are performed.
+     *
+     * Valid values: **1 to 50**.
+     *
+     * Default value: **2**.
+     * @example 2
      *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
-     * @description 方法
+     * @description The method that you want to use for the health check. Valid values:
+     *
+     *   **HEAD**: By default, the ALB instance sends HEAD requests to a backend server to perform HTTP health checks.
+     *   **POST**: gRPC health checks automatically use the POST method.
+     *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+     *
+     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP** or **gRPC**.
+     * @example HEAD
      *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
-     * @description uri
+     * @description The URL that is used for health checks.
+     *
+     * It must be 1 to 80 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), percent signs (%), question marks (?), number signs (#), and ampersands (&). It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \" , +`. The URL must start with a forward slash (/).
+     *
+     * > This parameter is valid only if the `HealthCheckProtocol` parameter is set to **HTTP**.
+     * @example /test/index.html
      *
      * @var string
      */
     public $healthCheckPath;
 
     /**
-     * @description 协议
+     * @description The protocol that you want to use for health checks. Valid values:
+     *
+     *   **HTTP** (default): To perform HTTP health checks, ALB sends HEAD or GET requests to a backend server to check whether the backend server is healthy.
+     *   **TCP**: To perform TCP health checks, ALB sends SYN packets to a backend server to check whether the port of the backend server is available to receive requests.
+     *   **gRPC**: To perform gRPC health checks, ALB sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *
+     * @example HTTP
      *
      * @var string
      */
     public $healthCheckProtocol;
 
     /**
-     * @description 名称
+     * @description The name of the health check template.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example HealthCheckTemplate1
      *
      * @var string
      */
     public $healthCheckTemplateName;
 
     /**
-     * @description 超时时间
+     * @description The timeout period of a health check. If a backend server does not respond within the specified timeout period, the backend server fails the health check.
+     *
+     * Valid values: **1 to 300**.
+     *
+     * Default value: **5**.
+     *
+     * > If the value of the `HealthCheckTimeout` parameter is smaller than that of the `HealthCheckInterval` parameter, the timeout period specified by the `HealthCheckTimeout` parameter is ignored and the value of the `HealthCheckInterval` parameter is used as the timeout period.
+     * @example 5
      *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
-     * @description 健康阈值
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     *
+     * Valid values: **2 to 10**.
+     *
+     * Default value: **3**.
+     * @example 4
      *
      * @var int
      */
     public $healthyThreshold;
 
     /**
-     * @description 不健康阈值
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     *
+     * Valid values: **2 to 10**.
+     *
+     * Default value: **3**.
+     * @example 4
      *
      * @var int
      */
@@ -119,6 +203,7 @@ class CreateHealthCheckTemplateRequest extends Model
         'healthCheckTemplateName' => 'HealthCheckTemplateName',
         'healthCheckTimeout'      => 'HealthCheckTimeout',
         'healthyThreshold'        => 'HealthyThreshold',
+        'tag'                     => 'Tag',
         'unhealthyThreshold'      => 'UnhealthyThreshold',
     ];
 
@@ -167,6 +252,15 @@ class CreateHealthCheckTemplateRequest extends Model
         }
         if (null !== $this->healthyThreshold) {
             $res['HealthyThreshold'] = $this->healthyThreshold;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->unhealthyThreshold) {
             $res['UnhealthyThreshold'] = $this->unhealthyThreshold;
@@ -223,6 +317,15 @@ class CreateHealthCheckTemplateRequest extends Model
         }
         if (isset($map['HealthyThreshold'])) {
             $model->healthyThreshold = $map['HealthyThreshold'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['UnhealthyThreshold'])) {
             $model->unhealthyThreshold = $map['UnhealthyThreshold'];

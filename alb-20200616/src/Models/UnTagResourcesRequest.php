@@ -10,33 +10,57 @@ use AlibabaCloud\Tea\Model;
 class UnTagResourcesRequest extends Model
 {
     /**
-     * @description 资源实例Id
+     * @description Specifies whether to remove all tags from the specified resource. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
+     * @var bool
+     */
+    public $all;
+
+    /**
+     * @description The IDs of the resources from which you want to remove tags.
+     *
+     * @example acl-123
      *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @description The type of the resource. Valid values:
+     *
+     *   **acl**: an access control list (ACL)
+     *   **loadbalancer**: an Application Load Balancer (ALB) instance
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example loadbalancer
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 标签列表
+     * @description The tags that you want to remove.
+     *
+     * @example test
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description 标签键列表
+     * @description The keys of the tags that you want to remove.
      *
      * @var string[]
      */
     public $tagKey;
     protected $_name = [
+        'all'          => 'All',
         'resourceId'   => 'ResourceId',
         'resourceType' => 'ResourceType',
         'tag'          => 'Tag',
@@ -50,6 +74,9 @@ class UnTagResourcesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->all) {
+            $res['All'] = $this->all;
+        }
         if (null !== $this->resourceId) {
             $res['ResourceId'] = $this->resourceId;
         }
@@ -80,6 +107,9 @@ class UnTagResourcesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['All'])) {
+            $model->all = $map['All'];
+        }
         if (isset($map['ResourceId'])) {
             if (!empty($map['ResourceId'])) {
                 $model->resourceId = $map['ResourceId'];

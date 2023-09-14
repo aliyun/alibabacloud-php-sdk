@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description 描述信息
+     * @description The description of the ACL entry. The description must be 1 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_).
+     *
+     * @example test-entry
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description IP条目
+     * @description The CIDR block of the ACL entry.
+     *
+     * @example 10.0.1.1/24
      *
      * @var string
      */
     public $entry;
 
     /**
-     * @description 状态
+     * @description The status of the ACL entry. Valid values:
+     *
+     *   **Adding**
+     *   **Available**
+     *   **Removing**
+     *
+     * @example Available
      *
      * @var string
      */

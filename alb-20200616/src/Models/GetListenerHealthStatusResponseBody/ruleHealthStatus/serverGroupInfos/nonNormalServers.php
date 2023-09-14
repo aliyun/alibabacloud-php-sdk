@@ -10,35 +10,48 @@ use AlibabaCloud\Tea\Model;
 class nonNormalServers extends Model
 {
     /**
-     * @description 后端服务器端口
+     * @description The backend port.
+     *
+     * @example 90
      *
      * @var int
      */
     public $port;
 
     /**
-     * @description status为非正常状态时的详细异常原因
+     * @description The cause of the abnormal state.
      *
      * @var reason
      */
     public $reason;
 
     /**
-     * @description 后端服务器Id
+     * @description The ID of the backend server.
+     *
+     * @example rg-bp1bfa08ex****
      *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description 后端服务器ID
+     * @description The IP address of the server group.
+     *
+     * @example 192.168.2.11
      *
      * @var string
      */
     public $serverIp;
 
     /**
-     * @description 健康检查状态
+     * @description The status of the health check. Valid values: Valid values:
+     *
+     *   **Initial**: indicates that health checks are configured for the NLB instance, but no data was found.
+     *   **Unhealthy**: indicates that the backend server consecutively fails health checks.
+     *   **Unused**: indicates that the weight of the backend server is 0.
+     *   **Unavailable**: indicates that health checks are disabled.
+     *
+     * @example Initial
      *
      * @var string
      */

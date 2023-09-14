@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class serverGroupTuples extends Model
 {
     /**
+     * @description The headers that are allowed to expose. You can specify an asterisk (`*`) or one or more values. Separate multiple values with commas (,). The value must be 1 to 32 characters in length, and can contain letters and digits. The value cannot start or end with an underscore (\_) or hyphen (-).
+     *
+     * @example srg-00mkgijak0w4qgz9****
+     *
      * @var string
      */
     public $serverGroupId;

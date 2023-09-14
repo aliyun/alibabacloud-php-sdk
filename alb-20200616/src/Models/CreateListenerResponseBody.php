@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class CreateListenerResponseBody extends Model
 {
     /**
-     * @description 异步任务Id
+     * @description The asynchronous task ID.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 监听标识
+     * @description The listener ID.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */

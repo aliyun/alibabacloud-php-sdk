@@ -11,15 +11,11 @@ use AlibabaCloud\Tea\Model;
 class forwardGroupConfig extends Model
 {
     /**
-     * @description 服务器组之间会话保持
-     *
      * @var serverGroupStickySession
      */
     public $serverGroupStickySession;
 
     /**
-     * @description 转发到的目的服务器组列表
-     *
      * @var serverGroupTuples[]
      */
     public $serverGroupTuples;

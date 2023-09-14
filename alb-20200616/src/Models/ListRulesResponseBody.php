@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListRulesResponseBody extends Model
 {
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The maximum number of entries returned.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 用来表示当前调用返回读取到的位置，空代表数据已经读取完毕。
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 转发规则列表
+     * @description The forwarding rules.
      *
      * @var rules[]
      */
     public $rules;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

@@ -7,123 +7,186 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\healthCheckConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\stickySessionConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\tags;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListServerGroupsResponseBody\serverGroups\uchConfig;
 use AlibabaCloud\Tea\Model;
 
 class serverGroups extends Model
 {
     /**
-     * @description 是否开启配置管理
+     * @description Indicates whether configuration management is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
      *
      * @var bool
      */
     public $configManagedEnabled;
 
     /**
-     * @description 健康检查配置
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description The health check configurations.
      *
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
 
     /**
-     * @description 是否支持Ipv6
+     * @description Indicates whether IPv6 is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
      *
      * @var bool
      */
     public $ipv6Enabled;
 
     /**
-     * @description 服务器组协议
+     * @description The backend protocol. Valid values:
+     *
+     *   **HTTP**: allows you to associate an HTTPS, HTTP, or QUIC listener with the server group.
+     *   **HTTPS**: allows you to associate HTTPS listeners with backend servers.
+     *   **GRPC**: allows you to associate an HTTPS or QUIC listener with the server group.
+     *
+     * @example HTTP
      *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description 资源组id
+     * @description The ID of the resource group to which the resource belongs.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 调度策略
+     * @description The scheduling algorithm. Valid values:
+     *
+     *   **Wrr**: Backend servers with higher weights receive more requests than backend servers with lower weights.
+     *   **Wlc**: Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
+     *   **Sch**: The consistent hashing algorithm is used. Requests from the same source IP address are distributed to the same backend server.
+     *
+     * @example Wrr
      *
      * @var string
      */
     public $scheduler;
 
     /**
-     * @description 服务器组内服务器数量
+     * @description The number of backend servers in the server group.
+     *
+     * @example 1
      *
      * @var int
      */
     public $serverCount;
 
     /**
-     * @description 服务器组Id
+     * @description The server group ID.
+     *
+     * @example sgp-cige6j****
      *
      * @var string
      */
     public $serverGroupId;
 
     /**
-     * @description 服务器组名称
+     * @description The server group name.
+     *
+     * @example Group3
      *
      * @var string
      */
     public $serverGroupName;
 
     /**
-     * @description 服务器组状态
+     * @description The status of the server group. Valid values:
+     *
+     *   **Creating**
+     *   **Available**
+     *   **Configuring**
+     *
+     * @example Available
      *
      * @var string
      */
     public $serverGroupStatus;
 
     /**
-     * @description 服务器组类型
+     * @description The type of server group. Valid values:
+     *
+     *   **Instance**
+     *   **Ip**
+     *   **Fc**
+     *
+     * @example Instance
      *
      * @var string
      */
     public $serverGroupType;
 
     /**
-     * @description 服务器名称
+     * @description The service name.
+     *
+     * @example test
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 会话保持配置
+     * @description The configuration of session persistence.
      *
      * @var stickySessionConfig
      */
     public $stickySessionConfig;
 
     /**
-     * @description 标签列表
+     * @description The tags that are added to the server group.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description 是否开启后端长链接
+     * @var uchConfig
+     */
+    public $uchConfig;
+
+    /**
+     * @description Indicates whether persistent TCP connections are enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
      *
      * @var bool
      */
     public $upstreamKeepaliveEnabled;
 
     /**
-     * @description 服务器组所在VpcId
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string
      */
     public $vpcId;
     protected $_name = [
         'configManagedEnabled'     => 'ConfigManagedEnabled',
+        'createTime'               => 'CreateTime',
         'healthCheckConfig'        => 'HealthCheckConfig',
         'ipv6Enabled'              => 'Ipv6Enabled',
         'protocol'                 => 'Protocol',
@@ -137,6 +200,7 @@ class serverGroups extends Model
         'serviceName'              => 'ServiceName',
         'stickySessionConfig'      => 'StickySessionConfig',
         'tags'                     => 'Tags',
+        'uchConfig'                => 'UchConfig',
         'upstreamKeepaliveEnabled' => 'UpstreamKeepaliveEnabled',
         'vpcId'                    => 'VpcId',
     ];
@@ -150,6 +214,9 @@ class serverGroups extends Model
         $res = [];
         if (null !== $this->configManagedEnabled) {
             $res['ConfigManagedEnabled'] = $this->configManagedEnabled;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->healthCheckConfig) {
             $res['HealthCheckConfig'] = null !== $this->healthCheckConfig ? $this->healthCheckConfig->toMap() : null;
@@ -196,6 +263,9 @@ class serverGroups extends Model
                 }
             }
         }
+        if (null !== $this->uchConfig) {
+            $res['UchConfig'] = null !== $this->uchConfig ? $this->uchConfig->toMap() : null;
+        }
         if (null !== $this->upstreamKeepaliveEnabled) {
             $res['UpstreamKeepaliveEnabled'] = $this->upstreamKeepaliveEnabled;
         }
@@ -216,6 +286,9 @@ class serverGroups extends Model
         $model = new self();
         if (isset($map['ConfigManagedEnabled'])) {
             $model->configManagedEnabled = $map['ConfigManagedEnabled'];
+        }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
         }
         if (isset($map['HealthCheckConfig'])) {
             $model->healthCheckConfig = healthCheckConfig::fromMap($map['HealthCheckConfig']);
@@ -261,6 +334,9 @@ class serverGroups extends Model
                     $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
                 }
             }
+        }
+        if (isset($map['UchConfig'])) {
+            $model->uchConfig = uchConfig::fromMap($map['UchConfig']);
         }
         if (isset($map['UpstreamKeepaliveEnabled'])) {
             $model->upstreamKeepaliveEnabled = $map['UpstreamKeepaliveEnabled'];

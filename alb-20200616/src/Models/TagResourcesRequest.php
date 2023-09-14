@@ -10,21 +10,32 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description 资源实例Id
+     * @description The resource IDs.
+     *
+     * @example acl-123
      *
      * @var string[]
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @description The type of the resource. Valid values:
+     *
+     *   **acl**: an access control list (ACL)
+     *   **loadbalancer**: an Application Load Balancer (ALB) instance
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example loadbalancer
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 标签列表
+     * @description The tags.
+     *
+     * @example test
      *
      * @var tag[]
      */

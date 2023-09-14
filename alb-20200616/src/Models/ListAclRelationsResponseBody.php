@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListAclRelationsResponseBody extends Model
 {
     /**
-     * @description 访问控制列表
+     * @description The ACLs and the associated listeners.
      *
      * @var aclRelations[]
      */
     public $aclRelations;
 
     /**
-     * @description 请求id
+     * @description The request ID.
+     *
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */

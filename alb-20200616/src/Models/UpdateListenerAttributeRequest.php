@@ -14,105 +14,145 @@ use AlibabaCloud\Tea\Model;
 class UpdateListenerAttributeRequest extends Model
 {
     /**
-     * @description 监听默认CA证书列表，N当前取值范围为1
+     * @description The certificate authority (CA) certificates.
      *
      * @var caCertificates[]
      */
     public $caCertificates;
 
     /**
-     * @description 是否开启双向认证
+     * @description Specifies whether to enable mutual authentication. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
      *
      * @var bool
      */
     public $caEnabled;
 
     /**
-     * @description 监听默认服务器证书列表，N当前取值范围为1
+     * @description The certificates.
      *
      * @var certificates[]
      */
     public $certificates;
 
     /**
-     * @description 幂等标识
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 监听默认动作
+     * @description The default actions in the forwarding rules.
      *
      * @var defaultActions[]
      */
     public $defaultActions;
 
     /**
-     * @description  是否只预检此次请求
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx HTTP` status code is returned and the operation is performed.
+     *
+     * @example false
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 是否开启Gzip压缩
+     * @description Specifies whether to enable GZIP compression for specific types of files. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
      *
      * @var bool
      */
     public $gzipEnabled;
 
     /**
-     * @description 是否开启HTTP/2特性
+     * @description Specifies whether to enable HTTP/2. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $http2Enabled;
 
     /**
-     * @description 连接空闲超时时间
+     * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1 to 60**.
+     *
+     * If no request is received within the specified timeout period, ALB closes the current connection. When another request is received, ALB establishes a new connection.
+     * @example 15
      *
      * @var int
      */
     public $idleTimeout;
 
     /**
-     * @description 监听描述
+     * @description The name of the listener.
+     *
+     * The name must be 2 to 256 characters in length, and can contain letters, digits, and the following special characters: , . ; / @ \_ -.
+     * @example HTTP_80
      *
      * @var string
      */
     public $listenerDescription;
 
     /**
-     * @description 监听标识
+     * @description The ID of the Application Load Balancer (ALB) listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description HTTPS启用QUIC时相关属性
+     * @description The configuration information when the listener is associated with a QUIC listener.
      *
      * @var quicConfig
      */
     public $quicConfig;
 
     /**
-     * @description 请求超时时间
+     * @description The timeout period of a request. Unit: seconds. Valid values: **1 to 180**.
+     *
+     * If no response is received from the backend server within the specified timeout period, ALB returns an `HTTP 504` error code to the client.
+     * @example 3
      *
      * @var int
      */
     public $requestTimeout;
 
     /**
-     * @description 安全策略
+     * @description The security policy ID. System security policies and custom security policies are supported.
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example tls_cipher_policy_1_0
      *
      * @var string
      */
     public $securityPolicyId;
 
     /**
-     * @description XForward字段相关的配置
+     * @description The configuration of the XForwardFor headers.
      *
      * @var XForwardedForConfig
      */

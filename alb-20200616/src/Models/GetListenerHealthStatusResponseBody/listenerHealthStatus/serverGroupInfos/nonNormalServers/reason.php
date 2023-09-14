@@ -9,21 +9,40 @@ use AlibabaCloud\Tea\Model;
 class reason extends Model
 {
     /**
-     * @description 后端实际的返回码信息
+     * @description The HTTP status code returned from the server, for example, **302**.
+     *
+     * > A value is returned only if `ReasonCode` is set to **RESPONSE_MISMATCH**.
+     * @example 302
      *
      * @var string
      */
     public $actualResponse;
 
     /**
-     * @description 用户预期的后端返回码信息
+     * @description The HTTP status code returned after backend servers pass health checks.
+     *
+     * Valid values: **HTTP\_2xx**, **HTTP\_3xx**, **HTTP\_4xx**, and **HTTP\_5xx**. Multiple status codes are separated by commas (,).
+     *
+     * > This value is returned only if **ReasonCode** is set to **RESPONSE_MISMATCH**.
+     * @example HTTP_2xx
      *
      * @var string
      */
     public $expectedResponse;
 
     /**
-     * @description 失败reasonCode
+     * @description The reason why the value of **Status** is Unhealthy. Only HTTP and HTTPS listeners support this parameter.
+     *
+     *   **CONNECT_TIMEOUT**: ALB failed to connect to the backend server within the specified period of time.
+     *   **CONNECT_FAILED**: ALB failed to connect to the backend server.
+     *   **RECV_RESPONSE_FAILED**: ALB failed to receive a response from the backend server.
+     *   **RECV_RESPONSE_TIMEOUT**: ALB failed to receive a response from the backend server within the specified period of time.
+     *   **SEND_REQUEST_FAILED**: ALB failed to send a request to the backend server.
+     *   **SEND_REQUEST_TIMEOUT**: ALB failed to send a request to the backend server within the specified period of time.
+     *   **RESPONSE_FORMAT_ERROR**: The format of the response from the backend server is invalid.
+     *   **RESPONSE_FORMAT_ERROR**: The HTTP status code returned from the backend server is not the expected one.
+     *
+     * @example RESPONSE_MISMATCH
      *
      * @var string
      */

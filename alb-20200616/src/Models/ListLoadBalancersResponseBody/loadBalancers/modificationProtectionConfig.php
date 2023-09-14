@@ -9,14 +9,23 @@ use AlibabaCloud\Tea\Model;
 class modificationProtectionConfig extends Model
 {
     /**
-     * @description 设置修改保护状态的原因
+     * @description The reason why deletion protection is enabled.
      *
+     * It must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). It must start with a letter.
+     *
+     * This parameter takes effect only when **ModificationProtectionStatus** is set to **ConsoleProtection**.
      * @var string
      */
     public $reason;
 
     /**
-     * @description 负载均衡修改保护状态
+     * @description Indicates whether the configuration read-only mode is enabled for the ALB instance. Valid values:
+     *
+     *   **NonProtection**: The configuration read-only mode is disabled. In this case, you cannot specify ModificationProtectionReason. If you specify ModificationProtectionReason, the value of the parameter is cleared.
+     *   **ConsoleProtection**: The configuration read-only mode is enabled. In this case, you can specify ModificationProtectionReason.
+     *
+     * > If you set this parameter to **ConsoleProtection**, you cannot use the ALB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+     * @example ConsoleProtection
      *
      * @var string
      */

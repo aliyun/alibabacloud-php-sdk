@@ -9,35 +9,49 @@ use AlibabaCloud\Tea\Model;
 class relatedListeners extends Model
 {
     /**
-     * @description 监听ID
+     * @description The listener ID.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description 监听端口
+     * @description The listener port.
+     *
+     * @example 80
      *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description 监听协议
+     * @description The listener protocol.
+     *
+     * @example HTTPS
      *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description 实例ID
+     * @description The ID of the Server Load Balancer (SLB) instance.
+     *
+     * @example lb-bp1b6c719dfa08ex****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description 关联状态
+     * @description The association status between the ACL and the listener. Valid values:
+     *
+     *   **Associating**
+     *   **Associated**
+     *   **Dissociating**
+     *
+     * @example Associated
      *
      * @var string
      */

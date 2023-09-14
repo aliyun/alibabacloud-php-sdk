@@ -4,58 +4,82 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListSecurityPoliciesResponseBody;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListSecurityPoliciesResponseBody\securityPolicies\tags;
 use AlibabaCloud\Tea\Model;
 
 class securityPolicies extends Model
 {
     /**
-     * @description 加密套件
+     * @description The supported cipher suites.
      *
      * @var string[]
      */
     public $ciphers;
 
     /**
-     * @description 资源组id
+     * @var string
+     */
+    public $createTime;
+
+    /**
+     * @description The resource group ID.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 安全策略id
+     * @description The security policy ID.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $securityPolicyId;
 
     /**
-     * @description 安全策略名称
+     * @description The name of the security policy.
+     *
+     * @example test-secrity
      *
      * @var string
      */
     public $securityPolicyName;
 
     /**
-     * @description 状态
+     * @description The status of the security policy. Valid values:
+     *
+     *   **Configuring**
+     *   **Available**
+     *
+     * @example Available
      *
      * @var string
      */
     public $securityPolicyStatus;
 
     /**
-     * @description TLS策略
+     * @description The supported TLS protocol versions.
      *
      * @var string[]
      */
     public $TLSVersions;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'ciphers'              => 'Ciphers',
+        'createTime'           => 'CreateTime',
         'resourceGroupId'      => 'ResourceGroupId',
         'securityPolicyId'     => 'SecurityPolicyId',
         'securityPolicyName'   => 'SecurityPolicyName',
         'securityPolicyStatus' => 'SecurityPolicyStatus',
         'TLSVersions'          => 'TLSVersions',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -67,6 +91,9 @@ class securityPolicies extends Model
         $res = [];
         if (null !== $this->ciphers) {
             $res['Ciphers'] = $this->ciphers;
+        }
+        if (null !== $this->createTime) {
+            $res['CreateTime'] = $this->createTime;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -82,6 +109,15 @@ class securityPolicies extends Model
         }
         if (null !== $this->TLSVersions) {
             $res['TLSVersions'] = $this->TLSVersions;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -100,6 +136,9 @@ class securityPolicies extends Model
                 $model->ciphers = $map['Ciphers'];
             }
         }
+        if (isset($map['CreateTime'])) {
+            $model->createTime = $map['CreateTime'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -115,6 +154,15 @@ class securityPolicies extends Model
         if (isset($map['TLSVersions'])) {
             if (!empty($map['TLSVersions'])) {
                 $model->TLSVersions = $map['TLSVersions'];
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
             }
         }
 

@@ -9,14 +9,17 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerOperationLocks extends Model
 {
     /**
-     * @description 锁定原因
+     * @description The configuration of the configuration read-only mode.
      *
      * @var string
      */
     public $lockReason;
 
     /**
-     * @description 锁定类型
+     * @description The reason why the configuration read-only mode was enabled. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
+     *
+     * This parameter is valid only if you set the **ModificationProtectionStatus** parameter to **ConsoleProtection**.
+     * @example FinancialLocked
      *
      * @var string
      */

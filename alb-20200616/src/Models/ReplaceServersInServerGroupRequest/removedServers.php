@@ -9,28 +9,44 @@ use AlibabaCloud\Tea\Model;
 class removedServers extends Model
 {
     /**
-     * @description 端口
+     * @description The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 40 servers in each call.
+     *
+     * @example 81
      *
      * @var int
      */
     public $port;
 
     /**
-     * @description 后端服务器id
+     * @description The ID of the backend server. You can specify up to 40 server IDs in each call.
+     *
+     *   If the server group type is **Instance**, set the ServerId parameter to the ID of an ECS instance, an ENI, or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
+     *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
+     *
+     * > You cannot perform this operation on a server group of the Function type. You can call the [ListServerGroups](~~213627~~) operation to query information about the server group type so that you can set ServerId to a proper value.
+     * @example ecs-bp1ac9uozods2uc****
      *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description 后端服务器ip
+     * @description The IP address in inclusive ENI mode. You can specify at most 40 servers in each call.
+     *
+     * @example 192.168.1.12
      *
      * @var string
      */
     public $serverIp;
 
     /**
-     * @description 后端服务器类型
+     * @description The type of the backend server that you want to remove from the server group. You can specify up to 40 backend servers in each call. Valid values:
+     *
+     *   **Ecs**
+     *   **Eni**
+     *   **Eci**
+     *
+     * @example ecs
      *
      * @var string
      */

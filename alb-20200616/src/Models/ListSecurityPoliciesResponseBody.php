@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityPoliciesResponseBody extends Model
 {
     /**
-     * @description 本次查询返回记录数量
+     * @description The number of entries per page.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 安全策略
+     * @description The supported security policies.
      *
      * @var securityPolicies[]
      */
     public $securityPolicies;
 
     /**
-     * @description 总记录数
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

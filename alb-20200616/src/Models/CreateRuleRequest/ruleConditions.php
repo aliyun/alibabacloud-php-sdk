@@ -16,56 +16,66 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description Cookie条件配置
+     * @description The configurations of the cookies.
      *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
-     * @description HTTP标头条件配置
+     * @description The configuration of the header.
      *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
-     * @description 主机名条件配置
+     * @description The configurations of the host.
      *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description HTTP请求方法条件配置
+     * @description The configurations of the request methods.
      *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description 路径条件配置
+     * @description The configurations of the URLs.
      *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description 查询字符串条件配置
+     * @description The configurations of the query strings.
      *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
-     * @description 基于源IP业务流量匹配
+     * @description The configuration of the source IP-based forwarding rule. This parameter is required and takes effect only when **Type** is set to **SourceIP**.
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description 条件类型
+     * @description The type of forwarding rule. Valid values:
+     *
+     *   **Host**: Requests are distributed based on hosts.
+     *   **Path**: Requests are distributed based on paths.
+     *   **Header**: Requests are distributed based on HTTP headers.
+     *   **QueryString**: Requests are distributed based on query strings.
+     *   **Method**: Requests are distributed based on request methods.
+     *   **Cookie**: Requests are distributed based on cookies.
+     *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *
+     * @example Host
      *
      * @var string
      */

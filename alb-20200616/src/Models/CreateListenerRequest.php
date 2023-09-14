@@ -8,125 +8,187 @@ use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest\caCertificates;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest\certificates;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest\defaultActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest\quicConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest\tag;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateListenerRequest\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
 class CreateListenerRequest extends Model
 {
     /**
-     * @description 监听默认CA证书列表，N当前取值范围为1
+     * @description A list of certificates.
      *
      * @var caCertificates[]
      */
     public $caCertificates;
 
     /**
-     * @description 是否开启双向认证
+     * @description Specifies whether to enable mutual authentication. Valid values:
+     *
+     *   **true**
+     *   **false** (default):
+     *
+     * @example false
      *
      * @var bool
      */
     public $caEnabled;
 
     /**
-     * @description 监听默认服务器证书列表，N当前取值范围为1
+     * @description A list of certificates.
      *
      * @var certificates[]
      */
     public $certificates;
 
     /**
-     * @description 幂等标识
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * > If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
+     * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 监听默认动作
+     * @description The actions of the forwarding rule.
      *
      * @var defaultActions[]
      */
     public $defaultActions;
 
     /**
-     * @description  是否只预检此次请求
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: performs only a dry run. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 是否开启Gzip压缩
+     * @description Specifies whether to enable `GZIP` compression to compress specific types of files. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
+     * @example true
      *
      * @var bool
      */
     public $gzipEnabled;
 
     /**
-     * @description 是否开启HTTP/2特性
+     * @description Specifies whether to enable `HTTP/2`. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $http2Enabled;
 
     /**
-     * @description 连接空闲超时时间
+     * @description The timeout period of an idle connection. Unit: seconds.
+     *
+     * Valid values: **1 to 60**.
+     *
+     * Default value: **15**.
+     *
+     * If no requests are received within the specified timeout period, ALB closes the current connection. When a new request is received, ALB establishes a new connection.
+     * @example 3
      *
      * @var int
      */
     public $idleTimeout;
 
     /**
-     * @description 监听描述
+     * @description The name of the listener.
+     *
+     * The description must be 2 to 256 characters in length, and can contain letters, digits, hyphens (-), forward slashes (/), periods (.), and underscores (\_). Regular expressions are supported.
+     * @example HTTP_80
      *
      * @var string
      */
     public $listenerDescription;
 
     /**
-     * @description 监听端口
+     * @description The frontend port that is used by the ALB instance.
+     *
+     * Valid values: **1 to 65535**.
+     * @example 80
      *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description 监听协议
+     * @description The listener protocol.
+     *
+     * Valid values: **HTTP**, **HTTPS**, and **QUIC**.
+     * @example HTTP
      *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description 负载均衡标识
+     * @description The ALB instance ID.
+     *
+     * @example lb-bp1o94dp5i6ea****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description HTTPS启用QUIC时相关属性
+     * @description Selects a QUIC listener and associates it with the HTTPS listener of the ALB instance.
      *
      * @var quicConfig
      */
     public $quicConfig;
 
     /**
-     * @description 请求超时时间
+     * @description The timeout period of a request. Unit: seconds.
+     *
+     * Valid values: **1 to 180**.
+     *
+     * Default value: **60**.
+     *
+     * If no response is received from the backend server during the request timeout period, ALB sends an `HTTP 504` error code to the client.
+     * @example 60
      *
      * @var int
      */
     public $requestTimeout;
 
     /**
-     * @description 安全策略
+     * @description The ID of the security policy. System and custom security policies are supported.
+     *
+     * Default value: **tls_cipher_policy\_1\_0** (system security policy).
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example tls_cipher_policy_1_0
      *
      * @var string
      */
     public $securityPolicyId;
 
     /**
-     * @description XForward字段相关的配置
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The configuration of the XForward header.
      *
      * @var XForwardedForConfig
      */
@@ -148,6 +210,7 @@ class CreateListenerRequest extends Model
         'quicConfig'          => 'QuicConfig',
         'requestTimeout'      => 'RequestTimeout',
         'securityPolicyId'    => 'SecurityPolicyId',
+        'tag'                 => 'Tag',
         'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
@@ -223,6 +286,15 @@ class CreateListenerRequest extends Model
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->XForwardedForConfig) {
             $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
@@ -304,6 +376,15 @@ class CreateListenerRequest extends Model
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['XForwardedForConfig'])) {
             $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);

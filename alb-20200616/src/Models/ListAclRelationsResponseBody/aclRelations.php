@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class aclRelations extends Model
 {
     /**
-     * @description 访问控制策略id
+     * @description ACL ID
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description 关联的监听
+     * @description The listeners that are associated with the ACL.
      *
      * @var relatedListeners[]
      */

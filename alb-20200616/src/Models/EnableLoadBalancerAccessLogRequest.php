@@ -9,35 +9,44 @@ use AlibabaCloud\Tea\Model;
 class EnableLoadBalancerAccessLogRequest extends Model
 {
     /**
-     * @description 幂等标识
+     * @description The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can only contain ASCII characters and cannot exceed 64 characters in length.
+     *
+     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description  是否只预检此次请求
+     * @example true
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 实例id
+     * @description The ALB instance ID.
+     *
+     * @example alb-bd6oylbckp6k9x****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description 日志Project
+     * @description The project to which the access log is shipped.
+     *
+     * @example sls-setter
      *
      * @var string
      */
     public $logProject;
 
     /**
-     * @description 日志Store
+     * @description The Logstore to which the access log is shipped.
+     *
+     * @example test
      *
      * @var string
      */

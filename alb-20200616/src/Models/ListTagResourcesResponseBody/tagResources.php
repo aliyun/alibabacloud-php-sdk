@@ -9,28 +9,41 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
-     * @description 资源ID
+     * @description The resource ID.
+     *
+     * @example d-2ze1ot4ah7xjyv0d****
      *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 资源类型
+     * @description The type of the resource. Valid values:
+     *
+     *   **acl**: an ACL
+     *   **loadbalancer**: an ALB instance
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example loadbalancer
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 标签Key
+     * @description The tag key.
+     *
+     * @example env
      *
      * @var string
      */
     public $tagKey;
 
     /**
-     * @description 标签Value
+     * @description The tag value.
+     *
+     * @example product
      *
      * @var string
      */

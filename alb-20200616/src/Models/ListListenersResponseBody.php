@@ -10,35 +10,43 @@ use AlibabaCloud\Tea\Model;
 class ListListenersResponseBody extends Model
 {
     /**
-     * @description 监听列表
+     * @description The listeners.
      *
      * @var listeners[]
      */
     public $listeners;
 
     /**
-     * @description 本次请求所返回的最大记录条数。
+     * @description The maximum number of entries returned.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 用来表示当前调用返回读取到的位置，空代表数据已经读取完毕。
+     * @description The position where the query stopped. If this parameter is not returned, all data is queried.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 本次请求条件下的数据总量。
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

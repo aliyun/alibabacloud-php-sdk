@@ -9,91 +9,180 @@ use AlibabaCloud\Tea\Model;
 class XForwardedForConfig extends Model
 {
     /**
-     * @description 自定义HEADER头名称，只有当XForwardedForClientCertClientVerifyEnabled的值为true的时候，此值才会生效；否则该值不会生效。HTTPS监听有效
+     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertClientVerifyEnabled** is set to **true**.
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example test_client-verify-alias_123456
      *
      * @var string
      */
     public $XForwardedForClientCertClientVerifyAlias;
 
     /**
-     * @description 是否通过X-Forwarded-Clientcert-clientverify  头字段获取对访问负载均衡实例客户端证书的校验结果。HTTPS监听有效。
+     * @description Specifies whether to use the `X-Forwarded-Clientcert-clientverify` header to retrieve the verification result of the client certificate. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $XForwardedForClientCertClientVerifyEnabled;
 
     /**
-     * @description 自定义HEADER头名称，只有当XForwardedForClientCertFingerprintEnabled的值为true的时候，此值才会生效；否则该值不会生效。HTTPS监听有效
+     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertFingerprintEnabled** is set to **true**.
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example test_finger-print-alias_123456
      *
      * @var string
      */
     public $XForwardedForClientCertFingerprintAlias;
 
     /**
-     * @description 是否通过X-Forwarded-Clientcert-fingerprint 头字段获取访问负载均衡实例客户端证书的指纹取值，HTTPS监听有效。
+     * @description Specifies whether to use the `X-Forwarded-Clientcert-fingerprint` header to retrieve the fingerprint of the client certificate. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $XForwardedForClientCertFingerprintEnabled;
 
     /**
-     * @description 自定义HEADER头名称，只有当XForwardedForClientCertIssuerDNEnabled的值为‘On’的时候，此值才会生效；否则该值不会生效。HTTPS监听有效
+     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertIssuerDNEnabled** is set to **true**.
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example test_issue-dn-alias_123456
      *
      * @var string
      */
     public $XForwardedForClientCertIssuerDNAlias;
 
     /**
-     * @description 是否通过 X-Forwarded-Clientcert-issuerdn 头字段获取访问负载均衡实例客户端证书的发行者信息。HTTPS监听有效。
+     * @description Specifies whether to use the `X-Forwarded-Clientcert-issuerdn` header to retrieve information about the authority that issues the client certificate. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $XForwardedForClientCertIssuerDNEnabled;
 
     /**
-     * @description 自定义HEADER头名称，只有当XForwardedForClientCertSubjectDNEnabled的值为true的时候，此值才会生效；否则该值不会生效。HTTPS监听有效
+     * @description The name of the custom header. This parameter takes effect only when **XForwardedForClientCertSubjectDNEnabled** is set to **true**.
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example test_subject-dn-alias_123456
      *
      * @var string
      */
     public $XForwardedForClientCertSubjectDNAlias;
 
     /**
-     * @description 是否通过X-Forwarded-Clientcert-subjectdn  头字段获取访问负载均衡实例客户端证书的所有者信息。HTTPS监听有效。
+     * @description Specifies whether to use the `X-Forwarded-Clientcert-subjectdn` header to retrieve information about the owner of the client certificate. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $XForwardedForClientCertSubjectDNEnabled;
 
     /**
-     * @description 是否通过X-Forwarded-Client-Port 头字段获取访问负载均衡实例客户端的端口。HTTPS监听有效。
+     * @description Specifies whether to use the `X-Forwarded-Client-Ip` header to obtain the source IP address of the ALB instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener. The feature specified by this parameter is unavailable by default. To use the feature, contact your account manager.
+     * @example false
+     *
+     * @var bool
+     */
+    public $XForwardedForClientSourceIpsEnabled;
+
+    /**
+     * @description The trusted proxy IP address.
+     *
+     * ALB traverses `X-Forwarded-For` backward and selects the first IP address that is not in the trusted IP address list as the real IP address of the client. The IP address is used in source IP address throttling.
+     * @example 10.1.1.0/24
+     *
+     * @var string
+     */
+    public $XForwardedForClientSourceIpsTrusted;
+
+    /**
+     * @description Specifies whether to use the `X-Forwarded-Client-Port` header to retrieve the client port. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTP or HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $XForwardedForClientSrcPortEnabled;
 
     /**
-     * @description 是否开启通过X-Forwarded-For头字段获取来访者真实 IP
+     * @description Specifies whether to use the `X-Forwarded-For` header to retrieve client IP addresses. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
+     *
+     * > This parameter is available only when you create an HTTP or HTTPS listener.
+     * @example true
      *
      * @var bool
      */
     public $XForwardedForEnabled;
 
     /**
-     * @description 是否通过X-Forwarded-Proto头字段获取负载均衡实例的监听协议。
+     * @description Specifies whether to use the `X-Forwarded-Proto` header to retrieve the listener protocol. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+     * @example false
      *
      * @var bool
      */
     public $XForwardedForProtoEnabled;
 
     /**
-     * @description 是否通过SLB-ID头字段获取负载均衡实例ID。
+     * @description Specifies whether to use the `SLB-ID` header to retrieve the ID of the CLB instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+     * @example false
      *
      * @var bool
      */
     public $XForwardedForSLBIdEnabled;
 
     /**
-     * @description 是否通过X-Forwarded-Port 头字段获取负载均衡实例的监听端口。HTTPS监听有效。
+     * @description Specifies whether to use the `X-Forwarded-Port` header to retrieve the listener port of the ALB instance. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * > This parameter is available only when you create an HTTP, HTTPS, or QUIC listener.
+     * @example false
      *
      * @var bool
      */
@@ -107,6 +196,8 @@ class XForwardedForConfig extends Model
         'XForwardedForClientCertIssuerDNEnabled'     => 'XForwardedForClientCertIssuerDNEnabled',
         'XForwardedForClientCertSubjectDNAlias'      => 'XForwardedForClientCertSubjectDNAlias',
         'XForwardedForClientCertSubjectDNEnabled'    => 'XForwardedForClientCertSubjectDNEnabled',
+        'XForwardedForClientSourceIpsEnabled'        => 'XForwardedForClientSourceIpsEnabled',
+        'XForwardedForClientSourceIpsTrusted'        => 'XForwardedForClientSourceIpsTrusted',
         'XForwardedForClientSrcPortEnabled'          => 'XForwardedForClientSrcPortEnabled',
         'XForwardedForEnabled'                       => 'XForwardedForEnabled',
         'XForwardedForProtoEnabled'                  => 'XForwardedForProtoEnabled',
@@ -144,6 +235,12 @@ class XForwardedForConfig extends Model
         }
         if (null !== $this->XForwardedForClientCertSubjectDNEnabled) {
             $res['XForwardedForClientCertSubjectDNEnabled'] = $this->XForwardedForClientCertSubjectDNEnabled;
+        }
+        if (null !== $this->XForwardedForClientSourceIpsEnabled) {
+            $res['XForwardedForClientSourceIpsEnabled'] = $this->XForwardedForClientSourceIpsEnabled;
+        }
+        if (null !== $this->XForwardedForClientSourceIpsTrusted) {
+            $res['XForwardedForClientSourceIpsTrusted'] = $this->XForwardedForClientSourceIpsTrusted;
         }
         if (null !== $this->XForwardedForClientSrcPortEnabled) {
             $res['XForwardedForClientSrcPortEnabled'] = $this->XForwardedForClientSrcPortEnabled;
@@ -195,6 +292,12 @@ class XForwardedForConfig extends Model
         }
         if (isset($map['XForwardedForClientCertSubjectDNEnabled'])) {
             $model->XForwardedForClientCertSubjectDNEnabled = $map['XForwardedForClientCertSubjectDNEnabled'];
+        }
+        if (isset($map['XForwardedForClientSourceIpsEnabled'])) {
+            $model->XForwardedForClientSourceIpsEnabled = $map['XForwardedForClientSourceIpsEnabled'];
+        }
+        if (isset($map['XForwardedForClientSourceIpsTrusted'])) {
+            $model->XForwardedForClientSourceIpsTrusted = $map['XForwardedForClientSourceIpsTrusted'];
         }
         if (isset($map['XForwardedForClientSrcPortEnabled'])) {
             $model->XForwardedForClientSrcPortEnabled = $map['XForwardedForClientSrcPortEnabled'];

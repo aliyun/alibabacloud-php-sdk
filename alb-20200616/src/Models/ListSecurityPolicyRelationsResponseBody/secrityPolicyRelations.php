@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class secrityPolicyRelations extends Model
 {
     /**
-     * @description 关联的监听列表
+     * @description The listeners that are associated with the security policy.
      *
      * @var relatedListeners[]
      */
     public $relatedListeners;
 
     /**
-     * @description 安全策略id
+     * @description The security policy ID.
+     *
+     * @example scp-bp1bpn0kn9****
      *
      * @var string
      */

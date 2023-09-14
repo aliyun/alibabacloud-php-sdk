@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class accessLogConfig extends Model
 {
     /**
-     * @description 访问日志投递的logProject
+     * @description The log project.
+     *
+     * @example sls-setter
      *
      * @var string
      */
     public $logProject;
 
     /**
-     * @description 删除保护开启时间
+     * @description The Logstore.
+     *
+     * @example test
      *
      * @var string
      */

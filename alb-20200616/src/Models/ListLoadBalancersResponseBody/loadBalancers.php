@@ -15,140 +15,193 @@ use AlibabaCloud\Tea\Model;
 class loadBalancers extends Model
 {
     /**
-     * @description 访问日志属性
+     * @description The configuration of the access log.
      *
      * @var accessLogConfig
      */
     public $accessLogConfig;
 
     /**
-     * @description 地址模式
+     * @description The mode in which IP addresses are allocated. Valid values:
+     *
+     *   **Fixed**: allocates a static IP address to the ALB instance.
+     *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
+     *
+     * @example Fixed
      *
      * @var string
      */
     public $addressAllocatedMode;
 
     /**
-     * @description 协议版本
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**
+     *   **DualStack**
+     *
+     * @example DualStack
      *
      * @var string
      */
     public $addressIpVersion;
 
     /**
-     * @description 地址类型
+     * @description The type of IP address that the ALB instance uses to provide services. Valid values:
+     *
+     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC where the ALB instance is deployed.
+     *
+     * @example Intranet
      *
      * @var string
      */
     public $addressType;
 
     /**
-     * @description 带宽包ID
+     * @description The ID of the EIP bandwidth plan that is associated with the NLB instance if the NLB instance uses a public IP address.
+     *
+     * @example cbwp-bp1vevu8h3ieh****
      *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
-     * @description 资源创建时间
+     * @description The time when the resource was created.
+     *
+     * @example 2022-07-02T02:49:05Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description DNS域名
+     * @description The domain name of the ALB instance.
+     *
+     * @example alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
      *
      * @var string
      */
     public $DNSName;
 
     /**
-     * @description 负载均衡删除保护相关信息
+     * @description The configuration of deletion protection.
      *
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
 
     /**
-     * @description IPV6地址类型
+     * @description The type of IPv6 address that is used by the ALB instance. Valid values:
+     *
+     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     *
+     * @example Intranet
      *
      * @var string
      */
     public $ipv6AddressType;
 
     /**
-     * @description 计费相关属性
+     * @description The configuration of the billing method.
      *
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
 
     /**
-     * @description 实例业务状态
+     * @description The business status of the ALB instance. Valid values:
+     *
+     *   **Abnormal**
+     *   **Normal**
+     *
+     * @example Normal
      *
      * @var string
      */
     public $loadBalancerBussinessStatus;
 
     /**
-     * @description 负载均衡的版本
+     * @description The edition of the ALB instance. Different editions have different limits and support different billing methods. Valid values:
+     *
+     *   **Basic**: basic
+     *   **Standard**: standard
+     *   **StandardWithWaf**: WAF-enabled
+     *
+     * @example Standard
      *
      * @var string
      */
     public $loadBalancerEdition;
 
     /**
-     * @description 负载均衡标识
+     * @description The ID of the ALB instance.
+     *
+     * @example alb-o9ulmq5hgn68jk****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description 实例名称
+     * @description The name of the NLB instance.
+     *
+     * @example alb-instance-test
      *
      * @var string
      */
     public $loadBalancerName;
 
     /**
-     * @description 锁定的原因
+     * @description The configuration of the operation lock.
      *
      * @var loadBalancerOperationLocks[]
      */
     public $loadBalancerOperationLocks;
 
     /**
-     * @description 实例状态
+     * @description The status of the ALB instance. Valid values:
+     *
+     *   **Inactive**: The ALB instance is disabled. The listeners do not forward traffic.
+     *   **Active**: The ALB instance is running.
+     *   **Provisioning**: The ALB instance is being created.
+     *   **Configuring**: The ALB instance is being modified.
+     *   **CreateFailed**: The system failed to create the ALB instance.
+     *
+     * @example Active
      *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
-     * @description 负载均衡修改保护相关信息
+     * @description The configuration read-only mode.
      *
      * @var modificationProtectionConfig
      */
     public $modificationProtectionConfig;
 
     /**
-     * @description 企业资源组ID
+     * @description The ID of the resource group.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 标签列表
+     * @description The tags that are added to the instance.
      *
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Vpc网络ID
+     * @description The ID of the VPC to which the ALB instance belongs.
+     *
+     * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class cookieConfig extends Model
 {
     /**
-     * @description Cookie键值对列表
+     * @description The cookies.
      *
      * @var values[]
      */

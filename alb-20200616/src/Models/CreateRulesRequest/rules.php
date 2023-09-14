@@ -6,50 +6,59 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest;
 
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\ruleConditions;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateRulesRequest\rules\tag;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @description 转发规则方向
+     * @description The ID of the forwarding rule.
+     *
+     * @example Request
      *
      * @var string
      */
     public $direction;
 
     /**
-     * @description 转发规则优先级
+     * @description The server group to which requests are distributed.
+     *
+     * @example 10
      *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 转发规则动作
-     *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description 转发规则条件
-     *
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description 转发规则名称
+     * @description The list of forwarding rules.
+     *
+     * @example test
      *
      * @var string
      */
     public $ruleName;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'direction'      => 'Direction',
         'priority'       => 'Priority',
         'ruleActions'    => 'RuleActions',
         'ruleConditions' => 'RuleConditions',
         'ruleName'       => 'RuleName',
+        'tag'            => 'Tag',
     ];
 
     public function validate()
@@ -85,6 +94,15 @@ class rules extends Model
         }
         if (null !== $this->ruleName) {
             $res['RuleName'] = $this->ruleName;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -124,6 +142,15 @@ class rules extends Model
         }
         if (isset($map['RuleName'])) {
             $model->ruleName = $map['RuleName'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

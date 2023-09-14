@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class trafficMirrorConfig extends Model
 {
     /**
-     * @description 镜像至服务器组
-     *
      * @var mirrorGroupConfig
      */
     public $mirrorGroupConfig;
 
     /**
-     * @description 镜像目标类型
+     * @description The allowed headers for CORS requests. You can specify an asterisk (`*`) or one or more values. Separate multiple values with commas (,). The value must be 1 to 32 characters in length, and can contain letters and digits. The value cannot start or end with an underscore (\_) or hyphen (-).
+     *
+     * @example ForwardGroupMirror
      *
      * @var string
      */

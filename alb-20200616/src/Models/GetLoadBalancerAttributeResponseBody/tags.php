@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class tags extends Model
 {
     /**
-     * @description 实例的标签键
+     * @description The zones and the vSwitches. You must specify at least two zones.
+     *
+     * @example FinanceDept
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 实例的标签值
+     * @description The IP addresses that are used by the ALB instance.
+     *
+     * @example FinanceJoshua
      *
      * @var string
      */

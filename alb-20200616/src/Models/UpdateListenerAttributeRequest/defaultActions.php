@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class defaultActions extends Model
 {
     /**
-     * @description 转发组
+     * @description The configuration of the action. This parameter is required and takes effect when the **Type** parameter is set to **FowardGroup**. You can specify configurations for up to 20 forwarding actions.
      *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
 
     /**
-     * @description 动作类型
+     * @description The type of the action. You can specify only one action type.
+     *
+     * Set the value to **ForwardGroup** to forward requests to multiple vServer groups.
+     * @example ForwardGroup
      *
      * @var string
      */

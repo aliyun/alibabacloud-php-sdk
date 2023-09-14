@@ -9,70 +9,107 @@ use AlibabaCloud\Tea\Model;
 class jobs extends Model
 {
     /**
-     * @description openapi名称
+     * @description The name of the operation.
+     *
+     * @example CreateLoadBalancer
      *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description 任务开始时间戳
+     * @description The timestamp that indicates the start time of the task. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 2134663231234
      *
      * @var int
      */
     public $createTime;
 
     /**
-     * @description 如果Status为失败，则为错误码
+     * @description If the value of **Status** is Failed, an error code is returned.
+     *
+     * @example 506
      *
      * @var string
      */
     public $errorCode;
 
     /**
-     * @description 如果Status为失败，则为错误信息
+     * @description If the value of **Status** is Failed, an error message is returned.
+     *
+     * @example AllocateEipAddress Failed
      *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @description 任务ID
+     * @description The task ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B5****
      *
      * @var string
      */
     public $id;
 
     /**
-     * @description 任务结束时间戳
+     * @description The timestamp that indicates the end time of the task. Unit: milliseconds.
+     *
+     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
+     * @example 2144663233315
      *
      * @var int
      */
     public $modifyTime;
 
     /**
-     * @description 操作类型
+     * @description The type of the operation. Valid values:
+     *
+     *   **Create**
+     *   **Update**
+     *   **Delete**
+     *
+     * @example Create
      *
      * @var string
      */
     public $operateType;
 
     /**
-     * @description 关联的资源实例ID
+     * @description The associated resource ID.
+     *
+     * @example alb-o8mszt95oamfjy****
      *
      * @var string
      */
     public $resourceId;
 
     /**
-     * @description 关联的资源类型
+     * @description The type of the associated resource. Valid values:
+     *
+     *   **loadbalancer**: an ALB instance
+     *   **listener**: a listener
+     *   **rule**: a forwarding rule
+     *   **acl**: an ACL
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example acl
      *
      * @var string
      */
     public $resourceType;
 
     /**
-     * @description 任务状态
+     * @description The status of the task. Valid values:
+     *
+     *   **Succeeded**
+     *   **Failed**
+     *   **Processing**
+     *
+     * @example Succeeded
      *
      * @var string
      */

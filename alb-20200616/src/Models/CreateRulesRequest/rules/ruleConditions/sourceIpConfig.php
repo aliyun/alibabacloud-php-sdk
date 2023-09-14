@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class sourceIpConfig extends Model
 {
     /**
-     * @description 基于源IP业务流量匹配
-     *
      * @var string[]
      */
     public $values;

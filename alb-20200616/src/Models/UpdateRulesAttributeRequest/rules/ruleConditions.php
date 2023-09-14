@@ -18,70 +18,87 @@ use AlibabaCloud\Tea\Model;
 class ruleConditions extends Model
 {
     /**
-     * @description Cookie条件配置
+     * @description The match conditions for cookies. You can add up to 20 match conditions.
      *
      * @var cookieConfig
      */
     public $cookieConfig;
 
     /**
-     * @description HTTP标头条件配置
+     * @description The match conditions for HTTP headers. You can specify up to 20 match conditions.
      *
      * @var headerConfig
      */
     public $headerConfig;
 
     /**
-     * @description 主机名条件配置
+     * @description The match conditions for hostnames. You can specify up to 20 match conditions.
      *
      * @var hostConfig
      */
     public $hostConfig;
 
     /**
-     * @description HTTP请求方法条件配置
+     * @description The match conditions for HTTP request methods. Valid values of N: **1** to **20**.
      *
      * @var methodConfig
      */
     public $methodConfig;
 
     /**
-     * @description 查询字符串条件配置
+     * @description The match conditions for query strings. You can specify up to 20 match conditions.
      *
      * @var pathConfig
      */
     public $pathConfig;
 
     /**
-     * @description 查询字符串条件配置
+     * @description The match conditions for query strings. You can specify up to 20 match conditions.
      *
      * @var queryStringConfig
      */
     public $queryStringConfig;
 
     /**
-     * @description 返回HTTP标头
+     * @description The configuration of the HTTP response header. You can specify the configurations of up to 20 HTTP response header.
      *
      * @var responseHeaderConfig
      */
     public $responseHeaderConfig;
 
     /**
-     * @description 返回状态码条件
+     * @description The match conditions for response status codes. This parameter is required and takes effect when **Type** is set to **ResponseStatusCode**. You can specify up to 20 match conditions.
      *
      * @var responseStatusCodeConfig
      */
     public $responseStatusCodeConfig;
 
     /**
-     * @description 基于源IP业务流量匹配
+     * @description The configuration of the source IP addresses based on which user traffic is matched. You can specify up to 20 configuration records.
      *
      * @var sourceIpConfig
      */
     public $sourceIpConfig;
 
     /**
-     * @description 条件类型
+     * @description The type of action specified in the forwarding rule. You can specify up to 11 types of actions. Valid values:
+     *
+     *   **ForwardGroup**: forwards a request to multiple vServer groups.
+     *   **Redirect**: redirects a request.
+     *   **FixedResponse**: returns a custom response.
+     *   **Rewrite**: rewrites a request.
+     *   **InsertHeader**: inserts a header.
+     *   **RemoveHeaderConfig**: deletes a header.
+     *   **TrafficLimitConfig**: throttles network traffic.
+     *   **TrafficMirrorConfig**: mirrors traffic.
+     *   **CorsConfig**: forwards requests based on CORS.
+     *
+     * The following action types are supported:
+     *
+     *   **FinalType**: the last action to be performed in a forwarding rule. Each forwarding rule can contain only one FinalType action. You can specify a **ForwardGroup**, **Redirect**, or **FixedResponse** action as the FinalType action.
+     *   **ExtType**: the action or the actions to be performed before the **FinalType** action. A forwarding rule can contain one or more **ExtType** actions. To specify an ExtType action, you must specify a **FinalType** action. You can specify multiple **InsertHeader** actions or one **Rewrite** action.
+     *
+     * @example ForwardGroup
      *
      * @var string
      */

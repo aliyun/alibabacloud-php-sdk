@@ -4,50 +4,80 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListRulesRequest extends Model
 {
     /**
-     * @description 监听ID列表
+     * @description The direction to which the forwarding rule is applied. Valid values:
+     *
+     *   **Request** (default): The forwarding rule is applied to the client requests received by ALB.
+     *   **Response**: The forwarding rule is applied to the responses returned by backend servers.
+     *
+     * > You cannot set this parameter to Response if you use basic ALB instances.
+     * @example Request
+     *
+     * @var string
+     */
+    public $direction;
+
+    /**
+     * @description The listener IDs.
      *
      * @var string[]
      */
     public $listenerIds;
 
     /**
-     * @description 实例ID列表
+     * @description The Application Load Balancer (ALB) instance IDs.
      *
      * @var string[]
      */
     public $loadBalancerIds;
 
     /**
-     * @description 本次读取的最大数据记录数量，此参数为可选参数，取值1-100，用户传入为空时，默认为20。
+     * @description The maximum number of entries to return.
+     *
+     * Valid values: **1 to 100**.
+     *
+     * Default value: **20**. If you do not specify this parameter, the default value is used.
+     *
+     * > This parameter is optional.
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 用来标记当前开始读取的位置，置空表示从头开始。
+     * @description The starting point of the current query. If you do not specify this parameter, the query starts from the beginning.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 转发规则ID列表，N最大支持20
+     * @description The forwarding rules.
      *
      * @var string[]
      */
     public $ruleIds;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
+        'direction'       => 'Direction',
         'listenerIds'     => 'ListenerIds',
         'loadBalancerIds' => 'LoadBalancerIds',
         'maxResults'      => 'MaxResults',
         'nextToken'       => 'NextToken',
         'ruleIds'         => 'RuleIds',
+        'tag'             => 'Tag',
     ];
 
     public function validate()
@@ -57,6 +87,9 @@ class ListRulesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
         if (null !== $this->listenerIds) {
             $res['ListenerIds'] = $this->listenerIds;
         }
@@ -72,6 +105,15 @@ class ListRulesRequest extends Model
         if (null !== $this->ruleIds) {
             $res['RuleIds'] = $this->ruleIds;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -84,6 +126,9 @@ class ListRulesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
         if (isset($map['ListenerIds'])) {
             if (!empty($map['ListenerIds'])) {
                 $model->listenerIds = $map['ListenerIds'];
@@ -103,6 +148,15 @@ class ListRulesRequest extends Model
         if (isset($map['RuleIds'])) {
             if (!empty($map['RuleIds'])) {
                 $model->ruleIds = $map['RuleIds'];
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
             }
         }
 

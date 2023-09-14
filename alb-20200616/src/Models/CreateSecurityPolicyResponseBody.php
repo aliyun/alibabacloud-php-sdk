@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateSecurityPolicyResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 安全策略id
+     * @description The security policy ID.
+     *
+     * @example scp-bp1bpn0kn9****
      *
      * @var string
      */

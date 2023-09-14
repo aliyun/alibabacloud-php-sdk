@@ -16,162 +16,227 @@ use AlibabaCloud\Tea\Model;
 class GetLoadBalancerAttributeResponseBody extends Model
 {
     /**
-     * @description 访问日志属性
+     * @description The configuration of the access log feature.
      *
      * @var accessLogConfig
      */
     public $accessLogConfig;
 
     /**
-     * @description 地址分配方式
+     * @description The mode in which IP addresses are allocated. Valid values:
+     *
+     *   **Fixed**: allocates a static IP address to the ALB instance.
+     *   **Dynamic**: dynamically allocates an IP address to each zone of the ALB instance.
+     *
+     * @example Dynamic
      *
      * @var string
      */
     public $addressAllocatedMode;
 
     /**
-     * @description 协议版本
+     * @description The IP version. Valid values:
+     *
+     *   **IPv4**
+     *   **DualStack**
+     *
+     * @example DualStack
      *
      * @var string
      */
     public $addressIpVersion;
 
     /**
-     * @description 地址类型
+     * @description The network type of the ALB instance. Valid values:
+     *
+     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the virtual private cloud (VPC) where the ALB instance is deployed.
+     *
+     * @example Intranet
      *
      * @var string
      */
     public $addressType;
 
     /**
-     * @description 带宽包ID
+     * @description The ID of the elastic IP address (EIP) bandwidth plan that is associated with the Internet-facing ALB instance.
+     *
+     * @example cbwp-bp1vevu8h3ieh****
      *
      * @var string
      */
     public $bandwidthPackageId;
 
     /**
-     * @description 资源创建时间
+     * @description The time when the resource was created. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2022-07-02T02:49:05Z
      *
      * @var string
      */
     public $createTime;
 
     /**
-     * @description DNS域名
+     * @description The domain name of the ALB instance.
+     *
+     * @example alb-95qnr2itwu9orb****.cn-hangzhou.alb.aliyuncs.com
      *
      * @var string
      */
     public $DNSName;
 
     /**
-     * @description 负载均衡删除保护相关信息
+     * @description The configuration of deletion protection.
      *
      * @var deletionProtectionConfig
      */
     public $deletionProtectionConfig;
 
     /**
-     * @description IPV6地址类型
+     * @description The type of IPv6 address that is used by the ALB instance. Valid values:
+     *
+     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     *
+     * @example Intranet
      *
      * @var string
      */
     public $ipv6AddressType;
 
     /**
-     * @description 计费相关属性
+     * @description The configuration of the billing method of the ALB instance.
      *
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
 
     /**
-     * @description 实例业务状态
+     * @description The service status of the ALB instance. Valid values:
+     *
+     *   **Abnormal**
+     *   **Normal**
+     *
+     * @example Normal
      *
      * @var string
      */
     public $loadBalancerBussinessStatus;
 
     /**
-     * @description 负载均衡的版本
+     * @description The edition of the ALB instance. The features and billing rules vary based on the edition of the ALB instance. Valid values:
+     *
+     *   **Basic**
+     *   **Standard**
+     *   **StandardWithWaf**
+     *
+     * @example Standard
      *
      * @var string
      */
     public $loadBalancerEdition;
 
     /**
-     * @description 负载均衡标识
+     * @description The ALB instance ID.
+     *
+     * @example alb-o9ulmq5hgn68jk****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description 实例名称
+     * @description The name of the ALB instance.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example alb1
      *
      * @var string
      */
     public $loadBalancerName;
 
     /**
-     * @description 锁定原因
+     * @description The type of the lock. Valid values:
+     *
+     *   **SecurityLocked**: The ALB instance is locked due to security reasons.
+     *   **RelatedResourceLocked**: The ALB instance is locked due to association issues.
+     *   **FinancialLocked**: The ALB instance is locked due to overdue payments.
+     *   **ResidualLocked**: The ALB instance is locked because the associated resources have overdue payments and the resources are released.
      *
      * @var loadBalancerOperationLocks[]
      */
     public $loadBalancerOperationLocks;
 
     /**
-     * @description 实例状态
+     * @description The status of the ALB instance. Valid values:
+     *
+     *   **Inactive**: The ALB instance is disabled. ALB instances in the Inactive state do not forward traffic.
+     *   **Active**: The ALB instance is running.
+     *   **Provisioning**: The ALB instance is being created.
+     *   **Configuring**: The ALB instance is being modified.
+     *   **CreateFailed**: The system failed to create the ALB instance. In this case, you are not charged for the ALB instance. You can only delete the ALB instance.
+     *
+     * @example Active
      *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
-     * @description 负载均衡修改保护相关信息
+     * @description The configuration of the configuration read-only mode.
      *
      * @var modificationProtectionConfig
      */
     public $modificationProtectionConfig;
 
     /**
-     * @description 地域
+     * @description The region ID of the ALB instance.
+     *
+     * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 企业资源组ID
+     * @description The resource group ID.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 标签列表
+     * @description The tag value.
      *
+     * The tag value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The tag value cannot contain `http://` or `https://`.
      * @var tags[]
      */
     public $tags;
 
     /**
-     * @description Vpc网络ID
+     * @description The ID of the VPC in which the ALB instance is deployed.
+     *
+     * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description 负载均衡的可用区资源
+     * @description The zone ID of the ALB instance.
      *
+     * You can call the [DescribeZones](~~189196~~) operation to query the zones of the ALB instance.
      * @var zoneMappings[]
      */
     public $zoneMappings;

@@ -4,42 +4,56 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListHealthCheckTemplatesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListHealthCheckTemplatesRequest extends Model
 {
     /**
-     * @description 健康检查模板ID列表
+     * @description The IDs of health check templates.
      *
      * @var string[]
      */
     public $healthCheckTemplateIds;
 
     /**
-     * @description 健康检查模板名称列表
+     * @description The health check templates.
      *
      * @var string[]
      */
     public $healthCheckTemplateNames;
 
     /**
-     * @description 查询数量
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'healthCheckTemplateIds'   => 'HealthCheckTemplateIds',
         'healthCheckTemplateNames' => 'HealthCheckTemplateNames',
         'maxResults'               => 'MaxResults',
         'nextToken'                => 'NextToken',
+        'tag'                      => 'Tag',
     ];
 
     public function validate()
@@ -60,6 +74,15 @@ class ListHealthCheckTemplatesRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -88,6 +111,15 @@ class ListHealthCheckTemplatesRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

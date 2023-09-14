@@ -6,96 +6,153 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\loadBalancerBillingConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\modificationProtectionConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\tag;
 use AlibabaCloud\SDK\Alb\V20200616\Models\CreateLoadBalancerRequest\zoneMappings;
 use AlibabaCloud\Tea\Model;
 
 class CreateLoadBalancerRequest extends Model
 {
     /**
-     * @description 地址模式
+     * @description The mode used to assign IP addresses to zones of the ALB instance. Default value: Dynamic. Valid values:
+     *
+     *   **Fixed:** assigns a static IP address to the ALB instance.
+     *   **Dynamic:** dynamically assigns an IP address to each zone of the ALB instance.
+     *
+     * @example Dynamic
      *
      * @var string
      */
     public $addressAllocatedMode;
 
     /**
-     * @description 负载均衡的地址类型
+     * @description The protocol version. Valid values:
+     *
+     *   **IPv4:** IPv4.
+     *   **DualStack:** dual stack.
+     *
+     * @example IPv4
+     *
+     * @var string
+     */
+    public $addressIpVersion;
+
+    /**
+     * @description The type of the address of the ALB instance. Valid values:
+     *
+     *   **Internet:** The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. In this case, the ALB instance can be accessed over the Internet.
+     *   **Intranet:** The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     *
+     * @example Internet
      *
      * @var string
      */
     public $addressType;
 
     /**
-     * @description 幂等标识
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system uses the value of **RequestId** as the value of **ClientToken**. The value of the **RequestId** parameter may be different for each API request.
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description 是否开启删除保护
+     * @description Specifies whether to enable deletion protection. Default value: false. Valid values:
+     *
+     *   **true:** enables deletion protection.
+     *   **false:** disables deletion protection.
+     *
+     * @example false
      *
      * @var bool
      */
     public $deletionProtectionEnabled;
 
     /**
-     * @description  是否只预检此次请求
+     * @description Specifies whether to perform a dry run. Default value: false. Valid values:
+     *
+     *   **true:** performs a dry run. The system checks the required parameters, request format, and service limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false:** performs a dry run and sends the request. If the request passes the dry run, a 2xx HTTP status code is returned and the operation is performed.
+     *
+     * @example false
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 计费相关配置信息
+     * @description The configuration of the billing method of the ALB instance.
      *
      * @var loadBalancerBillingConfig
      */
     public $loadBalancerBillingConfig;
 
     /**
-     * @description 负载均衡的版本
+     * @description The edition of the ALB instance. The features and billing rules vary based on the edition of the ALB instance. Valid values:
+     *
+     *   **Basic:** basic.
+     *   **Standard:** standard.
+     *   **StandardWithWaf:** WAF-enabled.
+     *
+     * @example Standard
      *
      * @var string
      */
     public $loadBalancerEdition;
 
     /**
-     * @description 名称
+     * @description The name of the ALB instance.
+     *
+     * The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example alb1
      *
      * @var string
      */
     public $loadBalancerName;
 
     /**
-     * @description 负载均衡修改保护相关信息
+     * @description The configuration of the configuration read-only mode.
      *
      * @var modificationProtectionConfig
      */
     public $modificationProtectionConfig;
 
     /**
-     * @description 资源组
+     * @description The ID of the resource group.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 负载均衡实例的专有网络ID。
+     * @var tag[]
+     */
+    public $tag;
+
+    /**
+     * @description The ID of the virtual private cloud (VPC) in which you want to create the ALB instance.
+     *
+     * @example vpc-bp1b49rqrybk45nio****
      *
      * @var string
      */
     public $vpcId;
 
     /**
-     * @description 可用区及交换机映射列表
+     * @description The zones and the vSwitches. You must specify at least two zones.
      *
      * @var zoneMappings[]
      */
     public $zoneMappings;
     protected $_name = [
         'addressAllocatedMode'         => 'AddressAllocatedMode',
+        'addressIpVersion'             => 'AddressIpVersion',
         'addressType'                  => 'AddressType',
         'clientToken'                  => 'ClientToken',
         'deletionProtectionEnabled'    => 'DeletionProtectionEnabled',
@@ -105,6 +162,7 @@ class CreateLoadBalancerRequest extends Model
         'loadBalancerName'             => 'LoadBalancerName',
         'modificationProtectionConfig' => 'ModificationProtectionConfig',
         'resourceGroupId'              => 'ResourceGroupId',
+        'tag'                          => 'Tag',
         'vpcId'                        => 'VpcId',
         'zoneMappings'                 => 'ZoneMappings',
     ];
@@ -118,6 +176,9 @@ class CreateLoadBalancerRequest extends Model
         $res = [];
         if (null !== $this->addressAllocatedMode) {
             $res['AddressAllocatedMode'] = $this->addressAllocatedMode;
+        }
+        if (null !== $this->addressIpVersion) {
+            $res['AddressIpVersion'] = $this->addressIpVersion;
         }
         if (null !== $this->addressType) {
             $res['AddressType'] = $this->addressType;
@@ -146,6 +207,15 @@ class CreateLoadBalancerRequest extends Model
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
         if (null !== $this->vpcId) {
             $res['VpcId'] = $this->vpcId;
         }
@@ -173,6 +243,9 @@ class CreateLoadBalancerRequest extends Model
         if (isset($map['AddressAllocatedMode'])) {
             $model->addressAllocatedMode = $map['AddressAllocatedMode'];
         }
+        if (isset($map['AddressIpVersion'])) {
+            $model->addressIpVersion = $map['AddressIpVersion'];
+        }
         if (isset($map['AddressType'])) {
             $model->addressType = $map['AddressType'];
         }
@@ -199,6 +272,15 @@ class CreateLoadBalancerRequest extends Model
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['VpcId'])) {
             $model->vpcId = $map['VpcId'];

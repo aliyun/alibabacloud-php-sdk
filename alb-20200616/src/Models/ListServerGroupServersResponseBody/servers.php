@@ -9,69 +9,104 @@ use AlibabaCloud\Tea\Model;
 class servers extends Model
 {
     /**
-     * @description 描述信息
+     * @description The description of the backend server.
+     *
+     * @example test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 端口
+     * @description The port used by the backend server. Valid values: **1** to **65535**.
+     *
+     * @example 80
      *
      * @var int
      */
     public $port;
 
     /**
-     * @description 服务器组id
+     * @description Indicates whether the remote IP address feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
+     * @var bool
+     */
+    public $remoteIpEnabled;
+
+    /**
+     * @description The ID of the server group.
+     *
+     * @example sgp-qy042e1jabmprh****
      *
      * @var string
      */
     public $serverGroupId;
 
     /**
-     * @description 服务器id
+     * @description The ID of the backend server.
+     *
+     * > If **ServerType** is set to **Fc**, **ServerId** is the ARN of a function.
+     * @example i-bp1f9kdprbgy9uiu****
      *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description 服务器ip
+     * @description The IP address in inclusive ENI mode.
+     *
+     * @example 192.168.XX.XX
      *
      * @var string
      */
     public $serverIp;
 
     /**
-     * @description 后端服务器类型
+     * @description The type of the backend server.
+     *
+     * @example Ecs
      *
      * @var string
      */
     public $serverType;
 
     /**
-     * @description 状态
+     * @description The status of the backend server. Valid values:
+     *
+     *   **Adding**
+     *   **Available**
+     *   **Configuring**
+     *   **Removing**
+     *
+     * @example Available
      *
      * @var string
      */
     public $status;
 
     /**
-     * @description 权重
+     * @description The weight of the backend server. An ECS instance with a higher weight receives more requests.
+     *
+     * @example 100
      *
      * @var int
      */
     public $weight;
     protected $_name = [
-        'description'   => 'Description',
-        'port'          => 'Port',
-        'serverGroupId' => 'ServerGroupId',
-        'serverId'      => 'ServerId',
-        'serverIp'      => 'ServerIp',
-        'serverType'    => 'ServerType',
-        'status'        => 'Status',
-        'weight'        => 'Weight',
+        'description'     => 'Description',
+        'port'            => 'Port',
+        'remoteIpEnabled' => 'RemoteIpEnabled',
+        'serverGroupId'   => 'ServerGroupId',
+        'serverId'        => 'ServerId',
+        'serverIp'        => 'ServerIp',
+        'serverType'      => 'ServerType',
+        'status'          => 'Status',
+        'weight'          => 'Weight',
     ];
 
     public function validate()
@@ -86,6 +121,9 @@ class servers extends Model
         }
         if (null !== $this->port) {
             $res['Port'] = $this->port;
+        }
+        if (null !== $this->remoteIpEnabled) {
+            $res['RemoteIpEnabled'] = $this->remoteIpEnabled;
         }
         if (null !== $this->serverGroupId) {
             $res['ServerGroupId'] = $this->serverGroupId;
@@ -122,6 +160,9 @@ class servers extends Model
         }
         if (isset($map['Port'])) {
             $model->port = $map['Port'];
+        }
+        if (isset($map['RemoteIpEnabled'])) {
+            $model->remoteIpEnabled = $map['RemoteIpEnabled'];
         }
         if (isset($map['ServerGroupId'])) {
             $model->serverGroupId = $map['ServerGroupId'];

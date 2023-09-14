@@ -10,14 +10,19 @@ use AlibabaCloud\Tea\Model;
 class logConfig extends Model
 {
     /**
-     * @description 访问日志是否开启携带自定义Header
+     * @description Indicates whether custom headers are recorded in the access log. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
      *
      * @var bool
      */
     public $accessLogRecordCustomizedHeadersEnabled;
 
     /**
-     * @description 访问日志Xtrace相关的配置
+     * @description The configuration of Xtrace. Xtrace is used to record requests sent to ALB.
      *
      * @var accessLogTracingConfig
      */

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class queryStringConfig extends Model
 {
     /**
-     * @description 查询字符串条件键值对列表
+     * @description The key-value pairs of the query strings.
      *
      * @var values[]
      */

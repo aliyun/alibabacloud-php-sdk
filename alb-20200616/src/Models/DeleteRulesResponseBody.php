@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class DeleteRulesResponseBody extends Model
 {
     /**
-     * @description 异步任务Id
+     * @description The asynchronous task ID.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 7BED4F62-3E6E-5E4F-8C53-2D8CCE77F2ED
      *
      * @var string
      */

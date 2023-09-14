@@ -9,21 +9,27 @@ use AlibabaCloud\Tea\Model;
 class CreateAclResponseBody extends Model
 {
     /**
-     * @description AclId
+     * @description The ACL ID.
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
      *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description 异步任务Id
+     * @description The asynchronous task ID.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */

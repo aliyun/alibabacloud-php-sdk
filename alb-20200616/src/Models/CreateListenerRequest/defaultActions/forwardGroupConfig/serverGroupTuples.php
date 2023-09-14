@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class serverGroupTuples extends Model
 {
     /**
-     * @description 服务器组ID
+     * @description The ID of the server group to which requests are forwarded.
+     *
+     * @example rsp-cige6j****
      *
      * @var string
      */

@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListAsynJobsResponseBody extends Model
 {
     /**
-     * @description 任务列表
+     * @description The tasks.
      *
      * @var jobs[]
      */
     public $jobs;
 
     /**
-     * @description 本次查询返回记录数量
+     * @description The number of entries per page.
+     *
+     * @example 10
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总记录数
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

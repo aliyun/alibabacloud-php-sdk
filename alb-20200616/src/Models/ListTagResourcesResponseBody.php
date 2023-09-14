@@ -10,45 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
-     * @description 本次查询返回记录数量
+     * @description The number of entries per page.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 标签值列表
+     * @description The tags that match the specified keys and values.
      *
      * @var tagResources[]
      */
     public $tagResources;
-
-    /**
-     * @description 总记录数
-     *
-     * @var int
-     */
-    public $totalCount;
     protected $_name = [
         'maxResults'   => 'MaxResults',
         'nextToken'    => 'NextToken',
         'requestId'    => 'RequestId',
         'tagResources' => 'TagResources',
-        'totalCount'   => 'TotalCount',
     ];
 
     public function validate()
@@ -75,9 +76,6 @@ class ListTagResourcesResponseBody extends Model
                     $res['TagResources'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->totalCount) {
-            $res['TotalCount'] = $this->totalCount;
         }
 
         return $res;
@@ -108,9 +106,6 @@ class ListTagResourcesResponseBody extends Model
                     $model->tagResources[$n++] = null !== $item ? tagResources::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['TotalCount'])) {
-            $model->totalCount = $map['TotalCount'];
         }
 
         return $model;

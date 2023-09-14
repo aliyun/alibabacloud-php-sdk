@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateHealthCheckTemplateResponseBody extends Model
 {
     /**
-     * @description 健康检查模板ID
+     * @description The ID of the health check template.
+     *
+     * @example hct-1224334
      *
      * @var string
      */
     public $healthCheckTemplateId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */

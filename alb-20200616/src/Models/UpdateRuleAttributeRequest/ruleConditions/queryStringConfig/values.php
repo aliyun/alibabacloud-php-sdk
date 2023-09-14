@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
-     * @description 查询字符串条件键
+     * @description They key of the query string. The key must be 1 to 100 characters in length, and can contain printable characters such as lowercase letters, asterisks (\*), and question marks (?). The key cannot contain uppercase letters, space characters, or the following special characters: `# [ ] { } \ | < > &`.
+     *
+     * @example test
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 查询字符串条件值
+     * @description The value of the query string. The value must be 1 to 128 characters in length, and can contain printable characters such as lowercase letters, asterisks (\*), and question marks (?). However, uppercase letters, space characters, and the following special characters are not supported: `# [ ] { } \ | < > &`.
+     *
+     * @example test
      *
      * @var string
      */

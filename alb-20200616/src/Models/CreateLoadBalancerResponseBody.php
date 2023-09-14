@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class CreateLoadBalancerResponseBody extends Model
 {
     /**
-     * @description 负载均衡实例标识
+     * @description The ID of the ALB instance.
+     *
+     * @example alb-o9ulmq5hgn68jk****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description Id of the request
+     * @description The ID of the request.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */

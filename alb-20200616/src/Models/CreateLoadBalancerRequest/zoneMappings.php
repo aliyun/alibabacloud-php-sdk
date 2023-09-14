@@ -9,14 +9,19 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description 交换机标识
+     * @description The ID of the vSwitch in the zone. You can specify only one vSwitch (subnet) in each zone of an ALB instance. You can specify up to 10 vSwitch IDs.
+     *
+     * @example vsw-sersdf****
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description 可用区
+     * @description The ID of the zone where the ALB instance is deployed. You can specify up to 10 zone IDs.
+     *
+     * You can call the [DescribeZones](~~36064~~) operation to query the zones of the ALB instance.
+     * @example cn-hangzhou-a
      *
      * @var string
      */

@@ -9,21 +9,45 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerAddresses extends Model
 {
     /**
-     * @description IP地址
+     * @description The ID of the zone where the ALB instance was deployed.
+     *
+     * You can call the [DescribeZones](~~189196~~) operation to query the zones of the ALB instance.
+     * @example 192.168.10.1
      *
      * @var string
      */
     public $address;
 
     /**
-     * @description Ipv6地址
+     * @example eip-uf6wm****1zj9
+     *
+     * @var string
+     */
+    public $allocationId;
+
+    /**
+     * @example Common
+     *
+     * @var string
+     */
+    public $eipType;
+
+    /**
+     * @description The protocol version. Valid values:
+     *
+     *   **IPv4:** IPv4.
+     *   **DualStack:** dual stack.
+     *
+     * @example 2408:XXXX:39d:eb00::/56
      *
      * @var string
      */
     public $ipv6Address;
     protected $_name = [
-        'address'     => 'Address',
-        'ipv6Address' => 'Ipv6Address',
+        'address'      => 'Address',
+        'allocationId' => 'AllocationId',
+        'eipType'      => 'EipType',
+        'ipv6Address'  => 'Ipv6Address',
     ];
 
     public function validate()
@@ -35,6 +59,12 @@ class loadBalancerAddresses extends Model
         $res = [];
         if (null !== $this->address) {
             $res['Address'] = $this->address;
+        }
+        if (null !== $this->allocationId) {
+            $res['AllocationId'] = $this->allocationId;
+        }
+        if (null !== $this->eipType) {
+            $res['EipType'] = $this->eipType;
         }
         if (null !== $this->ipv6Address) {
             $res['Ipv6Address'] = $this->ipv6Address;
@@ -53,6 +83,12 @@ class loadBalancerAddresses extends Model
         $model = new self();
         if (isset($map['Address'])) {
             $model->address = $map['Address'];
+        }
+        if (isset($map['AllocationId'])) {
+            $model->allocationId = $map['AllocationId'];
+        }
+        if (isset($map['EipType'])) {
+            $model->eipType = $map['EipType'];
         }
         if (isset($map['Ipv6Address'])) {
             $model->ipv6Address = $map['Ipv6Address'];

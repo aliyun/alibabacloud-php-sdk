@@ -9,14 +9,20 @@ use AlibabaCloud\Tea\Model;
 class responseHeaderConfig extends Model
 {
     /**
-     * @description 返回HTTP标头键
+     * @description The key of the header.
+     *
+     *   The key must be 1 to 40 characters in length.
+     *   It can contain letters, digits, hyphens (-), and underscores (\_).
+     *   Cookie and Host are not supported.
+     *
+     * @example test
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 返回HTTP标头值
+     * @description The values of the header.
      *
      * @var string[]
      */

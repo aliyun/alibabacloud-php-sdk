@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListAclEntriesResponseBody extends Model
 {
     /**
-     * @description 访问控制列表
+     * @description The ACL entries.
      *
      * @var aclEntries[]
      */
     public $aclEntries;
 
     /**
-     * @description 本次查询返回记录数量
+     * @description The number of entries per page.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value is returned for **NextToken**, the value is the token that determines the start point of the next query.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总记录数
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

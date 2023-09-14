@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class AssociateAclsWithListenerResponseBody extends Model
 {
     /**
-     * @description 异步任务id
+     * @description The synchronous task ID.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description 请求id
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */

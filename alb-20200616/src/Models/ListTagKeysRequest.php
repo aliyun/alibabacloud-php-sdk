@@ -9,35 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ListTagKeysRequest extends Model
 {
     /**
-     * @description 标签类型
+     * @description The type of the tag.
+     *
+     * Valid values: **Custom**, **System**, and **All**.
+     *
+     * Default value: **All**.
+     * @example System
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description 具体的标签Key
+     * @description The tag key. The tag key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. It cannot contain `http://` or `https://`.
+     *
+     * @example test
      *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description 查询数量
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 资源类型
+     * @description The type of the resource. Valid values:
+     *
+     *   **acl**: an access control list (ACL)
+     *   **loadbalancer**: an Application Load Balancer (ALB) instance
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example loadbalancer
      *
      * @var string
      */

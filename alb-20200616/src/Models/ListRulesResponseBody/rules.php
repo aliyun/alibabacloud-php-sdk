@@ -6,66 +6,101 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody;
 
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\ruleConditions;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListRulesResponseBody\rules\tags;
 use AlibabaCloud\Tea\Model;
 
 class rules extends Model
 {
     /**
-     * @description 监听ID
+     * @description The direction to which the forwarding rule is applied. Valid values:
+     *
+     *   Request (default): The rule applies to client requests.
+     *   Response: The rule applies to responses from backend servers.
+     *
+     * > Response is not supported by basic ALB instances.
+     * @var string
+     */
+    public $direction;
+
+    /**
+     * @description The ID of the listener to which the forwarding rule belongs.
+     *
+     * @example lsn-i35udpz3pxsmnf****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description 实例ID
+     * @description The ID of the ALB instance to which the forwarding rule belongs.
+     *
+     * @example alb-x30o38azsuj0sx****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description 转发规则优先级
+     * @description The priority of the forwarding rule. Valid values: **1 to 10000**. A smaller value indicates a higher priority.
+     *
+     * > The priority of each forwarding rule added to a listener must be unique.
+     * @example 1
      *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 转发规则动作
+     * @description The action of the forwarding rule.
      *
      * @var ruleActions[]
      */
     public $ruleActions;
 
     /**
-     * @description 转发规则条件
+     * @description The conditions of the forwarding rule.
      *
      * @var ruleConditions[]
      */
     public $ruleConditions;
 
     /**
-     * @description 转发规则标识
+     * @description The forwarding rule ID.
+     *
+     * @example rule-bpn0kn908w4nbw****
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 转发规则名称
+     * @description The name of the forwarding rule. The name must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     *
+     * @example rule-instance-test
      *
      * @var string
      */
     public $ruleName;
 
     /**
-     * @description 转发规则状态
+     * @description The status of the forwarding rule. Valid values:
+     *
+     *   **Provisioning**
+     *   **Configuring**
+     *   **Available**
+     *
+     * @example Available
      *
      * @var string
      */
     public $ruleStatus;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
+        'direction'      => 'Direction',
         'listenerId'     => 'ListenerId',
         'loadBalancerId' => 'LoadBalancerId',
         'priority'       => 'Priority',
@@ -74,6 +109,7 @@ class rules extends Model
         'ruleId'         => 'RuleId',
         'ruleName'       => 'RuleName',
         'ruleStatus'     => 'RuleStatus',
+        'tags'           => 'Tags',
     ];
 
     public function validate()
@@ -83,6 +119,9 @@ class rules extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->direction) {
+            $res['Direction'] = $this->direction;
+        }
         if (null !== $this->listenerId) {
             $res['ListenerId'] = $this->listenerId;
         }
@@ -119,6 +158,15 @@ class rules extends Model
         if (null !== $this->ruleStatus) {
             $res['RuleStatus'] = $this->ruleStatus;
         }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
+        }
 
         return $res;
     }
@@ -131,6 +179,9 @@ class rules extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Direction'])) {
+            $model->direction = $map['Direction'];
+        }
         if (isset($map['ListenerId'])) {
             $model->listenerId = $map['ListenerId'];
         }
@@ -166,6 +217,15 @@ class rules extends Model
         }
         if (isset($map['RuleStatus'])) {
             $model->ruleStatus = $map['RuleStatus'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class UpdateSecurityPolicyAttributeResponseBody extends Model
 {
     /**
-     * @description 异步任务Id
+     * @description The asynchronous task ID.
+     *
+     * @example 72dcd26b-f12d-4c27-b3af-18f6aed5****
      *
      * @var string
      */
     public $jobId;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */

@@ -10,49 +10,60 @@ use AlibabaCloud\Tea\Model;
 class ListServerGroupsRequest extends Model
 {
     /**
-     * @description 查询数量
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXG****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 资源组ID
+     * @description The ID of the resource group to which the server group belongs.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 服务器组Id列表
+     * @description The server group IDs.
      *
      * @var string[]
      */
     public $serverGroupIds;
 
     /**
-     * @description 服务器组名称
+     * @description The names of the server groups to be queried. You can specify at most 10 server group names.
      *
      * @var string[]
      */
     public $serverGroupNames;
 
     /**
-     * @description Tag列表
+     * @description The tags that are added to the server group. You can specify up to 10 tags in each call.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description VpcId
+     * @description The ID of the virtual private cloud (VPC).
+     *
+     * @example vpc-bp15zckdt37pq72zv****
      *
      * @var string
      */

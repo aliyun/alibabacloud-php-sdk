@@ -9,14 +9,21 @@ use AlibabaCloud\Tea\Model;
 class tagKeys extends Model
 {
     /**
-     * @description 标签类型
+     * @description The type of the tag.
+     *
+     * Valid values: **Custom**, **System**, and **All**.
+     *
+     * Default value: **All**.
+     * @example System
      *
      * @var string
      */
     public $category;
 
     /**
-     * @description 标签Key
+     * @description The tag that matches all filter conditions.
+     *
+     * @example test
      *
      * @var string
      */

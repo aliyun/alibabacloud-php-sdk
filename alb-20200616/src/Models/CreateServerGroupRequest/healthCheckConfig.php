@@ -9,84 +9,147 @@ use AlibabaCloud\Tea\Model;
 class healthCheckConfig extends Model
 {
     /**
-     * @description 健康检查正常的状态码
+     * @description The HTTP status codes that are used to determine whether the backend server passes the health check.
      *
      * @var string[]
      */
     public $healthCheckCodes;
 
     /**
-     * @description 健康检查端口
+     * @description The port that you want to use for health checks on backend servers.
+     *
+     * Valid values: **0** to **65535**.
+     *
+     * Default value: **0**. If you set the value to 0, the port of a backend server is used for health checks.
+     * @example 80
      *
      * @var int
      */
     public $healthCheckConnectPort;
 
     /**
-     * @description 是否启用健康检查
+     * @description Indicates whether the health check feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > If the **ServerGroupType** parameter is set to **Instance** or **Ip**, the health check feature is enabled by default. If the **ServerGroupType** parameter is set to **Fc**, the health check feature is disabled by default.
+     * @example true
      *
      * @var bool
      */
     public $healthCheckEnabled;
 
     /**
-     * @description 健康检查域名
+     * @description The domain name that is used for health checks. The domain name must meet the following requirements:
+     *
+     *   The domain name must be 1 to 80 characters in length.
+     *   The domain name can contain lowercase letters, digits, hyphens (-), and periods (.).
+     *   It must contain at least one period (.) but cannot start or end with a period (.).
+     *   The rightmost domain label of the domain name can contain only letters, and cannot contain digits or hyphens (-).
+     *   The domain name cannot start or end with a hyphen (-).
+     *
+     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * @example www.example.com
      *
      * @var string
      */
     public $healthCheckHost;
 
     /**
-     * @description 健康检查HTTP协议版本
+     * @description The HTTP version. Valid values: **HTTP1.0** and **HTTP1.1**. Default value: HTTP1.1.
+     *
+     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * @example HTTP1.1
      *
      * @var string
      */
     public $healthCheckHttpVersion;
 
     /**
-     * @description 健康检查间隔
+     * @description The interval at which health checks are performed. Unit: seconds.
+     *
+     * Valid values: **1** to **50**.
+     *
+     * Default value: **2**.
+     * @example 2
      *
      * @var int
      */
     public $healthCheckInterval;
 
     /**
-     * @description 健康检查方法
+     * @description The HTTP method that is used for health checks. Valid values:
+     *
+     *   **GET**: If the length of a response exceeds 8 KB, the response is truncated. However, the health check result is not affected.
+     *   **POST**: gRPC health checks automatically use the POST method.
+     *   **HEAD**: By default, HTTP health checks use the HEAD method.
+     *
+     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP** or **gRPC**.
+     * @example HEAD
      *
      * @var string
      */
     public $healthCheckMethod;
 
     /**
-     * @description 健康检查Path
+     * @description The path that is used for health checks.
+     *
+     * The path must be 1 to 80 characters in length and can contain only letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \" , +`. The URL must start with a forward slash (/).
+     *
+     * > This parameter takes effect only when the **HealthCheckProtocol** parameter is set to **HTTP**.
+     * @example /test/index.html
      *
      * @var string
      */
     public $healthCheckPath;
 
     /**
-     * @description 健康检查协议类型
+     * @description The protocol that is used for health checks. Valid values:
+     *
+     *   **HTTP**: To perform HTTP health checks, Application Load Balancer (ALB) sends HEAD or GET requests to a backend server to check whether the backend server is healthy.
+     *   **HTTPS**: To perform HTTPS health checks, ALB sends SYN packets to a backend server to check whether the port of the backend server is available to receive requests.
+     *   **gRPC**: To perform gRPC health checks, ALB sends POST or GET requests to a backend server to check whether the backend server is healthy.
+     *
+     * @example HTTP
      *
      * @var string
      */
     public $healthCheckProtocol;
 
     /**
-     * @description 健康检查超时时间
+     * @description Specify the timeout period of a health check response. If a backend server, such as an Elastic Compute Service (ECS) instance, does not return a health check response within the specified timeout period, the server fails the health check. Unit: seconds.
+     *
+     * Valid values: **1** to **300**.
+     *
+     * Default value: **5**.
+     *
+     * > If the value of the **HealthCheckTimeout** parameter is smaller than that of the **HealthCheckInterval** parameter, the timeout period specified by the **HealthCheckTimeout** parameter is ignored and the value of the **HealthCheckInterval** parameter is used as the timeout period.
+     * @example 5
      *
      * @var int
      */
     public $healthCheckTimeout;
 
     /**
-     * @description 健康检查成功判定阈值
+     * @description The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status is changed from **fail** to **success**.
+     *
+     * Valid values: **2** to **10**.
+     *
+     * Default value: **3**.
+     * @example 3
      *
      * @var int
      */
     public $healthyThreshold;
 
     /**
-     * @description 健康检查不成功判定阈值
+     * @description The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status is changed from **success** to **fail**.
+     *
+     * Valid values: **2** to **10**.
+     *
+     * Default value: **3**.
+     * @example 3
      *
      * @var int
      */

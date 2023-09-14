@@ -9,13 +9,26 @@ use AlibabaCloud\Tea\Model;
 class loadBalancerBillingConfig extends Model
 {
     /**
-     * @description 实例的计费类型
+     * @description The ID of the Elastic IP Address (EIP) bandwidth plan that is associated with the ALB instance if the ALB instance uses a public IP address.
+     *
+     * @example cbwp-bp1vevu8h3ieh****
+     *
+     * @var string
+     */
+    public $bandwidthPackageId;
+
+    /**
+     * @description The billing method of the ALB instance.
+     *
+     * Set the value to **PostPay**, which specifies the pay-as-you-go billing method.
+     * @example PostPay
      *
      * @var string
      */
     public $payType;
     protected $_name = [
-        'payType' => 'PayType',
+        'bandwidthPackageId' => 'BandwidthPackageId',
+        'payType'            => 'PayType',
     ];
 
     public function validate()
@@ -25,6 +38,9 @@ class loadBalancerBillingConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->bandwidthPackageId) {
+            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
+        }
         if (null !== $this->payType) {
             $res['PayType'] = $this->payType;
         }
@@ -40,6 +56,9 @@ class loadBalancerBillingConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['BandwidthPackageId'])) {
+            $model->bandwidthPackageId = $map['BandwidthPackageId'];
+        }
         if (isset($map['PayType'])) {
             $model->payType = $map['PayType'];
         }

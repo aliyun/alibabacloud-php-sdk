@@ -9,14 +9,14 @@ use AlibabaCloud\Tea\Model;
 class ruleIds extends Model
 {
     /**
-     * @description 转发规则优先级
+     * @example 10
      *
      * @var int
      */
     public $priority;
 
     /**
-     * @description 转发规则标识
+     * @example rule-a3x3pg1yohq3lq****
      *
      * @var string
      */

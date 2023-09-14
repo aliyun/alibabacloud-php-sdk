@@ -9,14 +9,22 @@ use AlibabaCloud\Tea\Model;
 class aclRelations extends Model
 {
     /**
-     * @description ACL标识
+     * @description The ID of the ACL that is associated with the listener.
+     *
+     * @example acl-doc****
      *
      * @var string
      */
     public $aclId;
 
     /**
-     * @description ACL与监听关联的状态
+     * @description Indicates whether the ACL is associated with the listener. Valid values:
+     *
+     *   **Associating**
+     *   **Associated**
+     *   **Dissociating**
+     *
+     * @example Associating
      *
      * @var string
      */

@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ruleHealthStatus extends Model
 {
     /**
-     * @description 转发规则ID
+     * @description The ID of the forwarding rule.
+     *
+     * @example rule-hp34s2h0xx1ht4nwo****
      *
      * @var string
      */
     public $ruleId;
 
     /**
-     * @description 服务器组健康检查结果
+     * @description The server groups.
      *
      * @var serverGroupInfos[]
      */

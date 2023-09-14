@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions\corsConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions\fixedResponseConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions\forwardGroupConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateRulesAttributeRequest\rules\ruleActions\insertHeaderConfig;
@@ -17,75 +18,95 @@ use AlibabaCloud\Tea\Model;
 class ruleActions extends Model
 {
     /**
-     * @description 返回固定内容动作配置
+     * @description The CORS configuration.
+     *
+     * @var corsConfig
+     */
+    public $corsConfig;
+
+    /**
+     * @description The configuration of the action to return a custom response. You can specify the configurations of up to 20 actions to return a custom response.
      *
      * @var fixedResponseConfig
      */
     public $fixedResponseConfig;
 
     /**
-     * @description 转发组动作配置
+     * @description The configuration of the action to forward requests to server groups. You can specify the configurations of up to 20 actions to forward requests to server groups.
      *
      * @var forwardGroupConfig
      */
     public $forwardGroupConfig;
 
     /**
-     * @description 插入头部动作配置
+     * @description The configuration of the action to insert a header. You can specify the configurations of up to 20 actions to insert a header.
      *
      * @var insertHeaderConfig
      */
     public $insertHeaderConfig;
 
     /**
-     * @description 优先级
+     * @description The priority of the action. Valid values: **1** to **50000**. A lower value specifies a higher priority. The actions of a forwarding rule are applied in descending order of priority. This parameter cannot be left empty. The priority of each action within a forwarding rule must be unique. You can specify priorities for up to 20 actions.
+     *
+     * @example 1
      *
      * @var int
      */
     public $order;
 
     /**
-     * @description 重定向动作配置
+     * @description The configuration of the redirect action. You can specify the configurations of up to 20 redirect actions.
      *
      * @var redirectConfig
      */
     public $redirectConfig;
 
     /**
-     * @description 去除HTTP标头
+     * @description The action to remove an HTTP header. You can specify the configurations of up to 20 actions to remove an HTTP header.
      *
      * @var removeHeaderConfig
      */
     public $removeHeaderConfig;
 
     /**
-     * @description 内部重定向动作配置
+     * @description The configuration of the rewrite action. You can specify the configurations of up to 20 rewrite actions.
      *
      * @var rewriteConfig
      */
     public $rewriteConfig;
 
     /**
-     * @description 流量限速
+     * @description The configuration of traffic throttling. You can add up to 20 configuration records.
      *
      * @var trafficLimitConfig
      */
     public $trafficLimitConfig;
 
     /**
-     * @description 流量镜像
+     * @description The configuration of traffic mirroring. You can add up to 20 configuration records.
      *
      * @var trafficMirrorConfig
      */
     public $trafficMirrorConfig;
 
     /**
-     * @description 转发规则动作类型
+     * @description The type of the forwarding rule. You can specify up to seven types. Valid values:
+     *
+     *   **Host**: Requests are distributed based on hosts.
+     *   **Path**: Requests are distributed based on paths.
+     *   **Header**: Requests are distributed based on HTTP headers.
+     *   **QueryString**: Requests are distributed based on query strings.
+     *   **Method**: Requests are distributed based on request methods.
+     *   **Cookie**: Requests are distributed based on cookies.
+     *   **SourceIp**: Requests are distributed based on source IP addresses.
+     *
+     * @example Host
      *
      * @var string
      */
     public $type;
     protected $_name = [
+        'corsConfig'          => 'CorsConfig',
         'fixedResponseConfig' => 'FixedResponseConfig',
         'forwardGroupConfig'  => 'ForwardGroupConfig',
         'insertHeaderConfig'  => 'InsertHeaderConfig',
@@ -105,6 +126,9 @@ class ruleActions extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->corsConfig) {
+            $res['CorsConfig'] = null !== $this->corsConfig ? $this->corsConfig->toMap() : null;
+        }
         if (null !== $this->fixedResponseConfig) {
             $res['FixedResponseConfig'] = null !== $this->fixedResponseConfig ? $this->fixedResponseConfig->toMap() : null;
         }
@@ -147,6 +171,9 @@ class ruleActions extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CorsConfig'])) {
+            $model->corsConfig = corsConfig::fromMap($map['CorsConfig']);
+        }
         if (isset($map['FixedResponseConfig'])) {
             $model->fixedResponseConfig = fixedResponseConfig::fromMap($map['FixedResponseConfig']);
         }

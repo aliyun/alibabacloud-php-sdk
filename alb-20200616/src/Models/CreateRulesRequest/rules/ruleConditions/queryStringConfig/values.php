@@ -9,14 +9,27 @@ use AlibabaCloud\Tea\Model;
 class values extends Model
 {
     /**
-     * @description 查询字符串条件键
+     * @description The type of forwarding rule. You can specify at most seven types. Valid values:
+     *
+     *   **Host**: Requests are forwarded based on hosts.
+     *   **Path**: Requests are forwarded based on paths.
+     *   **Header**: Requests are forwarded based on HTTP headers.
+     *   **QueryString**: Requests are forwarded based on query strings.
+     *   **Method**: Requests are forwarded based on request methods.
+     *   **Cookie**: Requests are forwarded based on cookies.
+     *   **SourceIp**: Requests are forwarded based on source IP addresses.
+     *
+     * @example test
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 查询字符串条件值
+     * @description The IP addresses or CIDR blocks.
+     *
+     * You can specify at most five values for **SourceIp**.
+     * @example test
      *
      * @var string
      */

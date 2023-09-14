@@ -9,28 +9,48 @@ use AlibabaCloud\Tea\Model;
 class servers extends Model
 {
     /**
-     * @description 后端端口号
+     * @description The port that is used by the backend server. Valid values: **1** to **65535**. You can specify at most 40 servers in each call.
+     *
+     * > This parameter is required if the **ServerType** parameter is set to **Ecs**, **Eni**, **Eci**, or **Ip**.
+     * @example 80
      *
      * @var int
      */
     public $port;
 
     /**
-     * @description 后端服务器id
+     * @description The backend server ID. You can specify up to 40 server IDs in each call.
+     *
+     *   If the server group type is **Instance**, set the ServerId parameter to the ID of an ECS instance, an ENI, or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
+     *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
+     *   If the server group type is **Fc**, set the ServerId parameter to the ARN of a function specified in the server group.
+     *
+     * > You can call the [ListServerGroups](~~213627~~) operation to query information about the server group type so that you can set ServerId to a proper value.
+     * @example i-bp1f9kdprbgy9uiu****
      *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description 后端服务器ip
+     * @description The IP address in inclusive ENI mode. You can specify at most 40 servers in each call.
+     *
+     * @example 192.168.1.1
      *
      * @var string
      */
     public $serverIp;
 
     /**
-     * @description 后端服务器类型
+     * @description The type of the backend server. You can specify at most 40 servers in each call. Valid values:
+     *
+     *   **Ecs**
+     *   **Eni**
+     *   **Eci**
+     *   **Ip**
+     *   **Fc**
+     *
+     * @example Ecs
      *
      * @var string
      */

@@ -9,21 +9,30 @@ use AlibabaCloud\Tea\Model;
 class fixedResponseConfig extends Model
 {
     /**
-     * @description 内容
+     * @description The weight of the server group. A larger value indicates a higher weight. A server group with a higher weight receives more requests. Valid values: **1 to 100**. Default value: **100**.
+     *
+     * @example dssacav
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 内容类型
+     * @description Specifies whether to enable session persistence. Valid values:
+     *
+     *   **true**: enables session persistence.
+     *   **false** (default): disables session persistence.
+     *
+     * @example text/plain
      *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description HTTP响应码
+     * @description The timeout period of sessions. Unit: seconds. Valid values: **1 to 86400**.
+     *
+     * @example HTTP_200
      *
      * @var string
      */

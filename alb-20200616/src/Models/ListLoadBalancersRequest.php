@@ -10,84 +10,118 @@ use AlibabaCloud\Tea\Model;
 class ListLoadBalancersRequest extends Model
 {
     /**
-     * @description 负载均衡的地址类型
+     * @description The network type. Valid values:
+     *
+     *   **Internet**: The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet**: The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. In this case, the ALB instance can be accessed over the VPC where the ALB instance is deployed.
+     *
+     * @example Intranet
      *
      * @var string
      */
     public $addressType;
 
     /**
-     * @description 实例业务状态
+     * @description The service status of the ALB instance. Valid values:
+     *
+     *   **Abnormal**
+     *   **Normal**
+     *
+     * @example Normal
      *
      * @var string
      */
     public $loadBalancerBussinessStatus;
 
     /**
-     * @description 实例ID列表，N最大支持20
+     * @description The instance IDs. You can specify at most 20 ALB instance IDs.
      *
      * @var string[]
      */
     public $loadBalancerIds;
 
     /**
-     * @description 实例Name列表，N最大支持10
+     * @description The names of the instances. You can specify at most 10 names.
      *
      * @var string[]
      */
     public $loadBalancerNames;
 
     /**
-     * @description 实例状态
+     * @description The status of the ALB instance. Valid values:
+     *
+     *   **Inactive**: The ALB instance is disabled. The listeners do not forward traffic.
+     *   **Active**: The ALB instance is running.
+     *   **Provisioning**: The ALB instance is being created.
+     *   **Configuring**: The ALB instance is being modified.
+     *   **CreateFailed**: The system failed to create the ALB instance. In this case, you are not charged for the ALB instance. You can only delete the ALB instance. By default, the system deletes the ALB instances that are in the CreateFailed state within the last day.
+     *
+     * @example Active
      *
      * @var string
      */
     public $loadBalancerStatus;
 
     /**
-     * @description 本次读取的最大数据记录数量，此参数为可选参数，取值1-100，用户传入为空时，默认为20。
+     * @description The number of entries to return on each page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 用来标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 付费类型
+     * @description The billing method of the ALB instance. Set the value to
+     *
+     **PostPay**, which specifies the pay-as-you-go billing method. This is the default value.
+     *
+     * @example PostPay
      *
      * @var string
      */
     public $payType;
 
     /**
-     * @description 资源组ID
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmxazb4ph****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description tag列表
+     * @description The tags added to the ALB instance.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description vpcId列表
+     * @description The ID of the virtual private cloud (VPC) to which the ALB instance belongs. You can specify at most 10 IDs.
      *
      * @var string[]
      */
     public $vpcIds;
 
     /**
-     * @description 可用区ID
+     * @description The ID of the zone where the ALB instance is deployed.
+     *
+     * You can call the [DescribeZones](~~189196~~) operation to query zones.
+     * @example cn-hangzhou-a
      *
      * @var string
      */

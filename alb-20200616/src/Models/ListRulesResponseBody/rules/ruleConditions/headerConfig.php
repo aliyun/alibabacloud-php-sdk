@@ -9,14 +9,16 @@ use AlibabaCloud\Tea\Model;
 class headerConfig extends Model
 {
     /**
-     * @description HTTP标头键
+     * @description The key of the header. The key must be 1 to 40 characters in length, and can contain lowercase letters, digits, hyphens (-), and underscores (\_). Cookie and Host are not supported.
+     *
+     * @example Port
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description HTTP标头值列表
+     * @description The values of the header.
      *
      * @var string[]
      */

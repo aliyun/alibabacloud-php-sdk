@@ -9,42 +9,85 @@ use AlibabaCloud\Tea\Model;
 class redirectConfig extends Model
 {
     /**
-     * @description 要跳转的主机地址
+     * @description The hostname to which requests are redirected. Valid values:
+     *
+     *   **${host}** (default): If you set the value to ${host}, you cannot append other characters.
+     *
+     *   Limits on the value:
+     *
+     *   The hostname must be 3 to 128 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.). Asterisks (\*) and question marks (?) can be used as wildcards.
+     *   The hostname must contain at least one period (.) but cannot start or end with a period (.).
+     *   The rightmost domain label can contain only letters and wildcard characters. It does not contain digits or hyphens (-).
+     *   The domain labels cannot start or end with a hyphen (-).
+     *   You can use asterisks (\*) and question marks (?) anywhere in a domain label as wildcard characters.
+     *
+     * @example www.example.com
      *
      * @var string
      */
     public $host;
 
     /**
-     * @description 跳转方式
+     * @description The redirect type. Valid values: **301**, **302**, **303**, **307**, and **308**.
+     *
+     * @example 301
      *
      * @var string
      */
     public $httpCode;
 
     /**
-     * @description 要跳转的路径
+     * @description The path to which requests are redirected. Valid values:
+     *
+     *   Default value: **${path}**. \*\*${host}**, **${protocol}**, and **${port}\*\* are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+     *
+     *   A custom value. You must make sure that the custom value meets the following requirements:
+     *
+     *   The value is 1 to 128 characters in length.
+     *   It must start with a forward slash (/) and can contain letters, digits, and the following special characters: `$ - _ .+ / & ~ @ :`. It cannot contain the following special characters: `" % # ; ! ( ) [ ] ^ , "`. You can use asterisks (\*) and question marks (?) as wildcards.
+     *
+     * @example /test
      *
      * @var string
      */
     public $path;
 
     /**
-     * @description 要跳转的端口
+     * @description The port to which requests are redirected. Valid values:
+     *
+     *   **${port}** (default): If you set the value to ${port}, you cannot append other characters.
+     *   You can also enter a port number. Valid values: **1 to 63335**.
+     *
+     * @example 10
      *
      * @var string
      */
     public $port;
 
     /**
-     * @description 要跳转的协议
+     * @description The redirect protocol. Valid values:
+     *
+     *   **${protocol}** (default): If you set the value to ${protocol}, you cannot append other characters.
+     *   **HTTP** or **HTTPS**.
+     *
+     * > HTTPS listeners support only HTTPS to HTTPS redirects.
+     * @example HTTP
      *
      * @var string
      */
     public $protocol;
 
     /**
-     * @description 要跳转的查询字符串
+     * @description The query string of the URL to which requests are redirected. Valid values:
+     *
+     *   Default value: **${query}**. \*\*${host}**, **${protocol}**, and **${port}\*\* are also supported. Each variable can be specified only once. You can specify one or more of the preceding variables in each request. You can also combine them with a custom value.
+     *
+     *   A custom value. You must make sure that the custom value meets the following requirements:
+     *
+     *   The value must be 1 to 128 characters in length.
+     *   It can contain printable characters, except space characters, the special characters `# [ ] { } \ | < > &`, and uppercase letters.
+     *
+     * @example quert
      *
      * @var string
      */

@@ -10,28 +10,34 @@ use AlibabaCloud\Tea\Model;
 class listenerHealthStatus extends Model
 {
     /**
-     * @description 监听Id
+     * @description The listener ID.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description 监听的端口号
+     * @description The listener port.
+     *
+     * @example 80
      *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description 监听的协议
+     * @description The listener protocol.
+     *
+     * @example http
      *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description 服务器组健康检查结果
+     * @description The information about the server groups.
      *
      * @var serverGroupInfos[]
      */

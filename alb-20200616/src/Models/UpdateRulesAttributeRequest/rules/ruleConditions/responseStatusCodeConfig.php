@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class responseStatusCodeConfig extends Model
 {
     /**
-     * @description 返回状态码条件
+     * @description The match conditions.
      *
      * @var string[]
      */

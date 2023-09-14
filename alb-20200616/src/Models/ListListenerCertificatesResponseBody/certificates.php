@@ -9,28 +9,43 @@ use AlibabaCloud\Tea\Model;
 class certificates extends Model
 {
     /**
-     * @description 证书Id
+     * @description The certificate ID. Only server certificates are supported.
+     *
+     * @example 12315790343_166f8204689_1714763408_70998****
      *
      * @var string
      */
     public $certificateId;
 
     /**
-     * @description 证书类型
+     * @description The type of the certificate.
+     *
+     * @example Server
      *
      * @var string
      */
     public $certificateType;
 
     /**
-     * @description 是否为默认证书
+     * @description Indicates whether the certificate is the default certificate of the listener. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
      *
      * @var bool
      */
     public $isDefault;
 
     /**
-     * @description 证书状态
+     * @description Indicates whether the certificate is associated with the listener. Valid values:
+     *
+     *   **Associating**
+     *   **Associated**
+     *   **Diassociating**
+     *
+     * @example Associating
      *
      * @var string
      */

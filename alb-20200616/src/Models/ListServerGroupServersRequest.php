@@ -10,32 +10,45 @@ use AlibabaCloud\Tea\Model;
 class ListServerGroupServersRequest extends Model
 {
     /**
-     * @description 查询数量
+     * @description The maximum number of entries to return. Valid values: **1** to **100**. If you do not specify a value, the default value **20** is used.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXG****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 服务器组id
+     * @description The server group ID.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $serverGroupId;
 
     /**
+     * @description The IDs of the servers.
+     *
      * @var string[]
      */
     public $serverIds;
 
     /**
+     * @description The tags that are added to the server group. You can specify up to 10 tags in each call.
+     *
      * @var tag[]
      */
     public $tag;

@@ -9,7 +9,13 @@ use AlibabaCloud\Tea\Model;
 class removeHeaderConfig extends Model
 {
     /**
-     * @description HTTP标头键
+     * @description The key of the header.
+     *
+     *   The key must be 1 to 40 characters in length.
+     *   It can contain letters, digits, hyphens (-), and underscores (\_).
+     *   Cookie and Host are not supported.
+     *
+     * @example Port
      *
      * @var string
      */

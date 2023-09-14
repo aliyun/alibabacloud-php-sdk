@@ -9,21 +9,28 @@ use AlibabaCloud\Tea\Model;
 class fixedResponseConfig extends Model
 {
     /**
-     * @description 内容
+     * @description The content of the custom response. The content can be up to 1 KB in size and can contain only ASCII characters.
+     *
+     * @example dssacav
      *
      * @var string
      */
     public $content;
 
     /**
-     * @description 内容类型
+     * @description The format of the response.
+     *
+     * Valid values: **text/plain**, **text/css**, **text/html**, **application/javascript**, and **application/json**.
+     * @example text/plain
      *
      * @var string
      */
     public $contentType;
 
     /**
-     * @description HTTP响应码
+     * @description The HTTP status code in the response. Valid values: **HTTP\_2xx**, **HTTP\_4xx**, and **HTTP\_5xx**. **x** must be a digit.
+     *
+     * @example HTTP_200
      *
      * @var string
      */

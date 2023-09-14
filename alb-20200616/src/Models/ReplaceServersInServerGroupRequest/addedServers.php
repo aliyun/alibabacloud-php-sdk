@@ -9,42 +9,63 @@ use AlibabaCloud\Tea\Model;
 class addedServers extends Model
 {
     /**
-     * @description 描述信息
+     * @description The description of the backend server. The description must be 2 to 256 characters in length, and can contain letters, digits, periods (.), underscores (\_), hyphens (-), commas (,), semicolons (;), forward slashes (/), and at signs (@). You can specify at most 40 servers in each call.
+     *
+     * @example test
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description 后端端口号
+     * @description The port used by the server group. Valid values: **1** to **65535**. You can specify at most 40 servers in each call.
+     *
+     * @example 80
      *
      * @var int
      */
     public $port;
 
     /**
-     * @description 后端服务器id
+     * @description The ID of the backend server. You can specify up to 40 server IDs in each call.
+     *
+     *   If the server group type is **Instance**, set the ServerId parameter to the ID of an ECS instance, an ENI, or an elastic container instance. These backend servers are specified by **Ecs**, **Eni**, or **Eci**.
+     *   If the server group type is **Ip**, set the ServerId parameter to an IP address specified in the server group.
+     *
+     * > You cannot perform this operation on a server group of the Function type. You can call the [ListServerGroups](~~213627~~) operation to query information about the server group type so that you can set ServerId to a proper value.
+     * @example i-bp1f9kdprbgy9uiu****
      *
      * @var string
      */
     public $serverId;
 
     /**
-     * @description 后端服务器ip
+     * @description The IP address in inclusive ENI mode. You can specify at most 40 servers in each call.
+     *
+     * @example 192.168.1.1
      *
      * @var string
      */
     public $serverIp;
 
     /**
-     * @description 后端服务器类型
+     * @description The type of the backend server that you want to remove from the server group. You can specify up to 40 backend servers in each call. Valid values:
+     *
+     *   **Ecs**
+     *   **Eni**
+     *   **Eci**
+     *
+     * @example Ecs
      *
      * @var string
      */
     public $serverType;
 
     /**
-     * @description 后端服务器权重
+     * @description The weight of the backend server that you want to add to the server group. You can specify up to 40 backend servers in each call.
+     *
+     * Valid values: **0** to **100**. Default value: **100**. If the weight of a backend server is set to **0**, no requests are forwarded to the backend server.
+     * @example 100
      *
      * @var int
      */

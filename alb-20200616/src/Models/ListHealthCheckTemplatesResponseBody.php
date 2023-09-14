@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListHealthCheckTemplatesResponseBody extends Model
 {
     /**
-     * @description 健康检查模板
+     * @description The health check templates.
      *
      * @var healthCheckTemplates[]
      */
     public $healthCheckTemplates;
 
     /**
-     * @description 本次查询返回记录数量
+     * @description The number of entries returned per page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If a value of **NextToken** was returned in the previous query, specify the value to obtain the next set of results.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 365F4154-92F6-4AE4-92F8-7FF34B540710
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 总记录数
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

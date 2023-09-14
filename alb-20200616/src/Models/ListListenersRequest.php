@@ -4,50 +4,70 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListListenersRequest extends Model
 {
     /**
-     * @description 监听ID列表，N最大支持20
+     * @description The listener IDs. You can specify up to 20 IDs.
      *
      * @var string[]
      */
     public $listenerIds;
 
     /**
-     * @description 监听协议
+     * @description The listener protocol. Valid values:
+     *
+     *   **HTTP**
+     *   **HTTPS**
+     *   **QUIC**
+     *
+     * @example HTTP
      *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description 实例ID列表，N最大支持20
+     * @description The ID of the Application Load Balancer (ALB) instance. You can specify at most 20 IDs.
      *
      * @var string[]
      */
     public $loadBalancerIds;
 
     /**
-     * @description 本次读取的最大数据记录数量，此参数为可选参数，取值1-100，用户传入为空时，默认为20。
+     * @description The maximum number of entries to return. This parameter is optional. Valid values: **1 to 100**. If you do not specify this parameter, the default value **20** is used.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 用来标记当前开始读取的位置，置空表示从头开始。
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'listenerIds'      => 'ListenerIds',
         'listenerProtocol' => 'ListenerProtocol',
         'loadBalancerIds'  => 'LoadBalancerIds',
         'maxResults'       => 'MaxResults',
         'nextToken'        => 'NextToken',
+        'tag'              => 'Tag',
     ];
 
     public function validate()
@@ -71,6 +91,15 @@ class ListListenersRequest extends Model
         }
         if (null !== $this->nextToken) {
             $res['NextToken'] = $this->nextToken;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -102,6 +131,15 @@ class ListListenersRequest extends Model
         }
         if (isset($map['NextToken'])) {
             $model->nextToken = $map['NextToken'];
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
+            }
         }
 
         return $model;

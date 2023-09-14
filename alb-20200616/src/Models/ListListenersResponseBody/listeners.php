@@ -7,111 +7,158 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners\defaultActions;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners\logConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners\quicConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners\tags;
 use AlibabaCloud\SDK\Alb\V20200616\Models\ListListenersResponseBody\listeners\XForwardedForConfig;
 use AlibabaCloud\Tea\Model;
 
 class listeners extends Model
 {
     /**
-     * @description 默认动作
+     * @description The default actions in the forwarding rules.
      *
      * @var defaultActions[]
      */
     public $defaultActions;
 
     /**
-     * @description 是否开启Gzip压缩
+     * @description Indicates whether GZIP compression is enabled to compress specific types of files. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
      *
      * @var bool
      */
     public $gzipEnabled;
 
     /**
-     * @description 是否开启HTTP/2特性
+     * @description Indicates whether HTTP/2 is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example false
      *
      * @var bool
      */
     public $http2Enabled;
 
     /**
-     * @description 连接空闲超时时间
+     * @description The timeout period of an idle connection. Unit: seconds. Valid values: **1 to 60**.
+     *
+     * If no request is received within the specified timeout period, ALB closes the connection. ALB establishes the connection again when a new connection request is received.
+     * @example 3
      *
      * @var int
      */
     public $idleTimeout;
 
     /**
-     * @description 监听描述
+     * @description The listener name.
+     *
+     * @example test
      *
      * @var string
      */
     public $listenerDescription;
 
     /**
-     * @description 监听标识
+     * @description The listener ID.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
-     * @description 监听端口
+     * @description The frontend port that is used by the ALB instance. Valid values: **1 to 65535**.
+     *
+     * @example 80
      *
      * @var int
      */
     public $listenerPort;
 
     /**
-     * @description 监听协议
+     * @description The listener protocol. Valid values:
+     *
+     *   **HTTP**
+     *   **HTTPS**
+     *   **QUIC**
+     *
+     * @example HTTP
      *
      * @var string
      */
     public $listenerProtocol;
 
     /**
-     * @description 监听状态
+     * @description The status of the listener. Valid values:
+     *
+     *   **Provisioning**
+     *   **Running**
+     *   **Configuring**
+     *   **Stopped**
+     *
+     * @example Running
      *
      * @var string
      */
     public $listenerStatus;
 
     /**
-     * @description 负载均衡标识
+     * @description The ALB instance ID.
+     *
+     * @example lb-bp1b6c719dfa08ex*****
      *
      * @var string
      */
     public $loadBalancerId;
 
     /**
-     * @description 监听访问日志相关配置
+     * @description The configuration of logs.
      *
      * @var logConfig
      */
     public $logConfig;
 
     /**
-     * @description HTTPS启用QUIC时相关属性
+     * @description The configuration information when the listener is associated with a QUIC listener.
      *
      * @var quicConfig
      */
     public $quicConfig;
 
     /**
-     * @description 请求超时时间
+     * @description The timeout period of a request. Unit: seconds. Valid values: **1 to 180**.
+     *
+     * If no responses are received from the backend server within the specified timeout period, ALB returns an `HTTP 504` error code to the client.
+     * @example 34
      *
      * @var int
      */
     public $requestTimeout;
 
     /**
-     * @description 安全策略
+     * @description The security policy.
+     *
+     * > This parameter is available only when you create an HTTPS listener.
+     * @example tls_cipher_policy_1_1
      *
      * @var string
      */
     public $securityPolicyId;
 
     /**
-     * @description XForward字段相关的配置
+     * @var tags[]
+     */
+    public $tags;
+
+    /**
+     * @description Configuration of the `XForward` header.
      *
      * @var XForwardedForConfig
      */
@@ -131,6 +178,7 @@ class listeners extends Model
         'quicConfig'          => 'QuicConfig',
         'requestTimeout'      => 'RequestTimeout',
         'securityPolicyId'    => 'SecurityPolicyId',
+        'tags'                => 'Tags',
         'XForwardedForConfig' => 'XForwardedForConfig',
     ];
 
@@ -188,6 +236,15 @@ class listeners extends Model
         }
         if (null !== $this->securityPolicyId) {
             $res['SecurityPolicyId'] = $this->securityPolicyId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->XForwardedForConfig) {
             $res['XForwardedForConfig'] = null !== $this->XForwardedForConfig ? $this->XForwardedForConfig->toMap() : null;
@@ -251,6 +308,15 @@ class listeners extends Model
         }
         if (isset($map['SecurityPolicyId'])) {
             $model->securityPolicyId = $map['SecurityPolicyId'];
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['XForwardedForConfig'])) {
             $model->XForwardedForConfig = XForwardedForConfig::fromMap($map['XForwardedForConfig']);

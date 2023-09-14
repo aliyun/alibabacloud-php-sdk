@@ -9,25 +9,43 @@ use AlibabaCloud\Tea\Model;
 class GetListenerHealthStatusRequest extends Model
 {
     /**
-     * @description 是否包含转发规则健康检查结果
+     * @description Specifies whether to return the health check results of forwarding rules. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
+     *
+     * @example true
      *
      * @var bool
      */
     public $includeRule;
 
     /**
-     * @description 监听Id
+     * @description The listener ID.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
     public $listenerId;
 
     /**
+     * @description The number of entries to return on each page. Valid values: **1** to **30**. Default value: **20**.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The token that determines the start point of the query. Valid values:
+     *
+     *   If this is your first query or no next queries are to be sent, ignore this parameter.
+     *   If a next query is to be sent, set the value to the value of **NextToken** that is returned from the last call.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
+     *
      * @var string
      */
     public $nextToken;

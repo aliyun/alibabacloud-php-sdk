@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityPolicyRelationsResponseBody extends Model
 {
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example 593B0448-D13E-4C56-AC0D-FDF0FDE0E9A3
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 安全策略关联关系
+     * @description The security policies and the listeners that are associated with the security policies.
      *
      * @var secrityPolicyRelations[]
      */

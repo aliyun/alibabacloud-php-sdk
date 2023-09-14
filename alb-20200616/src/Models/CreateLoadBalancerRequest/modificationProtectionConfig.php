@@ -9,14 +9,21 @@ use AlibabaCloud\Tea\Model;
 class modificationProtectionConfig extends Model
 {
     /**
-     * @description 设置修改保护状态的原因
+     * @description The reason for enabling the configuration read-only mode. The reason must be 2 to 128 characters in length, and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The reason must start with a letter.
      *
+     * > This parameter takes effect only if `Status` is set to **ConsoleProtection**.
      * @var string
      */
     public $reason;
 
     /**
-     * @description 负载均衡修改保护状态
+     * @description Specifies whether to enable the configuration read-only mode. Valid values:
+     *
+     *   **NonProtection**: disables the configuration read-only mode. In this case, you cannot specify ModificationProtectionReason. If you specify ModificationProtectionReason, the value of the parameter is cleared.
+     *   **ConsoleProtection**: enables the configuration read-only mode. In this case, you can specify ModificationProtectionReason.
+     *
+     * > If you set this parameter to **ConsoleProtection**, you cannot use the ALB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+     * @example ConsoleProtection
      *
      * @var string
      */

@@ -10,14 +10,23 @@ use AlibabaCloud\Tea\Model;
 class aclConfig extends Model
 {
     /**
-     * @description 监听绑定的访问策略组
+     * @description The IDs of the ACLs that are associated with the listener.
      *
      * @var aclRelations[]
      */
     public $aclRelations;
 
     /**
-     * @description 访问控制类型
+     * @description The type of the ACL. Valid values:
+     *
+     *   **White**: a whitelist. Only requests from the IP addresses or CIDR blocks in the network ACL are forwarded. Whitelists are applicable to scenarios in which you want to allow only specific IP addresses to access an application. Your service may be adversely affected if the whitelist is not properly configured. If a whitelist is configured for a listener, only requests from IP addresses that are on the whitelist are forwarded by the listener.
+     *
+     * If you enable a whitelist but do not add an IP address to the whitelist, the listener forwards all requests.
+     *
+     *   **Black**: a blacklist. Requests from the IP addresses or CIDR blocks in the network ACL are denied. Blacklists are suitable for scenarios in which you want to deny access from specific IP addresses or CIDR blocks to an application.
+     *
+     * If a blacklist is configured for a listener but no IP addresses are added to the blacklist, the listener forwards all requests.
+     * @example White
      *
      * @var string
      */

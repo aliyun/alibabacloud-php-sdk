@@ -9,14 +9,18 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description 标签键
+     * @description The key of the tag that you want to remove. The key can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The key cannot contain `http://` or `https://`.
+     *
+     * @example env
      *
      * @var string
      */
     public $key;
 
     /**
-     * @description 标签值
+     * @description The value of the tag that you want to remove. The value can be up to 128 characters in length and cannot start with `acs:` or `aliyun`. The value cannot contain `http://` or `https://`.
+     *
+     * @example product
      *
      * @var string
      */

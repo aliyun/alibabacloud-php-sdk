@@ -9,56 +9,78 @@ use AlibabaCloud\Tea\Model;
 class ListAsynJobsRequest extends Model
 {
     /**
-     * @description 操作接口名
+     * @description The name of the operation.
+     *
+     * @example CreateLoadBalancer
      *
      * @var string
      */
     public $apiName;
 
     /**
-     * @description 任务过滤时间范围-开始时间
+     * @description The start time of the task. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     *
+     * @example 2021-06-03T17:22Z
      *
      * @var int
      */
     public $beginTime;
 
     /**
-     * @description 任务过滤时间范围-结束时间
+     * @description The end time of the task. Specify the time in the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+     *
+     * @example 2021-06-04T17:22Z
      *
      * @var int
      */
     public $endTime;
 
     /**
-     * @description 任务ID列表
+     * @description The asynchronous task IDs.
      *
      * @var string[]
      */
     public $jobIds;
 
     /**
-     * @description 本次读取的最大数据记录数量
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 20
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 下一个查询开始Token
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 资源实例ID列表
+     * @description The resource IDs.
      *
      * @var string[]
      */
     public $resourceIds;
 
     /**
-     * @description 资源类型类型
+     * @description The type of the associated resource. Valid values:
+     *
+     *   **loadbalancer**: an Application Load Balancer (ALB) instance
+     *   **listener**: a listener
+     *   **rule**: a forwarding rule
+     *   **acl**: an access control list (ACL)
+     *   **securitypolicy**: a security policy
+     *   **servergroup**: a server group
+     *
+     * @example acl
      *
      * @var string
      */

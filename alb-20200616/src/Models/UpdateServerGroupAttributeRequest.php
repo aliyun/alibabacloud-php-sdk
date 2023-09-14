@@ -6,65 +6,92 @@ namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\healthCheckConfig;
 use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\stickySessionConfig;
+use AlibabaCloud\SDK\Alb\V20200616\Models\UpdateServerGroupAttributeRequest\uchConfig;
 use AlibabaCloud\Tea\Model;
 
 class UpdateServerGroupAttributeRequest extends Model
 {
     /**
-     * @description 幂等标识
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * > If you do not specify this parameter, the system automatically uses the request ID as the client token. The request ID may be different for each request.
+     * @example 5A2CFF0E-5718-45B5-9D4D-70B3FF3898
      *
      * @var string
      */
     public $clientToken;
 
     /**
-     * @description  是否只预检此次请求
+     * @description Specifies whether to perform only a dry run, without performing the actual request. Valid values:
+     *
+     *   **true**: checks the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the dry run, an error code is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+     *   **false** (default): performs a dry run and performs the actual request. If the request passes the dry run, a `2xx` HTTP status code is returned and the operation is performed.
+     *
+     * @example true
      *
      * @var bool
      */
     public $dryRun;
 
     /**
-     * @description 健康检查配置
+     * @description The configuration of health checks.
      *
      * @var healthCheckConfig
      */
     public $healthCheckConfig;
 
     /**
-     * @description 调度策略
+     * @description The scheduling algorithm. Valid values:
+     *
+     *   **Wrr**: the weighted round robin algorithm. Backend servers that have higher weights receive more requests than those that have lower weights.
+     *   **Wlc**: the weighted least connections algorithm. Requests are distributed based on the weights and the number of connections to backend servers. If two backend servers have the same weight, the backend server that has fewer connections is expected to receive more requests.
+     *   **Sch**: the consistent hashing algorithm. Requests from the same source IP address are distributed to the same backend server.
+     *
+     * @example Wrr
      *
      * @var string
      */
     public $scheduler;
 
     /**
-     * @description 服务器组Id
+     * @description The server group ID.
+     *
+     * @example sgp-atstuj3rtop****
      *
      * @var string
      */
     public $serverGroupId;
 
     /**
-     * @description Acl名称
+     * @description The server group name.
+     *
+     * The name must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (\_), and hyphens (-). The name must start with a letter.
+     * @example test
      *
      * @var string
      */
     public $serverGroupName;
 
     /**
-     * @description 服务器名称
+     * @description This parameter is available only if the ALB Ingress controller is used. In this case, set this parameter to the name of the `Kubernetes Service` that is associated with the server group.
+     *
+     * @example test2
      *
      * @var string
      */
     public $serviceName;
 
     /**
-     * @description 会话保持配置
+     * @description The configuration of session persistence.
      *
      * @var stickySessionConfig
      */
     public $stickySessionConfig;
+
+    /**
+     * @var uchConfig
+     */
+    public $uchConfig;
     protected $_name = [
         'clientToken'         => 'ClientToken',
         'dryRun'              => 'DryRun',
@@ -74,6 +101,7 @@ class UpdateServerGroupAttributeRequest extends Model
         'serverGroupName'     => 'ServerGroupName',
         'serviceName'         => 'ServiceName',
         'stickySessionConfig' => 'StickySessionConfig',
+        'uchConfig'           => 'UchConfig',
     ];
 
     public function validate()
@@ -106,6 +134,9 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (null !== $this->stickySessionConfig) {
             $res['StickySessionConfig'] = null !== $this->stickySessionConfig ? $this->stickySessionConfig->toMap() : null;
+        }
+        if (null !== $this->uchConfig) {
+            $res['UchConfig'] = null !== $this->uchConfig ? $this->uchConfig->toMap() : null;
         }
 
         return $res;
@@ -142,6 +173,9 @@ class UpdateServerGroupAttributeRequest extends Model
         }
         if (isset($map['StickySessionConfig'])) {
             $model->stickySessionConfig = stickySessionConfig::fromMap($map['StickySessionConfig']);
+        }
+        if (isset($map['UchConfig'])) {
+            $model->uchConfig = uchConfig::fromMap($map['UchConfig']);
         }
 
         return $model;

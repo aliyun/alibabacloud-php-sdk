@@ -10,21 +10,26 @@ use AlibabaCloud\Tea\Model;
 class zoneMappings extends Model
 {
     /**
-     * @description 固定VIP模式下，负载均衡在此可用区中的地址列表
+     * @description The ID of the vSwitch in the zone. Each zone can contain only one vSwitch and one subnet.
      *
      * @var loadBalancerAddresses[]
      */
     public $loadBalancerAddresses;
 
     /**
-     * @description 交换机标识
+     * @description The type of IPv6 address that is used by the ALB instance. Valid values:
+     *
+     *   **Internet:** The ALB instance uses a public IP address. The domain name of the ALB instance is resolved to the public IP address. Therefore, the ALB instance can be accessed over the Internet.
+     *   **Intranet:** The ALB instance uses a private IP address. The domain name of the ALB instance is resolved to the private IP address. Therefore, the ALB instance can be accessed over the VPC in which the ALB instance is deployed.
+     *
+     * @example vsw-bp12mw1f8k3jgy****
      *
      * @var string
      */
     public $vSwitchId;
 
     /**
-     * @description 可用区标识
+     * @example cn-hangzhou-a
      *
      * @var string
      */

@@ -9,14 +9,21 @@ use AlibabaCloud\Tea\Model;
 class deletionProtectionConfig extends Model
 {
     /**
-     * @description 删除保护状态
+     * @description Indicates whether the deletion protection feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
      *
      * @var bool
      */
     public $enabled;
 
     /**
-     * @description 删除保护开启时间
+     * @description The time when the deletion protection feature was enabled. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     *
+     * @example 2022-08-02T02:49:05Z
      *
      * @var string
      */

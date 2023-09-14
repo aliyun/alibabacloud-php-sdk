@@ -9,21 +9,31 @@ use AlibabaCloud\Tea\Model;
 class rewriteConfig extends Model
 {
     /**
-     * @description 主机名
+     * @description Queries per second (QPS). Valid values: **1 to 100000**.
+     *
+     * @example www.example.com
      *
      * @var string
      */
     public $host;
 
     /**
-     * @description 路径
+     * @description The QPS of each IP address. Valid values: **1 to 100000**.
+     *
+     * >  If **QPS** and PerIpQps are configured at the same time, the value of the **PerIpQps** parameter must be smaller than that of the **QPS** parameter.
+     * @example /tsdf
      *
      * @var string
      */
     public $path;
 
     /**
-     * @description 查询
+     * @description The type of destination to which network traffic is mirrored. Valid values:
+     *
+     *   **ForwardGroupMirror**: a server group.
+     *   **SlsMirror**: Log Service.
+     *
+     * @example quedsa
      *
      * @var string
      */

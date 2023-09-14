@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListSecurityPolicyRelationsRequest extends Model
 {
     /**
-     * @description 安全策略id
+     * @description The security policy IDs. You can specify up to five IDs.
      *
      * @var string[]
      */

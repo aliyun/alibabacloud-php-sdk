@@ -10,35 +10,46 @@ use AlibabaCloud\Tea\Model;
 class ListServerGroupsResponseBody extends Model
 {
     /**
-     * @description 本次查询返回记录数量
+     * @description The number of entries returned per page.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   If **NextToken** is empty, no next page exists.
+     *   If **NextToken** is not empty, the value of NextToken can be used in the next request to retrieve a new page of results.
+     *
+     * @example caeba0bbb2be03f8****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description Id of the request
+     * @description The request ID.
+     *
+     * @example CEF72CEB-54B6-4AE8-B225-F876FF7BA984
      *
      * @var string
      */
     public $requestId;
 
     /**
-     * @description 服务器组
+     * @description The backend server groups.
      *
      * @var serverGroups[]
      */
     public $serverGroups;
 
     /**
-     * @description 总记录数
+     * @description The total number of entries returned.
+     *
+     * @example 1000
      *
      * @var int
      */

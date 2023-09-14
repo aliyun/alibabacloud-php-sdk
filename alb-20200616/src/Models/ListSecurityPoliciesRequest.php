@@ -4,50 +4,66 @@
 
 namespace AlibabaCloud\SDK\Alb\V20200616\Models;
 
+use AlibabaCloud\SDK\Alb\V20200616\Models\ListSecurityPoliciesRequest\tag;
 use AlibabaCloud\Tea\Model;
 
 class ListSecurityPoliciesRequest extends Model
 {
     /**
-     * @description 查询数量
+     * @description The number of entries per page. Valid values: **1** to **100**. Default value: **20**.
+     *
+     * @example 50
      *
      * @var int
      */
     public $maxResults;
 
     /**
-     * @description 分页查询标识
+     * @description The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+     *
+     *   You do not need to specify this parameter for the first request.
+     *   You must specify the token that is obtained from the previous query as the value of **NextToken**.
+     *
+     * @example FFmyTO70tTpLG6I3FmYAXGKPd****
      *
      * @var string
      */
     public $nextToken;
 
     /**
-     * @description 资源组ID
+     * @description The resource group ID.
+     *
+     * @example rg-atstuj3rtop****
      *
      * @var string
      */
     public $resourceGroupId;
 
     /**
-     * @description 安全策略id
+     * @description The security policy IDs. You can specify up to 20 IDs.
      *
      * @var string[]
      */
     public $securityPolicyIds;
 
     /**
-     * @description 安全策略名称
+     * @description The names of the security policies. You can specify up to 10 names.
      *
      * @var string[]
      */
     public $securityPolicyNames;
+
+    /**
+     * @var tag[]
+     */
+    public $tag;
     protected $_name = [
         'maxResults'          => 'MaxResults',
         'nextToken'           => 'NextToken',
         'resourceGroupId'     => 'ResourceGroupId',
         'securityPolicyIds'   => 'SecurityPolicyIds',
         'securityPolicyNames' => 'SecurityPolicyNames',
+        'tag'                 => 'Tag',
     ];
 
     public function validate()
@@ -71,6 +87,15 @@ class ListSecurityPoliciesRequest extends Model
         }
         if (null !== $this->securityPolicyNames) {
             $res['SecurityPolicyNames'] = $this->securityPolicyNames;
+        }
+        if (null !== $this->tag) {
+            $res['Tag'] = [];
+            if (null !== $this->tag && \is_array($this->tag)) {
+                $n = 0;
+                foreach ($this->tag as $item) {
+                    $res['Tag'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -101,6 +126,15 @@ class ListSecurityPoliciesRequest extends Model
         if (isset($map['SecurityPolicyNames'])) {
             if (!empty($map['SecurityPolicyNames'])) {
                 $model->securityPolicyNames = $map['SecurityPolicyNames'];
+            }
+        }
+        if (isset($map['Tag'])) {
+            if (!empty($map['Tag'])) {
+                $model->tag = [];
+                $n          = 0;
+                foreach ($map['Tag'] as $item) {
+                    $model->tag[$n++] = null !== $item ? tag::fromMap($item) : $item;
+                }
             }
         }
 

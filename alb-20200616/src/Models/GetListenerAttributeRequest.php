@@ -9,7 +9,9 @@ use AlibabaCloud\Tea\Model;
 class GetListenerAttributeRequest extends Model
 {
     /**
-     * @description 监听标识
+     * @description The listener ID.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
      *
      * @var string
      */
