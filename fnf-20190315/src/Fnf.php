@@ -51,8 +51,9 @@ class Fnf extends OpenApiClient
     public function __construct($config)
     {
         parent::__construct($config);
-        $this->_endpointRule = 'regional';
-        $this->_endpointMap  = [
+        $this->_signatureAlgorithm = 'v2';
+        $this->_endpointRule       = 'regional';
+        $this->_endpointMap        = [
             'cn-beijing'  => 'cn-beijing.fnf.aliyuncs.com',
             'cn-hangzhou' => 'cn-hangzhou.fnf.aliyuncs.com',
             'cn-shanghai' => 'cn-shanghai.fnf.aliyuncs.com',
