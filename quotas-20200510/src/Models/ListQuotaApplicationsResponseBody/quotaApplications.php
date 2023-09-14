@@ -39,6 +39,8 @@ class quotaApplications extends Model
     /**
      * @description The result of the application.
      *
+     * @example Agree
+     *
      * @var string
      */
     public $auditReason;
@@ -62,7 +64,7 @@ class quotaApplications extends Model
     public $desireValue;
 
     /**
-     * @description The quota dimension of the application.
+     * @description The dimension of the application.
      *
      * @example {"regionId":"cn-hangzhou"}
      *
@@ -91,8 +93,8 @@ class quotaApplications extends Model
     /**
      * @description Indicates whether Quota Center sends a notification about the application result. Valid values:
      *
-     *   0: Quota Center sends a notification.
-     *   3: Quota Center does not send a notification.
+     *   0: A notification about the application result is not sent.
+     *   3: A notification about the application result is sent.
      *
      * @example 3
      *
@@ -108,7 +110,7 @@ class quotaApplications extends Model
     public $period;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example csk
      *
@@ -137,6 +139,8 @@ class quotaApplications extends Model
     /**
      * @description The description of the quota.
      *
+     * @example The maximum number of nodes in a cluster
+     *
      * @var string
      */
     public $quotaDescription;
@@ -144,12 +148,14 @@ class quotaApplications extends Model
     /**
      * @description The name of the quota.
      *
+     * @example Maximum Number of Nodes
+     *
      * @var string
      */
     public $quotaName;
 
     /**
-     * @description The unit of the quota.
+     * @description The unit of the new quota value.
      *
      * @example Node
      *
@@ -160,6 +166,8 @@ class quotaApplications extends Model
     /**
      * @description The reason for the application.
      *
+     * @example Business expansion
+     *
      * @var string
      */
     public $reason;
@@ -169,8 +177,8 @@ class quotaApplications extends Model
      *
      *   Disagree: The application is rejected.
      *   Agree: The application is approved.
-     *   Process: The application is pending approval.
-     *   Cancel: The application is closed.
+     *   Process: The application is being reviewed.
+     *   Cancel: The application is canceled.
      *
      * @example Agree
      *

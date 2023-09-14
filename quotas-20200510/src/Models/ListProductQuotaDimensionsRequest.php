@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListProductQuotaDimensionsRequest extends Model
 {
     /**
-     * @description The maximum number of records that you want to return for the query.
+     * @description The maximum number of records that can be returned for the query.
      *
      * Valid values: 1 to 200. Default value: 30.
      * @example 30
@@ -19,7 +19,7 @@ class ListProductQuotaDimensionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that marks the position where you want to start the query. An empty value indicates that the query starts from the beginning.
+     * @description The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
      *
      * @example 0
      *
@@ -28,9 +28,9 @@ class ListProductQuotaDimensionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs
      *
      * @var string
@@ -40,8 +40,8 @@ class ListProductQuotaDimensionsRequest extends Model
     /**
      * @description The type of the quota. Valid values:
      *
-     *   FlowControl: API rate limit
-     *   CommonQuota: general quota
+     *   FlowControl: API rate limit.
+     *   CommonQuota: general quota. This is the default value.
      *
      * @example CommonQuota
      *

@@ -28,7 +28,7 @@ class CreateTemplateQuotaItemRequest extends Model
     /**
      * @description The start time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
      *
-     * > If you do not specify this parameter, the quota takes effect immediately.
+     * > If you leave this parameter empty, the quota takes effect immediately.
      * @example 2021-01-19T09:25:56Z
      *
      * @var string
@@ -50,7 +50,7 @@ class CreateTemplateQuotaItemRequest extends Model
     /**
      * @description The end time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
      *
-     * > If the value of this parameter is empty, no end time is specified.
+     * > If you leave this parameter empty, no end time is specified.
      * @example 2021-01-20T09:25:56Z
      *
      * @var string
@@ -89,10 +89,11 @@ class CreateTemplateQuotaItemRequest extends Model
     public $quotaActionCode;
 
     /**
-     * @description The type of the quota. Valid values:
+     * @description The quota type. Valid values:
      *
      *   CommonQuota: general quota
-     *   WhiteListLabel: whitelist quota
+     *   WhiteListLabel: privilege
+     *   FlowControl: API rate limit
      *
      * @example CommonQuota
      *

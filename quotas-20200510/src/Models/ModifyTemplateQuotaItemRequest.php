@@ -10,8 +10,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyTemplateQuotaItemRequest extends Model
 {
     /**
-     * @description The requested value of the quota.
-     *
      * @example 804
      *
      * @var float
@@ -19,16 +17,11 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $desireValue;
 
     /**
-     * @description The quota dimensions.
-     *
      * @var dimensions[]
      */
     public $dimensions;
 
     /**
-     * @description The start time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
-     *
-     * > If you do not specify this parameter, the quota takes effect immediately.
      * @example 2021-01-19T09:25:56Z
      *
      * @var string
@@ -36,11 +29,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $effectiveTime;
 
     /**
-     * @description The language of the quota alert notification. Valid values:
-     *
-     *   zh (default value): Chinese
-     *   en: English
-     *
      * @example zh
      *
      * @var string
@@ -48,9 +36,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $envLanguage;
 
     /**
-     * @description The end time of the validity period of the quota. Specify the value in UTC. This parameter is valid only if you set the QuotaCategory parameter to WhiteListLabel.
-     *
-     * > If the value of this parameter is empty, no end time is specified.
      * @example 2021-01-20T09:25:56Z
      *
      * @var string
@@ -58,8 +43,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $expireTime;
 
     /**
-     * @description The ID of the quota template. For more information about how to obtain the ID of a quota template, see [ListQuotaApplicationTemplates](~~450403~~).
-     *
      * @example 1****
      *
      * @var string
@@ -67,11 +50,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $id;
 
     /**
-     * @description Specifies whether to send a notification about the application result. Valid values:
-     *
-     *   0 (default value): no
-     *   3: yes
-     *
      * @example 0
      *
      * @var int
@@ -79,9 +57,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $noticeType;
 
     /**
-     * @description The abbreviation of the Alibaba Cloud service name.
-     *
-     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs
      *
      * @var string
@@ -89,8 +64,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
-     *
      * @example q_security-groups
      *
      * @var string
@@ -98,11 +71,6 @@ class ModifyTemplateQuotaItemRequest extends Model
     public $quotaActionCode;
 
     /**
-     * @description The type of the quota. Valid values:
-     *
-     *   CommonQuota: general quota
-     *   WhiteListLabel: whitelist quota
-     *
      * @example CommonQuota
      *
      * @var string

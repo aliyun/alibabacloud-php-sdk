@@ -11,6 +11,8 @@ class alarmHistories extends Model
     /**
      * @description The name of the quota alert.
      *
+     * @example security_groups
+     *
      * @var string
      */
     public $alarmName;
@@ -25,11 +27,6 @@ class alarmHistories extends Model
     public $createTime;
 
     /**
-     * @description The notification methods of the quota alert. Valid values:
-     *
-     *   sms: short messages
-     *   email: emails
-     *
      * @var string[]
      */
     public $notifyChannels;
@@ -44,7 +41,7 @@ class alarmHistories extends Model
     public $notifyTarget;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example ecs
      *

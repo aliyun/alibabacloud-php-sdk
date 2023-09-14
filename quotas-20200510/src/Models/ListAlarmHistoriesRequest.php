@@ -18,14 +18,16 @@ class ListAlarmHistoriesRequest extends Model
     public $endTime;
 
     /**
-     * @description The keyword that is used to execute the query.
+     * @description The keyword that is used for the query.
+     *
+     * @example Quantity
      *
      * @var string
      */
     public $keyword;
 
     /**
-     * @description The maximum number of records to be returned for the query.
+     * @description The maximum number of records that can be returned for the query.
      *
      * Valid values: 1 to 200. Default value: 30.
      * @example 30
@@ -35,7 +37,7 @@ class ListAlarmHistoriesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to mark the location where the query is started. An empty value indicates that the query is executed from the start.
+     * @description The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
      *
      * @example 1
      *
@@ -44,9 +46,9 @@ class ListAlarmHistoriesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information about the Alibaba Cloud services that support Quota Center, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs
      *
      * @var string
@@ -54,7 +56,7 @@ class ListAlarmHistoriesRequest extends Model
     public $productCode;
 
     /**
-     * @description The start of the time range to query.
+     * @description The beginning of the time range to query.
      *
      * @example 20201020
      *

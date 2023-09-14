@@ -37,7 +37,7 @@ class ListQuotaApplicationTemplatesRequest extends Model
     /**
      * @description The token that marks the position from which you want to start the query.
      *
-     * > An empty value indicates that the query starts from the beginning.
+     * > If you leave this parameter empty, the query starts from the beginning.
      * @example 1
      *
      * @var string
@@ -64,8 +64,12 @@ class ListQuotaApplicationTemplatesRequest extends Model
     public $quotaActionCode;
 
     /**
-     * @description 配额种类。取值：
-     * - WhiteListLabel：权益配额。
+     * @description The type of the quota. Valid values:
+     *
+     *   CommonQuota: general quota
+     *   WhiteListLabel: privilege
+     *   FlowControl: API rate limit
+     *
      * @example CommonQuota
      *
      * @var string

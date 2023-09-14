@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
-     * @description The dimension keys.
+     * @description The key of the dimension.
      *
-     * >  The value range of N varies based on the number of dimensions that are supported by the related cloud service.
+     * > The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
      * @example regionId
      *
      * @var string
@@ -19,9 +19,9 @@ class dimensions extends Model
     public $key;
 
     /**
-     * @description The dimension values.
+     * @description The value of the dimension.
      *
-     * >  The value range of N varies based on the number of dimensions that are supported by the related cloud service.
+     * > The value range of N varies based on the number of dimensions that are supported by the related Alibaba Cloud service.
      * @example cn-hangzhou
      *
      * @var string

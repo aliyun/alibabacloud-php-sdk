@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsRequest extends Model
 {
     /**
+     * @description The quota dimensions.
+     *
      * @var dimensions[]
      */
     public $dimensions;
@@ -17,12 +19,14 @@ class ListQuotaApplicationsRequest extends Model
     /**
      * @description The keyword that you want to use to search for the application.
      *
+     * @example Cluster
+     *
      * @var string
      */
     public $keyWord;
 
     /**
-     * @description The maximum number of records that you want to return for the query.
+     * @description The maximum number of records that can be returned for the query.
      *
      * Valid values: 1 to 200. Default value: 30.
      * @example 1
@@ -32,7 +36,7 @@ class ListQuotaApplicationsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that marks the position from which you want to start the query. An empty value indicates that the query starts from the beginning.
+     * @description The token that marks the position from which you want to start the query. If you leave this parameter empty, the query starts from the beginning.
      *
      * @example 1
      *
@@ -41,9 +45,9 @@ class ListQuotaApplicationsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example csk
      *
      * @var string
@@ -62,8 +66,9 @@ class ListQuotaApplicationsRequest extends Model
     /**
      * @description The type of the quota. Valid values:
      *
-     *   FlowControl: API rate limit
      *   CommonQuota: general quota
+     *   FlowControl: API rate limit
+     *   WhiteListLabel: whitelist quota
      *
      * @example CommonQuota
      *
@@ -74,10 +79,10 @@ class ListQuotaApplicationsRequest extends Model
     /**
      * @description The status of the application. Valid values:
      *
-     *   Disagree: The application is rejected.
-     *   Agree: The application is approved.
-     *   Process: The application is pending approval.
-     *   Cancel: The application is closed.
+     *   Disagree: rejects the application.
+     *   Agree: approves the application.
+     *   Process: reviews the application.
+     *   Cancel: cancels the application.
      *
      * @example Agree
      *

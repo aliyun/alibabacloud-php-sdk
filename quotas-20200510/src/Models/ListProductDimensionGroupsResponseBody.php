@@ -17,7 +17,7 @@ class ListProductDimensionGroupsResponseBody extends Model
     public $dimensionGroups;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The maximum number of records that are returned for the query.
      *
      * @example 1
      *

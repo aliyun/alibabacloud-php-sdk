@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListProductDimensionGroupsRequest extends Model
 {
     /**
-     * @description The maximum number of records that can be returned for the query.
+     * @description The maximum number of records that can be returned for the query. Valid values: 1 to 200. Default value: 30.
      *
-     * Valid values: 1 to 200. Default value: 30.
      * @example 30
      *
      * @var int
@@ -30,7 +29,7 @@ class ListProductDimensionGroupsRequest extends Model
     /**
      * @description The service code.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example oss
      *
      * @var string

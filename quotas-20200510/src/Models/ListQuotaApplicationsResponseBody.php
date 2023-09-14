@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationsResponseBody extends Model
 {
     /**
-     * @description The number of records that are returned for the query.
+     * @description The maximum number of records that are returned for the query.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListQuotaApplicationsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The details about the applications.
+     * @description The details of the applications.
      *
      * @var quotaApplications[]
      */

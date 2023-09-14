@@ -23,7 +23,7 @@ class quota extends Model
     public $adjustable;
 
     /**
-     * @description The range of the quota value, for example, `[802,10000]`.
+     * @description The range of the quota value.
      *
      * @var float[]
      */
@@ -42,6 +42,11 @@ class quota extends Model
     public $applicableType;
 
     /**
+     * @var string
+     */
+    public $applyReasonTips;
+
+    /**
      * @description Indicates whether the system shows the used value of the quota. Valid values:
      *
      *   true
@@ -54,7 +59,7 @@ class quota extends Model
     public $consumable;
 
     /**
-     * @description The quota dimensions. Format: `{"regionId":"Region"}`.
+     * @description The quota dimension. Format: `{"regionId":"Region"}`.
      *
      * @example {"regionId":"cn-hangzhou"}
      *
@@ -63,11 +68,19 @@ class quota extends Model
     public $dimensions;
 
     /**
+     * @description The start time of the validity period of the quota. Specify the value in UTC.
+     *
+     * @example 2022-09-28T06:06:00Z
+     *
      * @var string
      */
     public $effectiveTime;
 
     /**
+     * @description The end time of the validity period of the quota. Specify the value in UTC.
+     *
+     * @example 2022-09-29T06:06:00Z
+     *
      * @var string
      */
     public $expireTime;
@@ -107,6 +120,14 @@ class quota extends Model
     public $quotaArn;
 
     /**
+     * @description The type of the quota. Valid values:
+     *
+     *   CommonQuota: general quota
+     *   FlowControl: API rate limit
+     *   WhiteListLabel: whitelist quota
+     *
+     * @example CommonQuota
+     *
      * @var string
      */
     public $quotaCategory;
@@ -114,14 +135,14 @@ class quota extends Model
     /**
      * @description The description of the quota.
      *
-     * @example quota description.
+     * @example The maximum number of security groups that can be owned by the current account
      *
      * @var string
      */
     public $quotaDescription;
 
     /**
-     * @description The details about the quota.
+     * @description The details of the quotas.
      *
      * @var quotaItems[]
      */
@@ -130,6 +151,8 @@ class quota extends Model
     /**
      * @description The name of the quota.
      *
+     * @example Maximum Number of Security Groups
+     *
      * @var string
      */
     public $quotaName;
@@ -137,7 +160,9 @@ class quota extends Model
     /**
      * @description The type of the quota. Valid values:
      *
-     * - normal (default value)
+     *   privilege
+     *   normal (default value)
+     *
      * @example normal
      *
      * @var string
@@ -145,17 +170,21 @@ class quota extends Model
     public $quotaType;
 
     /**
-     * @description The unit of the quota.
+     * @description The unit of the new quota value.
      *
-     * >  The unit of each quota is unique. For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
+     **
+     *
+     **The unit of each quota is unique.** For example, the quota whose ID is `q_cbdch3` represents the maximum number of Container Service for Kubernetes (ACK) clusters. The unit of this quota is clusters. The quota whose ID is `q_security-groups` represents the maximum number of security groups. The unit of this quota is security groups.
+     *
+     * @example Count
+     *
      * @var string
      */
     public $quotaUnit;
 
     /**
-     * @description The range of the quota value that can be requested for the current quota item. When you configure a quota template, you can use the range as a reference.
+     * @description The range of the quota value.
      *
-     * - If the value of the ApplicableType parameter is discontinuous and the value of the ApplicableRange parameter is [10,20,50,100], the quota value is 10, 20, 50, or 100.
      * @var float[]
      */
     public $supportedRange;
@@ -195,6 +224,7 @@ class quota extends Model
         'adjustable'         => 'Adjustable',
         'applicableRange'    => 'ApplicableRange',
         'applicableType'     => 'ApplicableType',
+        'applyReasonTips'    => 'ApplyReasonTips',
         'consumable'         => 'Consumable',
         'dimensions'         => 'Dimensions',
         'effectiveTime'      => 'EffectiveTime',
@@ -230,6 +260,9 @@ class quota extends Model
         }
         if (null !== $this->applicableType) {
             $res['ApplicableType'] = $this->applicableType;
+        }
+        if (null !== $this->applyReasonTips) {
+            $res['ApplyReasonTips'] = $this->applyReasonTips;
         }
         if (null !== $this->consumable) {
             $res['Consumable'] = $this->consumable;
@@ -313,6 +346,9 @@ class quota extends Model
         }
         if (isset($map['ApplicableType'])) {
             $model->applicableType = $map['ApplicableType'];
+        }
+        if (isset($map['ApplyReasonTips'])) {
+            $model->applyReasonTips = $map['ApplyReasonTips'];
         }
         if (isset($map['Consumable'])) {
             $model->consumable = $map['Consumable'];

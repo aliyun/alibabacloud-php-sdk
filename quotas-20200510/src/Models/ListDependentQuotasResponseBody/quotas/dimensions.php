@@ -9,14 +9,12 @@ use AlibabaCloud\Tea\Model;
 class dimensions extends Model
 {
     /**
-     * @description The dimension of a quota on which the specified quota depends.
-     *
      * @var string[]
      */
     public $dependentDimension;
 
     /**
-     * @description The dimension key.
+     * @description The key of the quota dimension.
      *
      * @example regionId
      *
@@ -25,8 +23,6 @@ class dimensions extends Model
     public $dimensionKey;
 
     /**
-     * @description The dimension values.
-     *
      * @var string[]
      */
     public $dimensionValues;

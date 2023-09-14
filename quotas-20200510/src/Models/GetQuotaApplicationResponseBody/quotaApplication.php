@@ -38,12 +38,14 @@ class quotaApplication extends Model
     /**
      * @description The result of the application.
      *
+     * @example Agree
+     *
      * @var string
      */
     public $auditReason;
 
     /**
-     * @description The quota for which you apply.
+     * @description The expected value of the quota.
      *
      * @example 804
      *
@@ -52,7 +54,7 @@ class quotaApplication extends Model
     public $desireValue;
 
     /**
-     * @description The quota dimensions.
+     * @description The dimension.
      *
      * Format: `{"regionId":"Region"}`.
      * @example ["cn-shanghai","cn-hangzhou"]
@@ -62,7 +64,7 @@ class quotaApplication extends Model
     public $dimension;
 
     /**
-     * @description The time when the quota took effect.
+     * @description The time when the new quota value takes effect.
      *
      * @example 2021-01-19 15:30:00
      *
@@ -71,7 +73,7 @@ class quotaApplication extends Model
     public $effectiveTime;
 
     /**
-     * @description The time when the quota expired.
+     * @description The time when the new quota expires.
      *
      * @example 2023-06-29 15:30:00
      *
@@ -80,7 +82,7 @@ class quotaApplication extends Model
     public $expireTime;
 
     /**
-     * @description The notification method. Valid values:
+     * @description The method of that is used to send alert notifications. Valid values:
      *
      *   0: Quota Center does not send a notification.
      *   1: Quota Center sends an email notification.
@@ -93,7 +95,7 @@ class quotaApplication extends Model
     public $noticeType;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example ecs
      *
@@ -122,6 +124,8 @@ class quotaApplication extends Model
     /**
      * @description The description of the quota.
      *
+     * @example The maximum number of security groups that can be owned by the current account
+     *
      * @var string
      */
     public $quotaDescription;
@@ -129,12 +133,16 @@ class quotaApplication extends Model
     /**
      * @description The name of the quota.
      *
+     * @example Maximum Number of Security Groups
+     *
      * @var string
      */
     public $quotaName;
 
     /**
-     * @description The unit of the quota.
+     * @description The unit of the new quota value.
+     *
+     * @example Count
      *
      * @var string
      */
@@ -142,6 +150,8 @@ class quotaApplication extends Model
 
     /**
      * @description The reason for the application.
+     *
+     * @example Scale Out
      *
      * @var string
      */
@@ -152,7 +162,7 @@ class quotaApplication extends Model
      *
      *   Disagree: The application is rejected.
      *   Agree: The application is approved.
-     *   Process: The application is pending approval.
+     *   Process: The application is being reviewed.
      *   Cancel: The application is closed.
      *
      * @example Agree

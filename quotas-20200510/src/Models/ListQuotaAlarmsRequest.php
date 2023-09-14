@@ -10,14 +10,16 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaAlarmsRequest extends Model
 {
     /**
-     * @description The name of the quota alert.
+     * @description The name of the alert.
+     *
+     * @example rules
      *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description The maximum number of records that you want to return for the query.
+     * @description The maximum number of records that can be returned for the query.
      *
      * Valid values: 1 to 200. Default value: 30.
      * @example 20
@@ -29,7 +31,7 @@ class ListQuotaAlarmsRequest extends Model
     /**
      * @description The token that marks the position from which you want to start the query.
      *
-     * >  An empty value indicates that the query starts from the beginning.
+     * > An empty value indicates that the query starts from the beginning.
      * @example 1
      *
      * @var string
@@ -37,9 +39,9 @@ class ListQuotaAlarmsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs
      *
      * @var string
@@ -49,6 +51,7 @@ class ListQuotaAlarmsRequest extends Model
     /**
      * @description The ID of the quota.
      *
+     * > The `ProductCode` parameter is required if you specify this parameter.
      * @example q_hvnoqv
      *
      * @var string
@@ -56,6 +59,8 @@ class ListQuotaAlarmsRequest extends Model
     public $quotaActionCode;
 
     /**
+     * @description The quota dimensions.
+     *
      * @var quotaDimensions[]
      */
     public $quotaDimensions;

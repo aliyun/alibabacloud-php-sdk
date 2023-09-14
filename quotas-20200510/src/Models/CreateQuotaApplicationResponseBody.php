@@ -54,7 +54,7 @@ class CreateQuotaApplicationResponseBody extends Model
     public $desireValue;
 
     /**
-     * @description The quota dimensions.
+     * @description The quota dimension.
      *
      * @example {"regionId":"cn-hangzhou"}
      *

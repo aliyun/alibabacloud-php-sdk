@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyTemplateQuotaItemResponseBody extends Model
 {
     /**
-     * @description The ID of the quota template.
-     *
      * @example 1****
      *
      * @var string
@@ -18,8 +16,6 @@ class ModifyTemplateQuotaItemResponseBody extends Model
     public $id;
 
     /**
-     * @description The ID of the request.
-     *
      * @example D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
      *
      * @var string

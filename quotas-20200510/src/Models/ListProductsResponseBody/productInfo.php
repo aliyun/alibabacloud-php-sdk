@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class productInfo extends Model
 {
     /**
-     * @description Indicates whether the cloud service supports general quotas. Valid values:
+     * @description Indicates whether the Alibaba Cloud service supports general quotas. Valid values:
      *
-     *   support: The cloud service supports general quotas.
-     *   unsupport: The cloud service does not support general quotas.
+     *   support: The Alibaba Cloud service supports general quotas.
+     *   unsupport: The Alibaba Cloud service does not support general quotas.
      *
      * @example support
      *
@@ -21,7 +21,7 @@ class productInfo extends Model
     public $commonQuotaSupport;
 
     /**
-     * @description Indicates whether the cloud service supports dynamic quota adjustment. Valid values:
+     * @description Indicates whether the Alibaba Cloud service supports dynamic quota adjustment. Valid values:
      *
      *   true
      *   false
@@ -33,10 +33,10 @@ class productInfo extends Model
     public $dynamic;
 
     /**
-     * @description Indicates whether the cloud service supports API rate limits. Valid values:
+     * @description Indicates whether the Alibaba Cloud service supports API rate limits. Valid values:
      *
-     *   support: The cloud service supports API rate limits.
-     *   unsupport: The cloud service does not support API rate limits.
+     *   support: The Alibaba Cloud service supports API rate limits.
+     *   unsupport: The Alibaba Cloud service does not support API rate limits.
      *
      * @example unsupport
      *
@@ -45,7 +45,7 @@ class productInfo extends Model
     public $flowControlSupport;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example ecs
      *
@@ -54,14 +54,16 @@ class productInfo extends Model
     public $productCode;
 
     /**
-     * @description The name of the cloud service.
+     * @description The name of the Alibaba Cloud service.
+     *
+     * @example Elastic Compute Service (ECS)
      *
      * @var string
      */
     public $productName;
 
     /**
-     * @description The name of the cloud service.
+     * @description The English name of the Alibaba Cloud service.
      *
      * @example Elastic Compute Service
      *
@@ -81,12 +83,14 @@ class productInfo extends Model
     /**
      * @description The name of the service category.
      *
+     * @example Elastic Compute
+     *
      * @var string
      */
     public $secondCategoryName;
 
     /**
-     * @description The name of the service category.
+     * @description The English name of the service category.
      *
      * @example Elastic Compute
      *
@@ -95,6 +99,13 @@ class productInfo extends Model
     public $secondCategoryNameEn;
 
     /**
+     * @description Indicates whether the Alibaba Cloud service supports whitelist quotas. Valid values:
+     *
+     *   support: The Alibaba Cloud service supports whitelist quotas.
+     *   unsupport: The Alibaba Cloud service does not support whitelist quotas.
+     *
+     * @example support
+     *
      * @var string
      */
     public $whiteListLabelQuotaSupport;

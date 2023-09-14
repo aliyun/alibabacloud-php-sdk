@@ -17,7 +17,7 @@ class ListAlarmHistoriesResponseBody extends Model
     public $alarmHistories;
 
     /**
-     * @description The maximum number of records returned for the query.
+     * @description The maximum number of records that are returned for the query.
      *
      * @example 4
      *
@@ -26,7 +26,7 @@ class ListAlarmHistoriesResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to mark the location where the query is ended. An empty value indicates that all the data is queried.
+     * @description The token that marks the position at which the query ends. An empty value indicates that all data is returned.
      *
      * @example 1
      *
@@ -44,7 +44,7 @@ class ListAlarmHistoriesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of records returned for the query.
+     * @description The total number of records that are returned for the query.
      *
      * @example 4
      *

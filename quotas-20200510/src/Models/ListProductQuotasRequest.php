@@ -75,7 +75,7 @@ class ListProductQuotasRequest extends Model
     /**
      * @description The type of the quota. Valid values:
      *
-     *   CommonQuota: general quota
+     *   CommonQuota (default value): general quota
      *   FlowControl: API rate limit
      *   WhiteListLabel: whitelist quota
      *

@@ -23,7 +23,7 @@ class quotas extends Model
     public $adjustable;
 
     /**
-     * @description None.
+     * @description None
      *
      * @var float[]
      */
@@ -42,6 +42,11 @@ class quotas extends Model
     public $applicableType;
 
     /**
+     * @var string
+     */
+    public $applyReasonTips;
+
+    /**
      * @description Indicates whether the system shows the used value of the quota. Valid values:
      *
      *   true: The system shows the used value of the quota.
@@ -54,7 +59,7 @@ class quotas extends Model
     public $consumable;
 
     /**
-     * @description The quota dimensions. Format: `{"regionId":"Region"}`.
+     * @description The quota dimension. Format: `{"regionId":"Region"}`.
      *
      * @example {"regionId":"cn-hangzhou"}
      *
@@ -63,7 +68,7 @@ class quotas extends Model
     public $dimensions;
 
     /**
-     * @description The start time of the validity period of the quota. The value is displayed in UTC.
+     * @description The start time of the validity period of the quota. Specify the value in UTC.
      *
      * @example 2022-09-28T06:07:00Z
      *
@@ -72,7 +77,7 @@ class quotas extends Model
     public $effectiveTime;
 
     /**
-     * @description The end time of the validity period of the quota. The value is displayed in UTC.
+     * @description The end time of the validity period of the quota. Specify the value in UTC.
      *
      * @example 2022-09-29T06:07:00Z
      *
@@ -178,7 +183,7 @@ class quotas extends Model
     public $quotaUnit;
 
     /**
-     * @description None.
+     * @description None
      *
      * @var float[]
      */
@@ -218,6 +223,7 @@ class quotas extends Model
         'adjustable'         => 'Adjustable',
         'applicableRange'    => 'ApplicableRange',
         'applicableType'     => 'ApplicableType',
+        'applyReasonTips'    => 'ApplyReasonTips',
         'consumable'         => 'Consumable',
         'dimensions'         => 'Dimensions',
         'effectiveTime'      => 'EffectiveTime',
@@ -253,6 +259,9 @@ class quotas extends Model
         }
         if (null !== $this->applicableType) {
             $res['ApplicableType'] = $this->applicableType;
+        }
+        if (null !== $this->applyReasonTips) {
+            $res['ApplyReasonTips'] = $this->applyReasonTips;
         }
         if (null !== $this->consumable) {
             $res['Consumable'] = $this->consumable;
@@ -336,6 +345,9 @@ class quotas extends Model
         }
         if (isset($map['ApplicableType'])) {
             $model->applicableType = $map['ApplicableType'];
+        }
+        if (isset($map['ApplyReasonTips'])) {
+            $model->applyReasonTips = $map['ApplyReasonTips'];
         }
         if (isset($map['Consumable'])) {
             $model->consumable = $map['Consumable'];

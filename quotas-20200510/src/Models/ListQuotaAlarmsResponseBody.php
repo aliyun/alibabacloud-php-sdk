@@ -21,7 +21,7 @@ class ListQuotaAlarmsResponseBody extends Model
     /**
      * @description The token that marks the position at which the query ends.
      *
-     * >  If an empty value is returned, all data is queried.
+     * > An empty value indicates that all data is returned.
      * @example 1
      *
      * @var string

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class quotaAlarms extends Model
 {
     /**
-     * @description The ID of the quota alert.
+     * @description The ID of the alert.
      *
      * @example a2efa7fc-832f-47bb-8054-39e28012****
      *
@@ -18,7 +18,9 @@ class quotaAlarms extends Model
     public $alarmId;
 
     /**
-     * @description The name of the quota alert.
+     * @description The name of the alert event.
+     *
+     * @example rules
      *
      * @var string
      */
@@ -46,17 +48,12 @@ class quotaAlarms extends Model
     public $exceedThreshold;
 
     /**
-     * @description The notification method. Valid values:
-     *
-     *   sms: SMS messages
-     *   email: emails
-     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description The alert contact. Valid value: accountContact.
+     * @description The alert contact. The value is accountContact.
      *
      * @example accountContact
      *
@@ -65,7 +62,7 @@ class quotaAlarms extends Model
     public $notifyTarget;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example config
      *

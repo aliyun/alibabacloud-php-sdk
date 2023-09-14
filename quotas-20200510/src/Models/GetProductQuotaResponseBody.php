@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaResponseBody extends Model
 {
     /**
-     * @description The details about the quota.
+     * @description The details of the quotas.
      *
      * @var quota
      */

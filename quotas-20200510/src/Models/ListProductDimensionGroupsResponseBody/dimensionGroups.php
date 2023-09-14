@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class dimensionGroups extends Model
 {
     /**
-     * @description The keys of the dimension group.
+     * @description The key of the dimension group.
      *
      * @var string[]
      */

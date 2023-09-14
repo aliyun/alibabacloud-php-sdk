@@ -4,12 +4,13 @@
 
 namespace AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaApplicationTemplatesResponseBody;
 
+use AlibabaCloud\SDK\Quotas\V20200510\Models\ListQuotaApplicationTemplatesResponseBody\quotaApplicationTemplates\period;
 use AlibabaCloud\Tea\Model;
 
 class quotaApplicationTemplates extends Model
 {
     /**
-     * @description None
+     * @description N/A
      *
      * @var float[]
      */
@@ -47,7 +48,7 @@ class quotaApplicationTemplates extends Model
     public $dimensions;
 
     /**
-     * @description 配额生效的UTC时间。
+     * @description The start time of the validity period of the quota. The value is displayed in UTC.
      *
      * @example 2022-09-28T06:07:00Z
      *
@@ -68,7 +69,7 @@ class quotaApplicationTemplates extends Model
     public $envLanguage;
 
     /**
-     * @description 配额失效的UTC时间。
+     * @description The end time of the validity period of the quota. The value is displayed in UTC.
      *
      * @example 2022-09-29T06:07:00Z
      *
@@ -98,6 +99,13 @@ class quotaApplicationTemplates extends Model
     public $noticeType;
 
     /**
+     * @description The calculation cycle of the quota.
+     *
+     * @var period
+     */
+    public $period;
+
+    /**
      * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example ecs
@@ -116,8 +124,11 @@ class quotaApplicationTemplates extends Model
     public $quotaActionCode;
 
     /**
-     * @description 配额类型。
-     * - WhiteListLabel：权益配额。
+     * @description The type of the quota.
+     *
+     *   CommonQuota: general quota
+     *   WhiteListLabel: privilege
+     *
      * @example CommonQuota
      *
      * @var string
@@ -151,6 +162,7 @@ class quotaApplicationTemplates extends Model
         'expireTime'       => 'ExpireTime',
         'id'               => 'Id',
         'noticeType'       => 'NoticeType',
+        'period'           => 'Period',
         'productCode'      => 'ProductCode',
         'quotaActionCode'  => 'QuotaActionCode',
         'quotaCategory'    => 'QuotaCategory',
@@ -191,6 +203,9 @@ class quotaApplicationTemplates extends Model
         }
         if (null !== $this->noticeType) {
             $res['NoticeType'] = $this->noticeType;
+        }
+        if (null !== $this->period) {
+            $res['Period'] = null !== $this->period ? $this->period->toMap() : null;
         }
         if (null !== $this->productCode) {
             $res['ProductCode'] = $this->productCode;
@@ -247,6 +262,9 @@ class quotaApplicationTemplates extends Model
         }
         if (isset($map['NoticeType'])) {
             $model->noticeType = $map['NoticeType'];
+        }
+        if (isset($map['Period'])) {
+            $model->period = period::fromMap($map['Period']);
         }
         if (isset($map['ProductCode'])) {
             $model->productCode = $map['ProductCode'];

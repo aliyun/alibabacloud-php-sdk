@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class quotaAlarm extends Model
 {
     /**
-     * @description The ID of the quota alert.
+     * @description The numeric value of the alert threshold.
      *
      * @example 78d7e436-4b25-4897-84b5-d7b656bb****
      *
@@ -18,14 +18,16 @@ class quotaAlarm extends Model
     public $alarmId;
 
     /**
-     * @description The name of the quota alert.
+     * @description security_groups
+     *
+     * @example The alert contact.
      *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description The time when the quota alert was created.
+     * @description The ID of the quota.
      *
      * @example 2021-01-21T03:47:28Z
      *
@@ -34,17 +36,12 @@ class quotaAlarm extends Model
     public $createTime;
 
     /**
-     * @description The notification methods of the quota alert. Valid values:
-     *
-     *   sms: SMS messages
-     *   email: emails
-     *
      * @var string[]
      */
     public $notifyChannels;
 
     /**
-     * @description The alert contact.
+     * @description The used quota.
      *
      * @example accountContact
      *
@@ -53,8 +50,6 @@ class quotaAlarm extends Model
     public $notifyTarget;
 
     /**
-     * @description The abbreviation of the cloud service name.
-     *
      * @example ecs
      *
      * @var string
@@ -62,7 +57,7 @@ class quotaAlarm extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
+     * @description The name of the quota alert.
      *
      * @example q_security-groups
      *
@@ -71,7 +66,7 @@ class quotaAlarm extends Model
     public $quotaActionCode;
 
     /**
-     * @description The quota dimension.
+     * @description The time when the quota alert was created.
      *
      * @example {"regionId":"cn-hangzhou"}
      *
@@ -80,7 +75,7 @@ class quotaAlarm extends Model
     public $quotaDimension;
 
     /**
-     * @description The used quota.
+     * @description The value of the quota.
      *
      * @example 28
      *
@@ -89,7 +84,7 @@ class quotaAlarm extends Model
     public $quotaUsage;
 
     /**
-     * @description The quota value.
+     * @description The ID of the quota alert.
      *
      * @example 804
      *
@@ -98,7 +93,7 @@ class quotaAlarm extends Model
     public $quotaValue;
 
     /**
-     * @description The numeric value of the alert threshold.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
      * @example 29
      *
@@ -107,7 +102,10 @@ class quotaAlarm extends Model
     public $threshold;
 
     /**
-     * @description The percentage of the alert threshold.
+     * @description The type of the quota alert. Valid values:
+     *
+     *   used: The alert is created for the used quota.
+     *   usable: The alert is created for the available quota.
      *
      * @example 50
      *
@@ -116,16 +114,20 @@ class quotaAlarm extends Model
     public $thresholdPercent;
 
     /**
-     * @description The type of the quota alert. Valid values:
-     *
-     *   used: The alert is created for the used quota.
-     *   usable: The alert is created for the available quota.
+     * @description The quota dimension.
      *
      * @example used
      *
      * @var string
      */
     public $thresholdType;
+
+    /**
+     * @example https://alert.aliyun.com/callback
+     *
+     * @var string
+     */
+    public $webhook;
     protected $_name = [
         'alarmId'          => 'AlarmId',
         'alarmName'        => 'AlarmName',
@@ -140,6 +142,7 @@ class quotaAlarm extends Model
         'threshold'        => 'Threshold',
         'thresholdPercent' => 'ThresholdPercent',
         'thresholdType'    => 'ThresholdType',
+        'webhook'          => 'Webhook',
     ];
 
     public function validate()
@@ -187,6 +190,9 @@ class quotaAlarm extends Model
         }
         if (null !== $this->thresholdType) {
             $res['ThresholdType'] = $this->thresholdType;
+        }
+        if (null !== $this->webhook) {
+            $res['Webhook'] = $this->webhook;
         }
 
         return $res;
@@ -240,6 +246,9 @@ class quotaAlarm extends Model
         }
         if (isset($map['ThresholdType'])) {
             $model->thresholdType = $map['ThresholdType'];
+        }
+        if (isset($map['Webhook'])) {
+            $model->webhook = $map['Webhook'];
         }
 
         return $model;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListQuotaApplicationTemplatesResponseBody extends Model
 {
     /**
-     * @description The maximum number of records that are returned for the query.
+     * @description The maximum number of records returned for the query.
      *
      * @example 30
      *
@@ -29,14 +29,14 @@ class ListQuotaApplicationTemplatesResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The quota templates that are returned.
+     * @description The returned quota templates.
      *
      * @var quotaApplicationTemplates[]
      */
     public $quotaApplicationTemplates;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example D47B3A10-CDAC-5412-B2EE-EC9A3DBE9053
      *
@@ -45,7 +45,7 @@ class ListQuotaApplicationTemplatesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of records that are returned for the query.
+     * @description The total number of records returned for the query.
      *
      * @example 40
      *

@@ -10,16 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateQuotaAlarmRequest extends Model
 {
     /**
-     * @description The name of the quota alert.
-     *
      * @var string
      */
     public $alarmName;
 
     /**
-     * @description The abbreviation of the cloud service name.
-     *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example config
      *
      * @var string
@@ -27,8 +22,6 @@ class CreateQuotaAlarmRequest extends Model
     public $productCode;
 
     /**
-     * @description The ID of the quota.
-     *
      * @example q_hvnoqv
      *
      * @var string
@@ -41,12 +34,6 @@ class CreateQuotaAlarmRequest extends Model
     public $quotaDimensions;
 
     /**
-     * @description The numeric value of the alert threshold. The value must meet the following requirements:
-     *
-     *   If the `ThresholdType` parameter is set to `used` and the used quota is greater than or equal to a specified value, you receive an alert. The alert threshold must be greater than the current used quota.
-     *   If the `ThresholdType` parameter is set to `usable` and the available quota is less than or equal to a specified value, you received an alert. The alert threshold must be less than the current available quota.
-     *
-     * >  You must set one of the Threshold and ThresholdPercent parameters.
      * @example 150
      *
      * @var float
@@ -54,12 +41,6 @@ class CreateQuotaAlarmRequest extends Model
     public $threshold;
 
     /**
-     * @description The percentage of the alert threshold. Valid values:
-     *
-     *   If the `ThresholdType` parameter is set to `used` and the percentage of the used quota in the total quota is greater than or equal to a specified value, you receive an alert. Value range: (50%, 100%].
-     *   If the `ThresholdType` parameter is set to `usable` and the percentage of the available quota in the total quota is less than or equal to a specified value, you receive an alert. Value range: (0%, 50%].
-     *
-     * >  You must set one of the Threshold and ThresholdPercent parameters.
      * @example 50
      *
      * @var float
@@ -67,11 +48,6 @@ class CreateQuotaAlarmRequest extends Model
     public $thresholdPercent;
 
     /**
-     * @description The type of the quota alert. Valid values:
-     *
-     *   used: The alert is created for the used quota.
-     *   usable: The alert is created for the available quota.
-     *
      * @example used
      *
      * @var string
@@ -79,8 +55,6 @@ class CreateQuotaAlarmRequest extends Model
     public $thresholdType;
 
     /**
-     * @description The webhook URL. Quota Center sends the alert notification to a specified URL by using an HTTP POST request.
-     *
      * @example https://alert.aliyun.com/callback
      *
      * @var string

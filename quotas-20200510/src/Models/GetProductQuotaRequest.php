@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetProductQuotaRequest extends Model
 {
     /**
-     * @description The details of dimensions.
+     * @description The quota dimensions.
      *
      * @example {\"regionId\":\"cn-beijing\"}
      *
@@ -19,9 +19,9 @@ class GetProductQuotaRequest extends Model
     public $dimensions;
 
     /**
-     * @description The abbreviation of the cloud service name.
+     * @description The abbreviation of the Alibaba Cloud service name.
      *
-     * >  For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
+     * > For more information, see [Alibaba Cloud services that support Quota Center](~~182368~~).
      * @example ecs
      *
      * @var string

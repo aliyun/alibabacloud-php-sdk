@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyQuotaTemplateServiceStatusRequest extends Model
 {
     /**
-     * @description The status of the quota template. Valid values:
+     * @description The state of the quota template. Valid values:
      *
-     *   \-1: disabled
-     *   1: enabled
+     *   \-1: The quota template is disabled.
+     *   1: The quota template is enabled.
      *
      * @example 1
      *

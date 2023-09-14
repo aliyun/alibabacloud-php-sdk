@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class dependentDimensions extends Model
 {
     /**
-     * @description The dimension keys that are supported by the cloud service.
+     * @description The key of the quota dimension on which the quota dimension that you want to query is dependent.
      *
-     * >  The value range of N varies based on the number of dimensions that are supported by the related cloud service.
+     * > The value range of N varies based on the number of quota dimensions that are supported by the specified Alibaba Cloud service.
      * @example regionId
      *
      * @var string
@@ -19,9 +19,9 @@ class dependentDimensions extends Model
     public $key;
 
     /**
-     * @description The dimension values that are supported by the cloud service.
+     * @description The value of the quota dimension on which the quota dimension that you want to query is dependent.
      *
-     * >  The value range of N varies based on the number of dimensions that are supported by the related cloud service.
+     * > The value range of N varies based on the number of quota dimensions that are supported by the specified Alibaba Cloud service.
      * @example cn-hangzhou
      *
      * @var string

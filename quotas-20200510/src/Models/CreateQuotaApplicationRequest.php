@@ -74,8 +74,8 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description Specifies whether to send a notification about the application result. Valid values:
      *
-     *   0 (default value): no
-     *   3: yes
+     *   0 (default value): sends a notification about the application result.
+     *   3: A notification about the application result is sent.
      *
      * @example 0
      *
@@ -105,7 +105,7 @@ class CreateQuotaApplicationRequest extends Model
     /**
      * @description The type of the quota.
      *
-     *   CommonQuota: general quota
+     *   CommonQuota (default value): general quota
      *   FlowControl: API rate limit
      *   WhiteListLabel: whitelist quota
      *
