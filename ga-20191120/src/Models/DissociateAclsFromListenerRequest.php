@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DissociateAclsFromListenerRequest extends Model
 {
     /**
+     * @description The ID of the ACL. You can disassociate up to two ACLs from a listener.
+     *
      * @var string[]
      */
     public $aclIds;

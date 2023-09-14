@@ -60,6 +60,11 @@ class endpointConfigurations extends Model
     public $probeProtocol;
 
     /**
+     * @var string
+     */
+    public $subAddress;
+
+    /**
      * @description The type of the endpoint. Valid values:
      *
      *   **Domain:** a custom domain name.
@@ -90,6 +95,7 @@ class endpointConfigurations extends Model
         'endpoint'                   => 'Endpoint',
         'probePort'                  => 'ProbePort',
         'probeProtocol'              => 'ProbeProtocol',
+        'subAddress'                 => 'SubAddress',
         'type'                       => 'Type',
         'weight'                     => 'Weight',
     ];
@@ -115,6 +121,9 @@ class endpointConfigurations extends Model
         }
         if (null !== $this->probeProtocol) {
             $res['ProbeProtocol'] = $this->probeProtocol;
+        }
+        if (null !== $this->subAddress) {
+            $res['SubAddress'] = $this->subAddress;
         }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
@@ -148,6 +157,9 @@ class endpointConfigurations extends Model
         }
         if (isset($map['ProbeProtocol'])) {
             $model->probeProtocol = $map['ProbeProtocol'];
+        }
+        if (isset($map['SubAddress'])) {
+            $model->subAddress = $map['SubAddress'];
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];

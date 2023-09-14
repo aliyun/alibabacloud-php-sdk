@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class OpenAcceleratorServiceResponseBody extends Model
 {
     /**
+     * @description The response code.
+     *
      * @example 200
      *
      * @var string
@@ -16,6 +18,8 @@ class OpenAcceleratorServiceResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -23,6 +27,8 @@ class OpenAcceleratorServiceResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the order.
+     *
      * @example 208257****
      *
      * @var int
@@ -30,6 +36,8 @@ class OpenAcceleratorServiceResponseBody extends Model
     public $orderId;
 
     /**
+     * @description The ID of the request.
+     *
      * @example B49B60F6-F6C8-49E5-B06B-E33E3A469A92
      *
      * @var string
@@ -37,6 +45,11 @@ class OpenAcceleratorServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true:** The call was successful.
+     *   **false:** The call failed.
+     *
      * @example True
      *
      * @var string

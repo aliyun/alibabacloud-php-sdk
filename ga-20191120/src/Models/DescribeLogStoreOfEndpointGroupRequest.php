@@ -6,19 +6,37 @@ namespace AlibabaCloud\SDK\Ga\V20191120\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeCustomRoutingEndpointGroupRequest extends Model
+class DescribeLogStoreOfEndpointGroupRequest extends Model
 {
+    /**
+     * @description The ID of the GA instance.
+     *
+     * @example ga-xxxxxxxxxxxxx
+     *
+     * @var string
+     */
+    public $acceleratorId;
+
     /**
      * @description The ID of the endpoint group.
      *
-     * @example epg-bp1dmlohjjz4kqaua****
+     * @example epg-xxxxxxxxxxxxxxx
      *
      * @var string
      */
     public $endpointGroupId;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
+     * @description The ID of the listener.
+     *
+     * @example lsr-xxxxxxxxxxxxxxx
+     *
+     * @var string
+     */
+    public $listenerId;
+
+    /**
+     * @description The region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -26,7 +44,9 @@ class DescribeCustomRoutingEndpointGroupRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'acceleratorId'   => 'AcceleratorId',
         'endpointGroupId' => 'EndpointGroupId',
+        'listenerId'      => 'ListenerId',
         'regionId'        => 'RegionId',
     ];
 
@@ -37,8 +57,14 @@ class DescribeCustomRoutingEndpointGroupRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acceleratorId) {
+            $res['AcceleratorId'] = $this->acceleratorId;
+        }
         if (null !== $this->endpointGroupId) {
             $res['EndpointGroupId'] = $this->endpointGroupId;
+        }
+        if (null !== $this->listenerId) {
+            $res['ListenerId'] = $this->listenerId;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -50,13 +76,19 @@ class DescribeCustomRoutingEndpointGroupRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeCustomRoutingEndpointGroupRequest
+     * @return DescribeLogStoreOfEndpointGroupRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcceleratorId'])) {
+            $model->acceleratorId = $map['AcceleratorId'];
+        }
         if (isset($map['EndpointGroupId'])) {
             $model->endpointGroupId = $map['EndpointGroupId'];
+        }
+        if (isset($map['ListenerId'])) {
+            $model->listenerId = $map['ListenerId'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

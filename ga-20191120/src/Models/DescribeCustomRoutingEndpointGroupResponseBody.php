@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndpointGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The GA instance ID.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -19,12 +19,12 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The status of the logs.
+     * @description Indicates the status of the binding between the Log Service project and the endpoint group. Valid values:
      *
-     *   **on**: associated
-     *   **off**: not associated
-     *   **binding**: being associated
-     *   **unbinding**: being disassociated
+     *   **on:** The endpoint group is bound to the Log Service project.
+     *   **off:** The endpoint group is not bound to the Log Service project.
+     *   **binding:** The endpoint group is being bound to the Log Service project.
+     *   **unbinding:** The endpoint group is being unbound from the Log Service project.
      *
      * @example on
      *
@@ -42,10 +42,10 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $description;
 
     /**
-     * @description Indicates whether access logging is enabled.
+     * @description Indicates whether the access log feature is enabled. Valid values:
      *
-     *   **true**: enabled
-     *   **false**: disabled
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -54,7 +54,7 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $enableAccessLog;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The endpoint group ID.
      *
      * @example epg-bp1dmlohjjz4kqaua****
      *
@@ -63,14 +63,14 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The list of endpoint group IP addresses.
+     * @description The endpoint group IP addresses.
      *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
-     * @description The ID of the region where the endpoint group is created.
+     * @description The region ID of the endpoint group.
      *
      * @example cn-hangzhou
      *
@@ -79,14 +79,14 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $endpointGroupRegion;
 
     /**
-     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
+     * @description The endpoint group IP addresses that need to be confirmed after the GA instance is upgraded.
      *
      * @var string[]
      */
     public $endpointGroupUnconfirmedIpList;
 
     /**
-     * @description The ID of the custom routing listener.
+     * @description The custom routing listener ID.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -104,7 +104,7 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -113,16 +113,31 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description 托管实例所属的服务方ID。
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @example ALB
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description 是否为托管实例。取值：
+     *
+     * - **true**：是托管实例。
+     *
+     * - **false**：不是托管实例。
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description 用户在此托管实例下可执行的动作策略列表。
+     *
+     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
@@ -155,12 +170,12 @@ class DescribeCustomRoutingEndpointGroupResponseBody extends Model
     public $slsRegion;
 
     /**
-     * @description The status of the endpoint group.
+     * @description The status of the endpoint group. Valid values:
      *
-     *   **init**: being initialized
-     *   **active**: running as expected
-     *   **updating**: being updated
-     *   **deleting**: being deleted
+     *   **init:** The endpoint group is being initialized.
+     *   **active:** The endpoint group is running normally.
+     *   **updating:** The endpoint group is being updated.
+     *   **deleting:** The ACL is being deleted.
      *
      * @example active
      *

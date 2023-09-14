@@ -115,10 +115,10 @@ class CreateBandwidthPackageRequest extends Model
     public $cbnGeographicRegionIdB;
 
     /**
-     * @description The billing method. Valid values:
+     * @description The billing method of the bandwidth plan. Valid values:
      *
-     *   **PREPAY** (default): subscription
-     *   **POSTPAY**: pay-as-you-go By default, the pay-as-you-go billing method is unavailable. If you want to use the billing method, contact your account manager.
+     *   **PREPAY** (default): subscription.
+     *   **POSTPAY**: pay-as-you-go. By default, the pay-as-you-go billing method is unavailable. If you want to use the billing method, contact your account manager.
      *
      * @example PREPAY
      *
@@ -203,6 +203,8 @@ class CreateBandwidthPackageRequest extends Model
     public $resourceGroupId;
 
     /**
+     * @description The tags to add to the bandwidth plan.
+     *
      * @var tag[]
      */
     public $tag;

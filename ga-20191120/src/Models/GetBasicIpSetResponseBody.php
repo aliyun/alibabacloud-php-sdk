@@ -63,6 +63,21 @@ class GetBasicIpSetResponseBody extends Model
     public $ipVersion;
 
     /**
+     * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
+     *
+     *   **BGP** (default)
+     *   **BGP_PRO** If the acceleration region is China (Hong Kong) and a basic bandwidth plan whose bandwidth type is Premium is associated with the GA instance, the default value of IspType is BGP_PRO.
+     *
+     * If you are allowed to use single-ISP bandwidth, you can also specify one of the following values:
+     *
+     *   **ChinaTelecom**: China Telecom (single ISP)
+     *   **ChinaUnicom**: China Unicom (single ISP)
+     *   **ChinaMobile**: China Mobile (single ISP)
+     *   **ChinaTelecom_L2**: China Telecom \_L2 (single ISP)
+     *   **ChinaUnicom_L2**: China Unicom \_L2 (single ISP)
+     *   **ChinaMobile_L2**: China Mobile \_L2 (single ISP)
+     *
+     * > Different acceleration regions support different single-ISP BGP lines.
      * @example BGP
      *
      * @var string

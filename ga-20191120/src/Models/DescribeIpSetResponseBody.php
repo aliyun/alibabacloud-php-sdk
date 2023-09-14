@@ -65,10 +65,10 @@ class DescribeIpSetResponseBody extends Model
     public $ipVersion;
 
     /**
-     * @description The line type of the elastic IP address (EIP) in the acceleration region.
+     * @description The line type of the elastic IP address (EIP) in the acceleration region. Valid values:
      *
      *   **BGP**: BGP (Multi-ISP) lines.
-     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines.
      *
      * If you are allowed to use single-ISP bandwidth, one of the following values is returned:
      *
@@ -79,7 +79,7 @@ class DescribeIpSetResponseBody extends Model
      *   **ChinaUnicom_L2**: China Unicom (single ISP)\_L2.
      *   **ChinaMobile_L2**: China Mobile (single ISP)\_L2.
      *
-     * >  The supported single-ISP line types vary based on the acceleration region.
+     * >  The supported single-ISP type varies with the acceleration region.
      * @example BGP
      *
      * @var string
@@ -96,16 +96,28 @@ class DescribeIpSetResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
+     * @example ALB
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description Is it a managed instance. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
@@ -116,7 +128,7 @@ class DescribeIpSetResponseBody extends Model
      *   **init**: The acceleration region is being initialized.
      *   **active**: The acceleration region is in the running state.
      *   **updating**: The acceleration region is being configured.
-     *   **deleting:** The VPN gateway is being deleted.
+     *   **deleting**: The GA instance is being deleted.
      *
      * @example active
      *

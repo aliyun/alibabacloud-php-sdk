@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateAclAttributeResponseBody extends Model
 {
     /**
-     * @description The ID of the network ACL.
+     * @description The ACL ID.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -18,7 +18,7 @@ class UpdateAclAttributeResponseBody extends Model
     public $aclId;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 64ADAB1E-0B7F-4FD8-A404-3BECC0E9CCFF
      *

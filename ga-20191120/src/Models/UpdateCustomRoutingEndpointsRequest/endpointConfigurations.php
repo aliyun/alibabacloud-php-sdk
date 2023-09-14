@@ -20,6 +20,8 @@ class endpointConfigurations extends Model
     public $endpointId;
 
     /**
+     * @description The configurations of the policy.
+     *
      * @var policyConfigurations[]
      */
     public $policyConfigurations;

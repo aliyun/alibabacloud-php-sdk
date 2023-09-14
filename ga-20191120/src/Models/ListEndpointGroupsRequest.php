@@ -19,7 +19,10 @@ class ListEndpointGroupsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The total number of entries returned.
+     * @description Specifies whether the access logging feature is enabled. Default value: off. Valid values:
+     *
+     *   **on**: The access logging feature is enabled.
+     *   **off**: The access logging feature is disabled.
      *
      * @example on
      *
@@ -28,10 +31,7 @@ class ListEndpointGroupsRequest extends Model
     public $accessLogSwitch;
 
     /**
-     * @description The protocol that is used to monitor latency. Valid values:
-     *
-     *   **icmp**: ICMP
-     *   **tcp**: TCP
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -42,8 +42,8 @@ class ListEndpointGroupsRequest extends Model
     /**
      * @description The type of the endpoint group. Valid values:
      *
-     *   **default**
-     *   **virtual**
+     *   **default**: a default endpoint group
+     *   **virtual**: a virtual endpoint group
      *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
      *
      * @example virtual
@@ -53,7 +53,7 @@ class ListEndpointGroupsRequest extends Model
     public $endpointGroupType;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The ID of the listener.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -62,7 +62,7 @@ class ListEndpointGroupsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The page number. Default value: **1**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -71,7 +71,7 @@ class ListEndpointGroupsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -80,7 +80,7 @@ class ListEndpointGroupsRequest extends Model
     public $pageSize;
 
     /**
-     * @description The endpoint port.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

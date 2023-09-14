@@ -30,6 +30,8 @@ class endpoints extends Model
      * @description The health check details of the endpoint.
      *
      * >  This parameter is unavailable.
+     * @example null
+     *
      * @var string
      */
     public $healthDetail;

@@ -22,6 +22,8 @@ class UpdateCustomRoutingEndpointsRequest extends Model
     public $clientToken;
 
     /**
+     * @description The configurations of the endpoint.
+     *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;

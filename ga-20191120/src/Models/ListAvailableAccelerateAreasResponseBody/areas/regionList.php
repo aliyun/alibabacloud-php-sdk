@@ -9,17 +9,38 @@ use AlibabaCloud\Tea\Model;
 class regionList extends Model
 {
     /**
+     * @description Whether China Mainland.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $chinaMainland;
 
     /**
+     * @description The line types of EIPs in the acceleration region.
+     *
+     *   **BGP**: BGP (Multi-ISP) lines
+     *   **BGP_PRO**: BGP (Multi-ISP) Pro lines
+     *
+     * If you have the permissions to use single-ISP bandwidth, one of the following values may be returned:
+     *
+     *   **ChinaTelecom**: China Telecom (single ISP)
+     *   **ChinaUnicom**: China Unicom (single ISP)
+     *   **ChinaMobile**: China Mobile (single ISP)
+     *   **ChinaTelecom_L2**: China Telecom_L2 (single ISP)
+     *   **ChinaUnicom_L2**: China Unicom_L2 (single ISP)
+     *   **ChinaMobile_L2**: China Mobile_L2 (single ISP)
+     *
+     * > Different acceleration regions support different single-ISP BGP lines.
      * @var string[]
      */
     public $ispTypeList;
 
     /**
      * @description The name of the acceleration region.
+     *
+     * @example 青岛
      *
      * @var string
      */
@@ -35,6 +56,11 @@ class regionList extends Model
     public $regionId;
 
     /**
+     * @description Ipv6 supported, Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $supportIpv6;

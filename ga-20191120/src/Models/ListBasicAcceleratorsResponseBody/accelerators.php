@@ -34,14 +34,14 @@ class accelerators extends Model
     public $bandwidthBillingType;
 
     /**
-     * @description The details about the basic bandwidth plan that is associated with the basic GA instance.
+     * @description Details about the basic bandwidth plan that is associated with the basic GA instance.
      *
      * @var basicBandwidthPackage
      */
     public $basicBandwidthPackage;
 
     /**
-     * @description The ID of the endpoint group.
+     * @description The ID of the endpoint group that is associated with the basic GA instance.
      *
      * @example epg-bp1dmlohjjz4kqaun****
      *
@@ -50,7 +50,7 @@ class accelerators extends Model
     public $basicEndpointGroupId;
 
     /**
-     * @description The ID of the acceleration region.
+     * @description The ID of the acceleration region where the basic GA instance is deployed.
      *
      * @example ips-bp11ilwqjdkjeg9r7****
      *
@@ -69,6 +69,11 @@ class accelerators extends Model
     public $createTime;
 
     /**
+     * @description Indicates whether cross-border acceleration is enabled for the GA instance. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -76,9 +81,9 @@ class accelerators extends Model
     public $crossBorderStatus;
 
     /**
-     * @description The details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
+     * @description Details about the cross-region acceleration bandwidth plan that is associated with the GA instance.
      *
-     * This array is returned only for GA instances that are created on the international site (alibabacloud.com).
+     * This parameter is returned only when you call this operation on the International site (alibabacloud.com).
      * @var crossDomainBandwidthPackage
      */
     public $crossDomainBandwidthPackage;
@@ -139,15 +144,15 @@ class accelerators extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the basic GA instance.
+     * @description The state of the basic GA instance.
      *
-     *   **init**: The GA instance is being initialized.
-     *   **active**: The GA instance is available.
-     *   **configuring**: The GA instance is being configured.
-     *   **binding**: The GA instance is being associated.
+     *   **init**: The basic GA instance is being initialized.
+     *   **active**: The basic GA instance is available.
+     *   **configuring**: The basic GA instance is being configured.
+     *   **binding**: The basic GA instance is being associated.
      *   **unbinding**: The GA instance is being disassociated.
-     *   **deleting**: The GA instance is being deleted.
-     *   **finacialLocked**: The GA instance is locked due to overdue payments.
+     *   **deleting**: The basic GA instance is being deleted.
+     *   **finacialLocked**: The basic GA instance is locked due to overdue payments.
      *
      * @example active
      *
@@ -163,7 +168,7 @@ class accelerators extends Model
     public $tags;
 
     /**
-     * @description An invalid parameter.
+     * @description This parameter is invalid.
      *
      * @example None
      *

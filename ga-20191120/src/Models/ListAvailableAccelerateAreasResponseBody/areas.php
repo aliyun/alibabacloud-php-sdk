@@ -21,6 +21,8 @@ class areas extends Model
     /**
      * @description The name of the acceleration area.
      *
+     * @example 华北
+     *
      * @var string
      */
     public $localName;

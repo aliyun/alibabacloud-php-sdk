@@ -9,16 +9,31 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
+     * @description Managed policy action name, Valid values:
+     *
+     * - CreateChild
+     * @example Update
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description Sub resource type, Valid values:
+     *
+     * >Only valid when the Action parameter is CreateChild.
+     * @example Listener
+     *
      * @var string
      */
     public $childType;
 
     /**
+     * @description Is the managed policy action managed, Valid values:
+     * - **true**: The managed policy action is managed, and users do not have permission to perform the operation specified in the Action on the managed instance.
+     * - **false**: The managed policy action is not managed, and users have permission to perform the operation specified in the Action on the managed instance.
+     * @example false
+     *
      * @var bool
      */
     public $isManaged;

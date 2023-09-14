@@ -37,14 +37,14 @@ class endpointGroups extends Model
     public $endpointGroupId;
 
     /**
-     * @description A list of endpoint group IP addresses.
+     * @description The list of endpoint group IP addresses.
      *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
-     * @description The ID of the region where the endpoint group is deployed.
+     * @description The ID of the region where the endpoint group is created.
      *
      * @example cn-hangzhou
      *
@@ -78,6 +78,9 @@ class endpointGroups extends Model
     public $name;
 
     /**
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
      * @example ALB
      *
      * @var string
@@ -85,6 +88,9 @@ class endpointGroups extends Model
     public $serviceId;
 
     /**
+     * @description Is it a managed instance. Valid values:
+     *
+     * - false
      * @example true
      *
      * @var bool
@@ -92,17 +98,19 @@ class endpointGroups extends Model
     public $serviceManaged;
 
     /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
-     * @description The status of the endpoint group. Valid values:
+     * @description The status of the endpoint group.
      *
-     *   **init**: The endpoint group is being initialized.
-     *   **active**: The endpoint group is running as expected.
-     *   **updating**: The endpoint group is being updated.
-     *   **deleting**: The endpoint group is being deleted.
+     *   **init**: being initialized
+     *   **active**: running as expected
+     *   **updating**: being updated
+     *   **deleting**: being deleted
      *
      * @example active
      *

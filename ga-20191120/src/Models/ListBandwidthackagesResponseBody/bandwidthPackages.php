@@ -89,6 +89,8 @@ class bandwidthPackages extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-aekzzwgr7vz2liy
      *
      * @var string
@@ -114,6 +116,8 @@ class bandwidthPackages extends Model
     public $state;
 
     /**
+     * @description The tags of the bandwidth plans.
+     *
      * @var tags[]
      */
     public $tags;

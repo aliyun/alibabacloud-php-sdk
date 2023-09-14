@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupIpAddressCidrBlocksResponseBody extends Model
 {
     /**
+     * @description The region ID of the endpoint group.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,11 +18,15 @@ class ListEndpointGroupIpAddressCidrBlocksResponseBody extends Model
     public $endpointGroupRegion;
 
     /**
+     * @description The CIDR blocks.
+     *
      * @var string[]
      */
     public $ipAddressCidrBlocks;
 
     /**
+     * @description The request ID.
+     *
      * @example 4B6DBBB0-2D01-4C6A-A384-4129266E6B78
      *
      * @var string
@@ -28,6 +34,8 @@ class ListEndpointGroupIpAddressCidrBlocksResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group to which the endpoint group belongs.
+     *
      * @example rg-aekztkx4zwc****
      *
      * @var string
@@ -35,6 +43,8 @@ class ListEndpointGroupIpAddressCidrBlocksResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The status of the endpoint group.
+     *
      * @example active
      *
      * @var string

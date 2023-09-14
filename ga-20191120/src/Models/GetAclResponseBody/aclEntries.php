@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aclEntries extends Model
 {
     /**
-     * @description The description of the network ACL entry.
+     * @description The list of network ACL entries that are returned. A maximum of 20 network ACL entries can be returned.
      *
      * @example 10.0.XX.XX/24
      *
@@ -18,7 +18,7 @@ class aclEntries extends Model
     public $entry;
 
     /**
-     * @description The listeners that are associated with the network ACL.
+     * @description The network ACL entry.
      *
      * @example test-entry
      *

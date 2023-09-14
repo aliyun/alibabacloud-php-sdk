@@ -19,7 +19,7 @@ class ListBasicAcceleratorsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The page number. Default value: **1**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -28,7 +28,7 @@ class ListBasicAcceleratorsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -55,15 +55,15 @@ class ListBasicAcceleratorsRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The status of the basic GA instance. Valid values:
+     * @description The state of the basic GA instance. Valid values:
      *
-     *   **init**: The GA instance is being initialized.
-     *   **active**: The GA instance is available.
-     *   **configuring**: The GA instance is being configured.
-     *   **binding**: The GA instance is being associated.
-     *   **unbinding**: The GA instance is being disassociated.
-     *   **deleting**: The GA instance is being deleted.
-     *   **finacialLocked**: The GA instance is locked due to overdue payments.
+     *   **init**: The basic GA instance is being initialized.
+     *   **active**: The basic GA instance is available.
+     *   **configuring**: The basic GA instance is being configured.
+     *   **binding**: The basic GA instance is being associated.
+     *   **unbinding**: The basic GA instance is being disassociated.
+     *   **deleting**: The basic GA instance is being deleted.
+     *   **finacialLocked**: The basic GA instance is locked due to overdue payments.
      *
      * @example active
      *
@@ -72,9 +72,8 @@ class ListBasicAcceleratorsRequest extends Model
     public $state;
 
     /**
-     * @description The tags of the basic GA instance.
+     * @description The tags of the GA instance.
      *
-     * You can specify up to 20 tags.
      * @var tag[]
      */
     public $tag;

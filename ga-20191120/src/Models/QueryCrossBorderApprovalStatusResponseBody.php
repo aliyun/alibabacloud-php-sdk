@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class QueryCrossBorderApprovalStatusResponseBody extends Model
 {
     /**
+     * @description Cross border permissions of Alibaba Cloud account (main account).
+     *
+     * -  PASSED : Cross-border permission review passed.
      * @example UNAPPLIED
      *
      * @var string
@@ -16,6 +19,8 @@ class QueryCrossBorderApprovalStatusResponseBody extends Model
     public $approvalStatus;
 
     /**
+     * @description The ID of the request.
+     *
      * @example F96E634B-A523-587F-9A09-AE8B2FD04B9C
      *
      * @var string

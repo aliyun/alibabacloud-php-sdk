@@ -12,41 +12,6 @@ use AlibabaCloud\Tea\Model;
 class GetAclResponseBody extends Model
 {
     /**
-     * @description The network ACL entry.
-     *
-     * @var aclEntries[]
-     */
-    public $aclEntries;
-
-    /**
-     * @description The IP version of the network ACL. Valid values:
-     *
-     *   **IPv4**
-     *   **IPv6**
-     *
-     * @example nacl-hp34s2h0xx1ht4nwo****
-     *
-     * @var string
-     */
-    public $aclId;
-
-    /**
-     * @example test-acl
-     *
-     * @var string
-     */
-    public $aclName;
-
-    /**
-     * @description The list of network ACL entries that are returned. A maximum of 20 network ACL entries can be returned.
-     *
-     * @example active
-     *
-     * @var string
-     */
-    public $aclStatus;
-
-    /**
      * @description The state of the network ACL. Valid values:
      *
      *   **init**: The network ACL is being initialized.
@@ -55,6 +20,43 @@ class GetAclResponseBody extends Model
      *   **updating**: The network ACL is being updated.
      *   **deleting**: The network ACL is being deleted.
      *
+     * @var aclEntries[]
+     */
+    public $aclEntries;
+
+    /**
+     * @description The ID of the request.
+     *
+     * @example nacl-hp34s2h0xx1ht4nwo****
+     *
+     * @var string
+     */
+    public $aclId;
+
+    /**
+     * @description The ID of the GA instance.
+     *
+     * @example test-acl
+     *
+     * @var string
+     */
+    public $aclName;
+
+    /**
+     * @description The IP version of the network ACL. Valid values:
+     *
+     *   **IPv4**
+     *   **IPv6**
+     *
+     * @example active
+     *
+     * @var string
+     */
+    public $aclStatus;
+
+    /**
+     * @description The ID of the network ACL.
+     *
      * @example IPv4
      *
      * @var string
@@ -62,7 +64,7 @@ class GetAclResponseBody extends Model
     public $addressIPVersion;
 
     /**
-     * @description The ID of the listener.
+     * @description The description of the network ACL entry.
      *
      * @var relatedListeners[]
      */
@@ -78,6 +80,8 @@ class GetAclResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The name of the network ACL.
+     *
      * @example rg-acfmx7itmygzsza
      *
      * @var string
@@ -85,6 +89,8 @@ class GetAclResponseBody extends Model
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @var tags[]
      */
     public $tags;

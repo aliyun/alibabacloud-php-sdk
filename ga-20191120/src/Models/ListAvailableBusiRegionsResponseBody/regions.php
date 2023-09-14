@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class regions extends Model
 {
     /**
+     * @description Whether China Mainland.
+     *
+     * @example false
+     *
      * @var bool
      */
     public $chinaMainland;

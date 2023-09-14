@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
 {
     /**
-     * @description The ID of the endpoint to which the traffic destination belongs.
+     * @description The ID of the traffic policy to be queried.
      *
      * @example ep-bp1d2utp8qqe2a44t****
      *
@@ -18,7 +18,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the traffic policy to be queried.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example ply-bptest2****
      *
@@ -27,7 +27,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyRequest extends Model
     public $policyId;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The operation that you want to perform. Set the value to **DescribeCustomRoutingEndPointTrafficPolicy**.
      *
      * @example cn-hangzhou
      *

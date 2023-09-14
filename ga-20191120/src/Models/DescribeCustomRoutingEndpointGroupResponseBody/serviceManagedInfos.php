@@ -9,16 +9,41 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
+     * @description 托管策略动作名称，取值：
+     * - **Create**：创建实例。
+     * - **Update**：更新当前实例。
+     * - **Delete**：删除当前实例。
+     * - **Associate**：引用/被引用当前实例。
+     * - **UserUnmanaged**：用户解托管实例。
+     * - **CreateChild**：在当前实例下创建子资源。
+     * @example Update
+     *
      * @var string
      */
     public $action;
 
     /**
+     * @description 子资源类型，取值：
+     * - **Listener**：监听资源。
+     * - **IpSet**：加速地域资源。
+     * - **EndpointGroup**：终端节点组资源。
+     * - **ForwardingRule**：转发策略资源。
+     * - **Endpoint**：终端节点资源。
+     * - **EndpointGroupDestination**：自定义路由监听下的终端节点组协议映射资源。
+     * - **EndpointPolicy**：自定义路由监听下的终端节点通行策略资源。
+     * > 仅在**Action**参数为**CreateChild**时有效
+     * @example Listener
+     *
      * @var string
      */
     public $childType;
 
     /**
+     * @description 托管策略动作是否被托管，取值：
+     * - **true**：托管策略动作被托管，用户无权在托管实例下执行Action指定的操作。
+     * - **false**：托管策略动作未被托管，用户可在托管实例下执行Action指定的操作。
+     * @example false
+     *
      * @var bool
      */
     public $isManaged;

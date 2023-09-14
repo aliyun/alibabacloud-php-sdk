@@ -43,7 +43,7 @@ class CreateEndpointGroupRequest extends Model
     public $description;
 
     /**
-     * @description The configurations of the endpoint.
+     * @description The configurations of endpoints in the endpoint group.
      *
      * @var endpointConfigurations[]
      */

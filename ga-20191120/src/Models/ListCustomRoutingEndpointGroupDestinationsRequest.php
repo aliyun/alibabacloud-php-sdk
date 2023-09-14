@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
 {
     /**
-     * @description The GA instance ID.
+     * @description The ID of the GA instance.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -18,7 +18,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $acceleratorId;
 
     /**
-     * @description The endpoint group ID.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp16jdc00bhe97sr5****
      *
@@ -29,7 +29,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The start port of the backend service port range of the endpoint group.
      *
-     * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
+     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
      * @example 80
      *
      * @var int
@@ -37,7 +37,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $fromPort;
 
     /**
-     * @description The listener ID.
+     * @description The ID of the listener.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -46,7 +46,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $listenerId;
 
     /**
-     * @description The page number. Default value: **1**.
+     * @description The number of the page to return. Default value: **1**.
      *
      * @example 1
      *
@@ -55,7 +55,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page. Maximum value: **50**. Default value: **10**.
+     * @description The number of entries to return on each page. Maximum value: **50**. Default value: **10**.
      *
      * @example 10
      *
@@ -66,9 +66,9 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The backend service protocols of the endpoint group. Valid values:
      *
-     *   **TCP:** TCP.
-     *   **UDP:** UDP.
-     *   **TCP,UDP:** TCP and UDP.
+     * - **TCP**: TCP.
+     * - **UDP**: UDP.
+     * - **TCP,UDP**: TCP and UDP.
      *
      * You can specify up to 10 protocols.
      * @var string[]
@@ -76,7 +76,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $protocols;
 
     /**
-     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *
@@ -87,7 +87,7 @@ class ListCustomRoutingEndpointGroupDestinationsRequest extends Model
     /**
      * @description The end port of the backend service port range of the endpoint group.
      *
-     * Valid values: **1** to **65499**. The value of **FromPort** must be smaller than or equal to the value of **ToPort**.
+     * Valid values: **1** to **65499**. The **FromPort** value must be smaller than or equal to the **ToPort** value.
      * @example 80
      *
      * @var int

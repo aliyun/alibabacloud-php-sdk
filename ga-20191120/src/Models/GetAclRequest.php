@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetAclRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example nacl-hp34s2h0xx1ht4nwo****
      *
@@ -18,7 +18,7 @@ class GetAclRequest extends Model
     public $aclId;
 
     /**
-     * @description The ID of the network ACL.
+     * @description The operation that you want to perform. Set the value to **GetAcl**.
      *
      * @example cn-hangzhou
      *

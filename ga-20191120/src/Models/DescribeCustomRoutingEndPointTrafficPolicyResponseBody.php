@@ -11,7 +11,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance to which the endpoint belongs.
+     * @description The ID of the request.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -20,7 +20,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $acceleratorId;
 
     /**
-     * @description The IP address of the traffic policy.
+     * @description The ID of the traffic policy.
      *
      * @example 10.0.XX.XX
      *
@@ -29,7 +29,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $address;
 
     /**
-     * @description The name of the vSwitch to which the traffic policy belongs.
+     * @description The ID of the endpoint to which the traffic policy belongs.
      *
      * @example vsw-test01
      *
@@ -38,7 +38,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpoint;
 
     /**
-     * @description The ID of the endpoint group to which the endpoint belongs.
+     * @description The ID of the listener to which the endpoint belongs.
      *
      * @example epg-bp1bpn0kn908w4nb****
      *
@@ -47,7 +47,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the endpoint to which the traffic policy belongs.
+     * @description The ID of the endpoint group to which the endpoint belongs.
      *
      * @example ep-2zewuzypq5e6r3pfh****
      *
@@ -56,7 +56,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $endpointId;
 
     /**
-     * @description The ID of the listener to which the endpoint belongs.
+     * @description The ID of the GA instance to which the endpoint belongs.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -65,7 +65,7 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $listenerId;
 
     /**
-     * @description The ID of the traffic policy.
+     * @description The name of the vSwitch to which the traffic policy belongs.
      *
      * @example ply-bptest2****
      *
@@ -74,14 +74,14 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $policyId;
 
     /**
-     * @description The port range of the traffic policy.
+     * @description The IP address of the traffic policy.
      *
      * @var portRanges[]
      */
     public $portRanges;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the endpoint to which the traffic destination belongs.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
@@ -91,7 +91,8 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
 
     /**
      * @description The service ID to which the managed instance belongs.
-     * > Valid only when the **ServiceManaged** parameter is **True**.。
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
      * @example ALB
      *
      * @var string
@@ -99,11 +100,9 @@ class DescribeCustomRoutingEndPointTrafficPolicyResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Value：
+     * @description Is it a managed instance. Valid values:
      *
-     * - **true**
-     *
-     * - **false**
+     * - false
      * @example true
      *
      * @var bool

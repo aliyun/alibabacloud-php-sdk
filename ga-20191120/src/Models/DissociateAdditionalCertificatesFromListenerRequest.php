@@ -30,6 +30,9 @@ class DissociateAdditionalCertificatesFromListenerRequest extends Model
     public $clientToken;
 
     /**
+     * @description The domain name associated with the additional certificate.
+     *
+     * You can specify up to 10 domain names in each request.
      * @var string[]
      */
     public $domains;

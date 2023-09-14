@@ -18,6 +18,8 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $destinationId;
 
     /**
+     * @description The ID of the endpoint group.
+     *
      * @example epg-bp1j184jhb9i9ubwf****
      *
      * @var string
@@ -25,7 +27,7 @@ class DescribeCustomRoutingEndpointGroupDestinationsRequest extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the region where the Global Accelerator (GA) instance is deployed. Set the value to **cn-hangzhou**.
+     * @description The ID of the region where the GA instance is deployed. Set the value to **cn-hangzhou**.
      *
      * @example cn-hangzhou
      *

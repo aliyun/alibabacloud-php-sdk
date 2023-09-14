@@ -66,7 +66,7 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     /**
      * @description The service ID to which the managed instance belongs.
      *
-     * >  Valid only when the ServiceManaged parameter is True.。
+     * >  Valid only when the ServiceManaged parameter is True.
      * @example ALB
      *
      * @var string
@@ -74,7 +74,7 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description Is it a managed instance. Value：
+     * @description Is it a managed instance. Valid values:
      *
      * - false
      * @example true
@@ -91,7 +91,7 @@ class DescribeCustomRoutingEndpointResponseBody extends Model
     public $serviceManagedInfos;
 
     /**
-     * @description The status of the endpoint .
+     * @description The status of the endpoint.
      *
      * @example active
      *

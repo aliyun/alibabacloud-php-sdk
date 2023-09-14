@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
 {
     /**
-     * @description The ID of the GA instance.
+     * @description The ID of the Global Accelerator (GA) instance.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -57,9 +57,9 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     /**
      * @description The backend service protocol of the endpoint group.
      *
-     *   **tcp**: TCP
-     *   **udp**: UDP
-     *   **tcp,udp**: TCP and UDP
+     *   **TCP**: TCP
+     *   **UDP**: UDP
+     *   **TCP,UDP**: TCP and UDP
      *
      * @var string[]
      */
@@ -75,21 +75,40 @@ class DescribeCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
+     * @example ALB
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description Is it a managed instance. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;
 
     /**
+     * @description The status of the endpoint group mapping configuration.
+     *
+     *   **init**: being initialized.
+     *   **active**: normal.
+     *   **updating**: being updated.
+     *   **deleting**: being deleted.
+     *
      * @example active
      *
      * @var string

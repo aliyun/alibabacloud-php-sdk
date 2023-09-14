@@ -13,8 +13,8 @@ class endpointGroupConfigurations extends Model
     /**
      * @description Specifies whether to use the proxy protocol to preserve client IP addresses. Valid values:
      *
-     *   **true**: uses the proxy protocol to preserve client IP addresses.
-     *   **false**: does not use the proxy protocol to preserve client IP addresses.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -25,8 +25,8 @@ class endpointGroupConfigurations extends Model
     /**
      * @description Specifies whether to preserve client IP addresses by using the TCP Option Address (TOA) module. Valid values:
      *
-     *   **true**: preserves client IP addresses by using the TOA module.
-     *   **false**: does not preserve client IP addresses by using the TOA module.
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -35,7 +35,7 @@ class endpointGroupConfigurations extends Model
     public $enableClientIPPreservationToa;
 
     /**
-     * @description Terminal node configuration information.
+     * @description The configurations of endpoints in the endpoint group.
      *
      * @var endpointConfigurations[]
      */
@@ -44,7 +44,7 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The description of the endpoint group.
      *
-     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
+     * The description can be up to 256 characters in length and cannot contain `http://` or `https://`.
      * @example group1
      *
      * @var string
@@ -52,7 +52,7 @@ class endpointGroupConfigurations extends Model
     public $endpointGroupDescription;
 
     /**
-     * @description The ID of the endpoint.
+     * @description The endpoint ID.
      *
      * @example ep-bp1d2utp8qqe2a44t****
      *
@@ -73,11 +73,13 @@ class endpointGroupConfigurations extends Model
     /**
      * @description The protocol that is used by the backend service. Valid values:
      *
-     *   **HTTP**: HTTP
-     *   **HTTPS**: HTTPS
+     *   **HTTP**
+     *   **HTTPS**
      *
      * >
-     *   You can set this property only if the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
+     *
+     *   You can set this parameter only when the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
+     *
      *   For an HTTP listener, the backend service protocol must be HTTP.
      *
      * @example HTTP
@@ -87,10 +89,10 @@ class endpointGroupConfigurations extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description Specifies whether to enable the health check feature. Default value: false. Valid values:
+     * @description Specifies whether to enable the health check feature. Valid values:
      *
-     *   **true**: enables the health check feature.
-     *   **false**: disables the health check feature.
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -127,11 +129,11 @@ class endpointGroupConfigurations extends Model
     public $healthCheckPort;
 
     /**
-     * @description The protocol over which health check requests are sent.
+     * @description The protocol over which health check requests are sent. Valid values:
      *
-     *   **tcp**: TCP
-     *   **http**: HTTP
-     *   **https**: HTTPS
+     *   **tcp:** TCP
+     *   **http:** HTTP
+     *   **https:** HTTPS
      *
      * @example tcp
      *
@@ -140,7 +142,7 @@ class endpointGroupConfigurations extends Model
     public $healthCheckProtocol;
 
     /**
-     * @description The mappings between ports.
+     * @description The port mapping.
      *
      * @var portOverrides[]
      */

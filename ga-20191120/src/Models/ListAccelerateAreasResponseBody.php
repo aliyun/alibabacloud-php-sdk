@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class ListAccelerateAreasResponseBody extends Model
 {
     /**
-     * @description The acceleration areas.
+     * @description The information about the areas.
      *
      * @var areas[]
      */
     public $areas;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 6FEA0CF3-D3B9-43E5-A304-D217037876A8
      *

@@ -86,16 +86,28 @@ class forwardingRules extends Model
     public $ruleConditions;
 
     /**
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
+     * @example ALB
+     *
      * @var string
      */
     public $serviceId;
 
     /**
+     * @description Is it a managed instance. Valid values:
+     *
+     * - false
+     * @example true
+     *
      * @var bool
      */
     public $serviceManaged;
 
     /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

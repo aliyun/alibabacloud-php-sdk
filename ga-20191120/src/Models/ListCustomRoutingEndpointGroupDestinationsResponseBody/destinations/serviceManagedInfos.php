@@ -9,20 +9,19 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
+     * @description Managed policy action name, Valid values:
+     *
+     * CreateChild
+     * @example Update
+     *
      * @var string
      */
     public $action;
 
     /**
-     * @description 子资源类型，取值：
-     * - **Listener**：监听资源。
-     * - **IpSet**：加速地域资源。
-     * - **EndpointGroup**：终端节点组资源。
-     * - **ForwardingRule**：转发策略资源。
-     * - **Endpoint**：终端节点资源。
-     * - **EndpointGroupDestination**：自定义路由监听下的终端节点组协议映射资源。
-     * - **EndpointPolicy**：自定义路由监听下的终端节点通行策略资源。
-     * > 仅在**Action**参数为**CreateChild**时有效
+     * @description Sub resource type, Valid values:
+     *
+     * > Only valid when the Action parameter is CreateChild.
      * @example Listener
      *
      * @var string
@@ -30,9 +29,11 @@ class serviceManagedInfos extends Model
     public $childType;
 
     /**
-     * @description 托管策略动作是否被托管，取值：
-     * - **true**：托管策略动作被托管，用户无权在托管实例下执行Action指定的操作。
-     * - **false**：托管策略动作未被托管，用户可在托管实例下执行Action指定的操作。
+     * @description Is the managed policy action managed, Valid values:
+     *
+     * - **true**: The managed policy action is managed, and users do not have permission to perform the operation specified in the Action on the managed instance.
+     *
+     * - **false**: The managed policy action is not managed, and users have permission to perform the operation specified in the Action on the managed instance.
      * @example false
      *
      * @var bool

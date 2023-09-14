@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class destinations extends Model
 {
     /**
-     * @description The GA instance ID.
+     * @description The ID of the GA instance.
      *
      * @example ga-bp1odcab8tmno0hdq****
      *
@@ -28,7 +28,7 @@ class destinations extends Model
     public $destinationId;
 
     /**
-     * @description The endpoint group ID.
+     * @description The ID of the endpoint group.
      *
      * @example epg-bp14sz7ftcwwjgrdm****
      *
@@ -46,7 +46,7 @@ class destinations extends Model
     public $fromPort;
 
     /**
-     * @description The listener ID.
+     * @description The ID of the listener.
      *
      * @example lsr-bp1bpn0kn908w4nbw****
      *
@@ -55,19 +55,20 @@ class destinations extends Model
     public $listenerId;
 
     /**
-     * @description The backend service protocols of the endpoint group. Valid values:
+     * @description The backend service protocol of the endpoint group.
      *
-     *   **TCP:** TCP.
-     *   **UDP:** UDP.
-     *   **TCP,UDP:** TCP and UDP.
+     *   **TCP**: TCP
+     *   **UDP**: UDP
+     *   **TCP,UDP**: TCP and UDP
      *
      * @var string[]
      */
     public $protocols;
 
     /**
-     * @description 托管实例所属的服务方ID。
-     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
      * @example ALB
      *
      * @var string
@@ -75,9 +76,11 @@ class destinations extends Model
     public $serviceId;
 
     /**
-     * @description 是否为托管实例。取值：
+     * @description Is it a managed instance. Valid values:
      *
-     * - false：不是托管实例。
+     * - **true**
+     *
+     * - **false**
      * @example true
      *
      * @var bool
@@ -85,9 +88,8 @@ class destinations extends Model
     public $serviceManaged;
 
     /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * @description A list of action policies that users can execute on this managed instance.
+     *
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

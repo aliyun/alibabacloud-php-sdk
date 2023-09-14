@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class endpointGroups extends Model
 {
     /**
+     * @description The ID of the GA instance.
+     *
      * @example ga-bp1odcab8tmno0hdq****
      *
      * @var string
@@ -20,6 +22,8 @@ class endpointGroups extends Model
     public $acceleratorId;
 
     /**
+     * @description The description of the endpoint group.
+     *
      * @example group1
      *
      * @var string
@@ -27,6 +31,8 @@ class endpointGroups extends Model
     public $description;
 
     /**
+     * @description The configurations of the endpoint.
+     *
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -41,17 +47,14 @@ class endpointGroups extends Model
     public $endpointGroupId;
 
     /**
-     * @description The mappings between ports.
+     * @description The list of endpoint group IP addresses.
      *
      * @var string[]
      */
     public $endpointGroupIpList;
 
     /**
-     * @description Indicates whether the health check feature is enabled. Valid values:
-     *
-     *   **true**: The health check feature is enabled.
-     *   **false**: The health check feature is disabled.
+     * @description The ID of the region where the endpoint group is deployed.
      *
      * @example cn-hangzhou
      *
@@ -60,6 +63,11 @@ class endpointGroups extends Model
     public $endpointGroupRegion;
 
     /**
+     * @description The type of the endpoint group. Valid values:
+     *
+     *   **default**: a default endpoint group
+     *   **virtual**: a virtual endpoint group
+     *
      * @example default
      *
      * @var string
@@ -67,13 +75,18 @@ class endpointGroups extends Model
     public $endpointGroupType;
 
     /**
-     * @description The interval at which health checks are performed. Unit: seconds.
+     * @description The endpoint group IP addresses to be confirmed after the GA instance is upgraded.
      *
      * @var string[]
      */
     public $endpointGroupUnconfirmedIpList;
 
     /**
+     * @description The protocol that is used by the backend service. Valid values:
+     *
+     *   **HTTP**: HTTP
+     *   **HTTPS**: HTTPS
+     *
      * @example HTTP
      *
      * @var string
@@ -81,11 +94,18 @@ class endpointGroups extends Model
     public $endpointRequestProtocol;
 
     /**
+     * @description The ID of the forwarding rule that is associated with the endpoint group.
+     *
      * @var string[]
      */
     public $forwardingRuleIds;
 
     /**
+     * @description Indicates whether the health check feature is enabled. Valid values:
+     *
+     *   **true**: The health check feature is enabled.
+     *   **false**: The health check feature is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -93,6 +113,8 @@ class endpointGroups extends Model
     public $healthCheckEnabled;
 
     /**
+     * @description The interval at which health checks are performed. Unit: seconds.
+     *
      * @example 3
      *
      * @var int
@@ -100,7 +122,7 @@ class endpointGroups extends Model
     public $healthCheckIntervalSeconds;
 
     /**
-     * @description The ID of the request.
+     * @description The path to which health check requests are sent.
      *
      * @example /healthcheck
      *
@@ -109,68 +131,13 @@ class endpointGroups extends Model
     public $healthCheckPath;
 
     /**
+     * @description The port that is used for health checks.
+     *
      * @example 10
      *
      * @var int
      */
     public $healthCheckPort;
-
-    /**
-     * @example tcp
-     *
-     * @var string
-     */
-    public $healthCheckProtocol;
-
-    /**
-     * @example lsr-bp1bpn0kn908w4nbw****
-     *
-     * @var string
-     */
-    public $listenerId;
-
-    /**
-     * @example group1
-     *
-     * @var string
-     */
-    public $name;
-
-    /**
-     * @var portOverrides[]
-     */
-    public $portOverrides;
-
-    /**
-     * @description 托管实例所属的服务方ID。
-     *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * @example ALB
-     *
-     * @var string
-     */
-    public $serviceId;
-
-    /**
-     * @description 是否为托管实例。取值：
-     *
-     * - **true**：是托管资实例。
-     *
-     * - **false**：不是托管实例。
-     * @example true
-     *
-     * @var bool
-     */
-    public $serviceManaged;
-
-    /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
-     *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
-     * @var serviceManagedInfos[]
-     */
-    public $serviceManagedInfos;
 
     /**
      * @description The protocol over which health check requests are sent. Valid values:
@@ -179,6 +146,72 @@ class endpointGroups extends Model
      *   **http**: HTTP
      *   **https**: HTTPS
      *
+     * @example tcp
+     *
+     * @var string
+     */
+    public $healthCheckProtocol;
+
+    /**
+     * @description The ID of the listener.
+     *
+     * @example lsr-bp1bpn0kn908w4nbw****
+     *
+     * @var string
+     */
+    public $listenerId;
+
+    /**
+     * @description The name of the endpoint group.
+     *
+     * @example group1
+     *
+     * @var string
+     */
+    public $name;
+
+    /**
+     * @description The mappings between ports.
+     *
+     * @var portOverrides[]
+     */
+    public $portOverrides;
+
+    /**
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
+     * @example ALB
+     *
+     * @var string
+     */
+    public $serviceId;
+
+    /**
+     * @description Is it a managed instance. Valid values:
+     *
+     * - false
+     * @example true
+     *
+     * @var bool
+     */
+    public $serviceManaged;
+
+    /**
+     * @description A list of action policies that users can execute on this managed instance.
+     *
+     * @var serviceManagedInfos[]
+     */
+    public $serviceManagedInfos;
+
+    /**
+     * @description The state of the endpoint group. Valid values:
+     *
+     *   **init**: The endpoint group is being initialized.
+     *   **active**: The endpoint group is running normally.
+     *   **updating**:The endpoint group is being updated.
+     *   **deleteing**: The endpoint group is being deleted.
+     *
      * @example active
      *
      * @var string
@@ -186,11 +219,15 @@ class endpointGroups extends Model
     public $state;
 
     /**
+     * @description The tags of the endpoint groups.
+     *
      * @var tags[]
      */
     public $tags;
 
     /**
+     * @description The number of consecutive failed health checks that must occur before an endpoint is considered unhealthy.
+     *
      * @example 3
      *
      * @var int
@@ -198,6 +235,8 @@ class endpointGroups extends Model
     public $thresholdCount;
 
     /**
+     * @description The weight of the endpoint group when the listener is associated with multiple endpoint groups.
+     *
      * @example 20
      *
      * @var int

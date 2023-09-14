@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class UpdateServiceManagedControlRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
+     *
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 123e4567****
      *
      * @var string
@@ -16,6 +21,8 @@ class UpdateServiceManagedControlRequest extends Model
     public $clientToken;
 
     /**
+     * @description The region ID of the GA instance. Set the value to cn-hangzhou.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +30,8 @@ class UpdateServiceManagedControlRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource whose control mode you want to change.
+     *
      * @example ga-bp149u6o36qt1as9b****
      *
      * @var string
@@ -30,6 +39,10 @@ class UpdateServiceManagedControlRequest extends Model
     public $resourceId;
 
     /**
+     * @description The type of the resource whose control mode you want to change. Valid value:
+     *
+     *   **Accelerator**: standard GA instance.
+     *
      * @example Accelerator
      *
      * @var string
@@ -37,6 +50,11 @@ class UpdateServiceManagedControlRequest extends Model
     public $resourceType;
 
     /**
+     * @description Specifies the control mode of the resource. Valid value:
+     *
+     *   false: changes the control mode of the resource from managed mode to unmanaged mode.
+     *
+     * >  You can change the control mode only from managed mode to unmanaged mode.
      * @example false
      *
      * @var bool

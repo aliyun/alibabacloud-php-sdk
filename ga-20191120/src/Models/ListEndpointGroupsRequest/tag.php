@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The ID of the listener.
+     * @description The tag key of the Endpoint Group. The tag key cannot be an empty string.
      *
+     * You can specify up to 20 tag keys.
      * @example test-key
      *
      * @var string
@@ -18,12 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The type of the endpoint group. Valid values:
+     * @description The tag value of the Endpoint Group. The tag value can be an empty string.
      *
-     *   **default**: a default endpoint group
-     *   **virtual**: a virtual endpoint group
-     *   If you leave this parameter empty, all default and virtual endpoint groups are queried.
-     *
+     * You can specify up to 20 tag values.
      * @example test-value
      *
      * @var string

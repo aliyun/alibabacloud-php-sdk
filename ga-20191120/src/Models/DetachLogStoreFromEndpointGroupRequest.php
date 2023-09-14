@@ -30,6 +30,8 @@ class DetachLogStoreFromEndpointGroupRequest extends Model
     public $clientToken;
 
     /**
+     * @description The IDs of endpoint groups.
+     *
      * @var string[]
      */
     public $endpointGroupIds;

@@ -13,9 +13,9 @@ class UpdateEndpointGroupRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the value, but you must make sure that it is unique among all requests. ClientToken can contain only ASCII characters.
      *
-     * > If you do not specify this parameter, the system automatically uses the value of **RequestId** as the value of **ClientToken**. The value of **RequestId** for each API request may be different.
+     * >  If you do not set this parameter, **ClientToken** is set to the value of **RequestId**. The value of **RequestId** may be different for each API request.
      * @example 123e4567-e89b-12d3-a456-426655440000
      *
      * @var string
@@ -25,7 +25,7 @@ class UpdateEndpointGroupRequest extends Model
     /**
      * @description The description of the endpoint group.
      *
-     * The description can be up to 256 characters in length and cannot contain `http://` or `https://`.
+     * The description cannot exceed 256 characters in length and cannot contain `http://` or `https://`.
      * @example EndpointGroup
      *
      * @var string
@@ -33,8 +33,9 @@ class UpdateEndpointGroupRequest extends Model
     public $description;
 
     /**
-     * @description The configurations of the endpoint.
+     * @description The information about the endpoints.
      *
+     * You can specify information for up to 20 endpoints.
      * @var endpointConfigurations[]
      */
     public $endpointConfigurations;
@@ -49,7 +50,7 @@ class UpdateEndpointGroupRequest extends Model
     public $endpointGroupId;
 
     /**
-     * @description The ID of the region where the endpoint group is deployed.
+     * @description The ID of the region where the endpoint group is created.
      *
      * @example cn-hangzhou
      *
@@ -63,12 +64,8 @@ class UpdateEndpointGroupRequest extends Model
      *   **HTTP**
      *   **HTTPS**
      *
-     * >
-     *
-     *   You can set this parameter only when the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
-     *
-     *   For an HTTP listener, the backend service protocol must be HTTP.
-     *
+     * > *   You can set this parameter only when the listener that is associated with the endpoint group uses the HTTP or HTTPS protocol.
+     * > *   For an HTTP listener, the backend service protocol must be HTTP.
      * @example HTTP
      *
      * @var string
@@ -76,10 +73,10 @@ class UpdateEndpointGroupRequest extends Model
     public $endpointRequestProtocol;
 
     /**
-     * @description Specifies whether to enable the health check feature. Valid values:
+     * @description Specifies whether to enable the health check feature. Default value: true. Valid values:
      *
-     *   **true:** enables the health check feature. This is the default value.
-     *   **false:** disables the health check feature.
+     *   **true**: enables the health check feature.
+     *   **false**: disables the health check feature.
      *
      * @example true
      *
@@ -88,7 +85,7 @@ class UpdateEndpointGroupRequest extends Model
     public $healthCheckEnabled;
 
     /**
-     * @description The interval between consecutive health checks. Unit: seconds. Valid values: **1** to **50**.
+     * @description The interval between two consecutive health checks. Unit: seconds. Valid values: **1** to **50**.
      *
      * @example 3
      *

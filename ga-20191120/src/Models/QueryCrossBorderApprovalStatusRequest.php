@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class QueryCrossBorderApprovalStatusRequest extends Model
 {
     /**
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -9,13 +9,8 @@ use AlibabaCloud\Tea\Model;
 class serviceManagedInfos extends Model
 {
     /**
-     * @description Managed policy action name，Value：
-     * - **Create**
-     * - **Update**
-     * - **Delete**
-     * - **Associate**
-     * - **UserUnmanaged**
-     * - **CreateChild**
+     * @description Managed policy action name, Valid values:
+     * - CreateChild
      * @example Update
      *
      * @var string
@@ -23,23 +18,9 @@ class serviceManagedInfos extends Model
     public $action;
 
     /**
-     * @description Sub resource type，Value：
+     * @description Sub resource type, Valid values:
      *
-     * - **Listener**
-     *
-     * - **IpSet**
-     *
-     * - **EndpointGroup**
-     *
-     * - **ForwardingRule**
-     *
-     * - **Endpoint**
-     *
-     * - **EndpointGroupDestination**
-     *
-     * - **EndpointPolicy**
-     *
-     * > Only valid when the **Action** parameter is **CreateChild**.
+     * >Only valid when the Action parameter is CreateChild.
      * @example Listener
      *
      * @var string
@@ -47,9 +28,9 @@ class serviceManagedInfos extends Model
     public $childType;
 
     /**
-     * @description Is the managed policy action managed，Value：
-     * - **true**：The managed policy action is managed, and users do not have permission to perform the operation specified in the Action on the managed instance。
-     * - **false**：The managed policy action is not managed, and users have permission to perform the operation specified in the Action on the managed instance.
+     * @description Is the managed policy action managed, Valid values:
+     *
+     * - false: The managed policy action is not managed, and users have permission to perform the operation specified in the Action on the managed instance.
      * @example false
      *
      * @var bool

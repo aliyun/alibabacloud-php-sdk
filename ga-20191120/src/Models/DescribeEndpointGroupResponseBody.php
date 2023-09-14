@@ -213,8 +213,9 @@ class DescribeEndpointGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description 托管实例所属的服务方ID。
-     * > 仅在**ServiceManaged**参数为**True**时有效。
+     * @description The service ID to which the managed instance belongs.
+     *
+     * >  Valid only when the ServiceManaged parameter is True.
      * @example ALB
      *
      * @var string
@@ -222,11 +223,9 @@ class DescribeEndpointGroupResponseBody extends Model
     public $serviceId;
 
     /**
-     * @description 是否为托管实例。取值：
+     * @description Is it a managed instance. Value:
      *
-     * - **true**：是托管实例。
-     *
-     * - **false**：不是托管实例。
+     * - false
      * @example true
      *
      * @var bool
@@ -234,10 +233,10 @@ class DescribeEndpointGroupResponseBody extends Model
     public $serviceManaged;
 
     /**
-     * @description 用户在此托管实例下可执行的动作策略列表。
+     * @description A list of action policies that users can execute on this managed instance.
      *
-     * > 仅在**ServiceManaged**参数为**True**时有效。
-     * > - 当实例处于托管状态时，用户对实例的操作会受到限制，某些操作行为会被禁止。
+     * > Valid only when the ServiceManaged parameter is True.
+     * >* When an instance is hosted, user operations on the instance are restricted and some operations are prohibited.
      * @var serviceManagedInfos[]
      */
     public $serviceManagedInfos;

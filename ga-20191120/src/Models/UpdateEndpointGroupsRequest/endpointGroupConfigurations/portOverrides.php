@@ -19,12 +19,14 @@ class portOverrides extends Model
     public $endpointPort;
 
     /**
-     * @description The listening port.
+     * @description The listener port of the instance.
      *
      * Valid values: **1** to **65499**.
      *
      * >
-     *   Only HTTP and HTTPS listeners support port mapping.
+     *
+     *   Only HTTP and HTTPS listeners support port mappings.
+     *
      *   The listener port in a port mapping must be the one used by the current listener.
      *
      * @example 443

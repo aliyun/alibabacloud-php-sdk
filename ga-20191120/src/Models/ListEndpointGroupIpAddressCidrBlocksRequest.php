@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListEndpointGroupIpAddressCidrBlocksRequest extends Model
 {
     /**
+     * @description The region ID of the endpoint group.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -16,6 +18,8 @@ class ListEndpointGroupIpAddressCidrBlocksRequest extends Model
     public $endpointGroupRegion;
 
     /**
+     * @description The region ID of the GA instance. Set the value to **cn-hangzhou**.
+     *
      * @example cn-hangzhou
      *
      * @var string

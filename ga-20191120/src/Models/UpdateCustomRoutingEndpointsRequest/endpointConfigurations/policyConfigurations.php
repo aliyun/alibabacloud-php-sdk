@@ -22,6 +22,13 @@ class policyConfigurations extends Model
     public $address;
 
     /**
+     * @description The port range of the destination to which traffic is forwarded. The value of this parameter must fall within the port range of the endpoint group.
+     *
+     * If you leave this parameter empty, traffic is forwarded to all destination ports.
+     *
+     * This parameter takes effect only when **TrafficToEndpointPolicy** is set to **AllowCustom**.
+     *
+     * You can specify port ranges for up to 20 destinations for each endpoint and specify up to 20 port ranges for each destination.
      * @var portRanges[]
      */
     public $portRanges;

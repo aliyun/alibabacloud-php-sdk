@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DissociateAclsFromListenerResponseBody extends Model
 {
     /**
-     * @description The ID of the ACL.
+     * @description The IDs of the ACL.
      *
      * @var string[]
      */

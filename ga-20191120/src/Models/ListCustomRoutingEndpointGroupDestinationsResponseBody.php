@@ -17,7 +17,7 @@ class ListCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     public $destinations;
 
     /**
-     * @description The page number.
+     * @description The number of the returned page.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class ListCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries returned per page.
      *
      * @example 10
      *
@@ -35,7 +35,7 @@ class ListCustomRoutingEndpointGroupDestinationsResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The request ID.
+     * @description The ID of the request.
      *
      * @example 04F0F334-1335-436C-A1D7-6C044FE73368
      *
