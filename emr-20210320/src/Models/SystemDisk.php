@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class SystemDisk extends Model
 {
     /**
+     * @description 磁盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description 每个节点系统盘数量，默认值为1。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description 创建ESSD云盘作为系统盘使用时，设置云盘的性能等级。取值范围：
+     * 默认值：PL1。
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description 单位GB。
+     *
+     * @example 60
+     *
      * @var int
      */
     public $size;

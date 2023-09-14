@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DeleteClusterRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

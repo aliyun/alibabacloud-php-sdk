@@ -9,81 +9,143 @@ use AlibabaCloud\Tea\Model;
 class Cluster extends Model
 {
     /**
+     * @description 集群ID。
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 集群名称。
+     *
+     * @example emrtest
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description 集群状态。
+     *
+     * @example RUNNING
+     *
      * @var string
      */
     public $clusterState;
 
     /**
+     * @description 集群类型。
+     *
+     * @example DATALAKE
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description 创建时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description 部署模式。
+     *
+     * @example HA
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description EMR默认角色。
+     *
+     * @example AliyunEMRDefaultRole
+     *
      * @var string
      */
     public $emrDefaultRole;
 
     /**
+     * @description 删除时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description 过期时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @description 节点属性。
+     *
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
+     * @description 付费类型。
+     *
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description 可用时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $readyTime;
 
     /**
+     * @description 区域ID。
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description EMR发行版。
+     *
+     * @example EMR-5.3.0
+     *
      * @var string
      */
     public $releaseVersion;
 
     /**
+     * @description 资源组ID。
+     *
+     * @example rg-acfmzabjyop****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Kerberos安全模式。
+     *
+     * @example NORMAL
+     *
      * @var string
      */
     public $securityMode;
@@ -94,11 +156,15 @@ class Cluster extends Model
     public $stateChangeReason;
 
     /**
+     * @description 预付费配置。
+     *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
+     * @description 集群标签。
+     *
      * @var Tag[]
      */
     public $tags;

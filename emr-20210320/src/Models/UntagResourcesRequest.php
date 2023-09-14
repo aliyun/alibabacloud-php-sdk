@@ -9,26 +9,50 @@ use AlibabaCloud\Tea\Model;
 class UntagResourcesRequest extends Model
 {
     /**
+     * @description Specifies whether to remove all tags. This parameter is valid only when the **Tagkeys** is empty. Valid values:
+     *
+     *   true: All the data is deleted.
+     *   false: Not all of them are deleted.
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $all;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The list of resource IDs.
+     *
+     * @example cluster
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource. Set the value to cluster.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The key of the label. Valid values of N: 1 to 20.
+     *
+     * @example ["c-b933c5aac8fe****"]
+     *
      * @var string[]
      */
     public $tagKeys;

@@ -10,36 +10,62 @@ use AlibabaCloud\Tea\Model;
 class ScalingRuleV1 extends Model
 {
     /**
+     * @description 调整类型。
+     *
+     * @example QUANTITY_CHANGE_IN_CAPACITY
+     *
      * @var string
      */
     public $adjustmentType;
 
     /**
+     * @description 调整值,正数为扩容,负数为缩容。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $adjustmentValue;
 
     /**
+     * @description 冷却时间,单位秒。
+     *
+     * @example 4
+     *
      * @var int
      */
     public $coolDownTime;
 
     /**
+     * @description 规则名称。
+     *
+     * @example tule1
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description 规则参数。
+     *
      * @var ruleParam
      */
     public $ruleParam;
 
     /**
+     * @description 规则类型。
+     *
+     * @example BY_LOAD
+     *
      * @var string
      */
     public $ruleType;
 
     /**
+     * @description 弹性规则配置ID。
+     *
+     * @example SCB-DCD96BCCFED1****
+     *
      * @var string
      */
     public $scalingConfigBizId;

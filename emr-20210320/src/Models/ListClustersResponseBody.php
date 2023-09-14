@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ListClustersResponseBody extends Model
 {
     /**
+     * @description The list of clusters.
+     *
      * @var ClusterSummary[]
      */
     public $clusters;
 
     /**
+     * @description The number of entries returned per page.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The page number of the next page returned.
+     *
+     * @example eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3896A
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of pages.
+     *
+     * @example 1000
+     *
      * @var int
      */
     public $totalCount;

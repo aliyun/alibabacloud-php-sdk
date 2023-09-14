@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class KeyValue extends Model
 {
     /**
+     * @description 键。
+     *
+     * @example key
+     *
      * @var string
      */
     public $key;
 
     /**
+     * @description 值。
+     *
+     * @example value
+     *
      * @var string
      */
     public $value;

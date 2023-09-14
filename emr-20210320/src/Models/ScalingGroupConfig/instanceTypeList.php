@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class instanceTypeList extends Model
 {
     /**
+     * @description Ecs类型。
+     *
+     * @example ecs.c5.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description 抢占价格上限,可空。
+     *
+     * @example 0.79
+     *
      * @var float
      */
     public $spotPriceLimit;

@@ -9,51 +9,117 @@ use AlibabaCloud\Tea\Model;
 class ListClustersRequest extends Model
 {
     /**
+     * @description The IDs of the clusters. You can specify a maximum of 100 items.
+     *
+     * @example rg-acfmzabjyop****
+     *
      * @var string[]
      */
     public $clusterIds;
 
     /**
+     * @description The name of the cluster.
+     *
+     * @example emrtest
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description The states of clusters. You can specify a maximum of 100 items.
+     *
+     * @example ["HADOOP"]
+     *
      * @var string[]
      */
     public $clusterStates;
 
     /**
+     * @description The types of the clusters. You can specify a maximum of 100 items.
+     *
+     * @example ["c-b933c5aac8fe****"]
+     *
      * @var string[]
      */
     public $clusterTypes;
 
     /**
+     * @description The number of entries to return on each page. Valid values: 1 to 100.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The starting point of the current query. If you do not configure this parameter, the query starts from the beginning.
+     *
+     * @example eyJlY21OZXh0VG9rZW4iOiIxIiwidGFpaGFvTmV4dFRva2VuIjoiNTYiLCJ0YWloYW9OZXh0VG9rZW5JbnQiOjU2LCJlY21OZXh0VG9rZW5JbnQiOjF9
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The billing methods. You can specify a maximum of 2 items.
+     *
+     * @example ["ECS"]
+     *
      * @var string[]
      */
     public $paymentTypes;
 
     /**
+     * @description The region ID.
+     *
+     * Valid values:
+     *
+     *   center
+     *   cn-hangzhou
+     *   cn-shanghai
+     *   cn-qingdao
+     *   cn-beijing
+     *   cn-zhangjiakou
+     *   cn-huhehaote
+     *   cn-wulanchabu
+     *   cn-shenzhen
+     *   cn-chengdu
+     *   cn-hongkong
+     *   ap-southeast-1
+     *   ap-southeast-2
+     *   ap-southeast-3
+     *   ap-southeast-5
+     *   ap-northeast-1
+     *   eu-central-1
+     *   eu-west-1
+     *   us-west-1
+     *   us-east-1
+     *   ap-south-1
+     *   me-east-1
+     *   me-central-1
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmzabjyop****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The tags. You can specify a maximum of 20 items.
+     *
+     * @example ["PayAsYouGo"]
+     *
      * @var Tag[]
      */
     public $tags;

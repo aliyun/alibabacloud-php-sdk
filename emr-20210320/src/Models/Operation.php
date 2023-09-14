@@ -9,46 +9,80 @@ use AlibabaCloud\Tea\Model;
 class Operation extends Model
 {
     /**
+     * @description 集群ID。
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 创建时间。
+     *
+     * @example 1628589439114
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description 描述。
+     *
+     * @example start
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 结束时间。
+     *
+     * @example 1628589439114
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description 操作ID。
+     *
+     * @example op-13c37a77c505****
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description 操作状态。
+     *
+     * @example COMPLETED
+     *
      * @var string
      */
     public $operationState;
 
     /**
+     * @description 操作类型。
+     *
+     * @example CLUSTER
+     *
      * @var string
      */
     public $operationType;
 
     /**
+     * @description 开始时间。
+     *
+     * @example 1628589439114
+     *
      * @var int
      */
     public $startTime;
 
     /**
+     * @description 状态转换原因。
+     *
      * @var OperationStateChangeReason
      */
     public $stateChangeReason;

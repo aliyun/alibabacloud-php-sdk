@@ -11,36 +11,60 @@ use AlibabaCloud\Tea\Model;
 class ScalingRuleSpec extends Model
 {
     /**
+     * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+     *
+     * @example 100
+     *
      * @var int
      */
     public $adjustmentValue;
 
     /**
+     * @description 按照负载伸缩描述。
+     *
      * @var byLoadScalingRuleSpec
      */
     public $byLoadScalingRuleSpec;
 
     /**
+     * @description 按照时间伸缩描述。
+     *
      * @var byTimeScalingRuleSpec
      */
     public $byTimeScalingRuleSpec;
 
     /**
+     * @description 冷却时间。单位为秒，取值范围在30~10800秒之间。
+     *
+     * @example 60
+     *
      * @var int
      */
     public $coolDownInterval;
 
     /**
+     * @description 伸缩活动类型。
+     *
+     * @example SCALE_IN
+     *
      * @var string
      */
     public $scalingActivityType;
 
     /**
+     * @description 规则名称。
+     *
+     * @example scale-out-memory
+     *
      * @var string
      */
     public $scalingRuleName;
 
     /**
+     * @description 伸缩规则类型。
+     *
+     * @example BY_TIME
+     *
      * @var string
      */
     public $scalingRuleType;

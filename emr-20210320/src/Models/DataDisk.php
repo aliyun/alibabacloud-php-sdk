@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class DataDisk extends Model
 {
     /**
+     * @description 磁盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description 每个节点磁盘数量。
+     *
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description 创建ESSD云盘作为数据盘使用时，设置云盘的性能等级。取值范围：
+     * 默认值：PL1。
+     * @example PL1
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description 单位GB。
+     *
+     * @example 80
+     *
      * @var int
      */
     public $size;

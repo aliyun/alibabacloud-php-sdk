@@ -9,35 +9,35 @@ use AlibabaCloud\Tea\Model;
 class FailedReason extends Model
 {
     /**
+     * @description 错误码。
+     *
+     * @example MissingParameter.InstanceType
+     *
      * @var string
      */
     public $errorCode;
 
     /**
+     * @description 错误信息。
+     *
+     * @example The instance type is required.
+     *
      * @var string
      */
     public $errorMessage;
 
     /**
-     * @var string
-     */
-    public $errorMsg;
-
-    /**
+     * @description 请求ID。
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944abcd
+     *
      * @var string
      */
     public $requestId;
-
-    /**
-     * @var string
-     */
-    public $service;
     protected $_name = [
         'errorCode'    => 'ErrorCode',
         'errorMessage' => 'ErrorMessage',
-        'errorMsg'     => 'ErrorMsg',
         'requestId'    => 'RequestId',
-        'service'      => 'Service',
     ];
 
     public function validate()
@@ -53,14 +53,8 @@ class FailedReason extends Model
         if (null !== $this->errorMessage) {
             $res['ErrorMessage'] = $this->errorMessage;
         }
-        if (null !== $this->errorMsg) {
-            $res['ErrorMsg'] = $this->errorMsg;
-        }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
-        }
-        if (null !== $this->service) {
-            $res['Service'] = $this->service;
         }
 
         return $res;
@@ -80,14 +74,8 @@ class FailedReason extends Model
         if (isset($map['ErrorMessage'])) {
             $model->errorMessage = $map['ErrorMessage'];
         }
-        if (isset($map['ErrorMsg'])) {
-            $model->errorMsg = $map['ErrorMsg'];
-        }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
-        }
-        if (isset($map['Service'])) {
-            $model->service = $map['Service'];
         }
 
         return $model;

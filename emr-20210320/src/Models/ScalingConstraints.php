@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class ScalingConstraints extends Model
 {
     /**
+     * @description 最大值。
+     *
+     * @example 2000
+     *
      * @var int
      */
     public $maxCapacity;
 
     /**
+     * @description 最小值。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $minCapacity;

@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class AckNodeSelector extends Model
 {
     /**
+     * @description 污点列表。
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
+     * @description 污点列表。
+     *
      * @var taints[]
      */
     public $taints;

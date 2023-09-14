@@ -9,26 +9,36 @@ use AlibabaCloud\Tea\Model;
 class ApplicationConfigParam extends Model
 {
     /**
+     * @example DELETE
+     *
      * @var string
      */
     public $configAction;
 
     /**
+     * @example hdfs-site.xml
+     *
      * @var string
      */
     public $configFileName;
 
     /**
+     * @example namenode checkpoint period
+     *
      * @var string
      */
     public $configItemDescription;
 
     /**
+     * @example dfs.namenode.checkpoint.period
+     *
      * @var string
      */
     public $configItemKey;
 
     /**
+     * @example 3600s
+     *
      * @var string
      */
     public $configItemValue;
@@ -39,21 +49,29 @@ class ApplicationConfigParam extends Model
     public $configScope;
 
     /**
+     * @example RESTART
+     *
      * @var string
      */
     public $effectiveActions;
 
     /**
+     * @example MANUAL
+     *
      * @var string
      */
     public $effectiveType;
 
     /**
+     * @example G-DE1CF4661E09****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @example i-bp10h9rezawz1i4o****
+     *
      * @var string
      */
     public $nodeId;

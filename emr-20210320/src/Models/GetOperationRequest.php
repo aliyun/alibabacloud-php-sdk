@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetOperationRequest extends Model
 {
     /**
+     * @description The ID of the cluster that you want to query.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the operation.
+     *
+     * @example op-13c37a77c505****
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The district ID.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

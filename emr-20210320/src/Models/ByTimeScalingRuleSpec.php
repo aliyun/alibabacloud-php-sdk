@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ByTimeScalingRuleSpec extends Model
 {
     /**
+     * @description 重复执行定时任务的结束时间戳。单位为毫秒。
+     *
+     * @example 1639714800000
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description 启动时间戳。单位为毫秒。
+     *
+     * @example 1639714634819
+     *
      * @var int
      */
     public $launchTime;
 
     /**
+     * @description 指定时间规则的执行类型。
+     *
+     * @example WEEKLY
+     *
      * @var string
      */
     public $recurrenceType;
 
     /**
+     * @description 重复执行定时任务的数值。具体取值取决于 recurrenceType 设置。
+     *
+     * @example MON,FRI,SUN
+     *
      * @var string
      */
     public $recurrenceValue;

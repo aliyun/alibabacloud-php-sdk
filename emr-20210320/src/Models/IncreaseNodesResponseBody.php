@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class IncreaseNodesResponseBody extends Model
 {
     /**
+     * @description The ID of the operation.
+     *
+     * @example op-13c37a77c505****
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
+     *
      * @var string
      */
     public $requestId;

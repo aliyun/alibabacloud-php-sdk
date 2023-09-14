@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class policyParam extends Model
 {
     /**
+     * @description 按需实例最小个数。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $onDemandBaseCapacity;
 
     /**
+     * @description 按需实例百分比。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $onDemandPercentageAboveBaseCapacity;
 
     /**
+     * @description 抢占实例类型池规模。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $spotInstancePools;
 
     /**
+     * @description 是否使用按量补偿。
+     *
+     * @example false
+     *
      * @var bool
      */
     public $spotInstanceRemedy;

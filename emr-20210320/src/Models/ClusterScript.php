@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class ClusterScript extends Model
 {
     /**
+     * @example 取值:FAILED_CONTINUE, FAILED_BLOCKED
+     *
      * @var string
      */
     public $executionFailStrategy;
 
     /**
+     * @example 取值:BEFORE_INSTALL, AFTER_STARTED
+     *
      * @var string
      */
     public $executionMoment;

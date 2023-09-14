@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class ApplicationConfig extends Model
 {
     /**
+     * @description 应用名称。从EMR控制台集群创建页面可查看到指定发行版的应用名称列表。
+     *
+     * @example HDFS
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description 应用配置文件名。
+     *
+     * @example hdfs-site.xml
+     *
      * @var string
      */
     public $configFileName;
 
     /**
+     * @description 配置项键。
+     *
+     * @example dfs.namenode.checkpoint.period
+     *
      * @var string
      */
     public $configItemKey;
 
     /**
+     * @description 配置项值。
+     *
+     * @example 3600s
+     *
      * @var string
      */
     public $configItemValue;
 
     /**
+     * @description 配置范围。取值范围：
+     * 默认值：CLUSTER。
+     * @example NODE_GROUP
+     *
      * @var string
      */
     public $configScope;
 
     /**
+     * @description 节点组ID。ConfigScope取值NODE_GROUP时，该参数生效。NodeGroupId参数优先级高于NodeGroupName。
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description 节点组名称。ConfigScope取值NODE_GROUP时，且参数NodeGroupId为空时生效，该参数生效。
+     *
+     * @example core-1
+     *
      * @var string
      */
     public $nodeGroupName;

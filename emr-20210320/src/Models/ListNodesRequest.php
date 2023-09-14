@@ -9,56 +9,98 @@ use AlibabaCloud\Tea\Model;
 class ListNodesRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of maximum number of records to obtain at a time. Valid values: 1 to 100.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description Marks the current position where reading starts. If you set this value to null, you can start from the beginning.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The IDs of node groups.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string[]
      */
     public $nodeGroupIds;
 
     /**
+     * @description An array that consists of information about the ID of the node.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
+     * @description The names of the nodes.
+     *
+     * @example 20
+     *
      * @var string[]
      */
     public $nodeNames;
 
     /**
+     * @description The status of the node.
+     *
+     * @example ["CREATED"]
+     *
      * @var string[]
      */
     public $nodeStates;
 
     /**
+     * @description The private IP address.
+     *
+     * @example ["172.12.0.91"]
+     *
      * @var string[]
      */
     public $privateIps;
 
     /**
+     * @description The public IP address.
+     *
+     * @example ["120.13.14.38"]
+     *
      * @var string[]
      */
     public $publicIps;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The list of tags to be bound.
+     *
      * @var Tag[]
      */
     public $tags;

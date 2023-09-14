@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class NodeGroupStateChangeReason extends Model
 {
     /**
+     * @description 状态码。
+     *
+     * @example MissingParameter
+     *
      * @var string
      */
     public $code;
 
     /**
+     * @description 描述信息。
+     *
+     * @example The instance type is required.
+     *
      * @var string
      */
     public $message;

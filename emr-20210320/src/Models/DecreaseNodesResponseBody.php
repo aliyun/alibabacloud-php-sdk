@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DecreaseNodesResponseBody extends Model
 {
     /**
+     * @description Operation ID.
+     *
+     * @example op-13c37a77c505****
+     *
      * @var string
      */
     public $operationId;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 44430037-E59A-3E66-A2B0-97D155346F22
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class GetNodeGroupRequest extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The ID of the node group.
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -9,26 +9,44 @@ use AlibabaCloud\Tea\Model;
 class ListNodesResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description The position at which the next read starts. If null is returned, the data has been read.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description Details about nodes.
+     *
      * @var Node[]
      */
     public $nodes;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C8944****
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The total number of records in this request.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

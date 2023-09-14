@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class SubscriptionConfig extends Model
 {
     /**
+     * @description 自动续费。取值范围：
+     * 默认值：false。
+     * @example true
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description 自动续费时长。当AutoRenew取值为true时生效。当AutoRenewDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+     *
+     * @example 12
+     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
+     * @description - Month：月。
+     *
+     * @example Month
+     *
      * @var string
      */
     public $autoRenewDurationUnit;
 
     /**
+     * @description 付费时长。PaymentDurationUnit取值为Month时，取值：1、2、3、4、5、6、7、8、9、12、24、36、48、60。
+     *
+     * @example 12
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @description 付费时长单位。取值范围：
+     * - Month：月。
+     * @example Month
+     *
      * @var string
      */
     public $paymentDurationUnit;

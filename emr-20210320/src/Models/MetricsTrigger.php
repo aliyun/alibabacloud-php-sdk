@@ -9,53 +9,61 @@ use AlibabaCloud\Tea\Model;
 class MetricsTrigger extends Model
 {
     /**
+     * @description 多指标逻辑关系。默认：Or。取值范围：
+     * - Or：或
+     * @example Or
+     *
      * @var string
      */
-    public $comparisonOperator;
+    public $conditionLogicOperator;
 
     /**
+     * @description 指标触发条件列表。
+     *
+     * @var TriggerCondition[]
+     */
+    public $conditions;
+
+    /**
+     * @description 冷却时间。 单位为秒
+     *
+     * @example 300
+     *
      * @var int
      */
     public $coolDownInterval;
 
     /**
+     * @description 统计次数。
+     *
+     * @example 2
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
-     * @var string
+     * @description 时间限制。
+     *
+     * @var TimeConstraint[]
      */
-    public $metricName;
+    public $timeConstraints;
 
     /**
-     * @var string
-     */
-    public $statistics;
-
-    /**
-     * @var Tag[]
-     */
-    public $tags;
-
-    /**
-     * @var float
-     */
-    public $threshold;
-
-    /**
+     * @description 统计窗口。单位为秒。
+     *
+     * @example 30
+     *
      * @var int
      */
     public $timeWindow;
     protected $_name = [
-        'comparisonOperator' => 'ComparisonOperator',
-        'coolDownInterval'   => 'CoolDownInterval',
-        'evaluationCount'    => 'EvaluationCount',
-        'metricName'         => 'MetricName',
-        'statistics'         => 'Statistics',
-        'tags'               => 'Tags',
-        'threshold'          => 'Threshold',
-        'timeWindow'         => 'TimeWindow',
+        'conditionLogicOperator' => 'ConditionLogicOperator',
+        'conditions'             => 'Conditions',
+        'coolDownInterval'       => 'CoolDownInterval',
+        'evaluationCount'        => 'EvaluationCount',
+        'timeConstraints'        => 'TimeConstraints',
+        'timeWindow'             => 'TimeWindow',
     ];
 
     public function validate()
@@ -65,8 +73,17 @@ class MetricsTrigger extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->comparisonOperator) {
-            $res['ComparisonOperator'] = $this->comparisonOperator;
+        if (null !== $this->conditionLogicOperator) {
+            $res['ConditionLogicOperator'] = $this->conditionLogicOperator;
+        }
+        if (null !== $this->conditions) {
+            $res['Conditions'] = [];
+            if (null !== $this->conditions && \is_array($this->conditions)) {
+                $n = 0;
+                foreach ($this->conditions as $item) {
+                    $res['Conditions'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->coolDownInterval) {
             $res['CoolDownInterval'] = $this->coolDownInterval;
@@ -74,23 +91,14 @@ class MetricsTrigger extends Model
         if (null !== $this->evaluationCount) {
             $res['EvaluationCount'] = $this->evaluationCount;
         }
-        if (null !== $this->metricName) {
-            $res['MetricName'] = $this->metricName;
-        }
-        if (null !== $this->statistics) {
-            $res['Statistics'] = $this->statistics;
-        }
-        if (null !== $this->tags) {
-            $res['Tags'] = [];
-            if (null !== $this->tags && \is_array($this->tags)) {
+        if (null !== $this->timeConstraints) {
+            $res['TimeConstraints'] = [];
+            if (null !== $this->timeConstraints && \is_array($this->timeConstraints)) {
                 $n = 0;
-                foreach ($this->tags as $item) {
-                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                foreach ($this->timeConstraints as $item) {
+                    $res['TimeConstraints'][$n++] = null !== $item ? $item->toMap() : $item;
                 }
             }
-        }
-        if (null !== $this->threshold) {
-            $res['Threshold'] = $this->threshold;
         }
         if (null !== $this->timeWindow) {
             $res['TimeWindow'] = $this->timeWindow;
@@ -107,8 +115,17 @@ class MetricsTrigger extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ComparisonOperator'])) {
-            $model->comparisonOperator = $map['ComparisonOperator'];
+        if (isset($map['ConditionLogicOperator'])) {
+            $model->conditionLogicOperator = $map['ConditionLogicOperator'];
+        }
+        if (isset($map['Conditions'])) {
+            if (!empty($map['Conditions'])) {
+                $model->conditions = [];
+                $n                 = 0;
+                foreach ($map['Conditions'] as $item) {
+                    $model->conditions[$n++] = null !== $item ? TriggerCondition::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['CoolDownInterval'])) {
             $model->coolDownInterval = $map['CoolDownInterval'];
@@ -116,23 +133,14 @@ class MetricsTrigger extends Model
         if (isset($map['EvaluationCount'])) {
             $model->evaluationCount = $map['EvaluationCount'];
         }
-        if (isset($map['MetricName'])) {
-            $model->metricName = $map['MetricName'];
-        }
-        if (isset($map['Statistics'])) {
-            $model->statistics = $map['Statistics'];
-        }
-        if (isset($map['Tags'])) {
-            if (!empty($map['Tags'])) {
-                $model->tags = [];
-                $n           = 0;
-                foreach ($map['Tags'] as $item) {
-                    $model->tags[$n++] = null !== $item ? Tag::fromMap($item) : $item;
+        if (isset($map['TimeConstraints'])) {
+            if (!empty($map['TimeConstraints'])) {
+                $model->timeConstraints = [];
+                $n                      = 0;
+                foreach ($map['TimeConstraints'] as $item) {
+                    $model->timeConstraints[$n++] = null !== $item ? TimeConstraint::fromMap($item) : $item;
                 }
             }
-        }
-        if (isset($map['Threshold'])) {
-            $model->threshold = $map['Threshold'];
         }
         if (isset($map['TimeWindow'])) {
             $model->timeWindow = $map['TimeWindow'];

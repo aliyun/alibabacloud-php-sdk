@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class NodeAttributes extends Model
 {
     /**
+     * @description ECS ssh登录秘钥。
+     *
+     * @example emr_login
+     *
      * @var string
      */
     public $keyPairName;
 
     /**
+     * @description ECS访问资源绑定的角色。
+     *
+     * @example AliyunECSInstanceForEMRRole
+     *
      * @var string
      */
     public $ramRole;
 
     /**
+     * @description 安全组ID。EMR只支持普通安全组，不支持企业安全组。
+     *
+     * @example sg-hp3abbae8lb6lmb1****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @description 专有网络ID。
+     *
+     * @example vpc-bp1tgey2p0ytxmdo5****
+     *
      * @var string
      */
     public $vpcId;
 
     /**
+     * @description 可用区ID。
+     *
+     * @example cn-beijing-h
+     *
      * @var string
      */
     public $zoneId;

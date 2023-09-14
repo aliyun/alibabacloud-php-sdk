@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class SpotBidPrice extends Model
 {
     /**
+     * @description 实例的每小时最高出价。支持最大3位小数，参数SpotStrategy=SpotWithPriceLimit时，该参数生效。
+     *
+     * @example 1000.0
+     *
      * @var float
      */
     public $bidPrice;
 
     /**
+     * @description 实例类型。
+     *
+     * @example ecs.g7.2xlarge
+     *
      * @var string
      */
     public $instanceType;

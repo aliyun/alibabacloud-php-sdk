@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class UpdateSpecNodeGroup extends Model
 {
     /**
+     * @description 新实例类型。
+     *
+     * @example ecs.g7.xlarge
+     *
      * @var string
      */
     public $newInstanceType;
 
     /**
+     * @description 节点组ID。
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;

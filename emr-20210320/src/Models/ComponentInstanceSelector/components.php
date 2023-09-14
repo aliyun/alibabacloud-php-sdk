@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class components extends Model
 {
     /**
+     * @description 应用名称。
+     *
+     * @example HDFS
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description 组件名称。
+     *
+     * @example DataNode
+     *
      * @var string
      */
     public $componentName;

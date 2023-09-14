@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class NodeCountConstraint extends Model
 {
     /**
+     * @example 100
+     *
      * @var int
      */
     public $max;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $min;
 
     /**
+     * @example range
+     *
      * @var string
      */
     public $type;

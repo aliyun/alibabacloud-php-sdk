@@ -9,81 +9,135 @@ use AlibabaCloud\Tea\Model;
 class CreateClusterRequest extends Model
 {
     /**
+     * @description 应用配置。数组元素个数N的取值范围：1~1000。
+     *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
+     * @description 应用列表。数组元素个数N的取值范围：1~100。
+     *
      * @var Application[]
      */
     public $applications;
 
     /**
+     * @description 引导脚本。数组元素个数N的取值范围：1~10。
+     *
      * @var Script[]
      */
     public $bootstrapScripts;
 
     /**
+     * @description 幂等客户端TOKEN。同一个ClientToken多次调用的返回结果一致，同一个ClientToken最多只创建一个集群。
+     *
+     * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
+     *
      * @var string
      */
     public $clientToken;
 
     /**
+     * @description 集群名称。长度为1~128个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、半角冒号（:）、下划线（_）、半角句号（.）或者短划线（-）
+     *
+     * @example emrtest
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description 创建的EMR集群类型。取值范围：
+     * - HADOOP：旧版数据湖（不推荐使用，建议使用新版数据湖）。
+     * @example DATALAKE
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description 集群中的应用部署模式。取值范围：
+     * 默认值：NORMAL。
+     * @example HA
+     *
      * @var string
      */
     public $deployMode;
 
     /**
+     * @description 节点属性。集群中的ECS节点基础属性。
+     *
      * @var NodeAttributes
      */
     public $nodeAttributes;
 
     /**
+     * @description 节点组。数组元素个数N的取值范围：1~100。
+     * <p>
+     * @example NORMAL
+     *
      * @var NodeGroupConfig[]
      */
     public $nodeGroups;
 
     /**
+     * @description 集群的付费类型。取值范围：
+     * 默认值：PayAsYouGo。
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description 区域ID。
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description EMR发行版。
+     *
+     * @example EMR-5.8.0
+     *
      * @var string
      */
     public $releaseVersion;
 
     /**
+     * @description 集群所在的企业资源组ID。
+     *
+     * @example rg-acfmzabjyop****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description Kerberos安全模式。取值范围：
+     * 默认值：NORMAL
+     * @example NORMAL
+     *
      * @var string
      */
     public $securityMode;
 
     /**
+     * @description 预付费配置。当PaymentType取值Subscription时该参数生效。
+     *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
+     * @description 标签。数组元数个数N的取值范围：0~20。
+     *
+     * @example A7D960FA-6DBA-5E07-8746-A63E3E4D****
+     *
      * @var Tag[]
      */
     public $tags;

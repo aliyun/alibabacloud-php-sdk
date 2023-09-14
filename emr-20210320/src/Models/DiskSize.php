@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DiskSize extends Model
 {
     /**
+     * @description 磁盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description 单位GB。
+     *
+     * @example 80
+     *
      * @var int
      */
     public $size;

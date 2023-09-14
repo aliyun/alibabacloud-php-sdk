@@ -11,46 +11,38 @@ use AlibabaCloud\Tea\Model;
 class ComponentInstanceSelector extends Model
 {
     /**
+     * @description 应用名称。
+     *
+     * @example HDFS
+     *
      * @var string
      */
-    public $actionScope;
+    public $applicationName;
 
     /**
-     * @var string[]
-     */
-    public $applicationNames;
-
-    /**
+     * @description 组件实例列表。actionScope为COPONENT_INSTANCE时使用。
+     *
      * @var componentInstances[]
      */
     public $componentInstances;
 
     /**
+     * @description 组件列表。
+     * actionScope为COPONENT时使用。
      * @var components[]
      */
     public $components;
 
     /**
-     * @var string[]
-     */
-    public $nodeGroupIds;
-
-    /**
-     * @var string[]
-     */
-    public $nodeIds;
-
-    /**
+     * @description 执行范围。
+     *
      * @var string
      */
     public $runActionScope;
     protected $_name = [
-        'actionScope'        => 'ActionScope',
-        'applicationNames'   => 'ApplicationNames',
+        'applicationName'    => 'ApplicationName',
         'componentInstances' => 'ComponentInstances',
         'components'         => 'Components',
-        'nodeGroupIds'       => 'NodeGroupIds',
-        'nodeIds'            => 'NodeIds',
         'runActionScope'     => 'RunActionScope',
     ];
 
@@ -61,11 +53,8 @@ class ComponentInstanceSelector extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->actionScope) {
-            $res['ActionScope'] = $this->actionScope;
-        }
-        if (null !== $this->applicationNames) {
-            $res['ApplicationNames'] = $this->applicationNames;
+        if (null !== $this->applicationName) {
+            $res['ApplicationName'] = $this->applicationName;
         }
         if (null !== $this->componentInstances) {
             $res['ComponentInstances'] = [];
@@ -85,12 +74,6 @@ class ComponentInstanceSelector extends Model
                 }
             }
         }
-        if (null !== $this->nodeGroupIds) {
-            $res['NodeGroupIds'] = $this->nodeGroupIds;
-        }
-        if (null !== $this->nodeIds) {
-            $res['NodeIds'] = $this->nodeIds;
-        }
         if (null !== $this->runActionScope) {
             $res['RunActionScope'] = $this->runActionScope;
         }
@@ -106,13 +89,8 @@ class ComponentInstanceSelector extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ActionScope'])) {
-            $model->actionScope = $map['ActionScope'];
-        }
-        if (isset($map['ApplicationNames'])) {
-            if (!empty($map['ApplicationNames'])) {
-                $model->applicationNames = $map['ApplicationNames'];
-            }
+        if (isset($map['ApplicationName'])) {
+            $model->applicationName = $map['ApplicationName'];
         }
         if (isset($map['ComponentInstances'])) {
             if (!empty($map['ComponentInstances'])) {
@@ -130,16 +108,6 @@ class ComponentInstanceSelector extends Model
                 foreach ($map['Components'] as $item) {
                     $model->components[$n++] = null !== $item ? components::fromMap($item) : $item;
                 }
-            }
-        }
-        if (isset($map['NodeGroupIds'])) {
-            if (!empty($map['NodeGroupIds'])) {
-                $model->nodeGroupIds = $map['NodeGroupIds'];
-            }
-        }
-        if (isset($map['NodeIds'])) {
-            if (!empty($map['NodeIds'])) {
-                $model->nodeIds = $map['NodeIds'];
             }
         }
         if (isset($map['RunActionScope'])) {

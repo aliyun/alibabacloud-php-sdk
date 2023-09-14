@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class tagResources extends Model
 {
     /**
+     * @description Indicates the ID of a resource.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The resource type.
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The tag key of the ENI.
+     *
+     * @example Department
+     *
      * @var string
      */
     public $tagKey;
 
     /**
+     * @description The tag value of the ENI.
+     *
+     * @example Dev
+     *
      * @var string
      */
     public $tagValue;

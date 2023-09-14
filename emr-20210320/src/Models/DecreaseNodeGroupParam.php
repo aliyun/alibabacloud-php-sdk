@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DecreaseNodeGroupParam extends Model
 {
     /**
+     * @example G-21E39B11837E****
+     *
      * @var string
      */
     public $nodeGroupId;

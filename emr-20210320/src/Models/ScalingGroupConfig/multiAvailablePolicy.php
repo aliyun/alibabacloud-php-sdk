@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class multiAvailablePolicy extends Model
 {
     /**
+     * @description 资源可用性策略(成本优化参数)。
+     *
      * @var policyParam
      */
     public $policyParam;
 
     /**
+     * @description 策略类型。
+     *
+     * @example PRIORITY
+     *
      * @var string
      */
     public $policyType;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class CreateNodeGroupParam extends Model
 {
     /**
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
+     * @example Monthly
+     *
      * @var string
      */
     public $autoRenewDurationUnit;
@@ -34,56 +40,78 @@ class CreateNodeGroupParam extends Model
     public $instanceTypes;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @example core-1
+     *
      * @var string
      */
     public $nodeGroupName;
 
     /**
+     * @example CORE
+     *
      * @var string
      */
     public $nodeGroupType;
 
     /**
+     * @example sshkey
+     *
      * @var string
      */
     public $nodeKeyPairName;
 
     /**
+     * @example AliyunEmrEcsDefaultRole
+     *
      * @var string
      */
     public $nodeRamRole;
 
     /**
+     * @example *******
+     *
      * @var string
      */
     public $nodeRootPassword;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @example Monthly
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @example Subscription
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @example sg-hp3abbae8lb6lmb1****
+     *
      * @var string
      */
     public $securityGroupId;
 
     /**
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
@@ -99,11 +127,15 @@ class CreateNodeGroupParam extends Model
     public $vSwitchIds;
 
     /**
+     * @example true
+     *
      * @var bool
      */
     public $withPublicIp;
 
     /**
+     * @example cn-hangzhou-e
+     *
      * @var string
      */
     public $zoneId;

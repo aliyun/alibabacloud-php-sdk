@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class ConvertNodeGroup extends Model
 {
     /**
+     * @description 节点组ID。
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description 付费时长。
+     *
+     * @example 12
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @description 付费时长单位。
+     *
+     * @example Month
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @description 付费类型。
+     *
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $paymentType;

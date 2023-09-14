@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class nodeSelector extends Model
 {
     /**
+     * @description 节点结束编号，包含结束编号。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $nodeEndIndex;
 
     /**
+     * @description 节点组ID。
+     *
+     * @example G-F609686D45D4ABCD
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description 机器组下标编号。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeGroupIndex;
 
     /**
+     * @description 机器组名。
+     *
+     * @example master-1
+     *
      * @var string
      */
     public $nodeGroupName;
 
     /**
+     * @description SelectType = NODE_GROUP 且 nodeGroupId 不存在时使用
+     *
+     * @example [null]
+     *
      * @var string[]
      */
     public $nodeGroupTypes;
 
     /**
+     * @description 节点名称列表。
+     *
+     * @example [null]
+     *
      * @var string[]
      */
     public $nodeNames;
 
     /**
+     * @description 节点选择类型。
+     *
+     * @example CLUSTER
+     *
      * @var string
      */
     public $nodeSelectType;
 
     /**
+     * @description 节点开始编号，包含开始编号。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $nodeStartIndex;

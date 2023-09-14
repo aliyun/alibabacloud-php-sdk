@@ -9,31 +9,55 @@ use AlibabaCloud\Tea\Model;
 class IncreaseNodeGroup extends Model
 {
     /**
+     * @description 描述。
+     *
+     * @example 描述
+     *
      * @var string
      */
     public $description;
 
     /**
+     * @description 节点数量。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @description 节点组ID。
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description 付费时长。
+     *
+     * @example 12
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @description 付费时长单位。
+     *
+     * @example Month
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @description 虚拟机交换机ID。
+     *
+     * @example vsw-hp35g7ya5ymw68mmg****
+     *
      * @var string
      */
     public $vSwitchId;

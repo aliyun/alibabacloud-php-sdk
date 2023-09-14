@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class ByLoadScalingRule extends Model
 {
     /**
+     * @description 比较符。
+     *
+     * @example LT
+     *
      * @var string
      */
     public $comparisonOperator;
@@ -19,26 +23,46 @@ class ByLoadScalingRule extends Model
     public $coolDownInterval;
 
     /**
+     * @description 统计次数。
+     *
+     * @example 2
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description 指标名称。指标名称需要在 ListAutoScalingMetrics 接口返回的指标名称列表中。
+     *
+     * @example yarn_resourcemanager_root_availablememoryusage
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description 统计量名称。
+     *
+     * @example AVG
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description 阈值。
+     *
+     * @example 12.5
+     *
      * @var float
      */
     public $threshold;
 
     /**
+     * @description 统计窗口。单位为秒。
+     *
+     * @example 30
+     *
      * @var int
      */
     public $timeWindow;

@@ -9,71 +9,125 @@ use AlibabaCloud\Tea\Model;
 class Node extends Model
 {
     /**
+     * @description 节点是否自动续费。
+     *
+     * @example false
+     *
      * @var bool
      */
     public $autoRenew;
 
     /**
+     * @description 节点自动续费时长。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $autoRenewDuration;
 
     /**
+     * @description 节点自动续费时长单位。
+     *
+     * @example Month
+     *
      * @var string
      */
     public $autoRenewDurationUnit;
 
     /**
+     * @description 节点过期时间。
+     *
+     * @example 1603728394857
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @description 实例类型。
+     *
+     * @example ecs.g6e.xlarge
+     *
      * @var string
      */
     public $instanceType;
 
     /**
+     * @description 运维模式状态。取值范围：
+     * 为空表示处于非运维模式。
      * @var string
      */
     public $maintenanceStatus;
 
     /**
+     * @description 节点组ID。
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description 节点组类型。
+     *
+     * @example CORE
+     *
      * @var string
      */
     public $nodeGroupType;
 
     /**
+     * @description 节点ID。
+     *
+     * @example i-bp1cudc25w2bfwl5****
+     *
      * @var string
      */
     public $nodeId;
 
     /**
+     * @description 节点名称。
+     *
+     * @example core1-1
+     *
      * @var string
      */
     public $nodeName;
 
     /**
+     * @description 节点状态。取值范围：
+     * - Terminated：已终止。
+     * @example Running
+     *
      * @var string
      */
     public $nodeState;
 
     /**
+     * @description 私网IP。
+     *
+     * @example 10.10.10.1
+     *
      * @var string
      */
     public $privateIp;
 
     /**
+     * @description 公网IP。
+     *
+     * @example 42.120.75.***
+     *
      * @var string
      */
     public $publicIp;
 
     /**
+     * @description 可用区ID。
+     *
+     * @example cn-beijing-h
+     *
      * @var string
      */
     public $zoneId;

@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class JoinResourceGroupRequest extends Model
 {
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfmzabjyop****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description The ID of the resource.
+     *
+     * @example c-c95f0a39d8ff****
+     *
      * @var string
      */
     public $resourceId;
 
     /**
+     * @description The type of the resource. Valid values:
+     *
+     *   cluster: cluster
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;

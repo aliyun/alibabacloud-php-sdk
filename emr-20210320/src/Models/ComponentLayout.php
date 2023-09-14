@@ -10,16 +10,26 @@ use AlibabaCloud\Tea\Model;
 class ComponentLayout extends Model
 {
     /**
+     * @description 应用名称。
+     *
+     * @example HDFS
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description 组件名称。
+     *
+     * @example DataNode
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @description 节点选择器。
+     *
      * @var nodeSelector
      */
     public $nodeSelector;

@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class NodeSelector extends Model
 {
     /**
+     * @description 节点组ID。当NodeSelectType取值NodeGroup时，该参数生效。
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description 节点组名称。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效，该参数生效。
+     *
+     * @example master-1
+     *
      * @var string
      */
     public $nodeGroupName;
 
     /**
+     * @description 节点组类型。当NodeSelectType取值NodeGroup，且参数NodeGroupId为空时生效。数组元数个数N取值范围：0~10。
+     *
+     * @example ["CORE","TASK"]
+     *
      * @var string[]
      */
     public $nodeGroupTypes;
 
     /**
+     * @description 节点名称列表。当NodeSelectType取值Node时，该参数生效。
+     *
+     * @example ["core1-1"]
+     *
      * @var string[]
      */
     public $nodeNames;
 
     /**
+     * @description 节点选择类型。取值范围：
+     * - NODE：节点。
+     * @example CLUSTER
+     *
      * @var string
      */
     public $nodeSelectType;

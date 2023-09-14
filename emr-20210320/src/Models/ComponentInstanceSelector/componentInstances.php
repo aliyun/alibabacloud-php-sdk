@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class componentInstances extends Model
 {
     /**
+     * @description 应用名称。
+     *
+     * @example HDFS
+     *
      * @var string
      */
     public $applicationName;
 
     /**
+     * @description 组件名称。
+     *
+     * @example DataNode
+     *
      * @var string
      */
     public $componentName;
 
     /**
+     * @description 节点ID。
+     *
+     * @example i-bp1cudc25w2bfwl5****
+     *
      * @var string
      */
     public $nodeId;

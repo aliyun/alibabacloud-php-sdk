@@ -9,21 +9,37 @@ use AlibabaCloud\Tea\Model;
 class Disk extends Model
 {
     /**
+     * @description 磁盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $category;
 
     /**
+     * @description 每个节点磁盘数量。
+     *
+     * @example 5
+     *
      * @var int
      */
     public $count;
 
     /**
+     * @description 性能级别。
+     *
+     * @example S0
+     *
      * @var string
      */
     public $performanceLevel;
 
     /**
+     * @description 单位GB。
+     *
+     * @example 80
+     *
      * @var int
      */
     public $size;

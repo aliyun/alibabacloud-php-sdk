@@ -9,56 +9,100 @@ use AlibabaCloud\Tea\Model;
 class ruleParam extends Model
 {
     /**
+     * @description [负载触发参数] 比较符。
+     *
+     * @example >
+     *
      * @var string
      */
     public $comparisonOperator;
 
     /**
+     * @description [负载触发参数] 统计次数。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $evaluationCount;
 
     /**
+     * @description [时间调度参数] 周期类型周期过期时间。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $launchExpirationTime;
 
     /**
+     * @description [时间调度参数] 周期类型周期开始时间。
+     *
+     * @example 2021-09-15T04:02Z
+     *
      * @var string
      */
     public $launchTime;
 
     /**
+     * @description [负载触发参数] 度量名称。
+     *
+     * @example YarnRootAvailableVCores
+     *
      * @var string
      */
     public $metricName;
 
     /**
+     * @description [负载触发参数] 统计时长,单位分钟。
+     *
+     * @example 5
+     *
      * @var int
      */
     public $period;
 
     /**
+     * @description [时间调度参数] 周期类型周期结束时间。
+     *
+     * @example 2021-09-16T05:02Z
+     *
      * @var string
      */
     public $recurrenceEndTime;
 
     /**
+     * @description [时间调度参数] 周期类型。
+     *
+     * @example Daily
+     *
      * @var string
      */
     public $recurrenceType;
 
     /**
+     * @description [时间调度参数] 周期类型周期值。
+     *
+     * @example 1
+     *
      * @var string
      */
     public $recurrenceValue;
 
     /**
+     * @description [负载触发参数] 统计方式。
+     *
+     * @example Average
+     *
      * @var string
      */
     public $statistics;
 
     /**
+     * @description [负载触发参数] 阈值。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $threshold;

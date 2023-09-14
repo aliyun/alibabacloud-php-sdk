@@ -9,26 +9,46 @@ use AlibabaCloud\Tea\Model;
 class DecreaseNodesRequest extends Model
 {
     /**
+     * @description The cluster ID.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of nodes to scale in. The number of nodes to be scaled in. The value should be less than the number of surviving nodes in the current node group.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $decreaseNodeCount;
 
     /**
+     * @description The ID of the node group.
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description The array of node IDs. Valid values of array element N: 1 to 500.
+     *
+     * @example ["i-bp1cudc25w2bfwl5****"]
+     *
      * @var string[]
      */
     public $nodeIds;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

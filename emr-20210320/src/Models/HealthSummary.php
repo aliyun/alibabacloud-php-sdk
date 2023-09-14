@@ -9,36 +9,50 @@ use AlibabaCloud\Tea\Model;
 class HealthSummary extends Model
 {
     /**
+     * @example 2
+     *
      * @var int
      */
     public $badCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $goodCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $noneCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $stoppedCount;
 
     /**
+     * @example 8
+     *
      * @var int
      */
     public $totalCount;
 
     /**
+     * @example 0
+     *
      * @var int
      */
     public $unknownCount;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $warningCount;

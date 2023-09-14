@@ -9,41 +9,73 @@ use AlibabaCloud\Tea\Model;
 class ListNodeGroupsRequest extends Model
 {
     /**
+     * @description 集群ID。
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 一次获取的最大记录数。取值范围：1~100。
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description 标记当前开始读取的位置，置空表示从头开始。
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description 节点组ID列表。
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string[]
      */
     public $nodeGroupIds;
 
     /**
+     * @description 节点组名称列表。
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string[]
      */
     public $nodeGroupNames;
 
     /**
+     * @description 节点组状态。
+     *
+     * @example ["CORE"]
+     *
      * @var string[]
      */
     public $nodeGroupStates;
 
     /**
+     * @description 节点组类型列表。
+     *
+     * @example 20
+     *
      * @var string[]
      */
     public $nodeGroupTypes;
 
     /**
+     * @description 区域ID。
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

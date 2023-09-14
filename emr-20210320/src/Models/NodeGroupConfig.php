@@ -9,91 +9,153 @@ use AlibabaCloud\Tea\Model;
 class NodeGroupConfig extends Model
 {
     /**
+     * @description 附加安全组。除集群设置的安全组外，为节点组单独设置的附加安全组。数组元数个数N的取值范围：0~2。
+     *
+     * @example ["sg-hp3abbae8lb6lmb1****"]
+     *
      * @var string[]
      */
     public $additionalSecurityGroupIds;
 
     /**
+     * @description 成本优化模式配置。
+     *
      * @var CostOptimizedConfig
      */
     public $costOptimizedConfig;
 
     /**
+     * @description 数据盘。当前数据盘只支持一种磁盘类型，即数组元数个数N的取值范围：1~1。
+     *
      * @var DataDisk[]
      */
     public $dataDisks;
 
     /**
+     * @description 部署集策略。取值范围：
+     * 默认值：NONE。
+     * @example NONE
+     *
      * @var string
      */
     public $deploymentSetStrategy;
 
     /**
+     * @description 节点组上部署的组件是否开启优雅下线。取值范围：
+     * 默认值：false。
+     * @example false
+     *
      * @var bool
      */
     public $gracefulShutdown;
 
     /**
+     * @description 节点实例类型列表。数组元数个数N的取值范围：1~100。
+     *
+     * @example ["ecs.g6.xlarge"]
+     *
      * @var string[]
      */
     public $instanceTypes;
 
     /**
+     * @description 节点数量。取值范围：1~1000。
+     *
+     * @example 3
+     *
      * @var int
      */
     public $nodeCount;
 
     /**
+     * @description 节点组名称。最大长度128个字符。集群内要求节点组名称唯一。
+     *
+     * @example core-1
+     *
      * @var string
      */
     public $nodeGroupName;
 
     /**
+     * @description 节点组类型。取值范围：
+     * - TASK：计算类型节点组。
+     * @example CORE
+     *
      * @var string
      */
     public $nodeGroupType;
 
     /**
+     * @description 节点扩容策略。取值范围：
+     * 默认值：PRIORITY。
+     * @example PRIORITY
+     *
      * @var string
      */
     public $nodeResizeStrategy;
 
     /**
+     * @description 节点组付费类型。不传入时默认和集群付费类型一致。取值范围：
+     * 默认值：PayAsYouGo。
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description 抢占式Spot实例出价价格。参数SpotStrategy取值为SpotWithPriceLimit时生效。数组元数个数N的取值范围：0~100。
+     *
      * @var SpotBidPrice[]
      */
     public $spotBidPrices;
 
     /**
+     * @description 开启后，当收到抢占式实例将被回收的系统消息时，伸缩组将尝试创建新的实例，替换掉将被回收的抢占式实例。取值范围：
+     * 默认值：false。
+     * @example true
+     *
      * @var bool
      */
     public $spotInstanceRemedy;
 
     /**
+     * @description 抢占式Spot实例策略。取值范围：
+     * 默认值：NoSpot。
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description 节点组预付费配置。不传入时默认和集群预付费配置一致。
+     *
      * @var SubscriptionConfig
      */
     public $subscriptionConfig;
 
     /**
+     * @description 系统盘。
+     *
      * @var SystemDisk
      */
     public $systemDisk;
 
     /**
+     * @description 虚拟机交换机ID列表。数组元数个数N的取值范围：1~20。
+     *
+     * @example ["vsw-hp35g7ya5ymw68mmg****"]
+     *
      * @var string[]
      */
     public $vSwitchIds;
 
     /**
+     * @description 是否开公网IP。取值范围：
+     * 默认值：false。
+     * @example false
+     *
      * @var bool
      */
     public $withPublicIp;

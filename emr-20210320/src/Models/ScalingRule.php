@@ -9,42 +9,56 @@ use AlibabaCloud\Tea\Model;
 class ScalingRule extends Model
 {
     /**
+     * @description 伸缩活动类型。取值范围：
+     * - SCALE_IN：缩容。
+     * @example SCALE_IN
+     *
      * @var string
      */
     public $activityType;
 
     /**
-     * @var string
-     */
-    public $adjustmentType;
-
-    /**
+     * @description 调整值。需要为正数，代表需要扩容或者缩容的实例数量。
+     *
+     * @example 100
+     *
      * @var int
      */
     public $adjustmentValue;
 
     /**
+     * @description 按照负载伸缩描述。
+     * <p>
      * @var MetricsTrigger
      */
     public $metricsTrigger;
 
     /**
+     * @description 规则名称。
+     *
+     * @example scale-out-memory
+     *
      * @var string
      */
     public $ruleName;
 
     /**
+     * @description 按照时间伸缩描述。
+     * <p>
      * @var TimeTrigger
      */
     public $timeTrigger;
 
     /**
+     * @description 伸缩规则类型。 取值范围：
+     * - METRICS_TRIGGER: 按负载伸缩。
+     * @example TIME_TRIGGER
+     *
      * @var string
      */
     public $triggerType;
     protected $_name = [
         'activityType'    => 'ActivityType',
-        'adjustmentType'  => 'AdjustmentType',
         'adjustmentValue' => 'AdjustmentValue',
         'metricsTrigger'  => 'MetricsTrigger',
         'ruleName'        => 'RuleName',
@@ -61,9 +75,6 @@ class ScalingRule extends Model
         $res = [];
         if (null !== $this->activityType) {
             $res['ActivityType'] = $this->activityType;
-        }
-        if (null !== $this->adjustmentType) {
-            $res['AdjustmentType'] = $this->adjustmentType;
         }
         if (null !== $this->adjustmentValue) {
             $res['AdjustmentValue'] = $this->adjustmentValue;
@@ -94,9 +105,6 @@ class ScalingRule extends Model
         $model = new self();
         if (isset($map['ActivityType'])) {
             $model->activityType = $map['ActivityType'];
-        }
-        if (isset($map['AdjustmentType'])) {
-            $model->adjustmentType = $map['AdjustmentType'];
         }
         if (isset($map['AdjustmentValue'])) {
             $model->adjustmentValue = $map['AdjustmentValue'];

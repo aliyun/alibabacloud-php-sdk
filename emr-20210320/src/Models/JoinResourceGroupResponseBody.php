@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class JoinResourceGroupResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
+     * @example 9E3A7161-EB7B-172B-8D18-FFB06BA3****
+     *
      * @var string
      */
     public $requestId;

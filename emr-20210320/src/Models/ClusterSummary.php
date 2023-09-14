@@ -9,71 +9,121 @@ use AlibabaCloud\Tea\Model;
 class ClusterSummary extends Model
 {
     /**
+     * @description 集群ID。
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 集群名称。
+     *
+     * @example emrtest
+     *
      * @var string
      */
     public $clusterName;
 
     /**
+     * @description 集群状态。取值范围：
+     * - TERMINATE_FAILED：终止失败。
+     * @example RUNNING
+     *
      * @var string
      */
     public $clusterState;
 
     /**
+     * @description 集群类型。取值范围：
+     * - DATASERVING：数据服务。
+     * @example DATALAKE
+     *
      * @var string
      */
     public $clusterType;
 
     /**
+     * @description 创建时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $createTime;
 
     /**
+     * @description EMR服务角色。
+     *
      * @var string
      */
     public $emrDefaultRole;
 
     /**
+     * @description 删除时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $endTime;
 
     /**
+     * @description 过期时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $expireTime;
 
     /**
+     * @description 付费类型。取值范围：
+     * - Subscription：预付费。
+     * @example PayAsYouGo
+     *
      * @var string
      */
     public $paymentType;
 
     /**
+     * @description 可用时间。
+     *
+     * @example 1592837465784
+     *
      * @var int
      */
     public $readyTime;
 
     /**
+     * @description EMR发行版。
+     *
+     * @example EMR-5.8.0
+     *
      * @var string
      */
     public $releaseVersion;
 
     /**
+     * @description 资源组ID。
+     *
+     * @example rg-acfmzabjyop****
+     *
      * @var string
      */
     public $resourceGroupId;
 
     /**
+     * @description 失败原因。
+     *
      * @var ClusterStateChangeReason
      */
     public $stateChangeReason;
 
     /**
+     * @description 标签列表。
+     *
      * @var Tag[]
      */
     public $tags;

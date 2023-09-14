@@ -9,21 +9,39 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;
 
     /**
+     * @description The list of resource IDs. Valid values of N: 1 to 1.
+     *
+     * @example cluster
+     *
      * @var string[]
      */
     public $resourceIds;
 
     /**
+     * @description The type of the resource to which the tag belongs. Valid values:
+     *
+     *   cluster: cluster
+     *
+     * @example cluster
+     *
      * @var string
      */
     public $resourceType;
 
     /**
+     * @description The list of tags to be bound.
+     *
+     * @example [null]
+     *
      * @var Tag[]
      */
     public $tags;

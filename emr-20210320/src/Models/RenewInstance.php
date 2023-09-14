@@ -9,23 +9,55 @@ use AlibabaCloud\Tea\Model;
 class RenewInstance extends Model
 {
     /**
+     * @description emr实例续费时长。
+     *
+     * @example 12
+     *
+     * @var int
+     */
+    public $emrRenewDuration;
+
+    /**
+     * @description emr实例续费时长单位。
+     *
+     * @example Month
+     *
+     * @var string
+     */
+    public $emrRenewDurationUnit;
+
+    /**
+     * @description 节点ID。
+     *
+     * @example i-bp1cudc25w2bfwl5****
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description 续费时长。
+     *
+     * @example 12
+     *
      * @var int
      */
     public $renewDuration;
 
     /**
+     * @description 付费时长单位。
+     *
+     * @example Month
+     *
      * @var string
      */
     public $renewDurationUnit;
     protected $_name = [
-        'instanceId'        => 'InstanceId',
-        'renewDuration'     => 'RenewDuration',
-        'renewDurationUnit' => 'RenewDurationUnit',
+        'emrRenewDuration'     => 'EmrRenewDuration',
+        'emrRenewDurationUnit' => 'EmrRenewDurationUnit',
+        'instanceId'           => 'InstanceId',
+        'renewDuration'        => 'RenewDuration',
+        'renewDurationUnit'    => 'RenewDurationUnit',
     ];
 
     public function validate()
@@ -35,6 +67,12 @@ class RenewInstance extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->emrRenewDuration) {
+            $res['EmrRenewDuration'] = $this->emrRenewDuration;
+        }
+        if (null !== $this->emrRenewDurationUnit) {
+            $res['EmrRenewDurationUnit'] = $this->emrRenewDurationUnit;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -56,6 +94,12 @@ class RenewInstance extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['EmrRenewDuration'])) {
+            $model->emrRenewDuration = $map['EmrRenewDuration'];
+        }
+        if (isset($map['EmrRenewDurationUnit'])) {
+            $model->emrRenewDurationUnit = $map['EmrRenewDurationUnit'];
+        }
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
         }

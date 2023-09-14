@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class GetClusterRequest extends Model
 {
     /**
+     * @description 集群ID。
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description 区域ID。
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

@@ -10,26 +10,44 @@ use AlibabaCloud\Tea\Model;
 class ListTagResourcesResponseBody extends Model
 {
     /**
+     * @description The maximum number of entries returned.
+     *
+     * @example 20
+     *
      * @var int
      */
     public $maxResults;
 
     /**
+     * @description Returns the location of the data that was read. Empty indicates that the data has been read.
+     *
+     * @example DD6B1B2A-5837-5237-ABE4-FF0C89568980
+     *
      * @var string
      */
     public $nextToken;
 
     /**
+     * @description The ID of the request.
+     *
+     * @example 372D4E9B-2509-5EFA-846B-B34FBF143F56
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @description The details about the tag. Contains the resource ID, resource type, and tag key-value information.
+     *
      * @var tagResources[]
      */
     public $tagResources;
 
     /**
+     * @description The total number of entries returned.
+     *
+     * @example 200
+     *
      * @var int
      */
     public $totalCount;

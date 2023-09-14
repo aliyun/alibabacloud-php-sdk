@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class privatePoolOptions extends Model
 {
     /**
+     * @description 私有池id。
+     *
+     * @example eap-bp67acfmxazb4****
+     *
      * @var string
      */
     public $id;
 
     /**
+     * @description 实例启动的私有池容量选项。。
+     *
+     * @example Open
+     *
      * @var string
      */
     public $matchCriteria;

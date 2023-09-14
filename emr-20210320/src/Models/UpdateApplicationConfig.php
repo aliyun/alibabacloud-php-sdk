@@ -9,65 +9,45 @@ use AlibabaCloud\Tea\Model;
 class UpdateApplicationConfig extends Model
 {
     /**
-     * @var string
-     */
-    public $configAction;
-
-    /**
+     * @description 修改描述。
+     *
+     * @example dfs.namenode.checkpoint.period
+     *
      * @var string
      */
     public $configDescription;
 
     /**
+     * @description 应用配置文件名。
+     *
+     * @example hdfs-site.xml
+     *
      * @var string
      */
     public $configFileName;
 
     /**
+     * @description 配置项键。
+     *
+     * @example dfs.namenode.checkpoint.period
+     *
      * @var string
      */
     public $configItemKey;
 
     /**
+     * @description 配置项值。
+     *
+     * @example 3600s
+     *
      * @var string
      */
     public $configItemValue;
-
-    /**
-     * @var string
-     */
-    public $configScope;
-
-    /**
-     * @var string
-     */
-    public $effectiveActions;
-
-    /**
-     * @var string
-     */
-    public $effectiveType;
-
-    /**
-     * @var string
-     */
-    public $nodeGroupId;
-
-    /**
-     * @var string
-     */
-    public $nodeId;
     protected $_name = [
-        'configAction'      => 'ConfigAction',
         'configDescription' => 'ConfigDescription',
         'configFileName'    => 'ConfigFileName',
         'configItemKey'     => 'ConfigItemKey',
         'configItemValue'   => 'ConfigItemValue',
-        'configScope'       => 'ConfigScope',
-        'effectiveActions'  => 'EffectiveActions',
-        'effectiveType'     => 'EffectiveType',
-        'nodeGroupId'       => 'NodeGroupId',
-        'nodeId'            => 'NodeId',
     ];
 
     public function validate()
@@ -77,9 +57,6 @@ class UpdateApplicationConfig extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->configAction) {
-            $res['ConfigAction'] = $this->configAction;
-        }
         if (null !== $this->configDescription) {
             $res['ConfigDescription'] = $this->configDescription;
         }
@@ -91,21 +68,6 @@ class UpdateApplicationConfig extends Model
         }
         if (null !== $this->configItemValue) {
             $res['ConfigItemValue'] = $this->configItemValue;
-        }
-        if (null !== $this->configScope) {
-            $res['ConfigScope'] = $this->configScope;
-        }
-        if (null !== $this->effectiveActions) {
-            $res['EffectiveActions'] = $this->effectiveActions;
-        }
-        if (null !== $this->effectiveType) {
-            $res['EffectiveType'] = $this->effectiveType;
-        }
-        if (null !== $this->nodeGroupId) {
-            $res['NodeGroupId'] = $this->nodeGroupId;
-        }
-        if (null !== $this->nodeId) {
-            $res['NodeId'] = $this->nodeId;
         }
 
         return $res;
@@ -119,9 +81,6 @@ class UpdateApplicationConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['ConfigAction'])) {
-            $model->configAction = $map['ConfigAction'];
-        }
         if (isset($map['ConfigDescription'])) {
             $model->configDescription = $map['ConfigDescription'];
         }
@@ -133,21 +92,6 @@ class UpdateApplicationConfig extends Model
         }
         if (isset($map['ConfigItemValue'])) {
             $model->configItemValue = $map['ConfigItemValue'];
-        }
-        if (isset($map['ConfigScope'])) {
-            $model->configScope = $map['ConfigScope'];
-        }
-        if (isset($map['EffectiveActions'])) {
-            $model->effectiveActions = $map['EffectiveActions'];
-        }
-        if (isset($map['EffectiveType'])) {
-            $model->effectiveType = $map['EffectiveType'];
-        }
-        if (isset($map['NodeGroupId'])) {
-            $model->nodeGroupId = $map['NodeGroupId'];
-        }
-        if (isset($map['NodeId'])) {
-            $model->nodeId = $map['NodeId'];
         }
 
         return $model;

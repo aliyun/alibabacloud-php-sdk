@@ -9,16 +9,28 @@ use AlibabaCloud\Tea\Model;
 class OSUser extends Model
 {
     /**
+     * @description 用户组。
+     *
+     * @example hadoop
+     *
      * @var string
      */
     public $group;
 
     /**
+     * @description 用户密码。
+     *
+     * @example 12345****
+     *
      * @var string
      */
     public $password;
 
     /**
+     * @description 用户名称。
+     *
+     * @example 王五
+     *
      * @var string
      */
     public $user;

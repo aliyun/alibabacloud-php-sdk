@@ -9,11 +9,17 @@ use AlibabaCloud\Tea\Model;
 class AckNodePool extends Model
 {
     /**
+     * @description 节点池ID。
+     *
+     * @example npe76629caa1b14a73bf3e47c6d481****
+     *
      * @var string
      */
     public $nodePoolId;
 
     /**
+     * @description ACK节点选择器。
+     *
      * @var AckNodeSelector
      */
     public $nodeSelector;

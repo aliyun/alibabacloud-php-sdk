@@ -9,41 +9,77 @@ use AlibabaCloud\Tea\Model;
 class IncreaseNodesRequest extends Model
 {
     /**
+     * @description The configurations of the applications. Valid values of N: 1 to 1000.
+     *
      * @var ApplicationConfig[]
      */
     public $applicationConfigs;
 
     /**
+     * @description Indicates whether to automatically pay for the orders involved in the scale-out operation. This parameter takes effect only when the PaymentType parameter is set to Subscription. Valid values:
+     *
+     *   true: automatically pays for the order involved in this operation.
+     *   false: does not automatically pay for the orders involved in this operation.
+     *
+     * Default value: false
+     * @example false
+     *
      * @var bool
      */
     public $autoPayOrder;
 
     /**
+     * @description The ID of the cluster.
+     *
+     * @example c-b933c5aac8fe****
+     *
      * @var string
      */
     public $clusterId;
 
     /**
+     * @description The number of nodes. The number of incremental nodes for this scale-out. Valid values: 1 to 500.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $increaseNodeCount;
 
     /**
+     * @description The ID of the node group. The target node group to which you want to scale out the cluster.
+     *
+     * @example ng-869471354ecd****
+     *
      * @var string
      */
     public $nodeGroupId;
 
     /**
+     * @description The subscription duration. Valid values when the PaymentDurationUnit value is Month: 1, 2, 3, 4, 5, 6, 7, 8, 9, 12, 24, 36, 48, and 60.
+     *
+     * @example 12
+     *
      * @var int
      */
     public $paymentDuration;
 
     /**
+     * @description The unit of the subscription duration. Valid values:
+     *
+     *   Month
+     *
+     * @example Month
+     *
      * @var string
      */
     public $paymentDurationUnit;
 
     /**
+     * @description The ID of the region in which you want to create the instance.
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $regionId;

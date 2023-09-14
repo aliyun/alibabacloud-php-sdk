@@ -13,71 +13,119 @@ use AlibabaCloud\Tea\Model;
 class ScalingGroupConfig extends Model
 {
     /**
+     * @description 数据盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $dataDiskCategory;
 
     /**
+     * @description 数据盘个数。
+     *
+     * @example 4
+     *
      * @var int
      */
     public $dataDiskCount;
 
     /**
+     * @description 数据盘大小,单位GB。
+     *
+     * @example 40
+     *
      * @var int
      */
     public $dataDiskSize;
 
     /**
+     * @description 默认冷却时间。
+     *
+     * @example 0
+     *
      * @var int
      */
     public $defaultCoolDownTime;
 
     /**
+     * @description 抢占实例列表。
+     *
      * @var instanceTypeList[]
      */
     public $instanceTypeList;
 
     /**
+     * @description 资源可用性策略(成本优化参数)。
+     *
      * @var multiAvailablePolicy
      */
     public $multiAvailablePolicy;
 
     /**
+     * @description 节点下线策略。
+     *
      * @var nodeOfflinePolicy
      */
     public $nodeOfflinePolicy;
 
     /**
+     * @description 私有池选项	。
+     *
      * @var privatePoolOptions
      */
     public $privatePoolOptions;
 
     /**
+     * @description 伸缩组节点最大个数。
+     *
+     * @example 10
+     *
      * @var int
      */
     public $scalingMaxSize;
 
     /**
+     * @description 伸缩组节点最小个数。
+     *
+     * @example 1
+     *
      * @var int
      */
     public $scalingMinSize;
 
     /**
+     * @description 抢占式Spot实例策略。
+     *
+     * @example NoSpot
+     *
      * @var string
      */
     public $spotStrategy;
 
     /**
+     * @description 系统盘类型。
+     *
+     * @example cloud_essd
+     *
      * @var string
      */
     public $sysDiskCategory;
 
     /**
+     * @description 系统盘大小,单位GB。
+     *
+     * @example 80
+     *
      * @var int
      */
     public $sysDiskSize;
 
     /**
+     * @description 伸缩活动触发模式。
+     *
+     * @example ByLoad
+     *
      * @var string
      */
     public $triggerMode;

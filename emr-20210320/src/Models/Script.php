@@ -9,36 +9,64 @@ use AlibabaCloud\Tea\Model;
 class Script extends Model
 {
     /**
+     * @description 执行失败策略。
+     *
+     * @example FAILED_CONTINUE
+     *
      * @var string
      */
     public $executionFailStrategy;
 
     /**
+     * @description 脚本的执行时机。
+     *
+     * @example BEFORE_INSTALL
+     *
      * @var string
      */
     public $executionMoment;
 
     /**
+     * @description 节点选择器。
+     *
      * @var NodeSelector
      */
     public $nodeSelector;
 
     /**
+     * @description 脚本执行优先级。取值范围：1~100。
+     *
+     * @example 1
+     *
+     * @deprecated
+     *
      * @var int
      */
     public $priority;
 
     /**
+     * @description 脚本执行参数。
+     *
+     * @example -host 10.0.10.5 -m 30
+     *
      * @var string
      */
     public $scriptArgs;
 
     /**
+     * @description 脚本名称。长度为1~64个字符，必须以大小字母或中文开头，不能以http://和https://开头。可以包含中文、英文、数字、下划线（_）、或者短划线（-）
+     *
+     * @example 脚本名-1
+     *
      * @var string
      */
     public $scriptName;
 
     /**
+     * @description 脚本所在OSS路径。
+     *
+     * @example oss://bucket1/update_hosts.sh
+     *
      * @var string
      */
     public $scriptPath;
