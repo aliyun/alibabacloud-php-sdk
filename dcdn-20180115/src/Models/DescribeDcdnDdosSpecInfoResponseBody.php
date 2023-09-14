@@ -31,6 +31,11 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
     public $enable;
 
     /**
+     * @var string
+     */
+    public $isSpecialPort;
+
+    /**
      * @example global
      *
      * @var string
@@ -59,6 +64,7 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
         'bandwidthLimit' => 'BandwidthLimit',
         'edition'        => 'Edition',
         'enable'         => 'Enable',
+        'isSpecialPort'  => 'IsSpecialPort',
         'protectedArea'  => 'ProtectedArea',
         'qpsLimit'       => 'QpsLimit',
         'requestId'      => 'RequestId',
@@ -80,6 +86,9 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
         }
         if (null !== $this->enable) {
             $res['Enable'] = $this->enable;
+        }
+        if (null !== $this->isSpecialPort) {
+            $res['IsSpecialPort'] = $this->isSpecialPort;
         }
         if (null !== $this->protectedArea) {
             $res['ProtectedArea'] = $this->protectedArea;
@@ -119,6 +128,9 @@ class DescribeDcdnDdosSpecInfoResponseBody extends Model
         }
         if (isset($map['Enable'])) {
             $model->enable = $map['Enable'];
+        }
+        if (isset($map['IsSpecialPort'])) {
+            $model->isSpecialPort = $map['IsSpecialPort'];
         }
         if (isset($map['ProtectedArea'])) {
             $model->protectedArea = $map['ProtectedArea'];

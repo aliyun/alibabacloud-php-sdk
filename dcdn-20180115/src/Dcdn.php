@@ -73,6 +73,8 @@ use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSpecificStagingConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnSubTaskResponse;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnUserConfigRequest;
+use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnUserConfigResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafGroupRequest;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafGroupResponse;
 use AlibabaCloud\SDK\Dcdn\V20180115\Models\DeleteDcdnWafPolicyRequest;
@@ -2398,6 +2400,49 @@ class Dcdn extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->deleteDcdnSubTaskWithOptions($runtime);
+    }
+
+    /**
+     * @param DeleteDcdnUserConfigRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return DeleteDcdnUserConfigResponse
+     */
+    public function deleteDcdnUserConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->functionName)) {
+            $query['FunctionName'] = $request->functionName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteDcdnUserConfig',
+            'version'     => '2018-01-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DeleteDcdnUserConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DeleteDcdnUserConfigRequest $request
+     *
+     * @return DeleteDcdnUserConfigResponse
+     */
+    public function deleteDcdnUserConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->deleteDcdnUserConfigWithOptions($request, $runtime);
     }
 
     /**
