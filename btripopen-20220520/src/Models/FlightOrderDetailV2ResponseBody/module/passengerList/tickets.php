@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailV2ResponseBody\module\passengerList;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightOrderDetailV2ResponseBody\module\passengerList\tickets\segmentOpenTicketList;
 use AlibabaCloud\Tea\Model;
 
 class tickets extends Model
@@ -33,6 +34,11 @@ class tickets extends Model
      * @var string
      */
     public $pcc;
+
+    /**
+     * @var segmentOpenTicketList[]
+     */
+    public $segmentOpenTicketList;
 
     /**
      * @var string
@@ -65,15 +71,16 @@ class tickets extends Model
      */
     public $ticketStatus;
     protected $_name = [
-        'channel'          => 'channel',
-        'journeyTitle'     => 'journey_title',
-        'openTicketStatus' => 'open_ticket_status',
-        'pcc'              => 'pcc',
-        'ticketAuthMemo'   => 'ticket_auth_memo',
-        'ticketAuthStatus' => 'ticket_auth_status',
-        'ticketNo'         => 'ticket_no',
-        'ticketPrice'      => 'ticket_price',
-        'ticketStatus'     => 'ticket_status',
+        'channel'               => 'channel',
+        'journeyTitle'          => 'journey_title',
+        'openTicketStatus'      => 'open_ticket_status',
+        'pcc'                   => 'pcc',
+        'segmentOpenTicketList' => 'segment_open_ticket_list',
+        'ticketAuthMemo'        => 'ticket_auth_memo',
+        'ticketAuthStatus'      => 'ticket_auth_status',
+        'ticketNo'              => 'ticket_no',
+        'ticketPrice'           => 'ticket_price',
+        'ticketStatus'          => 'ticket_status',
     ];
 
     public function validate()
@@ -94,6 +101,15 @@ class tickets extends Model
         }
         if (null !== $this->pcc) {
             $res['pcc'] = $this->pcc;
+        }
+        if (null !== $this->segmentOpenTicketList) {
+            $res['segment_open_ticket_list'] = [];
+            if (null !== $this->segmentOpenTicketList && \is_array($this->segmentOpenTicketList)) {
+                $n = 0;
+                foreach ($this->segmentOpenTicketList as $item) {
+                    $res['segment_open_ticket_list'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->ticketAuthMemo) {
             $res['ticket_auth_memo'] = $this->ticketAuthMemo;
@@ -133,6 +149,15 @@ class tickets extends Model
         }
         if (isset($map['pcc'])) {
             $model->pcc = $map['pcc'];
+        }
+        if (isset($map['segment_open_ticket_list'])) {
+            if (!empty($map['segment_open_ticket_list'])) {
+                $model->segmentOpenTicketList = [];
+                $n                            = 0;
+                foreach ($map['segment_open_ticket_list'] as $item) {
+                    $model->segmentOpenTicketList[$n++] = null !== $item ? segmentOpenTicketList::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['ticket_auth_memo'])) {
             $model->ticketAuthMemo = $map['ticket_auth_memo'];

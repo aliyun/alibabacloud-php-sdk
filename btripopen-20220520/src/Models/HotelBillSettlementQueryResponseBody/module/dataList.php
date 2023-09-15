@@ -172,6 +172,11 @@ class dataList extends Model
     public $fees;
 
     /**
+     * @var float
+     */
+    public $fines;
+
+    /**
      * @example 12
      *
      * @var float
@@ -194,6 +199,11 @@ class dataList extends Model
      * @var string
      */
     public $invoiceTitle;
+
+    /**
+     * @var string
+     */
+    public $isEarlyDeparture;
 
     /**
      * @var string
@@ -426,10 +436,12 @@ class dataList extends Model
         'departmentId'       => 'department_id',
         'feeType'            => 'fee_type',
         'fees'               => 'fees',
+        'fines'              => 'fines',
         'fuPointFee'         => 'fu_point_fee',
         'hotelName'          => 'hotel_name',
         'index'              => 'index',
         'invoiceTitle'       => 'invoice_title',
+        'isEarlyDeparture'   => 'is_early_departure',
         'isNegotiation'      => 'is_negotiation',
         'isShareStr'         => 'is_share_str',
         'nights'             => 'nights',
@@ -552,6 +564,9 @@ class dataList extends Model
         if (null !== $this->fees) {
             $res['fees'] = $this->fees;
         }
+        if (null !== $this->fines) {
+            $res['fines'] = $this->fines;
+        }
         if (null !== $this->fuPointFee) {
             $res['fu_point_fee'] = $this->fuPointFee;
         }
@@ -563,6 +578,9 @@ class dataList extends Model
         }
         if (null !== $this->invoiceTitle) {
             $res['invoice_title'] = $this->invoiceTitle;
+        }
+        if (null !== $this->isEarlyDeparture) {
+            $res['is_early_departure'] = $this->isEarlyDeparture;
         }
         if (null !== $this->isNegotiation) {
             $res['is_negotiation'] = $this->isNegotiation;
@@ -753,6 +771,9 @@ class dataList extends Model
         if (isset($map['fees'])) {
             $model->fees = $map['fees'];
         }
+        if (isset($map['fines'])) {
+            $model->fines = $map['fines'];
+        }
         if (isset($map['fu_point_fee'])) {
             $model->fuPointFee = $map['fu_point_fee'];
         }
@@ -764,6 +785,9 @@ class dataList extends Model
         }
         if (isset($map['invoice_title'])) {
             $model->invoiceTitle = $map['invoice_title'];
+        }
+        if (isset($map['is_early_departure'])) {
+            $model->isEarlyDeparture = $map['is_early_departure'];
         }
         if (isset($map['is_negotiation'])) {
             $model->isNegotiation = $map['is_negotiation'];

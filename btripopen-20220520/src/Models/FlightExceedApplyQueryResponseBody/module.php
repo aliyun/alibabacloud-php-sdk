@@ -5,6 +5,7 @@
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody;
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody\module\applyIntentionInfoDo;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResponseBody\module\applyRecommendFlights;
 use AlibabaCloud\Tea\Model;
 
 class module extends Model
@@ -20,6 +21,11 @@ class module extends Model
      * @var applyIntentionInfoDo
      */
     public $applyIntentionInfoDo;
+
+    /**
+     * @var applyRecommendFlights
+     */
+    public $applyRecommendFlights;
 
     /**
      * @var string
@@ -85,18 +91,19 @@ class module extends Model
      */
     public $userId;
     protected $_name = [
-        'applyId'              => 'apply_id',
-        'applyIntentionInfoDo' => 'apply_intention_info_do',
-        'btripCause'           => 'btrip_cause',
-        'corpId'               => 'corp_id',
-        'exceedReason'         => 'exceed_reason',
-        'exceedType'           => 'exceed_type',
-        'originStandard'       => 'origin_standard',
-        'status'               => 'status',
-        'submitTime'           => 'submit_time',
-        'thirdpartApplyId'     => 'thirdpart_apply_id',
-        'thirdpartCorpId'      => 'thirdpart_corp_id',
-        'userId'               => 'user_id',
+        'applyId'               => 'apply_id',
+        'applyIntentionInfoDo'  => 'apply_intention_info_do',
+        'applyRecommendFlights' => 'apply_recommend_flights',
+        'btripCause'            => 'btrip_cause',
+        'corpId'                => 'corp_id',
+        'exceedReason'          => 'exceed_reason',
+        'exceedType'            => 'exceed_type',
+        'originStandard'        => 'origin_standard',
+        'status'                => 'status',
+        'submitTime'            => 'submit_time',
+        'thirdpartApplyId'      => 'thirdpart_apply_id',
+        'thirdpartCorpId'       => 'thirdpart_corp_id',
+        'userId'                => 'user_id',
     ];
 
     public function validate()
@@ -111,6 +118,9 @@ class module extends Model
         }
         if (null !== $this->applyIntentionInfoDo) {
             $res['apply_intention_info_do'] = null !== $this->applyIntentionInfoDo ? $this->applyIntentionInfoDo->toMap() : null;
+        }
+        if (null !== $this->applyRecommendFlights) {
+            $res['apply_recommend_flights'] = null !== $this->applyRecommendFlights ? $this->applyRecommendFlights->toMap() : null;
         }
         if (null !== $this->btripCause) {
             $res['btrip_cause'] = $this->btripCause;
@@ -159,6 +169,9 @@ class module extends Model
         }
         if (isset($map['apply_intention_info_do'])) {
             $model->applyIntentionInfoDo = applyIntentionInfoDo::fromMap($map['apply_intention_info_do']);
+        }
+        if (isset($map['apply_recommend_flights'])) {
+            $model->applyRecommendFlights = applyRecommendFlights::fromMap($map['apply_recommend_flights']);
         }
         if (isset($map['btrip_cause'])) {
             $model->btripCause = $map['btrip_cause'];

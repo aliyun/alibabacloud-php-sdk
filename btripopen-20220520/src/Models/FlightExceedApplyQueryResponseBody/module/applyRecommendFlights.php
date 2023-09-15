@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\FlightExceedApplyQueryResp
 
 use AlibabaCloud\Tea\Model;
 
-class applyIntentionInfoDo extends Model
+class applyRecommendFlights extends Model
 {
     /**
      * @var string
@@ -14,34 +14,21 @@ class applyIntentionInfoDo extends Model
     public $arrAirportName;
 
     /**
-     * @example SHA
-     *
-     * @var string
-     */
-    public $arrCity;
-
-    /**
      * @var string
      */
     public $arrCityName;
 
     /**
-     * @example 2022-01-12T16:47Z
-     *
      * @var string
      */
     public $arrTime;
 
     /**
-     * @example F
-     *
      * @var string
      */
     public $cabin;
 
     /**
-     * @example 1
-     *
      * @var int
      */
     public $cabinClass;
@@ -57,67 +44,48 @@ class applyIntentionInfoDo extends Model
     public $depAirportName;
 
     /**
-     * @example SHA
-     *
-     * @var string
-     */
-    public $depCity;
-
-    /**
      * @var string
      */
     public $depCityName;
 
     /**
-     * @example 2022-01-12T16:47Z
-     *
      * @var string
      */
     public $depTime;
 
     /**
-     * @example 4
-     *
      * @var string
      */
     public $discount;
 
     /**
-     * @example MU2759
-     *
      * @var string
      */
     public $flightNo;
 
     /**
-     * @example 300
-     *
      * @var int
      */
     public $price;
 
     /**
-     * @example 1
-     *
-     * @var int
+     * @var string
      */
-    public $type;
+    public $transferAirportName;
     protected $_name = [
-        'arrAirportName' => 'arr_airport_name',
-        'arrCity'        => 'arr_city',
-        'arrCityName'    => 'arr_city_name',
-        'arrTime'        => 'arr_time',
-        'cabin'          => 'cabin',
-        'cabinClass'     => 'cabin_class',
-        'cabinClassStr'  => 'cabin_class_str',
-        'depAirportName' => 'dep_airport_name',
-        'depCity'        => 'dep_city',
-        'depCityName'    => 'dep_city_name',
-        'depTime'        => 'dep_time',
-        'discount'       => 'discount',
-        'flightNo'       => 'flight_no',
-        'price'          => 'price',
-        'type'           => 'type',
+        'arrAirportName'      => 'arr_airport_name',
+        'arrCityName'         => 'arr_city_name',
+        'arrTime'             => 'arr_time',
+        'cabin'               => 'cabin',
+        'cabinClass'          => 'cabin_class',
+        'cabinClassStr'       => 'cabin_class_str',
+        'depAirportName'      => 'dep_airport_name',
+        'depCityName'         => 'dep_city_name',
+        'depTime'             => 'dep_time',
+        'discount'            => 'discount',
+        'flightNo'            => 'flight_no',
+        'price'               => 'price',
+        'transferAirportName' => 'transfer_airport_name',
     ];
 
     public function validate()
@@ -129,9 +97,6 @@ class applyIntentionInfoDo extends Model
         $res = [];
         if (null !== $this->arrAirportName) {
             $res['arr_airport_name'] = $this->arrAirportName;
-        }
-        if (null !== $this->arrCity) {
-            $res['arr_city'] = $this->arrCity;
         }
         if (null !== $this->arrCityName) {
             $res['arr_city_name'] = $this->arrCityName;
@@ -151,9 +116,6 @@ class applyIntentionInfoDo extends Model
         if (null !== $this->depAirportName) {
             $res['dep_airport_name'] = $this->depAirportName;
         }
-        if (null !== $this->depCity) {
-            $res['dep_city'] = $this->depCity;
-        }
         if (null !== $this->depCityName) {
             $res['dep_city_name'] = $this->depCityName;
         }
@@ -169,8 +131,8 @@ class applyIntentionInfoDo extends Model
         if (null !== $this->price) {
             $res['price'] = $this->price;
         }
-        if (null !== $this->type) {
-            $res['type'] = $this->type;
+        if (null !== $this->transferAirportName) {
+            $res['transfer_airport_name'] = $this->transferAirportName;
         }
 
         return $res;
@@ -179,16 +141,13 @@ class applyIntentionInfoDo extends Model
     /**
      * @param array $map
      *
-     * @return applyIntentionInfoDo
+     * @return applyRecommendFlights
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['arr_airport_name'])) {
             $model->arrAirportName = $map['arr_airport_name'];
-        }
-        if (isset($map['arr_city'])) {
-            $model->arrCity = $map['arr_city'];
         }
         if (isset($map['arr_city_name'])) {
             $model->arrCityName = $map['arr_city_name'];
@@ -208,9 +167,6 @@ class applyIntentionInfoDo extends Model
         if (isset($map['dep_airport_name'])) {
             $model->depAirportName = $map['dep_airport_name'];
         }
-        if (isset($map['dep_city'])) {
-            $model->depCity = $map['dep_city'];
-        }
         if (isset($map['dep_city_name'])) {
             $model->depCityName = $map['dep_city_name'];
         }
@@ -226,8 +182,8 @@ class applyIntentionInfoDo extends Model
         if (isset($map['price'])) {
             $model->price = $map['price'];
         }
-        if (isset($map['type'])) {
-            $model->type = $map['type'];
+        if (isset($map['transfer_airport_name'])) {
+            $model->transferAirportName = $map['transfer_airport_name'];
         }
 
         return $model;

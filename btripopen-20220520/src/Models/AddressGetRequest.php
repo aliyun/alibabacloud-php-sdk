@@ -18,7 +18,32 @@ class AddressGetRequest extends Model
     /**
      * @var string
      */
+    public $arrCityCode;
+
+    /**
+     * @var string
+     */
+    public $arrCityName;
+
+    /**
+     * @var string
+     */
     public $carScenesCode;
+
+    /**
+     * @var string
+     */
+    public $depCityCode;
+
+    /**
+     * @var string
+     */
+    public $depCityName;
+
+    /**
+     * @var string
+     */
+    public $depDate;
 
     /**
      * @example 460e254b5a5b4bd0801744a2790e5d78
@@ -26,6 +51,11 @@ class AddressGetRequest extends Model
      * @var string
      */
     public $itineraryId;
+
+    /**
+     * @var string
+     */
+    public $orderId;
 
     /**
      * @var string
@@ -57,8 +87,14 @@ class AddressGetRequest extends Model
     public $userId;
     protected $_name = [
         'actionType'        => 'action_type',
+        'arrCityCode'       => 'arr_city_code',
+        'arrCityName'       => 'arr_city_name',
         'carScenesCode'     => 'car_scenes_code',
+        'depCityCode'       => 'dep_city_code',
+        'depCityName'       => 'dep_city_name',
+        'depDate'           => 'dep_date',
         'itineraryId'       => 'itinerary_id',
+        'orderId'           => 'order_Id',
         'phone'             => 'phone',
         'subCorpId'         => 'sub_corp_id',
         'taobaoCallbackUrl' => 'taobao_callback_url',
@@ -76,11 +112,29 @@ class AddressGetRequest extends Model
         if (null !== $this->actionType) {
             $res['action_type'] = $this->actionType;
         }
+        if (null !== $this->arrCityCode) {
+            $res['arr_city_code'] = $this->arrCityCode;
+        }
+        if (null !== $this->arrCityName) {
+            $res['arr_city_name'] = $this->arrCityName;
+        }
         if (null !== $this->carScenesCode) {
             $res['car_scenes_code'] = $this->carScenesCode;
         }
+        if (null !== $this->depCityCode) {
+            $res['dep_city_code'] = $this->depCityCode;
+        }
+        if (null !== $this->depCityName) {
+            $res['dep_city_name'] = $this->depCityName;
+        }
+        if (null !== $this->depDate) {
+            $res['dep_date'] = $this->depDate;
+        }
         if (null !== $this->itineraryId) {
             $res['itinerary_id'] = $this->itineraryId;
+        }
+        if (null !== $this->orderId) {
+            $res['order_Id'] = $this->orderId;
         }
         if (null !== $this->phone) {
             $res['phone'] = $this->phone;
@@ -112,11 +166,29 @@ class AddressGetRequest extends Model
         if (isset($map['action_type'])) {
             $model->actionType = $map['action_type'];
         }
+        if (isset($map['arr_city_code'])) {
+            $model->arrCityCode = $map['arr_city_code'];
+        }
+        if (isset($map['arr_city_name'])) {
+            $model->arrCityName = $map['arr_city_name'];
+        }
         if (isset($map['car_scenes_code'])) {
             $model->carScenesCode = $map['car_scenes_code'];
         }
+        if (isset($map['dep_city_code'])) {
+            $model->depCityCode = $map['dep_city_code'];
+        }
+        if (isset($map['dep_city_name'])) {
+            $model->depCityName = $map['dep_city_name'];
+        }
+        if (isset($map['dep_date'])) {
+            $model->depDate = $map['dep_date'];
+        }
         if (isset($map['itinerary_id'])) {
             $model->itineraryId = $map['itinerary_id'];
+        }
+        if (isset($map['order_Id'])) {
+            $model->orderId = $map['order_Id'];
         }
         if (isset($map['phone'])) {
             $model->phone = $map['phone'];

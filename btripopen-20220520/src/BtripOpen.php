@@ -567,11 +567,29 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->actionType)) {
             $query['action_type'] = $request->actionType;
         }
+        if (!Utils::isUnset($request->arrCityCode)) {
+            $query['arr_city_code'] = $request->arrCityCode;
+        }
+        if (!Utils::isUnset($request->arrCityName)) {
+            $query['arr_city_name'] = $request->arrCityName;
+        }
         if (!Utils::isUnset($request->carScenesCode)) {
             $query['car_scenes_code'] = $request->carScenesCode;
         }
+        if (!Utils::isUnset($request->depCityCode)) {
+            $query['dep_city_code'] = $request->depCityCode;
+        }
+        if (!Utils::isUnset($request->depCityName)) {
+            $query['dep_city_name'] = $request->depCityName;
+        }
+        if (!Utils::isUnset($request->depDate)) {
+            $query['dep_date'] = $request->depDate;
+        }
         if (!Utils::isUnset($request->itineraryId)) {
             $query['itinerary_id'] = $request->itineraryId;
+        }
+        if (!Utils::isUnset($request->orderId)) {
+            $query['order_Id'] = $request->orderId;
         }
         if (!Utils::isUnset($request->phone)) {
             $query['phone'] = $request->phone;
