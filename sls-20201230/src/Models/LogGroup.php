@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class LogGroup extends Model
 {
     /**
-     * @var LogTag
+     * @var LogTag[]
      */
     public $logTags;
 
     /**
-     * @var LogItem
+     * @var LogItem[]
      */
     public $logs;
 
@@ -46,10 +46,22 @@ class LogGroup extends Model
     {
         $res = [];
         if (null !== $this->logTags) {
-            $res['LogTags'] = null !== $this->logTags ? $this->logTags->toMap() : null;
+            $res['LogTags'] = [];
+            if (null !== $this->logTags && \is_array($this->logTags)) {
+                $n = 0;
+                foreach ($this->logTags as $item) {
+                    $res['LogTags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->logs) {
-            $res['Logs'] = null !== $this->logs ? $this->logs->toMap() : null;
+            $res['Logs'] = [];
+            if (null !== $this->logs && \is_array($this->logs)) {
+                $n = 0;
+                foreach ($this->logs as $item) {
+                    $res['Logs'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
@@ -70,10 +82,22 @@ class LogGroup extends Model
     {
         $model = new self();
         if (isset($map['LogTags'])) {
-            $model->logTags = LogTag::fromMap($map['LogTags']);
+            if (!empty($map['LogTags'])) {
+                $model->logTags = [];
+                $n              = 0;
+                foreach ($map['LogTags'] as $item) {
+                    $model->logTags[$n++] = null !== $item ? LogTag::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Logs'])) {
-            $model->logs = LogItem::fromMap($map['Logs']);
+            if (!empty($map['Logs'])) {
+                $model->logs = [];
+                $n           = 0;
+                foreach ($map['Logs'] as $item) {
+                    $model->logs[$n++] = null !== $item ? LogItem::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];

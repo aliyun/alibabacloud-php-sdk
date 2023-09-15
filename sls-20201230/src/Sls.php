@@ -24,6 +24,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateOdpsShipperRequest;
@@ -46,6 +48,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteIndexResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
@@ -74,6 +77,7 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Headers;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Request;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogsV2Response;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectLogsResponse;
@@ -93,6 +97,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogStoresResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogtailPipelineConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListMachinesRequest;
@@ -131,6 +137,8 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLoggingResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogStoreResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogtailPipelineConfigRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateLogtailPipelineConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupMachineResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateMachineGroupRequest;
@@ -734,6 +742,75 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->createLoggingWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                             $project
+     * @param CreateLogtailPipelineConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return CreateLogtailPipelineConfigResponse
+     */
+    public function createLogtailPipelineConfigWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->aggregators)) {
+            $body['aggregators'] = $request->aggregators;
+        }
+        if (!Utils::isUnset($request->configName)) {
+            $body['configName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->flushers)) {
+            $body['flushers'] = $request->flushers;
+        }
+        if (!Utils::isUnset($request->global_)) {
+            $body['global'] = $request->global_;
+        }
+        if (!Utils::isUnset($request->inputs)) {
+            $body['inputs'] = $request->inputs;
+        }
+        if (!Utils::isUnset($request->logSample)) {
+            $body['logSample'] = $request->logSample;
+        }
+        if (!Utils::isUnset($request->processors)) {
+            $body['processors'] = $request->processors;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateLogtailPipelineConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pipelineconfigs',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                             $project
+     * @param CreateLogtailPipelineConfigRequest $request
+     *
+     * @return CreateLogtailPipelineConfigResponse
+     */
+    public function createLogtailPipelineConfig($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createLogtailPipelineConfigWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -1507,6 +1584,51 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteLoggingWithOptions($project, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteLogtailPipelineConfigResponse
+     */
+    public function deleteLogtailPipelineConfigWithOptions($project, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteLogtailPipelineConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pipelineconfigs/' . $configName . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $configName
+     *
+     * @return DeleteLogtailPipelineConfigResponse
+     */
+    public function deleteLogtailPipelineConfig($project, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteLogtailPipelineConfigWithOptions($project, $configName, $headers, $runtime);
     }
 
     /**
@@ -2548,6 +2670,51 @@ class Sls extends OpenApiClient
 
     /**
      * @param string         $project
+     * @param string         $configName
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetLogtailPipelineConfigResponse
+     */
+    public function getLogtailPipelineConfigWithOptions($project, $configName, $headers, $runtime)
+    {
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $req                = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetLogtailPipelineConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pipelineconfigs/' . $configName . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $project
+     * @param string $configName
+     *
+     * @return GetLogtailPipelineConfigResponse
+     */
+    public function getLogtailPipelineConfig($project, $configName)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getLogtailPipelineConfigWithOptions($project, $configName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $project
      * @param string         $machineGroup
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -3177,6 +3344,66 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->listLogStoresWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                           $project
+     * @param ListLogtailPipelineConfigRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListLogtailPipelineConfigResponse
+     */
+    public function listLogtailPipelineConfigWithOptions($project, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $query              = [];
+        if (!Utils::isUnset($request->configName)) {
+            $query['configName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->logstore)) {
+            $query['logstore'] = $request->logstore;
+        }
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListLogtailPipelineConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pipelineconfigs',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                           $project
+     * @param ListLogtailPipelineConfigRequest $request
+     *
+     * @return ListLogtailPipelineConfigResponse
+     */
+    public function listLogtailPipelineConfig($project, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listLogtailPipelineConfigWithOptions($project, $request, $headers, $runtime);
     }
 
     /**
@@ -4310,6 +4537,77 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->updateLoggingWithOptions($project, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                             $project
+     * @param string                             $configName
+     * @param UpdateLogtailPipelineConfigRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return UpdateLogtailPipelineConfigResponse
+     */
+    public function updateLogtailPipelineConfigWithOptions($project, $configName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $hostMap            = [];
+        $hostMap['project'] = $project;
+        $body               = [];
+        if (!Utils::isUnset($request->aggregators)) {
+            $body['aggregators'] = $request->aggregators;
+        }
+        if (!Utils::isUnset($request->configName)) {
+            $body['configName'] = $request->configName;
+        }
+        if (!Utils::isUnset($request->flushers)) {
+            $body['flushers'] = $request->flushers;
+        }
+        if (!Utils::isUnset($request->global_)) {
+            $body['global'] = $request->global_;
+        }
+        if (!Utils::isUnset($request->inputs)) {
+            $body['inputs'] = $request->inputs;
+        }
+        if (!Utils::isUnset($request->logSample)) {
+            $body['logSample'] = $request->logSample;
+        }
+        if (!Utils::isUnset($request->processors)) {
+            $body['processors'] = $request->processors;
+        }
+        $req = new OpenApiRequest([
+            'hostMap' => $hostMap,
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateLogtailPipelineConfig',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/pipelineconfigs/' . $configName . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateLogtailPipelineConfigResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                             $project
+     * @param string                             $configName
+     * @param UpdateLogtailPipelineConfigRequest $request
+     *
+     * @return UpdateLogtailPipelineConfigResponse
+     */
+    public function updateLogtailPipelineConfig($project, $configName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateLogtailPipelineConfigWithOptions($project, $configName, $request, $headers, $runtime);
     }
 
     /**
