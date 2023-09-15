@@ -873,6 +873,9 @@ class Eais extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->clientInstanceId)) {
+            $query['ClientInstanceId'] = $request->clientInstanceId;
+        }
         if (!Utils::isUnset($request->elasticAcceleratedInstanceIds)) {
             $query['ElasticAcceleratedInstanceIds'] = $request->elasticAcceleratedInstanceIds;
         }

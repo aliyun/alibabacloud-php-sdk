@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeEaisRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $clientInstanceId;
+
+    /**
      * @example ["eais-id1", "eais-id2"]
      *
      * @var string
@@ -68,6 +73,7 @@ class DescribeEaisRequest extends Model
      */
     public $tag;
     protected $_name = [
+        'clientInstanceId'              => 'ClientInstanceId',
         'elasticAcceleratedInstanceIds' => 'ElasticAcceleratedInstanceIds',
         'instanceName'                  => 'InstanceName',
         'instanceType'                  => 'InstanceType',
@@ -86,6 +92,9 @@ class DescribeEaisRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->clientInstanceId) {
+            $res['ClientInstanceId'] = $this->clientInstanceId;
+        }
         if (null !== $this->elasticAcceleratedInstanceIds) {
             $res['ElasticAcceleratedInstanceIds'] = $this->elasticAcceleratedInstanceIds;
         }
@@ -131,6 +140,9 @@ class DescribeEaisRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['ClientInstanceId'])) {
+            $model->clientInstanceId = $map['ClientInstanceId'];
+        }
         if (isset($map['ElasticAcceleratedInstanceIds'])) {
             $model->elasticAcceleratedInstanceIds = $map['ElasticAcceleratedInstanceIds'];
         }
