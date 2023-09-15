@@ -35,7 +35,7 @@ class DescribeEipGatewayInfoResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C0FD0EED-F90D-4479-803D-DD62335357E5
      *

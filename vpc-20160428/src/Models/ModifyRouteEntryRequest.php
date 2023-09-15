@@ -21,6 +21,16 @@ class ModifyRouteEntryRequest extends Model
     /**
      * @var string
      */
+    public $newNextHopId;
+
+    /**
+     * @var string
+     */
+    public $newNextHopType;
+
+    /**
+     * @var string
+     */
     public $ownerAccount;
 
     /**
@@ -68,6 +78,8 @@ class ModifyRouteEntryRequest extends Model
     public $routeEntryName;
     protected $_name = [
         'description'          => 'Description',
+        'newNextHopId'         => 'NewNextHopId',
+        'newNextHopType'       => 'NewNextHopType',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
         'regionId'             => 'RegionId',
@@ -86,6 +98,12 @@ class ModifyRouteEntryRequest extends Model
         $res = [];
         if (null !== $this->description) {
             $res['Description'] = $this->description;
+        }
+        if (null !== $this->newNextHopId) {
+            $res['NewNextHopId'] = $this->newNextHopId;
+        }
+        if (null !== $this->newNextHopType) {
+            $res['NewNextHopType'] = $this->newNextHopType;
         }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
@@ -122,6 +140,12 @@ class ModifyRouteEntryRequest extends Model
         $model = new self();
         if (isset($map['Description'])) {
             $model->description = $map['Description'];
+        }
+        if (isset($map['NewNextHopId'])) {
+            $model->newNextHopId = $map['NewNextHopId'];
+        }
+        if (isset($map['NewNextHopType'])) {
+            $model->newNextHopType = $map['NewNextHopType'];
         }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];

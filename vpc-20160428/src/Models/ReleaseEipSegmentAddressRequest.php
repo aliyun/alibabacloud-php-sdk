@@ -11,9 +11,9 @@ class ReleaseEipSegmentAddressRequest extends Model
     /**
      * @description The client token that is used to ensure the idempotence of the request.
      *
-     * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+     * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. The value of **RequestId** for each API request may be different.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11e9-8e44-001sdfg
      *
      * @var string
@@ -50,7 +50,7 @@ class ReleaseEipSegmentAddressRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @description The ID of the group to which the contiguous EIPs to be released belongs.
+     * @description The ID of the contiguous EIP group to be released.
      *
      * The system releases all EIPs in the group.
      * @example eipsg-2zett8ba055tbsxme****

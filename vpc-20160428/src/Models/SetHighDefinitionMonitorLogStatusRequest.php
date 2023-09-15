@@ -27,7 +27,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $instanceType;
 
     /**
-     * @description The name of the project of Log Service.
+     * @description The name of the Simple Log Service (SLS) project.
      *
      * @example hdmonitor-cn-shenzhen
      *
@@ -36,7 +36,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $logProject;
 
     /**
-     * @description The name of the Logstore of Log Service.
+     * @description The name of the Logstore.
      *
      * @example hdmonitor
      *
@@ -55,7 +55,7 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region where the instance is deployed.
+     * @description The region ID of the instance.
      *
      * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
@@ -77,8 +77,8 @@ class SetHighDefinitionMonitorLogStatusRequest extends Model
     /**
      * @description The status of fine-grained monitoring. Valid values:
      *
-     *   **ON**: enables fine-grained monitoring.
-     *   **OFF**: disables fine-grained monitoring.
+     *   **ON**
+     *   **OFF**
      *
      * @example ON
      *

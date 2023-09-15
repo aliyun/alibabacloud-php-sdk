@@ -6,12 +6,10 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
+class DeleteVSwitchCidrReservationResponseBody extends Model
 {
     /**
-     * @description The request ID.
-     *
-     * @example 4EC47282-1B74-4534-BD0E-403F3EE64CAF
+     * @example 54B48E3D-DF70-471B-AA93-08E683A1B45
      *
      * @var string
      */
@@ -37,7 +35,7 @@ class AddPublicIpAddressPoolCidrBlockResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return AddPublicIpAddressPoolCidrBlockResponseBody
+     * @return DeleteVSwitchCidrReservationResponseBody
      */
     public static function fromMap($map = [])
     {

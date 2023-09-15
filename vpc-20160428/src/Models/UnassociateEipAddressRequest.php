@@ -22,7 +22,7 @@ class UnassociateEipAddressRequest extends Model
      *
      * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
      *
-     * >  If you do not set this parameter, the system uses **RequestId** as **ClientToken**. **RequestId** might be different for each API request.
+     * >  If you do not specify this parameter, the system automatically uses the **request ID** as the **client token**. The **request ID** may be different for each request.
      * @example 02fb3da4-130e-11****
      *
      * @var string
@@ -32,8 +32,8 @@ class UnassociateEipAddressRequest extends Model
     /**
      * @description Specifies whether to disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway. Valid values:
      *
-     *   **false** (default): does not disassociate the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
-     *   **true**: disassociates the EIP from a NAT gateway if a DNAT or SNAT entry is added to the NAT gateway.
+     *   **false** (default)
+     *   **true**
      *
      * @example false
      *
@@ -85,9 +85,8 @@ class UnassociateEipAddressRequest extends Model
     public $privateIpAddress;
 
     /**
-     * @description The ID of the region to which the EIP belongs.
+     * @description The ID of the region to which the EIP belongs. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      *
-     * You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string

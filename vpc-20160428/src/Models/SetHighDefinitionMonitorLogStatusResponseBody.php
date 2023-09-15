@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class SetHighDefinitionMonitorLogStatusResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 54B48E3D-DF70-471B-AA93-08E683A1B457
      *
@@ -20,8 +20,8 @@ class SetHighDefinitionMonitorLogStatusResponseBody extends Model
     /**
      * @description Indicates whether the operation is performed. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *

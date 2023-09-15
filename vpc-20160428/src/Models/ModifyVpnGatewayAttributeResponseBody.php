@@ -33,7 +33,7 @@ class ModifyVpnGatewayAttributeResponseBody extends Model
     public $businessStatus;
 
     /**
-     * @description The timestamp generated when the VPN gateway was created. Unit: milliseconds.
+     * @description The timestamp is generated when the VPN gateway was created. Unit: milliseconds.
      *
      * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since the epoch time January 1, 1970, 00:00:00 UTC.
      * @example 1492753580000

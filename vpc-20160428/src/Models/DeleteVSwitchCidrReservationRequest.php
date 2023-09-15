@@ -6,26 +6,8 @@ namespace AlibabaCloud\SDK\Vpc\V20160428\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
+class DeleteVSwitchCidrReservationRequest extends Model
 {
-    /**
-     * @description The ID of the Internet Shared Bandwidth instance.
-     *
-     * @example cbwp-bp13d0m4e2qv8xxxxxxxx
-     *
-     * @var string
-     */
-    public $bandwidthPackageId;
-
-    /**
-     * @description The ID of the EIP that is associated with the Internet Shared Bandwidth instance.
-     *
-     * @example eip-2zewysoansu0sxxxxxxxx
-     *
-     * @var string
-     */
-    public $eipId;
-
     /**
      * @var string
      */
@@ -37,8 +19,6 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     public $ownerId;
 
     /**
-     * @description The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](~~36063~~) operation to query the most recent region list.
-     *
      * @example cn-hangzhou
      *
      * @var string
@@ -54,14 +34,20 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @example vcr-bp1m12saqteraw3rp****
+     *
+     * @var string
+     */
+    public $vSwitchCidrReservationId;
     protected $_name = [
-        'bandwidthPackageId'   => 'BandwidthPackageId',
-        'eipId'                => 'EipId',
-        'ownerAccount'         => 'OwnerAccount',
-        'ownerId'              => 'OwnerId',
-        'regionId'             => 'RegionId',
-        'resourceOwnerAccount' => 'ResourceOwnerAccount',
-        'resourceOwnerId'      => 'ResourceOwnerId',
+        'ownerAccount'             => 'OwnerAccount',
+        'ownerId'                  => 'OwnerId',
+        'regionId'                 => 'RegionId',
+        'resourceOwnerAccount'     => 'ResourceOwnerAccount',
+        'resourceOwnerId'          => 'ResourceOwnerId',
+        'vSwitchCidrReservationId' => 'VSwitchCidrReservationId',
     ];
 
     public function validate()
@@ -71,12 +57,6 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->bandwidthPackageId) {
-            $res['BandwidthPackageId'] = $this->bandwidthPackageId;
-        }
-        if (null !== $this->eipId) {
-            $res['EipId'] = $this->eipId;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
@@ -92,6 +72,9 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->vSwitchCidrReservationId) {
+            $res['VSwitchCidrReservationId'] = $this->vSwitchCidrReservationId;
+        }
 
         return $res;
     }
@@ -99,17 +82,11 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
     /**
      * @param array $map
      *
-     * @return CancelCommonBandwidthPackageIpBandwidthRequest
+     * @return DeleteVSwitchCidrReservationRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['BandwidthPackageId'])) {
-            $model->bandwidthPackageId = $map['BandwidthPackageId'];
-        }
-        if (isset($map['EipId'])) {
-            $model->eipId = $map['EipId'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
@@ -124,6 +101,9 @@ class CancelCommonBandwidthPackageIpBandwidthRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['VSwitchCidrReservationId'])) {
+            $model->vSwitchCidrReservationId = $map['VSwitchCidrReservationId'];
         }
 
         return $model;

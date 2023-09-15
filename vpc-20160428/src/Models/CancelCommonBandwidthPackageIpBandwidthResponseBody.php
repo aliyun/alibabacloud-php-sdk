@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CancelCommonBandwidthPackageIpBandwidthResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 63D187BF-A30A-4DD6-B68D-FF182C96D8A2
      *
