@@ -1,3 +1,6 @@
+2023-09-15 Version: 1.2.0
+- Generated php 2023-01-20 for csas.
+
 2023-09-14 Version: 1.1.0
 - Generated php 2023-01-20 for csas.
 
