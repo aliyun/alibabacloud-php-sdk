@@ -30,10 +30,16 @@ use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DescribeVerifyTokenResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\DetectFaceAttributesResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Id2MetaVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\InitFaceVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\LivenessFaceVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaDetailVerifyResponse;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleVerifyRequest;
+use AlibabaCloud\SDK\Cloudauth\V20190307\Models\Mobile3MetaSimpleVerifyResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoRequest;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\ModifyDeviceInfoResponse;
 use AlibabaCloud\SDK\Cloudauth\V20190307\Models\VerifyMaterialRequest;
@@ -870,6 +876,55 @@ class Cloudauth extends OpenApiClient
     }
 
     /**
+     * @param Id2MetaVerifyRequest $request
+     * @param RuntimeOptions       $runtime
+     *
+     * @return Id2MetaVerifyResponse
+     */
+    public function id2MetaVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Id2MetaVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Id2MetaVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Id2MetaVerifyRequest $request
+     *
+     * @return Id2MetaVerifyResponse
+     */
+    public function id2MetaVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->id2MetaVerifyWithOptions($request, $runtime);
+    }
+
+    /**
      * @param InitFaceVerifyRequest $request
      * @param RuntimeOptions        $runtime
      *
@@ -1086,6 +1141,110 @@ class Cloudauth extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->livenessFaceVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Mobile3MetaDetailVerifyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return Mobile3MetaDetailVerifyResponse
+     */
+    public function mobile3MetaDetailVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Mobile3MetaDetailVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Mobile3MetaDetailVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Mobile3MetaDetailVerifyRequest $request
+     *
+     * @return Mobile3MetaDetailVerifyResponse
+     */
+    public function mobile3MetaDetailVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile3MetaDetailVerifyWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Mobile3MetaSimpleVerifyRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return Mobile3MetaSimpleVerifyResponse
+     */
+    public function mobile3MetaSimpleVerifyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->identifyNum)) {
+            $query['IdentifyNum'] = $request->identifyNum;
+        }
+        if (!Utils::isUnset($request->mobile)) {
+            $query['Mobile'] = $request->mobile;
+        }
+        if (!Utils::isUnset($request->paramType)) {
+            $query['ParamType'] = $request->paramType;
+        }
+        if (!Utils::isUnset($request->userName)) {
+            $query['UserName'] = $request->userName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Mobile3MetaSimpleVerify',
+            'version'     => '2019-03-07',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Mobile3MetaSimpleVerifyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Mobile3MetaSimpleVerifyRequest $request
+     *
+     * @return Mobile3MetaSimpleVerifyResponse
+     */
+    public function mobile3MetaSimpleVerify($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->mobile3MetaSimpleVerifyWithOptions($request, $runtime);
     }
 
     /**
