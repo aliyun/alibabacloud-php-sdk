@@ -10,6 +10,10 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ChangeResourceGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ConsumerGroupHeartBeatResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationDataSetRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationDataSetResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationLabelRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\CreateAnnotationLabelResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateConsumerGroupRequest;
@@ -40,6 +44,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateRdsExternalStoreResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\CreateSavedSearchResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationDataSetResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteAnnotationLabelResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteConsumerGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteDashboardResponse;
@@ -54,6 +61,9 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\DeleteShipperResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationDataSetResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\GetAnnotationLabelResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedConfigsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetAppliedMachineGroupsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetCheckPointRequest;
@@ -86,6 +96,12 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\GetProjectResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetSavedSearchResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\GetShipperStatusResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataSetsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationDataSetsResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\ListAnnotationLabelsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListConsumerGroupResponse;
@@ -114,10 +130,14 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\ListTagResourcesShrinkRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PullDataRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PullDataResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\PutAnnotationDataResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutProjectPolicyResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\PutWebtrackingResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\QueryMLServiceResultsResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\RemoveConfigFromMachineGroupResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\SplitShardResponse;
@@ -125,6 +145,10 @@ use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\TagResourcesResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UntagResourcesResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationDataSetRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationDataSetResponse;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationLabelRequest;
+use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateAnnotationLabelResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConfigRequest;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConfigResponse;
 use AlibabaCloud\SDK\Sls\V20201230\Models\UpdateConsumerGroupRequest;
@@ -332,6 +356,95 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->consumerGroupHeartBeatWithOptions($project, $logstore, $consumerGroup, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateAnnotationDataSetRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return CreateAnnotationDataSetResponse
+     */
+    public function createAnnotationDataSetWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->datasetId)) {
+            $query['datasetId'] = $request->datasetId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAnnotationDataSet',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAnnotationDataSetRequest $request
+     *
+     * @return CreateAnnotationDataSetResponse
+     */
+    public function createAnnotationDataSet($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAnnotationDataSetWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param CreateAnnotationLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return CreateAnnotationLabelResponse
+     */
+    public function createAnnotationLabelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateAnnotationLabel',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationlabel',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return CreateAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateAnnotationLabelRequest $request
+     *
+     * @return CreateAnnotationLabelResponse
+     */
+    public function createAnnotationLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->createAnnotationLabelWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -1227,6 +1340,128 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string         $datasetId
+     * @param string         $annotationdataId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAnnotationDataResponse
+     */
+    public function deleteAnnotationDataWithOptions($datasetId, $annotationdataId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAnnotationData',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata/' . $annotationdataId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $datasetId
+     * @param string $annotationdataId
+     *
+     * @return DeleteAnnotationDataResponse
+     */
+    public function deleteAnnotationData($datasetId, $annotationdataId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAnnotationDataWithOptions($datasetId, $annotationdataId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $datasetId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAnnotationDataSetResponse
+     */
+    public function deleteAnnotationDataSetWithOptions($datasetId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAnnotationDataSet',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $datasetId
+     *
+     * @return DeleteAnnotationDataSetResponse
+     */
+    public function deleteAnnotationDataSet($datasetId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAnnotationDataSetWithOptions($datasetId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $labelId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return DeleteAnnotationLabelResponse
+     */
+    public function deleteAnnotationLabelWithOptions($labelId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'DeleteAnnotationLabel',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationlabel/' . $labelId . '',
+            'method'      => 'DELETE',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return DeleteAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $labelId
+     *
+     * @return DeleteAnnotationLabelResponse
+     */
+    public function deleteAnnotationLabel($labelId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->deleteAnnotationLabelWithOptions($labelId, $headers, $runtime);
+    }
+
+    /**
      * @param string         $project
      * @param string         $configName
      * @param string[]       $headers
@@ -1852,6 +2087,128 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->deleteShipperWithOptions($project, $logstore, $shipperName, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $datasetId
+     * @param string         $annotationdataId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAnnotationDataResponse
+     */
+    public function getAnnotationDataWithOptions($datasetId, $annotationdataId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAnnotationData',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata/' . $annotationdataId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $datasetId
+     * @param string $annotationdataId
+     *
+     * @return GetAnnotationDataResponse
+     */
+    public function getAnnotationData($datasetId, $annotationdataId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAnnotationDataWithOptions($datasetId, $annotationdataId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $datasetId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAnnotationDataSetResponse
+     */
+    public function getAnnotationDataSetWithOptions($datasetId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAnnotationDataSet',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $datasetId
+     *
+     * @return GetAnnotationDataSetResponse
+     */
+    public function getAnnotationDataSet($datasetId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAnnotationDataSetWithOptions($datasetId, $headers, $runtime);
+    }
+
+    /**
+     * @param string         $labelId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetAnnotationLabelResponse
+     */
+    public function getAnnotationLabelWithOptions($labelId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetAnnotationLabel',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationlabel/' . $labelId . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $labelId
+     *
+     * @return GetAnnotationLabelResponse
+     */
+    public function getAnnotationLabel($labelId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getAnnotationLabelWithOptions($labelId, $headers, $runtime);
     }
 
     /**
@@ -3011,6 +3368,155 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                    $datasetId
+     * @param ListAnnotationDataRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ListAnnotationDataResponse
+     */
+    public function listAnnotationDataWithOptions($datasetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnnotationData',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                    $datasetId
+     * @param ListAnnotationDataRequest $request
+     *
+     * @return ListAnnotationDataResponse
+     */
+    public function listAnnotationData($datasetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAnnotationDataWithOptions($datasetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListAnnotationDataSetsRequest $request
+     * @param string[]                      $headers
+     * @param RuntimeOptions                $runtime
+     *
+     * @return ListAnnotationDataSetsResponse
+     */
+    public function listAnnotationDataSetsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnnotationDataSets',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAnnotationDataSetsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAnnotationDataSetsRequest $request
+     *
+     * @return ListAnnotationDataSetsResponse
+     */
+    public function listAnnotationDataSets($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAnnotationDataSetsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListAnnotationLabelsRequest $request
+     * @param string[]                    $headers
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListAnnotationLabelsResponse
+     */
+    public function listAnnotationLabelsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->offset)) {
+            $query['offset'] = $request->offset;
+        }
+        if (!Utils::isUnset($request->size)) {
+            $query['size'] = $request->size;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListAnnotationLabels',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationlabel',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListAnnotationLabelsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListAnnotationLabelsRequest $request
+     *
+     * @return ListAnnotationLabelsResponse
+     */
+    public function listAnnotationLabels($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listAnnotationLabelsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
      * @param string            $project
      * @param ListConfigRequest $request
      * @param string[]          $headers
@@ -3839,6 +4345,62 @@ class Sls extends OpenApiClient
     }
 
     /**
+     * @param string                   $datasetId
+     * @param PutAnnotationDataRequest $request
+     * @param string[]                 $headers
+     * @param RuntimeOptions           $runtime
+     *
+     * @return PutAnnotationDataResponse
+     */
+    public function putAnnotationDataWithOptions($datasetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->annotationdataId)) {
+            $query['annotationdataId'] = $request->annotationdataId;
+        }
+        $body = [];
+        if (!Utils::isUnset($request->mlDataParam)) {
+            $body['mlDataParam'] = $request->mlDataParam;
+        }
+        if (!Utils::isUnset($request->rawLog)) {
+            $body['rawLog'] = $request->rawLog;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'PutAnnotationData',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '/annotationdata',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return PutAnnotationDataResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                   $datasetId
+     * @param PutAnnotationDataRequest $request
+     *
+     * @return PutAnnotationDataResponse
+     */
+    public function putAnnotationData($datasetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->putAnnotationDataWithOptions($datasetId, $request, $headers, $runtime);
+    }
+
+    /**
      * @param string                  $project
      * @param PutProjectPolicyRequest $request
      * @param string[]                $headers
@@ -3945,6 +4507,55 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->putWebtrackingWithOptions($project, $logstoreName, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                       $serviceName
+     * @param QueryMLServiceResultsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return QueryMLServiceResultsResponse
+     */
+    public function queryMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->allowBuiltin)) {
+            $query['allowBuiltin'] = $request->allowBuiltin;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryMLServiceResults',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/service/' . $serviceName . '/analysis',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryMLServiceResultsResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                       $serviceName
+     * @param QueryMLServiceResultsRequest $request
+     *
+     * @return QueryMLServiceResultsResponse
+     */
+    public function queryMLServiceResults($serviceName, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->queryMLServiceResultsWithOptions($serviceName, $request, $headers, $runtime);
     }
 
     /**
@@ -4157,6 +4768,92 @@ class Sls extends OpenApiClient
         $headers = [];
 
         return $this->untagResourcesWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                         $datasetId
+     * @param UpdateAnnotationDataSetRequest $request
+     * @param string[]                       $headers
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return UpdateAnnotationDataSetResponse
+     */
+    public function updateAnnotationDataSetWithOptions($datasetId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAnnotationDataSet',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationdataset/' . $datasetId . '',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateAnnotationDataSetResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                         $datasetId
+     * @param UpdateAnnotationDataSetRequest $request
+     *
+     * @return UpdateAnnotationDataSetResponse
+     */
+    public function updateAnnotationDataSet($datasetId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAnnotationDataSetWithOptions($datasetId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param UpdateAnnotationLabelRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return UpdateAnnotationLabelResponse
+     */
+    public function updateAnnotationLabelWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateAnnotationLabel',
+            'version'     => '2020-12-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/ml/annotationlabel',
+            'method'      => 'PUT',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'none',
+        ]);
+
+        return UpdateAnnotationLabelResponse::fromMap($this->execute($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateAnnotationLabelRequest $request
+     *
+     * @return UpdateAnnotationLabelResponse
+     */
+    public function updateAnnotationLabel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->updateAnnotationLabelWithOptions($request, $headers, $runtime);
     }
 
     /**

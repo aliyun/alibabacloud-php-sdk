@@ -19,7 +19,7 @@ class MLDataParamPredictionsValue extends Model
     public $updateTime;
 
     /**
-     * @var string[]
+     * @var string[][]
      */
     public $results;
     protected $_name = [
