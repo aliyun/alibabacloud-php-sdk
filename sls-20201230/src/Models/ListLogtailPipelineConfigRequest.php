@@ -18,7 +18,7 @@ class ListLogtailPipelineConfigRequest extends Model
      *
      * @var string
      */
-    public $logstore;
+    public $logstoreName;
 
     /**
      * @example 0
@@ -34,10 +34,10 @@ class ListLogtailPipelineConfigRequest extends Model
      */
     public $size;
     protected $_name = [
-        'configName' => 'configName',
-        'logstore'   => 'logstore',
-        'offset'     => 'offset',
-        'size'       => 'size',
+        'configName'   => 'configName',
+        'logstoreName' => 'logstoreName',
+        'offset'       => 'offset',
+        'size'         => 'size',
     ];
 
     public function validate()
@@ -50,8 +50,8 @@ class ListLogtailPipelineConfigRequest extends Model
         if (null !== $this->configName) {
             $res['configName'] = $this->configName;
         }
-        if (null !== $this->logstore) {
-            $res['logstore'] = $this->logstore;
+        if (null !== $this->logstoreName) {
+            $res['logstoreName'] = $this->logstoreName;
         }
         if (null !== $this->offset) {
             $res['offset'] = $this->offset;
@@ -74,8 +74,8 @@ class ListLogtailPipelineConfigRequest extends Model
         if (isset($map['configName'])) {
             $model->configName = $map['configName'];
         }
-        if (isset($map['logstore'])) {
-            $model->logstore = $map['logstore'];
+        if (isset($map['logstoreName'])) {
+            $model->logstoreName = $map['logstoreName'];
         }
         if (isset($map['offset'])) {
             $model->offset = $map['offset'];

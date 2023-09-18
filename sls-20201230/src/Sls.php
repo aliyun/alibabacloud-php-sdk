@@ -3869,8 +3869,8 @@ class Sls extends OpenApiClient
         if (!Utils::isUnset($request->configName)) {
             $query['configName'] = $request->configName;
         }
-        if (!Utils::isUnset($request->logstore)) {
-            $query['logstore'] = $request->logstore;
+        if (!Utils::isUnset($request->logstoreName)) {
+            $query['logstoreName'] = $request->logstoreName;
         }
         if (!Utils::isUnset($request->offset)) {
             $query['offset'] = $request->offset;
