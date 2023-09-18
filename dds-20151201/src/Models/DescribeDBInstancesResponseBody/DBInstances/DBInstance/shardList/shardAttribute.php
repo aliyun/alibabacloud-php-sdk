@@ -20,7 +20,7 @@ class shardAttribute extends Model
     /**
      * @description The description of the shard node.
      *
-     * @example testshard
+     * @example testshardnode
      *
      * @var string
      */

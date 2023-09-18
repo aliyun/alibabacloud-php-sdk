@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class mongosAttribute extends Model
 {
     /**
-     * @description The ID of the mongos node.
+     * @description The endpoint of the mongos node.
      *
      * @example s-bp1d8c262a15****.mongodb.rds.aliyuncs.com
      *
@@ -18,9 +18,8 @@ class mongosAttribute extends Model
     public $connectSting;
 
     /**
-     * @description The VPC ID of the node.
+     * @description The maximum number of connections to the mongos node.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
      * @example 1000
      *
      * @var int
@@ -28,7 +27,7 @@ class mongosAttribute extends Model
     public $maxConnections;
 
     /**
-     * @description The instance type of the mongos node.
+     * @description The maximum IOPS of the mongos node.
      *
      * @example 800
      *
@@ -37,7 +36,7 @@ class mongosAttribute extends Model
     public $maxIOPS;
 
     /**
-     * @description The port number that is used to connect to the mongos node.
+     * @description The type of the mongos node.
      *
      * @example dds.mongos.mid
      *
@@ -46,7 +45,7 @@ class mongosAttribute extends Model
     public $nodeClass;
 
     /**
-     * @description The state of the mongos node. For more information, see [Instance states](~~63870~~).
+     * @description The name of the mongos node.
      *
      * @example mongos1
      *
@@ -55,12 +54,8 @@ class mongosAttribute extends Model
     public $nodeDescription;
 
     /**
-     * @description The access protocol type of the instance. Valid values:
+     * @description The ID of the mongos node.
      *
-     *   **mongodb**
-     *   **dynamodb**
-     *
-     * > This parameter is returned if the instance is a sharded cluster instance.
      * @example s-bp1d8c262a15****
      *
      * @var string
@@ -68,7 +63,7 @@ class mongosAttribute extends Model
     public $nodeId;
 
     /**
-     * @description The endpoint of the mongos node.
+     * @description The port number that is used to connect to the mongos node.
      *
      * @example 3717
      *
@@ -77,7 +72,7 @@ class mongosAttribute extends Model
     public $port;
 
     /**
-     * @description The name of the instance.
+     * @description The state of the mongos node. For more information, see [Instance states](~~63870~~).
      *
      * @example Running
      *
@@ -86,8 +81,9 @@ class mongosAttribute extends Model
     public $status;
 
     /**
-     * @description The name of the mongos node.
+     * @description The VPC ID of the instance.
      *
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example vpc-bp1n3i15v90el48nx****
      *
      * @var string
@@ -95,8 +91,9 @@ class mongosAttribute extends Model
     public $VPCId;
 
     /**
-     * @description The maximum number of connections to the mongos node.
+     * @description The vSwitch ID of the instance.
      *
+     * > This parameter is returned if the network type of the instance is VPC.
      * @example vsw-bp1vj604nj5a9zz74****
      *
      * @var string
@@ -104,9 +101,8 @@ class mongosAttribute extends Model
     public $vSwitchId;
 
     /**
-     * @description The vSwitch ID of the node.
+     * @description The ID of the mongos node.
      *
-     * > This parameter is returned if the network type of the instance is VPC.
      * @example s-bp1d8c262a158****
      *
      * @var string

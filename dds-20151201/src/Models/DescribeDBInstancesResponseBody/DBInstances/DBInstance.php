@@ -12,9 +12,9 @@ use AlibabaCloud\Tea\Model;
 class DBInstance extends Model
 {
     /**
-     * @description The I/O throughput consumed by the instance.
+     * @description The read and write throughput consumed by the instance.
      *
-     * >  This parameter is returned when the instance is a serverless instance.
+     * > This parameter is returned when the instance is a serverless instance.
      * @example 100
      *
      * @var string
@@ -54,14 +54,14 @@ class DBInstance extends Model
     /**
      * @description The description of the instance.
      *
-     * @example db for test.
+     * @example Test database
      *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp18b0934e70****
      *
@@ -70,7 +70,7 @@ class DBInstance extends Model
     public $DBInstanceId;
 
     /**
-     * @description The state of the instance. For more information, see [Instance states](~~63870~~).
+     * @description The status of the instance. For more information, see [Instance states](~~63870~~).
      *
      * @example Running
      *
@@ -88,7 +88,7 @@ class DBInstance extends Model
     public $DBInstanceStorage;
 
     /**
-     * @description The architecture of the instance.
+     * @description The architecture of the instance. Valid values:
      *
      *   **sharding**: sharded cluster instance
      *   **replicate**: replica set or standalone instance
@@ -102,7 +102,12 @@ class DBInstance extends Model
     /**
      * @description The time when the instance data was destroyed. The time is in the *yyyy-MM-dd*T*HH:mm:ss*Z format. The time is displayed in UTC.
      *
-     * > - Pay-as-you-go instances are locked after the payments have been overdue for longer than 24 hours. The instances are released after the payments have been overdue for longer than 15 days. The data of released instances is deleted and cannot be restored.
+     * >
+     *
+     *   Subscription instances are released 15 days after expiration. After the instances are released, the data of the instances is deleted and cannot be restored.
+     *
+     *   Pay-as-you-go instances are locked after the payments have been overdue for longer than 24 hours. The instances are released after the payments have been overdue for longer than 15 days. The data of released instances is deleted and cannot be restored.
+     *
      * @example 2021-12-10T16:00:00Z
      *
      * @var string
@@ -167,6 +172,7 @@ class DBInstance extends Model
      * >
      *
      *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *
      *   This parameter is returned only if you use the Chine site (aliyun.com).
      *
      * @example cn-hangzhou-h
@@ -179,7 +185,7 @@ class DBInstance extends Model
      * @description The kind code of the instance. Valid values:
      *
      *   **0**: physical machine
-     *   **1**: Elastic Compute Service (ECS) instance
+     *   **1**: ECS instance
      *   **2**: Docker cluster
      *   **18**: Kubernetes cluster
      *
@@ -215,9 +221,9 @@ class DBInstance extends Model
     public $lockMode;
 
     /**
-     * @description Details of the mongos nodes.
+     * @description The details of the mongos nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var mongosList
      */
     public $mongosList;
@@ -225,8 +231,8 @@ class DBInstance extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**: classic network
-     *   **VPC**: VPC
+     *   **Classic**
+     *   **VPC**
      *
      * @example Classic
      *
@@ -246,7 +252,7 @@ class DBInstance extends Model
     /**
      * @description The number of nodes in the instance.
      *
-     * >  This parameter is returned if the instance is a replica set instance.
+     * > This parameter is returned if the instance is a replica set instance.
      * @example 3
      *
      * @var string
@@ -287,6 +293,7 @@ class DBInstance extends Model
      * >
      *
      *   This parameter is returned if the instance is a replica set or sharded cluster instance that runs MongoDB 4.4 or 5.0 and uses multi-zone deployment.
+     *
      *   This parameter is returned only if you use the Chine site (aliyun.com).
      *
      * @example cn-hangzhou-i
@@ -296,9 +303,9 @@ class DBInstance extends Model
     public $secondaryZoneId;
 
     /**
-     * @description Details of the shard nodes.
+     * @description The details of the shard nodes.
      *
-     * >  This parameter is returned if the instance is a sharded cluster instance.
+     * > This parameter is returned if the instance is a sharded cluster instance.
      * @var shardList
      */
     public $shardList;
@@ -316,7 +323,7 @@ class DBInstance extends Model
     public $storageType;
 
     /**
-     * @description Details of the resource tags.
+     * @description The details of the resource tags.
      *
      * @var tags
      */
@@ -325,8 +332,9 @@ class DBInstance extends Model
     /**
      * @description Indicates whether password-free access within a VPC is enabled. Valid values:
      *
-     * - **Open**: Password-free access is enabled.
-     * - **Close**: Password-free access is disabled.
+     *   **Open**: Password-free access is enabled.
+     *   **Close**: Password-free access is disabled.
+     *
      * @example Close
      *
      * @var string

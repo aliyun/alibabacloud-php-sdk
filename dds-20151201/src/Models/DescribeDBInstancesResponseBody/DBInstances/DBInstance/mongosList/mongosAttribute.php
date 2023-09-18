@@ -20,7 +20,7 @@ class mongosAttribute extends Model
     /**
      * @description The description of the mongos node.
      *
-     * @example mongos1
+     * @example testmongosnode
      *
      * @var string
      */

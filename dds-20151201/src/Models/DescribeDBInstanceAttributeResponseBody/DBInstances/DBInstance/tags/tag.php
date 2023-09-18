@@ -9,11 +9,7 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description Indicates whether password-free access within the VPC is enabled. Valid values:
-     *
-     *   **Open**: Password-free access is enabled.
-     *   **Close**: Password-free access is disabled, and you must use a password for access.
-     *   **NotSupport**: Password-free access is not supported.
+     * @description The tag key of the instance.
      *
      * @example test
      *
@@ -22,10 +18,7 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The network type of the instance. Valid values:
-     *
-     *   **Classic**
-     *   **VPC**
+     * @description The tag value of the instance.
      *
      * @example api
      *

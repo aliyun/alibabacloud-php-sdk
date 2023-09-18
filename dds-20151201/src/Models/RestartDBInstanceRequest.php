@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class RestartDBInstanceRequest extends Model
 {
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bpxxxxxxxx
      *
@@ -20,7 +20,7 @@ class RestartDBInstanceRequest extends Model
     /**
      * @description The ID of the shard or mongos node in the sharded cluster instance.
      *
-     * >  The sharded cluster instance is restarted if you do not specify this parameter.
+     * > The sharded cluster instance is restarted if you do not specify this parameter.
      * @example d-bpxxxxxxxx
      *
      * @var string

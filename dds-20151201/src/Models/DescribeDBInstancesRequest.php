@@ -40,20 +40,20 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceClass;
 
     /**
-     * @description The name of the instance. Valid values:
+     * @description The name of the instance. The name must meet the following requirements:
      *
      *   The name must start with a letter.
-     *   The name can contain digits, letters, underscores (\_), and hyphens (-).
-     *   The name must be 2 to 256 characters in length.
+     *   It can contain digits, letters, underscores (\_), and hyphens (-).
+     *   It must be 2 to 256 characters in length.
      *
-     * @example test database
+     * @example Test database
      *
      * @var string
      */
     public $DBInstanceDescription;
 
     /**
-     * @description The ID of the instance.
+     * @description The instance ID.
      *
      * @example dds-bp199659b178****
      *
@@ -71,7 +71,7 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceStatus;
 
     /**
-     * @description The architecture of the instance. Default value: replicate. Valid values:
+     * @description The architecture of the instance. Valid values:
      *
      *   **sharding**: sharded cluster instance
      *   **replicate**: replica set or standalone instance
@@ -83,9 +83,9 @@ class DescribeDBInstancesRequest extends Model
     public $DBInstanceType;
 
     /**
-     * @description Used to filter standard instances or test instances
+     * @description The type of the node in the instance. This parameter is used to filter standard or test instance.
      *
-     * 3. Default (showing all instances): default
+     * 3.  Valid value when all instances are displayed: default
      * @example default
      *
      * @var string
@@ -104,11 +104,11 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @description The database engine version of the instance. Valid values:
      *
-     * **5.0**
-     * **4.4**
-     * **4.2**
-     * **4.0**
-     * **3.4**
+     *   **5.0**
+     *   **4.4**
+     *   **4.2**
+     *   **4.0**
+     *   **3.4**
      *
      * @example 4.0
      *
@@ -128,8 +128,8 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @description Specifies whether the instance has expired. Valid values:
      *
-     *   **true**: The instance has expired.
-     *   **false**: The instance has not expired.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -140,8 +140,8 @@ class DescribeDBInstancesRequest extends Model
     /**
      * @description The network type of the instance. Valid values:
      *
-     *   **Classic**: classic network
-     *   **VPC**: Virtual Private Cloud (VPC)
+     *   **Classic**
+     *   **VPC**
      *
      * @example VPC
      *
@@ -169,9 +169,9 @@ class DescribeDBInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30. Valid values:
+     * @description The number of entries to return on each page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -228,14 +228,14 @@ class DescribeDBInstancesRequest extends Model
     public $securityToken;
 
     /**
-     * @description The tags of instances.
+     * @description The tags of the instance.
      *
      * @var tag[]
      */
     public $tag;
 
     /**
-     * @description The ID of the vSwitch.
+     * @description The vSwitch ID of the instance.
      *
      * @example vsw-bp1vj604nj5a9zz74****
      *
@@ -244,7 +244,7 @@ class DescribeDBInstancesRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID of the instance.
      *
      * @example vpc-bp1n3i15v90el48nx****
      *
