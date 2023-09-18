@@ -30,7 +30,7 @@ class DescribeDataCheckTableDetailsRequest extends Model
     public $dtsJobId;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: **1**.
+     * @description The number of the page to return. The value must be an integer that is greater than **0**. Default value: **1**.
      *
      * @example 1
      *
@@ -39,7 +39,7 @@ class DescribeDataCheckTableDetailsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries per page.
+     * @description The number of entries to return on each page.
      *
      * @example 10
      *
@@ -48,15 +48,19 @@ class DescribeDataCheckTableDetailsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The name of the schema whose data is verified in the source database.
+     *
+     * @example dtstest
+     *
      * @var string
      */
     public $schemaName;
 
     /**
-     * @description The status of data verification results. Valid values:
+     * @description The status of the data verification result. Valid values:
      *
-     *   **-1** (default): all states.
-     *   **6**: inconsistent data detected in tables.
+     *   **-1** (default): All status.
+     *   **6**: Inconsistent data detected in the table.
      *
      * @example -1
      *

@@ -151,6 +151,8 @@ use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyConsumptionTimestampResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDedicatedClusterRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDedicatedClusterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobAdvanceRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobConfigRequest;
+use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobConfigResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDedicatedClusterRequest;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDedicatedClusterResponse;
 use AlibabaCloud\SDK\Dts\V20200101\Models\ModifyDtsJobDuLimitRequest;
@@ -5286,6 +5288,58 @@ class Dts extends OpenApiClient
         }
 
         return $this->modifyDtsJobWithOptions($modifyDtsJobReq, $runtime);
+    }
+
+    /**
+     * @param ModifyDtsJobConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return ModifyDtsJobConfigResponse
+     */
+    public function modifyDtsJobConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->dtsJobId)) {
+            $query['DtsJobId'] = $request->dtsJobId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->parameters)) {
+            $query['Parameters'] = $request->parameters;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyDtsJobConfig',
+            'version'     => '2020-01-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyDtsJobConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyDtsJobConfigRequest $request
+     *
+     * @return ModifyDtsJobConfigResponse
+     */
+    public function modifyDtsJobConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyDtsJobConfigWithOptions($request, $runtime);
     }
 
     /**

@@ -19,7 +19,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
     public $diffTableCount;
 
     /**
-     * @description The dynamic error code. This parameter will be removed in the future.
+     * @description The dynamic error code. This parameter will be discontinued in the future.
      *
      * @example 403
      *
@@ -28,9 +28,9 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
     public $dynamicCode;
 
     /**
-     * @description The dynamic part in the error message. This parameter is used to replace the **%s** variable in the value of **ErrMessage**.
+     * @description The dynamic part in the error message. This parameter is used to replace the \*\*%s\*\* variable in the **ErrMessage** parameter.
      *
-     * >  For example, if the return value of **ErrMessage** is **The Value of Input Parameter %s is not valid** and the return value of **DynamicMessage** is **Type**, the specified value of **Type** is invalid.
+     * > For example, if the returned value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **Type**, the specified **Type** parameter is invalid.
      * @example Type
      *
      * @var string
@@ -65,7 +65,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
     public $finishedCount;
 
     /**
-     * @description The HTTP status code.
+     * @description The HTTP status code returned.
      *
      * @example 200
      *
@@ -74,7 +74,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description The page number.
+     * @description The page number of the returned page.
      *
      * @example 2
      *
@@ -101,7 +101,7 @@ class DescribeDataCheckTableDetailsResponseBody extends Model
     public $success;
 
     /**
-     * @description The details of data verification results.
+     * @description The details of the data verification result.
      *
      * @var tableDetails[]
      */

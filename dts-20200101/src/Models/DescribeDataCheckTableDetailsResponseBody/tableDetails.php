@@ -27,9 +27,13 @@ class tableDetails extends Model
     public $diffCount;
 
     /**
-     * @description The error code returned if the request failed.
+     * @description 任务运行出错时，返回报错信息的错误编码。
      *
-     * @example InternalError
+     * - **1**：无主键表数量超过限制。
+     * - **2**：差异数据超过300行。
+     * - **3**：待查询的表不存在。
+     * - **4**：查询数据的SQL语法错误。
+     * @example 1
      *
      * @var int
      */
@@ -45,7 +49,7 @@ class tableDetails extends Model
     public $finishCount;
 
     /**
-     * @description The auto-increment primary key that is used to identify the data in a verification result.
+     * @description The auto-increment primary key that is used to identify a data record in a verification result.
      *
      * @example 167401241974****
      *
@@ -72,11 +76,11 @@ class tableDetails extends Model
     public $sourceTbName;
 
     /**
-     * @description The state of the data verification task. Valid values:
+     * @description The status of the data verification result. Valid values:
      *
      *   **0**: The data verification task was complete.
-     *   **2**: The data verification task was being initialized.
-     *   **3**: The data verification task was in progress.
+     *   **2**: The data verification task was initialized.
+     *   **3**: The data verification task was running.
      *   **5**: The data verification task failed.
      *
      * @example 0
