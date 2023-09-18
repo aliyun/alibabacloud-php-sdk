@@ -1548,6 +1548,9 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acsProduct)) {
+            $query['AcsProduct'] = $request->acsProduct;
+        }
         if (!Utils::isUnset($request->databaseInstanceId)) {
             $query['DatabaseInstanceId'] = $request->databaseInstanceId;
         }
@@ -2705,6 +2708,9 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acsProduct)) {
+            $query['AcsProduct'] = $request->acsProduct;
+        }
         if (!Utils::isUnset($request->instanceIds)) {
             $query['InstanceIds'] = $request->instanceIds;
         }
@@ -2856,6 +2862,9 @@ class SWASOPEN extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->acsProduct)) {
+            $query['AcsProduct'] = $request->acsProduct;
+        }
         if (!Utils::isUnset($request->diskId)) {
             $query['DiskId'] = $request->diskId;
         }

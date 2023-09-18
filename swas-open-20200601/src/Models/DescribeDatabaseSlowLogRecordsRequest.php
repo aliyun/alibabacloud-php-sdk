@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDatabaseSlowLogRecordsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acsProduct;
+
+    /**
      * @description The ID of the Simple Database Service instance.
      *
      * @example db-38263fa955774501a2ae1bdaed6f****
@@ -66,6 +71,7 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
      */
     public $startTime;
     protected $_name = [
+        'acsProduct'         => 'AcsProduct',
         'databaseInstanceId' => 'DatabaseInstanceId',
         'endTime'            => 'EndTime',
         'pageNumber'         => 'PageNumber',
@@ -81,6 +87,9 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acsProduct) {
+            $res['AcsProduct'] = $this->acsProduct;
+        }
         if (null !== $this->databaseInstanceId) {
             $res['DatabaseInstanceId'] = $this->databaseInstanceId;
         }
@@ -111,6 +120,9 @@ class DescribeDatabaseSlowLogRecordsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcsProduct'])) {
+            $model->acsProduct = $map['AcsProduct'];
+        }
         if (isset($map['DatabaseInstanceId'])) {
             $model->databaseInstanceId = $map['DatabaseInstanceId'];
         }

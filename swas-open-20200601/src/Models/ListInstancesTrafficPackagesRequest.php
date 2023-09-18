@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListInstancesTrafficPackagesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acsProduct;
+
+    /**
      * @description The IDs of the simple application servers. The value can be a JSON array that consists of up to 100 simple application server IDs. Separate multiple server IDs with commas (,).
      *
      * @example ["2ad1ae67295445f598017499dc******","2ad1ae67295445f598017499dc******"]
@@ -26,6 +31,7 @@ class ListInstancesTrafficPackagesRequest extends Model
      */
     public $regionId;
     protected $_name = [
+        'acsProduct'  => 'AcsProduct',
         'instanceIds' => 'InstanceIds',
         'regionId'    => 'RegionId',
     ];
@@ -37,6 +43,9 @@ class ListInstancesTrafficPackagesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acsProduct) {
+            $res['AcsProduct'] = $this->acsProduct;
+        }
         if (null !== $this->instanceIds) {
             $res['InstanceIds'] = $this->instanceIds;
         }
@@ -55,6 +64,9 @@ class ListInstancesTrafficPackagesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcsProduct'])) {
+            $model->acsProduct = $map['AcsProduct'];
+        }
         if (isset($map['InstanceIds'])) {
             $model->instanceIds = $map['InstanceIds'];
         }

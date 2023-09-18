@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListSnapshotsRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $acsProduct;
+
+    /**
      * @description The disk ID.
      *
      * @example d-bp14wq0149cpp2xy****
@@ -76,6 +81,7 @@ class ListSnapshotsRequest extends Model
      */
     public $sourceDiskType;
     protected $_name = [
+        'acsProduct'     => 'AcsProduct',
         'diskId'         => 'DiskId',
         'instanceId'     => 'InstanceId',
         'pageNumber'     => 'PageNumber',
@@ -92,6 +98,9 @@ class ListSnapshotsRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acsProduct) {
+            $res['AcsProduct'] = $this->acsProduct;
+        }
         if (null !== $this->diskId) {
             $res['DiskId'] = $this->diskId;
         }
@@ -125,6 +134,9 @@ class ListSnapshotsRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcsProduct'])) {
+            $model->acsProduct = $map['AcsProduct'];
+        }
         if (isset($map['DiskId'])) {
             $model->diskId = $map['DiskId'];
         }
