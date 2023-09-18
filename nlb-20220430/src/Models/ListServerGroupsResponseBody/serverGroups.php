@@ -94,6 +94,11 @@ class serverGroups extends Model
     public $protocol;
 
     /**
+     * @var string
+     */
+    public $quicVersion;
+
+    /**
      * @description The region ID of the NLB instance.
      *
      * @example cn-hangzhou
@@ -209,6 +214,7 @@ class serverGroups extends Model
         'healthCheck'             => 'HealthCheck',
         'preserveClientIpEnabled' => 'PreserveClientIpEnabled',
         'protocol'                => 'Protocol',
+        'quicVersion'             => 'QuicVersion',
         'regionId'                => 'RegionId',
         'relatedLoadBalancerIds'  => 'RelatedLoadBalancerIds',
         'resourceGroupId'         => 'ResourceGroupId',
@@ -252,6 +258,9 @@ class serverGroups extends Model
         }
         if (null !== $this->protocol) {
             $res['Protocol'] = $this->protocol;
+        }
+        if (null !== $this->quicVersion) {
+            $res['QuicVersion'] = $this->quicVersion;
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
@@ -327,6 +336,9 @@ class serverGroups extends Model
         }
         if (isset($map['Protocol'])) {
             $model->protocol = $map['Protocol'];
+        }
+        if (isset($map['QuicVersion'])) {
+            $model->quicVersion = $map['QuicVersion'];
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];

@@ -677,6 +677,9 @@ class Nlb extends OpenApiClient
         if (!Utils::isUnset($request->protocol)) {
             $body['Protocol'] = $request->protocol;
         }
+        if (!Utils::isUnset($request->quicVersion)) {
+            $body['QuicVersion'] = $request->quicVersion;
+        }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
         }
@@ -2938,6 +2941,9 @@ class Nlb extends OpenApiClient
         }
         if (!Utils::isUnset($request->preserveClientIpEnabled)) {
             $body['PreserveClientIpEnabled'] = $request->preserveClientIpEnabled;
+        }
+        if (!Utils::isUnset($request->quicVersion)) {
+            $body['QuicVersion'] = $request->quicVersion;
         }
         if (!Utils::isUnset($request->regionId)) {
             $body['RegionId'] = $request->regionId;
