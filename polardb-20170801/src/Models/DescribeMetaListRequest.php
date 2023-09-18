@@ -82,6 +82,11 @@ class DescribeMetaListRequest extends Model
     /**
      * @var string
      */
+    public $regionCode;
+
+    /**
+     * @var string
+     */
     public $resourceOwnerAccount;
 
     /**
@@ -111,6 +116,7 @@ class DescribeMetaListRequest extends Model
         'ownerId'              => 'OwnerId',
         'pageNumber'           => 'PageNumber',
         'pageSize'             => 'PageSize',
+        'regionCode'           => 'RegionCode',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
         'restoreTime'          => 'RestoreTime',
@@ -144,6 +150,9 @@ class DescribeMetaListRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
+        }
+        if (null !== $this->regionCode) {
+            $res['RegionCode'] = $this->regionCode;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -189,6 +198,9 @@ class DescribeMetaListRequest extends Model
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
+        }
+        if (isset($map['RegionCode'])) {
+            $model->regionCode = $map['RegionCode'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
