@@ -33,7 +33,7 @@ class DescribeAvailableResourcesRequest extends Model
     /**
      * @description The zone ID.
      *
-     * > You can call the [DescribeRegions](~~86912~~)operation to query the most recent zone list.
+     * > You can call the [DescribeRegions](~~86912~~) operation to query the most recent zone list.
      * @example cn-hangzhou-h
      *
      * @var string

@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class CreateDBInstanceRequest extends Model
 {
     /**
+     * @description The ID of the backup set.
+     *
+     * >  You can call the [DescribeDataBackups](~~210093~~) operation to query the IDs of all backup sets in the instance.
      * @example 1111111111
      *
      * @var string
@@ -28,10 +31,10 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description Specifies whether to load a sample dataset after the instance is created. Valid values:
      *
-     * - **true**
-     * - **false**
+     *   **true**
+     *   **false**
      *
-     * If you do not specify this parameter, no sample dataset is loaded.
+     * >  If you do not specify this parameter, no sample dataset is loaded.
      * @example false
      *
      * @var bool
@@ -147,9 +150,14 @@ class CreateDBInstanceRequest extends Model
     public $idleTime;
 
     /**
-     * @description The network type of the instance. Set the value to VPC.
+     * @description The network type of the instance. Set the value to **VPC**.
      *
-     * - If you do not specify this parameter, VPC is used.
+     * >
+     *
+     *   Only the Virtual Private Cloud (VPC) type is supported in Alibaba Cloud public cloud.
+     *
+     *   If you do not specify this parameter, VPC is used.
+     *
      * @example VPC
      *
      * @var string
@@ -185,6 +193,15 @@ class CreateDBInstanceRequest extends Model
     public $instanceSpec;
 
     /**
+     * @description The amount of coordinator node resources. Valid values:
+     *
+     *   2 CU
+     *   4 CU
+     *   8 CU
+     *   16 CU
+     *   32 CU
+     *
+     * >  You are charged for coordinator node resources of more than 8 CUs.
      * @example 8 CU
      *
      * @var int
@@ -237,7 +254,7 @@ class CreateDBInstanceRequest extends Model
     public $period;
 
     /**
-     * @description The private IP address of the instance.
+     * @description This parameter is no longer used.
      *
      * @example 1.1.1.*
      *
@@ -336,6 +353,9 @@ class CreateDBInstanceRequest extends Model
     public $serverlessResource;
 
     /**
+     * @description The ID of the source instance.
+     *
+     * >  You can call the [DescribeDBInstances](~~86911~~) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
      * @example gp-bp***************
      *
      * @var string
@@ -343,9 +363,9 @@ class CreateDBInstanceRequest extends Model
     public $srcDbInstanceName;
 
     /**
-     * @description The storage capacity of the instance. Unit: GB. Valid values: 50 to 4000.
+     * @description The storage capacity of the instance. Unit: GB. Valid values: 50 to 6000.
      *
-     * > This parameter must be specified when you create an instance in elastic storage mode.
+     * >  This parameter must be specified when you create an instance in elastic storage mode.
      * @example 200
      *
      * @var int
@@ -381,7 +401,12 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The VPC ID of the instance.
      *
-     * - The region where the VPC resides must be the same as the region that is specified by RegionId.
+     * >
+     *
+     *   **This parameter** must be specified.
+     *
+     *   The region where the **VPC** resides must be the same as the region that is specified by **RegionId**.
+     *
      * @example vpc-bp*******************
      *
      * @var string
@@ -391,7 +416,12 @@ class CreateDBInstanceRequest extends Model
     /**
      * @description The vSwitch ID of the instance.
      *
-     * - The zone where the vSwitch resides must be the same as the zone that is specified by ZoneId.
+     * >
+     *
+     *   **This parameter** must be specified.
+     *
+     *   The zone where the **vSwitch** resides must be the same as the zone that is specified by **ZoneId**.
+     *
      * @example vsw-bp*******************
      *
      * @var string
@@ -399,12 +429,17 @@ class CreateDBInstanceRequest extends Model
     public $vSwitchId;
 
     /**
-     * @description Specifies whether to enable vector engine optimization. Valid values:
+     * @description Specifies whether to enable vector search engine optimization. Valid values:
      *
-     * - **enabled**
-     * - **disabled** (default)
+     *   **enabled**
+     *   **disabled** (default)
      *
-     * - We recommend that you enable vector engine optimization in AI Generated Content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
+     * >
+     *
+     *   We recommend that you **do not enable** vector search engine optimization in mainstream analysis, data warehousing, and real-time data warehousing scenarios.
+     *
+     *   We recommend that you **enable** vector search engine optimization in AI-generated content (AIGC) and vector retrieval scenarios that require the vector analysis engine.
+     *
      * @example enabled
      *
      * @var string
