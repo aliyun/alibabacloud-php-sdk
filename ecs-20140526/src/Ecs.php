@@ -1581,7 +1581,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
      *   *
      * Deprecated
      *
@@ -1637,7 +1637,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : AssociateEipAddress is deprecated, please use Vpc::2016-04-28::AssociateEipAddress instead.
      *   *
      * Deprecated
      *
@@ -3140,9 +3140,9 @@ class Ecs extends OpenApiClient
 
     /**
      * When you call this operation, take note of the following items:
-     *   * *   New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
-     *   * *   Encrypted snapshots cannot be copied.
-     *   * *   Local snapshots cannot be copied.
+     *   * - New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
+     *   * - Encrypted snapshots cannot be copied.
+     *   * - Local snapshots cannot be copied.
      *   *
      * @param CopySnapshotRequest $request CopySnapshotRequest
      * @param RuntimeOptions      $runtime runtime options for this request RuntimeOptions
@@ -3218,9 +3218,9 @@ class Ecs extends OpenApiClient
 
     /**
      * When you call this operation, take note of the following items:
-     *   * *   New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
-     *   * *   Encrypted snapshots cannot be copied.
-     *   * *   Local snapshots cannot be copied.
+     *   * - New snapshots (copies) cannot be used to roll back disks from which the source snapshots (originals) were created.
+     *   * - Encrypted snapshots cannot be copied.
+     *   * - Local snapshots cannot be copied.
      *   *
      * @param CopySnapshotRequest $request CopySnapshotRequest
      *
@@ -8691,7 +8691,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead.
      *   *
      * Deprecated
      *
@@ -8747,7 +8747,7 @@ class Ecs extends OpenApiClient
     }
 
     /**
-     * @deprecated
+     * @deprecated : DeleteNetworkInterfacePermission is deprecated, please use Ecs::2014-05-26::DeleteNetworkInterface instead.
      *   *
      * Deprecated
      *
@@ -25002,6 +25002,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
         }
+        if (!Utils::isUnset($request->retentionDays)) {
+            $query['RetentionDays'] = $request->retentionDays;
+        }
         if (!Utils::isUnset($request->snapshotId)) {
             $query['SnapshotId'] = $request->snapshotId;
         }
@@ -28582,6 +28585,9 @@ class Ecs extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->commandLine)) {
+            $query['CommandLine'] = $request->commandLine;
+        }
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
@@ -28605,6 +28611,9 @@ class Ecs extends OpenApiClient
         }
         if (!Utils::isUnset($request->resourceOwnerId)) {
             $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->targetServer)) {
+            $query['TargetServer'] = $request->targetServer;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

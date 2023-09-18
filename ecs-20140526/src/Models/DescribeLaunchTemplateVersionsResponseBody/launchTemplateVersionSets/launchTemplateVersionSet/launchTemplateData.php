@@ -35,6 +35,11 @@ class launchTemplateData extends Model
     public $dataDisks;
 
     /**
+     * @description Specifies whether to enable release protection for the instance. This parameter determines whether you can use the ECS console or call the [DeleteInstance](~~25507~~) operation to release the instance. Valid values:
+     *
+     * >This parameter is applicable only to pay-as-you-go instances. It can protect instances against manual releases, but not against automatic releases.
+     * @example false
+     *
      * @var bool
      */
     public $deletionProtection;

@@ -9,6 +9,16 @@ use AlibabaCloud\Tea\Model;
 class StartTerminalSessionRequest extends Model
 {
     /**
+     * @description If you set this parameter to the IP address of an instance, the PortNumber parameter specifies the port number of the instance.
+     *
+     * >If you specify `CommandLine`, you do not need to specify `PortNumber` or `TargetServer`.
+     * @example ssh root@192.168.0.246
+     *
+     * @var string
+     */
+    public $commandLine;
+
+    /**
      * @description The instance IDs.
      *
      * @var string[]
@@ -53,7 +63,18 @@ class StartTerminalSessionRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @description The IP address of the instance.
+     *
+     * >If you set this parameter to the IP address of an instance, the `PortNumber` parameter specifies the port number of the instance.
+     * @example 192.168.0.246
+     *
+     * @var string
+     */
+    public $targetServer;
     protected $_name = [
+        'commandLine'          => 'CommandLine',
         'instanceId'           => 'InstanceId',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
@@ -61,6 +82,7 @@ class StartTerminalSessionRequest extends Model
         'regionId'             => 'RegionId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'targetServer'         => 'TargetServer',
     ];
 
     public function validate()
@@ -70,6 +92,9 @@ class StartTerminalSessionRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->commandLine) {
+            $res['CommandLine'] = $this->commandLine;
+        }
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
         }
@@ -91,6 +116,9 @@ class StartTerminalSessionRequest extends Model
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
         }
+        if (null !== $this->targetServer) {
+            $res['TargetServer'] = $this->targetServer;
+        }
 
         return $res;
     }
@@ -103,6 +131,9 @@ class StartTerminalSessionRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CommandLine'])) {
+            $model->commandLine = $map['CommandLine'];
+        }
         if (isset($map['InstanceId'])) {
             if (!empty($map['InstanceId'])) {
                 $model->instanceId = $map['InstanceId'];
@@ -125,6 +156,9 @@ class StartTerminalSessionRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['TargetServer'])) {
+            $model->targetServer = $map['TargetServer'];
         }
 
         return $model;

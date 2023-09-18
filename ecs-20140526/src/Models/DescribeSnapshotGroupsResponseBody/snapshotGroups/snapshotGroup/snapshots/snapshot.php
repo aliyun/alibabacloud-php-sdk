@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @var bool
+     */
+    public $available;
+
+    /**
      * @description Indicates whether the instant access feature was enabled. Valid values:
      *
      *   true: The instant access feature was enabled. This feature can be enabled only for enhanced SSDs (ESSDs).
@@ -76,6 +81,7 @@ class snapshot extends Model
      */
     public $tags;
     protected $_name = [
+        'available'                  => 'Available',
         'instantAccess'              => 'InstantAccess',
         'instantAccessRetentionDays' => 'InstantAccessRetentionDays',
         'progress'                   => 'Progress',
@@ -92,6 +98,9 @@ class snapshot extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->available) {
+            $res['Available'] = $this->available;
+        }
         if (null !== $this->instantAccess) {
             $res['InstantAccess'] = $this->instantAccess;
         }
@@ -125,6 +134,9 @@ class snapshot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Available'])) {
+            $model->available = $map['Available'];
+        }
         if (isset($map['InstantAccess'])) {
             $model->instantAccess = $map['InstantAccess'];
         }

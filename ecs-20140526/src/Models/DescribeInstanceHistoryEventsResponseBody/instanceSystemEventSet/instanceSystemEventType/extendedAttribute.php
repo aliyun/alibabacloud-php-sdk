@@ -125,6 +125,11 @@ class extendedAttribute extends Model
     public $rack;
 
     /**
+     * @description The response result of the event. Valid values:
+     *
+     * - false: The event failed to be handled.
+     * @example true
+     *
      * @var string
      */
     public $responseResult;

@@ -59,6 +59,11 @@ class ModifySnapshotAttributeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @var int
+     */
+    public $retentionDays;
+
+    /**
      * @description The ID of the snapshot.
      *
      * @example s-bp199lyny9bb47pa****
@@ -83,6 +88,7 @@ class ModifySnapshotAttributeRequest extends Model
         'ownerId'              => 'OwnerId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'retentionDays'        => 'RetentionDays',
         'snapshotId'           => 'SnapshotId',
         'snapshotName'         => 'SnapshotName',
     ];
@@ -111,6 +117,9 @@ class ModifySnapshotAttributeRequest extends Model
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->retentionDays) {
+            $res['RetentionDays'] = $this->retentionDays;
         }
         if (null !== $this->snapshotId) {
             $res['SnapshotId'] = $this->snapshotId;
@@ -147,6 +156,9 @@ class ModifySnapshotAttributeRequest extends Model
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['RetentionDays'])) {
+            $model->retentionDays = $map['RetentionDays'];
         }
         if (isset($map['SnapshotId'])) {
             $model->snapshotId = $map['SnapshotId'];

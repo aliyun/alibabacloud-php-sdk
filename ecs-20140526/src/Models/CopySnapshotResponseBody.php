@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CopySnapshotResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example C8B26B44-0189-443E-9816-D951F596****
      *

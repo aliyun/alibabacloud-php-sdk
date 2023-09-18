@@ -81,6 +81,11 @@ class RunInstancesRequest extends Model
     public $arn;
 
     /**
+     * @description Specifies whether to automatically complete the payment for instance creation. Valid values:
+     *
+     * Default value: true.
+     * @example true
+     *
      * @var bool
      */
     public $autoPay;

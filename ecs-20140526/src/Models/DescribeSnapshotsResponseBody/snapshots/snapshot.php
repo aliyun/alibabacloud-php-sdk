@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class snapshot extends Model
 {
     /**
+     * @var bool
+     */
+    public $available;
+
+    /**
      * @description The type of the snapshot.
      *
      * >  This parameter will be deprecated in the future. We recommend that you use `InstantAccess` to ensure future compatibility.
@@ -263,6 +268,7 @@ class snapshot extends Model
      */
     public $usage;
     protected $_name = [
+        'available'                  => 'Available',
         'category'                   => 'Category',
         'creationTime'               => 'CreationTime',
         'description'                => 'Description',
@@ -298,6 +304,9 @@ class snapshot extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->available) {
+            $res['Available'] = $this->available;
+        }
         if (null !== $this->category) {
             $res['Category'] = $this->category;
         }
@@ -388,6 +397,9 @@ class snapshot extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Available'])) {
+            $model->available = $map['Available'];
+        }
         if (isset($map['Category'])) {
             $model->category = $map['Category'];
         }
