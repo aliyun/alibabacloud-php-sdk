@@ -9,6 +9,10 @@ use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CancelVideoTaskShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientAuthRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientAuthResponse;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientStartRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\ClientStartResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\CloseTimedResetOperateResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\Create2dAvatarRequest;
@@ -35,6 +39,8 @@ use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryTimedResetOperateStatusRespons
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\QueryVideoTaskInfoShrinkRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\Render3dAvatarRequest;
+use AlibabaCloud\SDK\Avatar\V20220130\Models\Render3dAvatarResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandRequest;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandResponse;
 use AlibabaCloud\SDK\Avatar\V20220130\Models\SendCommandShrinkRequest;
@@ -158,6 +164,110 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->cancelVideoTaskWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClientAuthRequest $request
+     * @param RuntimeOptions    $runtime
+     *
+     * @return ClientAuthResponse
+     */
+    public function clientAuthWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->deviceId)) {
+            $query['DeviceId'] = $request->deviceId;
+        }
+        if (!Utils::isUnset($request->deviceInfo)) {
+            $query['DeviceInfo'] = $request->deviceInfo;
+        }
+        if (!Utils::isUnset($request->deviceType)) {
+            $query['DeviceType'] = $request->deviceType;
+        }
+        if (!Utils::isUnset($request->license)) {
+            $query['License'] = $request->license;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClientAuth',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClientAuthResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClientAuthRequest $request
+     *
+     * @return ClientAuthResponse
+     */
+    public function clientAuth($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clientAuthWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ClientStartRequest $request
+     * @param RuntimeOptions     $runtime
+     *
+     * @return ClientStartResponse
+     */
+    public function clientStartWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ClientStart',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ClientStartResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ClientStartRequest $request
+     *
+     * @return ClientStartResponse
+     */
+    public function clientStart($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->clientStartWithOptions($request, $runtime);
     }
 
     /**
@@ -759,6 +869,55 @@ class Avatar extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryVideoTaskInfoWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param Render3dAvatarRequest $request
+     * @param RuntimeOptions        $runtime
+     *
+     * @return Render3dAvatarResponse
+     */
+    public function render3dAvatarWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->appId)) {
+            $query['AppId'] = $request->appId;
+        }
+        if (!Utils::isUnset($request->code)) {
+            $query['Code'] = $request->code;
+        }
+        if (!Utils::isUnset($request->tenantId)) {
+            $query['TenantId'] = $request->tenantId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'Render3dAvatar',
+            'version'     => '2022-01-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return Render3dAvatarResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param Render3dAvatarRequest $request
+     *
+     * @return Render3dAvatarResponse
+     */
+    public function render3dAvatar($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->render3dAvatarWithOptions($request, $runtime);
     }
 
     /**
