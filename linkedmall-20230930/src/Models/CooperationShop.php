@@ -23,8 +23,8 @@ class CooperationShop extends Model
      */
     public $shopId;
     protected $_name = [
-        'cooperationCompanyId' => 'CooperationCompanyId',
-        'cooperationShopId'    => 'CooperationShopId',
+        'cooperationCompanyId' => 'cooperationCompanyId',
+        'cooperationShopId'    => 'cooperationShopId',
         'shopId'               => 'shopId',
     ];
 
@@ -36,10 +36,10 @@ class CooperationShop extends Model
     {
         $res = [];
         if (null !== $this->cooperationCompanyId) {
-            $res['CooperationCompanyId'] = $this->cooperationCompanyId;
+            $res['cooperationCompanyId'] = $this->cooperationCompanyId;
         }
         if (null !== $this->cooperationShopId) {
-            $res['CooperationShopId'] = $this->cooperationShopId;
+            $res['cooperationShopId'] = $this->cooperationShopId;
         }
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
@@ -56,11 +56,11 @@ class CooperationShop extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['CooperationCompanyId'])) {
-            $model->cooperationCompanyId = $map['CooperationCompanyId'];
+        if (isset($map['cooperationCompanyId'])) {
+            $model->cooperationCompanyId = $map['cooperationCompanyId'];
         }
-        if (isset($map['CooperationShopId'])) {
-            $model->cooperationShopId = $map['CooperationShopId'];
+        if (isset($map['cooperationShopId'])) {
+            $model->cooperationShopId = $map['cooperationShopId'];
         }
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];
