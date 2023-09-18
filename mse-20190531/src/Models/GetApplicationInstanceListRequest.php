@@ -41,14 +41,14 @@ class GetApplicationInstanceListRequest extends Model
     /**
      * @example 1
      *
-     * @var string
+     * @var int
      */
     public $pageNumber;
 
     /**
      * @example 20
      *
-     * @var string
+     * @var int
      */
     public $pageSize;
 

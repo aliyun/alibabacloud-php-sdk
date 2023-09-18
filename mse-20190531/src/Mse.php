@@ -131,8 +131,6 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationInstanceListResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListResponse;
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListWithMetircsRequest;
-use AlibabaCloud\SDK\Mse\V20190531\Models\GetApplicationListWithMetircsResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetAppMessageQueueRouteResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\GetBlackWhiteListRequest;
@@ -4224,78 +4222,6 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getApplicationListWithOptions($request, $runtime);
-    }
-
-    /**
-     * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
-     *   *
-     * Deprecated
-     *
-     * @param GetApplicationListWithMetircsRequest $request GetApplicationListWithMetircsRequest
-     * @param RuntimeOptions                       $runtime runtime options for this request RuntimeOptions
-     *
-     * @return GetApplicationListWithMetircsResponse GetApplicationListWithMetircsResponse
-     */
-    public function getApplicationListWithMetircsWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->acceptLanguage)) {
-            $query['AcceptLanguage'] = $request->acceptLanguage;
-        }
-        if (!Utils::isUnset($request->appId)) {
-            $query['AppId'] = $request->appId;
-        }
-        if (!Utils::isUnset($request->appName)) {
-            $query['AppName'] = $request->appName;
-        }
-        if (!Utils::isUnset($request->namespace_)) {
-            $query['Namespace'] = $request->namespace_;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['PageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['PageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->region)) {
-            $query['Region'] = $request->region;
-        }
-        if (!Utils::isUnset($request->source)) {
-            $query['Source'] = $request->source;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetApplicationListWithMetircs',
-            'version'     => '2019-05-31',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetApplicationListWithMetircsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @deprecated : GetApplicationListWithMetircs is deprecated, please use mse::2019-05-31::GetApplicationList instead.
-     *   *
-     * Deprecated
-     *
-     * @param GetApplicationListWithMetircsRequest $request GetApplicationListWithMetircsRequest
-     *
-     * @return GetApplicationListWithMetircsResponse GetApplicationListWithMetircsResponse
-     */
-    public function getApplicationListWithMetircs($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->getApplicationListWithMetircsWithOptions($request, $runtime);
     }
 
     /**
