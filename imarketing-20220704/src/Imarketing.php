@@ -42,6 +42,8 @@ use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ListSpecificAdShrinkRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryAuditResultResponse;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryBenefitGrantResultRequest;
+use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryBenefitGrantResultResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryOrderRequest;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\QueryOrderResponse;
 use AlibabaCloud\SDK\Imarketing\V20220704\Models\ReportImpressionRequest;
@@ -988,6 +990,52 @@ class Imarketing extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryAuditResultWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryBenefitGrantResultRequest $request
+     * @param RuntimeOptions                 $runtime
+     *
+     * @return QueryBenefitGrantResultResponse
+     */
+    public function queryBenefitGrantResultWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->cloducodeFlowNo)) {
+            $body['CloducodeFlowNo'] = $request->cloducodeFlowNo;
+        }
+        if (!Utils::isUnset($request->outerCustomerId)) {
+            $body['OuterCustomerId'] = $request->outerCustomerId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryBenefitGrantResult',
+            'version'     => '2022-07-04',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryBenefitGrantResultResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryBenefitGrantResultRequest $request
+     *
+     * @return QueryBenefitGrantResultResponse
+     */
+    public function queryBenefitGrantResult($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryBenefitGrantResultWithOptions($request, $runtime);
     }
 
     /**

@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class app extends Model
 {
     /**
+     * @var string
+     */
+    public $appid;
+
+    /**
      * @var mixed[]
      */
     public $ext;
@@ -23,6 +28,7 @@ class app extends Model
      */
     public $sn;
     protected $_name = [
+        'appid'   => 'Appid',
         'ext'     => 'Ext',
         'mediaid' => 'Mediaid',
         'sn'      => 'Sn',
@@ -35,6 +41,9 @@ class app extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->appid) {
+            $res['Appid'] = $this->appid;
+        }
         if (null !== $this->ext) {
             $res['Ext'] = $this->ext;
         }
@@ -56,6 +65,9 @@ class app extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['Appid'])) {
+            $model->appid = $map['Appid'];
+        }
         if (isset($map['Ext'])) {
             $model->ext = $map['Ext'];
         }
