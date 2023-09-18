@@ -16,13 +16,6 @@ class RefundRenderResult extends Model
     public $bizClaimType;
 
     /**
-     * @example true
-     *
-     * @var bool
-     */
-    public $mainOrderRefund;
-
-    /**
      * @var DistributionMaxRefundFee
      */
     public $maxRefundFeeData;
@@ -47,7 +40,6 @@ class RefundRenderResult extends Model
     public $requestId;
     protected $_name = [
         'bizClaimType'     => 'bizClaimType',
-        'mainOrderRefund'  => 'mainOrderRefund',
         'maxRefundFeeData' => 'maxRefundFeeData',
         'orderLineId'      => 'orderLineId',
         'refundReasonList' => 'refundReasonList',
@@ -63,9 +55,6 @@ class RefundRenderResult extends Model
         $res = [];
         if (null !== $this->bizClaimType) {
             $res['bizClaimType'] = $this->bizClaimType;
-        }
-        if (null !== $this->mainOrderRefund) {
-            $res['mainOrderRefund'] = $this->mainOrderRefund;
         }
         if (null !== $this->maxRefundFeeData) {
             $res['maxRefundFeeData'] = null !== $this->maxRefundFeeData ? $this->maxRefundFeeData->toMap() : null;
@@ -99,9 +88,6 @@ class RefundRenderResult extends Model
         $model = new self();
         if (isset($map['bizClaimType'])) {
             $model->bizClaimType = $map['bizClaimType'];
-        }
-        if (isset($map['mainOrderRefund'])) {
-            $model->mainOrderRefund = $map['mainOrderRefund'];
         }
         if (isset($map['maxRefundFeeData'])) {
             $model->maxRefundFeeData = DistributionMaxRefundFee::fromMap($map['maxRefundFeeData']);

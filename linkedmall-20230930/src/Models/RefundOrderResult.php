@@ -23,13 +23,6 @@ class RefundOrderResult extends Model
     public $disputeStatus;
 
     /**
-     * @example 1
-     *
-     * @var int
-     */
-    public $disputeType;
-
-    /**
      * @example 6692****5458
      *
      * @var string
@@ -45,7 +38,6 @@ class RefundOrderResult extends Model
     protected $_name = [
         'disputeId'     => 'disputeId',
         'disputeStatus' => 'disputeStatus',
-        'disputeType'   => 'disputeType',
         'orderLineId'   => 'orderLineId',
         'requestId'     => 'requestId',
     ];
@@ -62,9 +54,6 @@ class RefundOrderResult extends Model
         }
         if (null !== $this->disputeStatus) {
             $res['disputeStatus'] = $this->disputeStatus;
-        }
-        if (null !== $this->disputeType) {
-            $res['disputeType'] = $this->disputeType;
         }
         if (null !== $this->orderLineId) {
             $res['orderLineId'] = $this->orderLineId;
@@ -89,9 +78,6 @@ class RefundOrderResult extends Model
         }
         if (isset($map['disputeStatus'])) {
             $model->disputeStatus = $map['disputeStatus'];
-        }
-        if (isset($map['disputeType'])) {
-            $model->disputeType = $map['disputeType'];
         }
         if (isset($map['orderLineId'])) {
             $model->orderLineId = $map['orderLineId'];

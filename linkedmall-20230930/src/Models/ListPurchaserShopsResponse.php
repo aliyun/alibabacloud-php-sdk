@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetShopResponse extends Model
+class ListPurchaserShopsResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class GetShopResponse extends Model
     public $statusCode;
 
     /**
-     * @var Shop
+     * @var ShopPageResult
      */
     public $body;
     protected $_name = [
@@ -53,7 +53,7 @@ class GetShopResponse extends Model
     /**
      * @param array $map
      *
-     * @return GetShopResponse
+     * @return ListPurchaserShopsResponse
      */
     public static function fromMap($map = [])
     {
@@ -65,7 +65,7 @@ class GetShopResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = Shop::fromMap($map['body']);
+            $model->body = ShopPageResult::fromMap($map['body']);
         }
 
         return $model;

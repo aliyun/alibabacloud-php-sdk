@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListSkuSaleInfosResponse extends Model
+class ListSelectionSkuSaleInfosResponse extends Model
 {
     /**
      * @var string[]
@@ -53,7 +53,7 @@ class ListSkuSaleInfosResponse extends Model
     /**
      * @param array $map
      *
-     * @return ListSkuSaleInfosResponse
+     * @return ListSelectionSkuSaleInfosResponse
      */
     public static function fromMap($map = [])
     {

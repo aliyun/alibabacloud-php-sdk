@@ -23,18 +23,18 @@ class ProductDTO extends Model
     public $productId;
 
     /**
+     * @example 56****2304
+     *
+     * @var string
+     */
+    public $purchaserId;
+
+    /**
      * @example 1
      *
      * @var int
      */
     public $quantity;
-
-    /**
-     * @example 22****09
-     *
-     * @var string
-     */
-    public $shopId;
 
     /**
      * @example 6600****6737
@@ -43,11 +43,11 @@ class ProductDTO extends Model
      */
     public $skuId;
     protected $_name = [
-        'price'     => 'price',
-        'productId' => 'productId',
-        'quantity'  => 'quantity',
-        'shopId'    => 'shopId',
-        'skuId'     => 'skuId',
+        'price'       => 'price',
+        'productId'   => 'productId',
+        'purchaserId' => 'purchaserId',
+        'quantity'    => 'quantity',
+        'skuId'       => 'skuId',
     ];
 
     public function validate()
@@ -63,11 +63,11 @@ class ProductDTO extends Model
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
+        if (null !== $this->purchaserId) {
+            $res['purchaserId'] = $this->purchaserId;
+        }
         if (null !== $this->quantity) {
             $res['quantity'] = $this->quantity;
-        }
-        if (null !== $this->shopId) {
-            $res['shopId'] = $this->shopId;
         }
         if (null !== $this->skuId) {
             $res['skuId'] = $this->skuId;
@@ -90,11 +90,11 @@ class ProductDTO extends Model
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
+        if (isset($map['purchaserId'])) {
+            $model->purchaserId = $map['purchaserId'];
+        }
         if (isset($map['quantity'])) {
             $model->quantity = $map['quantity'];
-        }
-        if (isset($map['shopId'])) {
-            $model->shopId = $map['shopId'];
         }
         if (isset($map['skuId'])) {
             $model->skuId = $map['skuId'];

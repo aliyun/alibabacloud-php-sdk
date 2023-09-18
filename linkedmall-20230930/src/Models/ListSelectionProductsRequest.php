@@ -6,30 +6,32 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ProductSaleInfoListQuery extends Model
+class ListSelectionProductsRequest extends Model
 {
     /**
-     * @example 110000
+     * @example 1
      *
-     * @var string
+     * @var int
      */
-    public $divisionCode;
+    public $pageNumber;
 
     /**
-     * @var string[]
+     * @example 10
+     *
+     * @var int
      */
-    public $productIds;
+    public $pageSize;
 
     /**
-     * @example 22000009
+     * @example 56****2304
      *
      * @var string
      */
     public $purchaserId;
     protected $_name = [
-        'divisionCode' => 'divisionCode',
-        'productIds'   => 'productIds',
-        'purchaserId'  => 'purchaserId',
+        'pageNumber'  => 'pageNumber',
+        'pageSize'    => 'pageSize',
+        'purchaserId' => 'purchaserId',
     ];
 
     public function validate()
@@ -39,11 +41,11 @@ class ProductSaleInfoListQuery extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->divisionCode) {
-            $res['divisionCode'] = $this->divisionCode;
+        if (null !== $this->pageNumber) {
+            $res['pageNumber'] = $this->pageNumber;
         }
-        if (null !== $this->productIds) {
-            $res['productIds'] = $this->productIds;
+        if (null !== $this->pageSize) {
+            $res['pageSize'] = $this->pageSize;
         }
         if (null !== $this->purchaserId) {
             $res['purchaserId'] = $this->purchaserId;
@@ -55,18 +57,16 @@ class ProductSaleInfoListQuery extends Model
     /**
      * @param array $map
      *
-     * @return ProductSaleInfoListQuery
+     * @return ListSelectionProductsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['divisionCode'])) {
-            $model->divisionCode = $map['divisionCode'];
+        if (isset($map['pageNumber'])) {
+            $model->pageNumber = $map['pageNumber'];
         }
-        if (isset($map['productIds'])) {
-            if (!empty($map['productIds'])) {
-                $model->productIds = $map['productIds'];
-            }
+        if (isset($map['pageSize'])) {
+            $model->pageSize = $map['pageSize'];
         }
         if (isset($map['purchaserId'])) {
             $model->purchaserId = $map['purchaserId'];

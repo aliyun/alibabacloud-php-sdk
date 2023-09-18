@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class OrderResult extends Model
 {
     /**
-     * @example 2023-09-01T12:00:00.000Z
+     * @example 2023-09-11T12:22:24.000+08:00
      *
      * @var string
      */
@@ -32,7 +32,7 @@ class OrderResult extends Model
     /**
      * @example 100
      *
-     * @var string
+     * @var int
      */
     public $orderAmount;
 
@@ -56,7 +56,7 @@ class OrderResult extends Model
     public $orderStatus;
 
     /**
-     * @example D12***111
+     * @example 841471F6-5D61-1331-8C38-2****B55
      *
      * @var string
      */

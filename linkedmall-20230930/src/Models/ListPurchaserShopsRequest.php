@@ -6,15 +6,8 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListProductsRequest extends Model
+class ListPurchaserShopsRequest extends Model
 {
-    /**
-     * @example 21000019
-     *
-     * @var string
-     */
-    public $distributorShopId;
-
     /**
      * @example 1
      *
@@ -29,9 +22,8 @@ class ListProductsRequest extends Model
      */
     public $pageSize;
     protected $_name = [
-        'distributorShopId' => 'distributorShopId',
-        'pageNumber'        => 'pageNumber',
-        'pageSize'          => 'pageSize',
+        'pageNumber' => 'pageNumber',
+        'pageSize'   => 'pageSize',
     ];
 
     public function validate()
@@ -41,9 +33,6 @@ class ListProductsRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->distributorShopId) {
-            $res['distributorShopId'] = $this->distributorShopId;
-        }
         if (null !== $this->pageNumber) {
             $res['pageNumber'] = $this->pageNumber;
         }
@@ -57,14 +46,11 @@ class ListProductsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListProductsRequest
+     * @return ListPurchaserShopsRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['distributorShopId'])) {
-            $model->distributorShopId = $map['distributorShopId'];
-        }
         if (isset($map['pageNumber'])) {
             $model->pageNumber = $map['pageNumber'];
         }

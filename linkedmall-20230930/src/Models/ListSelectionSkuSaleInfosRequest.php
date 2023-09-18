@@ -6,10 +6,10 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class ListProductGeneralBillsRequest extends Model
+class ListSelectionSkuSaleInfosRequest extends Model
 {
     /**
-     * @var GeneralBillPageQuery
+     * @var SkuSaleInfoListQuery
      */
     public $body;
     protected $_name = [
@@ -33,13 +33,13 @@ class ListProductGeneralBillsRequest extends Model
     /**
      * @param array $map
      *
-     * @return ListProductGeneralBillsRequest
+     * @return ListSelectionSkuSaleInfosRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
         if (isset($map['body'])) {
-            $model->body = GeneralBillPageQuery::fromMap($map['body']);
+            $model->body = SkuSaleInfoListQuery::fromMap($map['body']);
         }
 
         return $model;

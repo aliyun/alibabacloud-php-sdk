@@ -6,24 +6,24 @@ namespace AlibabaCloud\SDK\Linkedmall\V20230930\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class GetProductSaleInfoRequest extends Model
+class GetSelectionProductRequest extends Model
 {
-    /**
-     * @example 21000019
-     *
-     * @var string
-     */
-    public $distributorShopId;
-
     /**
      * @example 110000
      *
      * @var string
      */
     public $divisionCode;
+
+    /**
+     * @example 56****2304
+     *
+     * @var string
+     */
+    public $purchaserId;
     protected $_name = [
-        'distributorShopId' => 'distributorShopId',
-        'divisionCode'      => 'divisionCode',
+        'divisionCode' => 'divisionCode',
+        'purchaserId'  => 'purchaserId',
     ];
 
     public function validate()
@@ -33,11 +33,11 @@ class GetProductSaleInfoRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->distributorShopId) {
-            $res['distributorShopId'] = $this->distributorShopId;
-        }
         if (null !== $this->divisionCode) {
             $res['divisionCode'] = $this->divisionCode;
+        }
+        if (null !== $this->purchaserId) {
+            $res['purchaserId'] = $this->purchaserId;
         }
 
         return $res;
@@ -46,16 +46,16 @@ class GetProductSaleInfoRequest extends Model
     /**
      * @param array $map
      *
-     * @return GetProductSaleInfoRequest
+     * @return GetSelectionProductRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['distributorShopId'])) {
-            $model->distributorShopId = $map['distributorShopId'];
-        }
         if (isset($map['divisionCode'])) {
             $model->divisionCode = $map['divisionCode'];
+        }
+        if (isset($map['purchaserId'])) {
+            $model->purchaserId = $map['purchaserId'];
         }
 
         return $model;

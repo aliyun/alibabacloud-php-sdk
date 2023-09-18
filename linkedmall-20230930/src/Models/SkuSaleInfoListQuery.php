@@ -9,13 +9,6 @@ use AlibabaCloud\Tea\Model;
 class SkuSaleInfoListQuery extends Model
 {
     /**
-     * @example 21000017
-     *
-     * @var string
-     */
-    public $distributorShopId;
-
-    /**
      * @example 110000
      *
      * @var string
@@ -23,13 +16,20 @@ class SkuSaleInfoListQuery extends Model
     public $divisionCode;
 
     /**
+     * @example 21000017
+     *
+     * @var string
+     */
+    public $purchaserId;
+
+    /**
      * @var SkuQueryParam[]
      */
     public $skuQueryParams;
     protected $_name = [
-        'distributorShopId' => 'distributorShopId',
-        'divisionCode'      => 'divisionCode',
-        'skuQueryParams'    => 'skuQueryParams',
+        'divisionCode'   => 'divisionCode',
+        'purchaserId'    => 'purchaserId',
+        'skuQueryParams' => 'skuQueryParams',
     ];
 
     public function validate()
@@ -39,11 +39,11 @@ class SkuSaleInfoListQuery extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->distributorShopId) {
-            $res['distributorShopId'] = $this->distributorShopId;
-        }
         if (null !== $this->divisionCode) {
             $res['divisionCode'] = $this->divisionCode;
+        }
+        if (null !== $this->purchaserId) {
+            $res['purchaserId'] = $this->purchaserId;
         }
         if (null !== $this->skuQueryParams) {
             $res['skuQueryParams'] = [];
@@ -66,11 +66,11 @@ class SkuSaleInfoListQuery extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['distributorShopId'])) {
-            $model->distributorShopId = $map['distributorShopId'];
-        }
         if (isset($map['divisionCode'])) {
             $model->divisionCode = $map['divisionCode'];
+        }
+        if (isset($map['purchaserId'])) {
+            $model->purchaserId = $map['purchaserId'];
         }
         if (isset($map['skuQueryParams'])) {
             if (!empty($map['skuQueryParams'])) {

@@ -16,24 +16,22 @@ use AlibabaCloud\SDK\Linkedmall\V20230930\Models\CreatePurchaseOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\CreateRefundOrderRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\CreateRefundOrderResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetOrderResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetProductRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetProductResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetProductSaleInfoRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetProductSaleInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetPurchaseOrderStatusResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetPurchaserShopResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetRefundOrderResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetShopResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductSaleInfoRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\GetSelectionProductSaleInfoResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListLogisticsOrdersResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListProductGeneralBillsRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListProductGeneralBillsResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListProductSaleInfosRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListProductSaleInfosResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListProductsRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListProductsResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListShopsRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListShopsResponse;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSkuSaleInfosRequest;
-use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSkuSaleInfosResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListPurchaserShopsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListPurchaserShopsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSelectionProductSaleInfosRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSelectionProductSaleInfosResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSelectionProductsRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSelectionProductsResponse;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSelectionSkuSaleInfosRequest;
+use AlibabaCloud\SDK\Linkedmall\V20230930\Models\ListSelectionSkuSaleInfosResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\QueryChildDivisionCodeRequest;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\QueryChildDivisionCodeResponse;
 use AlibabaCloud\SDK\Linkedmall\V20230930\Models\QueryOrdersRequest;
@@ -153,7 +151,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'CancelRefundOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '/commands/cancel',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '/commands/cancel',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -195,7 +193,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'ConfirmDisburse',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/commands/confirmDisburse',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/confirmDisburse',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -237,7 +235,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'CreateGoodsShippingNotice',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/command/createGoodsShippingNotice',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/command/createGoodsShippingNotice',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -279,7 +277,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'CreatePurchaseOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -321,7 +319,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'CreateRefundOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -361,7 +359,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -386,108 +384,6 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param string            $productId
-     * @param GetProductRequest $request
-     * @param string[]          $headers
-     * @param RuntimeOptions    $runtime
-     *
-     * @return GetProductResponse
-     */
-    public function getProductWithOptions($productId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->distributorShopId)) {
-            $query['distributorShopId'] = $request->distributorShopId;
-        }
-        if (!Utils::isUnset($request->divisionCode)) {
-            $query['divisionCode'] = $request->divisionCode;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetProduct',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/' . OpenApiUtilClient::getEncodeParam($productId) . '',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetProductResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string            $productId
-     * @param GetProductRequest $request
-     *
-     * @return GetProductResponse
-     */
-    public function getProduct($productId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getProductWithOptions($productId, $request, $headers, $runtime);
-    }
-
-    /**
-     * @param string                    $productId
-     * @param GetProductSaleInfoRequest $request
-     * @param string[]                  $headers
-     * @param RuntimeOptions            $runtime
-     *
-     * @return GetProductSaleInfoResponse
-     */
-    public function getProductSaleInfoWithOptions($productId, $request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->distributorShopId)) {
-            $query['distributorShopId'] = $request->distributorShopId;
-        }
-        if (!Utils::isUnset($request->divisionCode)) {
-            $query['divisionCode'] = $request->divisionCode;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'GetProductSaleInfo',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/' . OpenApiUtilClient::getEncodeParam($productId) . '/saleInfo',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return GetProductSaleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param string                    $productId
-     * @param GetProductSaleInfoRequest $request
-     *
-     * @return GetProductSaleInfoResponse
-     */
-    public function getProductSaleInfo($productId, $request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->getProductSaleInfoWithOptions($productId, $request, $headers, $runtime);
-    }
-
-    /**
      * @param string         $purchaseOrderId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -503,7 +399,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetPurchaseOrderStatus',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders/' . OpenApiUtilClient::getEncodeParam($purchaseOrderId) . '/status',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/' . OpenApiUtilClient::getEncodeParam($purchaseOrderId) . '/status',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -528,6 +424,46 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
+     * @param string         $purchaserId
+     * @param string[]       $headers
+     * @param RuntimeOptions $runtime
+     *
+     * @return GetPurchaserShopResponse
+     */
+    public function getPurchaserShopWithOptions($purchaserId, $headers, $runtime)
+    {
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+        ]);
+        $params = new Params([
+            'action'      => 'GetPurchaserShop',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops/' . OpenApiUtilClient::getEncodeParam($purchaserId) . '',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetPurchaserShopResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string $purchaserId
+     *
+     * @return GetPurchaserShopResponse
+     */
+    public function getPurchaserShop($purchaserId)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getPurchaserShopWithOptions($purchaserId, $headers, $runtime);
+    }
+
+    /**
      * @param string         $disputeId
      * @param string[]       $headers
      * @param RuntimeOptions $runtime
@@ -543,7 +479,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'GetRefundOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/' . OpenApiUtilClient::getEncodeParam($disputeId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -568,22 +504,32 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param string         $shopId
-     * @param string[]       $headers
-     * @param RuntimeOptions $runtime
+     * @param string                     $productId
+     * @param GetSelectionProductRequest $request
+     * @param string[]                   $headers
+     * @param RuntimeOptions             $runtime
      *
-     * @return GetShopResponse
+     * @return GetSelectionProductResponse
      */
-    public function getShopWithOptions($shopId, $headers, $runtime)
+    public function getSelectionProductWithOptions($productId, $request, $headers, $runtime)
     {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['divisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->purchaserId)) {
+            $query['purchaserId'] = $request->purchaserId;
+        }
         $req = new OpenApiRequest([
             'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'GetShop',
+            'action'      => 'GetSelectionProduct',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/shops/' . OpenApiUtilClient::getEncodeParam($shopId) . '',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -591,20 +537,72 @@ class Linkedmall extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return GetShopResponse::fromMap($this->callApi($params, $req, $runtime));
+        return GetSelectionProductResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param string $shopId
+     * @param string                     $productId
+     * @param GetSelectionProductRequest $request
      *
-     * @return GetShopResponse
+     * @return GetSelectionProductResponse
      */
-    public function getShop($shopId)
+    public function getSelectionProduct($productId, $request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->getShopWithOptions($shopId, $headers, $runtime);
+        return $this->getSelectionProductWithOptions($productId, $request, $headers, $runtime);
+    }
+
+    /**
+     * @param string                             $productId
+     * @param GetSelectionProductSaleInfoRequest $request
+     * @param string[]                           $headers
+     * @param RuntimeOptions                     $runtime
+     *
+     * @return GetSelectionProductSaleInfoResponse
+     */
+    public function getSelectionProductSaleInfoWithOptions($productId, $request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->divisionCode)) {
+            $query['divisionCode'] = $request->divisionCode;
+        }
+        if (!Utils::isUnset($request->purchaserId)) {
+            $query['purchaserId'] = $request->purchaserId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetSelectionProductSaleInfo',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/' . OpenApiUtilClient::getEncodeParam($productId) . '/saleInfo',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetSelectionProductSaleInfoResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param string                             $productId
+     * @param GetSelectionProductSaleInfoRequest $request
+     *
+     * @return GetSelectionProductSaleInfoResponse
+     */
+    public function getSelectionProductSaleInfo($productId, $request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->getSelectionProductSaleInfoWithOptions($productId, $request, $headers, $runtime);
     }
 
     /**
@@ -623,7 +621,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'ListLogisticsOrders',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '/logisticsOrders',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/' . OpenApiUtilClient::getEncodeParam($orderId) . '/logisticsOrders',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -648,103 +646,16 @@ class Linkedmall extends OpenApiClient
     }
 
     /**
-     * @param ListProductGeneralBillsRequest $request
-     * @param string[]                       $headers
-     * @param RuntimeOptions                 $runtime
+     * @param ListPurchaserShopsRequest $request
+     * @param string[]                  $headers
+     * @param RuntimeOptions            $runtime
      *
-     * @return ListProductGeneralBillsResponse
+     * @return ListPurchaserShopsResponse
      */
-    public function listProductGeneralBillsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListProductGeneralBills',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/productGeneralBills',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListProductGeneralBillsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListProductGeneralBillsRequest $request
-     *
-     * @return ListProductGeneralBillsResponse
-     */
-    public function listProductGeneralBills($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listProductGeneralBillsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListProductSaleInfosRequest $request
-     * @param string[]                    $headers
-     * @param RuntimeOptions              $runtime
-     *
-     * @return ListProductSaleInfosResponse
-     */
-    public function listProductSaleInfosWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'body'    => OpenApiUtilClient::parseToMap($request->body),
-        ]);
-        $params = new Params([
-            'action'      => 'ListProductSaleInfos',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/products/saleInfo/commands/list',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListProductSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListProductSaleInfosRequest $request
-     *
-     * @return ListProductSaleInfosResponse
-     */
-    public function listProductSaleInfos($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listProductSaleInfosWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListProductsRequest $request
-     * @param string[]            $headers
-     * @param RuntimeOptions      $runtime
-     *
-     * @return ListProductsResponse
-     */
-    public function listProductsWithOptions($request, $headers, $runtime)
+    public function listPurchaserShopsWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $query = [];
-        if (!Utils::isUnset($request->distributorShopId)) {
-            $query['distributorShopId'] = $request->distributorShopId;
-        }
         if (!Utils::isUnset($request->pageNumber)) {
             $query['pageNumber'] = $request->pageNumber;
         }
@@ -756,10 +667,10 @@ class Linkedmall extends OpenApiClient
             'query'   => OpenApiUtilClient::query($query),
         ]);
         $params = new Params([
-            'action'      => 'ListProducts',
+            'action'      => 'ListPurchaserShops',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/products',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaserShops',
             'method'      => 'GET',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -767,94 +678,30 @@ class Linkedmall extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListPurchaserShopsResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListProductsRequest $request
+     * @param ListPurchaserShopsRequest $request
      *
-     * @return ListProductsResponse
+     * @return ListPurchaserShopsResponse
      */
-    public function listProducts($request)
+    public function listPurchaserShops($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listProductsWithOptions($request, $headers, $runtime);
+        return $this->listPurchaserShopsWithOptions($request, $headers, $runtime);
     }
 
     /**
-     * @param ListShopsRequest $request
-     * @param string[]         $headers
-     * @param RuntimeOptions   $runtime
+     * @param ListSelectionProductSaleInfosRequest $request
+     * @param string[]                             $headers
+     * @param RuntimeOptions                       $runtime
      *
-     * @return ListShopsResponse
+     * @return ListSelectionProductSaleInfosResponse
      */
-    public function listShopsWithOptions($request, $headers, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->channelSupplierId)) {
-            $query['channelSupplierId'] = $request->channelSupplierId;
-        }
-        if (!Utils::isUnset($request->endDate)) {
-            $query['endDate'] = $request->endDate;
-        }
-        if (!Utils::isUnset($request->pageNumber)) {
-            $query['pageNumber'] = $request->pageNumber;
-        }
-        if (!Utils::isUnset($request->pageSize)) {
-            $query['pageSize'] = $request->pageSize;
-        }
-        if (!Utils::isUnset($request->shopId)) {
-            $query['shopId'] = $request->shopId;
-        }
-        if (!Utils::isUnset($request->shopName)) {
-            $query['shopName'] = $request->shopName;
-        }
-        if (!Utils::isUnset($request->startDate)) {
-            $query['startDate'] = $request->startDate;
-        }
-        $req = new OpenApiRequest([
-            'headers' => $headers,
-            'query'   => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'ListShops',
-            'version'     => '2023-09-30',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/shops',
-            'method'      => 'GET',
-            'authType'    => 'AK',
-            'style'       => 'ROA',
-            'reqBodyType' => 'json',
-            'bodyType'    => 'json',
-        ]);
-
-        return ListShopsResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param ListShopsRequest $request
-     *
-     * @return ListShopsResponse
-     */
-    public function listShops($request)
-    {
-        $runtime = new RuntimeOptions([]);
-        $headers = [];
-
-        return $this->listShopsWithOptions($request, $headers, $runtime);
-    }
-
-    /**
-     * @param ListSkuSaleInfosRequest $request
-     * @param string[]                $headers
-     * @param RuntimeOptions          $runtime
-     *
-     * @return ListSkuSaleInfosResponse
-     */
-    public function listSkuSaleInfosWithOptions($request, $headers, $runtime)
+    public function listSelectionProductSaleInfosWithOptions($request, $headers, $runtime)
     {
         Utils::validateModel($request);
         $req = new OpenApiRequest([
@@ -862,10 +709,10 @@ class Linkedmall extends OpenApiClient
             'body'    => OpenApiUtilClient::parseToMap($request->body),
         ]);
         $params = new Params([
-            'action'      => 'ListSkuSaleInfos',
+            'action'      => 'ListSelectionProductSaleInfos',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/skus/saleInfo/commands/list',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products/saleInfo/commands/list',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -873,20 +720,114 @@ class Linkedmall extends OpenApiClient
             'bodyType'    => 'json',
         ]);
 
-        return ListSkuSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+        return ListSelectionProductSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
     }
 
     /**
-     * @param ListSkuSaleInfosRequest $request
+     * @param ListSelectionProductSaleInfosRequest $request
      *
-     * @return ListSkuSaleInfosResponse
+     * @return ListSelectionProductSaleInfosResponse
      */
-    public function listSkuSaleInfos($request)
+    public function listSelectionProductSaleInfos($request)
     {
         $runtime = new RuntimeOptions([]);
         $headers = [];
 
-        return $this->listSkuSaleInfosWithOptions($request, $headers, $runtime);
+        return $this->listSelectionProductSaleInfosWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListSelectionProductsRequest $request
+     * @param string[]                     $headers
+     * @param RuntimeOptions               $runtime
+     *
+     * @return ListSelectionProductsResponse
+     */
+    public function listSelectionProductsWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->pageNumber)) {
+            $query['pageNumber'] = $request->pageNumber;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['pageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->purchaserId)) {
+            $query['purchaserId'] = $request->purchaserId;
+        }
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'query'   => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSelectionProducts',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/products',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSelectionProductsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSelectionProductsRequest $request
+     *
+     * @return ListSelectionProductsResponse
+     */
+    public function listSelectionProducts($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSelectionProductsWithOptions($request, $headers, $runtime);
+    }
+
+    /**
+     * @param ListSelectionSkuSaleInfosRequest $request
+     * @param string[]                         $headers
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ListSelectionSkuSaleInfosResponse
+     */
+    public function listSelectionSkuSaleInfosWithOptions($request, $headers, $runtime)
+    {
+        Utils::validateModel($request);
+        $req = new OpenApiRequest([
+            'headers' => $headers,
+            'body'    => OpenApiUtilClient::parseToMap($request->body),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSelectionSkuSaleInfos',
+            'version'     => '2023-09-30',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/selectionPool/skus/saleInfo/commands/list',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'ROA',
+            'reqBodyType' => 'json',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSelectionSkuSaleInfosResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSelectionSkuSaleInfosRequest $request
+     *
+     * @return ListSelectionSkuSaleInfosResponse
+     */
+    public function listSelectionSkuSaleInfos($request)
+    {
+        $runtime = new RuntimeOptions([]);
+        $headers = [];
+
+        return $this->listSelectionSkuSaleInfosWithOptions($request, $headers, $runtime);
     }
 
     /**
@@ -907,7 +848,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'QueryChildDivisionCode',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/division/commands/queryChildDivisionCode',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/division/commands/queryChildDivisionCode',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -949,7 +890,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'QueryOrders',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/orders/commands/query',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/orders/commands/query',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -991,7 +932,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'RenderPurchaseOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/purchaseOrders/commands/render',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/purchaseOrders/commands/render',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',
@@ -1033,7 +974,7 @@ class Linkedmall extends OpenApiClient
             'action'      => 'RenderRefundOrder',
             'version'     => '2023-09-30',
             'protocol'    => 'HTTPS',
-            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v1/refunds/commands/render',
+            'pathname'    => '/opensaas-s2b/opensaas-s2b-biz-trade/v2/refunds/commands/render',
             'method'      => 'POST',
             'authType'    => 'AK',
             'style'       => 'ROA',

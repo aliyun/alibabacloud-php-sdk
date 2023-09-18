@@ -44,6 +44,13 @@ class OrderLineResult extends Model
     public $orderLineStatus;
 
     /**
+     * @example 100
+     *
+     * @var int
+     */
+    public $payFee;
+
+    /**
      * @example 6600****6736
      *
      * @var string
@@ -56,11 +63,6 @@ class OrderLineResult extends Model
      * @var string
      */
     public $productPic;
-
-    /**
-     * @var ProductPrice[]
-     */
-    public $productPrice;
 
     /**
      * @example 儿童学习桌
@@ -88,9 +90,9 @@ class OrderLineResult extends Model
         'orderId'         => 'orderId',
         'orderLineId'     => 'orderLineId',
         'orderLineStatus' => 'orderLineStatus',
+        'payFee'          => 'payFee',
         'productId'       => 'productId',
         'productPic'      => 'productPic',
-        'productPrice'    => 'productPrice',
         'productTitle'    => 'productTitle',
         'skuId'           => 'skuId',
         'skuTitle'        => 'skuTitle',
@@ -118,20 +120,14 @@ class OrderLineResult extends Model
         if (null !== $this->orderLineStatus) {
             $res['orderLineStatus'] = $this->orderLineStatus;
         }
+        if (null !== $this->payFee) {
+            $res['payFee'] = $this->payFee;
+        }
         if (null !== $this->productId) {
             $res['productId'] = $this->productId;
         }
         if (null !== $this->productPic) {
             $res['productPic'] = $this->productPic;
-        }
-        if (null !== $this->productPrice) {
-            $res['productPrice'] = [];
-            if (null !== $this->productPrice && \is_array($this->productPrice)) {
-                $n = 0;
-                foreach ($this->productPrice as $item) {
-                    $res['productPrice'][$n++] = null !== $item ? $item->toMap() : $item;
-                }
-            }
         }
         if (null !== $this->productTitle) {
             $res['productTitle'] = $this->productTitle;
@@ -169,20 +165,14 @@ class OrderLineResult extends Model
         if (isset($map['orderLineStatus'])) {
             $model->orderLineStatus = $map['orderLineStatus'];
         }
+        if (isset($map['payFee'])) {
+            $model->payFee = $map['payFee'];
+        }
         if (isset($map['productId'])) {
             $model->productId = $map['productId'];
         }
         if (isset($map['productPic'])) {
             $model->productPic = $map['productPic'];
-        }
-        if (isset($map['productPrice'])) {
-            if (!empty($map['productPrice'])) {
-                $model->productPrice = [];
-                $n                   = 0;
-                foreach ($map['productPrice'] as $item) {
-                    $model->productPrice[$n++] = null !== $item ? ProductPrice::fromMap($item) : $item;
-                }
-            }
         }
         if (isset($map['productTitle'])) {
             $model->productTitle = $map['productTitle'];

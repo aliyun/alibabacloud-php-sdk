@@ -11,9 +11,9 @@ class ShopPageDataResult extends Model
     /**
      * @example 12****01
      *
-     * @var string
+     * @var CooperationShop[]
      */
-    public $channelSupplierId;
+    public $cooperationShops;
 
     /**
      * @example 2023-09-01 00:00:00
@@ -21,6 +21,13 @@ class ShopPageDataResult extends Model
      * @var string
      */
     public $endDate;
+
+    /**
+     * @example PID56****2304
+     *
+     * @var string
+     */
+    public $purchaserId;
 
     /**
      * @example 22****09
@@ -37,7 +44,7 @@ class ShopPageDataResult extends Model
     public $shopName;
 
     /**
-     * @example Distribution
+     * @example DistributorQYG
      *
      * @var string
      */
@@ -57,13 +64,14 @@ class ShopPageDataResult extends Model
      */
     public $status;
     protected $_name = [
-        'channelSupplierId' => 'channelSupplierId',
-        'endDate'           => 'endDate',
-        'shopId'            => 'shopId',
-        'shopName'          => 'shopName',
-        'shopType'          => 'shopType',
-        'startDate'         => 'startDate',
-        'status'            => 'status',
+        'cooperationShops' => 'cooperationShops',
+        'endDate'          => 'endDate',
+        'purchaserId'      => 'purchaserId',
+        'shopId'           => 'shopId',
+        'shopName'         => 'shopName',
+        'shopType'         => 'shopType',
+        'startDate'        => 'startDate',
+        'status'           => 'status',
     ];
 
     public function validate()
@@ -73,11 +81,20 @@ class ShopPageDataResult extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->channelSupplierId) {
-            $res['channelSupplierId'] = $this->channelSupplierId;
+        if (null !== $this->cooperationShops) {
+            $res['cooperationShops'] = [];
+            if (null !== $this->cooperationShops && \is_array($this->cooperationShops)) {
+                $n = 0;
+                foreach ($this->cooperationShops as $item) {
+                    $res['cooperationShops'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
         if (null !== $this->endDate) {
             $res['endDate'] = $this->endDate;
+        }
+        if (null !== $this->purchaserId) {
+            $res['purchaserId'] = $this->purchaserId;
         }
         if (null !== $this->shopId) {
             $res['shopId'] = $this->shopId;
@@ -106,11 +123,20 @@ class ShopPageDataResult extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['channelSupplierId'])) {
-            $model->channelSupplierId = $map['channelSupplierId'];
+        if (isset($map['cooperationShops'])) {
+            if (!empty($map['cooperationShops'])) {
+                $model->cooperationShops = [];
+                $n                       = 0;
+                foreach ($map['cooperationShops'] as $item) {
+                    $model->cooperationShops[$n++] = null !== $item ? CooperationShop::fromMap($item) : $item;
+                }
+            }
         }
         if (isset($map['endDate'])) {
             $model->endDate = $map['endDate'];
+        }
+        if (isset($map['purchaserId'])) {
+            $model->purchaserId = $map['purchaserId'];
         }
         if (isset($map['shopId'])) {
             $model->shopId = $map['shopId'];
