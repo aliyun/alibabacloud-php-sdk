@@ -3392,11 +3392,17 @@ class BtripOpen extends OpenApiClient
         if (!Utils::isUnset($request->invoiceSubTaskId)) {
             $query['invoice_sub_task_id'] = $request->invoiceSubTaskId;
         }
+        if (!Utils::isUnset($request->itineraryNum)) {
+            $query['itinerary_num'] = $request->itineraryNum;
+        }
         if (!Utils::isUnset($request->pageNo)) {
             $query['page_no'] = $request->pageNo;
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->ticketNo)) {
+            $query['ticket_no'] = $request->ticketNo;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {
@@ -8692,6 +8698,12 @@ class BtripOpen extends OpenApiClient
         }
         if (!Utils::isUnset($request->pageSize)) {
             $query['page_size'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->serialNumber)) {
+            $query['serial_number'] = $request->serialNumber;
+        }
+        if (!Utils::isUnset($request->ticketNo)) {
+            $query['ticket_no'] = $request->ticketNo;
         }
         $realHeaders = [];
         if (!Utils::isUnset($headers->commonHeaders)) {

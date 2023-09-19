@@ -6,6 +6,7 @@ namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBod
 
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\btripCancelRule;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\btripHotelCancelDesc;
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\discountDesc;
 use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelGoodsQueryResponseBody\module\rooms\rates\hotelDetailRatePriceDTO;
 use AlibabaCloud\Tea\Model;
 
@@ -89,6 +90,11 @@ class rates extends Model
      * @var string
      */
     public $dailyPriceView;
+
+    /**
+     * @var discountDesc
+     */
+    public $discountDesc;
 
     /**
      * @example demo
@@ -293,6 +299,7 @@ class rates extends Model
         'currencyCode'                   => 'currency_code',
         'dailyPriceFormatYuan'           => 'daily_price_format_yuan',
         'dailyPriceView'                 => 'daily_price_view',
+        'discountDesc'                   => 'discount_desc',
         'endTimeDaily'                   => 'end_time_daily',
         'hotelDetailRatePriceDTO'        => 'hotel_detail_rate_price_d_t_o',
         'instantConfirm'                 => 'instant_confirm',
@@ -374,6 +381,9 @@ class rates extends Model
         }
         if (null !== $this->dailyPriceView) {
             $res['daily_price_view'] = $this->dailyPriceView;
+        }
+        if (null !== $this->discountDesc) {
+            $res['discount_desc'] = null !== $this->discountDesc ? $this->discountDesc->toMap() : null;
         }
         if (null !== $this->endTimeDaily) {
             $res['end_time_daily'] = $this->endTimeDaily;
@@ -521,6 +531,9 @@ class rates extends Model
         }
         if (isset($map['daily_price_view'])) {
             $model->dailyPriceView = $map['daily_price_view'];
+        }
+        if (isset($map['discount_desc'])) {
+            $model->discountDesc = discountDesc::fromMap($map['discount_desc']);
         }
         if (isset($map['end_time_daily'])) {
             $model->endTimeDaily = $map['end_time_daily'];

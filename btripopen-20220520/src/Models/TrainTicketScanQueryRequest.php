@@ -42,12 +42,24 @@ class TrainTicketScanQueryRequest extends Model
      * @var int
      */
     public $pageSize;
+
+    /**
+     * @var string
+     */
+    public $serialNumber;
+
+    /**
+     * @var string
+     */
+    public $ticketNo;
     protected $_name = [
         'billDate'         => 'bill_date',
         'billId'           => 'bill_id',
         'invoiceSubTaskId' => 'invoice_sub_task_id',
         'pageNo'           => 'page_no',
         'pageSize'         => 'page_size',
+        'serialNumber'     => 'serial_number',
+        'ticketNo'         => 'ticket_no',
     ];
 
     public function validate()
@@ -71,6 +83,12 @@ class TrainTicketScanQueryRequest extends Model
         }
         if (null !== $this->pageSize) {
             $res['page_size'] = $this->pageSize;
+        }
+        if (null !== $this->serialNumber) {
+            $res['serial_number'] = $this->serialNumber;
+        }
+        if (null !== $this->ticketNo) {
+            $res['ticket_no'] = $this->ticketNo;
         }
 
         return $res;
@@ -98,6 +116,12 @@ class TrainTicketScanQueryRequest extends Model
         }
         if (isset($map['page_size'])) {
             $model->pageSize = $map['page_size'];
+        }
+        if (isset($map['serial_number'])) {
+            $model->serialNumber = $map['serial_number'];
+        }
+        if (isset($map['ticket_no'])) {
+            $model->ticketNo = $map['ticket_no'];
         }
 
         return $model;

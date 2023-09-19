@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchResponseBody\module;
 
+use AlibabaCloud\SDK\BtripOpen\V20220520\Models\HotelSearchResponseBody\module\items\discountDesc;
 use AlibabaCloud\Tea\Model;
 
 class items extends Model
@@ -26,6 +27,11 @@ class items extends Model
      * @var string
      */
     public $cityCode;
+
+    /**
+     * @var discountDesc
+     */
+    public $discountDesc;
 
     /**
      * @example 100
@@ -129,6 +135,7 @@ class items extends Model
         'brandName'        => 'brand_name',
         'btandCode'        => 'btand_code',
         'cityCode'         => 'city_code',
+        'discountDesc'     => 'discount_desc',
         'distance'         => 'distance',
         'districtCode'     => 'district_code',
         'hotelAddress'     => 'hotel_address',
@@ -161,6 +168,9 @@ class items extends Model
         }
         if (null !== $this->cityCode) {
             $res['city_code'] = $this->cityCode;
+        }
+        if (null !== $this->discountDesc) {
+            $res['discount_desc'] = null !== $this->discountDesc ? $this->discountDesc->toMap() : null;
         }
         if (null !== $this->distance) {
             $res['distance'] = $this->distance;
@@ -227,6 +237,9 @@ class items extends Model
         }
         if (isset($map['city_code'])) {
             $model->cityCode = $map['city_code'];
+        }
+        if (isset($map['discount_desc'])) {
+            $model->discountDesc = discountDesc::fromMap($map['discount_desc']);
         }
         if (isset($map['distance'])) {
             $model->distance = $map['distance'];
