@@ -620,6 +620,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySceneRuleResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySchedulePeriodListRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySchedulePeriodListResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryShareProductNameByProductKeyRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\QueryShareProductNameByProductKeyResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySharePromotionActivityAuditResultRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QuerySharePromotionActivityAuditResultResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\QueryShareTaskDeviceListRequest;
@@ -18992,6 +18994,52 @@ class Iot extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->querySchedulePeriodListWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QueryShareProductNameByProductKeyRequest $request
+     * @param RuntimeOptions                           $runtime
+     *
+     * @return QueryShareProductNameByProductKeyResponse
+     */
+    public function queryShareProductNameByProductKeyWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->productKey)) {
+            $body['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->shareTaskCode)) {
+            $body['ShareTaskCode'] = $request->shareTaskCode;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'QueryShareProductNameByProductKey',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QueryShareProductNameByProductKeyResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QueryShareProductNameByProductKeyRequest $request
+     *
+     * @return QueryShareProductNameByProductKeyResponse
+     */
+    public function queryShareProductNameByProductKey($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->queryShareProductNameByProductKeyWithOptions($request, $runtime);
     }
 
     /**
