@@ -15,6 +15,8 @@ class TagResourcesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -22,6 +24,8 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The IDs of the Auto Scaling resources. You can specify 1 to 50 resource IDs.
+     *
      * @var string[]
      */
     public $resourceIds;
@@ -32,6 +36,8 @@ class TagResourcesRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The type of the resource. Only scaling groups are supported. Set the value to scalinggroup.
+     *
      * @example scalinggroup
      *
      * @var string
@@ -39,6 +45,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description Details of the tags.
+     *
      * @var tags[]
      */
     public $tags;

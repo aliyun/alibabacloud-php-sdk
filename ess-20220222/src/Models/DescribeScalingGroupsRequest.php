@@ -4,6 +4,7 @@
 
 namespace AlibabaCloud\SDK\Ess\V20220222\Models;
 
+use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingGroupsRequest\tags;
 use AlibabaCloud\Tea\Model;
 
 class DescribeScalingGroupsRequest extends Model
@@ -79,6 +80,11 @@ class DescribeScalingGroupsRequest extends Model
      * @var string[]
      */
     public $scalingGroupNames;
+
+    /**
+     * @var tags[]
+     */
+    public $tags;
     protected $_name = [
         'groupType'            => 'GroupType',
         'ownerAccount'         => 'OwnerAccount',
@@ -92,6 +98,7 @@ class DescribeScalingGroupsRequest extends Model
         'scalingGroupIds'      => 'ScalingGroupIds',
         'scalingGroupName'     => 'ScalingGroupName',
         'scalingGroupNames'    => 'ScalingGroupNames',
+        'tags'                 => 'Tags',
     ];
 
     public function validate()
@@ -136,6 +143,15 @@ class DescribeScalingGroupsRequest extends Model
         }
         if (null !== $this->scalingGroupNames) {
             $res['ScalingGroupNames'] = $this->scalingGroupNames;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = [];
+            if (null !== $this->tags && \is_array($this->tags)) {
+                $n = 0;
+                foreach ($this->tags as $item) {
+                    $res['Tags'][$n++] = null !== $item ? $item->toMap() : $item;
+                }
+            }
         }
 
         return $res;
@@ -187,6 +203,15 @@ class DescribeScalingGroupsRequest extends Model
         if (isset($map['ScalingGroupNames'])) {
             if (!empty($map['ScalingGroupNames'])) {
                 $model->scalingGroupNames = $map['ScalingGroupNames'];
+            }
+        }
+        if (isset($map['Tags'])) {
+            if (!empty($map['Tags'])) {
+                $model->tags = [];
+                $n           = 0;
+                foreach ($map['Tags'] as $item) {
+                    $model->tags[$n++] = null !== $item ? tags::fromMap($item) : $item;
+                }
             }
         }
 

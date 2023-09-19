@@ -14,6 +14,8 @@ class DescribeNotificationConfigurationsRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-beijing
      *
      * @var string
@@ -26,6 +28,8 @@ class DescribeNotificationConfigurationsRequest extends Model
     public $resourceOwnerAccount;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp1igpak5ft1flyp****
      *
      * @var string

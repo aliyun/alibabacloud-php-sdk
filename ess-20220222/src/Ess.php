@@ -3033,6 +3033,9 @@ class Ess extends OpenApiClient
         if (!Utils::isUnset($request->scalingGroupNames)) {
             $query['ScalingGroupNames'] = $request->scalingGroupNames;
         }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);

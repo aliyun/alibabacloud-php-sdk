@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class RebalanceInstancesResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string
@@ -16,6 +18,8 @@ class RebalanceInstancesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the scaling activity.
+     *
      * @example asa-kjgffgdfadah****
      *
      * @var string

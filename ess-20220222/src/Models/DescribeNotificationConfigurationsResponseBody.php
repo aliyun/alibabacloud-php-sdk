@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeNotificationConfigurationsResponseBody extends Model
 {
     /**
+     * @description Details of the notifications.
+     *
      * @var notificationConfigurationModels[]
      */
     public $notificationConfigurationModels;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 473469C7-AA6F-4DC5-B3DB-A3DC0DE3****
      *
      * @var string

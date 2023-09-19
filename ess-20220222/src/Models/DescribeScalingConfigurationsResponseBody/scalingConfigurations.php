@@ -6,7 +6,6 @@ namespace AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsRes
 
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\dataDisks;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\instancePatternInfos;
-use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\privatePoolOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\schedulerOptions;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\spotPriceLimits;
 use AlibabaCloud\SDK\Ess\V20220222\Models\DescribeScalingConfigurationsResponseBody\scalingConfigurations\tags;
@@ -14,11 +13,6 @@ use AlibabaCloud\Tea\Model;
 
 class scalingConfigurations extends Model
 {
-    /**
-     * @var privatePoolOptions
-     */
-    public $privatePoolOptions;
-
     /**
      * @description Indicates whether the instance on the dedicated host is associated with the dedicated host. Valid values:
      *
@@ -316,6 +310,16 @@ class scalingConfigurations extends Model
     public $passwordInherit;
 
     /**
+     * @var string
+     */
+    public $privatePoolOptions_id;
+
+    /**
+     * @var string
+     */
+    public $privatePoolOptions_matchCriteria;
+
+    /**
      * @description The name of the RAM role that is associated with the ECS instance. The name is provided and maintained by Resource Access Management (RAM). You can call the ListRoles operation to query the available RAM roles.
      *
      * @example ramrole****
@@ -607,68 +611,69 @@ class scalingConfigurations extends Model
      */
     public $zoneId;
     protected $_name = [
-        'privatePoolOptions'             => 'PrivatePoolOptions',
-        'affinity'                       => 'Affinity',
-        'cpu'                            => 'Cpu',
-        'creationTime'                   => 'CreationTime',
-        'creditSpecification'            => 'CreditSpecification',
-        'dataDisks'                      => 'DataDisks',
-        'dedicatedHostId'                => 'DedicatedHostId',
-        'deletionProtection'             => 'DeletionProtection',
-        'deploymentSetId'                => 'DeploymentSetId',
-        'hostName'                       => 'HostName',
-        'hpcClusterId'                   => 'HpcClusterId',
-        'imageFamily'                    => 'ImageFamily',
-        'imageId'                        => 'ImageId',
-        'imageName'                      => 'ImageName',
-        'imageOptionsLoginAsNonRoot'     => 'ImageOptionsLoginAsNonRoot',
-        'imageOwnerAlias'                => 'ImageOwnerAlias',
-        'instanceDescription'            => 'InstanceDescription',
-        'instanceGeneration'             => 'InstanceGeneration',
-        'instanceName'                   => 'InstanceName',
-        'instancePatternInfos'           => 'InstancePatternInfos',
-        'instanceType'                   => 'InstanceType',
-        'instanceTypes'                  => 'InstanceTypes',
-        'internetChargeType'             => 'InternetChargeType',
-        'internetMaxBandwidthIn'         => 'InternetMaxBandwidthIn',
-        'internetMaxBandwidthOut'        => 'InternetMaxBandwidthOut',
-        'ioOptimized'                    => 'IoOptimized',
-        'ipv6AddressCount'               => 'Ipv6AddressCount',
-        'keyPairName'                    => 'KeyPairName',
-        'lifecycleState'                 => 'LifecycleState',
-        'loadBalancerWeight'             => 'LoadBalancerWeight',
-        'memory'                         => 'Memory',
-        'passwordInherit'                => 'PasswordInherit',
-        'ramRoleName'                    => 'RamRoleName',
-        'resourceGroupId'                => 'ResourceGroupId',
-        'scalingConfigurationId'         => 'ScalingConfigurationId',
-        'scalingConfigurationName'       => 'ScalingConfigurationName',
-        'scalingGroupId'                 => 'ScalingGroupId',
-        'schedulerOptions'               => 'SchedulerOptions',
-        'securityEnhancementStrategy'    => 'SecurityEnhancementStrategy',
-        'securityGroupId'                => 'SecurityGroupId',
-        'securityGroupIds'               => 'SecurityGroupIds',
-        'spotDuration'                   => 'SpotDuration',
-        'spotInterruptionBehavior'       => 'SpotInterruptionBehavior',
-        'spotPriceLimits'                => 'SpotPriceLimits',
-        'spotStrategy'                   => 'SpotStrategy',
-        'systemDiskAutoSnapshotPolicyId' => 'SystemDiskAutoSnapshotPolicyId',
-        'systemDiskBurstingEnabled'      => 'SystemDiskBurstingEnabled',
-        'systemDiskCategories'           => 'SystemDiskCategories',
-        'systemDiskCategory'             => 'SystemDiskCategory',
-        'systemDiskDescription'          => 'SystemDiskDescription',
-        'systemDiskEncryptAlgorithm'     => 'SystemDiskEncryptAlgorithm',
-        'systemDiskEncrypted'            => 'SystemDiskEncrypted',
-        'systemDiskKMSKeyId'             => 'SystemDiskKMSKeyId',
-        'systemDiskName'                 => 'SystemDiskName',
-        'systemDiskPerformanceLevel'     => 'SystemDiskPerformanceLevel',
-        'systemDiskProvisionedIops'      => 'SystemDiskProvisionedIops',
-        'systemDiskSize'                 => 'SystemDiskSize',
-        'tags'                           => 'Tags',
-        'tenancy'                        => 'Tenancy',
-        'userData'                       => 'UserData',
-        'weightedCapacities'             => 'WeightedCapacities',
-        'zoneId'                         => 'ZoneId',
+        'affinity'                         => 'Affinity',
+        'cpu'                              => 'Cpu',
+        'creationTime'                     => 'CreationTime',
+        'creditSpecification'              => 'CreditSpecification',
+        'dataDisks'                        => 'DataDisks',
+        'dedicatedHostId'                  => 'DedicatedHostId',
+        'deletionProtection'               => 'DeletionProtection',
+        'deploymentSetId'                  => 'DeploymentSetId',
+        'hostName'                         => 'HostName',
+        'hpcClusterId'                     => 'HpcClusterId',
+        'imageFamily'                      => 'ImageFamily',
+        'imageId'                          => 'ImageId',
+        'imageName'                        => 'ImageName',
+        'imageOptionsLoginAsNonRoot'       => 'ImageOptionsLoginAsNonRoot',
+        'imageOwnerAlias'                  => 'ImageOwnerAlias',
+        'instanceDescription'              => 'InstanceDescription',
+        'instanceGeneration'               => 'InstanceGeneration',
+        'instanceName'                     => 'InstanceName',
+        'instancePatternInfos'             => 'InstancePatternInfos',
+        'instanceType'                     => 'InstanceType',
+        'instanceTypes'                    => 'InstanceTypes',
+        'internetChargeType'               => 'InternetChargeType',
+        'internetMaxBandwidthIn'           => 'InternetMaxBandwidthIn',
+        'internetMaxBandwidthOut'          => 'InternetMaxBandwidthOut',
+        'ioOptimized'                      => 'IoOptimized',
+        'ipv6AddressCount'                 => 'Ipv6AddressCount',
+        'keyPairName'                      => 'KeyPairName',
+        'lifecycleState'                   => 'LifecycleState',
+        'loadBalancerWeight'               => 'LoadBalancerWeight',
+        'memory'                           => 'Memory',
+        'passwordInherit'                  => 'PasswordInherit',
+        'privatePoolOptions_id'            => 'PrivatePoolOptions.Id',
+        'privatePoolOptions_matchCriteria' => 'PrivatePoolOptions.MatchCriteria',
+        'ramRoleName'                      => 'RamRoleName',
+        'resourceGroupId'                  => 'ResourceGroupId',
+        'scalingConfigurationId'           => 'ScalingConfigurationId',
+        'scalingConfigurationName'         => 'ScalingConfigurationName',
+        'scalingGroupId'                   => 'ScalingGroupId',
+        'schedulerOptions'                 => 'SchedulerOptions',
+        'securityEnhancementStrategy'      => 'SecurityEnhancementStrategy',
+        'securityGroupId'                  => 'SecurityGroupId',
+        'securityGroupIds'                 => 'SecurityGroupIds',
+        'spotDuration'                     => 'SpotDuration',
+        'spotInterruptionBehavior'         => 'SpotInterruptionBehavior',
+        'spotPriceLimits'                  => 'SpotPriceLimits',
+        'spotStrategy'                     => 'SpotStrategy',
+        'systemDiskAutoSnapshotPolicyId'   => 'SystemDiskAutoSnapshotPolicyId',
+        'systemDiskBurstingEnabled'        => 'SystemDiskBurstingEnabled',
+        'systemDiskCategories'             => 'SystemDiskCategories',
+        'systemDiskCategory'               => 'SystemDiskCategory',
+        'systemDiskDescription'            => 'SystemDiskDescription',
+        'systemDiskEncryptAlgorithm'       => 'SystemDiskEncryptAlgorithm',
+        'systemDiskEncrypted'              => 'SystemDiskEncrypted',
+        'systemDiskKMSKeyId'               => 'SystemDiskKMSKeyId',
+        'systemDiskName'                   => 'SystemDiskName',
+        'systemDiskPerformanceLevel'       => 'SystemDiskPerformanceLevel',
+        'systemDiskProvisionedIops'        => 'SystemDiskProvisionedIops',
+        'systemDiskSize'                   => 'SystemDiskSize',
+        'tags'                             => 'Tags',
+        'tenancy'                          => 'Tenancy',
+        'userData'                         => 'UserData',
+        'weightedCapacities'               => 'WeightedCapacities',
+        'zoneId'                           => 'ZoneId',
     ];
 
     public function validate()
@@ -678,9 +683,6 @@ class scalingConfigurations extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->privatePoolOptions) {
-            $res['PrivatePoolOptions'] = null !== $this->privatePoolOptions ? $this->privatePoolOptions->toMap() : null;
-        }
         if (null !== $this->affinity) {
             $res['Affinity'] = $this->affinity;
         }
@@ -785,6 +787,12 @@ class scalingConfigurations extends Model
         }
         if (null !== $this->passwordInherit) {
             $res['PasswordInherit'] = $this->passwordInherit;
+        }
+        if (null !== $this->privatePoolOptions_id) {
+            $res['PrivatePoolOptions.Id'] = $this->privatePoolOptions_id;
+        }
+        if (null !== $this->privatePoolOptions_matchCriteria) {
+            $res['PrivatePoolOptions.MatchCriteria'] = $this->privatePoolOptions_matchCriteria;
         }
         if (null !== $this->ramRoleName) {
             $res['RamRoleName'] = $this->ramRoleName;
@@ -900,9 +908,6 @@ class scalingConfigurations extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['PrivatePoolOptions'])) {
-            $model->privatePoolOptions = privatePoolOptions::fromMap($map['PrivatePoolOptions']);
-        }
         if (isset($map['Affinity'])) {
             $model->affinity = $map['Affinity'];
         }
@@ -1009,6 +1014,12 @@ class scalingConfigurations extends Model
         }
         if (isset($map['PasswordInherit'])) {
             $model->passwordInherit = $map['PasswordInherit'];
+        }
+        if (isset($map['PrivatePoolOptions.Id'])) {
+            $model->privatePoolOptions_id = $map['PrivatePoolOptions.Id'];
+        }
+        if (isset($map['PrivatePoolOptions.MatchCriteria'])) {
+            $model->privatePoolOptions_matchCriteria = $map['PrivatePoolOptions.MatchCriteria'];
         }
         if (isset($map['RamRoleName'])) {
             $model->ramRoleName = $map['RamRoleName'];

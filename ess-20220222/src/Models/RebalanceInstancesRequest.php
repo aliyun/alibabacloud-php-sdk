@@ -19,6 +19,8 @@ class RebalanceInstancesRequest extends Model
     public $ownerId;
 
     /**
+     * @description The region ID of the scaling group.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -36,6 +38,8 @@ class RebalanceInstancesRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The ID of the scaling group.
+     *
      * @example asg-bp18p2yfxow2dloq****
      *
      * @var string
