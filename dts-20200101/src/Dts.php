@@ -368,6 +368,12 @@ class Dts extends OpenApiClient
         if (!Utils::isUnset($request->delayRuleTime)) {
             $query['DelayRuleTime'] = $request->delayRuleTime;
         }
+        if (!Utils::isUnset($request->destCaCertificateOssUrl)) {
+            $query['DestCaCertificateOssUrl'] = $request->destCaCertificateOssUrl;
+        }
+        if (!Utils::isUnset($request->destCaCertificatePassword)) {
+            $query['DestCaCertificatePassword'] = $request->destCaCertificatePassword;
+        }
         if (!Utils::isUnset($request->destinationEndpointDataBaseName)) {
             $query['DestinationEndpointDataBaseName'] = $request->destinationEndpointDataBaseName;
         }
@@ -475,6 +481,12 @@ class Dts extends OpenApiClient
         }
         if (!Utils::isUnset($request->sourceEndpointVSwitchID)) {
             $query['SourceEndpointVSwitchID'] = $request->sourceEndpointVSwitchID;
+        }
+        if (!Utils::isUnset($request->srcCaCertificateOssUrl)) {
+            $query['SrcCaCertificateOssUrl'] = $request->srcCaCertificateOssUrl;
+        }
+        if (!Utils::isUnset($request->srcCaCertificatePassword)) {
+            $query['SrcCaCertificatePassword'] = $request->srcCaCertificatePassword;
         }
         if (!Utils::isUnset($request->structureInitialization)) {
             $query['StructureInitialization'] = $request->structureInitialization;
