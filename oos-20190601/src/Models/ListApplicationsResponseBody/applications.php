@@ -45,7 +45,7 @@ class applications extends Model
     public $name;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m******
      *
@@ -54,7 +54,7 @@ class applications extends Model
     public $resourceGroupId;
 
     /**
-     * @description A tag of the resource.
+     * @description The tags added to the application.
      *
      * @example {"k1": "v1","k2": "v2"}
      *

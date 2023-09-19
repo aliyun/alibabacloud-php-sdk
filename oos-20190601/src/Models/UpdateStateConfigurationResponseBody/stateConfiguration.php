@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stateConfiguration extends Model
 {
     /**
-     * @description The configuration mode. ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
+     * @description The configuration mode. Valid values:
      *
      * @example ApplyAndAutoCorrect
      *
@@ -18,7 +18,7 @@ class stateConfiguration extends Model
     public $configureMode;
 
     /**
-     * @description The parameters.
+     * @description The time when the configuration was created.
      *
      * @example 2021-03-22T03:13:32Z
      *
@@ -27,14 +27,14 @@ class stateConfiguration extends Model
     public $createTime;
 
     /**
-     * @description Updates a desired-state configuration.
+     * @description The description of the desired-state configuration.
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description The ID of the request.
+     * @description The parameters.
      *
      * @example {"policy": {"ACS:Network": {"Collection": "Enabled"}, "ACS:Application": {"Collection": "Enabled"}}}
      *
@@ -43,6 +43,8 @@ class stateConfiguration extends Model
     public $parameters;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -50,7 +52,7 @@ class stateConfiguration extends Model
     public $resourceGroupId;
 
     /**
-     * @description The configuration list.
+     * @description The CRON expression.
      *
      * @example 1 hour
      *
@@ -59,7 +61,7 @@ class stateConfiguration extends Model
     public $scheduleExpression;
 
     /**
-     * @description The update time.
+     * @description The schedule type.
      *
      * @example rate
      *
@@ -68,7 +70,7 @@ class stateConfiguration extends Model
     public $scheduleType;
 
     /**
-     * @description The schedule expression.
+     * @description The ID of the desired-state configuration.
      *
      * @example StateConfigurationId
      *
@@ -77,7 +79,7 @@ class stateConfiguration extends Model
     public $stateConfigurationId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The tags added to the configuration.
      *
      * @example {"Key": "oos", "Value": "inventory"}
      *
@@ -86,7 +88,7 @@ class stateConfiguration extends Model
     public $tags;
 
     /**
-     * @description The required resources.
+     * @description The queried resources.
      *
      * @example { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
      *
@@ -95,6 +97,8 @@ class stateConfiguration extends Model
     public $targets;
 
     /**
+     * @description The template ID.
+     *
      * @example t-1234asadf
      *
      * @var string
@@ -102,7 +106,7 @@ class stateConfiguration extends Model
     public $templateId;
 
     /**
-     * @description The ID of the desired-state configuration.
+     * @description The name of the template.
      *
      * @example ACS-ECS-InventoryDataCollection
      *
@@ -111,7 +115,7 @@ class stateConfiguration extends Model
     public $templateName;
 
     /**
-     * @description The ID of the template.
+     * @description The name of the template version.
      *
      * @example v1
      *
@@ -120,7 +124,7 @@ class stateConfiguration extends Model
     public $templateVersion;
 
     /**
-     * @description The version of the template.
+     * @description The time when the configuration was updated.
      *
      * @example 2021-03-22T03:13:32Z
      *

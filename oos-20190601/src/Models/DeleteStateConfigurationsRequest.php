@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteStateConfigurationsRequest extends Model
 {
     /**
-     * @description Deletes desired-state configurations in batches
+     * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example abcde3OARpx77No54nv6
      *
@@ -18,7 +18,7 @@ class DeleteStateConfigurationsRequest extends Model
     public $clientToken;
 
     /**
-     * @description The ID of the request.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,9 +27,8 @@ class DeleteStateConfigurationsRequest extends Model
     public $regionId;
 
     /**
-     * @description ## Debugging
+     * @description The IDs of desired-state configurations.
      *
-     * [OpenAPI Explorer automatically calculates the signature value. For your convenience, we recommend that you call this operation in OpenAPI Explorer. OpenAPI Explorer dynamically generates the sample code of the operation for different SDKs.](https://api.aliyun.com/#product=oos\&api=DeleteStateConfigurations\&type=RPC\&version=2019-06-01)
      * @example ["sc-asfgdhj12345"]
      *
      * @var string

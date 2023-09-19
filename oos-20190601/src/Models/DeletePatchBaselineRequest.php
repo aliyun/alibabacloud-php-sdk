@@ -18,7 +18,7 @@ class DeletePatchBaselineRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

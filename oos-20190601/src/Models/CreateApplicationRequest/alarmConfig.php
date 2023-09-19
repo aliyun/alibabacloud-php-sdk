@@ -14,6 +14,8 @@ class alarmConfig extends Model
     public $contactGroups;
 
     /**
+     * @example /healthcheck/tcp50122
+     *
      * @var string
      */
     public $healthCheckUrl;

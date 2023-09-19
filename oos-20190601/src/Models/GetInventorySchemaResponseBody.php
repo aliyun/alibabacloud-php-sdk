@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetInventorySchemaResponseBody extends Model
 {
     /**
-     * @description Max results.
+     * @description The number of entries per page.
      *
      * @example 1
      *
@@ -19,7 +19,7 @@ class GetInventorySchemaResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The pagination token that was used in the next request to retrieve a new page of results.
      *
      * @example gAAAAABfh8MVLQI9AuKGACLgjbsXbWs-Mna47IDM6tr6wK7TZ1
      *
@@ -28,7 +28,7 @@ class GetInventorySchemaResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 89117642-7167-4F4D-B7F1-876582279E3E
      *
@@ -37,7 +37,7 @@ class GetInventorySchemaResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The detailed configurations of the component.
+     * @description The detailed configurations of the configuration list.
      *
      * @var schemas[]
      */

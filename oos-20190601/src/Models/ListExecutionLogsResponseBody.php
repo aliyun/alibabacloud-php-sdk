@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionLogsResponseBody extends Model
 {
     /**
-     * @description The execution logs.
+     * @description The logs of the execution.
      *
      * @var executionLogs[]
      */
@@ -26,7 +26,7 @@ class ListExecutionLogsResponseBody extends Model
     public $isTruncated;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -35,7 +35,7 @@ class ListExecutionLogsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example gAAAAABdpsGWjX8dJ-a6dl_pvoS7AFxNHSNJKHLCAJJ0ylgA53nWW5V4HTEZKCYTaEPNOrxFir4z43UTOjE150cFr8AGTifA==
      *
@@ -44,7 +44,7 @@ class ListExecutionLogsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 14A07460-EBE7-47CA-9757-12CC4761D47A
      *

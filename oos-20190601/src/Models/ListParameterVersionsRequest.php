@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListParameterVersionsRequest extends Model
 {
     /**
-     * @description The share type of the common parameter.
+     * @description The number of entries per page. Valid values: 10 to 100. Default value: 50.
      *
      * @example 50
      *
@@ -18,7 +18,7 @@ class ListParameterVersionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The pagination token.
+     * @description The name of the common parameter.
      *
      * @example MyParameter
      *
@@ -27,7 +27,7 @@ class ListParameterVersionsRequest extends Model
     public $name;
 
     /**
-     * @description The data type of the common parameter.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
      *
@@ -36,7 +36,7 @@ class ListParameterVersionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 10 to 100. Default value: 50.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -45,7 +45,7 @@ class ListParameterVersionsRequest extends Model
     public $regionId;
 
     /**
-     * @description The pagination token.
+     * @description The share type of the common parameter.
      *
      * @example Private
      *

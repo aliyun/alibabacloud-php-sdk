@@ -3070,8 +3070,8 @@ class Oos extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
-        if (!Utils::isUnset($request->resourceGroupld)) {
-            $query['ResourceGroupld'] = $request->resourceGroupld;
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
         }
         if (!Utils::isUnset($request->shareType)) {
             $query['ShareType'] = $request->shareType;
@@ -4425,6 +4425,12 @@ class Oos extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceGroupId)) {
+            $query['ResourceGroupId'] = $request->resourceGroupId;
+        }
+        if (!Utils::isUnset($request->tags)) {
+            $query['Tags'] = $request->tags;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),

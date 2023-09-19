@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class executionLogs extends Model
 {
     /**
-     * @description The type of the log.
+     * @description The log type.
      *
      * @example System
      *
@@ -27,7 +27,7 @@ class executionLogs extends Model
     public $message;
 
     /**
-     * @description The execution ID of the task.
+     * @description The task execution ID.
      *
      * @example exec-1234567zxcvb.t0010
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateParameterRequest extends Model
 {
     /**
-     * @description The ID of the common parameter.
+     * @description The description of the common parameter. The description must be 1 to 200 characters in length.
      *
      * @example update
      *
@@ -18,7 +18,7 @@ class UpdateParameterRequest extends Model
     public $description;
 
     /**
-     * @description The data type of the common parameter.
+     * @description The name of the common parameter. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, ALICLOUD, or OOS.
      *
      * @example MyParameter
      *
@@ -27,7 +27,7 @@ class UpdateParameterRequest extends Model
     public $name;
 
     /**
-     * @description The version number of the common parameter.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class UpdateParameterRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to UpdateParameter.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -45,7 +45,7 @@ class UpdateParameterRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The name of the common parameter.
+     * @description The tags to be added to common parameter.
      *
      * @example {"k1": "v1", "k2": "v2"}
      *
@@ -54,7 +54,7 @@ class UpdateParameterRequest extends Model
     public $tags;
 
     /**
-     * @description The value of the common parameter. The value must be 1 to 4096 characters in length.
+     * @description The value of the common parameter. The value must be 1 to 4,096 characters in length.
      *
      * @example update
      *

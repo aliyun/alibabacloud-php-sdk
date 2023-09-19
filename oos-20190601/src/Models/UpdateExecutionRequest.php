@@ -18,7 +18,7 @@ class UpdateExecutionRequest extends Model
     public $clientToken;
 
     /**
-     * @description 执行的描述。
+     * @description The description of the execution.
      *
      * @example Execution description
      *
@@ -36,7 +36,7 @@ class UpdateExecutionRequest extends Model
     public $executionId;
 
     /**
-     * @description A JSON string consisting of a collection of parameters. Default value: {}.
+     * @description The information about the parameters.
      *
      * @example {"Status":"Running"}
      *
@@ -52,12 +52,24 @@ class UpdateExecutionRequest extends Model
      * @var string
      */
     public $regionId;
+
+    /**
+     * @var string
+     */
+    public $resourceGroupId;
+
+    /**
+     * @var string
+     */
+    public $tags;
     protected $_name = [
-        'clientToken' => 'ClientToken',
-        'description' => 'Description',
-        'executionId' => 'ExecutionId',
-        'parameters'  => 'Parameters',
-        'regionId'    => 'RegionId',
+        'clientToken'     => 'ClientToken',
+        'description'     => 'Description',
+        'executionId'     => 'ExecutionId',
+        'parameters'      => 'Parameters',
+        'regionId'        => 'RegionId',
+        'resourceGroupId' => 'ResourceGroupId',
+        'tags'            => 'Tags',
     ];
 
     public function validate()
@@ -81,6 +93,12 @@ class UpdateExecutionRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
+        }
+        if (null !== $this->tags) {
+            $res['Tags'] = $this->tags;
         }
 
         return $res;
@@ -108,6 +126,12 @@ class UpdateExecutionRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
+        }
+        if (isset($map['Tags'])) {
+            $model->tags = $map['Tags'];
         }
 
         return $model;

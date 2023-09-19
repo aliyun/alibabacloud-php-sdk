@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateStateConfigurationResponseBody extends Model
 {
     /**
-     * @description The idempotency token.
+     * @description The request ID.
      *
      * @example 1306108F-610C-40FD-AAD5-DA13E8B00BE9
      *
@@ -19,7 +19,7 @@ class UpdateStateConfigurationResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The description.
+     * @description The details of the configuration.
      *
      * @var stateConfiguration[]
      */

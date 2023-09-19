@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListExecutionsRequest extends Model
 {
     /**
-     * @description 执行的模板类型列表。可分为Other、TimerTrigger、EventTrigger、AlarmTrigger。此参数和Categories参数只能同时传入一个，推荐使用Categories。
+     * @description The types of the execution template. Valid values: Other, TimerTrigger, EventTrigger, and AlarmTrigger. You can specify only one of the Categories and Category parameters. We recommend that you specify Categories.
      *
      * @example ["TimerTrigger"、"EventTrigger"]
      *
@@ -27,8 +27,8 @@ class ListExecutionsRequest extends Model
     public $category;
 
     /**
-     * @description 执行的深度，可分为RootDepth、FirstChildDepth
-     * RootDepth只返回主执行，FirstChildDepth只返回第一层的子执行。此参数和IncludeChildExecution参数只能同时传入一个，推荐使用Depth。
+     * @description The depth of execution. Valid values: RootDepth and FirstChildDepth. If you set this parameter to RootDepth, only the parent execution is returned. If you set this parameter to FirstChildDepth, only the child executions at the first level are returned. You can specify only one of the Depth and IncludeChildExecution parameters. We recommend that you specify Depth.
+     *
      * @example RootDepth
      *
      * @var string

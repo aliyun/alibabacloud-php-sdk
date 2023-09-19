@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class CreateStateConfigurationShrinkRequest extends Model
 {
     /**
-     * @description The description of the desired-state configuration.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example DASKJJLKADS-AHKLJHJSAKL-AJK
      *
@@ -18,7 +18,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description 收集Inventory数据
+     * @description The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
      *
      * @example ApplyOnce
      *
@@ -27,9 +27,8 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $configureMode;
 
     /**
-     * @description The configuration mode.
+     * @description The description of the desired-state configuration.
      *
-     * ApplyAndAutoCorrect: The configuration is always applied.
      * @example The region ID.
      *
      * @var string
@@ -37,7 +36,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The ID of resource group.
+     * @description The parameters.
      *
      * @example {     "policy": {       "ACS:Application": {         "Collection": "Enabled"       },       "ACS:Network": {         "Collection": "Enabled"       }     }   }
      *
@@ -46,7 +45,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $parameters;
 
     /**
-     * @description The ID of the template.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -55,7 +54,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The type of the schedule. Valid value: rate.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -64,7 +63,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The description.
+     * @description The schedule expression. The interval between two schedules must be a minimum of 30 minutes.
      *
      * @example The ID of the resource group.
      *
@@ -73,7 +72,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $scheduleExpression;
 
     /**
-     * @description The schedule expression.
+     * @description The schedule type. Set the value to rate.
      *
      * @example rate
      *
@@ -82,7 +81,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $scheduleType;
 
     /**
-     * @description The name of the template. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The tags to be added to the configuration.
      *
      * @example {"Key": "oos", "Value": "inventory"}
      *
@@ -91,7 +90,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description The schedule expression. The interval between two schedules must be a minimum of 30 minutes.
+     * @description The resources to be queried.
      *
      * @example {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
      *
@@ -100,7 +99,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $targets;
 
     /**
-     * @description The version of the template.
+     * @description The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
      *
      * @example ACS-ECS-InventoryDataCollection
      *
@@ -109,7 +108,7 @@ class CreateStateConfigurationShrinkRequest extends Model
     public $templateName;
 
     /**
-     * @description The required resources.
+     * @description The version number of the template. If you do not specify this parameter, the latest version of the template is used.
      *
      * @example v1
      *

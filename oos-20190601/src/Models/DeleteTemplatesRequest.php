@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplatesRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description Specifies whether to delete the related executions when a template is deleted.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class DeleteTemplatesRequest extends Model
     public $autoDeleteExecutions;
 
     /**
-     * @description The name list of templates to be deleted.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class DeleteTemplatesRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether to delete the related executions when a template is deleted.
+     * @description The names of the templates to be deleted.
      *
      * @example ["t1","t2"]
      *

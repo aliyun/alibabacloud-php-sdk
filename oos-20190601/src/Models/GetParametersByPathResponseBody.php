@@ -24,6 +24,8 @@ class GetParametersByPathResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The information about the common parameters.
+     *
      * @var parameters[]
      */
     public $parameters;

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stateConfigurations extends Model
 {
     /**
-     * @description The configuration mode.
+     * @description The configuration mode. Valid values:
      *
      * @example ApplyAndAutoCorrect
      *
@@ -18,7 +18,7 @@ class stateConfigurations extends Model
     public $configureMode;
 
     /**
-     * @description The creation time.
+     * @description The time when the desired-state configuration was created.
      *
      * @example 2021-03-22T03:13:32Z
      *
@@ -45,7 +45,7 @@ class stateConfigurations extends Model
     public $parameters;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -81,7 +81,7 @@ class stateConfigurations extends Model
     public $stateConfigurationId;
 
     /**
-     * @description The tag of the auxiliary media asset.
+     * @description The tags added to the configuration.
      *
      * @example {"Key": "oos", "Value": "inventory"}
      *
@@ -90,7 +90,7 @@ class stateConfigurations extends Model
     public $tags;
 
     /**
-     * @description The target EMR resource.
+     * @description The queried resources.
      *
      * @example { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
      *
@@ -99,7 +99,7 @@ class stateConfigurations extends Model
     public $targets;
 
     /**
-     * @description The ID of the cluster template.
+     * @description The template ID.
      *
      * @example t-ajshjalscfhjk2214
      *
@@ -126,7 +126,7 @@ class stateConfigurations extends Model
     public $templateVersion;
 
     /**
-     * @description The time when the configuration is updated.
+     * @description The time when the configuration was updated.
      *
      * @example 2021-04-22T03:13:32Z
      *

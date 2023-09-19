@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListStateConfigurationsResponseBody extends Model
 {
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The pagination token that was used in the next request to retrieve a new page of results.
      *
      * @example AAAAASO3cL82+b5iji7bfPNpMh8=
      *
@@ -19,7 +19,7 @@ class ListStateConfigurationsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1306108F-610C-40FD-AAD5-DA13E8B00BE9
      *
@@ -28,7 +28,7 @@ class ListStateConfigurationsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The desired-state configurations.
+     * @description The information about the desired-state configurations.
      *
      * @var stateConfigurations[]
      */

@@ -11,6 +11,19 @@ class ListApplicationsRequest extends Model
     /**
      * @description The type of the application.
      *
+     * Valid values:
+     *
+     *   ComputeNest
+     *
+     * <!-- -->
+     *
+     *   Custom
+     *
+     * <!-- -->
+     *
+     *   DingTalk
+     *
+     * <!-- -->
      * @example DingTalk
      *
      * @var string

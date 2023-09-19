@@ -9,12 +9,10 @@ use AlibabaCloud\Tea\Model;
 class GetInventorySchemaRequest extends Model
 {
     /**
-     * @description Specifies whether only to return a combination of specified properties.
+     * @description Specifies whether to return only properties that support the aggregate feature in the configuration list. Valid values:
      *
-     * Valid values:
-     *
-     *   true: only returns a combination of specified properties
-     *   false: returns all properties of the component
+     *   true: only returns properties that support the aggregate feature in the configuration list.
+     *   false: returns all properties in the configuration list.
      *
      * @example false
      *
@@ -23,7 +21,7 @@ class GetInventorySchemaRequest extends Model
     public $aggregator;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 50.
      *
      * @example 50
      *
@@ -32,7 +30,7 @@ class GetInventorySchemaRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example gAAAAABfh8MVLQI9AuKGACLgjbsXbWs-Mna47IDM6tr6wK7TZ1
      *
@@ -41,7 +39,7 @@ class GetInventorySchemaRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -50,7 +48,7 @@ class GetInventorySchemaRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the component. Valid values:
+     * @description The configuration list type name. Valid values:
      *
      *   ACS:InstanceInformation
      *   ACS:Application

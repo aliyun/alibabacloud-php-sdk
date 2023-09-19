@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class parameters extends Model
 {
     /**
+     * @description The constraints of the common parameter.
+     *
      * @example {\"MaxLength\": 2}
      *
      * @var string
@@ -16,6 +18,8 @@ class parameters extends Model
     public $constraints;
 
     /**
+     * @description The user who created the common parameter.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -23,6 +27,8 @@ class parameters extends Model
     public $createdBy;
 
     /**
+     * @description The time when the common parameter was created.
+     *
      * @example 2020-10-21T04:03:12Z
      *
      * @var string
@@ -30,6 +36,8 @@ class parameters extends Model
     public $createdDate;
 
     /**
+     * @description The description of the common parameter.
+     *
      * @example parameter
      *
      * @var string
@@ -37,6 +45,8 @@ class parameters extends Model
     public $description;
 
     /**
+     * @description The ID of the common parameter.
+     *
      * @example p-7cdc0000000000000000
      *
      * @var string
@@ -44,6 +54,8 @@ class parameters extends Model
     public $id;
 
     /**
+     * @description The name of the common parameter.
+     *
      * @example myParameter
      *
      * @var string
@@ -51,6 +63,8 @@ class parameters extends Model
     public $name;
 
     /**
+     * @description The version number of the common parameter.
+     *
      * @example 1
      *
      * @var int
@@ -58,6 +72,8 @@ class parameters extends Model
     public $parameterVersion;
 
     /**
+     * @description The share type of the common parameter.
+     *
      * @example Private
      *
      * @var string
@@ -65,11 +81,17 @@ class parameters extends Model
     public $shareType;
 
     /**
+     * @description The tags added to the common parameters.
+     *
+     * @example {"k1": "v1", "k2": "v2"}
+     *
      * @var mixed[]
      */
     public $tags;
 
     /**
+     * @description The type of the common parameter.
+     *
      * @example StringList
      *
      * @var string
@@ -77,6 +99,8 @@ class parameters extends Model
     public $type;
 
     /**
+     * @description The user who updated the common parameter.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -84,6 +108,8 @@ class parameters extends Model
     public $updatedBy;
 
     /**
+     * @description The time when the common parameter was last updated.
+     *
      * @example 2020-10-21T04:03:12Z
      *
      * @var string
@@ -91,6 +117,8 @@ class parameters extends Model
     public $updatedDate;
 
     /**
+     * @description The value of the common parameter.
+     *
      * @example "parameter1,parameter2"
      *
      * @var string

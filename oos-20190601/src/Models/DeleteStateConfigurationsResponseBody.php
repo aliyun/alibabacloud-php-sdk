@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteStateConfigurationsResponseBody extends Model
 {
     /**
-     * @description Deletes desired-state configurations in batches.
+     * @description The request ID.
      *
      * @example 12345B731-0FCE-48BA-8D42-605abcde
      *

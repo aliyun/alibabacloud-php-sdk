@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsRequest extends Model
 {
     /**
-     * @description The maximum number of results on each page. Valid values: 10 to 100
+     * @description The number of entries per page. Valid values: 10 to 100
      *
      * @example 50
      *
@@ -18,7 +18,7 @@ class ListTemplateVersionsRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example H8xj9c-398djs9-39ajd9asdjjJ
      *
@@ -27,7 +27,7 @@ class ListTemplateVersionsRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

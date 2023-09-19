@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class GetParameterResponseBody extends Model
 {
     /**
-     * @description The description of the common parameter.
+     * @description The information about the common parameter.
      *
      * @var parameter
      */
     public $parameter;
 
     /**
-     * @description The user who updated the common parameter.
+     * @description The request ID.
      *
      * @example BA326372-2A10-4C3B-BE3E-6439DB7557CC
      *

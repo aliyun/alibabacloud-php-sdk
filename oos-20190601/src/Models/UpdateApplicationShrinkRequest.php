@@ -14,6 +14,8 @@ class UpdateApplicationShrinkRequest extends Model
     public $alarmConfigShrink;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deleteAlarmRulesBeforeUpdate;

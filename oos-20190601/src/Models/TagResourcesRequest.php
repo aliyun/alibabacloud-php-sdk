@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class TagResourcesRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -18,7 +18,13 @@ class TagResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to TagResources.
+     * @description The IDs of the resources for which you want to modify the resource group. The number of resource IDs is 1 to 50.
+     *
+     *   If you set ResourceType to template, specify ResourceIds in the \["TemplateName1","TemplateName2"] format.
+     *   If you set ResourceType to parameter, specify ResourceIds in the \["Name1","Name2"] format.
+     *   If you set ResourceType to secretparameter, specify ResourceIds in the \["Name1","Name2"] format.
+     *   If you set ResourceType to stateconfiguration, specify ResourceIds in the \["StateConfigurationId 1","StateConfigurationId 2"] format.
+     *   If you set ResourceType to application, specify ResourceIds in the \["Name1","Name2"] format.
      *
      * @example ["templateName1","templateName2"]
      *
@@ -27,7 +33,13 @@ class TagResourcesRequest extends Model
     public $resourceIds;
 
     /**
-     * @description The IDs of resources. The number of resource IDs ranges from 1 to 50.
+     * @description The type of the resource for which you want to modify the resource group. Valid values:
+     *
+     *   template: template.
+     *   parameter: parameter.
+     *   secretparameter: encryption parameter.
+     *   stateconfiguration: desired-state configuration.
+     *   application: application.
      *
      * @example template
      *
@@ -36,6 +48,8 @@ class TagResourcesRequest extends Model
     public $resourceType;
 
     /**
+     * @description The tag keys and values. The number of key-value pairs ranges from 1 to 20.
+     *
      * @example {"k1":"v1","k2":"v2"}
      *
      * @var mixed[]

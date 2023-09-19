@@ -29,7 +29,7 @@ class SearchInventoryRequest extends Model
     public $filter;
 
     /**
-     * @description The number of entries to return on each page. Valid values: 1 to 100. Default value: 50.
+     * @description The number of entries per page. Valid values: 1 to 100. Default value: 50.
      *
      * @example 50
      *

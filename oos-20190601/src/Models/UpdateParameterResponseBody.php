@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class UpdateParameterResponseBody extends Model
 {
     /**
-     * @description The user who created the common parameter.
+     * @description The information about the common parameter.
      *
      * @var parameter
      */
     public $parameter;
 
     /**
-     * @description The time when the common parameter was updated.
+     * @description The request ID.
      *
      * @example AF1AE6DE-61C4-435E-8687-072CFACCCEC7
      *

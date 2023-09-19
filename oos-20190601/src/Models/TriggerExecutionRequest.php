@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class TriggerExecutionRequest extends Model
 {
     /**
+     * @description The client token that is used to ensure the idempotence of the request.
+     *
      * @example dswe2-3i0-029
      *
      * @var string
@@ -16,7 +18,7 @@ class TriggerExecutionRequest extends Model
     public $clientToken;
 
     /**
-     * @description The client token that is used to ensure the idempotence of the request.
+     * @description The message body to be sent to the trigger task.
      *
      * @example {"eventTime": "20181226T220114.058+0800", "id": "9435EAD6-3CF6-4494-8F7A-3A********77","level": "INFO","name": "Instance:StateChange","product": "ECS","regionId":"cn-hangzhou","resourceId": "acs:ecs:cn-hangzhou:169070********30:instance/i-bp1ecr********5go2go","userId": "169070********30","ver": "1.0","content": {"resourceId": "i-bp1ecr********5go2go", "resourceType": "ALIYUN::ECS::Instance","state": "Stopping"} }
      *
@@ -25,7 +27,7 @@ class TriggerExecutionRequest extends Model
     public $content;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the event-, alert-, or timer-triggered execution.
      *
      * @example exec-sadw3f23rsad
      *
@@ -34,7 +36,7 @@ class TriggerExecutionRequest extends Model
     public $executionId;
 
     /**
-     * @description The message body to be sent to the trigger task.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -43,7 +45,11 @@ class TriggerExecutionRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to TriggerExecution.
+     * @description The type of the trigger. Valid values:
+     *
+     *   Event
+     *   Alarm
+     *   Timer
      *
      * @example Event
      *

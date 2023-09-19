@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class UpdateStateConfigurationShrinkRequest extends Model
 {
     /**
-     * @description The schedule type.
+     * @description The client token that is used to ensure the idempotence of the request.
      *
      * @example DASKJJLKADS-AHKLJHJSAKL-AJK
      *
@@ -18,7 +18,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $clientToken;
 
     /**
-     * @description The description of the desired-state configuration.
+     * @description The configuration mode. Valid values: ApplyOnce: The configuration is applied only once. After a configuration is updated, the new configuration is applied. ApplyAndMonitor: The configuration is applied only once. After the configuration is applied, the system only checks whether the configuration is migrated in the future. ApplyAndAutoCorrect: The configuration is always applied.
      *
      * @example ApplyOnce
      *
@@ -27,7 +27,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $configureMode;
 
     /**
-     * @description The schedule expression.
+     * @description The description.
      *
      * @example ACS-ECS-InventoryDataCollection
      *
@@ -36,7 +36,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $description;
 
     /**
-     * @description The ID of the region.
+     * @description The parameters.
      *
      * @example { "policy": { "ACS:Application": { "Collection": "Enabled" }, "ACS:Network": { "Collection": "Enabled" } } }
      *
@@ -45,7 +45,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $parametersShrink;
 
     /**
-     * @description The configuration mode.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -54,7 +54,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The parameters.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -63,7 +63,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The name of the template.
+     * @description The schedule expression.
      *
      * @example 1 hour
      *
@@ -72,7 +72,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $scheduleExpression;
 
     /**
-     * @description The ID of the resource group.
+     * @description The schedule type.
      *
      * @example rate
      *
@@ -90,7 +90,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $stateConfigurationId;
 
     /**
-     * @description The tag.
+     * @description The tags to be added to the configuration.
      *
      * @example {"Key": "oos", "Value": "sc"}
      *
@@ -99,7 +99,7 @@ class UpdateStateConfigurationShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description The required resources.
+     * @description The resources to be queried.
      *
      * @example { "ResourceType": "ALIYUN::ECS::Instance", "Filters": [ { "Type": "All", "RegionId": "cn-hangzhou", "Parameters": { "RegionId": "cn-hangzhou", "Status": "Running" } } ] }
      *

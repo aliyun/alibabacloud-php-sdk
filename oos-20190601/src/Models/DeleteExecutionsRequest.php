@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteExecutionsRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The execution IDs.
      *
+     * You can specify multiple execution IDs in a JSON array in the format of `["xxxxxxxxx", "yyyyyyyyy", ... "zzzzzzzzz"]`. You can specify up to 100 execution IDs at a time. Separate multiple IDs with commas (,).
      * @example ["exec-xxx"]
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteExecutionsRequest extends Model
     public $executionIds;
 
     /**
-     * @description A JSON array that consists of multiple instance IDs. The format of the JSON array is [“xxxxxxxxx”, “yyyyyyyyy”, … “zzzzzzzzz”]. Separate multiple instance IDs with commas (,). A maximum of 100 instance IDs can be specified at a time.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *

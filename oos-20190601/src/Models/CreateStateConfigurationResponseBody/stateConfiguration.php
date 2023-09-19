@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class stateConfiguration extends Model
 {
     /**
-     * @description The parameters.
+     * @description The configuration mode. Valid values:
      *
      * @example ApplyAndAutoCorrect
      *
@@ -18,7 +18,7 @@ class stateConfiguration extends Model
     public $configureMode;
 
     /**
-     * @description The desired-state configuration.
+     * @description The time when the desired-state configuration was created.
      *
      * @example 2021-03-22T03:13:32Z
      *
@@ -27,16 +27,16 @@ class stateConfiguration extends Model
     public $createTime;
 
     /**
-     * @description WB502027
+     * @description The description.
      *
-     * @example 尹存锟
+     * @example collect inventory data
      *
      * @var string
      */
     public $description;
 
     /**
-     * @description CreateStateConfiguration
+     * @description The parameters.
      *
      * @example {"policy": {"ACS:Network": {"Collection": "Enabled"}, "ACS:Application": {"Collection": "Enabled"}}}
      *
@@ -45,6 +45,8 @@ class stateConfiguration extends Model
     public $parameters;
 
     /**
+     * @description The resource group ID.
+     *
      * @example rg-acfmxsn4m4******
      *
      * @var string
@@ -52,7 +54,7 @@ class stateConfiguration extends Model
     public $resourceGroupId;
 
     /**
-     * @description The version number. If you do not specify this parameter, the system uses the latest version.
+     * @description The schedule expression.
      *
      * @example 1 hour
      *
@@ -61,7 +63,7 @@ class stateConfiguration extends Model
     public $scheduleExpression;
 
     /**
-     * @description Creates a desired-state configuration.
+     * @description The schedule type.
      *
      * @example rate
      *
@@ -70,7 +72,7 @@ class stateConfiguration extends Model
     public $scheduleType;
 
     /**
-     * @description 收集Inventory数据
+     * @description The ID of the desired-state configuration.
      *
      * @example sc-a538febe18fabcdef
      *
@@ -79,7 +81,7 @@ class stateConfiguration extends Model
     public $stateConfigurationId;
 
     /**
-     * @description The required resources.
+     * @description The tags added to the configuration.
      *
      * @example {"Key": "oos", "Value": "inventory"}
      *
@@ -88,7 +90,7 @@ class stateConfiguration extends Model
     public $tags;
 
     /**
-     * @description 1 hour 或 30 minutes
+     * @description The queried resources.
      *
      * @example {     "ResourceType": "ALIYUN::ECS::Instance",     "Filters": [       {         "Type": "All",         "RegionId": "cn-hangzhou",         "Parameters": {           "RegionId": "cn-hangzhou",           "Status": "Running"         }       }     ]   }
      *
@@ -97,6 +99,8 @@ class stateConfiguration extends Model
     public $targets;
 
     /**
+     * @description The template ID.
+     *
      * @example t-1234asadf
      *
      * @var string
@@ -113,7 +117,7 @@ class stateConfiguration extends Model
     public $templateName;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the template version.
      *
      * @example v1
      *

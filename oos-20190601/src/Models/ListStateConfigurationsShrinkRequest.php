@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ListStateConfigurationsShrinkRequest extends Model
 {
     /**
-     * @description The maximum number of entries to return on each page.
+     * @description The maximum number of entries per page.
      *
      * @example 50
      *
@@ -18,7 +18,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $maxResults;
 
     /**
-     * @description The token of the next page.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example AHJKH-AHKJHDJK-AKHDIOWJL
      *
@@ -27,7 +27,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the resource group.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -45,7 +45,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The ID of each desired-state configuration.
+     * @description The ID of the desired-state configuration.
      *
      * @example ["sc-asfgdhj12345"]
      *
@@ -54,7 +54,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $stateConfigurationIds;
 
     /**
-     * @description The tag.
+     * @description The tags to be added to the configuration.
      *
      * @example {"Key": "oos", "Value": "inventory"}
      *
@@ -63,7 +63,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $tagsShrink;
 
     /**
-     * @description The name of the template. The name must be 1 to 200 characters in length, and can contain letters, digits, hyphens (-), and underscores (\_).
+     * @description The name of the template. The name must be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
      *
      * @example ACS-ECS-InventoryDataCollection
      *
@@ -72,7 +72,7 @@ class ListStateConfigurationsShrinkRequest extends Model
     public $templateName;
 
     /**
-     * @description The version number. If you do not specify this parameter, the system uses the latest version.
+     * @description The version number of the template. If you do not specify this parameter, the latest version of the template is used.
      *
      * @example v1
      *

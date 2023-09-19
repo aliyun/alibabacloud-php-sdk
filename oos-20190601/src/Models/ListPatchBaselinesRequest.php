@@ -10,17 +10,23 @@ use AlibabaCloud\Tea\Model;
 class ListPatchBaselinesRequest extends Model
 {
     /**
+     * @description The approved patches.
+     *
      * @var string[]
      */
     public $approvedPatches;
 
     /**
+     * @description Whether the approved patch includes updates other than security.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $approvedPatchesEnableNonSecurity;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The number of entries returned per page.
      *
      * @example 50
      *
@@ -29,7 +35,7 @@ class ListPatchBaselinesRequest extends Model
     public $maxResults;
 
     /**
-     * @description The share type of the patch baseline.
+     * @description The name of the patch baseline.
      *
      * @example MyPatchBaseline
      *
@@ -38,7 +44,7 @@ class ListPatchBaselinesRequest extends Model
     public $name;
 
     /**
-     * @description The ID of the request.
+     * @description The token that is used to retrieve the next page of results.
      *
      * @example -
      *
@@ -47,7 +53,16 @@ class ListPatchBaselinesRequest extends Model
     public $nextToken;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The type of the operating system. Valid values:
+     *
+     *   Windows
+     *   Ubuntu
+     *   CentOS
+     *   Debian
+     *   AliyunLinux
+     *   RedhatEnterpriseLinux
+     *   Anolis
+     *   AlmaLinux
      *
      * @example AliyunLinux
      *
@@ -56,15 +71,7 @@ class ListPatchBaselinesRequest extends Model
     public $operationSystem;
 
     /**
-     * @description The type of the operating system. Valid values:
-     *
-     *   AliyunLinux
-     *   Windows
-     *   Ubuntu
-     *   Centos
-     *   Debian
-     *   RedhatEnterpriseLinux
-     *   Anolis
+     * @description The ID of the region.
      *
      * @example cn-hangzhou
      *
@@ -75,10 +82,13 @@ class ListPatchBaselinesRequest extends Model
     /**
      * @var string
      */
-    public $resourceGroupld;
+    public $resourceGroupId;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description The share type of the template. Valid values:
+     *
+     *   **Public**
+     *   **Private**
      *
      * @example Private
      *
@@ -87,11 +97,15 @@ class ListPatchBaselinesRequest extends Model
     public $shareType;
 
     /**
+     * @description The list of patch source configurations.
+     *
      * @var string[]
      */
     public $sources;
 
     /**
+     * @description The tags.
+     *
      * @var tags[]
      */
     public $tags;
@@ -103,7 +117,7 @@ class ListPatchBaselinesRequest extends Model
         'nextToken'                        => 'NextToken',
         'operationSystem'                  => 'OperationSystem',
         'regionId'                         => 'RegionId',
-        'resourceGroupld'                  => 'ResourceGroupld',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'shareType'                        => 'ShareType',
         'sources'                          => 'Sources',
         'tags'                             => 'Tags',
@@ -137,8 +151,8 @@ class ListPatchBaselinesRequest extends Model
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
         }
-        if (null !== $this->resourceGroupld) {
-            $res['ResourceGroupld'] = $this->resourceGroupld;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -190,8 +204,8 @@ class ListPatchBaselinesRequest extends Model
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
         }
-        if (isset($map['ResourceGroupld'])) {
-            $model->resourceGroupld = $map['ResourceGroupld'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

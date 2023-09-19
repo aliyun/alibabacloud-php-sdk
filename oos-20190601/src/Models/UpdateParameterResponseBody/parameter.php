@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class parameter extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The constraints of the common parameter.
      *
      * @example "{\"AllowedValues\":[\"parameter\"],\"AllowedPattern\":\"parameter\",\"MinLength\":0,\"MaxLength\":20}"
      *
@@ -18,6 +18,8 @@ class parameter extends Model
     public $constraints;
 
     /**
+     * @description The user who created the common parameter.
+     *
      * @example root(130900000)
      *
      * @var string
@@ -25,6 +27,8 @@ class parameter extends Model
     public $createdBy;
 
     /**
+     * @description The time when the common parameter was created.
+     *
      * @example 2020-09-01T08:01:43Z
      *
      * @var string
@@ -32,7 +36,7 @@ class parameter extends Model
     public $createdDate;
 
     /**
-     * @description The description of the common parameter. The description must be 1 to 200 characters in length.
+     * @description The description of the common parameter.
      *
      * @example update
      *
@@ -41,6 +45,8 @@ class parameter extends Model
     public $description;
 
     /**
+     * @description The parameter ID.
+     *
      * @example p-4c4b401cab6747xxxxxx
      *
      * @var string
@@ -48,6 +54,8 @@ class parameter extends Model
     public $id;
 
     /**
+     * @description The name of the common parameter.
+     *
      * @example MyParameter
      *
      * @var string
@@ -55,6 +63,8 @@ class parameter extends Model
     public $name;
 
     /**
+     * @description The version number of the common parameter.
+     *
      * @example 2
      *
      * @var int
@@ -62,7 +72,7 @@ class parameter extends Model
     public $parameterVersion;
 
     /**
-     * @description Updates a common parameter.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m4******
      *
@@ -71,6 +81,8 @@ class parameter extends Model
     public $resourceGroupId;
 
     /**
+     * @description The share type of the common parameter.
+     *
      * @example Private
      *
      * @var string
@@ -78,7 +90,7 @@ class parameter extends Model
     public $shareType;
 
     /**
-     * @description The information of the common parameter.
+     * @description The tag added to the common parameter.
      *
      * @example {"k1": "v1", "k2": "v2"}
      *
@@ -87,7 +99,7 @@ class parameter extends Model
     public $tags;
 
     /**
-     * @description The user who updated the common parameter.
+     * @description The data type of the common parameter.
      *
      * @example String
      *
@@ -96,7 +108,7 @@ class parameter extends Model
     public $type;
 
     /**
-     * @description The region ID of the resource.
+     * @description The user who updated the common parameter.
      *
      * @example root(130900000)
      *
@@ -105,7 +117,7 @@ class parameter extends Model
     public $updatedBy;
 
     /**
-     * @description The description of the common parameter.
+     * @description The time when the common parameter was updated.
      *
      * @example 2020-09-01T08:04:23Z
      *

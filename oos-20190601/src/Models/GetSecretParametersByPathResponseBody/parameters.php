@@ -54,7 +54,7 @@ class parameters extends Model
     public $id;
 
     /**
-     * @description The AccessKey ID.
+     * @description The ID of the key.
      *
      * @example 090xxbex-xexx-xxxx-axfc-ddxxcxxxxcex
      *

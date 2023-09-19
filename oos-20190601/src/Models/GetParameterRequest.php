@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class GetParameterRequest extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to GetParameter.
+     * @description The name of the common parameter. The name can be up to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_).
      *
      * @example MyParameter
      *
@@ -18,7 +18,7 @@ class GetParameterRequest extends Model
     public $name;
 
     /**
-     * @description The time when the common parameter was updated.
+     * @description The version number of the common parameter. Valid values: 1 to 100.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class GetParameterRequest extends Model
     public $parameterVersion;
 
     /**
-     * @description The name of the common parameter.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +36,7 @@ class GetParameterRequest extends Model
     public $regionId;
 
     /**
-     * @description The user who created the common parameter.
+     * @description The resource group ID.
      *
      * @example rg-acfmxsn4m*****
      *

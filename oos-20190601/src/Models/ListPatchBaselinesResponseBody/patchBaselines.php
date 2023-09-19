@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class patchBaselines extends Model
 {
     /**
+     * @description 批准补丁的列表。
+     *
      * @var string[]
      */
     public $approvedPatches;
 
     /**
+     * @description 批准补丁是否包括除安全性之外的更新
+     *
+     * @example true
+     *
      * @var bool
      */
     public $approvedPatchesEnableNonSecurity;
@@ -85,7 +91,7 @@ class patchBaselines extends Model
     /**
      * @var string
      */
-    public $resourceGroupld;
+    public $resourceGroupId;
 
     /**
      * @description Queries the details of patch baselines.
@@ -97,11 +103,15 @@ class patchBaselines extends Model
     public $shareType;
 
     /**
+     * @description 补丁源配置列表。
+     *
      * @var string[]
      */
     public $sources;
 
     /**
+     * @description 标签。
+     *
      * @var tags[]
      */
     public $tags;
@@ -133,7 +143,7 @@ class patchBaselines extends Model
         'isDefault'                        => 'IsDefault',
         'name'                             => 'Name',
         'operationSystem'                  => 'OperationSystem',
-        'resourceGroupld'                  => 'ResourceGroupld',
+        'resourceGroupId'                  => 'ResourceGroupId',
         'shareType'                        => 'ShareType',
         'sources'                          => 'Sources',
         'tags'                             => 'Tags',
@@ -175,8 +185,8 @@ class patchBaselines extends Model
         if (null !== $this->operationSystem) {
             $res['OperationSystem'] = $this->operationSystem;
         }
-        if (null !== $this->resourceGroupld) {
-            $res['ResourceGroupld'] = $this->resourceGroupld;
+        if (null !== $this->resourceGroupId) {
+            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->shareType) {
             $res['ShareType'] = $this->shareType;
@@ -240,8 +250,8 @@ class patchBaselines extends Model
         if (isset($map['OperationSystem'])) {
             $model->operationSystem = $map['OperationSystem'];
         }
-        if (isset($map['ResourceGroupld'])) {
-            $model->resourceGroupld = $map['ResourceGroupld'];
+        if (isset($map['ResourceGroupId'])) {
+            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ShareType'])) {
             $model->shareType = $map['ShareType'];

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class GetSecretParametersByPathResponseBody extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -19,7 +19,7 @@ class GetSecretParametersByPathResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example gAAAAABfTgv5ewUWmNdJ3g7JVLvX70sPH90GZOVGC
      *
@@ -28,14 +28,14 @@ class GetSecretParametersByPathResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The information of the encryption parameter.
+     * @description The information about the encryption parameters.
      *
      * @var parameters[]
      */
     public $parameters;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 25156E99-7437-4590-AA58-2ACA17DE405C
      *

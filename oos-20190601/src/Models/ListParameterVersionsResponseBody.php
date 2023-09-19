@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListParameterVersionsResponseBody extends Model
 {
     /**
-     * @description The name of the common parameter.
+     * @description The user who created the common parameter.
      *
      * @example root(130900000)
      *
@@ -19,7 +19,7 @@ class ListParameterVersionsResponseBody extends Model
     public $createdBy;
 
     /**
-     * @description The total number of entries returned.
+     * @description The time when the common parameter was created.
      *
      * @example 2020-09-07T11:37:29Z
      *
@@ -28,7 +28,7 @@ class ListParameterVersionsResponseBody extends Model
     public $createdDate;
 
     /**
-     * @description The user who created the common parameter.
+     * @description The description of the common parameter.
      *
      * @example parameter-description
      *
@@ -37,7 +37,7 @@ class ListParameterVersionsResponseBody extends Model
     public $description;
 
     /**
-     * @description The version number of the common parameter.
+     * @description The ID of the common parameter.
      *
      * @example p-a483b520e0axxxxxxxxx
      *
@@ -46,7 +46,7 @@ class ListParameterVersionsResponseBody extends Model
     public $id;
 
     /**
-     * @description The time when the common parameter was created.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -55,7 +55,7 @@ class ListParameterVersionsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The ID of the common parameter.
+     * @description The name of the common parameter.
      *
      * @example MyParameter
      *
@@ -64,7 +64,7 @@ class ListParameterVersionsResponseBody extends Model
     public $name;
 
     /**
-     * @description The description of the common parameter.
+     * @description The pagination token that was used in the next request to retrieve a new page of results.
      *
      * @example MTRBMDc0NjAtRUJFNy00N0NBLTk3NTctMTJDQzQ3NjFENDdB
      *
@@ -73,14 +73,14 @@ class ListParameterVersionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The value of the common parameter.
+     * @description The information about the version of the common parameter.
      *
      * @var parameterVersions[]
      */
     public $parameterVersions;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The request ID.
      *
      * @example FD08D89D-B6C8-4AA2-A2B4-521D3F4A39FA
      *
@@ -89,7 +89,7 @@ class ListParameterVersionsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The version information of the common parameter.
+     * @description The total number of entries returned.
      *
      * @example 50
      *
@@ -98,7 +98,7 @@ class ListParameterVersionsResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description The ID of the request.
+     * @description The data type of the common parameter.
      *
      * @example String
      *

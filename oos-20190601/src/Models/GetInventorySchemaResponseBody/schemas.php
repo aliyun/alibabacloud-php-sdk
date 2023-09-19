@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class schemas extends Model
 {
     /**
-     * @description The properties of component.
+     * @description The properties of the configuration list.
      *
      * @var attributes[]
      */
     public $attributes;
 
     /**
-     * @description The name of the component.
+     * @description The name of the configuration list.
      *
      * @example ACS:Application
      *
@@ -26,7 +26,7 @@ class schemas extends Model
     public $typeName;
 
     /**
-     * @description The version of the component.
+     * @description The version of the configuration list.
      *
      * @example 1.0
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DeleteTemplateRequest extends Model
 {
     /**
-     * @description You can call this operation to delete a template.
+     * @description Specifies whether to delete the related executions when a template is deleted.
      *
      * @example false
      *
@@ -18,7 +18,7 @@ class DeleteTemplateRequest extends Model
     public $autoDeleteExecutions;
 
     /**
-     * @description Specifies whether to delete the related executions when a template is deleted.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -27,7 +27,7 @@ class DeleteTemplateRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the template. The name can be 1 to 200 characters in length and can contain letters, digits, hyphens (-), and underscores (\_). It cannot start with ALIYUN, ACS, ALIBABA, or ALICLOUD.
      *
      * @example MyTemplate
      *

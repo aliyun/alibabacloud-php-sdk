@@ -15,6 +15,8 @@ class UpdateApplicationRequest extends Model
     public $alarmConfig;
 
     /**
+     * @example false
+     *
      * @var bool
      */
     public $deleteAlarmRulesBeforeUpdate;

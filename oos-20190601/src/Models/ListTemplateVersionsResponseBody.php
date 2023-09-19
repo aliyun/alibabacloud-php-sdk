@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListTemplateVersionsResponseBody extends Model
 {
     /**
-     * @description The maximum number of results on each page.
+     * @description The number of entries per page.
      *
      * @example 50
      *
@@ -19,7 +19,7 @@ class ListTemplateVersionsResponseBody extends Model
     public $maxResults;
 
     /**
-     * @description The token that is used to retrieve the next page of results.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example NJSNDKLJS-SJKJDO090k30-JSDK232
      *
@@ -28,7 +28,7 @@ class ListTemplateVersionsResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E6CD612B-5889-4F1A-823F-8A4029E46
      *
