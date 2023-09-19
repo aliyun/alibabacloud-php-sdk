@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBResourceGroupResponseBody extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-bp1ub9grke1****
      *
@@ -19,14 +19,14 @@ class DescribeDBResourceGroupResponseBody extends Model
     public $DBClusterId;
 
     /**
-     * @description Details of the resource group.
+     * @description The queried resource group.
      *
      * @var groupsInfo[]
      */
     public $groupsInfo;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEF
      *

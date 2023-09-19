@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class accessIpRecords extends Model
 {
     /**
-     * @description The IP address of the client used to connect to the cluster.
+     * @description The IP address of the client.
      *
      * @example 42.120.XX.XX
      *

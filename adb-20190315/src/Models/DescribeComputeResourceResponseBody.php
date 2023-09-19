@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeComputeResourceResponseBody extends Model
 {
     /**
-     * @description Details of computing resource specifications.
+     * @description The queried specifications of computing resources.
      *
      * @var computeResource[]
      */
     public $computeResource;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 1AD222E9-E606-4A42-BF6D-8A4442913CEAW
      *

@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class elasticPlanList extends Model
 {
     /**
-     * @description The number of nodes involved in the scaling plan.
+     * @description The number of nodes that are involved in the scaling plan.
      *
      *   If ElasticPlanType is set to **worker**, a value of 0 or null is returned.
      *   If ElasticPlanType is set to **executorcombineworker** or **executor**, a value greater than 0 is returned.
@@ -21,11 +21,11 @@ class elasticPlanList extends Model
     public $elasticNodeNum;
 
     /**
-     * @description The type of the scaling plan. Default value: executorcombineworker. Valid values:
+     * @description The type of the scaling plan. Valid values:
      *
      *   **worker**: scales only elastic I/O resources.
      *   **executor**: scales only computing resources.
-     *   **executorcombineworker**: scales both elastic I/O resources and computing resources by proportion.
+     *   **executorcombineworker** (default): scales both elastic I/O resources and computing resources by proportion.
      *
      * @example worker
      *
@@ -34,9 +34,9 @@ class elasticPlanList extends Model
     public $elasticPlanType;
 
     /**
-     * @description The resource specifications that can be scaled up by the scaling plan. Default value: 8 Core 64 GB. Valid values:
+     * @description The resource specifications that can be scaled up by the scaling plan. Valid values:
      *
-     *   8 Core 64 GB
+     *   8 Core 64 GB (default)
      *   16 Core 64 GB
      *   32 Core 64 GB
      *   64 Core 128 GB
@@ -51,10 +51,10 @@ class elasticPlanList extends Model
     public $elasticPlanWorkerSpec;
 
     /**
-     * @description Specifies whether the scaling plan takes effect. Default value: true. Valid values:
+     * @description Indicates whether the scaling plan takes effect. Default value: true. Valid values:
      *
-     *   **true**: The scaling plan takes effect.
-     *   **false**: The scaling plan does not take effect.
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -117,7 +117,7 @@ class elasticPlanList extends Model
     public $startTime;
 
     /**
-     * @description The days of the week when you want to execute the scaling plan. Valid values: 0 to 6, which indicate Sunday to Saturday. Multiple values are separated by commas (,).
+     * @description The days of the week when the scaling plan was executed. Valid values: 0 to 6, which indicate Sunday to Saturday. Multiple values are separated by commas (,).
      *
      * @example 3,4,5,6
      *

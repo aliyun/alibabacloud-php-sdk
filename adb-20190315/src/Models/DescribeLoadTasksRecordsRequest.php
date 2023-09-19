@@ -84,6 +84,8 @@ class DescribeLoadTasksRecordsRequest extends Model
     public $pageSize;
 
     /**
+     * @example cn-shanghai
+     *
      * @var string
      */
     public $regionId;

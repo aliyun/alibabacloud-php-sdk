@@ -9,12 +9,12 @@ use AlibabaCloud\Tea\Model;
 class DescribeMaintenanceActionRequest extends Model
 {
     /**
-     * @description Specifies whether to return the details of pending or historical O\&M events. Valid values:
+     * @description Specifies whether to return the information about pending or historical O\&M events. Valid values:
      *
-     *   **0**: returns the details of pending O\&M event.
-     *   **1**: returns the details of historical O\&M event.
+     *   **0**: returns the information about pending O\&M event.
+     *   **1**: returns the information about historical O\&M event.
      *
-     * If you do not specify this parameter, the details of pending O\&M event are returned.
+     * If you do not specify this parameter, the information about pending O\&M event are returned.
      * @example 1
      *
      * @var int
@@ -32,7 +32,7 @@ class DescribeMaintenanceActionRequest extends Model
     public $ownerId;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: **1**.
+     * @description The page number. Pages start from page 1. Default value: **1**.
      *
      * @example 1
      *
@@ -41,7 +41,7 @@ class DescribeMaintenanceActionRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Valid values: **30**, **50**, and **100**. Default value: 30.
+     * @description The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: 30.
      *
      * @example 30
      *
@@ -50,10 +50,10 @@ class DescribeMaintenanceActionRequest extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the region where the O\&M event occurs. Valid values:
+     * @description The region ID. Valid values:
      *
-     *   The ID of the region where the O\&M event occurs. Example: `cn-hangzhou`. You can call the [DescribeRegions](~~143074~~) operation to query the regions and zones supported by AnalyticDB for MySQL, including the region IDs.
-     *   You can also set Region to `all` to view all the O\&M events in all regions. If `Region` is set to `all`, `TaskType` must be set to `all`.
+     *   The ID of the region where the O\&M event occurs. Example: `cn-hangzhou`. You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     *   You can also set Region to `all` to query the O\&M events in all regions. If you set `Region` to `all`, you must set `TaskType` to `all`.
      *
      * @example cn-hangzhou
      *
@@ -64,7 +64,7 @@ class DescribeMaintenanceActionRequest extends Model
     /**
      * @description The ID of the region where the O\&M event occurs.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the regions and zones supported by AnalyticDB for MySQL, including the region IDs.
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -84,8 +84,8 @@ class DescribeMaintenanceActionRequest extends Model
     /**
      * @description The type of the O\&M event. Valid values:
      *
-     *   **rds_apsaradb_upgrade**: indicates database software upgrades.
-     *   **all**: indicates all the O\&M events in all regions within the current account. If `Region` is set to `all`, `TaskType` must be set to `all`.
+     *   **rds_apsaradb_upgrade**: database software upgrades.
+     *   **all**: all the O\&M events in all regions within the current account. If you set `Region` to `all`, you must set `TaskType` to `all`.
      *
      * @example rds_apsaradb_upgrade
      *

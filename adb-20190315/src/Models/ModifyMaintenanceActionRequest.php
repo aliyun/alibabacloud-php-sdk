@@ -47,6 +47,8 @@ class ModifyMaintenanceActionRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-4690g37929XXXX
+     *
      * @var string
      */
     public $resourceGroupId;

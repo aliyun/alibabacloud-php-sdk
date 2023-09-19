@@ -11,8 +11,8 @@ class autoRenewAttribute extends Model
     /**
      * @description Indicates whether auto-renewal is enabled for the cluster. Valid values:
      *
-     *   **true**: Auto-renewal is enabled.
-     *   **false**: Auto-renewal is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -21,7 +21,7 @@ class autoRenewAttribute extends Model
     public $autoRenewEnabled;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-bp11q28kvl688****
      *
@@ -30,7 +30,7 @@ class autoRenewAttribute extends Model
     public $DBClusterId;
 
     /**
-     * @description The renewal period.
+     * @description The renewal duration.
      *
      * @example 1
      *
@@ -39,7 +39,7 @@ class autoRenewAttribute extends Model
     public $duration;
 
     /**
-     * @description The unit of the renewal period. Valid values:
+     * @description The unit of the renewal duration. Valid values:
      *
      *   **Year**
      *   **Month**

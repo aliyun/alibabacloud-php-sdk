@@ -14,6 +14,10 @@ class DescribeComputeResourceRequest extends Model
     public $DBClusterId;
 
     /**
+     * @description The version of the AnalyticDB for MySQL Data Warehouse Edition cluster. Set the value to **3**.
+     *
+     * @example 3.0
+     *
      * @var string
      */
     public $DBClusterVersion;
@@ -34,9 +38,9 @@ class DescribeComputeResourceRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -54,6 +58,11 @@ class DescribeComputeResourceRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The zone ID of the cluster.
+     *
+     * > You can call the [DescribeRegions](~~129857~~) operation to query the most recent zone list.
+     * @example cn-beijing-f
+     *
      * @var string
      */
     public $zoneId;

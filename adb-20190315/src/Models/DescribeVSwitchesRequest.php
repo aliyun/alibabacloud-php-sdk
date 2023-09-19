@@ -6,17 +6,8 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DescribeAutoRenewAttributeRequest extends Model
+class DescribeVSwitchesRequest extends Model
 {
-    /**
-     * @description The cluster ID. Separate multiple clusters with commas (,).
-     *
-     * @example am-bp11q28kvl688****
-     *
-     * @var string
-     */
-    public $DBClusterIds;
-
     /**
      * @var string
      */
@@ -28,45 +19,14 @@ class DescribeAutoRenewAttributeRequest extends Model
     public $ownerId;
 
     /**
-     * @description The page number. Pages start from page 1. Default value: 1.
+     * @description The region ID.
      *
-     * @example 1
-     *
-     * @var int
-     */
-    public $pageNumber;
-
-    /**
-     * @description The number of entries per page. Valid values:
-     *
-     *   30
-     *   50
-     *   100
-     *
-     * Default value: 30.
-     * @example 30
-     *
-     * @var int
-     */
-    public $pageSize;
-
-    /**
-     * @description The region ID of the cluster.
-     *
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
      */
     public $regionId;
-
-    /**
-     * @description The ID of the resource group.
-     *
-     * @example rg-4690g37929****
-     *
-     * @var string
-     */
-    public $resourceGroupId;
 
     /**
      * @var string
@@ -77,16 +37,46 @@ class DescribeAutoRenewAttributeRequest extends Model
      * @var int
      */
     public $resourceOwnerId;
+
+    /**
+     * @var string
+     */
+    public $securityToken;
+
+    /**
+     * @description The virtual private cloud (VPC) ID.
+     *
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the VPC ID.
+     * @example vpc-bp13h7uzhulpuxvnp****
+     *
+     * @var string
+     */
+    public $vpcId;
+
+    /**
+     * @var string
+     */
+    public $vswId;
+
+    /**
+     * @description The zone ID.
+     *
+     * > You can call the [DescribeRegions](~~129857~~) operation to query the most recent zone list.
+     * @example cn-hangzhou-h
+     *
+     * @var string
+     */
+    public $zoneId;
     protected $_name = [
-        'DBClusterIds'         => 'DBClusterIds',
         'ownerAccount'         => 'OwnerAccount',
         'ownerId'              => 'OwnerId',
-        'pageNumber'           => 'PageNumber',
-        'pageSize'             => 'PageSize',
         'regionId'             => 'RegionId',
-        'resourceGroupId'      => 'ResourceGroupId',
         'resourceOwnerAccount' => 'ResourceOwnerAccount',
         'resourceOwnerId'      => 'ResourceOwnerId',
+        'securityToken'        => 'SecurityToken',
+        'vpcId'                => 'VpcId',
+        'vswId'                => 'VswId',
+        'zoneId'               => 'ZoneId',
     ];
 
     public function validate()
@@ -96,32 +86,32 @@ class DescribeAutoRenewAttributeRequest extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->DBClusterIds) {
-            $res['DBClusterIds'] = $this->DBClusterIds;
-        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
         }
-        if (null !== $this->pageNumber) {
-            $res['PageNumber'] = $this->pageNumber;
-        }
-        if (null !== $this->pageSize) {
-            $res['PageSize'] = $this->pageSize;
-        }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
-        }
-        if (null !== $this->resourceGroupId) {
-            $res['ResourceGroupId'] = $this->resourceGroupId;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
         }
         if (null !== $this->resourceOwnerId) {
             $res['ResourceOwnerId'] = $this->resourceOwnerId;
+        }
+        if (null !== $this->securityToken) {
+            $res['SecurityToken'] = $this->securityToken;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
+        }
+        if (null !== $this->vswId) {
+            $res['VswId'] = $this->vswId;
+        }
+        if (null !== $this->zoneId) {
+            $res['ZoneId'] = $this->zoneId;
         }
 
         return $res;
@@ -130,37 +120,37 @@ class DescribeAutoRenewAttributeRequest extends Model
     /**
      * @param array $map
      *
-     * @return DescribeAutoRenewAttributeRequest
+     * @return DescribeVSwitchesRequest
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['DBClusterIds'])) {
-            $model->DBClusterIds = $map['DBClusterIds'];
-        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
         }
-        if (isset($map['PageNumber'])) {
-            $model->pageNumber = $map['PageNumber'];
-        }
-        if (isset($map['PageSize'])) {
-            $model->pageSize = $map['PageSize'];
-        }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
-        }
-        if (isset($map['ResourceGroupId'])) {
-            $model->resourceGroupId = $map['ResourceGroupId'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];
         }
         if (isset($map['ResourceOwnerId'])) {
             $model->resourceOwnerId = $map['ResourceOwnerId'];
+        }
+        if (isset($map['SecurityToken'])) {
+            $model->securityToken = $map['SecurityToken'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
+        }
+        if (isset($map['VswId'])) {
+            $model->vswId = $map['VswId'];
+        }
+        if (isset($map['ZoneId'])) {
+            $model->zoneId = $map['ZoneId'];
         }
 
         return $model;

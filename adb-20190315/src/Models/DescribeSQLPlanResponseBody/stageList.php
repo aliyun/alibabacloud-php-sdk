@@ -36,7 +36,7 @@ class stageList extends Model
     public $CPUTimeMin;
 
     /**
-     * @description The average amount of input data on each compute node in the stage. Unit: byte.
+     * @description The average amount of input data on each compute node in the stage. Unit: bytes.
      *
      * @example 173
      *
@@ -54,7 +54,7 @@ class stageList extends Model
     public $inputSizeMax;
 
     /**
-     * @description The minimum amount of input data on each compute node in the stage. Unit: byte.
+     * @description The minimum amount of input data on each compute node in the stage. Unit: bytes.
      *
      * @example 173
      *
@@ -72,7 +72,7 @@ class stageList extends Model
     public $operatorCost;
 
     /**
-     * @description The maximum memory usage when the SQL statement is executed. Unit: byte.
+     * @description The maximum memory usage when the SQL statement is executed. Unit: bytes.
      *
      * @example 74208
      *
@@ -81,7 +81,7 @@ class stageList extends Model
     public $peakMemory;
 
     /**
-     * @description The average amount of data scanned by a scan operator on each storage node in the stage. Unit: byte.
+     * @description The average amount of data scanned by a scan operator on each storage node in the stage. Unit: bytes.
      *
      * @example 0
      *
@@ -90,7 +90,7 @@ class stageList extends Model
     public $scanSizeAvg;
 
     /**
-     * @description The maximum amount of data scanned by a scan operator on each storage node in the stage. Unit: byte.
+     * @description The maximum amount of data scanned by a scan operator on each storage node in the stage. Unit: bytes.
      *
      * @example 0
      *
@@ -99,7 +99,7 @@ class stageList extends Model
     public $scanSizeMax;
 
     /**
-     * @description The minimum amount of data scanned by a scan operator on each storage node in the stage. Unit: byte.
+     * @description The minimum amount of data scanned by a scan operator on each storage node in the stage. Unit: bytes.
      *
      * @example 0
      *
@@ -135,7 +135,7 @@ class stageList extends Model
     public $scanTimeMin;
 
     /**
-     * @description The ID of the stage.
+     * @description The stage ID.
      *
      * @example 1
      *

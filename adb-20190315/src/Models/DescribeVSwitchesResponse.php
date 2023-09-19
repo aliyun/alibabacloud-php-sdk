@@ -6,7 +6,7 @@ namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
 use AlibabaCloud\Tea\Model;
 
-class DryRunClusterResponse extends Model
+class DescribeVSwitchesResponse extends Model
 {
     /**
      * @var string[]
@@ -19,7 +19,7 @@ class DryRunClusterResponse extends Model
     public $statusCode;
 
     /**
-     * @var DryRunClusterResponseBody
+     * @var DescribeVSwitchesResponseBody
      */
     public $body;
     protected $_name = [
@@ -54,7 +54,7 @@ class DryRunClusterResponse extends Model
     /**
      * @param array $map
      *
-     * @return DryRunClusterResponse
+     * @return DescribeVSwitchesResponse
      */
     public static function fromMap($map = [])
     {
@@ -66,7 +66,7 @@ class DryRunClusterResponse extends Model
             $model->statusCode = $map['statusCode'];
         }
         if (isset($map['body'])) {
-            $model->body = DryRunClusterResponseBody::fromMap($map['body']);
+            $model->body = DescribeVSwitchesResponseBody::fromMap($map['body']);
         }
 
         return $model;

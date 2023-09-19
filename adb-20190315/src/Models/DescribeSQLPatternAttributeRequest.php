@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPatternAttributeRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the detailed information of all AnalyticDB for MySQL clusters within a specific region, including cluster IDs.
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
      * @example am-****************
      *
      * @var string
@@ -21,7 +21,7 @@ class DescribeSQLPatternAttributeRequest extends Model
     /**
      * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
-     * >  The end time must be later than the start time.
+     * > The end time must be later than the start time.
      * @example 2021-09-30T00:15Z
      *
      * @var string
@@ -29,12 +29,12 @@ class DescribeSQLPatternAttributeRequest extends Model
     public $endTime;
 
     /**
-     * @description The languages available for file titles and some error messages. Default value: zh. Valid values:
+     * @description The language of file titles and error messages. Valid values:
      *
-     *   **zh**: Simplified Chinese
-     *   **en**: English
-     *   **ja**: Japanese
-     *   **zh-tw**: Traditional Chinese
+     *   **zh**: simplified Chinese.
+     *   **en**: English.
+     *   **ja**: Japanese.
+     *   **zh-tw**: traditional Chinese.
      *
      * @example zh
      *
@@ -43,9 +43,9 @@ class DescribeSQLPatternAttributeRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the SQL pattern.
+     * @description The SQL pattern ID.
      *
-     * >  You can call the [DescribeSQLPatterns](~~321868~~) operation to query the list of SQL patterns within an AnalyticDB for MySQL cluster for a specific period of time, including SQL pattern IDs.
+     * > You can call the [DescribeSQLPatterns](~~321868~~) operation to query the information about all SQL patterns in an AnalyticDB for MySQL cluster within a period of time, including SQL pattern IDs.
      * @example 5575924945138******
      *
      * @var int
@@ -55,7 +55,7 @@ class DescribeSQLPatternAttributeRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the regions and zones supported by AnalyticDB for MySQL, including region IDs.
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -65,7 +65,7 @@ class DescribeSQLPatternAttributeRequest extends Model
     /**
      * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
      *
-     * >  Only data generated within the last 15 days can be viewed.
+     * > You can query the data only within the last 15 days.
      * @example 2021-09-30T00:10Z
      *
      * @var string

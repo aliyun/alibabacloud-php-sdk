@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class patternDetail extends Model
 {
     /**
-     * @description The average memory consumption associated with the SQL pattern. Unit: MB.
+     * @description The average used memory associated with the SQL pattern. Unit: MB.
      *
      * @example 0
      *
@@ -18,7 +18,7 @@ class patternDetail extends Model
     public $averageMemory;
 
     /**
-     * @description The average query time associated with the SQL pattern. Unit: milliseconds.
+     * @description The average query duration associated with the SQL pattern. Unit: milliseconds.
      *
      * @example 4
      *
@@ -27,7 +27,7 @@ class patternDetail extends Model
     public $averageQueryTime;
 
     /**
-     * @description The number of queries performed based on the SQL pattern.
+     * @description The number of queries.
      *
      * @example 2
      *
@@ -45,7 +45,7 @@ class patternDetail extends Model
     public $SQLPattern;
 
     /**
-     * @description The total query time associated with the SQL pattern. Unit: milliseconds.
+     * @description The total query duration associated with the SQL pattern. Unit: milliseconds.
      *
      * @example 8
      *

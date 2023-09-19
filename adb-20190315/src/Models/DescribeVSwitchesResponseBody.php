@@ -4,9 +4,10 @@
 
 namespace AlibabaCloud\SDK\Adb\V20190315\Models;
 
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeVSwitchesResponseBody\vSwitches;
 use AlibabaCloud\Tea\Model;
 
-class DryRunClusterResponseBody extends Model
+class DescribeVSwitchesResponseBody extends Model
 {
     /**
      * @description The request ID.
@@ -18,19 +19,14 @@ class DryRunClusterResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the dry run succeeds. Valid values:
+     * @description The queried vSwitches.
      *
-     *   **true**
-     *   **false**
-     *
-     * @example true
-     *
-     * @var bool
+     * @var vSwitches
      */
-    public $success;
+    public $vSwitches;
     protected $_name = [
         'requestId' => 'RequestId',
-        'success'   => 'Success',
+        'vSwitches' => 'VSwitches',
     ];
 
     public function validate()
@@ -43,8 +39,8 @@ class DryRunClusterResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
-        if (null !== $this->success) {
-            $res['Success'] = $this->success;
+        if (null !== $this->vSwitches) {
+            $res['VSwitches'] = null !== $this->vSwitches ? $this->vSwitches->toMap() : null;
         }
 
         return $res;
@@ -53,7 +49,7 @@ class DryRunClusterResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return DryRunClusterResponseBody
+     * @return DescribeVSwitchesResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -61,8 +57,8 @@ class DryRunClusterResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
-        if (isset($map['Success'])) {
-            $model->success = $map['Success'];
+        if (isset($map['VSwitches'])) {
+            $model->vSwitches = vSwitches::fromMap($map['VSwitches']);
         }
 
         return $model;

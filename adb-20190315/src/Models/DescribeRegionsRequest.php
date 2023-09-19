@@ -9,13 +9,13 @@ use AlibabaCloud\Tea\Model;
 class DescribeRegionsRequest extends Model
 {
     /**
-     * @description The language used for the region and zone names specified by the `LocalName` parameter. Valid values:
+     * @description Th language of the `LocalName` response parameter. Valid values:
      *
-     *   **zh-CN**: Chinese
-     *   **en-US**: English
-     *   **ja**: Japanese
+     *   **zh-CN**: Chinese.
+     *   **en-US**: English.
+     *   **ja**: Japanese.
      *
-     * >  If this parameter is left empty, Chinese is used.
+     * > If you do not specify this parameter, the Chinese language is used.
      * @example en-US
      *
      * @var string

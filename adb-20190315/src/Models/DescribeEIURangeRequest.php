@@ -54,6 +54,8 @@ class DescribeEIURangeRequest extends Model
     public $regionId;
 
     /**
+     * @example rg-4690g37929****
+     *
      * @var string
      */
     public $resourceGroupId;

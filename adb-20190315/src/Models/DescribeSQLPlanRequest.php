@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPlanRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query details about all AnalyticDB for MySQL clusters in a specific region, including cluster IDs.
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the information about all AnalyticDB for MySQL clusters within a region, including cluster IDs.
      * @example am-****************
      *
      * @var string
@@ -29,9 +29,9 @@ class DescribeSQLPlanRequest extends Model
     public $ownerId;
 
     /**
-     * @description The ID of the task.
+     * @description The query ID.
      *
-     * >  You can call the [DescribeSlowLogRecords](~~143382~~) operation to query the task ID of the SQL statement.
+     * > You can call the [DescribeProcessList](~~143382~~) operation to query the IDs of queries that are being executed.
      * @example 202105271604431720161662490345*******
      *
      * @var string

@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppliedAdvicesResponseBody extends Model
 {
     /**
-     * @description Details of the suggestions.
+     * @description The queried suggestions.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -26,9 +26,9 @@ class DescribeAppliedAdvicesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -39,7 +39,7 @@ class DescribeAppliedAdvicesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 84489769-3065-5A28-A4CB-977CD426F1C3
      *
@@ -48,7 +48,7 @@ class DescribeAppliedAdvicesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+     * @description The total number of entries returned. The value is an integer that is greater than or equal to 0. Default value: 0.
      *
      * @example 1
      *

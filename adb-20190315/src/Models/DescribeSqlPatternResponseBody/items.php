@@ -11,7 +11,7 @@ class items extends Model
     /**
      * @description The IP address of the client.
      *
-     * >  This parameter is returned only when the `Type` parameter is set to `accessip`.
+     * > This parameter is returned only when `Type` is set to `accessip`.
      * @example 100.104.***.***
      *
      * @var string
@@ -19,7 +19,7 @@ class items extends Model
     public $accessIP;
 
     /**
-     * @description The average CPU time. Unit: milliseconds.
+     * @description The average execution duration of the SQL pattern within the time range to query. Unit: milliseconds.
      *
      * @example 1.0625
      *
@@ -28,7 +28,7 @@ class items extends Model
     public $avgCpuTime;
 
     /**
-     * @description The average peak memory. Unit: KB.
+     * @description The average peak memory usage of the SQL pattern within the query time range. Unit: KB.
      *
      * @example 240048
      *
@@ -37,7 +37,7 @@ class items extends Model
     public $avgPeakMemory;
 
     /**
-     * @description The average scan size. Unit: KB.
+     * @description The average amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
      *
      * @example 0
      *
@@ -64,7 +64,7 @@ class items extends Model
     public $avgTaskCount;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-bp1r053byu48p****
      *
@@ -73,7 +73,7 @@ class items extends Model
     public $instanceName;
 
     /**
-     * @description The maximum CPU time. Unit: milliseconds.
+     * @description The maximum execution duration of the SQL pattern within the time range to query. Unit: milliseconds.
      *
      * @example 17
      *
@@ -82,7 +82,7 @@ class items extends Model
     public $maxCpuTime;
 
     /**
-     * @description The maximum peak memory. Unit: KB.
+     * @description The maximum peak memory usage of the SQL pattern within the query time range. Unit: KB.
      *
      * @example 480096
      *
@@ -91,7 +91,7 @@ class items extends Model
     public $maxPeakMemory;
 
     /**
-     * @description The maximum scan size. Unit: KB.
+     * @description The maximum amount of data scanned based on the SQL pattern within the query time range. Unit: KB.
      *
      * @example 0
      *
@@ -127,7 +127,7 @@ class items extends Model
     public $pattern;
 
     /**
-     * @description The total number of queries.
+     * @description The number of queries performed in association with the SQL pattern within the query time range.
      *
      * @example 16
      *
@@ -136,7 +136,7 @@ class items extends Model
     public $queryCount;
 
     /**
-     * @description The query date.
+     * @description The start date of the query.
      *
      * @example 2021-08-30
      *
@@ -147,7 +147,7 @@ class items extends Model
     /**
      * @description The username.
      *
-     * >  This parameter is returned only when the `Type` parameter is left empty or set to `user`.
+     * > This parameter is returned only when `Type` is left empty or set to `user`.
      * @example test_acc
      *
      * @var string

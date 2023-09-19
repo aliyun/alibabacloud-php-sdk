@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSqlPatternResponseBody extends Model
 {
     /**
-     * @description Details about the SQL pattern.
+     * @description The queried SQL pattern.
      *
      * @var items[]
      */
     public $items;
 
     /**
-     * @description The page number of the returned page.
+     * @description The page number.
      *
      * @example 1
      *
@@ -26,7 +26,7 @@ class DescribeSqlPatternResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned on the current page.
+     * @description The number of entries per page.
      *
      * @example 30
      *
@@ -35,7 +35,7 @@ class DescribeSqlPatternResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example B6F2D1B4-2C9F-5622-B424-5E7965******
      *
@@ -44,7 +44,7 @@ class DescribeSqlPatternResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The total number of entries.
+     * @description The total number of entries returned.
      *
      * @example 1
      *

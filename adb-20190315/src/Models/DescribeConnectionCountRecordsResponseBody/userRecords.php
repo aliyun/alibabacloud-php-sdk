@@ -18,7 +18,7 @@ class userRecords extends Model
     public $count;
 
     /**
-     * @description The name of the user used to connect to the cluster.
+     * @description The username of the database account.
      *
      * @example test
      *

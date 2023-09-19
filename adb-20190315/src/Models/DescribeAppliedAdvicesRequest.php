@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAppliedAdvicesRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
-     * >  You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of Data Warehouse Edition (V3.0) clusters.
+     * > You can call the [DescribeDBClusters](~~129857~~) operation to query the IDs of Data Warehouse Edition (V3.0) clusters.
      * @example am-uf6g8w25jacm7****
      *
      * @var string
@@ -19,7 +19,7 @@ class DescribeAppliedAdvicesRequest extends Model
     public $DBClusterId;
 
     /**
-     * @description The end date of the time range to query. Specify the date in the yyyyMMdd format. The date must be in UTC.
+     * @description The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyyMMdd format. The time must be in UTC.
      *
      * @example 20220824
      *
@@ -28,12 +28,12 @@ class DescribeAppliedAdvicesRequest extends Model
     public $endTime;
 
     /**
-     * @description The display language of the suggestion. Default value: zh. Valid values:
+     * @description The display language of the suggestion. Valid values:
      *
-     *   **zh**: simplified Chinese
-     *   **en**: English
-     *   **ja**: Japanese
-     *   **zh-tw**: traditional Chinese
+     *   **zh** (default): simplified Chinese.
+     *   **en**: English.
+     *   **ja**: Japanese.
+     *   **zh-tw**: traditional Chinese.
      *
      * @example zh
      *
@@ -42,7 +42,7 @@ class DescribeAppliedAdvicesRequest extends Model
     public $lang;
 
     /**
-     * @description The number of the page to return. The value must be an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -51,9 +51,9 @@ class DescribeAppliedAdvicesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return on each page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -66,7 +66,7 @@ class DescribeAppliedAdvicesRequest extends Model
     /**
      * @description The region ID of the cluster.
      *
-     * >  You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
+     * > You can call the [DescribeRegions](~~143074~~) operation to query the most recent region list.
      * @example cn-hangzhou
      *
      * @var string
@@ -74,7 +74,7 @@ class DescribeAppliedAdvicesRequest extends Model
     public $regionId;
 
     /**
-     * @description The start date of the time range to query. Specify the date in the yyyyMMdd format. The date must be in UTC.
+     * @description The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyyMMdd format. The time must be in UTC.
      *
      * @example 20220811
      *

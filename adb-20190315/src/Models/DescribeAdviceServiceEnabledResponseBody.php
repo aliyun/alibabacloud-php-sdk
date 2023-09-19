@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeAdviceServiceEnabledResponseBody extends Model
 {
     /**
-     * @description The message returned for the operation. Valid values:
+     * @description The returned message.
      *
-     *   **Success** is returned if the operation is successful.
-     *   An error message is returned if the operation fails.
+     *   If the request was successful, **Success** is returned.
+     *   If the request failed, an error message is returned.
      *
      * @example [Advisor] Advisor feature is not available for instance: am-2ze0vp0j6t3to****
      *
@@ -21,7 +21,7 @@ class DescribeAdviceServiceEnabledResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example E031AABF-BD56-5966-A063-4283EF18DB45
      *
@@ -32,8 +32,8 @@ class DescribeAdviceServiceEnabledResponseBody extends Model
     /**
      * @description Indicates whether the suggestion feature is enabled. Valid values:
      *
-     *   **True**: The suggestion feature is enabled.
-     *   **False**: The suggestion feature is disabled.
+     *   **True**
+     *   **False**
      *
      * @example False
      *

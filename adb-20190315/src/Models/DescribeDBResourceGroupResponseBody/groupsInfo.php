@@ -30,9 +30,9 @@ class groupsInfo extends Model
      * @description The query execution mode. Valid values:
      *
      *   **interactive**
-     *   **batch**
+     *   **batch** (default)
      *
-     * >  For more information, see [Query execution modes](~~189502~~).
+     * > For more information, see [Query execution modes](~~189502~~).
      * @example interactive
      *
      * @var string
@@ -49,7 +49,7 @@ class groupsInfo extends Model
     public $groupUsers;
 
     /**
-     * @description The number of nodes. Each node consumes 16 cores and 64 GB memory.
+     * @description The number of nodes. Each node provides 16 cores and 64 GB memory.
      *
      * @example 2
      *

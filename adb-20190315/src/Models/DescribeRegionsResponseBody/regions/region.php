@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class region extends Model
 {
     /**
+     * @description The region name.
+     *
      * @example China (Hangzhou)
      *
      * @var string
@@ -26,7 +28,7 @@ class region extends Model
     public $regionEndpoint;
 
     /**
-     * @description The ID of the region.
+     * @description The region ID.
      *
      * @example cn-hangzhou
      *
@@ -35,7 +37,7 @@ class region extends Model
     public $regionId;
 
     /**
-     * @description The list of zones.
+     * @description The queried zones.
      *
      * @var zones
      */

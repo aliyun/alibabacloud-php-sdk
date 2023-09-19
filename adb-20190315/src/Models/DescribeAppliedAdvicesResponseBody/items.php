@@ -34,9 +34,7 @@ class items extends Model
     public $buildSQL;
 
     /**
-     * @description The state of the suggestion execution task.
-     *
-     * Valid values:
+     * @description The state of the suggestion execution task. Valid values:
      *
      *   **SUCCEED**
      *   **FAILED**
@@ -48,7 +46,7 @@ class items extends Model
     public $jobStatus;
 
     /**
-     * @description The page number of the returned page. The value must be an integer that is greater than 0. Default value: 1.
+     * @description The page number. Pages start from page 1. Default value: 1.
      *
      * @example 1
      *
@@ -57,9 +55,9 @@ class items extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries returned per page. Default value: 30. Valid values:
+     * @description The number of entries per page. Valid values:
      *
-     *   **30**
+     *   **30** (default)
      *   **50**
      *   **100**
      *
@@ -79,7 +77,7 @@ class items extends Model
     public $rollbackSQL;
 
     /**
-     * @description The SQL statement used to apply the suggestion.
+     * @description The SQL statement that is used to apply the suggestion.
      *
      * @example alter table `schema1`.`table1` drop key col1_1_idx
      *
@@ -88,9 +86,7 @@ class items extends Model
     public $SQL;
 
     /**
-     * @description The submission state of the suggestion.
-     *
-     * Valid values:
+     * @description The submission state of the suggestion. Valid values:
      *
      *   **SUCCEED**
      *   **FAILED**
@@ -102,7 +98,7 @@ class items extends Model
     public $submitStatus;
 
     /**
-     * @description The time when the suggestion was submitted. The time follows the yyMMddHHmm format. The time is displayed in UTC.
+     * @description The time when the suggestion was submitted. The time follows the ISO 8601 standard in the yyMMddHHmm format. The time is displayed in UTC.
      *
      * @example 2208131600
      *
@@ -111,7 +107,7 @@ class items extends Model
     public $submitTime;
 
     /**
-     * @description The total number of entries returned. The value must be an integer that is greater than or equal to 0. Default value: 0.
+     * @description The total number of entries returned. The value is an integer that is greater than or equal to 0. Default value: 0.
      *
      * @example 1
      *

@@ -148,14 +148,14 @@ use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableStatisticsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTableStatisticsResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTaskInfoRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeTaskInfoResponse;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeVSwitchesRequest;
+use AlibabaCloud\SDK\Adb\V20190315\Models\DescribeVSwitchesResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DetachUserENIRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DetachUserENIResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DisableAdviceServiceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DisableAdviceServiceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DownloadDiagnosisRecordsRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\DownloadDiagnosisRecordsResponse;
-use AlibabaCloud\SDK\Adb\V20190315\Models\DryRunClusterRequest;
-use AlibabaCloud\SDK\Adb\V20190315\Models\DryRunClusterResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\EnableAdviceServiceRequest;
 use AlibabaCloud\SDK\Adb\V20190315\Models\EnableAdviceServiceResponse;
 use AlibabaCloud\SDK\Adb\V20190315\Models\GrantOperatorPermissionRequest;
@@ -1213,8 +1213,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   This operation is applicable only for elastic clusters of 32 cores or more.
+     * ### Precautions
+     *   * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
      *   * *   The default resource group USER_DEFAULT cannot be deleted.
      *   *
      * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
@@ -1263,8 +1263,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * *   This operation is applicable only for elastic clusters of 32 cores or more.
+     * ### Precautions
+     *   * *   You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
      *   * *   The default resource group USER_DEFAULT cannot be deleted.
      *   *
      * @param DeleteDBResourceGroupRequest $request DeleteDBResourceGroupRequest
@@ -2829,8 +2829,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * ###
+     *   * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
      *   *
      * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
      * @param RuntimeOptions                 $runtime runtime options for this request RuntimeOptions
@@ -2878,8 +2878,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * ## Precautions
-     *   * This operation is available only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * ###
+     *   * You can call this operation only for AnalyticDB for MySQL clusters in elastic mode for Cluster Edition that have 32 cores or more.
      *   *
      * @param DescribeDBResourceGroupRequest $request DescribeDBResourceGroupRequest
      *
@@ -3441,7 +3441,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * ###
+     *   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
      *   *
      * @param DescribeElasticPlanRequest $request DescribeElasticPlanRequest
      * @param RuntimeOptions             $runtime runtime options for this request RuntimeOptions
@@ -3495,7 +3496,8 @@ class Adb extends OpenApiClient
     }
 
     /**
-     * This operation is available only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
+     * ###
+     *   * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition that have 32 cores or more.
      *   *
      * @param DescribeElasticPlanRequest $request DescribeElasticPlanRequest
      *
@@ -4855,6 +4857,73 @@ class Adb extends OpenApiClient
     }
 
     /**
+     * @param DescribeVSwitchesRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitchesWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->ownerAccount)) {
+            $query['OwnerAccount'] = $request->ownerAccount;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->regionId)) {
+            $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->securityToken)) {
+            $query['SecurityToken'] = $request->securityToken;
+        }
+        if (!Utils::isUnset($request->vpcId)) {
+            $query['VpcId'] = $request->vpcId;
+        }
+        if (!Utils::isUnset($request->vswId)) {
+            $query['VswId'] = $request->vswId;
+        }
+        if (!Utils::isUnset($request->zoneId)) {
+            $query['ZoneId'] = $request->zoneId;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'DescribeVSwitches',
+            'version'     => '2019-03-15',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return DescribeVSwitchesResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param DescribeVSwitchesRequest $request
+     *
+     * @return DescribeVSwitchesResponse
+     */
+    public function describeVSwitches($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->describeVSwitchesWithOptions($request, $runtime);
+    }
+
+    /**
      * You can call this operation only for AnalyticDB for MySQL Data Warehouse Edition (V3.0) clusters in elastic mode for Cluster Edition.
      *   *
      * @param DetachUserENIRequest $request DetachUserENIRequest
@@ -5042,91 +5111,6 @@ class Adb extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->downloadDiagnosisRecordsWithOptions($request, $runtime);
-    }
-
-    /**
-     * @param DryRunClusterRequest $request
-     * @param RuntimeOptions       $runtime
-     *
-     * @return DryRunClusterResponse
-     */
-    public function dryRunClusterWithOptions($request, $runtime)
-    {
-        Utils::validateModel($request);
-        $query = [];
-        if (!Utils::isUnset($request->computeResource)) {
-            $query['ComputeResource'] = $request->computeResource;
-        }
-        if (!Utils::isUnset($request->DBClusterDescription)) {
-            $query['DBClusterDescription'] = $request->DBClusterDescription;
-        }
-        if (!Utils::isUnset($request->DBClusterId)) {
-            $query['DBClusterId'] = $request->DBClusterId;
-        }
-        if (!Utils::isUnset($request->DBClusterNetworkType)) {
-            $query['DBClusterNetworkType'] = $request->DBClusterNetworkType;
-        }
-        if (!Utils::isUnset($request->DBClusterVersion)) {
-            $query['DBClusterVersion'] = $request->DBClusterVersion;
-        }
-        if (!Utils::isUnset($request->enableDefaultResourcePool)) {
-            $query['EnableDefaultResourcePool'] = $request->enableDefaultResourcePool;
-        }
-        if (!Utils::isUnset($request->operation)) {
-            $query['Operation'] = $request->operation;
-        }
-        if (!Utils::isUnset($request->payType)) {
-            $query['PayType'] = $request->payType;
-        }
-        if (!Utils::isUnset($request->period)) {
-            $query['Period'] = $request->period;
-        }
-        if (!Utils::isUnset($request->regionId)) {
-            $query['RegionId'] = $request->regionId;
-        }
-        if (!Utils::isUnset($request->storageResource)) {
-            $query['StorageResource'] = $request->storageResource;
-        }
-        if (!Utils::isUnset($request->usedTime)) {
-            $query['UsedTime'] = $request->usedTime;
-        }
-        if (!Utils::isUnset($request->VPCId)) {
-            $query['VPCId'] = $request->VPCId;
-        }
-        if (!Utils::isUnset($request->vSwitchId)) {
-            $query['VSwitchId'] = $request->vSwitchId;
-        }
-        if (!Utils::isUnset($request->zoneId)) {
-            $query['ZoneId'] = $request->zoneId;
-        }
-        $req = new OpenApiRequest([
-            'query' => OpenApiUtilClient::query($query),
-        ]);
-        $params = new Params([
-            'action'      => 'DryRunCluster',
-            'version'     => '2019-03-15',
-            'protocol'    => 'HTTPS',
-            'pathname'    => '/',
-            'method'      => 'POST',
-            'authType'    => 'AK',
-            'style'       => 'RPC',
-            'reqBodyType' => 'formData',
-            'bodyType'    => 'json',
-        ]);
-
-        return DryRunClusterResponse::fromMap($this->callApi($params, $req, $runtime));
-    }
-
-    /**
-     * @param DryRunClusterRequest $request
-     *
-     * @return DryRunClusterResponse
-     */
-    public function dryRunCluster($request)
-    {
-        $runtime = new RuntimeOptions([]);
-
-        return $this->dryRunClusterWithOptions($request, $runtime);
     }
 
     /**

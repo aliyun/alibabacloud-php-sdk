@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class DescribeSQLPatternAttributeResponseBody extends Model
 {
     /**
-     * @description The detailed information of the SQL pattern.
+     * @description The queried SQL pattern.
      *
      * @var patternDetail
      */
     public $patternDetail;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 2A318054-6815-528A-AA94-8AC921******
      *

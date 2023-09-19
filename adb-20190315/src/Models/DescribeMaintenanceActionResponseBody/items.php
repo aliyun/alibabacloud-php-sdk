@@ -18,7 +18,7 @@ class items extends Model
     public $createdTime;
 
     /**
-     * @description The ID of the cluster involved in the O\&M event.
+     * @description The ID of the cluster that is involved in the O\&M event.
      *
      * @example am-****************
      *
@@ -54,7 +54,7 @@ class items extends Model
     public $deadline;
 
     /**
-     * @description The ID of the event.
+     * @description The ID of the O\&M event.
      *
      * @example 11111
      *
@@ -63,7 +63,7 @@ class items extends Model
     public $id;
 
     /**
-     * @description The point in time at which the O\&M event was switched. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     * @description The point in time at which the switchover time of the O\&M event was modified. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2021-07-03T06:33:00Z
      *
@@ -92,7 +92,7 @@ class items extends Model
     /**
      * @description The execution result of the O\&M event.
      *
-     * >  This parameter is valid only when `Status` is set to **FAILED** or **CANCEL**.
+     * > This parameter is returned only when the value of `Status` is **FAILED** or **CANCEL**.
      * @example autoCancel
      *
      * @var string
@@ -115,7 +115,7 @@ class items extends Model
      *
      *   **WAITING_MODIFY**: The start time of the O\&M event is waiting to be set.
      *   **WAITING**: The O\&M event is waiting to be processed.
-     *   **PROCESSING**: The O\&M event is being processed. The switching time of an event in this state cannot be changed.
+     *   **PROCESSING**: The O\&M event is being processed. The switchover time of an event in this state cannot be changed.
      *
      *   If you set `IsHistory` to **1**, the state of the historical O\&M event is returned. Valid values:
      *
@@ -130,7 +130,7 @@ class items extends Model
     public $status;
 
     /**
-     * @description The time when the pending event was switched. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
+     * @description The time when the pending O\&M event is switched. The time follows the ISO 8601 standard in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example 2021-07-03T06:00:00Z
      *
@@ -139,7 +139,7 @@ class items extends Model
     public $switchTime;
 
     /**
-     * @description The type of the O&M event.
+     * @description The type of the O\&M event.
      *
      * @example rds_apsaradb_upgrade
      *

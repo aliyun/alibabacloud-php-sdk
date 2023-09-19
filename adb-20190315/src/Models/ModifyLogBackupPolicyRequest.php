@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifyLogBackupPolicyRequest extends Model
 {
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example am-bp1xxxxxxxx47
      *
@@ -30,9 +30,9 @@ class ModifyLogBackupPolicyRequest extends Model
     public $enableBackupLog;
 
     /**
-     * @description The number of days for which to retain data backup files. Valid values: 7 to 730.
+     * @description The number of days for which to retain backup files. Valid values: 7 to 730.
      *
-     * >  If you leave this parameter empty, the default value 7 is used.
+     * > The default value is 7.
      * @example 30
      *
      * @var string
