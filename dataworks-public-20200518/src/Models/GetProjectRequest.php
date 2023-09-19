@@ -16,8 +16,14 @@ class GetProjectRequest extends Model
      * @var int
      */
     public $projectId;
+
+    /**
+     * @var string
+     */
+    public $projectIdentifier;
     protected $_name = [
-        'projectId' => 'ProjectId',
+        'projectId'         => 'ProjectId',
+        'projectIdentifier' => 'ProjectIdentifier',
     ];
 
     public function validate()
@@ -29,6 +35,9 @@ class GetProjectRequest extends Model
         $res = [];
         if (null !== $this->projectId) {
             $res['ProjectId'] = $this->projectId;
+        }
+        if (null !== $this->projectIdentifier) {
+            $res['ProjectIdentifier'] = $this->projectIdentifier;
         }
 
         return $res;
@@ -44,6 +53,9 @@ class GetProjectRequest extends Model
         $model = new self();
         if (isset($map['ProjectId'])) {
             $model->projectId = $map['ProjectId'];
+        }
+        if (isset($map['ProjectIdentifier'])) {
+            $model->projectIdentifier = $map['ProjectIdentifier'];
         }
 
         return $model;

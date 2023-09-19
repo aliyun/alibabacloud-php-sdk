@@ -133,6 +133,11 @@ class file extends Model
     public $fileFolderId;
 
     /**
+     * @var int
+     */
+    public $fileId;
+
+    /**
      * @description The name of the file.
      *
      * @example ods_user_info_d
@@ -234,6 +239,7 @@ class file extends Model
         'deletedStatus'    => 'DeletedStatus',
         'fileDescription'  => 'FileDescription',
         'fileFolderId'     => 'FileFolderId',
+        'fileId'           => 'FileId',
         'fileName'         => 'FileName',
         'fileType'         => 'FileType',
         'isMaxCompute'     => 'IsMaxCompute',
@@ -290,6 +296,9 @@ class file extends Model
         }
         if (null !== $this->fileFolderId) {
             $res['FileFolderId'] = $this->fileFolderId;
+        }
+        if (null !== $this->fileId) {
+            $res['FileId'] = $this->fileId;
         }
         if (null !== $this->fileName) {
             $res['FileName'] = $this->fileName;
@@ -368,6 +377,9 @@ class file extends Model
         }
         if (isset($map['FileFolderId'])) {
             $model->fileFolderId = $map['FileFolderId'];
+        }
+        if (isset($map['FileId'])) {
+            $model->fileId = $map['FileId'];
         }
         if (isset($map['FileName'])) {
             $model->fileName = $map['FileName'];

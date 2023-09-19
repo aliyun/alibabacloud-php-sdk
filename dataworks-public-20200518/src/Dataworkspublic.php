@@ -16,6 +16,8 @@ use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\AddToMetaCategoryResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ApprovePermissionApplyOrderResponse;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CallbackExtensionRequest;
+use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CallbackExtensionResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ChangeResourceManagerResourceGroupRequest;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\ChangeResourceManagerResourceGroupResponse;
 use AlibabaCloud\SDK\Dataworkspublic\V20200518\Models\CheckFileDeploymentRequest;
@@ -858,6 +860,58 @@ class Dataworkspublic extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->approvePermissionApplyOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CallbackExtensionRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return CallbackExtensionResponse
+     */
+    public function callbackExtensionWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $body = [];
+        if (!Utils::isUnset($request->checkMessage)) {
+            $body['CheckMessage'] = $request->checkMessage;
+        }
+        if (!Utils::isUnset($request->checkResult)) {
+            $body['CheckResult'] = $request->checkResult;
+        }
+        if (!Utils::isUnset($request->extensionCode)) {
+            $body['ExtensionCode'] = $request->extensionCode;
+        }
+        if (!Utils::isUnset($request->messageId)) {
+            $body['MessageId'] = $request->messageId;
+        }
+        $req = new OpenApiRequest([
+            'body' => OpenApiUtilClient::parseToMap($body),
+        ]);
+        $params = new Params([
+            'action'      => 'CallbackExtension',
+            'version'     => '2020-05-18',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CallbackExtensionResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CallbackExtensionRequest $request
+     *
+     * @return CallbackExtensionResponse
+     */
+    public function callbackExtension($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->callbackExtensionWithOptions($request, $runtime);
     }
 
     /**
@@ -7726,6 +7780,9 @@ class Dataworkspublic extends OpenApiClient
         $query = [];
         if (!Utils::isUnset($request->projectId)) {
             $query['ProjectId'] = $request->projectId;
+        }
+        if (!Utils::isUnset($request->projectIdentifier)) {
+            $query['ProjectIdentifier'] = $request->projectIdentifier;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
