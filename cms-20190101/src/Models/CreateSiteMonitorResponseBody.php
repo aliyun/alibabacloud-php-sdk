@@ -11,8 +11,9 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteMonitorResponseBody extends Model
 {
     /**
-     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+     * @description The HTTP status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,6 +21,9 @@ class CreateSiteMonitorResponseBody extends Model
     public $code;
 
     /**
+     * @description The returned result.
+     *
+     * If a site monitoring task is created, the result is returned. If a site monitoring task fails to be created, no result is returned.
      * @var createResultList
      */
     public $createResultList;
@@ -32,7 +36,7 @@ class CreateSiteMonitorResponseBody extends Model
     public $data;
 
     /**
-     * @description The URL or IP address that is monitored by the task.
+     * @description The returned message.
      *
      * @example Successful
      *
@@ -41,7 +45,7 @@ class CreateSiteMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The request ID.
      *
      * @example 68192f5d-0d45-4b98-9724-892813f86c71
      *
@@ -50,9 +54,11 @@ class CreateSiteMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The interval at which detection requests are sent.
+     * @description Indicates whether the request was successful. Valid values:
      *
-     * Default value: 1.
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

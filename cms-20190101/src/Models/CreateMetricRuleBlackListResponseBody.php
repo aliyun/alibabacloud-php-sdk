@@ -9,13 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMetricRuleBlackListResponseBody extends Model
 {
     /**
-     * @description The effective scope of the blacklist policy. Valid values:
+     * @description The status code.
      *
-     *   USER: The blacklist policy takes effect only for the current Alibaba Cloud account.
-     *
-     *   GROUP: The blacklist policy takes effect only for the specified application group. This is the default value.
-     *
-     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -23,6 +19,8 @@ class CreateMetricRuleBlackListResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the blacklist policy.
+     *
      * @example 93514c96-ceb8-47d8-8ee3-93b6d98b****
      *
      * @var string
@@ -30,7 +28,7 @@ class CreateMetricRuleBlackListResponseBody extends Model
     public $id;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example The request has failed due to a temporary failure of the server.
      *
@@ -39,7 +37,7 @@ class CreateMetricRuleBlackListResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The request ID.
      *
      * @example 5C637FA3-3959-3352-8BE6-78CE2ED2D33D
      *
@@ -48,6 +46,11 @@ class CreateMetricRuleBlackListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

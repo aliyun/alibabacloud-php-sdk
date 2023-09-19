@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class attachLabels extends Model
 {
     /**
-     * @description The alias of the aggregation result.
+     * @description The tag key of the metric.
      *
      * @example app_service
      *
@@ -18,7 +18,7 @@ class attachLabels extends Model
     public $name;
 
     /**
-     * @description The error message.
+     * @description The tag value of the metric.
      *
      * @example testValue
      *

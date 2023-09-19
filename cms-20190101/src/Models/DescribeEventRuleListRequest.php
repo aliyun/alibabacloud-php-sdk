@@ -18,6 +18,11 @@ class DescribeEventRuleListRequest extends Model
     public $groupId;
 
     /**
+     * @var bool
+     */
+    public $isEnable;
+
+    /**
      * @description The HTTP status code.
      *
      * >  The status code 200 indicates that the call was successful.
@@ -54,6 +59,7 @@ class DescribeEventRuleListRequest extends Model
     public $regionId;
     protected $_name = [
         'groupId'    => 'GroupId',
+        'isEnable'   => 'IsEnable',
         'namePrefix' => 'NamePrefix',
         'pageNumber' => 'PageNumber',
         'pageSize'   => 'PageSize',
@@ -69,6 +75,9 @@ class DescribeEventRuleListRequest extends Model
         $res = [];
         if (null !== $this->groupId) {
             $res['GroupId'] = $this->groupId;
+        }
+        if (null !== $this->isEnable) {
+            $res['IsEnable'] = $this->isEnable;
         }
         if (null !== $this->namePrefix) {
             $res['NamePrefix'] = $this->namePrefix;
@@ -96,6 +105,9 @@ class DescribeEventRuleListRequest extends Model
         $model = new self();
         if (isset($map['GroupId'])) {
             $model->groupId = $map['GroupId'];
+        }
+        if (isset($map['IsEnable'])) {
+            $model->isEnable = $map['IsEnable'];
         }
         if (isset($map['NamePrefix'])) {
             $model->namePrefix = $map['NamePrefix'];

@@ -14,8 +14,9 @@ class DeleteHybridMonitorSLSGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the request.
+     * @description The name of the Logstore group.
      *
+     * For information about how to obtain the name of a Logstore group, see [DescribeHybridMonitorSLSGroup](~~429526~~).
      * @example Logstore_test
      *
      * @var string

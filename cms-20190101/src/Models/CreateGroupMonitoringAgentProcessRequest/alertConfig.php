@@ -42,11 +42,11 @@ class alertConfig extends Model
     public $effectiveInterval;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   critical (default value): Critical
-     *   Warn
-     *   Info
+     *   critical (default)
+     *   warn
+     *   info
      *
      * Valid values of N: 1 to 3.
      * @example warn
@@ -66,9 +66,9 @@ class alertConfig extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to one hour. Default value: 86400, which is equivalent to one day.
+     * @description The mute period during which new alert notifications are not sent even if the trigger conditions are met. Unit: seconds. Minimum value: 3600, which is equivalent to 1 hour. Default value: 86400, which is equivalent to one day.
      *
-     * > Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
+     * >  Only one alert notification is sent during each mute period even if the metric value exceeds the alert threshold several times.
      * @example 86400
      *
      * @var string
@@ -78,7 +78,7 @@ class alertConfig extends Model
     /**
      * @description The statistical method for alerts.
      *
-     * > Set the value to Average.
+     * >  Set the value to Average.
      * @example Average
      *
      * @var string
@@ -105,7 +105,7 @@ class alertConfig extends Model
     /**
      * @description The number of times for which the threshold can be consecutively exceeded. Default value: 3.
      *
-     * > An alert is triggered only if the number of times for which the threshold can be consecutively exceeded is reached.
+     * >  An alert is triggered only if the number of times for which the threshold can be consecutively exceeded is reached.
      * @example 3
      *
      * @var string

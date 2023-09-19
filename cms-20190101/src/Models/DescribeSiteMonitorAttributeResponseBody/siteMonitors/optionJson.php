@@ -274,6 +274,11 @@ class optionJson extends Model
      * @var string
      */
     public $username;
+
+    /**
+     * @var int
+     */
+    public $waitTimeAfterCompletion;
     protected $_name = [
         'assertions'                    => 'assertions',
         'attempts'                      => 'attempts',
@@ -317,6 +322,7 @@ class optionJson extends Model
         'trafficHijackElementCount'     => 'traffic_hijack_element_count',
         'trafficHijackElementWhitelist' => 'traffic_hijack_element_whitelist',
         'username'                      => 'username',
+        'waitTimeAfterCompletion'       => 'waitTime_after_completion',
     ];
 
     public function validate()
@@ -451,6 +457,9 @@ class optionJson extends Model
         }
         if (null !== $this->username) {
             $res['username'] = $this->username;
+        }
+        if (null !== $this->waitTimeAfterCompletion) {
+            $res['waitTime_after_completion'] = $this->waitTimeAfterCompletion;
         }
 
         return $res;
@@ -589,6 +598,9 @@ class optionJson extends Model
         }
         if (isset($map['username'])) {
             $model->username = $map['username'];
+        }
+        if (isset($map['waitTime_after_completion'])) {
+            $model->waitTimeAfterCompletion = $map['waitTime_after_completion'];
         }
 
         return $model;

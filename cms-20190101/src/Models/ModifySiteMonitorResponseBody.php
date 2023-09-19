@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class ModifySiteMonitorResponseBody extends Model
 {
     /**
-     * @description The URL or IP address that is monitored by the task.
+     * @description The HTTP status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,12 +20,14 @@ class ModifySiteMonitorResponseBody extends Model
     public $code;
 
     /**
+     * @description The result of modifying the task.
+     *
      * @var data
      */
     public $data;
 
     /**
-     * @description The monitoring frequency. Valid values: 1, 5, 15, and 15000. Unit: milliseconds. Default value: 1.
+     * @description The returned message.
      *
      * @example successful
      *
@@ -33,7 +36,7 @@ class ModifySiteMonitorResponseBody extends Model
     public $message;
 
     /**
-     * @description The result of modifying the task.
+     * @description The request ID.
      *
      * @example 68192f5d-0d45-4b98-9724-892813f86c71
      *
@@ -42,7 +45,10 @@ class ModifySiteMonitorResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The ID of the request.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

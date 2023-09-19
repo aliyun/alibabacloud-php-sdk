@@ -9,10 +9,7 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description The name of the alert rule.
-     *
-     *   When you create an alert rule for the application group, enter the name of the alert rule.
-     *   When you modify a specified alert rule in the application group, you must obtain the name of the alert rule. For information about how to obtain the name of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @description The tag key of the alert rule.
      *
      * @example key1
      *
@@ -21,7 +18,7 @@ class labels extends Model
     public $key;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The tag value of the alert rule.
      *
      * @example value1
      *

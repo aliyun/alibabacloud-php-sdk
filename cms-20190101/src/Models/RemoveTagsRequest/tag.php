@@ -9,11 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description The tag key.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
      * @example Key1
      *
      * @var string
@@ -21,9 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The value of the tag.
+     * @description The tag value.
      *
-     * >  The `Tag.N.Key` and `Tag.N.Value` parameters must be used in pairs.
+     * > The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
      * @example Value1
      *
      * @var string

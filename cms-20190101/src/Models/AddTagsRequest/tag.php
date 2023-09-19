@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class tag extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The key of tag N.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * > The tag key cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
      * @example key1
      *
      * @var string
@@ -19,8 +19,9 @@ class tag extends Model
     public $key;
 
     /**
-     * @description The ID of the request.
+     * @description The value of tag N.
      *
+     * > The tag value cannot start with `aliyun` or `acs:`. The tag key (`Tag.N.Key`) and tag value (`Tag.N.Value`) must be specified at the same time.
      * @example value1
      *
      * @var string

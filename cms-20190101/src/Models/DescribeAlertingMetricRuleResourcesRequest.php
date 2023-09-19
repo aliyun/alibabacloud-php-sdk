@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertingMetricRuleResourcesRequest extends Model
 {
     /**
-     * @description The namespace of the cloud service.
+     * @description The dimensions that specify the resources whose monitoring data you want to query.
      *
-     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @example {\"userId\":\"120886317861****\",\"region\":\"cn-huhehaote\",\"queue\":\"test-0128\"}
      *
      * @var string
@@ -19,9 +18,8 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $dimensions;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the application group. For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 7671****
      *
      * @var string
@@ -29,8 +27,9 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $groupId;
 
     /**
-     * @description The resources that are monitored.
+     * @description The namespace of the cloud service.
      *
+     * For more information about the namespaces of cloud services, see [Appendix 1: Metrics](~~163515~~).
      * @example acs_mns_new
      *
      * @var string
@@ -38,9 +37,9 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $namespace;
 
     /**
-     * @description The timestamp when the last alert was triggered for the resource based on the alert rule.
+     * @description The page number.
      *
-     * Unit: milliseconds.
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -48,8 +47,9 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $page;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeAlertingMetricRuleResources**.
+     * @description The number of entries per page.
      *
+     * Default value: 10.
      * @example 10
      *
      * @var int
@@ -62,14 +62,7 @@ class DescribeAlertingMetricRuleResourcesRequest extends Model
     public $regionId;
 
     /**
-     * @description The operator that is used to compare the metric value with the threshold. Valid values:
-     *
-     *   `>=`
-     *   `=`
-     *   `<=`
-     *   `>`
-     *   `<`
-     *   `!=`
+     * @description The ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
      *
      * @example putNewAlarm_user_7e78d765-0e3e-4671-ba6d-7ce39108****
      *

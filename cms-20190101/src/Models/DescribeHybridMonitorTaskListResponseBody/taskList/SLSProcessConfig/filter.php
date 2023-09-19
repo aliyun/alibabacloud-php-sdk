@@ -10,16 +10,18 @@ use AlibabaCloud\Tea\Model;
 class filter extends Model
 {
     /**
-     * @description The extended field that indicates the result of basic operations that are performed on aggregation results.
+     * @description The conditions that are used to filter logs imported from Log Service.
      *
      * @var filters[]
      */
     public $filters;
 
     /**
-     * @description The ID of the member account.
+     * @description The relationship between multiple filter conditions. Valid values:
      *
-     * >  This parameter is required only if you call this operation to delete metric import tasks that belong to a member in a resource directory. In this case, the `TaskType` parameter is set to `aliyun_fc`.
+     *   and (default): Logs are processed only if all filter conditions are met.
+     *   or: Logs are processed if one of the filter conditions is met.
+     *
      * @example and
      *
      * @var string

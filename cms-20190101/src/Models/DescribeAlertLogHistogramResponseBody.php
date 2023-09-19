@@ -10,15 +10,16 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertLogHistogramResponseBody extends Model
 {
     /**
-     * @description The end timestamp of queried alert logs in an interval. Unit: seconds.
+     * @description The number of alert logs that were generated during each interval of a time period.
      *
      * @var alertLogHistogramList[]
      */
     public $alertLogHistogramList;
 
     /**
-     * @description The ID of the request.
+     * @description The response code.
      *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -26,10 +27,7 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public $code;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -38,7 +36,7 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public $message;
 
     /**
-     * @description The details about the number of alert logs that were generated during each interval of a time period.
+     * @description The request ID.
      *
      * @example 1C4A3709-BF52-42EE-87B5-7435F0929585
      *
@@ -47,7 +45,10 @@ class DescribeAlertLogHistogramResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The start timestamp of queried alert logs in an interval. Unit: seconds.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

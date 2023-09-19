@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class alertConfig extends Model
 {
     /**
-     * @description The name of the availability monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * @description The end of the time range during which the alert rule is effective. Valid values: 0 to 23.
      *
+     * > Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @example 22
      *
      * @var int
@@ -18,8 +19,9 @@ class alertConfig extends Model
     public $endTime;
 
     /**
-     * @description The content of the HTTP POST request.
+     * @description The alert notification methods. Valid values:
      *
+     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
      * @example 0
      *
      * @var int
@@ -27,9 +29,8 @@ class alertConfig extends Model
     public $notifyType;
 
     /**
-     * @description The interval at which detection requests are sent. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400. The default value indicates one day.
      *
-     * >  This parameter is available only for the CloudMonitor agent V3.5.1 or later.
      * @example 86400
      *
      * @var int
@@ -37,15 +38,9 @@ class alertConfig extends Model
     public $silenceTime;
 
     /**
-     * @description The method used to calculate metric values that trigger alerts. Valid values of N: 1 to 21. Valid values:
+     * @description The beginning of the time range during which the alert rule is effective. Valid values: 0 to 23.
      *
-     *   HttpStatus: Value
-     *   HttpLatency: Average
-     *   TelnetStatus: Value
-     *   TelnetLatency: Average
-     *   PingLostRate: Average
-     *
-     * >  The value Value indicates the original value and is used for metrics such as status codes. The value Average indicates the average value and is used for metrics, such as the latency and packet loss rate.
+     * > Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @example 0
      *
      * @var int
@@ -53,10 +48,7 @@ class alertConfig extends Model
     public $startTime;
 
     /**
-     * @description The range of instances that are monitored by the availability monitoring task. Valid values:
-     *
-     *   GROUP: All ECS instances in the application group are monitored.
-     *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored. The TaskScope parameter must be used in combination with the InstanceList.N parameter. The InstanceList.N parameter specifies the ECS instances to be monitored.
+     * @description The callback URL.
      *
      * @example https://www.aliyun.com/webhook.json
      *

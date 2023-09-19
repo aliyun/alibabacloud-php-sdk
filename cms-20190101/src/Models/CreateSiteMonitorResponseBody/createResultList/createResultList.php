@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class createResultList extends Model
 {
     /**
+     * @description The ID of the site monitoring task.
+     *
      * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
      *
      * @var string
@@ -16,6 +18,8 @@ class createResultList extends Model
     public $taskId;
 
     /**
+     * @description The name of the site monitoring task.
+     *
      * @example HanZhou_ECS1
      *
      * @var string

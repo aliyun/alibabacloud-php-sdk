@@ -10,11 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeEventRuleAttributeResponseBody extends Model
 {
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description The HTTP status code.
      *
-     *   true: The call was successful.
-     *   false: The call failed.
-     *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -22,7 +20,7 @@ class DescribeEventRuleAttributeResponseBody extends Model
     public $code;
 
     /**
-     * @description The details of the event-triggered alert rule.
+     * @description The error message.
      *
      * @example The alert does not exist.
      *
@@ -31,10 +29,7 @@ class DescribeEventRuleAttributeResponseBody extends Model
     public $message;
 
     /**
-     * @description The type of the event. Valid values:
-     *
-     *   SYSTEM: system event
-     *   CUSTOM: custom event
+     * @description The request ID.
      *
      * @example 9AA3F210-C03D-4C86-8DB6-21C84FF692A1
      *
@@ -43,14 +38,17 @@ class DescribeEventRuleAttributeResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The name of the event-triggered alert rule.
+     * @description The details of the event-triggered alert rule.
      *
      * @var result
      */
     public $result;
 
     /**
-     * @description The description of the event-triggered alert rule.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

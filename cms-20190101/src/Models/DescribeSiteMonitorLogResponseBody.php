@@ -11,7 +11,10 @@ class DescribeSiteMonitorLogResponseBody extends Model
     /**
      * @description The HTTP status code.
      *
-     * > The status code 200 indicates that the call was successful.
+     **
+     *
+     **Description** The status code 200 indicates that the request was successful.
+     *
      * @example 200
      *
      * @var string
@@ -37,7 +40,7 @@ class DescribeSiteMonitorLogResponseBody extends Model
     public $message;
 
     /**
-     * @description The token that is used to initiate the next request.
+     * @description A pagination token. It can be used in the next request to retrieve a new page of results.
      *
      * @example IWBjqMYSy0is7zSMGu16****
      *
@@ -46,7 +49,7 @@ class DescribeSiteMonitorLogResponseBody extends Model
     public $nextToken;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 67F646FA-ED8A-58C2-B461-451DB52C8B14
      *
@@ -55,10 +58,10 @@ class DescribeSiteMonitorLogResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The call was successful.
-     *   false: The call failed.
+     *   true
+     *   false
      *
      * @example true
      *

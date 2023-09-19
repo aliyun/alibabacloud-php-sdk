@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class applyHistory extends Model
 {
     /**
+     * @description The timestamp when the alert template was applied to the application group.
+     *
+     * Unit: milliseconds.
      * @example 1646055898000
      *
      * @var int
@@ -16,7 +19,7 @@ class applyHistory extends Model
     public $applyTime;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The ID of the application group.
      *
      * @example 3607****
      *
@@ -25,6 +28,8 @@ class applyHistory extends Model
     public $groupId;
 
     /**
+     * @description The name of the application group.
+     *
      * @example ECS_Group
      *
      * @var string

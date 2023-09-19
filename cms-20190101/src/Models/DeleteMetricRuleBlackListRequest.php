@@ -9,8 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleBlackListRequest extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The IDs of the blacklist policies. Separate multiple IDs with commas (,). You can specify up to 50 IDs.
      *
+     * For more information about how to obtain the ID of a blacklist policy, see [DescribeMetricRuleBlackList](~~457257~~).
+     *
+     * >  You can also set this parameter to a JSON array. Example: `["a9ad2ac2-3ed9-11ed-b878-0242ac12****","5cb8a9a4-198f-4651-a353-f8b28788****"]`.
      * @example a9ad2ac2-3ed9-11ed-b878-0242ac12****
      *
      * @var string

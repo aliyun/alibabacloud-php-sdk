@@ -12,25 +12,20 @@ use AlibabaCloud\Tea\Model;
 class taskList extends Model
 {
     /**
-     * @description The method that is used to match the instance name. Valid values:
-     *
-     *   startWith: starts with a prefix
-     *   endWith: ends with a suffix
-     *   all: includes all
-     *   equals: equals
-     *   contains: contains
-     *   notContains: excludes
+     * @description The tags of the metric import task.
      *
      * @var attachLabels[]
      */
     public $attachLabels;
 
     /**
-     * @description The relationship between the conditions that are used to filter metric import tasks. Valid values:
+     * @description The interval at which the CloudMonitor agent collects host monitoring data. Valid values:
      *
-     *   or
-     *   and
+     *   15
+     *   30
+     *   60
      *
+     * Unit: seconds.
      * @example 60
      *
      * @var int
@@ -38,7 +33,7 @@ class taskList extends Model
     public $collectInterval;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The URL of the destination from which the CloudMonitor agent collects host monitoring data.
      *
      * @example http://localhost
      *
@@ -47,7 +42,7 @@ class taskList extends Model
     public $collectTargetEndpoint;
 
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
+     * @description The relative path from which the CloudMonitor agent collects monitoring data.
      *
      * @example /metrics
      *
@@ -56,7 +51,7 @@ class taskList extends Model
     public $collectTargetPath;
 
     /**
-     * @description The ID of the application group.
+     * @description The type of the monitoring data. Valid values: Spring, Tomcat, Nginx, Tengine, JVM, Redis, and MySQL.
      *
      * @example nginx
      *
@@ -65,9 +60,14 @@ class taskList extends Model
     public $collectTargetType;
 
     /**
-     * @description The name of the namespace.
+     * @description The timeout period during which the CloudMonitor agent collects host monitoring data. Valid values:
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     *   0
+     *   15
+     *   30
+     *   60
+     *
+     * Unit: seconds.
      * @example 15
      *
      * @var int
@@ -75,8 +75,9 @@ class taskList extends Model
     public $collectTimout;
 
     /**
-     * @description The metric import tasks.
+     * @description The timestamp when the metric import task was created.
      *
+     * Unit: milliseconds.
      * @example 1639382496000
      *
      * @var string
@@ -84,9 +85,8 @@ class taskList extends Model
     public $createTime;
 
     /**
-     * @description The result that is returned after on-premises log data is split based on the specified matching mode.
+     * @description The description of the metric import task.
      *
-     * >  The matching modes of on-premises log data include full regex mode, delimiter mode, and JSON mode.
      * @example aliyun
      *
      * @var string
@@ -94,10 +94,7 @@ class taskList extends Model
     public $description;
 
     /**
-     * @description The network type of the host. Valid values:
-     *
-     *   `vpc`: a virtual private cloud (VPC)
-     *   `Internet`: Internet
+     * @description The additional information of the instance.
      *
      * @example test
      *
@@ -106,7 +103,7 @@ class taskList extends Model
     public $extraInfo;
 
     /**
-     * @description The name of the metric import task.
+     * @description The ID of the application group.
      *
      * @example 3607****
      *
@@ -115,18 +112,13 @@ class taskList extends Model
     public $groupId;
 
     /**
-     * @description The name of the key that is used to filter logs imported from Log Service.
+     * @description The instances where monitoring data is collected in batches.
      *
      * @var string[]
      */
     public $instances;
 
     /**
-     * @description The relationship between multiple filter conditions. Valid values:
-     *
-     *   and (default value): Logs are processed only if all filter conditions are met.
-     *   or: Logs are processed if one of the filter conditions is met.
-     *
      * @example C:\UserData\log\*.Log
      *
      * @var string
@@ -134,7 +126,7 @@ class taskList extends Model
     public $logFilePath;
 
     /**
-     * @description The description of the metric import task.
+     * @description The method that is used to aggregate on-premises log data.
      *
      * @example [{"metric": "metric1","filters": [{"column": "filed2","type": "include","values": ["222222"]}],"groupBys": [{"column": "filed3","name": "filed3"}],"calculates": [{"column": "field1","name": "avg","type": "avg"}]},{"metric": "metric2","filters": [{"column": "field1","type": "include","values": ["11111"]}],"groupBys": [{"column": "filed2","name": "filed2"}],"calculates": [{"column": "field1","name": "avg","type": "avg"}]}]
      *
@@ -143,10 +135,7 @@ class taskList extends Model
     public $logProcess;
 
     /**
-     * @description The type of the metric import task. Valid values:
-     *
-     *   aliyun_fc: metric import tasks for Alibaba Cloud services
-     *   aliyun_sls: metrics for logs imported from Log Service
+     * @description The sample on-premises log.
      *
      * @example {"logContent":"100.116.134.26 1119 - [13/Aug/2019:16:55:46 +0800] POST metrichub-cn-hongkong.aliyun.com /agent/metrics/putLines 200 0 \"-\" \"127.0.0.1:7001\" \"Go-http-client/1.1\" \"-\" \"-\" \"0a98a21a15656865460656276e\"","addData":{"field1":["1119","1119"],"filed2":["POSTx","POST"],"filed3":["true","200"]}}
      *
@@ -155,8 +144,9 @@ class taskList extends Model
     public $logSample;
 
     /**
-     * @description The total number of returned entries.
+     * @description The result that is returned after on-premises log data is split based on the specified matching mode.
      *
+     * > The matching modes of on-premises log data include full regex mode, delimiter mode, and JSON mode.
      * @example {"type": "regex","regex": "\\d+\\.\\d+\\.\\d+\\.\\d+\\s+(\\d+)\\s+\\S+\\s+\\[\\d+/\\S+/\\d+:\\d+:\\d+:\\d+\\s+\\+\\d+\\]\\s+(\\S+)\\s+\\S+\\s+/\\S+/\\S+/\\S+\\s+(\\d+)","columns": [{"name": "field1"},{"name": "filed2","translate": {"default": "-","mappings": [{"from": "(\\w+)","to": "$1x","type": "regex"}]}},{"name": "filed3","translate": {"default": "-","mappings": [{"from": "NumberRange(100,300)","to": "true","type": "function"}]}}]}
      *
      * @var string
@@ -164,17 +154,17 @@ class taskList extends Model
     public $logSplit;
 
     /**
-     * @description The returned message.
-     *
-     *   If the call is successful, the value `successful` is returned.
-     *   If the call fails, an error message is returned.
+     * @description The conditions that are used to match the instances in the application group.
      *
      * @var matchExpress[]
      */
     public $matchExpress;
 
     /**
-     * @description The URL of the destination from which the CloudMonitor agent collects host monitoring data.
+     * @description The relationship between the conditions that are used to filter metric import tasks. Valid values:
+     *
+     *   or
+     *   and
      *
      * @example or
      *
@@ -183,7 +173,7 @@ class taskList extends Model
     public $matchExpressRelation;
 
     /**
-     * @description The relative path from which the CloudMonitor agent collects monitoring data.
+     * @description The namespace to which the host belongs.
      *
      * @example aliyun
      *
@@ -192,7 +182,10 @@ class taskList extends Model
     public $namespace;
 
     /**
-     * @description The keyword that corresponds to the instance name.
+     * @description The network type of the host. Valid values:
+     *
+     *   `vpc`
+     *   `Internet`
      *
      * @example vpc
      *
@@ -201,10 +194,7 @@ class taskList extends Model
     public $networkType;
 
     /**
-     * @description Specifies whether the returned result includes metric import tasks for Alibaba Cloud services. Valid values:
-     *
-     *   true (default value): includes metric import tasks for Alibaba Cloud services.
-     *   false: excludes metric import tasks for Alibaba Cloud services.
+     * @description The configurations of the logs that are imported from Log Service.
      *
      * @example {"express": [],"filter": {"filters": [{"key": "task_type","operator": "=","value": "1"}]},"groupby": [{"alias": "isp","key": "isp","sqlKey": "t.`isp`","valueKey": "isp"}],"interval": 60,"labels": [{"name": "__cms_app__","type": 0,"value": "sitemonitor"}],"statistics": [{"alias": "http_dns_time_avg","function": "avg","key": "http_dns_time"}]}
      *
@@ -213,15 +203,17 @@ class taskList extends Model
     public $SLSProcess;
 
     /**
-     * @description The key of the tag.
+     * @description The configurations of the logs that are imported from Log Service.
      *
+     * > This parameter is returned only if the `TaskType` parameter is set to `aliyun_sls`.
      * @var SLSProcessConfig
      */
     public $SLSProcessConfig;
 
     /**
-     * @description The ID of the metric import task.
+     * @description The ID of the member account.
      *
+     * > This parameter is displayed only when you call this operation by using a management account.
      * @example 120886317861****
      *
      * @var string
@@ -229,9 +221,8 @@ class taskList extends Model
     public $targetUserId;
 
     /**
-     * @description The configurations of the logs that are imported from Log Service.
+     * @description The ID of the metric import task.
      *
-     * >  This parameter is returned only if the `TaskType` parameter is set to `aliyun_sls`.
      * @example 36****
      *
      * @var string
@@ -239,7 +230,7 @@ class taskList extends Model
     public $taskId;
 
     /**
-     * @description The ID of the instance.
+     * @description The name of the metric import task.
      *
      * @example aliyun_task
      *
@@ -248,7 +239,10 @@ class taskList extends Model
     public $taskName;
 
     /**
-     * @description The region where the host resides.
+     * @description The type of the metric import task. Valid values:
+     *
+     *   aliyun_fc: metric import tasks for Alibaba Cloud services
+     *   aliyun_sls: metrics for logs imported from Log Service
      *
      * @example aliyun_sls
      *
@@ -257,9 +251,8 @@ class taskList extends Model
     public $taskType;
 
     /**
-     * @description The ID of the member account.
+     * @description The region where the host resides.
      *
-     * >  This parameter is returned only if you call this operation by using a management account.
      * @example cn-hangzhou
      *
      * @var string
@@ -267,9 +260,11 @@ class taskList extends Model
     public $uploadRegion;
 
     /**
-     * @description The ID of the application group.
+     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
      *
-     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
+     *   namespace: the namespace of the Alibaba Cloud service.
+     *   metric_list: the metrics of the Alibaba Cloud service.
+     *
      * @example products:- namespace: acs_ecs_dashboard metric_info: - metric_list: - cpu_total
      *
      * @var string

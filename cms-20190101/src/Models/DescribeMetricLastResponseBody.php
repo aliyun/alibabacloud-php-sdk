@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricLastResponseBody extends Model
 {
     /**
-     * @description Queries the latest monitoring data of a metric.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DescribeMetricLastResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The monitoring data.
      *
      * @example [{"timestamp":1548777660000,"userId":"123456789876****","instanceId":"i-abcdefgh12****","Minimum":93.1,"Average":99.52,"Maximum":100}]
      *
@@ -27,6 +28,8 @@ class DescribeMetricLastResponseBody extends Model
     public $datapoints;
 
     /**
+     * @description The error message.
+     *
      * @example The specified resource is not found.
      *
      * @var string
@@ -34,9 +37,8 @@ class DescribeMetricLastResponseBody extends Model
     public $message;
 
     /**
-     * @description The interval at which the monitoring data is queried.
+     * @description The pagination token.
      *
-     * Unit: seconds.
      * @example xxxxxx
      *
      * @var string
@@ -44,6 +46,9 @@ class DescribeMetricLastResponseBody extends Model
     public $nextToken;
 
     /**
+     * @description The time interval.
+     *
+     * Unit: seconds.
      * @example 60
      *
      * @var string
@@ -51,7 +56,7 @@ class DescribeMetricLastResponseBody extends Model
     public $period;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 021472A6-25E3-4094-8D00-BA4B6A5486C3
      *
@@ -60,7 +65,10 @@ class DescribeMetricLastResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The monitoring data.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

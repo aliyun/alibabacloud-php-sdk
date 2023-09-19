@@ -23,16 +23,31 @@ class DescribeMetricRuleBlackListRequest extends Model
     public $ids;
 
     /**
+     * @description The IDs of the instances in the blacklist policy.
+     *
+     * Valid values of N: 0 to 10.
      * @var string[]
      */
     public $instanceIds;
 
     /**
+     * @description The status of the blacklist policy. Valid values:
+     *
+     *   true: The blacklist policy is enabled.
+     *   false: The blacklist policy is disabled.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $isEnable;
 
     /**
+     * @description The name of the blacklist policy.
+     *
+     * This parameter supports fuzzy match.
+     * @example Blacklist-01
+     *
      * @var string
      */
     public $name;
@@ -81,6 +96,13 @@ class DescribeMetricRuleBlackListRequest extends Model
     public $regionId;
 
     /**
+     * @description The effective scope of the blacklist policy. Valid values:
+     *
+     *   USER: The blacklist policy takes effect only within the current Alibaba Cloud account.
+     *   GROUP: The blacklist policy takes effect only within the specified application group.
+     *
+     * @example USER
+     *
      * @var string
      */
     public $scopeType;

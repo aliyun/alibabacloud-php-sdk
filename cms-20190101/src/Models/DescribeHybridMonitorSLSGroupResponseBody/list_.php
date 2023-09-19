@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The number of entries returned per page.
+     * @description The time when the Logstore group was created.
      *
+     * Unit: milliseconds.
      * @example 1652845630000
      *
      * @var string
@@ -19,21 +20,21 @@ class list_ extends Model
     public $createTime;
 
     /**
-     * @description The Log Service project.
+     * @description The configurations of the Logstore group.
      *
      * @var SLSGroupConfig[]
      */
     public $SLSGroupConfig;
 
     /**
-     * @description The configurations of the Logstore group.
+     * @description The description of the Logstore group.
      *
      * @var string
      */
     public $SLSGroupDescription;
 
     /**
-     * @description The region ID.
+     * @description The name of the Logstore group.
      *
      * @example Logstore_test
      *
@@ -42,8 +43,9 @@ class list_ extends Model
     public $SLSGroupName;
 
     /**
-     * @description The ID of the request.
+     * @description The time when the Logstore group was modified.
      *
+     * Unit: milliseconds.
      * @example 1652845630000
      *
      * @var string

@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateListRequest extends Model
 {
     /**
-     * @description The name of the alert template.
+     * @description Specifies whether to display the history of applying the alert templates to application groups. Valid values:
+     *
+     *   true
+     *   false (default)
      *
      * @example false
      *
@@ -18,7 +21,7 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $history;
 
     /**
-     * @description The name of the application group.
+     * @description The keyword of the alert template name.
      *
      * @example ECS
      *
@@ -27,7 +30,7 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $keyword;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The name of the alert template.
      *
      * @example ECS_Template1
      *
@@ -36,9 +39,11 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $name;
 
     /**
-     * @description The version of the alert template.
+     * @description The sorting order. Valid values:
      *
-     * Default value: 0.
+     *   true (default): ascending order
+     *   false: descending order
+     *
      * @example true
      *
      * @var bool
@@ -46,9 +51,11 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $order;
 
     /**
-     * @description The timestamp when the alert template was created.
+     * @description The sorting basis. Valid values:
      *
-     * Unit: milliseconds.
+     *   gmtMotified: sorts alert templates by modification time
+     *   gmtCreate (default): sorts alert templates by creation time
+     *
      * @example gmtCreate
      *
      * @var string
@@ -56,8 +63,9 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $orderBy;
 
     /**
-     * @description The error message.
+     * @description The page number.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var int
@@ -65,10 +73,7 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description Specifies whether to display the application history of the alert templates. Default value: false. Valid values:
-     *
-     *   true
-     *   false
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -82,7 +87,7 @@ class DescribeMetricRuleTemplateListRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the alert template.
+     * @description The ID of the alert template.
      *
      * @example 70****
      *

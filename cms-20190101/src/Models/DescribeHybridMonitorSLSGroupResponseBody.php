@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorSLSGroupResponseBody extends Model
 {
     /**
-     * @description The error message.
+     * @description The HTTP status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,16 +20,15 @@ class DescribeHybridMonitorSLSGroupResponseBody extends Model
     public $code;
 
     /**
-     * @description The description of the Logstore group.
+     * @description The queried Logstore groups.
      *
      * @var list_[]
      */
     public $list;
 
     /**
-     * @description The timestamp that was generated when the Logstore group was modified.
+     * @description The error message.
      *
-     * Unit: milliseconds.
      * @example NotFound.SLSGroup
      *
      * @var string
@@ -36,6 +36,8 @@ class DescribeHybridMonitorSLSGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The page number.
+     *
      * @example 1
      *
      * @var int
@@ -43,7 +45,7 @@ class DescribeHybridMonitorSLSGroupResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -52,7 +54,7 @@ class DescribeHybridMonitorSLSGroupResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The name of the Logstore group.
+     * @description The request ID.
      *
      * @example 66683237-7126-50F8-BBF8-D67ACC919A17
      *
@@ -61,13 +63,18 @@ class DescribeHybridMonitorSLSGroupResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The keyword that is used to search for Logstore groups.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @var string
      */
     public $success;
 
     /**
+     * @description The total number of entries returned.
+     *
      * @example 2
      *
      * @var int

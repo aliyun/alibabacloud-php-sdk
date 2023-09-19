@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ModifySiteMonitorRequest extends Model
 {
     /**
-     * @description The ID of the site monitoring task.
+     * @description The URL or IP address that is monitored by the task.
      *
      * @example http://www.aliyun.com
      *
@@ -18,7 +18,7 @@ class ModifySiteMonitorRequest extends Model
     public $address;
 
     /**
-     * @description The returned message.
+     * @description The ID of the alert rule. You can call the DescribeMetricRuleList operation to query the IDs of existing alert rules in CloudMonitor. For more information, see [DescribeMetricRuleList](~~114941~~).
      *
      * @example 49f7c317-7645-4cc9-94fd-ea42e122****
      *
@@ -27,6 +27,8 @@ class ModifySiteMonitorRequest extends Model
     public $alertIds;
 
     /**
+     * @description The custom detection period. You can only select a time period from Monday to Sunday for detection.
+     *
      * @example {"start_hour":0,"end_hour":24, "days":[0], "time_zone":"Local"}
      *
      * @var string
@@ -34,9 +36,8 @@ class ModifySiteMonitorRequest extends Model
     public $customSchedule;
 
     /**
-     * @description The HTTP status code.
+     * @description The interval at which detection requests are sent. Valid values: 1, 5, and 15. Unit: minutes. Default value: 1.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 1
      *
      * @var string
@@ -44,8 +45,9 @@ class ModifySiteMonitorRequest extends Model
     public $interval;
 
     /**
-     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
+     * @description The unit of the metric.
      *
+     * Unit: milliseconds.
      * @example ms
      *
      * @var string
@@ -53,8 +55,9 @@ class ModifySiteMonitorRequest extends Model
     public $intervalUnit;
 
     /**
-     * @description The operation that you want to perform. Set the value to ModifySiteMonitor.
+     * @description The information of the detection points. The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The values of the `city` field indicate Beijing, Hangzhou, and Qingdao.
      *
+     * > You can call the DescribeSiteMonitorISPCityList operation to query the detection points. For more information, see [DescribeSiteMonitorISPCityList](~~115045~~). If you leave this parameter empty, the system randomly selects three detection points.
      * @example [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
      *
      * @var string
@@ -62,9 +65,8 @@ class ModifySiteMonitorRequest extends Model
     public $ispCities;
 
     /**
-     * @description The detection points. The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The values of the `city` field indicate Beijing, Hangzhou, and Qingdao.
+     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
      *
-     * >  You can call the DescribeSiteMonitorISPCityList operation to query the detection points. For more information, see [DescribeSiteMonitorISPCityList](~~115045~~). If you leave this parameter empty, the system randomly selects three detection points.
      * @example {"time_out":5000}
      *
      * @var string
@@ -77,7 +79,7 @@ class ModifySiteMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The name of the site monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
+     * @description The ID of the site monitoring task.
      *
      * @example 2c8dbdf9-a3ab-46a1-85a4-f094965e****
      *
@@ -86,7 +88,7 @@ class ModifySiteMonitorRequest extends Model
     public $taskId;
 
     /**
-     * @description The ID of the alert rule. You can call the DescribeMetricRuleList operation to query the IDs of existing alert rules in CloudMonitor. For more information, see [DescribeMetricRuleList](~~114941~~).
+     * @description The name of the site monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
      *
      * @example HanZhou_ECS2
      *

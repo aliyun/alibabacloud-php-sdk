@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlertingMetricRuleResourcesResponseBody extends Model
 {
     /**
-     * @description The ID of the application group.
+     * @description The status code.
      *
-     * >  If the alert rule is associated with an application group, the ID of the application group is returned in this parameter.
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -20,10 +20,7 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $code;
 
     /**
-     * @description The relationship between multiple metrics. Valid values:
-     *
-     *   &&: If all metrics meet the alert conditions, CloudMonitor sends alert notifications.
-     *   ||: If one of the metrics meets the alert conditions, CloudMonitor sends alert notifications.
+     * @description The error message.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -32,7 +29,7 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $message;
 
     /**
-     * @description The error message.
+     * @description The request ID.
      *
      * @example 0724011B-D9E0-4B2F-8C51-F17A894CC42C
      *
@@ -41,14 +38,17 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The dimensions that specify the resources whose monitoring data you want to query.
+     * @description The resources to which the alert rule is applied.
      *
      * @var resources
      */
     public $resources;
 
     /**
-     * @description The tags of the instance.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -57,7 +57,7 @@ class DescribeAlertingMetricRuleResourcesResponseBody extends Model
     public $success;
 
     /**
-     * @description The name of the metric.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

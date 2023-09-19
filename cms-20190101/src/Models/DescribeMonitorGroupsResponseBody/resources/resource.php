@@ -37,9 +37,8 @@ class resource extends Model
     public $dynamicTagRuleId;
 
     /**
-     * @description The timestamp when the application group was created.
+     * @description The timestamp when the application group was created. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1603181891000
      *
      * @var int
@@ -47,9 +46,8 @@ class resource extends Model
     public $gmtCreate;
 
     /**
-     * @description The timestamp when the application group was last modified.
+     * @description The timestamp when the application group was modified. Unit: milliseconds.
      *
-     * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      * @example 1603181891000
      *
      * @var int
@@ -93,6 +91,10 @@ class resource extends Model
     public $groupName;
 
     /**
+     * @description The resource ID.
+     *
+     * @example rg-aek2hopjh*******
+     *
      * @var string
      */
     public $resourceGroupId;
@@ -114,6 +116,8 @@ class resource extends Model
     public $tags;
 
     /**
+     * @description The ID of the template.
+     *
      * @var templateIds
      */
     public $templateIds;

@@ -10,14 +10,17 @@ use AlibabaCloud\Tea\Model;
 class PutHybridMonitorMetricDataRequest extends Model
 {
     /**
+     * @description The monitoring data.
+     *
+     * Valid values of N: 1 to 100.
      * @var metricList[]
      */
     public $metricList;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the namespace.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example default-aliyun
      *
      * @var string

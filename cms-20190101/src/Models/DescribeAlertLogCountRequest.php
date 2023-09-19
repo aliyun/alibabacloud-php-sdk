@@ -18,8 +18,9 @@ class DescribeAlertLogCountRequest extends Model
     public $contactGroup;
 
     /**
-     * @description The statistical period of alert logs. Unit: minutes.
+     * @description The end timestamp of the alert logs to be queried.
      *
+     * >  The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
      * @example 1610074409694
      *
      * @var int
@@ -164,14 +165,18 @@ class DescribeAlertLogCountRequest extends Model
     public $sendStatus;
 
     /**
+     * @description This parameter is deprecated.
+     *
+     * @example None
+     *
      * @var string
      */
     public $sourceType;
 
     /**
-     * @description The name of the metric.
+     * @description The start timestamp of the alert logs to be queried.
      *
-     * > For more information about the metrics of different cloud services, see [Appendix 1: Metrics](~~163515~~).
+     * >  The interval between the start time (`StartTime`) and end time (`EndTime`) must be less than or equal to 15 days.
      * @example 1609988009694
      *
      * @var int

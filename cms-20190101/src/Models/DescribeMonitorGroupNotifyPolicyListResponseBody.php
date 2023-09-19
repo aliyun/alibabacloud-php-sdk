@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
 {
     /**
-     * @description The ID of the application group.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public $code;
 
     /**
-     * @description The policies that were returned.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -28,15 +29,14 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public $message;
 
     /**
-     * @description The type of the policy.
+     * @description The returned policies.
      *
-     * Valid value: PauseNotify.
      * @var notifyPolicyList
      */
     public $notifyPolicyList;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeMonitorGroupNotifyPolicyList**.
+     * @description The request ID.
      *
      * @example 6072F026-C441-41A6-B114-35A1E8F8FDD3
      *
@@ -45,7 +45,10 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The error message.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -54,9 +57,8 @@ class DescribeMonitorGroupNotifyPolicyListResponseBody extends Model
     public $success;
 
     /**
-     * @description The timestamp that specifies the beginning of the time range to query.
+     * @description The total number of entries returned.
      *
-     * Unit: milliseconds.
      * @example 11
      *
      * @var int

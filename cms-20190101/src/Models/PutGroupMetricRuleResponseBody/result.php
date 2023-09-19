@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
+     * @description The ID of the alert rule.
+     *
      * @example 123456
      *
      * @var string

@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class AddTagsResponseBody extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class AddTagsResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example The specified resource is not found.
      *
      * @var string
@@ -25,6 +28,8 @@ class AddTagsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example DAE4B115-3847-5438-8709-423627F0A3A3
      *
      * @var string
@@ -32,6 +37,11 @@ class AddTagsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

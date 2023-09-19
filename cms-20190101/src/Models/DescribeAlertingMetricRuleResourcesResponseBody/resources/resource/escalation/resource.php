@@ -31,9 +31,9 @@ class resource extends Model
     public $comparisonOperator;
 
     /**
-     * @description The time when the resource was associated with the alert rule.
+     * @description The description of the alert rule.
      *
-     * Unit: milliseconds.
+     * > The content of the alert rule. If the metric value meets the alert condition, an alert is triggered.
      * @example $Average>=10
      *
      * @var string
@@ -41,14 +41,17 @@ class resource extends Model
     public $expression;
 
     /**
-     * @description The alert threshold.
+     * @description The description of the multi-metric alert rule.
      *
      * @var expressionList
      */
     public $expressionList;
 
     /**
-     * @description The ID of the request.
+     * @description The relationship between multiple metrics. Valid values:
+     *
+     *   &&: If all metrics meet the alert conditions, CloudMonitor sends alert notifications.
+     *   ||: If one of the metrics meets the alert conditions, CloudMonitor sends alert notifications.
      *
      * @example &&
      *
@@ -57,6 +60,12 @@ class resource extends Model
     public $expressionListJoin;
 
     /**
+     * @description The trigger conditions that are created by using expressions. You can use expressions to create trigger conditions in the following scenarios:
+     *
+     *   Set an alert blacklist for specific resources. For example, if you specify `$instanceId != \"i-io8kfvcpp7x5****\" ``&&`` $Average > 50`, no alert is triggered when the `average metric value` of the `i-io8kfvcpp7x5****` instance exceeds 50.
+     *   Set a special alert threshold for a specified instance in the rule. For example, if you specify `$Average > ($instanceId == \"i-io8kfvcpp7x5****\"? 80: 50)`, an alert is triggered when the `average metric value` of the `i-io8kfvcpp7x5****` instance exceeds 80 or the `average metric value` of other instances exceeds 50.
+     *   Limit the number of instances whose metric values exceed the threshold. For example, if you specify `count($Average > 20) > 3`, an alert is triggered only when the number of instances whose `average metric value` exceeds 20 exceeds three.
+     *
      * @example $Average > ($instanceId == \"i-io8kfvcpp7x5****\"? 80: 50)
      *
      * @var string
@@ -64,7 +73,10 @@ class resource extends Model
     public $expressionRaw;
 
     /**
-     * @description The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
+     * @description The severity level and notification methods of the alert. Valid values:
+     *
+     *   4: Alert notifications are sent by using emails and DingTalk chatbots.
+     *   OK: No alert is generated.
      *
      * @example 3
      *
@@ -73,7 +85,14 @@ class resource extends Model
     public $level;
 
     /**
-     * @description The resources to which the alert rule is applied.
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     *
+     *   `>=`
+     *   `=`
+     *   `<=`
+     *   `>`
+     *   `<`
+     *   `!=`
      *
      * @example >=
      *
@@ -82,9 +101,8 @@ class resource extends Model
     public $preCondition;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The instance tag.
      *
-     * Default value: 10.
      * @example mns
      *
      * @var string
@@ -92,13 +110,7 @@ class resource extends Model
     public $tag;
 
     /**
-     * @description The severity level and notification method of the alert. Valid values:
-     *
-     *   4: Alert notifications are sent by using emails and DingTalk chatbots.
-     *
-     * <!---->
-     *
-     *   OK: No alert is generated.
+     * @description The alert threshold.
      *
      * @example 10
      *
@@ -107,7 +119,7 @@ class resource extends Model
     public $threshold;
 
     /**
-     * @description The type of the cloud service.
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered.
      *
      * @example 1
      *

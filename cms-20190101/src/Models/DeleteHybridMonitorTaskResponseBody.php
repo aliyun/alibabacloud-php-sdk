@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteHybridMonitorTaskResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteHybridMonitorTask**.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteHybridMonitorTaskResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example null
      *
@@ -27,6 +28,8 @@ class DeleteHybridMonitorTaskResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example D6B8103F-7BAD-5FEB-945F-71D991AB8834
      *
      * @var string
@@ -34,6 +37,11 @@ class DeleteHybridMonitorTaskResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

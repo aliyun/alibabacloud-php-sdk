@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupBy extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The alias of the aggregation result.
      *
      * @example ApiResult
      *
@@ -18,7 +18,7 @@ class groupBy extends Model
     public $alias;
 
     /**
-     * @description The alias of the aggregation result.
+     * @description The name of the key that is used to aggregate logs imported from Log Service.
      *
      * @example code
      *

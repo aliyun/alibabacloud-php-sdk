@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentStatusesRequest extends Model
 {
     /**
-     * @description The error message.
+     * @description The ID of the availability monitoring task.
      *
      * @example 126****
      *
@@ -18,7 +18,7 @@ class DescribeMonitoringAgentStatusesRequest extends Model
     public $hostAvailabilityTaskId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeMonitoringAgentStatuses**.
+     * @description The instance IDs. Separate multiple instance IDs with commas (,).
      *
      * @example i-hp3dunahluwajv6f****
      *

@@ -9,16 +9,7 @@ use AlibabaCloud\Tea\Model;
 class warn extends Model
 {
     /**
-     * @description The tag value of the alert rule.
-     *
-     * @example GreaterThanOrEqualToThreshold
-     *
-     * @var string
-     */
-    public $comparisonOperator;
-
-    /**
-     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold for Warn-level alerts. Valid values:
      *
      *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
      *   GreaterThanThreshold: greater than the threshold
@@ -32,6 +23,16 @@ class warn extends Model
      *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
      *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
+     * @example GreaterThanOrEqualToThreshold
+     *
+     * @var string
+     */
+    public $comparisonOperator;
+
+    /**
+     * @description The statistical methods for Warn-level alerts. Separate multiple statistical methods with commas (,).
+     *
+     * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](~~163515~~).
      * @example Average
      *
      * @var string
@@ -39,11 +40,7 @@ class warn extends Model
     public $statistics;
 
     /**
-     * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
-     *
-     *   KEEP_LAST_STATE (default value): No operation is performed.
-     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
-     *   OK: The status is considered normal.
+     * @description The threshold for Warn-level alerts.
      *
      * @example 90
      *
@@ -52,7 +49,7 @@ class warn extends Model
     public $threshold;
 
     /**
-     * @description The tag key of the alert rule.
+     * @description The consecutive number of times for which the metric value meets the alert condition before a Warn-level alert is triggered.
      *
      * @example 3
      *

@@ -16,8 +16,9 @@ class PutGroupMetricRuleRequest extends Model
     public $escalations;
 
     /**
-     * @description The operation that you want to perform. Set the value to **PutGroupMetricRule**.
+     * @description The abbreviation of the cloud service name.
      *
+     * For more information about how to obtain the abbreviation of a cloud service name, see `metricCategory` in the response parameter `Labels` of the [DescribeProjectMeta](~~114916~~) operation.
      * @example ECS
      *
      * @var string
@@ -25,10 +26,7 @@ class PutGroupMetricRuleRequest extends Model
     public $category;
 
     /**
-     * @description The ID of the alert rule.
-     *
-     *   When you create an alert rule for the application group, enter the ID of the alert rule.
-     *   When you modify a specified alert rule in the application group, you must obtain the ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * @description The alert contact group.
      *
      * @example ECS_Group
      *
@@ -37,8 +35,9 @@ class PutGroupMetricRuleRequest extends Model
     public $contactGroups;
 
     /**
-     * @description The error message.
+     * @description The first-level dimension of the alert rule in the application group.
      *
+     * Set the value to a set of key-value pairs, for example, `userId:120886317861****` or `instanceId:i-m5e1qg6uo38rztr4****`.
      * @example [{"instanceId":"i-m5e1qg6uo38rztr4****"}]
      *
      * @var string
@@ -46,9 +45,8 @@ class PutGroupMetricRuleRequest extends Model
     public $dimensions;
 
     /**
-     * @description The ID of the application group.
+     * @description The time period during which the alert rule is effective.
      *
-     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      * @example 05:31-23:59
      *
      * @var string
@@ -56,19 +54,18 @@ class PutGroupMetricRuleRequest extends Model
     public $effectiveInterval;
 
     /**
-     * @description The second-level or third-level dimension of the alert rule in the application group.
+     * @description The subject of the alert notification email.
      *
-     * Set the value to a set of key-value pairs, for example, `port:80` or `/dev/xvda:d-m5e6yphgzn3aprwu****`.
-     *
-     * If the first-level dimension of the alert rule is `instanceId:i-m5e1qg6uo38rztr4****`, its second-level dimension is the `/dev/xvda:d-m5e6yphgzn3aprwu****` disk in the instance.
      * @var string
      */
     public $emailSubject;
 
     /**
-     * @description The name of the metric.
+     * @description The second-level or third-level dimension of the alert rule in the application group.
      *
-     * For information about how to obtain the name of a metric, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     * Set the value to a set of key-value pairs, for example, `port:80` or `/dev/xvda:d-m5e6yphgzn3aprwu****`.
+     *
+     * If the first-level dimension of the alert rule is `instanceId:i-m5e1qg6uo38rztr4****`, its second-level dimension is the `/dev/xvda:d-m5e6yphgzn3aprwu****` disk in the instance.
      * @example {"/dev/xvda":"d-m5e6yphgzn3aprwu****"}
      *
      * @var string
@@ -76,12 +73,9 @@ class PutGroupMetricRuleRequest extends Model
     public $extraDimensionJson;
 
     /**
-     * @description The statistical methods for Warn-level alerts. Separate multiple statistical methods with commas (,). Valid values:
+     * @description The application group ID.
      *
-     *   Average: the average value
-     *   Minimum: the minimum value
-     *   Maximum: the maximum value
-     *
+     * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      * @example 17285****
      *
      * @var string
@@ -89,9 +83,9 @@ class PutGroupMetricRuleRequest extends Model
     public $groupId;
 
     /**
-     * @description The callback URL.
+     * @description The interval at which CloudMonitor checks whether the alert rule is triggered. Unit: seconds.
      *
-     * The callback URL must be accessible over the Internet. CloudMonitor sends a POST request to push an alert notification to the callback URL that you specify. Only HTTP requests are supported.
+     * >  We recommend that you set the interval to the data aggregation period. If the interval is shorter than the data aggregation period, alerts cannot be triggered due to insufficient data.
      * @example 60
      *
      * @var string
@@ -99,25 +93,17 @@ class PutGroupMetricRuleRequest extends Model
     public $interval;
 
     /**
+     * @description The tags of the alert rule.
+     *
+     * The specified tag is contained in alert notifications.
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The comparison operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The metric name.
      *
-     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-     *   GreaterThanThreshold: greater than the threshold
-     *   LessThanOrEqualToThreshold: less than or equal to the threshold
-     *   LessThanThreshold: less than the threshold
-     *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-     *   LessThanYesterday: less than the metric value at the same time yesterday
-     *   GreaterThanLastWeek: greater than the metric value at the same time last week
-     *   LessThanLastWeek: less than the metric value at the same time last week
-     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-     *
+     * For more information about how to obtain the name of a metric, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
      * @example cpu_total
      *
      * @var string
@@ -125,8 +111,9 @@ class PutGroupMetricRuleRequest extends Model
     public $metricName;
 
     /**
-     * @description The threshold for Critical-level alerts.
+     * @description The namespace of the cloud service.
      *
+     * For more information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -134,7 +121,11 @@ class PutGroupMetricRuleRequest extends Model
     public $namespace;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before a Critical-level alert is triggered.
+     * @description The method that is used to handle alerts when no monitoring data is found. Valid values:
+     *
+     *   KEEP_LAST_STATE (default): No operation is performed.
+     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
+     *   OK: The status is considered normal.
      *
      * @example KEEP_LAST_STATE
      *
@@ -143,7 +134,7 @@ class PutGroupMetricRuleRequest extends Model
     public $noDataPolicy;
 
     /**
-     * @description The threshold for Info-level alerts.
+     * @description The time period during which the alert rule is ineffective.
      *
      * @example 00:00-05:30
      *
@@ -152,8 +143,9 @@ class PutGroupMetricRuleRequest extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The threshold for Warn-level alerts.
+     * @description The aggregation period of the metric data.
      *
+     * Set the `Period` parameter to an integral multiple of 60. Unit: seconds. Default value: 300.
      * @example 60
      *
      * @var string
@@ -161,9 +153,11 @@ class PutGroupMetricRuleRequest extends Model
     public $period;
 
     /**
-     * @description The HTTP status code.
+     * @description The ID of the alert rule.
      *
-     * >  The status code 200 indicates that the call was successful.
+     *   When you create an alert rule for the application group, enter the ID of the alert rule.
+     *   When you modify a specified alert rule in the application group, you must obtain the ID of the alert rule. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     *
      * @example 123456
      *
      * @var string
@@ -171,9 +165,11 @@ class PutGroupMetricRuleRequest extends Model
     public $ruleId;
 
     /**
-     * @description The namespace of the cloud service.
+     * @description The name of the alert rule.
      *
-     * For information about how to obtain the namespace of a cloud service, see [DescribeMetricMetaList](~~98846~~) or [Appendix 1: Metrics](~~163515~~).
+     *   When you create an alert rule for the application group, enter the name of the alert rule.
+     *   When you modify a specified alert rule in the application group, you must obtain the name of the alert rule. For more information about how to obtain the name of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     *
      * @example Rule_01
      *
      * @var string
@@ -181,8 +177,9 @@ class PutGroupMetricRuleRequest extends Model
     public $ruleName;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
      *
+     * Unit: seconds. Default value: 86400.
      * @example 86400
      *
      * @var int
@@ -190,9 +187,9 @@ class PutGroupMetricRuleRequest extends Model
     public $silenceTime;
 
     /**
-     * @description The aggregation period of the metric data.
+     * @description The callback URL.
      *
-     * Set the `Period` parameter to an integral multiple of 60. Unit: seconds. Default value: 300.
+     * The callback URL must be accessible over the Internet. CloudMonitor sends a POST request to push an alert notification to the callback URL that you specify. Only HTTP requests are supported.
      * @example https://www.aliyun.com
      *
      * @var string

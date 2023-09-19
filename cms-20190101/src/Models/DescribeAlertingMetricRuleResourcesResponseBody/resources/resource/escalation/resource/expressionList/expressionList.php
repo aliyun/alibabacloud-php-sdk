@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class expressionList extends Model
 {
     /**
-     * @description The statistical method of the alert level. Valid values:
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
      *
-     *   Maximum: the maximum value
-     *   Minimum: the minimum value
-     *   Average: the average value
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
      * @example GreaterThanOrEqualToThreshold
      *
@@ -22,7 +30,7 @@ class expressionList extends Model
     public $comparisonOperator;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The metric name.
      *
      * @example cpu_total
      *
@@ -31,7 +39,7 @@ class expressionList extends Model
     public $metricName;
 
     /**
-     * @description Queries the resources for which active alerts are triggered based on an alert rule.
+     * @description The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
      *
      * @example 60
      *
@@ -40,6 +48,12 @@ class expressionList extends Model
     public $period;
 
     /**
+     * @description The statistical method of the alert level. Valid values:
+     *
+     *   Maximum
+     *   Minimum
+     *   Average
+     *
      * @example Average
      *
      * @var string
@@ -47,6 +61,8 @@ class expressionList extends Model
     public $statistics;
 
     /**
+     * @description The alert threshold.
+     *
      * @example 90
      *
      * @var string

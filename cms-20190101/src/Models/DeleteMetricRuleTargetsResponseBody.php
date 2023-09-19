@@ -10,7 +10,11 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleTargetsResponseBody extends Model
 {
     /**
-     * @description The returned message.
+     * @description The HTTP status code.
+     *
+     **
+     *
+     **Description** The status code 200 indicates that the request was successful.
      *
      * @example 200
      *
@@ -19,14 +23,14 @@ class DeleteMetricRuleTargetsResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the message resource that failed to be deleted.
+     * @description The IDs of the resources that failed to be deleted.
      *
      * @var failIds
      */
     public $failIds;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -35,10 +39,7 @@ class DeleteMetricRuleTargetsResponseBody extends Model
     public $message;
 
     /**
-     * @description Indicates whether the call was successful. Valid values:
-     *
-     *   true: The call was successful.
-     *   false: The call failed.
+     * @description The request ID.
      *
      * @example 786E92D2-AC66-4250-B76F-F1E2FCDDBA1C
      *
@@ -47,7 +48,10 @@ class DeleteMetricRuleTargetsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The message resources that failed to be deleted.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *

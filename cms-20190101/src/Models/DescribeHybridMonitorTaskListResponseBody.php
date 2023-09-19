@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorTaskListResponseBody extends Model
 {
     /**
+     * @description The status code.
+     *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -17,7 +20,10 @@ class DescribeHybridMonitorTaskListResponseBody extends Model
     public $code;
 
     /**
-     * @description The configurations of the logs that are imported from Log Service.
+     * @description The returned message.
+     *
+     *   If the request was successful, the value `successful` is returned.
+     *   If the request failed, an error message is returned.
      *
      * @example success
      *
@@ -26,7 +32,7 @@ class DescribeHybridMonitorTaskListResponseBody extends Model
     public $message;
 
     /**
-     * @description The method that is used to aggregate on-premises log data.
+     * @description The page number.
      *
      * @example 1
      *
@@ -35,7 +41,7 @@ class DescribeHybridMonitorTaskListResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The conditions that are used to match the instances in the application group.
+     * @description The number of entries per page.
      *
      * @example 10
      *
@@ -44,7 +50,7 @@ class DescribeHybridMonitorTaskListResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The alias of the extended field that indicates the result of basic operations that are performed on aggregation results.
+     * @description The request ID.
      *
      * @example 11145B76-566A-5D80-A8A3-FAD98D310079
      *
@@ -53,14 +59,11 @@ class DescribeHybridMonitorTaskListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The timeout period during which the CloudMonitor agent collects host monitoring data. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   0
-     *   15
-     *   30
-     *   60
+     *   true
+     *   false
      *
-     * Unit: seconds.
      * @example true
      *
      * @var string
@@ -68,23 +71,14 @@ class DescribeHybridMonitorTaskListResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the metric import task.
+     * @description The metric import tasks.
      *
      * @var taskList[]
      */
     public $taskList;
 
     /**
-     * @description The method that is used to filter logs imported from Log Service. Valid values:
-     *
-     *   `contain`: contains
-     *   `notContain`: does not contain
-     *   `>`: greater than
-     *   `<`: less than
-     *   `=`: equal to
-     *   `! =`: not equal to
-     *   `>=`: greater than or equal to
-     *   `<=`: less than or equal to
+     * @description The total number of entries returned.
      *
      * @example 1
      *

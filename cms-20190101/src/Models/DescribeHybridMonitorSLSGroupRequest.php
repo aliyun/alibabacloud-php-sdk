@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorSLSGroupRequest extends Model
 {
     /**
-     * @description The number of the page to return.
+     * @description The keyword that is used to search for Logstore groups.
      *
-     * Pages start from page 1. Default value: 1.
      * @example Logstore
      *
      * @var string
@@ -19,9 +18,9 @@ class DescribeHybridMonitorSLSGroupRequest extends Model
     public $keyword;
 
     /**
-     * @description The timestamp that was generated when the Logstore group was created.
+     * @description The page number.
      *
-     * Unit: milliseconds.
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var string
@@ -29,9 +28,9 @@ class DescribeHybridMonitorSLSGroupRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The HTTP status code.
+     * @description The number of entries per page.
      *
-     * >  The status code 200 indicates that the call is successful.
+     * Minimum value: 1. Default value: 10.
      * @example 10
      *
      * @var string
@@ -44,7 +43,7 @@ class DescribeHybridMonitorSLSGroupRequest extends Model
     public $regionId;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeHybridMonitorSLSGroup**.
+     * @description The name of the Logstore group.
      *
      * @example Logstore_test
      *

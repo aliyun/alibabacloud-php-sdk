@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupNotifyPolicyRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The ID of the application group.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 6780****
      *
      * @var string
@@ -19,8 +18,9 @@ class DeleteMonitorGroupNotifyPolicyRequest extends Model
     public $groupId;
 
     /**
-     * @description The ID of the application group.
+     * @description The policy type.
      *
+     * Valid value: PauseNotify.
      * @example PauseNotify
      *
      * @var string

@@ -9,7 +9,16 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description The value of the tag.
+     * @description The method that is used to filter logs imported from Log Service. Valid values:
+     *
+     *   `contain`: contains
+     *   `notContain`: does not contain
+     *   `>`: greater than
+     *   `<`: less than
+     *   `=`: equal to
+     *   `! =`: not equal to
+     *   `>=`: greater than or equal to
+     *   `<=`: less than or equal to
      *
      * @example =
      *
@@ -18,7 +27,7 @@ class filters extends Model
     public $operator;
 
     /**
-     * @description The type of the monitoring data. Valid values: Spring, Tomcat, Nginx, Tengine, JVM, Redis, and MySQL.
+     * @description The name of the key that is used to filter logs imported from Log Service.
      *
      * @example host
      *
@@ -27,7 +36,7 @@ class filters extends Model
     public $SLSKeyName;
 
     /**
-     * @description The page number of the returned page.
+     * @description The value of the key that is used to filter logs imported from Log Service.
      *
      * @example 200
      *

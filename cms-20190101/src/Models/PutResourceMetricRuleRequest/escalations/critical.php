@@ -9,9 +9,21 @@ use AlibabaCloud\Tea\Model;
 class critical extends Model
 {
     /**
-     * @description The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example GreaterThanOrEqualToThreshold
      *
      * @var string
@@ -19,9 +31,14 @@ class critical extends Model
     public $comparisonOperator;
 
     /**
-     * @description The Prometheus alert rule.
+     * @description The statistical methods for Critical-level alerts. Valid values:
      *
-     * >  This parameter is required only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
+     *   Maximum: the maximum value
+     *   Minimum: the minimum value
+     *   Average: the average value
+     *   Availability: the availability rate
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example Average
      *
      * @var string
@@ -29,9 +46,9 @@ class critical extends Model
     public $statistics;
 
     /**
-     * @description The aggregation period of the metric.
+     * @description The threshold for Critical-level alerts.
      *
-     * Unit: seconds.
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example 90
      *
      * @var string
@@ -39,7 +56,7 @@ class critical extends Model
     public $threshold;
 
     /**
-     * @description The threshold for Warn-level alerts.
+     * @description The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered.
      *
      * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example 3

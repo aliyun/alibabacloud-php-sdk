@@ -9,7 +9,19 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
-     * @description The time period during which the alert rule is effective.
+     * @description The operator that is used to compare the metric value with the threshold for Info-level alerts. Valid values:
+     *
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
      *
      * @example GreaterThanOrEqualToThreshold
      *
@@ -18,9 +30,9 @@ class info extends Model
     public $comparisonOperator;
 
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met.
+     * @description The statistical methods for Info-level alerts. Separate multiple statistical methods with commas (,).
      *
-     * Unit: seconds. Default value: 86400.
+     * The value of this parameter is determined by the `Statistics` column corresponding to the `MetricName` parameter of the specified cloud service. The value of this parameter can be Maximum, Minimum, or Average. For more information about how to obtain the value of this parameter, see [Appendix 1: Metrics](~~163515~~).
      * @example Average
      *
      * @var string
@@ -28,7 +40,7 @@ class info extends Model
     public $statistics;
 
     /**
-     * @description The alert contact group.
+     * @description The threshold for Info-level alerts.
      *
      * @example 90
      *
@@ -37,11 +49,7 @@ class info extends Model
     public $threshold;
 
     /**
-     * @description The statistical methods for Critical-level alerts. Separate multiple statistical methods with commas (,). Valid values:
-     *
-     *   Average: the average value
-     *   Minimum: the minimum value
-     *   Maximum: the maximum value
+     * @description The consecutive number of times for which the metric value meets the alert condition before an Info-level alert is triggered.
      *
      * @example 3
      *

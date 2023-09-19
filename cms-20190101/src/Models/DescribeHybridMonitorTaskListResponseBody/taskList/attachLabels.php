@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class attachLabels extends Model
 {
     /**
-     * @description The name of the key that is used to aggregate logs imported from Log Service.
+     * @description The tag key.
      *
      * @example key1
      *
@@ -18,9 +18,8 @@ class attachLabels extends Model
     public $name;
 
     /**
-     * @description The number of entries to return on each page.
+     * @description The tag value.
      *
-     * Minimum value: 1. Default value: 10.
      * @example value1
      *
      * @var string

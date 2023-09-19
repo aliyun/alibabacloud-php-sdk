@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupByResourceGroupIdRequest extends Model
 {
     /**
+     * @description The alert contact groups. The alert notifications of the application group are sent to the alert contacts that belong to the specified alert contact groups.
+     *
+     * An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~). For information about how to obtain alert contact groups, see [DescribeContactGroupList](~~114922~~).
      * @example ECS_Group
      *
      * @var string[]
@@ -16,9 +19,11 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public $contactGroupList;
 
     /**
-     * @description The name of the resource group.
+     * @description Specifies whether the CloudMonitor agent is automatically installed for the application group. CloudMonitor determines whether to automatically install the CloudMonitor agent for the hosts in an application group based on the value of this parameter. Valid values:
      *
-     * For information about how to obtain the name of a resource group, see [ListResourceGroups](~~158855~~).
+     *   true: The CloudMonitor agent is automatically installed.
+     *   false (default): The CloudMonitor agent is not automatically installed.
+     *
      * @example true
      *
      * @var bool
@@ -26,7 +31,10 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public $enableInstallAgent;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateMonitorGroupByResourceGroupId**.
+     * @description Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
+     *
+     *   true: The application group automatically subscribes to event notifications.
+     *   false (default): The application group does not automatically subscribe to event notifications.
      *
      * @example true
      *
@@ -35,8 +43,9 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public $enableSubscribeEvent;
 
     /**
-     * @description The error message.
+     * @description The ID of the region where the resource group resides.
      *
+     * For information about how to obtain the ID of the region where a resource group resides, see [GetResourceGroup](~~158866~~).
      * @example cn-hangzhou
      *
      * @var string
@@ -44,11 +53,9 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public $regionId;
 
     /**
-     * @description Specifies whether the application group automatically subscribes to event notifications. If events whose severity level is critical or warning occur on resources in an application group, CloudMonitor sends alert notifications. Valid values:
+     * @description The ID of the resource group.
      *
-     *   true: The application group automatically subscribes to event notifications.
-     *   false (default value): The application group does not automatically subscribe to event notifications.
-     *
+     * For information about how to obtain the ID of a resource group, see [ListResourceGroups](~~158855~~).
      * @example rg-acfmw3ty5y7****
      *
      * @var string
@@ -56,9 +63,9 @@ class CreateMonitorGroupByResourceGroupIdRequest extends Model
     public $resourceGroupId;
 
     /**
-     * @description The alert contact group. The alert notifications of the application group are sent to the alert contacts that belong to the specified alert contact groups.
+     * @description The name of the resource group.
      *
-     * An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~). For information about how to obtain alert contact groups, see [DescribeContactGroupList](~~114922~~).
+     * For information about how to obtain the name of a resource group, see [ListResourceGroups](~~158855~~).
      * @example CloudMonitor
      *
      * @var string

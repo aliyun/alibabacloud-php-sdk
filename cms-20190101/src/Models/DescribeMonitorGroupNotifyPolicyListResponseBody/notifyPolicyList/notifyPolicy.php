@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class notifyPolicy extends Model
 {
     /**
-     * @description The ID of the policy.
+     * @description The end of the time range to query.
      *
+     * Unit: milliseconds.
      * @example 1551761781273
      *
      * @var int
@@ -18,6 +19,8 @@ class notifyPolicy extends Model
     public $endTime;
 
     /**
+     * @description The ID of the application group.
+     *
      * @example 6780****
      *
      * @var string
@@ -25,6 +28,8 @@ class notifyPolicy extends Model
     public $groupId;
 
     /**
+     * @description The policy ID.
+     *
      * @example 123****
      *
      * @var string
@@ -32,8 +37,9 @@ class notifyPolicy extends Model
     public $id;
 
     /**
-     * @description The ID of the request.
+     * @description The beginning of the time range to query.
      *
+     * Unit: milliseconds.
      * @example 1551761781273
      *
      * @var int
@@ -41,7 +47,7 @@ class notifyPolicy extends Model
     public $startTime;
 
     /**
-     * @description The ID of the application group.
+     * @description The policy type.
      *
      * @example PauseNotify
      *

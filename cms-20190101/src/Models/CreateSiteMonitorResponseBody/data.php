@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The result that is returned after you associate the existing alert rule with the site monitoring task.
      *
      * @var attachAlertResult
      */

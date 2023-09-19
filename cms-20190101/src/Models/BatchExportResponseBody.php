@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class BatchExportResponseBody extends Model
 {
     /**
+     * @description The timestamp of the data requested by the backend. A larger timestamp indicates that the data export time is closer to the current time.
+     *
      * @example 1678781819000
      *
      * @var int
@@ -16,6 +18,9 @@ class BatchExportResponseBody extends Model
     public $anchor;
 
     /**
+     * @description The HTTP status code.
+     *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -23,6 +28,9 @@ class BatchExportResponseBody extends Model
     public $code;
 
     /**
+     * @description The Cursor information that is used to call this operation again.
+     *
+     * >  If `null` is returned, the monitoring data is exported.
      * @example v2.5eyJidWNrZXRzIjo0LCJjdXJzb3IiOiIxNjQxNDU0ODAwMDAwMWUxY2YxNWY0NTU0MTliZjllYTY4OWQ2ODI1OTU1Yzc1NmZjMDQ2OTMxMzczMzM2MzUzMTMxMzEzMzM0MzMzODM5MzEzMTMwMjQyYzY5MmQzMjdhNjU2MjY3N2E2NjZhNzczOTY2NmM3Mjc0NjM3MzY5Njg3NDcyMjQyYyIsImN1cnNvclZlcnNpb24iOiJxdWVyeSIsImVuZFRpbWUiOjE2NDE0NTUyMzYxMTIsImV4cG9ydEVuZFRpbWUiOjE2NDE0NTUyMzYxMTIsImV4cG9ydFN0YXJ0VGltZSI6MTY0MTQ1NDYzNjExMiwiZXhwcmVzc1JhbmdlIjpmYWxzZSwiaGFzTmV4dCI6dHJ1ZSwiaW5wdXRNZXRyaWMiOiJDUFVVdGlsaXphdGlvbiIsImlucHV0TmFtZXNwYWNlIjoiYWNzX2Vjc19kYXNoYm9hcmQiLCJsaW1pdCI6MTAwMCwibG9nVGltZU1vZGUiOnRydWUsIm1hdGNoZXJzIjp7ImNoYWluIjpbeyJsYWJlbCI6InVzZXJJZCIsIm9wZXJhdG9yIjoiRVFVQUxTIiwidmFsdWUiOiIxNzM2NTExMTM0Mzg5MTEwIn1dfSwibWV0cmljIjoiQ1BVVXRpbGl6YXRpb24iLCJtZXRyaWNUeXBlIjoiTUVUUklDIiwibmFtZXNwYWNlIjoiYWNzX2Vjc19kYXNoYm9hcmQiLCJuZXh0UGtBZGFwdGVyIjp7fSwib2Zmc2V0IjowLCJwYXJlbnRVaWQiOjEyNzA2NzY2Nzk1NDY3MDQsInN0YXJ0VGltZSI6MTY0MTQ1NDYzNjExMiwic3RlcCI6LTEsInRpbWVvdXQiOjEyMCwid2luZG93Ijo2MH0***
      *
      * @var string
@@ -30,11 +38,18 @@ class BatchExportResponseBody extends Model
     public $cursor;
 
     /**
+     * @description The data returned in this call.
+     *
      * @var MetricStat[]
      */
     public $dataResults;
 
     /**
+     * @description Indicates whether the data has been exported. Valid values:
+     *
+     *   true: Some data is not exported.
+     *   false: All the data is exported.
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +57,8 @@ class BatchExportResponseBody extends Model
     public $hasNext;
 
     /**
+     * @description The number of data entries returned in this call.
+     *
      * @example 1000
      *
      * @var int
@@ -49,6 +66,8 @@ class BatchExportResponseBody extends Model
     public $length;
 
     /**
+     * @description The returned message.
+     *
      * @example success
      *
      * @var string
@@ -56,6 +75,8 @@ class BatchExportResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 251402CD-305C-1617-808E-D8C11FC8138D
      *
      * @var string
@@ -63,6 +84,11 @@ class BatchExportResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

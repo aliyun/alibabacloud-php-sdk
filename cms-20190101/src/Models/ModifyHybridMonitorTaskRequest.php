@@ -11,13 +11,19 @@ use AlibabaCloud\Tea\Model;
 class ModifyHybridMonitorTaskRequest extends Model
 {
     /**
+     * @description The tags of the metric.
+     *
      * @var attachLabels[]
      */
     public $attachLabels;
 
     /**
-     * @description The value of the key that is used to filter logs imported from Log Service.
+     * @description The collection period of the metric. Valid values:
      *
+     *   15
+     *   60
+     *
+     * Unit: seconds.
      * @example 15
      *
      * @var string
@@ -25,7 +31,7 @@ class ModifyHybridMonitorTaskRequest extends Model
     public $collectInterval;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyHybridMonitorTask**.
+     * @description The description of the metric import task.
      *
      * @var string
      */
@@ -37,15 +43,16 @@ class ModifyHybridMonitorTaskRequest extends Model
     public $regionId;
 
     /**
-     * @description None.
+     * @description The configurations of the logs that are imported from Log Service.
      *
      * @var SLSProcessConfig
      */
     public $SLSProcessConfig;
 
     /**
-     * @description The tag value of the metric.
+     * @description The ID of the metric import task.
      *
+     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](~~428624~~).
      * @example 36****
      *
      * @var string
@@ -53,9 +60,9 @@ class ModifyHybridMonitorTaskRequest extends Model
     public $taskId;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the metric import task.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](~~428624~~).
      * @example SLS_task
      *
      * @var string

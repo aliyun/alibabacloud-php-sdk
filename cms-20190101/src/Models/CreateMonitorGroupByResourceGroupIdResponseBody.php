@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
     public $code;
 
     /**
+     * @description The ID of the application group.
+     *
      * @example 3607****
      *
      * @var int
@@ -25,7 +28,7 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
     public $id;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -34,6 +37,8 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 784CAB3C-F613-5BCE-8469-6DCB29B18A20
      *
      * @var string
@@ -41,6 +46,11 @@ class CreateMonitorGroupByResourceGroupIdResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

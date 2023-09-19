@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorGroupNotifyPolicyListRequest extends Model
 {
     /**
-     * @description The HTTP status code.
+     * @description The ID of the application group.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example 6780****
      *
      * @var string
@@ -19,7 +18,7 @@ class DescribeMonitorGroupNotifyPolicyListRequest extends Model
     public $groupId;
 
     /**
-     * @description The number of entries to return on each page. Default value: 10.
+     * @description The page number. Default value: 1.
      *
      * @example 1
      *
@@ -28,9 +27,8 @@ class DescribeMonitorGroupNotifyPolicyListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The timestamp that specifies the end of the time range to query.
+     * @description The number of entries per page. Default value: 10.
      *
-     * Unit: milliseconds.
      * @example 100
      *
      * @var int
@@ -38,8 +36,9 @@ class DescribeMonitorGroupNotifyPolicyListRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Default value: 1.
+     * @description The policy type.
      *
+     * Valid value: PauseNotify.
      * @example PauseNotify
      *
      * @var string

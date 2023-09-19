@@ -9,7 +9,14 @@ use AlibabaCloud\Tea\Model;
 class matchExpress extends Model
 {
     /**
-     * @description The extended fields that indicate the results of basic operations that are performed on aggregation results.
+     * @description The method that is used to match the instance name. Valid values:
+     *
+     *   startWith: starts with a prefix
+     *   endWith: ends with a suffix
+     *   all: matches all
+     *   equals: equals
+     *   contains: contains
+     *   notContains: does not contain
      *
      * @example all
      *
@@ -18,9 +25,8 @@ class matchExpress extends Model
     public $function;
 
     /**
-     * @description The number of the page to return.
+     * @description The instance name.
      *
-     * Pages start from page 1. Default value: 1.
      * @example name
      *
      * @var string
@@ -28,7 +34,7 @@ class matchExpress extends Model
     public $name;
 
     /**
-     * @description The name of the instance.
+     * @description The keyword that corresponds to the instance name.
      *
      * @example ECS_instance1
      *

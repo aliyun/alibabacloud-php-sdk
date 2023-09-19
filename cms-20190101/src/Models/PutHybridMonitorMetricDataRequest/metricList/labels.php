@@ -9,8 +9,13 @@ use AlibabaCloud\Tea\Model;
 class labels extends Model
 {
     /**
-     * @description The position of the error message in the array.
+     * @description The tag key of the metric.
      *
+     * Valid values of N: 1 to 100.
+     *
+     * The key can contain letters, digits, and underscores (*). The key must start with a letter or an underscore (*).
+     *
+     * >  You must specify both the Key and Value parameters.
      * @example IP
      *
      * @var string
@@ -18,9 +23,9 @@ class labels extends Model
     public $key;
 
     /**
-     * @description The name of the namespace.
+     * @description The tag value of the metric.
      *
-     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
+     * >  You must specify both the Key and Value parameters.
      * @example 192.168.XX.XX
      *
      * @var string

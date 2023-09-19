@@ -9,12 +9,8 @@ use AlibabaCloud\Tea\Model;
 class express extends Model
 {
     /**
-     * @description The interval at which metrics are collected. Valid values:
+     * @description The alias of the extended field that specifies the result of basic operations performed on aggregation results.
      *
-     *   15
-     *   60
-     *
-     * Unit: seconds.
      * @example SuccRate
      *
      * @var string
@@ -22,7 +18,7 @@ class express extends Model
     public $alias;
 
     /**
-     * @description The name of the key that is used to filter logs imported from Log Service.
+     * @description The extended field that specifies the result of basic operations performed on aggregation results.
      *
      * @example success_count
      *

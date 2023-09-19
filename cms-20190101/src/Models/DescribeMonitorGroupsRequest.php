@@ -142,6 +142,17 @@ class DescribeMonitorGroupsRequest extends Model
     public $type;
 
     /**
+     * @description The type of the application group. Valid values:
+     *
+     *   custom: a self-managed application group
+     *   ehpc_cluster: an application group that is synchronized from an Elastic High Performance Computing (E-HPC) cluster
+     *   kubernetes: an application group that is synchronized from a Container Service for Kubernetes (ACK) cluster
+     *   tag: an application group that is automatically created by using tags
+     *   resMgr: an application group that is created by using resource groups
+     *   ess: an application group that is synchronized from Auto Scaling (ESS)
+     *
+     * @example custom
+     *
      * @var string
      */
     public $types;

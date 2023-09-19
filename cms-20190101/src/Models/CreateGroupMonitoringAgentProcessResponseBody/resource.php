@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class resource extends Model
 {
     /**
+     * @description The ID of the group process.
+     *
+     * @example 7F2B0024-4F21-48B9-A764-211CEC48****
+     *
      * @var string
      */
     public $groupProcessId;

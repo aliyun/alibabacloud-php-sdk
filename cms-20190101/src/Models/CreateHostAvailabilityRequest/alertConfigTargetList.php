@@ -9,7 +9,23 @@ use AlibabaCloud\Tea\Model;
 class alertConfigTargetList extends Model
 {
     /**
-     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400. The default value indicates one day.
+     * @description The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
+     *
+     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
+     *
+     *   {userId}: the ID of the Alibaba Cloud account.
+     *
+     *   {regionId}: the region ID of the message queue or topic.
+     *
+     *   {Resource type}: the type of the resource that triggers the alert. Valid values:
+     *
+     *   **queues**
+     *   **topics**
+     *
+     *   {Resource name}: the resource name.
+     *
+     *   If the resource type is **queues**, the resource name is the queue name.
+     *   If the resource type is **topics**, the resource name is the topic name.
      *
      * @example acs:mns:cn-hangzhou:120886317861****:/queues/test/message
      *
@@ -18,9 +34,8 @@ class alertConfigTargetList extends Model
     public $arn;
 
     /**
-     * @description The end of the time period during which the alert rule is effective. Valid values: 0 to 23.
+     * @description The ID of the resource for which alerts are triggered.
      *
-     * >  Alert notifications are sent based on the specified threshold only if the alert rule is effective.
      * @example 1
      *
      * @var string
@@ -28,7 +43,7 @@ class alertConfigTargetList extends Model
     public $id;
 
     /**
-     * @description The ID of the request.
+     * @description The parameters of the alert callback. The parameters are in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *
@@ -37,11 +52,11 @@ class alertConfigTargetList extends Model
     public $jsonParams;
 
     /**
-     * @description The monitoring type of the availability monitoring task. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   PING
-     *   TELNET
-     *   HTTP
+     *   INFO
+     *   WARN
+     *   CRITICAL
      *
      * @example ["INFO", "WARN", "CRITICAL"]
      *

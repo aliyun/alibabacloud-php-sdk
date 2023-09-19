@@ -29,7 +29,7 @@ class CreateGroupMonitoringAgentProcessResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 3F6150F9-45C7-43F9-9578-A58B2E726C90
      *
@@ -38,6 +38,8 @@ class CreateGroupMonitoringAgentProcessResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The group process information.
+     *
      * @var resource
      */
     public $resource;

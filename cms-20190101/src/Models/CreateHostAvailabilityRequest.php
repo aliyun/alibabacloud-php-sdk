@@ -23,23 +23,21 @@ class CreateHostAvailabilityRequest extends Model
     public $taskOption;
 
     /**
+     * @description None
+     *
      * @var alertConfigEscalationList[]
      */
     public $alertConfigEscalationList;
 
     /**
+     * @description The information about the resources for which alerts are triggered.
+     *
      * @var alertConfigTargetList[]
      */
     public $alertConfigTargetList;
 
     /**
-     * @description The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
-     *
-     *   HttpStatus: HTTP status code
-     *   HttpLatency: HTTP response time
-     *   TelnetStatus: Telnet status code
-     *   TelnetLatency: Telnet response time
-     *   PingLostRate: Ping packet loss rate
+     * @description The ID of the application group.
      *
      * @example 123456
      *
@@ -48,6 +46,9 @@ class CreateHostAvailabilityRequest extends Model
     public $groupId;
 
     /**
+     * @description The ECS instances that are monitored. Valid values of N: 1 to 21.
+     *
+     * > This parameter must be specified when `TaskScope` is set to `GROUP_SPEC_INSTANCE`.
      * @example i-absdfkwl321****
      *
      * @var string[]
@@ -60,9 +61,8 @@ class CreateHostAvailabilityRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the availability monitoring task. The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example task1
      *
      * @var string
@@ -70,13 +70,10 @@ class CreateHostAvailabilityRequest extends Model
     public $taskName;
 
     /**
-     * @description The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
+     * @description The range of instances that are monitored by the availability monitoring task. Valid values:
      *
-     *   `>`
-     *   `>=`
-     *   `<`
-     *   `<=`
-     *   `=`
+     *   GROUP: All Elastic Compute Service (ECS) instances in the application group are monitored.
+     *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored. The TaskScope parameter must be used in combination with the InstanceList.N parameter. The InstanceList.N parameter specifies the ECS instances to be monitored.
      *
      * @example GROUP
      *
@@ -85,7 +82,11 @@ class CreateHostAvailabilityRequest extends Model
     public $taskScope;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateHostAvailability**.
+     * @description The monitoring type of the availability monitoring task. Valid values:
+     *
+     *   PING
+     *   TELNET
+     *   HTTP
      *
      * @example HTTP
      *

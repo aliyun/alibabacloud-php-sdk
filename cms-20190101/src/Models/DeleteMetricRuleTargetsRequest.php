@@ -14,7 +14,7 @@ class DeleteMetricRuleTargetsRequest extends Model
     public $regionId;
 
     /**
-     * @description The ID of the message resource. Valid values of N: 1 to 5.
+     * @description The ID of the alert rule.
      *
      * @example ruleId-xxxxxx
      *
@@ -23,6 +23,8 @@ class DeleteMetricRuleTargetsRequest extends Model
     public $ruleId;
 
     /**
+     * @description The resource IDs.
+     *
      * @example 12345
      *
      * @var string[]

@@ -10,28 +10,20 @@ use AlibabaCloud\Tea\Model;
 class prometheus extends Model
 {
     /**
-     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The annotations of the Prometheus alert rule. When a Prometheus alert is triggered, the system renders the annotated keys and values to help you understand the metrics and alert rule.
      *
-     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-     *   GreaterThanThreshold: greater than the threshold
-     *   LessThanOrEqualToThreshold: less than or equal to the threshold
-     *   LessThanThreshold: less than the threshold
-     *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-     *   LessThanYesterday: less than the metric value at the same time yesterday
-     *   GreaterThanLastWeek: greater than the metric value at the same time last week
-     *   LessThanLastWeek: less than the metric value at the same time last week
-     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-     *
+     * >  This parameter is equivalent to the annotations parameter of open source Prometheus.
      * @var annotations[]
      */
     public $annotations;
 
     /**
-     * @description The annotations of the Prometheus alert rule. When a Prometheus alert is triggered, the system renders the annotated keys and values to help you understand the metrics and alert rule.
+     * @description The level of the alert. Valid values:
      *
-     * >  This parameter is equivalent to the annotations parameter of open source Prometheus.
+     *   Critical
+     *   Warn
+     *   Info
+     *
      * @example Critical
      *
      * @var string
@@ -39,9 +31,9 @@ class prometheus extends Model
     public $level;
 
     /**
-     * @description The threshold for Critical-level alerts.
+     * @description The PromQL query statement.
      *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * >  The data obtained by using the PromQL query statement is the monitoring data. You must include the alert threshold in this statement.
      * @example cpuUsage{instanceId="xxxx"}[1m]>90
      *
      * @var string
@@ -49,9 +41,8 @@ class prometheus extends Model
     public $promQL;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the trigger condition before a Critical-level alert is triggered.
+     * @description The number of consecutive triggers. If the number of times that the metric values meet the trigger conditions reaches the value of this parameter, CloudMonitor sends alert notifications.
      *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example 3
      *
      * @var int

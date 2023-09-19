@@ -10,6 +10,9 @@ use AlibabaCloud\Tea\Model;
 class AddTagsRequest extends Model
 {
     /**
+     * @description The ID of the application group.
+     *
+     * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      * @example 7301****
      *
      * @var string[]
@@ -22,6 +25,8 @@ class AddTagsRequest extends Model
     public $regionId;
 
     /**
+     * @description The tags.
+     *
      * @var tag[]
      */
     public $tag;

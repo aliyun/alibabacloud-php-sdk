@@ -16,22 +16,17 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $escalations;
 
     /**
-     * @description The alert contact group. The alert notifications are sent to the contacts that belong to the alert contact group.
+     * @description The trigger conditions for multiple metrics.
      *
-     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
+     * >  The trigger conditions for a single metric and multiple metrics are mutually exclusive. You cannot specify trigger conditions for a single metric and multiple metrics at the same time.
      * @var string
      */
     public $compositeExpressionShrink;
 
     /**
-     * @description The statistical methods for Info-level alerts. Valid values:
+     * @description The alert contact group. The alert notifications are sent to the contacts that belong to the alert contact group.
      *
-     *   Maximum: the maximum value
-     *   Minimum: the minimum value
-     *   Average: the average value
-     *   Availability: the availability rate
-     *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * >  An alert contact group can contain one or more alert contacts. For information about how to create alert contacts and alert contact groups, see [PutContact](~~114923~~) and [PutContactGroup](~~114929~~).
      * @example ECS_Group
      *
      * @var string
@@ -39,21 +34,8 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $contactGroups;
 
     /**
-     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The time period during which the alert rule is effective.
      *
-     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-     *   GreaterThanThreshold: greater than the threshold
-     *   LessThanOrEqualToThreshold: less than or equal to the threshold
-     *   LessThanThreshold: less than the threshold
-     *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-     *   LessThanYesterday: less than the metric value at the same time yesterday
-     *   GreaterThanLastWeek: greater than the metric value at the same time last week
-     *   LessThanLastWeek: less than the metric value at the same time last week
-     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-     *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example 00:00-23:59
      *
      * @var string
@@ -61,16 +43,16 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $effectiveInterval;
 
     /**
-     * @description The namespace of the cloud service. For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
+     * @description The subject of the alert notification email.
      *
-     * >  If you create a Prometheus alert rule for Hybrid Cloud Monitoring, you must set this parameter to `acs_prometheus`.
      * @var string
      */
     public $emailSubject;
 
     /**
-     * @description The subject of the alert notification email.
+     * @description The interval at which the alert is triggered. Unit: seconds.
      *
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example 60
      *
      * @var string
@@ -78,13 +60,16 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $interval;
 
     /**
+     * @description The tags.
+     *
      * @var labels[]
      */
     public $labels;
 
     /**
-     * @description The trigger conditions that are created in standard mode.
+     * @description The name of the metric. For information about how to query the name of a metric, see [Appendix 1: Metrics](~~163515~~).
      *
+     * >  If you create a Prometheus alert rule for Hybrid Cloud Monitoring, you must set this parameter to the name of the namespace. For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example cpu_total
      *
      * @var string
@@ -92,8 +77,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $metricName;
 
     /**
-     * @description The operation that you want to perform. Set the value to **PutResourceMetricRule**.
+     * @description The namespace of the cloud service. For information about how to query the namespace of a cloud service, see [Appendix 1: Metrics](~~163515~~).
      *
+     * >  If you create a Prometheus alert rule for Hybrid Cloud Monitoring, you must set this parameter to `acs_prometheus`.
      * @example acs_ecs_dashboard
      *
      * @var string
@@ -101,7 +87,11 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $namespace;
 
     /**
-     * @description The error message.
+     * @description The processing method of alerts when no monitoring data is found. Valid values:
+     *
+     *   KEEP_LAST_STATE (default value): No operation is performed.
+     *   INSUFFICIENT_DATA: An alert whose content is "Insufficient data" is triggered.
+     *   OK: The status is considered normal.
      *
      * @example KEEP_LAST_STATE
      *
@@ -110,7 +100,7 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $noDataPolicy;
 
     /**
-     * @description The value of the annotation.
+     * @description The time period during which the alert rule is ineffective.
      *
      * @example 00:00-06:00
      *
@@ -119,9 +109,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $noEffectiveInterval;
 
     /**
-     * @description The name of the alert rule.
+     * @description The statistical period of the metric. Unit: seconds. The default value is the interval at which the monitoring data of the metric is collected.
      *
-     * >  If you specify a new name, a threshold-triggered alert rule is created.
+     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
      * @example 60
      *
      * @var string
@@ -129,28 +119,17 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $period;
 
     /**
-     * @description The time period during which the alert rule is ineffective.
+     * @description The Prometheus alert rule.
      *
+     * >  This parameter is required only when you create a Prometheus alert rule for Hybrid Cloud Monitoring.
      * @var string
      */
     public $prometheusShrink;
 
     /**
-     * @description The operator that is used to compare the metric value with the threshold. Valid values:
+     * @description The information about the resource. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
      *
-     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
-     *   GreaterThanThreshold: greater than the threshold
-     *   LessThanOrEqualToThreshold: less than or equal to the threshold
-     *   LessThanThreshold: less than the threshold
-     *   NotEqualToThreshold: not equal to the threshold
-     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
-     *   LessThanYesterday: less than the metric value at the same time yesterday
-     *   GreaterThanLastWeek: greater than the metric value at the same time last week
-     *   LessThanLastWeek: less than the metric value at the same time last week
-     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
-     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
-     *
-     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
+     * For information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](~~163515~~).
      * @example [{"instanceId":"i-uf6j91r34rnwawoo****"}]
      *
      * @var string
@@ -158,8 +137,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $resources;
 
     /**
-     * @description The metric that is used to monitor the cloud service.
+     * @description The ID of the alert rule.
      *
+     * >  If you specify a new ID, a threshold-triggered alert rule is created.
      * @example a151cd6023eacee2f0978e03863cc1697c89508****
      *
      * @var string
@@ -167,12 +147,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $ruleId;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The name of the alert rule.
      *
-     *   Critical
-     *   Warn
-     *   Info
-     *
+     * >  If you specify a new name, a threshold-triggered alert rule is created.
      * @example test123
      *
      * @var string
@@ -180,9 +157,9 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $ruleName;
 
     /**
-     * @description The interval at which the alert is triggered. Unit: seconds.
+     * @description The mute period during which new alerts are not sent even if the trigger conditions are met. Unit: seconds. Default value: 86400.
      *
-     * >  For information about how to query the statistical period of a metric, see [Appendix 1: Metrics](~~163515~~).
+     * >  If an alert is not cleared within the mute period, a new alert notification is sent when the mute period ends.
      * @example 86400
      *
      * @var int
@@ -190,9 +167,8 @@ class PutResourceMetricRuleShrinkRequest extends Model
     public $silenceTime;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The callback URL to which a POST request is sent when an alert is triggered based on the alert rule.
      *
-     * >  If you specify a new ID, a threshold-triggered alert rule is created.
      * @example https://alert.aliyun.com.com:8080/callback
      *
      * @var string

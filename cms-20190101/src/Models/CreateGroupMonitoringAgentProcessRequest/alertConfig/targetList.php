@@ -23,10 +23,10 @@ class targetList extends Model
      *
      *   {Resource type}: the type of the resource that triggers the alert. Valid values:
      *
-     *   **queues**: queue.
-     *   **topics**: topic.
+     *   **queues**
+     *   **topics**
      *
-     *   {Resource name}: the name of the resource.
+     *   {Resource name}: the resource name.
      *
      *   If the resource type is **queues**, the resource name is the queue name.
      *   If the resource type is **topics**, the resource name is the topic name.
@@ -48,7 +48,7 @@ class targetList extends Model
     public $id;
 
     /**
-     * @description The parameters of the alert callback. The parameters are in the JSON format.
+     * @description The parameters of the alert callback. Specify the parameters in the JSON format.
      *
      * @example {"customField1":"value1","customField2":"$.name"}
      *
@@ -57,11 +57,11 @@ class targetList extends Model
     public $jsonParams;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The alert level. Valid values:
      *
-     *   INFO: Info
-     *   WARN: Warn
-     *   CRITICAL: Critical
+     *   INFO
+     *   WARN
+     *   CRITICAL
      *
      * @example ["INFO", "WARN", "CRITICAL"]
      *

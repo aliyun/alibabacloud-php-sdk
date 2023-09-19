@@ -10,10 +10,7 @@ use AlibabaCloud\Tea\Model;
 class result extends Model
 {
     /**
-     * @description The status of the event-triggered alert rule. Valid values:
-     *
-     *   ENABLED: enabled
-     *   DISABLED: disabled
+     * @description The description of the event-triggered alert rule.
      *
      * @example Default group event rule.
      *
@@ -22,14 +19,17 @@ class result extends Model
     public $description;
 
     /**
-     * @description The status of the event.
+     * @description The event pattern. This parameter specifies the trigger conditions of an event.
      *
      * @var eventPattern
      */
     public $eventPattern;
 
     /**
-     * @description The ID of the application group.
+     * @description The type of the event. Valid values: Valid values:
+     *
+     *   SYSTEM: system event
+     *   CUSTOM: custom event
      *
      * @example SYSTEM
      *
@@ -38,7 +38,7 @@ class result extends Model
     public $eventType;
 
     /**
-     * @description The name of the cloud service.
+     * @description The ID of the application group.
      *
      * @example 3607****
      *
@@ -47,7 +47,7 @@ class result extends Model
     public $groupId;
 
     /**
-     * @description The event pattern. This parameter specifies the trigger conditions of an event.
+     * @description The name of the event-triggered alert rule.
      *
      * @example test_DefaultEventRule_7378****
      *
@@ -56,11 +56,10 @@ class result extends Model
     public $name;
 
     /**
-     * @description The level of the event-triggered alert rule. Valid values:
+     * @description The status of the event-triggered alert rule. Valid values:
      *
-     *   CRITICAL: critical
-     *   WARN: warning
-     *   INFO: information
+     *   ENABLED
+     *   DISABLED
      *
      * @example ENABLED
      *

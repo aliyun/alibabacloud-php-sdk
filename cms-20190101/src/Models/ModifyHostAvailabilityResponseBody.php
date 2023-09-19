@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class ModifyHostAvailabilityResponseBody extends Model
 {
     /**
-     * @description The alert threshold. Valid values of N: 1 to 21.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class ModifyHostAvailabilityResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -27,6 +28,8 @@ class ModifyHostAvailabilityResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 16E815A3-47E1-4290-87F9-D5C99471FF45
      *
      * @var string
@@ -34,6 +37,11 @@ class ModifyHostAvailabilityResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

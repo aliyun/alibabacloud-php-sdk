@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class alertLogHistogramList extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The number of alert logs.
      *
      * @example 20
      *
@@ -18,8 +18,9 @@ class alertLogHistogramList extends Model
     public $count;
 
     /**
-     * @description The number of alert logs.
+     * @description The start timestamp of the queried alert logs.
      *
+     * Unit: seconds.
      * @example 1610074791
      *
      * @var int
@@ -27,8 +28,9 @@ class alertLogHistogramList extends Model
     public $from;
 
     /**
-     * @description This topic provides an example on how to query the number of alert logs of Elastic Compute Service (ECS) from the cloud service dimension.
+     * @description The end timestamp of the queried alert logs.
      *
+     * Unit: seconds.
      * @example 1610074800
      *
      * @var int

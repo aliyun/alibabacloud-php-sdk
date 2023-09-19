@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMetricRuleBlackListResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteMetricRuleBlackList**.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class DeleteMetricRuleBlackListResponseBody extends Model
     public $code;
 
     /**
+     * @description The number of blacklist policies that are deleted.
+     *
      * @example 1
      *
      * @var int
@@ -25,7 +28,7 @@ class DeleteMetricRuleBlackListResponseBody extends Model
     public $count;
 
     /**
-     * @description The number of blacklist policies that are deleted.
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -34,7 +37,7 @@ class DeleteMetricRuleBlackListResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The request ID.
      *
      * @example B88D233C-A004-3AB8-AD9C-30CBDD4440C5
      *
@@ -43,6 +46,11 @@ class DeleteMetricRuleBlackListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

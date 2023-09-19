@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class PutHybridMonitorMetricDataResponseBody extends Model
 {
     /**
-     * @description The details of the invalid parameters.
+     * @description The HTTP status code.
      *
-     * If the request parameters that you set are invalid, the details of the invalid parameters are displayed.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -20,14 +20,15 @@ class PutHybridMonitorMetricDataResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The details of invalid parameters.
      *
+     * If a request parameter is invalid, the details of the invalid parameter are returned.
      * @var errorDetail[]
      */
     public $errorDetail;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 5DB1CBCA-D14A-55FA-814F-B4DBD9735F68
      *

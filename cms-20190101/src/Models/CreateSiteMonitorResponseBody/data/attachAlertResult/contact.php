@@ -11,7 +11,7 @@ class contact extends Model
     /**
      * @description The status code that is returned after you associate the existing alert rule with the site monitoring task.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,9 +19,8 @@ class contact extends Model
     public $code;
 
     /**
-     * @description The following tables describe the extended options of the HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP. POP3, and FTP protocols specified by the TaskType parameter.
+     * @description The message that is returned after you associate the existing alert rule with the site monitoring task.
      *
-     * If the response_format parameter is set to another value, the value of the response_content parameter is parsed as a regular string. |
      * @example successful
      *
      * @var string
@@ -29,7 +28,7 @@ class contact extends Model
     public $message;
 
     /**
-     * @description Creates a site monitoring task.
+     * @description The ID of the request that was sent to associate the existing alert rule with the site monitoring task.
      *
      * @example 5dd33455-4f65-4b0c-9200-33d66f3f340b
      *
@@ -38,6 +37,8 @@ class contact extends Model
     public $requestId;
 
     /**
+     * @description The ID of the alert rule.
+     *
      * @example SystemDefault_acs_ecs_dashboard_InternetOutRate_Percent
      *
      * @var string
@@ -45,6 +46,11 @@ class contact extends Model
     public $ruleId;
 
     /**
+     * @description Indicates whether the existing alert rule was associated with the site monitoring task. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

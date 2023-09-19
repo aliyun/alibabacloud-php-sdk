@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class BatchExportRequest extends Model
 {
     /**
+     * @description When you call this operation to export data, you must specify the `Cursor` parameter. You can obtain the value of the `Cursor` parameter by using one of the following methods:
+     *
+     *   When you call this operation for the first time, you must call the Cursor operation to obtain the `Cursor` value. For more information, see [Cursor](~~2330730~~).
+     *   When you call this operation again, you can obtain the `Cursor` value from the returned data of the last call.
+     *
      * @example eyJidWNrZXRzIjo0LCJjdXJzb3IiOiIxNjQxNDU0MzIwMDAwMWUxY2YxNWY0NTU0MTliZjllYTY4OWQ2ODI1OTU1Yzc1NmZjMDQ2OTMxMzczMzM2MzUzMTMxMzEzMzM0MzMzODM5MzEzMTMwMjQyYzY5MmQ3NTY2MzYzMjY3NmI2ZjM5MzU2YjY4MzAzMTYyNzg3MTcwNjkzMTM3MjQyYyIsImN1cnNvclZlcnNpb24iOiJxdWVyeSIsImVuZFRpbWUiOjE2NDE0NTQ3OTU4MjMsImV4cG9ydEVuZFRpbWUiOjE2NDE0NTQ3OTU4MjMsImV4cG9ydFN0YXJ0VGltZSI6MTY0MTQ1NDE5NTgyMywiZXhwcmVzc1JhbmdlIjpmYWxzZSwiaGFzTmV4dCI6dHJ1ZSwiaW5wdXRNZXRyaWMiOiJDUFVVdGlsaXphdGlvbiIsImlucHV0TmFtZXNwYWNlIjoiYWNzX2Vjc19kYXNoYm9hcmQiLCJsaW1pdCI6MTAwMCwibG9nVGltZU1vZGUiOnRydWUsIm1hdGNoZXJzIjp7ImNoYWluIjpbeyJsYWJlbCI6InVzZXJJZCIsIm9wZXJhdG9yIjoiRVFVQUxTIiwidmFsdWUiOiIxNzM2NTExMTM0Mzg5MTEwIn1dfSwibWV0cmljIjoiQ1BVVXRpbGl6YXRpb24iLCJtZXRyaWNUeXBlIjoiTUVUUklDIiwibmFtZXNwYWNlIjoiYWNzX2Vjc19kYXNoYm9hcmQiLCJuZXh0UGtBZGFwdGVyIjp7fSwib2Zmc2V0IjowLCJwYXJlbnRVaWQiOjEyNzA2NzY2Nzk1NDY3MDQsInN0YXJ0VGltZSI6MTY0MTQ1NDE5NTgyMywic3RlcCI6LTEsInRpbWVvdXQiOjEyMCwid2luZG93Ijo2****
      *
      * @var string
@@ -16,6 +21,9 @@ class BatchExportRequest extends Model
     public $cursor;
 
     /**
+     * @description The maximum number of data entries that can be returned in each response.
+     *
+     * Valid values: 1 to 10000.
      * @example 1000
      *
      * @var int
@@ -23,11 +31,17 @@ class BatchExportRequest extends Model
     public $length;
 
     /**
+     * @description The statistical methods used to customize the returned data. By default, the measurements based on all statistical methods are returned.
+     *
+     * The statistical methods of metrics are displayed in the `Statistics` column on the Metrics page of each cloud service. For more information, see [Appendix 1: Metrics](~~163515~~).
      * @var string[]
      */
     public $measurements;
 
     /**
+     * @description The metric that is used to monitor the cloud service.
+     *
+     * >  The value of this parameter must be the same as the value of the request parameter `Metric` in the Cursor operation.
      * @example cpu_idle
      *
      * @var string
@@ -35,6 +49,9 @@ class BatchExportRequest extends Model
     public $metric;
 
     /**
+     * @description The namespace of the cloud service.
+     *
+     * >  The value of this parameter must be the same as the value of the request parameter `Namespace` in the Cursor operation.
      * @example acs_ecs_dashboard
      *
      * @var string

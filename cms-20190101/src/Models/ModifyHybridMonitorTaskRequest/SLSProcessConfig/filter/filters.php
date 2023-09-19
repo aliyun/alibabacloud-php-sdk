@@ -9,15 +9,6 @@ use AlibabaCloud\Tea\Model;
 class filters extends Model
 {
     /**
-     * @description The extended field that specifies the result of basic operations performed on aggregation results.
-     *
-     * @example =
-     *
-     * @var string
-     */
-    public $operator;
-
-    /**
      * @description The method that is used to filter logs imported from Log Service. Valid values:
      *
      *   `contain`: contains
@@ -29,6 +20,15 @@ class filters extends Model
      *   `>=`: greater than or equal to
      *   `<=`: less than or equal to
      *
+     * @example =
+     *
+     * @var string
+     */
+    public $operator;
+
+    /**
+     * @description The name of the key that is used to filter logs imported from Log Service.
+     *
      * @example code
      *
      * @var string
@@ -36,9 +36,8 @@ class filters extends Model
     public $SLSKeyName;
 
     /**
-     * @description The name of the metric import task.
+     * @description The value of the key that is used to filter logs imported from Log Service.
      *
-     * For information about how to obtain the ID of a metric import task, see [DescribeHybridMonitorTaskList](~~428624~~).
      * @example 200
      *
      * @var string

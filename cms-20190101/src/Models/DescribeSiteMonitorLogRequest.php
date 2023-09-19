@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class DescribeSiteMonitorLogRequest extends Model
 {
     /**
+     * @description 浏览器类型。
+     *
+     * @example Chrome
+     *
      * @var string
      */
     public $browser;
 
     /**
+     * @description 该参数已废弃，无需关注。
+     *
+     * @example 无
+     *
      * @var string
      */
     public $browserInfo;
@@ -28,17 +36,21 @@ class DescribeSiteMonitorLogRequest extends Model
     public $city;
 
     /**
+     * @description 设备类型（模拟屏幕大小类型）。
+     *
+     * @example laptop
+     *
      * @var string
      */
     public $device;
 
     /**
-     * @description The end of the time range to query data. The following formats are supported:
+     * @description The end of the time range to query. Valid values:
      *
      *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970
      *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format
      *
-     * > We recommend that you use UNIX timestamps to prevent time zone-related issues.
+     * >  We recommend that you use UNIX timestamps to prevent time zone-related issues.
      * @example 1638422475687
      *
      * @var string
@@ -98,15 +110,15 @@ class DescribeSiteMonitorLogRequest extends Model
     public $regionId;
 
     /**
-     * @description The start of the time range to query data. The following formats are supported:
+     * @description The start of the time range to query. The following formats are supported:
      *
      *   UNIX timestamp: the number of milliseconds that have elapsed since 00:00:00 Thursday, January 1, 1970
      *   UTC time: the UTC time that follows the YYYY-MM-DDThh:mm:ssZ format
      *
      * >
-     *   The specified time range includes the end time and excludes the start time. The `start time` must be earlier than the `end time`.
-     *   We recommend that you use UNIX timestamps to prevent time zone-related issues.
      *
+     *   The specified time range includes the end time and excludes the start time. The start time must be earlier than the end time.\
+     * We recommend that you use UNIX timestamps to prevent time zone-related issues.
      * @example 1638422474389
      *
      * @var string

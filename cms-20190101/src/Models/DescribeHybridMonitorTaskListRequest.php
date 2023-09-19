@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridMonitorTaskListRequest extends Model
 {
     /**
-     * @description The additional information of the instance.
+     * @description The ID of the application group.
      *
+     * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      * @example 3607****
      *
      * @var string
@@ -18,9 +19,11 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $groupId;
 
     /**
-     * @description The timestamp when the metric import task was created.
+     * @description Specifies whether the returned result includes metric import tasks for Alibaba Cloud services. Valid values:
      *
-     * Unit: milliseconds.
+     *   true (default): The returned result includes metric import tasks for Alibaba Cloud services.
+     *   false: The returned result excludes metric import tasks for Alibaba Cloud services.
+     *
      * @example true
      *
      * @var bool
@@ -28,7 +31,7 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $includeAliyunTask;
 
     /**
-     * @description The conditions that are used to filter logs imported from Log Service.
+     * @description The keyword that is used for the search.
      *
      * @example task
      *
@@ -37,11 +40,9 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $keyword;
 
     /**
-     * @description The configuration file of the Alibaba Cloud service that you want to monitor by using Hybrid Cloud Monitoring.
+     * @description The name of the namespace.
      *
-     *   namespace: the namespace of the Alibaba Cloud service.
-     *   metric_list: the metrics of the Alibaba Cloud service.
-     *
+     * For information about how to obtain the name of a namespace, see [DescribeHybridMonitorNamespaceList](~~428880~~).
      * @example aliyun
      *
      * @var string
@@ -49,8 +50,9 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $namespace;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DescribeHybridMonitorTaskList**.
+     * @description The page number.
      *
+     * Pages start from page 1. Default value: 1.
      * @example 1
      *
      * @var int
@@ -58,9 +60,9 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The HTTP status code.
+     * @description The number of entries per page.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * Pages start from page 1. Default value: 10.
      * @example 10
      *
      * @var int
@@ -73,8 +75,9 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $regionId;
 
     /**
-     * @description The keyword that is used to search for metric import tasks.
+     * @description The ID of the member account.
      *
+     * > This parameter is required only if you use a management account to call this operation to delete the metric import tasks that belong to a member in a resource directory. In this case, the `TaskType` parameter is set to `aliyun_fc`.
      * @example 120886317861****
      *
      * @var int
@@ -82,10 +85,7 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $targetUserId;
 
     /**
-     * @description The type of the metric import task. Valid values:
-     *
-     *   aliyun_fc: metric import tasks for Alibaba Cloud services
-     *   aliyun_sls: metrics for logs imported from Log Service
+     * @description The ID of the metric import task.
      *
      * @example 36****
      *
@@ -94,13 +94,11 @@ class DescribeHybridMonitorTaskListRequest extends Model
     public $taskId;
 
     /**
-     * @description The interval at which the CloudMonitor agent collects host monitoring data. Valid values:
+     * @description The type of the metric import task. Valid values:
      *
-     *   15
-     *   30
-     *   60
+     *   aliyun_fc: metric import tasks for Alibaba Cloud services
+     *   aliyun_sls: metrics for logs imported from Log Service
      *
-     * Unit: seconds.
      * @example aliyun_fc
      *
      * @var string

@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class metrics extends Model
 {
     /**
-     * @description The timestamp when the blacklist policy starts to take effect.
+     * @description The metric name.
      *
-     * Unit: milliseconds.
+     * Valid values of N: 1 to 10.
      * @example disk_utilization
      *
      * @var string
@@ -19,8 +19,9 @@ class metrics extends Model
     public $metricName;
 
     /**
-     * @description The name of the blacklist policy.
+     * @description The extended dimension of the instance. For example, `{"device":"C:"}` specifies that the blacklist policy is applied to all C disks of the specified Elastic Compute Service (ECS) instance.
      *
+     * Valid values of N: 1 to 10.
      * @example {"device":"C:"}
      *
      * @var string

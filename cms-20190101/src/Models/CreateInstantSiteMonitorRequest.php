@@ -39,7 +39,10 @@ class CreateInstantSiteMonitorRequest extends Model
     /**
      * @description The number of detection points.
      *
-     * > You must specify one of the `IspCities` and `RandomIspCity` parameters. If you specify the `RandomIspCity` parameter, the `IspCities` parameter automatically becomes invalid.
+     * >
+     *
+     *   You must specify one of the `IspCities` and `RandomIspCity` parameters. If you specify the `RandomIspCity` parameter, the `IspCities` parameter automatically becomes invalid.
+     *
      * @example 1
      *
      * @var int

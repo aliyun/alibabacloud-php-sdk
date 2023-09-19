@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteMonitorGroupNotifyPolicyResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class DeleteMonitorGroupNotifyPolicyResponseBody extends Model
     public $code;
 
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteMonitorGroupNotifyPolicy**.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -27,6 +28,8 @@ class DeleteMonitorGroupNotifyPolicyResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example B7AF834D-D38B-4A46-920B-FE974EB7E135
      *
      * @var string
@@ -34,6 +37,8 @@ class DeleteMonitorGroupNotifyPolicyResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of affected rows.
+     *
      * @example 1
      *
      * @var int
@@ -41,6 +46,11 @@ class DeleteMonitorGroupNotifyPolicyResponseBody extends Model
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var string

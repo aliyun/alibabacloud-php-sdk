@@ -9,9 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateSiteMonitorRequest extends Model
 {
     /**
-     * @description The name of the site monitoring task.
+     * @description The URL or IP address that is monitored by the task.
      *
-     * The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
      * @example https://www.aliyun.com
      *
      * @var string
@@ -19,11 +18,9 @@ class CreateSiteMonitorRequest extends Model
     public $address;
 
     /**
-     * @description Indicates whether the existing alert rule was associated with the site monitoring task. Valid values:
+     * @description The ID of the alert rule.
      *
-     *   true
-     *   false
-     *
+     * For more information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
      * @example SystemDefault_acs_ecs_dashboard_InternetOutRate_Percent
      *
      * @var string
@@ -31,6 +28,8 @@ class CreateSiteMonitorRequest extends Model
     public $alertIds;
 
     /**
+     * @description The custom detection period. You can only select a time period from Monday to Sunday for detection.
+     *
      * @example {"start_hour":0,"end_hour":24, "days":[0], "time_zone":"Local"}
      *
      * @var string
@@ -38,8 +37,9 @@ class CreateSiteMonitorRequest extends Model
     public $customSchedule;
 
     /**
-     * @description The operation that you want to perform. Set the value to **CreateSiteMonitor**.
+     * @description The interval at which detection requests are sent.
      *
+     * Default value: 1.
      * @example 1
      *
      * @var string
@@ -57,7 +57,7 @@ class CreateSiteMonitorRequest extends Model
     public $ispCities;
 
     /**
-     * @description The returned message.
+     * @description The extended options of the protocol that is used by the site monitoring task. The options vary based on the protocol.
      *
      * @example {"time_out":5000}
      *
@@ -71,9 +71,9 @@ class CreateSiteMonitorRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the site monitoring task.
      *
-     * >  The status code 200 indicates that the call was successful.
+     * The name must be 4 to 100 characters in length, and can contain letters, digits, and underscores (\_).
      * @example HanZhou_ECS1
      *
      * @var string
@@ -81,9 +81,9 @@ class CreateSiteMonitorRequest extends Model
     public $taskName;
 
     /**
-     * @description The ID of the alert rule.
+     * @description The type of the site monitoring task.
      *
-     * For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](~~114941~~).
+     * Valid values: HTTP, HTTPS, PING, TCP, UDP, DNS, SMTP, POP3, and FTP.
      * @example HTTPS
      *
      * @var string

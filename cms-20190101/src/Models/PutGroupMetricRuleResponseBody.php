@@ -10,12 +10,9 @@ use AlibabaCloud\Tea\Model;
 class PutGroupMetricRuleResponseBody extends Model
 {
     /**
-     * @description The statistical methods for Info-level alerts. Separate multiple statistical methods with commas (,). Valid values:
+     * @description The HTTP status code.
      *
-     *   Average: the average value
-     *   Minimum: the minimum value
-     *   Maximum: the maximum value
-     *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -23,7 +20,7 @@ class PutGroupMetricRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the request.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -32,7 +29,7 @@ class PutGroupMetricRuleResponseBody extends Model
     public $message;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The request ID.
      *
      * @example 461CF2CD-2FC3-4B26-8645-7BD27E7D0F1D
      *
@@ -41,11 +38,18 @@ class PutGroupMetricRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The result of the request.
+     *
      * @var result
      */
     public $result;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

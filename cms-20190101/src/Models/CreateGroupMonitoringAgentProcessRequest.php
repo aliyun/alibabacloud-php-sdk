@@ -21,6 +21,7 @@ class CreateGroupMonitoringAgentProcessRequest extends Model
     /**
      * @description The ID of the application group.
      *
+     * For more information about how to obtain the ID of an application group, see [DescribeMonitorGroups](~~115032~~).
      * @example 123456
      *
      * @var string
@@ -49,7 +50,7 @@ class CreateGroupMonitoringAgentProcessRequest extends Model
     public $matchExpressFilterRelation;
 
     /**
-     * @description The name of the process.
+     * @description The process name.
      *
      * @example test1
      *

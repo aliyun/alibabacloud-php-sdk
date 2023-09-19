@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class errorDetail extends Model
 {
     /**
+     * @description The error message of the invalid parameter.
+     *
      * @example label name :123 not match [a-zA-Z_][a-zA-Z0-9_]*
      *
      * @var string
@@ -16,6 +18,8 @@ class errorDetail extends Model
     public $errorMessage;
 
     /**
+     * @description The position of the error message in the array.
+     *
      * @example 0
      *
      * @var int

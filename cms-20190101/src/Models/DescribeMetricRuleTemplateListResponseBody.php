@@ -10,9 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetricRuleTemplateListResponseBody extends Model
 {
     /**
-     * @description The timestamp when the alert template was applied to the application group.
+     * @description The status code.
      *
-     * Unit: milliseconds.
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var int
@@ -20,7 +20,7 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
     public $code;
 
     /**
-     * @description The list of alert templates.
+     * @description The error message.
      *
      * @example The Request is not authorization.
      *
@@ -29,7 +29,7 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
     public $message;
 
     /**
-     * @description The total number of returned entries.
+     * @description The request ID.
      *
      * @example 659401C0-6214-5C02-972A-CFA929D717B7
      *
@@ -38,7 +38,10 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The keyword of the alert template name.
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
      *
      * @example true
      *
@@ -47,17 +50,14 @@ class DescribeMetricRuleTemplateListResponseBody extends Model
     public $success;
 
     /**
-     * @description The ID of the alert template.
+     * @description The queried alert templates.
      *
      * @var templates
      */
     public $templates;
 
     /**
-     * @description The sorting basis. Default value: gmtCreate. Valid values:
-     *
-     *   gmtMotified: Sorts alert templates by modification time.
-     *   gmtCreate: Sorts alert templates by creation time.
+     * @description The total number of entries returned.
      *
      * @example 2
      *

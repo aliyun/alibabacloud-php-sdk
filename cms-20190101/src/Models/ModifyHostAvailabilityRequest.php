@@ -23,24 +23,21 @@ class ModifyHostAvailabilityRequest extends Model
     public $taskOption;
 
     /**
+     * @description The alert configurations.
+     *
      * @var alertConfigEscalationList[]
      */
     public $alertConfigEscalationList;
 
     /**
+     * @description The information about the resources for which alerts are triggered.
+     *
      * @var alertConfigTargetList[]
      */
     public $alertConfigTargetList;
 
     /**
-     * @description The Alibaba Cloud Resource Name (ARN) of the resource.
-     *
-     * Format: `acs:{Service name abbreviation}:{regionId}:{userId}:/{Resource type}/{Resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Fields:
-     *
-     *   {Service name abbreviation}: the abbreviation of the service name. Valid value: mns.
-     *   {userId}: the ID of the Alibaba Cloud account.
-     *   {regionId}: the region ID of the message queue or topic.
-     *   {Resource type}`: the type of the resource for which alerts are triggered. Valid values: - **queues** - **topics** {Resource name}: the name of the resource. - If the resource type is set to **queues**, the resource name is the name of the message queue. - If the resource type is set to **topics**, the resource name is the name of the topic.`
+     * @description The ID of the application group.
      *
      * @example 123456
      *
@@ -49,13 +46,7 @@ class ModifyHostAvailabilityRequest extends Model
     public $groupId;
 
     /**
-     * @description The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
-     *
-     *   HttpStatus: HTTP status code
-     *   HttpLatency: HTTP response time
-     *   TelnetStatus: Telnet status code
-     *   TelnetLatency: Telnet response time
-     *   PingLostRate: Ping packet loss rate
+     * @description The ID of the availability monitoring task.
      *
      * @example 12345
      *
@@ -64,6 +55,9 @@ class ModifyHostAvailabilityRequest extends Model
     public $id;
 
     /**
+     * @description The ECS instances that are monitored. Valid values of N: 1 to 21.
+     *
+     * > This parameter must be specified when `TaskScope` is set to `GROUP_SPEC_INSTANCE`.
      * @example i-absdfkwl321****
      *
      * @var string[]
@@ -76,9 +70,8 @@ class ModifyHostAvailabilityRequest extends Model
     public $regionId;
 
     /**
-     * @description The HTTP status code.
+     * @description The name of the availability monitoring task.
      *
-     * >  The status code 200 indicates that the call was successful.
      * @example task2
      *
      * @var string
@@ -86,13 +79,10 @@ class ModifyHostAvailabilityRequest extends Model
     public $taskName;
 
     /**
-     * @description The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
+     * @description The range of instances that are monitored by the availability monitoring task. Valid values:
      *
-     *   `>`
-     *   `>=`
-     *   `<`
-     *   `<=`
-     *   `=`
+     *   GROUP: All Elastic Compute Service (ECS) instances in the application group are monitored.
+     *   GROUP_SPEC_INSTANCE: Specified ECS instances in the application group are monitored. The TaskScope parameter must be used in combination with the InstanceList.N parameter. The InstanceList.N parameter specifies the ECS instances to be monitored.
      *
      * @example GROUP
      *

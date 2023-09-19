@@ -10,8 +10,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitoringAgentStatusesResponseBody extends Model
 {
     /**
-     * @description The status information.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -19,7 +20,7 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     public $code;
 
     /**
-     * @description The ID of the instance. Separate multiple instance IDs with commas (,).
+     * @description The error message.
      *
      * @example The specified resource is not found.
      *
@@ -28,19 +29,14 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     public $message;
 
     /**
-     * @description The ID of the instance.
+     * @description The host status information.
      *
      * @var nodeStatusList
      */
     public $nodeStatusList;
 
     /**
-     * @description The status of SysOM. Valid values:
-     *
-     *   installing: SysOM is being installed.
-     *   running: SysOM is running.
-     *   stopped: SysOM is stopped.
-     *   uninstalling: SysOM is being uninstalled.
+     * @description The request ID.
      *
      * @example 6F8371DF-AB81-41B8-9E1B-5493B3FF0E4F
      *
@@ -49,10 +45,10 @@ class DescribeMonitoringAgentStatusesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description Indicates whether the CloudMonitor agent is automatically installed. Valid values:
+     * @description Indicates whether the request was successful. Valid values:
      *
-     *   true: The CloudMonitor agent is automatically installed.
-     *   false: The CloudMonitor agent is not automatically installed.
+     *   true
+     *   false
      *
      * @example true
      *

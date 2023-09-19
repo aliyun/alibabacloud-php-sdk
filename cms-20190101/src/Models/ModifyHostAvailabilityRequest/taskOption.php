@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class taskOption extends Model
 {
     /**
-     * @description The alert notification methods. Valid values:
+     * @description The header of the HTTP request. Format: `Parameter name:Parameter value`. Separate multiple parameters with carriage return characters. Example:
      *
-     * 0: Alert notifications are sent by using emails and DingTalk chatbots.
+     * params2:value2
      * @example params1:value1
      *
      * @var string
@@ -19,8 +19,13 @@ class taskOption extends Model
     public $httpHeader;
 
     /**
-     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered. Valid values of N: 1 to 21.
+     * @description The HTTP request method. Valid values:
      *
+     *   GET
+     *   POST
+     *   HEAD
+     *
+     * > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](~~115317~~).
      * @example GET
      *
      * @var string
@@ -28,12 +33,12 @@ class taskOption extends Model
     public $httpMethod;
 
     /**
-     * @description The level of the alert. Valid values:
+     * @description The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
      *
-     *   INFO: information
-     *   WARN: warning
-     *   CRITICAL: critical
+     *   true: If the HTTP response body includes the alert rule, an alert is triggered.
+     *   false: If the HTTP response does not include the alert rule, an alert is triggered.
      *
+     * > This parameter must be specified when TaskType is set to HTTP. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](~~115317~~).
      * @example true
      *
      * @var bool
@@ -41,9 +46,8 @@ class taskOption extends Model
     public $httpNegative;
 
     /**
-     * @description The domain name or IP address that you want to monitor.
+     * @description The content of the HTTP POST request.
      *
-     * >  If the TaskType parameter is set to PING or TELNET, this parameter is required. For more information about how to set the TaskType parameter, see [CreateHostAvailability](~~115317~~).
      * @example params1=value1
      *
      * @var string
@@ -51,8 +55,9 @@ class taskOption extends Model
     public $httpPostContent;
 
     /**
-     * @description The error message.
+     * @description The character set that is used in the HTTP response.
      *
+     * > Only UTF-8 is supported.
      * @example UTF-8
      *
      * @var string
@@ -60,7 +65,7 @@ class taskOption extends Model
     public $httpResponseCharset;
 
     /**
-     * @description The ID of the application group.
+     * @description The response to the HTTP request.
      *
      * @example ok
      *
@@ -69,7 +74,7 @@ class taskOption extends Model
     public $httpResponseMatchContent;
 
     /**
-     * @description The operation that you want to perform. Set the value to **ModifyHostAvailability**.
+     * @description The URI that you want to monitor. This parameter must be specified when TaskType is set to HTTP.
      *
      * @example https://www.aliyun.com
      *
@@ -78,9 +83,9 @@ class taskOption extends Model
     public $httpURI;
 
     /**
-     * @description The header of the HTTP request. Format: `Parameter name:Parameter value`. Separate multiple parameters with carriage return characters. Example:
+     * @description The interval at which detection requests are sent. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
      *
-     * ```
+     * > This parameter is available only for the CloudMonitor agent V3.5.1 or later.
      * @example 60
      *
      * @var int
@@ -88,8 +93,9 @@ class taskOption extends Model
     public $interval;
 
     /**
-     * @description The URI that you want to monitor. If the TaskType parameter is set to HTTP, this parameter is required.
+     * @description The domain name or IP address that you want to monitor.
      *
+     * > This parameter must be specified when TaskType is set to PING or TELNET. For more information about how to configure the TaskType parameter, see [CreateHostAvailability](~~115317~~).
      * @example www.aliyun.com
      *
      * @var string

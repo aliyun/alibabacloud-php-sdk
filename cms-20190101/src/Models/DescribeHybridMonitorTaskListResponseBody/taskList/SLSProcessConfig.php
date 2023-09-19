@@ -13,27 +13,29 @@ use AlibabaCloud\Tea\Model;
 class SLSProcessConfig extends Model
 {
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The extended fields that indicate the results of basic operations that are performed on aggregation results.
      *
      * @var express[]
      */
     public $express;
 
     /**
-     * @description The dimension based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
+     * @description The conditions that are used to filter logs imported from Log Service.
      *
      * @var filter
      */
     public $filter;
 
     /**
-     * @description The sample on-premises log.
+     * @description The dimensions based on which data is aggregated. This parameter is equivalent to the GROUP BY clause in SQL.
      *
      * @var groupBy[]
      */
     public $groupBy;
 
     /**
+     * @description The methods that are used to aggregate logs imported from Log Service.
+     *
      * @var statistics[]
      */
     public $statistics;

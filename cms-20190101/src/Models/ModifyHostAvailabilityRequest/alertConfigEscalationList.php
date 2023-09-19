@@ -9,9 +9,15 @@ use AlibabaCloud\Tea\Model;
 class alertConfigEscalationList extends Model
 {
     /**
-     * @description The ECS instances that are monitored. Valid values of N: 1 to 21.
+     * @description The method used to calculate the metric values that trigger alerts. Valid values of N: 1 to 21. The value of this parameter varies based on the metric. The following items show the correspondence between metrics and calculation methods:
      *
-     * >  If the `TaskScope` parameter is set to `GROUP_SPEC_INSTANCE`, this parameter is required.
+     *   HttpStatus: Value
+     *   HttpLatency: Average
+     *   TelnetStatus: Value
+     *   TelnetLatency: Average
+     *   PingLostRate: Average
+     *
+     * > The value Value indicates the original value and is used for metrics such as status codes. The value Average indicates the average value and is used for metrics such as the latency and packet loss rate.
      * @example Value
      *
      * @var string
@@ -19,9 +25,14 @@ class alertConfigEscalationList extends Model
     public $aggregate;
 
     /**
-     * @description The character set that is used in the HTTP response.
+     * @description The metric for which the alert feature is enabled. Valid values of N: 1 to 21. Valid values:
      *
-     * >  Valid value: UTF-8.
+     *   HttpStatus: HTTP status code
+     *   HttpLatency: HTTP response time
+     *   TelnetStatus: Telnet status code
+     *   TelnetLatency: Telnet response time
+     *   PingLostRate: Ping packet loss rate
+     *
      * @example HttpStatus
      *
      * @var string
@@ -29,12 +40,14 @@ class alertConfigEscalationList extends Model
     public $metricName;
 
     /**
-     * @description The method to trigger an alert. The alert can be triggered based on whether the specified alert rule is included in the response body. Valid values:
+     * @description The comparison operator that is used in the alert rule. Valid values of N: 1 to 21. Valid values:
      *
-     *   true: If the HTTP response body includes the alert rule, an alert is triggered.
-     *   false: If the HTTP response does not include the alert rule, an alert is triggered.
+     *   `>`
+     *   `>=`
+     *   `<`
+     *   `<=`
+     *   `=`
      *
-     * >  If the TaskType parameter is set to HTTP, this parameter is required. For more information about how to set the TaskType parameter, see [CreateHostAvailability](~~115317~~).
      * @example >
      *
      * @var string
@@ -42,7 +55,7 @@ class alertConfigEscalationList extends Model
     public $operator;
 
     /**
-     * @description The parameters of the alert callback. The parameters are in the JSON format.
+     * @description The consecutive number of times for which the metric value meets the alert condition before an alert is triggered. Valid values of N: 1 to 21.
      *
      * @example 3
      *
@@ -51,7 +64,7 @@ class alertConfigEscalationList extends Model
     public $times;
 
     /**
-     * @description The callback URL.
+     * @description The alert threshold. Valid values of N: 1 to 21.
      *
      * @example 3
      *

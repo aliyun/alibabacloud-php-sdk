@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class PutResourceMetricRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
+     * @description The HTTP status code.
      *
+     * >  The status code 200 indicates that the call is successful.
      * @example 200
      *
      * @var string
@@ -18,7 +19,7 @@ class PutResourceMetricRuleResponseBody extends Model
     public $code;
 
     /**
-     * @description For more information about common request parameters, see [Common parameters](~~199331~~).
+     * @description The error message.
      *
      * @example The request processing has failed due to some unknown error.
      *
@@ -27,6 +28,8 @@ class PutResourceMetricRuleResponseBody extends Model
     public $message;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 65D50468-ECEF-48F1-A6E1-D952E89D9436
      *
      * @var string
@@ -34,6 +37,11 @@ class PutResourceMetricRuleResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the call is successful. Valid values:
+     *
+     *   true: The call is successful.
+     *   false: The call fails.
+     *
      * @example true
      *
      * @var bool

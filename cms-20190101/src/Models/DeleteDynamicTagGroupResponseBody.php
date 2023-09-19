@@ -9,8 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteDynamicTagGroupResponseBody extends Model
 {
     /**
-     * @description The operation that you want to perform. Set the value to **DeleteDynamicTagGroup**.
+     * @description The status code.
      *
+     * > The status code 200 indicates that the request was successful.
      * @example 200
      *
      * @var string
@@ -18,6 +19,8 @@ class DeleteDynamicTagGroupResponseBody extends Model
     public $code;
 
     /**
+     * @description The error message.
+     *
      * @example The Request is not authorization.
      *
      * @var string
@@ -25,6 +28,8 @@ class DeleteDynamicTagGroupResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example 08AAE67E-77B5-485B-9C79-D7C8C059150A
      *
      * @var string
@@ -32,6 +37,11 @@ class DeleteDynamicTagGroupResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   true
+     *   false
+     *
      * @example true
      *
      * @var bool

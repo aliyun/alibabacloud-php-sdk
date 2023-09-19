@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class failIds extends Model
 {
     /**
-     * @description Deletes the message resources of an alert rule. This operation supports only Message Service (MNS) resources.
+     * @description The IDs of the resources that failed to be deleted.
      *
      * @var targetIds
      */

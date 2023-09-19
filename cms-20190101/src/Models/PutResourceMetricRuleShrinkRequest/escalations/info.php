@@ -9,9 +9,21 @@ use AlibabaCloud\Tea\Model;
 class info extends Model
 {
     /**
-     * @description The PromQL query statement.
+     * @description The operator that is used to compare the metric value with the threshold. Valid values:
      *
-     * >  The data obtained by using the PromQL query statement is the monitoring data. You must include the alert threshold in this statement.
+     *   GreaterThanOrEqualToThreshold: greater than or equal to the threshold
+     *   GreaterThanThreshold: greater than the threshold
+     *   LessThanOrEqualToThreshold: less than or equal to the threshold
+     *   LessThanThreshold: less than the threshold
+     *   NotEqualToThreshold: not equal to the threshold
+     *   GreaterThanYesterday: greater than the metric value at the same time yesterday
+     *   LessThanYesterday: less than the metric value at the same time yesterday
+     *   GreaterThanLastWeek: greater than the metric value at the same time last week
+     *   LessThanLastWeek: less than the metric value at the same time last week
+     *   GreaterThanLastPeriod: greater than the metric value in the last monitoring cycle
+     *   LessThanLastPeriod: less than the metric value in the last monitoring cycle
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example GreaterThanOrEqualToThreshold
      *
      * @var string
@@ -19,9 +31,14 @@ class info extends Model
     public $comparisonOperator;
 
     /**
-     * @description The value of the tag.
+     * @description The statistical methods for Info-level alerts. Valid values:
      *
-     * >  You can use a template parameter to specify a tag value. CloudMonitor replaces the value of the template parameter with an actual tag value.
+     *   Maximum: the maximum value
+     *   Minimum: the minimum value
+     *   Average: the average value
+     *   Availability: the availability rate
+     *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example Average
      *
      * @var string
@@ -29,9 +46,9 @@ class info extends Model
     public $statistics;
 
     /**
-     * @description The information about the resource. Examples: `[{"instanceId":"i-uf6j91r34rnwawoo****"}]` and `[{"userId":"100931896542****"}]`.
+     * @description The threshold for Info-level alerts.
      *
-     * For information about the supported dimensions that are used to query resources, see [Appendix 1: Metrics](~~163515~~).
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example 90
      *
      * @var string
@@ -39,8 +56,9 @@ class info extends Model
     public $threshold;
 
     /**
-     * @description The number of consecutive triggers. If the number of times that the metric values meet the trigger conditions reaches the value of this parameter, CloudMonitor sends alert notifications.
+     * @description The consecutive number of times for which the metric value meets the trigger condition before an Info-level alert is triggered.
      *
+     * >  You must select at least one of the Critical, Warn, and Info alert levels and specify the Statistics, ComparisonOperator, Threshold, and Times parameters for the selected alert level.
      * @example 3
      *
      * @var int
