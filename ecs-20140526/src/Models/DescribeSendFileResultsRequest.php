@@ -19,6 +19,11 @@ class DescribeSendFileResultsRequest extends Model
     public $instanceId;
 
     /**
+     * @var string
+     */
+    public $invocationStatus;
+
+    /**
      * @description The ID of the file sending task.
      *
      * @example f-hz0jdfwd9f****
@@ -102,6 +107,7 @@ class DescribeSendFileResultsRequest extends Model
     public $tag;
     protected $_name = [
         'instanceId'           => 'InstanceId',
+        'invocationStatus'     => 'InvocationStatus',
         'invokeId'             => 'InvokeId',
         'name'                 => 'Name',
         'ownerAccount'         => 'OwnerAccount',
@@ -124,6 +130,9 @@ class DescribeSendFileResultsRequest extends Model
         $res = [];
         if (null !== $this->instanceId) {
             $res['InstanceId'] = $this->instanceId;
+        }
+        if (null !== $this->invocationStatus) {
+            $res['InvocationStatus'] = $this->invocationStatus;
         }
         if (null !== $this->invokeId) {
             $res['InvokeId'] = $this->invokeId;
@@ -178,6 +187,9 @@ class DescribeSendFileResultsRequest extends Model
         $model = new self();
         if (isset($map['InstanceId'])) {
             $model->instanceId = $map['InstanceId'];
+        }
+        if (isset($map['InvocationStatus'])) {
+            $model->invocationStatus = $map['InvocationStatus'];
         }
         if (isset($map['InvokeId'])) {
             $model->invokeId = $map['InvokeId'];

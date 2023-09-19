@@ -16852,6 +16852,9 @@ class Ecs extends OpenApiClient
         if (!Utils::isUnset($request->instanceId)) {
             $query['InstanceId'] = $request->instanceId;
         }
+        if (!Utils::isUnset($request->invocationStatus)) {
+            $query['InvocationStatus'] = $request->invocationStatus;
+        }
         if (!Utils::isUnset($request->invokeId)) {
             $query['InvokeId'] = $request->invokeId;
         }
