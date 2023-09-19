@@ -394,6 +394,9 @@ use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteTimeoutShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayRouteWafStatusResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceCheckRequest;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceCheckResponse;
+use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceCheckShrinkRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyRequest;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyResponse;
 use AlibabaCloud\SDK\Mse\V20190531\Models\UpdateGatewayServiceTrafficPolicyShrinkRequest;
@@ -11210,6 +11213,87 @@ class Mse extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->updateGatewayRouteWafStatusWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param UpdateGatewayServiceCheckRequest $tmpReq
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return UpdateGatewayServiceCheckResponse
+     */
+    public function updateGatewayServiceCheckWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new UpdateGatewayServiceCheckShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->expectedStatuses)) {
+            $request->expectedStatusesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->expectedStatuses, 'ExpectedStatuses', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->acceptLanguage)) {
+            $query['AcceptLanguage'] = $request->acceptLanguage;
+        }
+        if (!Utils::isUnset($request->check)) {
+            $query['Check'] = $request->check;
+        }
+        if (!Utils::isUnset($request->expectedStatusesShrink)) {
+            $query['ExpectedStatuses'] = $request->expectedStatusesShrink;
+        }
+        if (!Utils::isUnset($request->gatewayUniqueId)) {
+            $query['GatewayUniqueId'] = $request->gatewayUniqueId;
+        }
+        if (!Utils::isUnset($request->healthyThreshold)) {
+            $query['HealthyThreshold'] = $request->healthyThreshold;
+        }
+        if (!Utils::isUnset($request->httpHost)) {
+            $query['HttpHost'] = $request->httpHost;
+        }
+        if (!Utils::isUnset($request->httpPath)) {
+            $query['HttpPath'] = $request->httpPath;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->protocol)) {
+            $query['Protocol'] = $request->protocol;
+        }
+        if (!Utils::isUnset($request->serviceId)) {
+            $query['ServiceId'] = $request->serviceId;
+        }
+        if (!Utils::isUnset($request->timeout)) {
+            $query['Timeout'] = $request->timeout;
+        }
+        if (!Utils::isUnset($request->unhealthyThreshold)) {
+            $query['UnhealthyThreshold'] = $request->unhealthyThreshold;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'UpdateGatewayServiceCheck',
+            'version'     => '2019-05-31',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return UpdateGatewayServiceCheckResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param UpdateGatewayServiceCheckRequest $request
+     *
+     * @return UpdateGatewayServiceCheckResponse
+     */
+    public function updateGatewayServiceCheck($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->updateGatewayServiceCheckWithOptions($request, $runtime);
     }
 
     /**
