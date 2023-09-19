@@ -6,6 +6,9 @@ namespace AlibabaCloud\SDK\Docmindapi\V20220711;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\AyncTradeDocumentPackageExtractSmartAppShrinkRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocStructureResultRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocStructureResultResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\GetDocumentCompareResultRequest;
@@ -34,6 +37,9 @@ use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToImageJobRespo
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitConvertPdfToWordJobResponse;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobAdvanceRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobRequest;
+use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDigitalDocStructureJobResponse;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobAdvanceRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobRequest;
 use AlibabaCloud\SDK\Docmindapi\V20220711\Models\SubmitDocStructureJobResponse;
@@ -148,6 +154,66 @@ class Docmindapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param AyncTradeDocumentPackageExtractSmartAppRequest $tmpReq
+     * @param RuntimeOptions                                 $runtime
+     *
+     * @return AyncTradeDocumentPackageExtractSmartAppResponse
+     */
+    public function ayncTradeDocumentPackageExtractSmartAppWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new AyncTradeDocumentPackageExtractSmartAppShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->customExtractionRange)) {
+            $request->customExtractionRangeShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->customExtractionRange, 'CustomExtractionRange', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->customExtractionRangeShrink)) {
+            $query['CustomExtractionRange'] = $request->customExtractionRangeShrink;
+        }
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        if (!Utils::isUnset($request->option)) {
+            $query['Option'] = $request->option;
+        }
+        if (!Utils::isUnset($request->templateName)) {
+            $query['TemplateName'] = $request->templateName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'AyncTradeDocumentPackageExtractSmartApp',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return AyncTradeDocumentPackageExtractSmartAppResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param AyncTradeDocumentPackageExtractSmartAppRequest $request
+     *
+     * @return AyncTradeDocumentPackageExtractSmartAppResponse
+     */
+    public function ayncTradeDocumentPackageExtractSmartApp($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->ayncTradeDocumentPackageExtractSmartAppWithOptions($request, $runtime);
     }
 
     /**
@@ -918,6 +984,133 @@ class Docmindapi extends OpenApiClient
         }
 
         return $this->submitConvertPdfToWordJobWithOptions($submitConvertPdfToWordJobReq, $runtime);
+    }
+
+    /**
+     * @param SubmitDigitalDocStructureJobRequest $request
+     * @param RuntimeOptions                      $runtime
+     *
+     * @return SubmitDigitalDocStructureJobResponse
+     */
+    public function submitDigitalDocStructureJobWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->fileName)) {
+            $query['FileName'] = $request->fileName;
+        }
+        if (!Utils::isUnset($request->fileNameExtension)) {
+            $query['FileNameExtension'] = $request->fileNameExtension;
+        }
+        if (!Utils::isUnset($request->fileUrl)) {
+            $query['FileUrl'] = $request->fileUrl;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SubmitDigitalDocStructureJob',
+            'version'     => '2022-07-11',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SubmitDigitalDocStructureJobResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SubmitDigitalDocStructureJobRequest $request
+     *
+     * @return SubmitDigitalDocStructureJobResponse
+     */
+    public function submitDigitalDocStructureJob($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->submitDigitalDocStructureJobWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SubmitDigitalDocStructureJobAdvanceRequest $request
+     * @param RuntimeOptions                             $runtime
+     *
+     * @return SubmitDigitalDocStructureJobResponse
+     */
+    public function submitDigitalDocStructureJobAdvance($request, $runtime)
+    {
+        // Step 0: init client
+        $accessKeyId          = $this->_credential->getAccessKeyId();
+        $accessKeySecret      = $this->_credential->getAccessKeySecret();
+        $securityToken        = $this->_credential->getSecurityToken();
+        $credentialType       = $this->_credential->getType();
+        $openPlatformEndpoint = $this->_openPlatformEndpoint;
+        if (Utils::isUnset($openPlatformEndpoint)) {
+            $openPlatformEndpoint = 'openplatform.aliyuncs.com';
+        }
+        if (Utils::isUnset($credentialType)) {
+            $credentialType = 'access_key';
+        }
+        $authConfig = new Config([
+            'accessKeyId'     => $accessKeyId,
+            'accessKeySecret' => $accessKeySecret,
+            'securityToken'   => $securityToken,
+            'type'            => $credentialType,
+            'endpoint'        => $openPlatformEndpoint,
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $authClient  = new OpenPlatform($authConfig);
+        $authRequest = new AuthorizeFileUploadRequest([
+            'product'  => 'docmind-api',
+            'regionId' => $this->_regionId,
+        ]);
+        $authResponse = new AuthorizeFileUploadResponse([]);
+        $ossConfig    = new \AlibabaCloud\SDK\OSS\OSS\Config([
+            'accessKeySecret' => $accessKeySecret,
+            'type'            => 'access_key',
+            'protocol'        => $this->_protocol,
+            'regionId'        => $this->_regionId,
+        ]);
+        $ossClient     = null;
+        $fileObj       = new FileField([]);
+        $ossHeader     = new header([]);
+        $uploadRequest = new PostObjectRequest([]);
+        $ossRuntime    = new \AlibabaCloud\Tea\OSSUtils\OSSUtils\RuntimeOptions([]);
+        OpenApiUtilClient::convert($runtime, $ossRuntime);
+        $submitDigitalDocStructureJobReq = new SubmitDigitalDocStructureJobRequest([]);
+        OpenApiUtilClient::convert($request, $submitDigitalDocStructureJobReq);
+        if (!Utils::isUnset($request->fileUrlObject)) {
+            $authResponse           = $authClient->authorizeFileUploadWithOptions($authRequest, $runtime);
+            $ossConfig->accessKeyId = $authResponse->body->accessKeyId;
+            $ossConfig->endpoint    = OpenApiUtilClient::getEndpoint($authResponse->body->endpoint, $authResponse->body->useAccelerate, $this->_endpointType);
+            $ossClient              = new OSS($ossConfig);
+            $fileObj                = new FileField([
+                'filename'    => $authResponse->body->objectKey,
+                'content'     => $request->fileUrlObject,
+                'contentType' => '',
+            ]);
+            $ossHeader = new header([
+                'accessKeyId'         => $authResponse->body->accessKeyId,
+                'policy'              => $authResponse->body->encodedPolicy,
+                'signature'           => $authResponse->body->signature,
+                'key'                 => $authResponse->body->objectKey,
+                'file'                => $fileObj,
+                'successActionStatus' => '201',
+            ]);
+            $uploadRequest = new PostObjectRequest([
+                'bucketName' => $authResponse->body->bucket,
+                'header'     => $ossHeader,
+            ]);
+            $ossClient->postObject($uploadRequest, $ossRuntime);
+            $submitDigitalDocStructureJobReq->fileUrl = 'http://' . $authResponse->body->bucket . '.' . $authResponse->body->endpoint . '/' . $authResponse->body->objectKey . '';
+        }
+
+        return $this->submitDigitalDocStructureJobWithOptions($submitDigitalDocStructureJobReq, $runtime);
     }
 
     /**
