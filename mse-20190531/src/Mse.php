@@ -5728,6 +5728,9 @@ class Mse extends OpenApiClient
         if (!Utils::isUnset($request->acceptLanguage)) {
             $query['AcceptLanguage'] = $request->acceptLanguage;
         }
+        if (!Utils::isUnset($request->fcAlias)) {
+            $query['FcAlias'] = $request->fcAlias;
+        }
         if (!Utils::isUnset($request->fcServiceName)) {
             $query['FcServiceName'] = $request->fcServiceName;
         }

@@ -24,6 +24,11 @@ class ImportServicesRequest extends Model
     /**
      * @var string
      */
+    public $fcAlias;
+
+    /**
+     * @var string
+     */
     public $fcServiceName;
 
     /**
@@ -81,6 +86,7 @@ class ImportServicesRequest extends Model
     public $tlsSetting;
     protected $_name = [
         'acceptLanguage'  => 'AcceptLanguage',
+        'fcAlias'         => 'FcAlias',
         'fcServiceName'   => 'FcServiceName',
         'fcVersion'       => 'FcVersion',
         'gatewayUniqueId' => 'GatewayUniqueId',
@@ -98,6 +104,9 @@ class ImportServicesRequest extends Model
         $res = [];
         if (null !== $this->acceptLanguage) {
             $res['AcceptLanguage'] = $this->acceptLanguage;
+        }
+        if (null !== $this->fcAlias) {
+            $res['FcAlias'] = $this->fcAlias;
         }
         if (null !== $this->fcServiceName) {
             $res['FcServiceName'] = $this->fcServiceName;
@@ -137,6 +146,9 @@ class ImportServicesRequest extends Model
         $model = new self();
         if (isset($map['AcceptLanguage'])) {
             $model->acceptLanguage = $map['AcceptLanguage'];
+        }
+        if (isset($map['FcAlias'])) {
+            $model->fcAlias = $map['FcAlias'];
         }
         if (isset($map['FcServiceName'])) {
             $model->fcServiceName = $map['FcServiceName'];
