@@ -42,12 +42,18 @@ class serviceConnections extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var string
+     */
+    public $uuid;
     protected $_name = [
         'createTime'     => 'createTime',
         'id'             => 'id',
         'name'           => 'name',
         'ownerAccountId' => 'ownerAccountId',
         'type'           => 'type',
+        'uuid'           => 'uuid',
     ];
 
     public function validate()
@@ -71,6 +77,9 @@ class serviceConnections extends Model
         }
         if (null !== $this->type) {
             $res['type'] = $this->type;
+        }
+        if (null !== $this->uuid) {
+            $res['uuid'] = $this->uuid;
         }
 
         return $res;
@@ -98,6 +107,9 @@ class serviceConnections extends Model
         }
         if (isset($map['type'])) {
             $model->type = $map['type'];
+        }
+        if (isset($map['uuid'])) {
+            $model->uuid = $map['uuid'];
         }
 
         return $model;
