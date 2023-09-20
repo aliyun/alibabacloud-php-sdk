@@ -1,3 +1,6 @@
+2023-09-20 Version: 1.2.2
+- Generated php 2016-05-03 for gpdb.
+
 2023-09-18 Version: 1.2.1
 - Generated php 2016-05-03 for gpdb.
 

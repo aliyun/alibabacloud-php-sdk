@@ -2030,6 +2030,9 @@ class Gpdb extends OpenApiClient
     {
         Utils::validateModel($request);
         $query = [];
+        if (!Utils::isUnset($request->DBInstanceIPArrayName)) {
+            $query['DBInstanceIPArrayName'] = $request->DBInstanceIPArrayName;
+        }
         if (!Utils::isUnset($request->DBInstanceId)) {
             $query['DBInstanceId'] = $request->DBInstanceId;
         }

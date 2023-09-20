@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeDBInstanceIPArrayListRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $DBInstanceIPArrayName;
+
+    /**
      * @description The instance ID.
      *
      * > You can call the [DescribeDBInstances](~~86911~~) operation to query details about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
@@ -27,8 +32,9 @@ class DescribeDBInstanceIPArrayListRequest extends Model
      */
     public $resourceGroupId;
     protected $_name = [
-        'DBInstanceId'    => 'DBInstanceId',
-        'resourceGroupId' => 'ResourceGroupId',
+        'DBInstanceIPArrayName' => 'DBInstanceIPArrayName',
+        'DBInstanceId'          => 'DBInstanceId',
+        'resourceGroupId'       => 'ResourceGroupId',
     ];
 
     public function validate()
@@ -38,6 +44,9 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->DBInstanceIPArrayName) {
+            $res['DBInstanceIPArrayName'] = $this->DBInstanceIPArrayName;
+        }
         if (null !== $this->DBInstanceId) {
             $res['DBInstanceId'] = $this->DBInstanceId;
         }
@@ -56,6 +65,9 @@ class DescribeDBInstanceIPArrayListRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['DBInstanceIPArrayName'])) {
+            $model->DBInstanceIPArrayName = $map['DBInstanceIPArrayName'];
+        }
         if (isset($map['DBInstanceId'])) {
             $model->DBInstanceId = $map['DBInstanceId'];
         }
