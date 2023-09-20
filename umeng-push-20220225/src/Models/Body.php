@@ -49,11 +49,6 @@ class Body extends Model
     public $img;
 
     /**
-     * @var string
-     */
-    public $largeIcon;
-
-    /**
      * @var bool
      */
     public $playLights;
@@ -106,7 +101,6 @@ class Body extends Model
         'expandImage' => 'expandImage',
         'icon'        => 'icon',
         'img'         => 'img',
-        'largeIcon'   => 'largeIcon',
         'playLights'  => 'playLights',
         'playSound'   => 'playSound',
         'playVibrate' => 'playVibrate',
@@ -148,9 +142,6 @@ class Body extends Model
         }
         if (null !== $this->img) {
             $res['img'] = $this->img;
-        }
-        if (null !== $this->largeIcon) {
-            $res['largeIcon'] = $this->largeIcon;
         }
         if (null !== $this->playLights) {
             $res['playLights'] = $this->playLights;
@@ -214,9 +205,6 @@ class Body extends Model
         }
         if (isset($map['img'])) {
             $model->img = $map['img'];
-        }
-        if (isset($map['largeIcon'])) {
-            $model->largeIcon = $map['largeIcon'];
         }
         if (isset($map['playLights'])) {
             $model->playLights = $map['playLights'];
