@@ -19,7 +19,7 @@ class DescribeDefenseRuleResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The configurations of the protection rule. The value of this parameter is a string that contains multiple parameters in the JSON format.
+     * @description The configurations of the protection rule. The value is a JSON string that contains multiple parameters.
      *
      * @var rule
      */

@@ -72,7 +72,7 @@ class flowChart extends Model
     public $blacklistBlockSum;
 
     /**
-     * @description The number of requests that are monitored by the IP address blacklist module.
+     * @description The number of requests that are monitored by IP address blacklist rules.
      *
      * @example 0
      *
@@ -81,7 +81,7 @@ class flowChart extends Model
     public $blacklistReportsSum;
 
     /**
-     * @description The number of requests that are blocked by HTTP flood protection rules created by the user.
+     * @description The number of requests that are blocked by custom HTTP flood protection rules.
      *
      * @example 0
      *
@@ -90,7 +90,7 @@ class flowChart extends Model
     public $ccCustomBlockSum;
 
     /**
-     * @description The number of requests that are monitored by HTTP flood protection rules created by the user.
+     * @description The number of requests that are monitored by custom HTTP flood protection rules.
      *
      * @example 0
      *
@@ -162,6 +162,20 @@ class flowChart extends Model
     public $outBytes;
 
     /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $ratelimitBlockSum;
+
+    /**
+     * @example 0
+     *
+     * @var int
+     */
+    public $ratelimitReportSum;
+
+    /**
      * @description The number of requests that are blocked by region blacklist rules.
      *
      * @example 0
@@ -180,6 +194,13 @@ class flowChart extends Model
     public $regionBlockReportsSum;
 
     /**
+     * @example 1110
+     *
+     * @var int
+     */
+    public $robotCount;
+
+    /**
      * @description The number of requests that are blocked by basic protection rules.
      *
      * @example 0
@@ -189,7 +210,7 @@ class flowChart extends Model
     public $wafBlockSum;
 
     /**
-     * @description The number of request that are monitored by basic protection rules.
+     * @description The number of requests that are monitored by basic protection rules.
      *
      * @example 0
      *
@@ -214,8 +235,11 @@ class flowChart extends Model
         'index'                 => 'Index',
         'maxPv'                 => 'MaxPv',
         'outBytes'              => 'OutBytes',
+        'ratelimitBlockSum'     => 'RatelimitBlockSum',
+        'ratelimitReportSum'    => 'RatelimitReportSum',
         'regionBlockBlocksSum'  => 'RegionBlockBlocksSum',
         'regionBlockReportsSum' => 'RegionBlockReportsSum',
+        'robotCount'            => 'RobotCount',
         'wafBlockSum'           => 'WafBlockSum',
         'wafReportSum'          => 'WafReportSum',
     ];
@@ -278,11 +302,20 @@ class flowChart extends Model
         if (null !== $this->outBytes) {
             $res['OutBytes'] = $this->outBytes;
         }
+        if (null !== $this->ratelimitBlockSum) {
+            $res['RatelimitBlockSum'] = $this->ratelimitBlockSum;
+        }
+        if (null !== $this->ratelimitReportSum) {
+            $res['RatelimitReportSum'] = $this->ratelimitReportSum;
+        }
         if (null !== $this->regionBlockBlocksSum) {
             $res['RegionBlockBlocksSum'] = $this->regionBlockBlocksSum;
         }
         if (null !== $this->regionBlockReportsSum) {
             $res['RegionBlockReportsSum'] = $this->regionBlockReportsSum;
+        }
+        if (null !== $this->robotCount) {
+            $res['RobotCount'] = $this->robotCount;
         }
         if (null !== $this->wafBlockSum) {
             $res['WafBlockSum'] = $this->wafBlockSum;
@@ -353,11 +386,20 @@ class flowChart extends Model
         if (isset($map['OutBytes'])) {
             $model->outBytes = $map['OutBytes'];
         }
+        if (isset($map['RatelimitBlockSum'])) {
+            $model->ratelimitBlockSum = $map['RatelimitBlockSum'];
+        }
+        if (isset($map['RatelimitReportSum'])) {
+            $model->ratelimitReportSum = $map['RatelimitReportSum'];
+        }
         if (isset($map['RegionBlockBlocksSum'])) {
             $model->regionBlockBlocksSum = $map['RegionBlockBlocksSum'];
         }
         if (isset($map['RegionBlockReportsSum'])) {
             $model->regionBlockReportsSum = $map['RegionBlockReportsSum'];
+        }
+        if (isset($map['RobotCount'])) {
+            $model->robotCount = $map['RobotCount'];
         }
         if (isset($map['WafBlockSum'])) {
             $model->wafBlockSum = $map['WafBlockSum'];

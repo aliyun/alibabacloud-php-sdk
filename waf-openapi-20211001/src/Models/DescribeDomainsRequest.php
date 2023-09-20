@@ -55,6 +55,11 @@ class DescribeDomainsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland.
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -62,6 +67,8 @@ class DescribeDomainsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -69,7 +76,7 @@ class DescribeDomainsRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description 请求源IP。无需填写，系统自动获取。
+     * @description The source IP address. The value of this parameter is specified by the system.
      *
      * @example 1.1.X.X
      *
@@ -78,7 +85,7 @@ class DescribeDomainsRequest extends Model
     public $sourceIp;
 
     /**
-     * @description 资源的标签，最多支持20个子项。
+     * @description The tag of the resource. You can specify up to 20 tags.
      *
      * @var tag[]
      */

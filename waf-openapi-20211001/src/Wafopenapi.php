@@ -102,6 +102,8 @@ use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDefenseTemplateStatusResp
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyDomainShrinkRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterBypassStatusRequest;
+use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyHybridCloudClusterBypassStatusResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpRequest;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyMajorProtectionBlackIpResponse;
 use AlibabaCloud\SDK\Wafopenapi\V20211001\Models\ModifyResourceLogStatusRequest;
@@ -2917,6 +2919,55 @@ class Wafopenapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->modifyDomainWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ModifyHybridCloudClusterBypassStatusRequest $request
+     * @param RuntimeOptions                              $runtime
+     *
+     * @return ModifyHybridCloudClusterBypassStatusResponse
+     */
+    public function modifyHybridCloudClusterBypassStatusWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->clusterResourceId)) {
+            $query['ClusterResourceId'] = $request->clusterResourceId;
+        }
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->ruleStatus)) {
+            $query['RuleStatus'] = $request->ruleStatus;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ModifyHybridCloudClusterBypassStatus',
+            'version'     => '2021-10-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ModifyHybridCloudClusterBypassStatusResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ModifyHybridCloudClusterBypassStatusRequest $request
+     *
+     * @return ModifyHybridCloudClusterBypassStatusResponse
+     */
+    public function modifyHybridCloudClusterBypassStatus($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->modifyHybridCloudClusterBypassStatusWithOptions($request, $runtime);
     }
 
     /**

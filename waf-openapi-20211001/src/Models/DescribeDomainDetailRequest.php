@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailRequest extends Model
 {
     /**
+     * @description The domain name that you want to query.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeDomainDetailRequest extends Model
     public $domain;
 
     /**
+     * @description The ID of the WAF instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -23,6 +28,11 @@ class DescribeDomainDetailRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland.
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -30,6 +40,8 @@ class DescribeDomainDetailRequest extends Model
     public $regionId;
 
     /**
+     * @description The source IP address of the request. The value of this parameter is specified by the system.
+     *
      * @example 0.0.XX.XX
      *
      * @var string

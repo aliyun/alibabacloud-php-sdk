@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class listen extends Model
 {
     /**
+     * @description The ID of the certificate.
+     *
      * @example 72***76-cn-hangzhou
      *
      * @var string
@@ -16,6 +18,12 @@ class listen extends Model
     public $certId;
 
     /**
+     * @description The types of cipher suites that are added. Valid values:
+     *
+     *   **1:** all cipher suites.
+     *   **2:** strong cipher suites.
+     *   **99:** custom cipher suites.
+     *
      * @example 1
      *
      * @var int
@@ -23,11 +31,19 @@ class listen extends Model
     public $cipherSuite;
 
     /**
+     * @description The custom cipher suites.
+     *
+     * > This parameter is returned only if the value of **CipherSuite** is **99**.
      * @var string[]
      */
     public $customCiphers;
 
     /**
+     * @description Indicates whether TLS 1.3 is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -35,6 +51,11 @@ class listen extends Model
     public $enableTLSv3;
 
     /**
+     * @description Indicates whether exclusive IP addresses are supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -42,6 +63,11 @@ class listen extends Model
     public $exclusiveIp;
 
     /**
+     * @description Indicates whether the HTTP to HTTPS redirection feature is enabled for the domain name. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -49,6 +75,11 @@ class listen extends Model
     public $focusHttps;
 
     /**
+     * @description Indicates whether HTTP/2 is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example false
      *
      * @var bool
@@ -56,16 +87,25 @@ class listen extends Model
     public $http2Enabled;
 
     /**
+     * @description The HTTP listener ports.
+     *
      * @var int[]
      */
     public $httpPorts;
 
     /**
+     * @description The HTTPS listener ports.
+     *
      * @var int[]
      */
     public $httpsPorts;
 
     /**
+     * @description Indicates whether IPv6 is supported. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -73,6 +113,11 @@ class listen extends Model
     public $ipv6Enabled;
 
     /**
+     * @description The type of the protection resource. Valid values:
+     *
+     *   **share:** shared cluster.
+     *   **gslb:** shared cluster-based intelligent load balancing.
+     *
      * @example share
      *
      * @var string
@@ -80,6 +125,12 @@ class listen extends Model
     public $protectionResource;
 
     /**
+     * @description The version of the Transport Layer Security (TLS) protocol. Valid values:
+     *
+     *   **tlsv1**
+     *   **tlsv1.1**
+     *   **tlsv1.2**
+     *
      * @example tlsv1.2
      *
      * @var string
@@ -87,6 +138,12 @@ class listen extends Model
     public $TLSVersion;
 
     /**
+     * @description The method that is used to obtain the actual IP address of a client. Valid values:
+     *
+     *   **0:** No Layer 7 proxies are deployed in front of WAF.
+     *   **1:** WAF reads the first value of the X-Forwarded-For (XFF) header field as the actual IP address of the client.
+     *   **2:** WAF reads the value of a custom header field as the actual IP address of the client.
+     *
      * @example 0
      *
      * @var int
@@ -94,6 +151,9 @@ class listen extends Model
     public $xffHeaderMode;
 
     /**
+     * @description The custom header fields that are used to obtain the actual IP address of a client. The value is in the \["header1","header2",...] format.
+     *
+     * > This parameter is returned only if the value of **XffHeaderMode** is 2.
      * @var string[]
      */
     public $xffHeaders;

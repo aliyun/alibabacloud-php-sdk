@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridCloudUserResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 9178CB86-285F-5679-A30A-3B3F007E4206
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeHybridCloudUserResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The information about the ports that can be used by a hybrid cloud cluster.
+     *
      * @var userInfo
      */
     public $userInfo;

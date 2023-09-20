@@ -9,7 +9,10 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainShrinkRequest extends Model
 {
     /**
-     * @description $.parameters[3].schema.properties.ExclusiveIp.description
+     * @description The mode in which you want to add the domain name to WAF. Valid values:
+     *
+     *   **share:** adds the domain name to WAF in CNAME record mode. This is the default value.
+     *   **hybrid_cloud_cname:** adds the domain name to WAF in hybrid cloud reverse proxy mode.
      *
      * @example share
      *
@@ -18,7 +21,7 @@ class CreateDomainShrinkRequest extends Model
     public $accessType;
 
     /**
-     * @description $.parameters[3].schema.properties.Http2Enabled.description
+     * @description The domain name that you want to add to WAF.
      *
      * @example www.aliyundoc.com
      *
@@ -27,8 +30,9 @@ class CreateDomainShrinkRequest extends Model
     public $domain;
 
     /**
-     * @description $.parameters[3].schema.properties.HttpPorts.enumValueTitles
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * > You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -36,21 +40,24 @@ class CreateDomainShrinkRequest extends Model
     public $instanceId;
 
     /**
-     * @description $.parameters[3].schema.properties.Http2Enabled.example
+     * @description The configurations of the listeners.
      *
      * @var string
      */
     public $listenShrink;
 
     /**
-     * @description $.parameters[3].schema.properties.CustomCiphers.enumValueTitles
+     * @description The configurations of the forwarding rule.
      *
      * @var string
      */
     public $redirectShrink;
 
     /**
-     * @description $.parameters[3].schema.properties.ProtectionResource.enumValueTitles
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland
+     *   **ap-southeast-1**: outside the Chinese mainland
      *
      * @example cn-hangzhou
      *
@@ -59,14 +66,18 @@ class CreateDomainShrinkRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
+     * @example rg-acfm***q
+     *
      * @var string
      */
     public $resourceManagerResourceGroupId;
 
     /**
-     * @description $.parameters[3].schema.properties.ExclusiveIp.example
+     * @description The source IP address of the request. You do not need to specify this parameter. It is automatically obtained by the system.
      *
-     * @example 0.0.XX.XX
+     * @example 0.0.0.0
      *
      * @var string
      */

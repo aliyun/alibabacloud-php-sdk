@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class uas extends Model
 {
     /**
+     * @description The number of requests that use the user agent.
+     *
      * @example 698455
      *
      * @var int
@@ -16,6 +18,8 @@ class uas extends Model
     public $count;
 
     /**
+     * @description The user agent.
+     *
      * @example chrome
      *
      * @var string

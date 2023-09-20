@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeRuleHitsTopTuleTypeRequest extends Model
 {
     /**
-     * @description cn-hangzhou
+     * @description The end point of the time period for which to query. Unit: seconds. If you do not specify this parameter, the current time is used.
      *
      * @example 1665386280
      *
@@ -18,8 +18,9 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     public $endTimestamp;
 
     /**
-     * @description The ID of the request.
+     * @description The ID of the Web Application Firewall (WAF) instance.
      *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to query the ID of the WAF instance.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -27,7 +28,10 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     public $instanceId;
 
     /**
-     * @description The array of the top 10 protection modules that are matched.
+     * @description The ID of the region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou**: the Chinese mainland.
+     *   **ap-southeast-1**: outside the Chinese mainland.
      *
      * @example cn-hangzhou
      *
@@ -36,7 +40,7 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     public $regionId;
 
     /**
-     * @description The result of the request.
+     * @description The protected object.
      *
      * @example www.aliyundoc.com
      *
@@ -45,10 +49,7 @@ class DescribeRuleHitsTopTuleTypeRequest extends Model
     public $resource;
 
     /**
-     * @description The ID of the region where the WAF instance resides. Valid values:
-     *
-     *   **cn-hangzhou**: the Chinese mainland.
-     *   **ap-southeast-1**: outside the Chinese mainland.
+     * @description The start point of the time period for which to query. Unit: seconds.
      *
      * @example 1665331200
      *

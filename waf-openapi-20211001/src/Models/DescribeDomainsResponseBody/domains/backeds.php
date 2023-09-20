@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class backeds extends Model
 {
     /**
+     * @description The HTTP addresses of the origin server.
+     *
      * @var http[]
      */
     public $http;
 
     /**
+     * @description The HTTPS addresses of the origin server.
+     *
      * @var https[]
      */
     public $https;

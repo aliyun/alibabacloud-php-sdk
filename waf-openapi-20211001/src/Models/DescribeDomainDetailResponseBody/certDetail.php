@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class certDetail extends Model
 {
     /**
+     * @description The domain name of your website.
+     *
      * @example test.aliyundoc.com
      *
      * @var string
@@ -16,6 +18,8 @@ class certDetail extends Model
     public $commonName;
 
     /**
+     * @description The end of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
+     *
      * @example 1665590400000
      *
      * @var int
@@ -23,6 +27,8 @@ class certDetail extends Model
     public $endTime;
 
     /**
+     * @description The ID of the SSL certificate.
+     *
      * @example 123-cn-hangzhou
      *
      * @var string
@@ -30,6 +36,8 @@ class certDetail extends Model
     public $id;
 
     /**
+     * @description The name of the SSL certificate.
+     *
      * @example test-cert-name
      *
      * @var string
@@ -37,11 +45,15 @@ class certDetail extends Model
     public $name;
 
     /**
+     * @description All domain names that are bound to the certificate.
+     *
      * @var string[]
      */
     public $sans;
 
     /**
+     * @description The beginning of the validity period of the SSL certificate. The value is in the UNIX timestamp format. Unit: milliseconds.
+     *
      * @example 1677772800
      *
      * @var int

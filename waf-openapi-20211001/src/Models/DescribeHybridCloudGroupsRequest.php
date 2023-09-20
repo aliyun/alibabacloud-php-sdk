@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridCloudGroupsRequest extends Model
 {
     /**
+     * @description The ID of the hybrid cloud cluster.
+     *
      * @example 428
      *
      * @var int
@@ -16,6 +18,11 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $clusterId;
 
     /**
+     * @description The type of proxy cluster that is used. Valid values:
+     *
+     *   **service**: service-based traffic mirroring.
+     *   **cname**: reverse proxy.
+     *
      * @example cname
      *
      * @var string
@@ -23,6 +30,8 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $clusterProxyType;
 
     /**
+     * @description The name of the hybrid cloud node group that you want to query.
+     *
      * @example groupName1
      *
      * @var int
@@ -30,6 +39,13 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $groupName;
 
     /**
+     * @description The type of the node group. Valid values:
+     *
+     *   **protect**
+     *   **control**
+     *   **storage**
+     *   **controlStorage**
+     *
      * @example protect
      *
      * @var string
@@ -37,6 +53,9 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $groupType;
 
     /**
+     * @description The ID of the WAF instance.
+     *
+     * > You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
      * @example waf_v3prepaid_public_cn-********w0b
      *
      * @var string
@@ -44,6 +63,8 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -51,6 +72,8 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -58,6 +81,11 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the WAF instance. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland.
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -65,6 +93,8 @@ class DescribeHybridCloudGroupsRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string

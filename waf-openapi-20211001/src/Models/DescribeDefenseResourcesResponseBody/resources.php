@@ -9,6 +9,42 @@ use AlibabaCloud\Tea\Model;
 class resources extends Model
 {
     /**
+     * @description 跟踪cookie开关状态。
+     *
+     * - **0**：表示关闭。
+     *
+     * - **1**：表示开启。
+     * @example 1
+     *
+     * @var int
+     */
+    public $acwCookieStatus;
+
+    /**
+     * @description 跟踪cookie的secure属性状态。
+     *
+     * - **0**：表示关闭。
+     *
+     * - **1**：表示开启。
+     * @example 0
+     *
+     * @var int
+     */
+    public $acwSecureStatus;
+
+    /**
+     * @description 滑块cookie的secure属性状态。
+     *
+     * - **0**：表示关闭。
+     *
+     * - **1**：表示开启。
+     * @example 0
+     *
+     * @var int
+     */
+    public $acwV3SecureStatus;
+
+    /**
      * @description An array of custom XFF headers that are used to identify the originating IP addresses of clients. If the value of the XffStatus parameter is 1 and the CustomHeaders field is left empty, the first IP address in the XFF header is the originating IP address of the client.
      *
      * @var string[]
@@ -112,6 +148,9 @@ class resources extends Model
      */
     public $xffStatus;
     protected $_name = [
+        'acwCookieStatus'                => 'AcwCookieStatus',
+        'acwSecureStatus'                => 'AcwSecureStatus',
+        'acwV3SecureStatus'              => 'AcwV3SecureStatus',
         'customHeaders'                  => 'CustomHeaders',
         'description'                    => 'Description',
         'detail'                         => 'Detail',
@@ -133,6 +172,15 @@ class resources extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->acwCookieStatus) {
+            $res['AcwCookieStatus'] = $this->acwCookieStatus;
+        }
+        if (null !== $this->acwSecureStatus) {
+            $res['AcwSecureStatus'] = $this->acwSecureStatus;
+        }
+        if (null !== $this->acwV3SecureStatus) {
+            $res['AcwV3SecureStatus'] = $this->acwV3SecureStatus;
+        }
         if (null !== $this->customHeaders) {
             $res['CustomHeaders'] = $this->customHeaders;
         }
@@ -181,6 +229,15 @@ class resources extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['AcwCookieStatus'])) {
+            $model->acwCookieStatus = $map['AcwCookieStatus'];
+        }
+        if (isset($map['AcwSecureStatus'])) {
+            $model->acwSecureStatus = $map['AcwSecureStatus'];
+        }
+        if (isset($map['AcwV3SecureStatus'])) {
+            $model->acwV3SecureStatus = $map['AcwV3SecureStatus'];
+        }
         if (isset($map['CustomHeaders'])) {
             if (!empty($map['CustomHeaders'])) {
                 $model->customHeaders = $map['CustomHeaders'];

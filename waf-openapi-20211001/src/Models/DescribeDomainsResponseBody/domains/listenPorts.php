@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class listenPorts extends Model
 {
     /**
+     * @description The HTTP listener ports.
+     *
      * @var int[]
      */
     public $http;
 
     /**
+     * @description The HTTPS listener ports.
+     *
      * @var int[]
      */
     public $https;

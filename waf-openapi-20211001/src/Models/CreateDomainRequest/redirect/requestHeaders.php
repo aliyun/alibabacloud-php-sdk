@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class requestHeaders extends Model
 {
     /**
-     * @description $.parameters[3].schema.properties.XffHeaders.items.enumValueTitles
+     * @description The key of the custom header field.
      *
      * @example aaa
      *
@@ -18,7 +18,7 @@ class requestHeaders extends Model
     public $key;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaders.description
+     * @description The value of the custom header field.
      *
      * @example bbb
      *

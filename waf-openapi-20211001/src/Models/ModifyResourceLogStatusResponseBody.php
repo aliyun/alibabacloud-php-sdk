@@ -20,8 +20,8 @@ class ModifyResourceLogStatusResponseBody extends Model
     /**
      * @description Indicates whether the log collection feature is enabled for the protected object. Valid values:
      *
-     *   **true:** The log collection feature is enabled.
-     *   **false:** The log collection feature is disabled.
+     *   **true**
+     *   **false**
      *
      * @example true
      *

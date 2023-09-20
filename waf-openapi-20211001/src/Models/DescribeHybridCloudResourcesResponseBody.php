@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridCloudResourcesResponseBody extends Model
 {
     /**
+     * @description The domain names.
+     *
      * @var domains[]
      */
     public $domains;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 98D2AA9A-5959-5CCD-83E3-B6606232A2BE
      *
      * @var string
@@ -22,6 +26,8 @@ class DescribeHybridCloudResourcesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of entries that are returned.
+     *
      * @example 24
      *
      * @var int

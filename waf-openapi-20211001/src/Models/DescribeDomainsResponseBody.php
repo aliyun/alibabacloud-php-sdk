@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainsResponseBody extends Model
 {
     /**
+     * @description The domain names that are added to WAF in CNAME record mode.
+     *
      * @var domains[]
      */
     public $domains;

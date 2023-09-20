@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class userInfo extends Model
 {
     /**
+     * @description The HTTP ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
      * @example 80,8080
      *
      * @var string
@@ -16,6 +18,8 @@ class userInfo extends Model
     public $httpPorts;
 
     /**
+     * @description The HTTPS ports. The value is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
      * @example 8443,443
      *
      * @var string

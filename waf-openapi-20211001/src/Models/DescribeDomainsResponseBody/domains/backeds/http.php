@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class http extends Model
 {
     /**
+     * @description The HTTP address of the origin server.
+     *
      * @example 1.1.XX.XX
      *
      * @var string

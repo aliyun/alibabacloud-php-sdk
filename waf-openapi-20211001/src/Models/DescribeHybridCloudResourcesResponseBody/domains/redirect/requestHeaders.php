@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class requestHeaders extends Model
 {
     /**
+     * @description The key of the custom header field.
+     *
      * @example aaa
      *
      * @var string
@@ -16,6 +18,8 @@ class requestHeaders extends Model
     public $key;
 
     /**
+     * @description The value of the custom header field.
+     *
      * @example bbb
      *
      * @var string

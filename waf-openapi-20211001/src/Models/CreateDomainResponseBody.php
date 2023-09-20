@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class CreateDomainResponseBody extends Model
 {
     /**
-     * @description $.parameters[3].schema.example
+     * @description The information about the domain name.
      *
      * @var domainInfo
      */
     public $domainInfo;
 
     /**
-     * @description $.parameters[3].schema.description
+     * @description The ID of the request.
      *
      * @example D7861F61-5B61-46CE-A47C-6B19160D5EB0
      *

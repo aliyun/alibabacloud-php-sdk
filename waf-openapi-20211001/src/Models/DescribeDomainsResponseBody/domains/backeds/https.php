@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class https extends Model
 {
     /**
+     * @description The HTTPS address of the origin server.
+     *
      * @example 1.1.XX.XX
      *
      * @var string

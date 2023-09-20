@@ -9,20 +9,18 @@ use AlibabaCloud\Tea\Model;
 class groups extends Model
 {
     /**
-     * @example aliyun-asiapacific-beijing-123456
-     *
      * @var string
      */
     public $backSourceMark;
 
     /**
-     * @example 410
-     *
      * @var int
      */
     public $continentsValue;
 
     /**
+     * @description The ID of the hybrid cloud node group.
+     *
      * @example 123
      *
      * @var int
@@ -30,6 +28,8 @@ class groups extends Model
     public $groupId;
 
     /**
+     * @description The name of the hybrid cloud node group.
+     *
      * @example StorageGroup
      *
      * @var string
@@ -37,6 +37,13 @@ class groups extends Model
     public $groupName;
 
     /**
+     * @description The type of the hybrid cloud node group. Valid values:
+     *
+     *   **protect**
+     *   **control**
+     *   **storage**
+     *   **controlStorage**
+     *
      * @example protect
      *
      * @var string
@@ -44,6 +51,8 @@ class groups extends Model
     public $groupType;
 
     /**
+     * @description The IP address of the server for load balancing.
+     *
      * @example 1.1.XX.XX
      *
      * @var string
@@ -51,6 +60,8 @@ class groups extends Model
     public $loadBalanceIp;
 
     /**
+     * @description The ID of the protection node.
+     *
      * @example 1312
      *
      * @var int
@@ -58,13 +69,13 @@ class groups extends Model
     public $locationId;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $operatorValue;
 
     /**
+     * @description The port that is used by the hybrid cloud cluster. The value of this parameter is a string. If multiple ports are returned, the value is in the **port1,port2,port3** format.
+     *
      * @example 80,9200,20018
      *
      * @var string
@@ -72,13 +83,13 @@ class groups extends Model
     public $ports;
 
     /**
-     * @example 0
-     *
      * @var int
      */
     public $regionCodeValue;
 
     /**
+     * @description The description of the hybrid cloud node group.
+     *
      * @var string
      */
     public $remark;

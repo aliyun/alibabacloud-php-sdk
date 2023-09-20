@@ -11,6 +11,9 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The CNAME that is assigned by WAF to the domain name.
+     *
+     * > This parameter is returned only if you set **CnameEnabled** to true.
      * @example 50fqmu1ci7g0xtiyxnrhgx6qdhmn****.yundunwaf5.com
      *
      * @var string
@@ -18,6 +21,8 @@ class domains extends Model
     public $cname;
 
     /**
+     * @description The domain name.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -25,21 +30,31 @@ class domains extends Model
     public $domain;
 
     /**
+     * @description The access ID.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $id;
 
     /**
+     * @description The configurations of the listeners.
+     *
      * @var listen
      */
     public $listen;
 
     /**
+     * @description The configurations of the forwarding rule.
+     *
      * @var redirect
      */
     public $redirect;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmvtc5z52****
      *
      * @var string
@@ -47,6 +62,14 @@ class domains extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **1:** The domain name is normal.
+     *   **2:** The domain name is being created.
+     *   **3:** The domain name is being modified.
+     *   **4:** The domain name is being released.
+     *   **5:** WAF no longer forwards traffic of the domain name.
+     *
      * @example 1
      *
      * @var int
@@ -54,6 +77,8 @@ class domains extends Model
     public $status;
 
     /**
+     * @description The user ID.
+     *
      * @example 130715431409****
      *
      * @var string

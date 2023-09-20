@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class rule extends Model
 {
     /**
-     * @description The details of the protection rule. The value of this parameter is a string that contains multiple parameters in the JSON format. For more information, see the "**Protection rule parameters**" section in the [CreateDefenseRule](~~ID~~) topic.
+     * @description The details of the protection rule. The value is a JSON string that contains multiple parameters. For more information, see the "**Protection rule parameters**" section of the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
      * @example {\"status\":1,\"policyId\":1012,\"action\":\"block\"}
      *
@@ -30,7 +30,7 @@ class rule extends Model
     public $defenseOrigin;
 
     /**
-     * @description The scenario in which the protection rule template is used. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~ID~~) topic.
+     * @description The scenario in which the protection rule is used. For more information, see the description of **DefenseScene** in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
      * @example waf_group
      *

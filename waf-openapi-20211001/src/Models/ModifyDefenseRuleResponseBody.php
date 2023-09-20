@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class ModifyDefenseRuleResponseBody extends Model
 {
     /**
-     * @description The ID of the request.
-     *
      * @example 1EEA9C98-F166-54FE-ADE3-08D82427BDFA
      *
      * @var string

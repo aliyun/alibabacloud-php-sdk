@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class backends extends Model
 {
     /**
+     * @description The back-to-origin IP address or domain name.
+     *
      * @example 1.1.XX.XX
      *
      * @var string

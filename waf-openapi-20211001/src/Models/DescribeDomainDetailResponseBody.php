@@ -13,11 +13,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainDetailResponseBody extends Model
 {
     /**
+     * @description The details of the SSL certificate.
+     *
      * @var certDetail
      */
     public $certDetail;
 
     /**
+     * @description The CNAME that is assigned by WAF to the domain name.
+     *
      * @example xxxxxcvdaf.****.com
      *
      * @var string
@@ -25,6 +29,8 @@ class DescribeDomainDetailResponseBody extends Model
     public $cname;
 
     /**
+     * @description The domain name.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -32,16 +38,22 @@ class DescribeDomainDetailResponseBody extends Model
     public $domain;
 
     /**
+     * @description The configurations of the listeners.
+     *
      * @var listen
      */
     public $listen;
 
     /**
+     * @description The configurations of the forwarding rule.
+     *
      * @var redirect
      */
     public $redirect;
 
     /**
+     * @description The ID of the request.
+     *
      * @example BAEF9CA9-66A0-533E-BD09-5D5D7AA8ADE7
      *
      * @var string
@@ -49,6 +61,8 @@ class DescribeDomainDetailResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string
@@ -61,6 +75,14 @@ class DescribeDomainDetailResponseBody extends Model
     public $SM2CertDetail;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **1:** The domain name is in a normal state.
+     *   **2:** The domain name is being created.
+     *   **3:** The domain name is being modified.
+     *   **4:** The domain name is being released.
+     *   **5:** WAF no longer forwards traffic of the domain name.
+     *
      * @example 1
      *
      * @var int

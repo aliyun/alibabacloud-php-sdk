@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVisitUasRequest extends Model
 {
     /**
+     * @description The end of the time range to query. Unit: seconds. If you do not specify this parameter, the current time is used.
+     *
      * @example 1665386280
      *
      * @var string
@@ -16,6 +18,9 @@ class DescribeVisitUasRequest extends Model
     public $endTimestamp;
 
     /**
+     * @description The ID of the Web Application Firewall (WAF) instance.
+     *
+     * >  You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
      * @example waf_cdnsdf3****
      *
      * @var string
@@ -30,6 +35,8 @@ class DescribeVisitUasRequest extends Model
     public $regionId;
 
     /**
+     * @description The protected object.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -37,6 +44,8 @@ class DescribeVisitUasRequest extends Model
     public $resource;
 
     /**
+     * @description The beginning of the time range to query. Unit: seconds.
+     *
      * @example 1665331200
      *
      * @var string

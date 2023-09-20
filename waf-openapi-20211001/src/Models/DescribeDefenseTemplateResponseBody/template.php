@@ -9,13 +9,18 @@ use AlibabaCloud\Tea\Model;
 class template extends Model
 {
     /**
-     * @description The scenario in which the protection rule template is used. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~ID~~) topic.
+     * @description The scenario in which the template is used. For more information, see the description of the **DefenseScene** parameter in the [CreateDefenseRule](~~CreateDefenseRule~~) topic.
      *
      * @example waf_group
      *
      * @var string
      */
     public $defenseScene;
+
+    /**
+     * @var string
+     */
+    public $defenseSubScene;
 
     /**
      * @description The description of the protection rule template.
@@ -86,14 +91,15 @@ class template extends Model
      */
     public $templateType;
     protected $_name = [
-        'defenseScene'   => 'DefenseScene',
-        'description'    => 'Description',
-        'gmtModified'    => 'GmtModified',
-        'templateId'     => 'TemplateId',
-        'templateName'   => 'TemplateName',
-        'templateOrigin' => 'TemplateOrigin',
-        'templateStatus' => 'TemplateStatus',
-        'templateType'   => 'TemplateType',
+        'defenseScene'    => 'DefenseScene',
+        'defenseSubScene' => 'DefenseSubScene',
+        'description'     => 'Description',
+        'gmtModified'     => 'GmtModified',
+        'templateId'      => 'TemplateId',
+        'templateName'    => 'TemplateName',
+        'templateOrigin'  => 'TemplateOrigin',
+        'templateStatus'  => 'TemplateStatus',
+        'templateType'    => 'TemplateType',
     ];
 
     public function validate()
@@ -105,6 +111,9 @@ class template extends Model
         $res = [];
         if (null !== $this->defenseScene) {
             $res['DefenseScene'] = $this->defenseScene;
+        }
+        if (null !== $this->defenseSubScene) {
+            $res['DefenseSubScene'] = $this->defenseSubScene;
         }
         if (null !== $this->description) {
             $res['Description'] = $this->description;
@@ -141,6 +150,9 @@ class template extends Model
         $model = new self();
         if (isset($map['DefenseScene'])) {
             $model->defenseScene = $map['DefenseScene'];
+        }
+        if (isset($map['DefenseSubScene'])) {
+            $model->defenseSubScene = $map['DefenseSubScene'];
         }
         if (isset($map['Description'])) {
             $model->description = $map['Description'];

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVisitUasResponseBody extends Model
 {
     /**
+     * @description The ID of the request.
+     *
      * @example 2847CE98-AFAE-5A64-B80E-60461717F9DE
      *
      * @var string
@@ -17,6 +19,8 @@ class DescribeVisitUasResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The array of the top 10 user agents that are used to initiate requests.
+     *
      * @var uas[]
      */
     public $uas;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeFlowChartResponseBody extends Model
 {
     /**
-     * @description The array of the traffic statistics.
+     * @description The traffic statistics.
      *
      * @var flowChart[]
      */

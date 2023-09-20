@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class domainInfo extends Model
 {
     /**
-     * @description $.parameters[3].schema.enumValueTitles
+     * @description The CNAME that is assigned by WAF to the domain name.
      *
      * @example xxxxxwww.****.com
      *
@@ -18,7 +18,7 @@ class domainInfo extends Model
     public $cname;
 
     /**
-     * @description $.parameters[4].schema.properties.Backends.items.description
+     * @description The domain name that you added to WAF.
      *
      * @example www.aliyundoc.com
      *

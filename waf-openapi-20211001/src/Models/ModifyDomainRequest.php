@@ -11,9 +11,10 @@ use AlibabaCloud\Tea\Model;
 class ModifyDomainRequest extends Model
 {
     /**
-     * @description The mode in which you want to add the domain name to WAF. Set the value to share.
+     * @description The mode in which you want to add the domain name to WAF. Valid values:
      *
      *   **share:** adds the domain name to WAF in CNAME record mode. This is the default value.
+     *   **hybrid_cloud_cname:** adds the domain name to WAF in hybrid cloud reverse proxy mode.
      *
      * @example share
      *

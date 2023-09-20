@@ -10,18 +10,18 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
-     * @description $.parameters[3].schema.properties.FocusHttps.description
+     * @description The back-to-origin IP addresses or domain names.
      *
      * @var string[]
      */
     public $backends;
 
     /**
-     * @description 是否开启公共云容灾。取值：
+     * @description Specifies whether to enable the public cloud disaster recovery feature. Valid values:
      *
-     * - **true**：表示开启公共云容灾。
+     *   **true**
+     *   **false** (default)
      *
-     * - **false**（默认）：表示不开启公共云容灾。
      * @example true
      *
      * @var bool
@@ -29,7 +29,7 @@ class redirect extends Model
     public $cnameEnabled;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaders.example
+     * @description The connection timeout period. Unit: seconds. Valid values: 1 to 3600.
      *
      * @example 120
      *
@@ -38,7 +38,10 @@ class redirect extends Model
     public $connectTimeout;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaderMode.description
+     * @description Specifies whether to enable HTTPS to HTTP redirection for back-to-origin requests. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -47,7 +50,10 @@ class redirect extends Model
     public $focusHttpBackend;
 
     /**
-     * @description $.parameters[3].schema.properties.IPv6Enabled.example
+     * @description Specifies whether to enable the persistent connection feature. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -56,8 +62,9 @@ class redirect extends Model
     public $keepalive;
 
     /**
-     * @description $.parameters[3].schema.properties.ProtectionResource.description
+     * @description The number of reused persistent connections. Valid values: 60 to 1000.
      *
+     * > This parameter specifies the number of reused persistent connections after you enable the persistent connection feature.
      * @example 1000
      *
      * @var int
@@ -65,8 +72,9 @@ class redirect extends Model
     public $keepaliveRequests;
 
     /**
-     * @description $.parameters[3].schema.properties.ProtectionResource.example
+     * @description The timeout period of persistent connections that are in the Idle state. Unit: seconds. Valid values: 1 to 60. Default value: 15.
      *
+     * > This parameter specifies the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
      * @example 15
      *
      * @var int
@@ -74,7 +82,11 @@ class redirect extends Model
     public $keepaliveTimeout;
 
     /**
-     * @description $.parameters[3].schema.properties.FocusHttps.enumValueTitles
+     * @description The load balancing algorithm that you want WAF to use to forward requests to the origin server. Valid values:
+     *
+     *   **iphash**
+     *   **roundRobin**
+     *   **leastTime**. You can select this value only if you set **ProtectionResource** to **gslb**.
      *
      * @example roundRobin
      *
@@ -83,7 +95,7 @@ class redirect extends Model
     public $loadbalance;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaders.enumValueTitles
+     * @description The read timeout period. Unit: seconds. Valid values: 1 to 3600.
      *
      * @example 200
      *
@@ -92,14 +104,18 @@ class redirect extends Model
     public $readTimeout;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaders.items.description
+     * @description The key-value pairs that you want to use to mark the requests that pass through the WAF instance.
      *
+     * WAF adds the key-value pairs to the request headers. This way, the requests that pass through WAF are identified.
      * @var requestHeaders[]
      */
     public $requestHeaders;
 
     /**
-     * @description $.parameters[3].schema.properties.IPv6Enabled.enumValueTitles
+     * @description Specifies whether WAF retries to forward requests when the requests fail to be forwarded to the origin server. Valid values:
+     *
+     *   **true** (default)
+     *   **false**
      *
      * @example true
      *
@@ -108,12 +124,12 @@ class redirect extends Model
     public $retry;
 
     /**
-     * @description 混合云转发规则。使用JSON数组转化的字符串格式表示。JSON数组中的每个元素是一个结构体，包含以下字段：
-     * - **rs**：Array类型 | 表示回源IP地址或者回源CNAME列表
+     * @description The forwarding rules that you want to configure for the domain name that you want to add to WAF in hybrid cloud mode. Set this parameter to a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
      *
-     * - **location**：String类型 | 表示防护节点名称
+     *   **rs:** The back-to-origin IP addresses or CNAMEs. The value must be of the ARRAY type.
+     *   **location:** The name of the protection node. The value must be of the STRING type.
+     *   **locationId:** The ID of the protection node. The value must be of the LONG type.
      *
-     * - **locationId**：Long类型 | 表示防护节点ID
      * @example [
      * ]
      * @var string
@@ -121,7 +137,10 @@ class redirect extends Model
     public $routingRules;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaderMode.example
+     * @description Specifies whether to enable origin Server Name Indication (SNI). This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -130,8 +149,9 @@ class redirect extends Model
     public $sniEnabled;
 
     /**
-     * @description $.parameters[3].schema.properties.XffHeaderMode.enumValueTitles
+     * @description The value of the custom SNI field. If you do not specify this parameter, the value of the **Host** field in the request header is used. If you want WAF to use an SNI field value that is different from the value of the Host field in back-to-origin requests, you can specify a custom value for the SNI field.
      *
+     * > This parameter is available only if you set **SniEnabled** to **true**.
      * @example www.aliyundoc.com
      *
      * @var string
@@ -139,7 +159,7 @@ class redirect extends Model
     public $sniHost;
 
     /**
-     * @description $.parameters[3].schema.properties.IPv6Enabled.description
+     * @description The write timeout period. Unit: seconds. Valid values: 1 to 3600.
      *
      * @example 200
      *

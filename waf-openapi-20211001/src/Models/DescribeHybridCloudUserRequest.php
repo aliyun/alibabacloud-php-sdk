@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridCloudUserRequest extends Model
 {
     /**
+     * @description The ID of the Web Application Firewall (WAF) instance.
+     *
+     * > You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
      * @example waf_v3prepaid_public_cn-***********
      *
      * @var string
@@ -16,6 +19,11 @@ class DescribeHybridCloudUserRequest extends Model
     public $instanceId;
 
     /**
+     * @description The region where the WAF instance resides. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland.
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -23,6 +31,8 @@ class DescribeHybridCloudUserRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfm***q
      *
      * @var string

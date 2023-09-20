@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
+     * @description An array of addresses of origin servers.
+     *
      * @var backends[]
      */
     public $backends;
 
     /**
+     * @description The timeout period of the connection. Unit: seconds. Valid values: 5 to 120.
+     *
      * @example 120
      *
      * @var int
@@ -23,6 +27,11 @@ class redirect extends Model
     public $connectTimeout;
 
     /**
+     * @description Indicates whether HTTPS to HTTP redirection is enabled for back-to-origin requests of the domain name. Valid values:
+     *
+     *   **true:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is enabled.
+     *   **false:** HTTPS to HTTP redirection for back-to-origin requests of the domain name is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -30,6 +39,11 @@ class redirect extends Model
     public $focusHttpBackend;
 
     /**
+     * @description Indicates whether the persistent connection feature is enabled. Valid values:
+     *
+     *   **true:** The persistent connection feature is enabled. This is the default value.
+     *   **false:** The persistent connection feature is disabled.
+     *
      * @example true
      *
      * @var bool
@@ -37,6 +51,9 @@ class redirect extends Model
     public $keepalive;
 
     /**
+     * @description The number of reused persistent connections. Valid values: 60 to 1000.
+     *
+     * >  This parameter specifies the number of reused persistent connections when you enable the persistent connection feature.
      * @example 1000
      *
      * @var int
@@ -44,6 +61,9 @@ class redirect extends Model
     public $keepaliveRequests;
 
     /**
+     * @description The timeout period of persistent connections that are in the Idle state. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+     *
+     * >  This parameter specifies the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
      * @example 15
      *
      * @var int
@@ -51,6 +71,12 @@ class redirect extends Model
     public $keepaliveTimeout;
 
     /**
+     * @description The load balancing algorithm that is used when WAF forwards requests to the origin server. Valid values:
+     *
+     *   **ip_hash:** the IP hash algorithm.
+     *   **roundRobin:** the round-robin algorithm.
+     *   **leastTime:** the least response time algorithm.
+     *
      * @example iphash
      *
      * @var string
@@ -58,6 +84,8 @@ class redirect extends Model
     public $loadbalance;
 
     /**
+     * @description The read timeout period. Unit: seconds. Valid values: 5 to 1800.
+     *
      * @example 200
      *
      * @var int
@@ -65,11 +93,18 @@ class redirect extends Model
     public $readTimeout;
 
     /**
+     * @description An array of key-value pairs that are used to mark the requests that pass through the WAF instance.
+     *
      * @var requestHeaders[]
      */
     public $requestHeaders;
 
     /**
+     * @description Indicates whether WAF retries to forward requests when requests fail to be forwarded to the origin server. Valid values:
+     *
+     *   **true:** WAF retries to forward requests. This is the default value.
+     *   **false:** WAF does not retry to forward requests.
+     *
      * @example true
      *
      * @var bool
@@ -77,6 +112,11 @@ class redirect extends Model
     public $retry;
 
     /**
+     * @description Indicates whether origin Server Name Indication (SNI) is enabled. Valid values:
+     *
+     *   **true:** Origin SNI is enabled.
+     *   **false:** Origin SNI is disabled. This is the default value.
+     *
      * @example true
      *
      * @var bool
@@ -84,6 +124,8 @@ class redirect extends Model
     public $sniEnabled;
 
     /**
+     * @description The value of the custom SNI field.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -91,6 +133,8 @@ class redirect extends Model
     public $sniHost;
 
     /**
+     * @description The write timeout period. Unit: seconds. Valid values: 5 to 1800.
+     *
      * @example 200
      *
      * @var int

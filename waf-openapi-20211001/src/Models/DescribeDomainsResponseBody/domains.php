@@ -11,11 +11,15 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @description The back-to-origin settings.
+     *
      * @var backeds
      */
     public $backeds;
 
     /**
+     * @description The CNAME assigned by WAF to the domain name.
+     *
      * @example xxxxxcvdaf.****.com
      *
      * @var string
@@ -23,6 +27,8 @@ class domains extends Model
     public $cname;
 
     /**
+     * @description The domain name that is added to WAF in CNAME record mode.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -30,12 +36,14 @@ class domains extends Model
     public $domain;
 
     /**
+     * @description The configurations of the listeners.
+     *
      * @var listenPorts
      */
     public $listenPorts;
 
     /**
-     * @description 阿里云资源组ID。
+     * @description The ID of the resource group.
      *
      * @example rg-acfmvtc5z52****
      *
@@ -44,6 +52,14 @@ class domains extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The status of the domain name. Valid values:
+     *
+     *   **1:** The domain name is in a normal state.
+     *   **2:** The domain name is being created.
+     *   **3:** The domain name is being modified.
+     *   **4:** The domain name is being released.
+     *   **5:** WAF no longer forwards traffic that is sent to the domain name.
+     *
      * @example 1
      *
      * @var int

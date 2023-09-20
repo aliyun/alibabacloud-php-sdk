@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class listen extends Model
 {
     /**
-     * @description $.parameters[3].schema.properties.TLSVersion.example
+     * @description The ID of the certificate that you want to add. This parameter is available only if you specify **HttpsPorts**.
      *
      * @example 123
      *
@@ -18,7 +18,11 @@ class listen extends Model
     public $certId;
 
     /**
-     * @description $.parameters[3].schema.properties.EnableTLSv3.example
+     * @description The type of cipher suite that you want to add. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **1:** all cipher suites.
+     *   **2:** strong cipher suites. You can select this value only if you set **TLSVersion** to **tlsv1.2**.
+     *   **99:** custom cipher suites.
      *
      * @example 2
      *
@@ -27,14 +31,17 @@ class listen extends Model
     public $cipherSuite;
 
     /**
-     * @description $.parameters[3].schema.properties.EnableTLSv3.enumValueTitles
+     * @description The custom cipher suites.
      *
      * @var string[]
      */
     public $customCiphers;
 
     /**
-     * @description $.parameters[3].schema.properties.EnableTLSv3.description
+     * @description Specifies whether to support TLS 1.3. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -43,7 +50,10 @@ class listen extends Model
     public $enableTLSv3;
 
     /**
-     * @description $.parameters[3].schema.properties.CustomCiphers.example
+     * @description Specifies whether to enable an exclusive IP address. This parameter is available only if you set **IPv6Enabled** to **false** and **ProtectionResource** to **share**. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -52,7 +62,10 @@ class listen extends Model
     public $exclusiveIp;
 
     /**
-     * @description $.parameters[3].schema.properties.CipherSuite.example
+     * @description Specifies whether to enable the HTTP to HTTPS redirection feature. This parameter is available only if you specify HttpsPorts and leave HttpPorts empty. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -61,7 +74,10 @@ class listen extends Model
     public $focusHttps;
 
     /**
-     * @description $.parameters[3].schema.properties.TLSVersion.description
+     * @description Specifies whether to enable HTTP/2. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   true
+     *   **false** (default)
      *
      * @example true
      *
@@ -70,21 +86,24 @@ class listen extends Model
     public $http2Enabled;
 
     /**
-     * @description $.parameters[3].schema.properties.CertId.example
+     * @description The HTTP listener port.
      *
      * @var int[]
      */
     public $httpPorts;
 
     /**
-     * @description $.parameters[3].schema.properties.Http2Enabled.enumValueTitles
+     * @description The HTTPS listener port.
      *
      * @var int[]
      */
     public $httpsPorts;
 
     /**
-     * @description $.parameters[3].schema.properties.CustomCiphers.items.enumValueTitles
+     * @description Specifies whether to enable IPv6. Valid values:
+     *
+     *   **true**
+     *   **false** (default)
      *
      * @example true
      *
@@ -93,7 +112,10 @@ class listen extends Model
     public $IPv6Enabled;
 
     /**
-     * @description $.parameters[3].schema.properties.CustomCiphers.description
+     * @description The type of the protection resource. Valid values:
+     *
+     *   **share:** shared cluster. This is the default value.
+     *   **gslb:** shared cluster-based intelligent load balancing.
      *
      * @example share
      *
@@ -102,22 +124,41 @@ class listen extends Model
     public $protectionResource;
 
     /**
+     * @description Specifies whether to allow access only from SM certificate-based clients. This parameter is available only if you set SM2Enabled to true.
+     *
+     *   true
+     *   false
+     *
+     * @example true
+     *
      * @var bool
      */
     public $SM2AccessOnly;
 
     /**
+     * @description The ID of the SM certificate that you want to add. This parameter is available only if you set SM2Enabled to true.
+     *
+     * @example 123-cn-hangzhou
+     *
      * @var string
      */
     public $SM2CertId;
 
     /**
+     * @description Specifies whether to enable the SM certificate.
+     *
+     * @example true
+     *
      * @var bool
      */
     public $SM2Enabled;
 
     /**
-     * @description $.parameters[3].schema.properties.TLSVersion.enumValueTitles
+     * @description The version of the Transport Layer Security (TLS) protocol. This parameter is available only if you specify **HttpsPorts**. Valid values:
+     *
+     *   **tlsv1**
+     *   **tlsv1.1**
+     *   **tlsv1.2**
      *
      * @example tlsv1
      *
@@ -126,7 +167,11 @@ class listen extends Model
     public $TLSVersion;
 
     /**
-     * @description $.parameters[3].schema.properties.CipherSuite.enumValueTitles
+     * @description The method that you want WAF to use to obtain the actual IP address of a client. Valid values:
+     *
+     *   **0:** No Layer 7 proxies are deployed in front of WAF. This is the default value.
+     *   **1:** WAF reads the first value of the X-Forwarded-For (XFF) header field as the IP address of the client.
+     *   **2:** WAF reads the value of a custom header field as the IP address of the client.
      *
      * @example 1
      *
@@ -135,7 +180,7 @@ class listen extends Model
     public $xffHeaderMode;
 
     /**
-     * @description $.parameters[3].schema.properties.CustomCiphers.items.description
+     * @description The custom header field that you want WAF to use to obtain the IP address of a client.
      *
      * @var string[]
      */

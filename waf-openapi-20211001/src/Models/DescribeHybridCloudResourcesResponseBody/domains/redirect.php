@@ -10,11 +10,18 @@ use AlibabaCloud\Tea\Model;
 class redirect extends Model
 {
     /**
+     * @description The back-to-origin IP addresses or domain names.
+     *
      * @var string[]
      */
     public $backends;
 
     /**
+     * @description Indicates whether the public cloud disaster recovery feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -22,6 +29,8 @@ class redirect extends Model
     public $cnameEnabled;
 
     /**
+     * @description The connection timeout period. Unit: seconds. Valid values: 5 to 120.
+     *
      * @example 120
      *
      * @var int
@@ -29,6 +38,11 @@ class redirect extends Model
     public $connectTimeout;
 
     /**
+     * @description Indicates whether the HTTPS to HTTP redirection feature is enabled for back-to-origin requests. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -36,6 +50,11 @@ class redirect extends Model
     public $focusHttpBackend;
 
     /**
+     * @description Indicates whether the persistent connection feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -43,6 +62,9 @@ class redirect extends Model
     public $keepalive;
 
     /**
+     * @description The number of reused persistent connections. Valid values: 60 to 1000.
+     *
+     * > This parameter indicates the number of reused persistent connections after you enable the persistent connection feature.
      * @example 1000
      *
      * @var int
@@ -50,6 +72,9 @@ class redirect extends Model
     public $keepaliveRequests;
 
     /**
+     * @description The timeout period of persistent connections that are in the Idle state. Unit: seconds. Valid values: 1 to 60. Default value: 15.
+     *
+     * > This parameter indicates the period of time during which a reused persistent connection is allowed to remain in the Idle state before the persistent connection is released.
      * @example 15
      *
      * @var int
@@ -57,6 +82,12 @@ class redirect extends Model
     public $keepaliveTimeout;
 
     /**
+     * @description The load balancing algorithm that WAF uses to forward requests to the origin server. Valid values:
+     *
+     *   **ip_hash**
+     *   **roundRobin**
+     *   **leastTime**
+     *
      * @example iphash
      *
      * @var string
@@ -64,6 +95,8 @@ class redirect extends Model
     public $loadbalance;
 
     /**
+     * @description The read timeout period. Unit: seconds. Valid values: 5 to 1800.
+     *
      * @example 200
      *
      * @var int
@@ -71,11 +104,18 @@ class redirect extends Model
     public $readTimeout;
 
     /**
+     * @description The key-value pair that is used to mark the requests that pass through the WAF instance.
+     *
      * @var requestHeaders[]
      */
     public $requestHeaders;
 
     /**
+     * @description Indicates whether WAF retries to forward requests when requests fail to be forwarded to the origin server. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -83,6 +123,12 @@ class redirect extends Model
     public $retry;
 
     /**
+     * @description The forwarding rules that you configured for the domain name that you added to WAF in hybrid cloud mode. The value is a string that consists of JSON arrays. Each element in a JSON array is a JSON struct that contains the following fields:
+     *
+     *   **rs:** The back-to-origin IP addresses or CNAMEs. The value is of the ARRAY type.
+     *   **location:** The name of the protection node. The value is of the STRING type.
+     *   **locationId:** The ID of the protection node. The value is of the LONG type.
+     *
      * @example [
      * ]
      * @var string
@@ -90,6 +136,11 @@ class redirect extends Model
     public $routingRules;
 
     /**
+     * @description Indicates whether the origin Server Name Indication (SNI) feature is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -97,6 +148,9 @@ class redirect extends Model
     public $sniEnabled;
 
     /**
+     * @description The value of the custom Server Name Indication (SNI) field. If the parameter is left empty, the value of the **Host** field in the request header is automatically used as the value of the SNI field.
+     *
+     * > This parameter is returned only if the value of **SniEnabled** is **true**.
      * @example www.aliyundoc.com
      *
      * @var string
@@ -104,6 +158,8 @@ class redirect extends Model
     public $sniHost;
 
     /**
+     * @description The write timeout period. Unit: seconds. Valid values: 5 to 1800.
+     *
      * @example 200
      *
      * @var int

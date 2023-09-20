@@ -124,16 +124,29 @@ class listen extends Model
     public $protectionResource;
 
     /**
+     * @description 是否仅客端访问。仅SM2Enable取值为true时，使用该参数。
+     *
+     * - false：国密和非国密均可以访问。
+     * @example true
+     *
      * @var bool
      */
     public $SM2AccessOnly;
 
     /**
+     * @description 要添加的国密证书的ID。仅SM2Enable取值为true时，使用该参数。
+     *
+     * @example 123-cn-hangzhou
+     *
      * @var string
      */
     public $SM2CertId;
 
     /**
+     * @description 是否开启国密证书
+     *
+     * @example true
+     *
      * @var bool
      */
     public $SM2Enabled;

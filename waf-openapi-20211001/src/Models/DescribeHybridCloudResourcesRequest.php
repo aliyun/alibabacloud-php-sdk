@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeHybridCloudResourcesRequest extends Model
 {
     /**
+     * @description The back-to-origin IP address or domain name.
+     *
      * @example 1.1.XX.XX
      *
      * @var string
@@ -16,6 +18,11 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $backend;
 
     /**
+     * @description Specifies whether the public cloud disaster recovery feature is enabled for the domain name. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -23,6 +30,8 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $cnameEnabled;
 
     /**
+     * @description The domain name that you want to query.
+     *
      * @example www.aliyundoc.com
      *
      * @var string
@@ -30,6 +39,9 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $domain;
 
     /**
+     * @description The ID of the WAF instance.
+     *
+     * > You can call the [DescribeInstance](~~433756~~) operation to obtain the ID of the WAF instance.
      * @example waf_v3prepaid_public_cn-***********
      *
      * @var string
@@ -37,6 +49,8 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $instanceId;
 
     /**
+     * @description The page number. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +58,8 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $pageNumber;
 
     /**
+     * @description The number of entries per page. Default value: **10**.
+     *
      * @example 10
      *
      * @var int
@@ -51,6 +67,11 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $pageSize;
 
     /**
+     * @description The region ID of the WAF instance. Valid values:
+     *
+     *   **cn-hangzhou:** the Chinese mainland.
+     *   **ap-southeast-1:** outside the Chinese mainland.
+     *
      * @example cn-hangzhou
      *
      * @var string
@@ -58,6 +79,8 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $regionId;
 
     /**
+     * @description The ID of the resource group.
+     *
      * @example rg-acfmvtc5z52****
      *
      * @var string
@@ -65,6 +88,8 @@ class DescribeHybridCloudResourcesRequest extends Model
     public $resourceManagerResourceGroupId;
 
     /**
+     * @description The source IP address of the request. The system specifies this parameter.
+     *
      * @example 0.0.XX.XX
      *
      * @var string
