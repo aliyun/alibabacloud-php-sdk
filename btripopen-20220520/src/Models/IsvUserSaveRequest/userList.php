@@ -39,6 +39,11 @@ class userList extends Model
     public $gender;
 
     /**
+     * @var bool
+     */
+    public $isAdmin;
+
+    /**
      * @example 8797
      *
      * @var string
@@ -114,6 +119,7 @@ class userList extends Model
         'departId'          => 'depart_id',
         'email'             => 'email',
         'gender'            => 'gender',
+        'isAdmin'           => 'is_admin',
         'jobNo'             => 'job_no',
         'leaveStatus'       => 'leave_status',
         'managerUserId'     => 'manager_user_id',
@@ -154,6 +160,9 @@ class userList extends Model
         }
         if (null !== $this->gender) {
             $res['gender'] = $this->gender;
+        }
+        if (null !== $this->isAdmin) {
+            $res['is_admin'] = $this->isAdmin;
         }
         if (null !== $this->jobNo) {
             $res['job_no'] = $this->jobNo;
@@ -220,6 +229,9 @@ class userList extends Model
         }
         if (isset($map['gender'])) {
             $model->gender = $map['gender'];
+        }
+        if (isset($map['is_admin'])) {
+            $model->isAdmin = $map['is_admin'];
         }
         if (isset($map['job_no'])) {
             $model->jobNo = $map['job_no'];
