@@ -35,11 +35,17 @@ class QueryVoiceIntercomRequest extends Model
      * @var string
      */
     public $productKey;
+
+    /**
+     * @var string
+     */
+    public $scheme;
     protected $_name = [
         'deviceName'    => 'DeviceName',
         'iotId'         => 'IotId',
         'iotInstanceId' => 'IotInstanceId',
         'productKey'    => 'ProductKey',
+        'scheme'        => 'Scheme',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class QueryVoiceIntercomRequest extends Model
         }
         if (null !== $this->productKey) {
             $res['ProductKey'] = $this->productKey;
+        }
+        if (null !== $this->scheme) {
+            $res['Scheme'] = $this->scheme;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class QueryVoiceIntercomRequest extends Model
         }
         if (isset($map['ProductKey'])) {
             $model->productKey = $map['ProductKey'];
+        }
+        if (isset($map['Scheme'])) {
+            $model->scheme = $map['Scheme'];
         }
 
         return $model;

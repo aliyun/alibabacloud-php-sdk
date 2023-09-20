@@ -4537,6 +4537,9 @@ class Linkvisual extends OpenApiClient
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        if (!Utils::isUnset($request->scheme)) {
+            $query['Scheme'] = $request->scheme;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
