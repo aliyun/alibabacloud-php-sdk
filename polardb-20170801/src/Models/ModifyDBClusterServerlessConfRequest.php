@@ -30,6 +30,11 @@ class ModifyDBClusterServerlessConfRequest extends Model
     public $DBClusterId;
 
     /**
+     * @var bool
+     */
+    public $fromTimeService;
+
+    /**
      * @var string
      */
     public $ownerAccount;
@@ -38,6 +43,16 @@ class ModifyDBClusterServerlessConfRequest extends Model
      * @var int
      */
     public $ownerId;
+
+    /**
+     * @var string
+     */
+    public $plannedEndTime;
+
+    /**
+     * @var string
+     */
+    public $plannedStartTime;
 
     /**
      * @var string
@@ -96,8 +111,11 @@ class ModifyDBClusterServerlessConfRequest extends Model
     protected $_name = [
         'allowShutDown'         => 'AllowShutDown',
         'DBClusterId'           => 'DBClusterId',
+        'fromTimeService'       => 'FromTimeService',
         'ownerAccount'          => 'OwnerAccount',
         'ownerId'               => 'OwnerId',
+        'plannedEndTime'        => 'PlannedEndTime',
+        'plannedStartTime'      => 'PlannedStartTime',
         'resourceOwnerAccount'  => 'ResourceOwnerAccount',
         'resourceOwnerId'       => 'ResourceOwnerId',
         'scaleMax'              => 'ScaleMax',
@@ -120,11 +138,20 @@ class ModifyDBClusterServerlessConfRequest extends Model
         if (null !== $this->DBClusterId) {
             $res['DBClusterId'] = $this->DBClusterId;
         }
+        if (null !== $this->fromTimeService) {
+            $res['FromTimeService'] = $this->fromTimeService;
+        }
         if (null !== $this->ownerAccount) {
             $res['OwnerAccount'] = $this->ownerAccount;
         }
         if (null !== $this->ownerId) {
             $res['OwnerId'] = $this->ownerId;
+        }
+        if (null !== $this->plannedEndTime) {
+            $res['PlannedEndTime'] = $this->plannedEndTime;
+        }
+        if (null !== $this->plannedStartTime) {
+            $res['PlannedStartTime'] = $this->plannedStartTime;
         }
         if (null !== $this->resourceOwnerAccount) {
             $res['ResourceOwnerAccount'] = $this->resourceOwnerAccount;
@@ -165,11 +192,20 @@ class ModifyDBClusterServerlessConfRequest extends Model
         if (isset($map['DBClusterId'])) {
             $model->DBClusterId = $map['DBClusterId'];
         }
+        if (isset($map['FromTimeService'])) {
+            $model->fromTimeService = $map['FromTimeService'];
+        }
         if (isset($map['OwnerAccount'])) {
             $model->ownerAccount = $map['OwnerAccount'];
         }
         if (isset($map['OwnerId'])) {
             $model->ownerId = $map['OwnerId'];
+        }
+        if (isset($map['PlannedEndTime'])) {
+            $model->plannedEndTime = $map['PlannedEndTime'];
+        }
+        if (isset($map['PlannedStartTime'])) {
+            $model->plannedStartTime = $map['PlannedStartTime'];
         }
         if (isset($map['ResourceOwnerAccount'])) {
             $model->resourceOwnerAccount = $map['ResourceOwnerAccount'];

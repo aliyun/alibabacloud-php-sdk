@@ -7672,11 +7672,20 @@ class Polardb extends OpenApiClient
         if (!Utils::isUnset($request->DBClusterId)) {
             $query['DBClusterId'] = $request->DBClusterId;
         }
+        if (!Utils::isUnset($request->fromTimeService)) {
+            $query['FromTimeService'] = $request->fromTimeService;
+        }
         if (!Utils::isUnset($request->ownerAccount)) {
             $query['OwnerAccount'] = $request->ownerAccount;
         }
         if (!Utils::isUnset($request->ownerId)) {
             $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->plannedEndTime)) {
+            $query['PlannedEndTime'] = $request->plannedEndTime;
+        }
+        if (!Utils::isUnset($request->plannedStartTime)) {
+            $query['PlannedStartTime'] = $request->plannedStartTime;
         }
         if (!Utils::isUnset($request->resourceOwnerAccount)) {
             $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;

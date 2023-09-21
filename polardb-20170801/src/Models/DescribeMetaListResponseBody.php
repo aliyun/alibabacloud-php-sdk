@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeMetaListResponseBody extends Model
 {
     /**
+     * @description The ID of the cluster.
+     *
      * @example pc-bp1s826a1up******
      *
      * @var string
