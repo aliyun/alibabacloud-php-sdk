@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class GetAuthTokenRequest extends Model
 {
     /**
-     * @example www.aliyundoc.com
-     *
      * @var string
      */
     public $origin;
@@ -31,8 +29,6 @@ class GetAuthTokenRequest extends Model
     public $resourceOwnerId;
 
     /**
-     * @example www.aliyundoc.com/
-     *
      * @var string
      */
     public $url;

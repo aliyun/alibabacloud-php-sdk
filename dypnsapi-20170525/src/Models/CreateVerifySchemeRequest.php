@@ -14,6 +14,8 @@ class CreateVerifySchemeRequest extends Model
     public $appName;
 
     /**
+     * @example 1,2
+     *
      * @var string
      */
     public $authType;
@@ -26,16 +28,22 @@ class CreateVerifySchemeRequest extends Model
     public $bundleId;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $cmApiCode;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $ctApiCode;
 
     /**
+     * @example 2
+     *
      * @var int
      */
     public $cuApiCode;
@@ -46,11 +54,15 @@ class CreateVerifySchemeRequest extends Model
     public $email;
 
     /**
+     * @example 139.9.167.181
+     * 139.9.172.0/24
      * @var string
      */
     public $ipWhiteList;
 
     /**
+     * @example https://h5.minexiot.com
+     *
      * @var string
      */
     public $origin;
@@ -92,6 +104,8 @@ class CreateVerifySchemeRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @example 0
+     *
      * @var string
      */
     public $sceneType;
@@ -107,6 +121,8 @@ class CreateVerifySchemeRequest extends Model
     public $smsSignName;
 
     /**
+     * @example https://h5.minexiot.com/index.html
+     *
      * @var string
      */
     public $url;

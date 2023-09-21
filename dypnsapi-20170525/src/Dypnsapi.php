@@ -6,6 +6,10 @@ namespace AlibabaCloud\SDK\Dypnsapi\V20170525;
 
 use AlibabaCloud\Endpoint\Endpoint;
 use AlibabaCloud\OpenApiUtil\OpenApiUtilClient;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckSmsVerifyCodeRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CheckSmsVerifyCodeResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateSchemeConfigRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateSchemeConfigResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\DeleteVerifySchemeRequest;
@@ -28,6 +32,10 @@ use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicReque
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyBillingPublicResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QueryGateVerifyStatisticPublicResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QuerySendDetailsRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\QuerySendDetailsResponse;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\SendSmsVerifyCodeRequest;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\SendSmsVerifyCodeResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileRequest;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyMobileResponse;
 use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\VerifyPhoneWithTokenRequest;
@@ -74,6 +82,146 @@ class Dypnsapi extends OpenApiClient
         }
 
         return Endpoint::getEndpointRules($productId, $regionId, $endpointRule, $network, $suffix);
+    }
+
+    /**
+     * @param CheckSmsVerifyCodeRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CheckSmsVerifyCodeResponse
+     */
+    public function checkSmsVerifyCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->caseAuthPolicy)) {
+            $query['CaseAuthPolicy'] = $request->caseAuthPolicy;
+        }
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeName)) {
+            $query['SchemeName'] = $request->schemeName;
+        }
+        if (!Utils::isUnset($request->verifyCode)) {
+            $query['VerifyCode'] = $request->verifyCode;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CheckSmsVerifyCode',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CheckSmsVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CheckSmsVerifyCodeRequest $request
+     *
+     * @return CheckSmsVerifyCodeResponse
+     */
+    public function checkSmsVerifyCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->checkSmsVerifyCodeWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateSchemeConfigRequest $request
+     * @param RuntimeOptions            $runtime
+     *
+     * @return CreateSchemeConfigResponse
+     */
+    public function createSchemeConfigWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->androidPackageName)) {
+            $query['AndroidPackageName'] = $request->androidPackageName;
+        }
+        if (!Utils::isUnset($request->androidPackageSign)) {
+            $query['AndroidPackageSign'] = $request->androidPackageSign;
+        }
+        if (!Utils::isUnset($request->appName)) {
+            $query['AppName'] = $request->appName;
+        }
+        if (!Utils::isUnset($request->h5Origin)) {
+            $query['H5Origin'] = $request->h5Origin;
+        }
+        if (!Utils::isUnset($request->h5Url)) {
+            $query['H5Url'] = $request->h5Url;
+        }
+        if (!Utils::isUnset($request->iosBundleId)) {
+            $query['IosBundleId'] = $request->iosBundleId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->platform)) {
+            $query['Platform'] = $request->platform;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->schemeName)) {
+            $query['SchemeName'] = $request->schemeName;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateSchemeConfig',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateSchemeConfigResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateSchemeConfigRequest $request
+     *
+     * @return CreateSchemeConfigResponse
+     */
+    public function createSchemeConfig($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createSchemeConfigWithOptions($request, $runtime);
     }
 
     /**
@@ -754,6 +902,161 @@ class Dypnsapi extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->queryGateVerifyStatisticPublicWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param QuerySendDetailsRequest $request
+     * @param RuntimeOptions          $runtime
+     *
+     * @return QuerySendDetailsResponse
+     */
+    public function querySendDetailsWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->bizId)) {
+            $query['BizId'] = $request->bizId;
+        }
+        if (!Utils::isUnset($request->currentPage)) {
+            $query['CurrentPage'] = $request->currentPage;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->pageSize)) {
+            $query['PageSize'] = $request->pageSize;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->sendDate)) {
+            $query['SendDate'] = $request->sendDate;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'QuerySendDetails',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return QuerySendDetailsResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param QuerySendDetailsRequest $request
+     *
+     * @return QuerySendDetailsResponse
+     */
+    public function querySendDetails($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->querySendDetailsWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param SendSmsVerifyCodeRequest $request
+     * @param RuntimeOptions           $runtime
+     *
+     * @return SendSmsVerifyCodeResponse
+     */
+    public function sendSmsVerifyCodeWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->codeLength)) {
+            $query['CodeLength'] = $request->codeLength;
+        }
+        if (!Utils::isUnset($request->codeType)) {
+            $query['CodeType'] = $request->codeType;
+        }
+        if (!Utils::isUnset($request->countryCode)) {
+            $query['CountryCode'] = $request->countryCode;
+        }
+        if (!Utils::isUnset($request->duplicatePolicy)) {
+            $query['DuplicatePolicy'] = $request->duplicatePolicy;
+        }
+        if (!Utils::isUnset($request->interval)) {
+            $query['Interval'] = $request->interval;
+        }
+        if (!Utils::isUnset($request->outId)) {
+            $query['OutId'] = $request->outId;
+        }
+        if (!Utils::isUnset($request->ownerId)) {
+            $query['OwnerId'] = $request->ownerId;
+        }
+        if (!Utils::isUnset($request->phoneNumber)) {
+            $query['PhoneNumber'] = $request->phoneNumber;
+        }
+        if (!Utils::isUnset($request->resourceOwnerAccount)) {
+            $query['ResourceOwnerAccount'] = $request->resourceOwnerAccount;
+        }
+        if (!Utils::isUnset($request->resourceOwnerId)) {
+            $query['ResourceOwnerId'] = $request->resourceOwnerId;
+        }
+        if (!Utils::isUnset($request->returnVerifyCode)) {
+            $query['ReturnVerifyCode'] = $request->returnVerifyCode;
+        }
+        if (!Utils::isUnset($request->schemeName)) {
+            $query['SchemeName'] = $request->schemeName;
+        }
+        if (!Utils::isUnset($request->signName)) {
+            $query['SignName'] = $request->signName;
+        }
+        if (!Utils::isUnset($request->smsUpExtendCode)) {
+            $query['SmsUpExtendCode'] = $request->smsUpExtendCode;
+        }
+        if (!Utils::isUnset($request->templateCode)) {
+            $query['TemplateCode'] = $request->templateCode;
+        }
+        if (!Utils::isUnset($request->templateParam)) {
+            $query['TemplateParam'] = $request->templateParam;
+        }
+        if (!Utils::isUnset($request->validTime)) {
+            $query['ValidTime'] = $request->validTime;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'SendSmsVerifyCode',
+            'version'     => '2017-05-25',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return SendSmsVerifyCodeResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param SendSmsVerifyCodeRequest $request
+     *
+     * @return SendSmsVerifyCodeResponse
+     */
+    public function sendSmsVerifyCode($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->sendSmsVerifyCodeWithOptions($request, $runtime);
     }
 
     /**

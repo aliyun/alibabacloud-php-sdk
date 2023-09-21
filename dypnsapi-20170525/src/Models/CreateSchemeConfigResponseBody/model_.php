@@ -2,18 +2,20 @@
 
 // This file is auto-generated, don't edit it. Thanks.
 
-namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\GetPhoneWithTokenResponseBody;
+namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateSchemeConfigResponseBody;
 
 use AlibabaCloud\Tea\Model;
 
-class data extends Model
+class model_ extends Model
 {
     /**
+     * @example FA100000168468035
+     *
      * @var string
      */
-    public $mobile;
+    public $schemeCode;
     protected $_name = [
-        'mobile' => 'Mobile',
+        'schemeCode' => 'SchemeCode',
     ];
 
     public function validate()
@@ -23,8 +25,8 @@ class data extends Model
     public function toMap()
     {
         $res = [];
-        if (null !== $this->mobile) {
-            $res['Mobile'] = $this->mobile;
+        if (null !== $this->schemeCode) {
+            $res['SchemeCode'] = $this->schemeCode;
         }
 
         return $res;
@@ -33,13 +35,13 @@ class data extends Model
     /**
      * @param array $map
      *
-     * @return data
+     * @return model_
      */
     public static function fromMap($map = [])
     {
         $model = new self();
-        if (isset($map['Mobile'])) {
-            $model->mobile = $map['Mobile'];
+        if (isset($map['SchemeCode'])) {
+            $model->schemeCode = $map['SchemeCode'];
         }
 
         return $model;

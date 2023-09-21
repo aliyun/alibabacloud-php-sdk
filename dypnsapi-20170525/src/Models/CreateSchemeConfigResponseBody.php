@@ -4,10 +4,10 @@
 
 namespace AlibabaCloud\SDK\Dypnsapi\V20170525\Models;
 
-use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateVerifySchemeResponseBody\gateVerifySchemeDTO;
+use AlibabaCloud\SDK\Dypnsapi\V20170525\Models\CreateSchemeConfigResponseBody\model_;
 use AlibabaCloud\Tea\Model;
 
-class CreateVerifySchemeResponseBody extends Model
+class CreateSchemeConfigResponseBody extends Model
 {
     /**
      * @example OK
@@ -17,40 +17,36 @@ class CreateVerifySchemeResponseBody extends Model
     public $code;
 
     /**
-     * @var gateVerifySchemeDTO
-     */
-    public $gateVerifySchemeDTO;
-
-    /**
-     * @example 200
+     * @example 示例值示例值
      *
-     * @var int
-     */
-    public $httpStatusCode;
-
-    /**
      * @var string
      */
     public $message;
 
     /**
+     * @var model_
+     */
+    public $model;
+
+    /**
+     * @example B95B36EC-8108-4479-D3AA-2BB27F9B155A
+     *
      * @var string
      */
     public $requestId;
 
     /**
-     * @example true
+     * @example false
      *
      * @var bool
      */
     public $success;
     protected $_name = [
-        'code'                => 'Code',
-        'gateVerifySchemeDTO' => 'GateVerifySchemeDTO',
-        'httpStatusCode'      => 'HttpStatusCode',
-        'message'             => 'Message',
-        'requestId'           => 'RequestId',
-        'success'             => 'Success',
+        'code'      => 'Code',
+        'message'   => 'Message',
+        'model'     => 'Model',
+        'requestId' => 'RequestId',
+        'success'   => 'Success',
     ];
 
     public function validate()
@@ -63,14 +59,11 @@ class CreateVerifySchemeResponseBody extends Model
         if (null !== $this->code) {
             $res['Code'] = $this->code;
         }
-        if (null !== $this->gateVerifySchemeDTO) {
-            $res['GateVerifySchemeDTO'] = null !== $this->gateVerifySchemeDTO ? $this->gateVerifySchemeDTO->toMap() : null;
-        }
-        if (null !== $this->httpStatusCode) {
-            $res['HttpStatusCode'] = $this->httpStatusCode;
-        }
         if (null !== $this->message) {
             $res['Message'] = $this->message;
+        }
+        if (null !== $this->model) {
+            $res['Model'] = null !== $this->model ? $this->model->toMap() : null;
         }
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
@@ -85,7 +78,7 @@ class CreateVerifySchemeResponseBody extends Model
     /**
      * @param array $map
      *
-     * @return CreateVerifySchemeResponseBody
+     * @return CreateSchemeConfigResponseBody
      */
     public static function fromMap($map = [])
     {
@@ -93,14 +86,11 @@ class CreateVerifySchemeResponseBody extends Model
         if (isset($map['Code'])) {
             $model->code = $map['Code'];
         }
-        if (isset($map['GateVerifySchemeDTO'])) {
-            $model->gateVerifySchemeDTO = gateVerifySchemeDTO::fromMap($map['GateVerifySchemeDTO']);
-        }
-        if (isset($map['HttpStatusCode'])) {
-            $model->httpStatusCode = $map['HttpStatusCode'];
-        }
         if (isset($map['Message'])) {
             $model->message = $map['Message'];
+        }
+        if (isset($map['Model'])) {
+            $model->model = model_::fromMap($map['Model']);
         }
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
