@@ -37,6 +37,11 @@ class CreateClusterRequest extends Model
     public $components;
 
     /**
+     * @var string
+     */
+    public $hpnZone;
+
+    /**
      * @example False
      *
      * @var bool
@@ -47,6 +52,11 @@ class CreateClusterRequest extends Model
      * @var networks
      */
     public $networks;
+
+    /**
+     * @var string[]
+     */
+    public $nimizVSwitches;
 
     /**
      * @var nodeGroups[]
@@ -69,8 +79,10 @@ class CreateClusterRequest extends Model
         'clusterName'           => 'ClusterName',
         'clusterType'           => 'ClusterType',
         'components'            => 'Components',
+        'hpnZone'               => 'HpnZone',
         'ignoreFailedNodeTasks' => 'IgnoreFailedNodeTasks',
         'networks'              => 'Networks',
+        'nimizVSwitches'        => 'NimizVSwitches',
         'nodeGroups'            => 'NodeGroups',
         'resourceGroupId'       => 'ResourceGroupId',
         'tag'                   => 'Tag',
@@ -101,11 +113,17 @@ class CreateClusterRequest extends Model
                 }
             }
         }
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
+        }
         if (null !== $this->ignoreFailedNodeTasks) {
             $res['IgnoreFailedNodeTasks'] = $this->ignoreFailedNodeTasks;
         }
         if (null !== $this->networks) {
             $res['Networks'] = null !== $this->networks ? $this->networks->toMap() : null;
+        }
+        if (null !== $this->nimizVSwitches) {
+            $res['NimizVSwitches'] = $this->nimizVSwitches;
         }
         if (null !== $this->nodeGroups) {
             $res['NodeGroups'] = [];
@@ -158,11 +176,19 @@ class CreateClusterRequest extends Model
                 }
             }
         }
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
+        }
         if (isset($map['IgnoreFailedNodeTasks'])) {
             $model->ignoreFailedNodeTasks = $map['IgnoreFailedNodeTasks'];
         }
         if (isset($map['Networks'])) {
             $model->networks = networks::fromMap($map['Networks']);
+        }
+        if (isset($map['NimizVSwitches'])) {
+            if (!empty($map['NimizVSwitches'])) {
+                $model->nimizVSwitches = $map['NimizVSwitches'];
+            }
         }
         if (isset($map['NodeGroups'])) {
             if (!empty($map['NodeGroups'])) {

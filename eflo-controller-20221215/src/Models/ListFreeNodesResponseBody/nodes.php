@@ -23,6 +23,11 @@ class nodes extends Model
     public $expiredTime;
 
     /**
+     * @var string
+     */
+    public $hpnZone;
+
+    /**
      * @example efg1.nvga1
      *
      * @var string
@@ -52,6 +57,7 @@ class nodes extends Model
     protected $_name = [
         'createTime'  => 'CreateTime',
         'expiredTime' => 'ExpiredTime',
+        'hpnZone'     => 'HpnZone',
         'machineType' => 'MachineType',
         'nodeId'      => 'NodeId',
         'sn'          => 'Sn',
@@ -70,6 +76,9 @@ class nodes extends Model
         }
         if (null !== $this->expiredTime) {
             $res['ExpiredTime'] = $this->expiredTime;
+        }
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
         }
         if (null !== $this->machineType) {
             $res['MachineType'] = $this->machineType;
@@ -100,6 +109,9 @@ class nodes extends Model
         }
         if (isset($map['ExpiredTime'])) {
             $model->expiredTime = $map['ExpiredTime'];
+        }
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
         }
         if (isset($map['MachineType'])) {
             $model->machineType = $map['MachineType'];

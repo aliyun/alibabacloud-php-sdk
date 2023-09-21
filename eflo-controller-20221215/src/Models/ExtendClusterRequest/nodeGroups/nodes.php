@@ -28,10 +28,22 @@ class nodes extends Model
      * @var string
      */
     public $nodeId;
+
+    /**
+     * @var string
+     */
+    public $vSwitchId;
+
+    /**
+     * @var string
+     */
+    public $vpcId;
     protected $_name = [
         'hostname'      => 'Hostname',
         'loginPassword' => 'LoginPassword',
         'nodeId'        => 'NodeId',
+        'vSwitchId'     => 'VSwitchId',
+        'vpcId'         => 'VpcId',
     ];
 
     public function validate()
@@ -49,6 +61,12 @@ class nodes extends Model
         }
         if (null !== $this->nodeId) {
             $res['NodeId'] = $this->nodeId;
+        }
+        if (null !== $this->vSwitchId) {
+            $res['VSwitchId'] = $this->vSwitchId;
+        }
+        if (null !== $this->vpcId) {
+            $res['VpcId'] = $this->vpcId;
         }
 
         return $res;
@@ -70,6 +88,12 @@ class nodes extends Model
         }
         if (isset($map['NodeId'])) {
             $model->nodeId = $map['NodeId'];
+        }
+        if (isset($map['VSwitchId'])) {
+            $model->vSwitchId = $map['VSwitchId'];
+        }
+        if (isset($map['VpcId'])) {
+            $model->vpcId = $map['VpcId'];
         }
 
         return $model;

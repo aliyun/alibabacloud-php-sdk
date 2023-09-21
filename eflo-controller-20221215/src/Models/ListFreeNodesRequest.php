@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListFreeNodesRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $hpnZone;
+
+    /**
      * @example mock-machine-type2
      *
      * @var string
@@ -29,6 +34,7 @@ class ListFreeNodesRequest extends Model
      */
     public $nextToken;
     protected $_name = [
+        'hpnZone'     => 'HpnZone',
         'machineType' => 'MachineType',
         'maxResults'  => 'MaxResults',
         'nextToken'   => 'NextToken',
@@ -41,6 +47,9 @@ class ListFreeNodesRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
+        }
         if (null !== $this->machineType) {
             $res['MachineType'] = $this->machineType;
         }
@@ -62,6 +71,9 @@ class ListFreeNodesRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
+        }
         if (isset($map['MachineType'])) {
             $model->machineType = $map['MachineType'];
         }

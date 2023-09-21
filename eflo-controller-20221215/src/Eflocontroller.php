@@ -152,6 +152,9 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($tmpReq->networks)) {
             $request->networksShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->networks, 'Networks', 'json');
         }
+        if (!Utils::isUnset($tmpReq->nimizVSwitches)) {
+            $request->nimizVSwitchesShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nimizVSwitches, 'NimizVSwitches', 'json');
+        }
         if (!Utils::isUnset($tmpReq->nodeGroups)) {
             $request->nodeGroupsShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->nodeGroups, 'NodeGroups', 'json');
         }
@@ -172,11 +175,17 @@ class Eflocontroller extends OpenApiClient
         if (!Utils::isUnset($request->componentsShrink)) {
             $body['Components'] = $request->componentsShrink;
         }
+        if (!Utils::isUnset($request->hpnZone)) {
+            $body['HpnZone'] = $request->hpnZone;
+        }
         if (!Utils::isUnset($request->ignoreFailedNodeTasks)) {
             $body['IgnoreFailedNodeTasks'] = $request->ignoreFailedNodeTasks;
         }
         if (!Utils::isUnset($request->networksShrink)) {
             $body['Networks'] = $request->networksShrink;
+        }
+        if (!Utils::isUnset($request->nimizVSwitchesShrink)) {
+            $body['NimizVSwitches'] = $request->nimizVSwitchesShrink;
         }
         if (!Utils::isUnset($request->nodeGroupsShrink)) {
             $body['NodeGroups'] = $request->nodeGroupsShrink;
@@ -650,6 +659,9 @@ class Eflocontroller extends OpenApiClient
     {
         Utils::validateModel($request);
         $body = [];
+        if (!Utils::isUnset($request->hpnZone)) {
+            $body['HpnZone'] = $request->hpnZone;
+        }
         if (!Utils::isUnset($request->machineType)) {
             $body['MachineType'] = $request->machineType;
         }

@@ -31,6 +31,11 @@ class nodes extends Model
     public $hostname;
 
     /**
+     * @var string
+     */
+    public $hpnZone;
+
+    /**
      * @example i190297201669099844192
      *
      * @var string
@@ -94,6 +99,7 @@ class nodes extends Model
         'createTime'     => 'CreateTime',
         'expiredTime'    => 'ExpiredTime',
         'hostname'       => 'Hostname',
+        'hpnZone'        => 'HpnZone',
         'imageId'        => 'ImageId',
         'machineType'    => 'MachineType',
         'networks'       => 'Networks',
@@ -120,6 +126,9 @@ class nodes extends Model
         }
         if (null !== $this->hostname) {
             $res['Hostname'] = $this->hostname;
+        }
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
         }
         if (null !== $this->imageId) {
             $res['ImageId'] = $this->imageId;
@@ -174,6 +183,9 @@ class nodes extends Model
         }
         if (isset($map['Hostname'])) {
             $model->hostname = $map['Hostname'];
+        }
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
         }
         if (isset($map['ImageId'])) {
             $model->imageId = $map['ImageId'];

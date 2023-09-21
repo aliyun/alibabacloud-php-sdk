@@ -49,6 +49,11 @@ class clusters extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $hpnZone;
+
+    /**
      * @example 12
      *
      * @var int
@@ -101,6 +106,7 @@ class clusters extends Model
         'clusterType'        => 'ClusterType',
         'components'         => 'Components',
         'createTime'         => 'CreateTime',
+        'hpnZone'            => 'HpnZone',
         'nodeCount'          => 'NodeCount',
         'nodeGroupCount'     => 'NodeGroupCount',
         'operatingState'     => 'OperatingState',
@@ -134,6 +140,9 @@ class clusters extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
         }
         if (null !== $this->nodeCount) {
             $res['NodeCount'] = $this->nodeCount;
@@ -185,6 +194,9 @@ class clusters extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
         }
         if (isset($map['NodeCount'])) {
             $model->nodeCount = $map['NodeCount'];

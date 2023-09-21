@@ -49,6 +49,11 @@ class DescribeClusterResponseBody extends Model
     public $createTime;
 
     /**
+     * @var string
+     */
+    public $hpnZone;
+
+    /**
      * @var networks[]
      */
     public $networks;
@@ -113,6 +118,7 @@ class DescribeClusterResponseBody extends Model
         'clusterType'        => 'ClusterType',
         'components'         => 'Components',
         'createTime'         => 'CreateTime',
+        'hpnZone'            => 'HpnZone',
         'networks'           => 'Networks',
         'nodeCount'          => 'NodeCount',
         'nodeGroupCount'     => 'NodeGroupCount',
@@ -154,6 +160,9 @@ class DescribeClusterResponseBody extends Model
         }
         if (null !== $this->createTime) {
             $res['CreateTime'] = $this->createTime;
+        }
+        if (null !== $this->hpnZone) {
+            $res['HpnZone'] = $this->hpnZone;
         }
         if (null !== $this->networks) {
             $res['Networks'] = [];
@@ -223,6 +232,9 @@ class DescribeClusterResponseBody extends Model
         }
         if (isset($map['CreateTime'])) {
             $model->createTime = $map['CreateTime'];
+        }
+        if (isset($map['HpnZone'])) {
+            $model->hpnZone = $map['HpnZone'];
         }
         if (isset($map['Networks'])) {
             if (!empty($map['Networks'])) {
