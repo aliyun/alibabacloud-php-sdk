@@ -13,6 +13,8 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicy extends Model
 {
     /**
+     * @description 极简模式
+     *
      * @var bool
      */
     public $directedMode;

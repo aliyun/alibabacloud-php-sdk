@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupRule extends Model
 {
     /**
-     * @description The time interval for grouping. Unit: seconds. Default value: 30.
+     * @description The time interval of grouping. Unit: seconds. Default value: 30.
      *
      * @example 30
      *
@@ -28,6 +28,9 @@ class groupRule extends Model
 
     /**
      * @description The fields that are used to group events.
+     *
+     *   If this parameter is not returned, all alert notifications are sent to the alert contacts that belong to the `alertname` group. By default, this parameter is not returned.
+     *   If this parameter is returned, alerts with the same fields are sent to the alert contacts in one notification.
      *
      * @var string[]
      */

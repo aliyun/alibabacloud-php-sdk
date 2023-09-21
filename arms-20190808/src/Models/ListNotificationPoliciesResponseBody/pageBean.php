@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class pageBean extends Model
 {
     /**
-     * @description The information about the notification policies.
+     * @description The queried notification policies.
      *
      * @var notificationPolicies[]
      */

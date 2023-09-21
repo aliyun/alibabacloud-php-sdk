@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class CreateOrUpdateNotificationPolicyRequest extends Model
 {
     /**
+     * @description Specifies whether to enable simple mode.
+     *
      * @var bool
      */
     public $directedMode;

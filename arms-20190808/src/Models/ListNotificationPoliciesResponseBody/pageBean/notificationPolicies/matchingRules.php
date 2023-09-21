@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class matchingRules extends Model
 {
     /**
-     * @description The alert event matching conditions.
+     * @description The matching conditions.
      *
      * @var matchingConditions[]
      */

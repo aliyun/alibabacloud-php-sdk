@@ -20,12 +20,12 @@ class matchingConditions extends Model
     /**
      * @description The logical operator of the matching condition. Valid values:
      *
-     *   `eq`: equal to.
-     *   `neq`: not equal to.
-     *   `in`: contains.
-     *   `nin`: does not contain.
-     *   `re`: regular expression match.
-     *   `nre`: regular expression mismatch.
+     *   `eq`: equal to
+     *   `neq`: not equal to
+     *   `in`: contains
+     *   `nin`: does not contain
+     *   `re`: regular expression match
+     *   `nre`: regular expression mismatch
      *
      * @example eq
      *

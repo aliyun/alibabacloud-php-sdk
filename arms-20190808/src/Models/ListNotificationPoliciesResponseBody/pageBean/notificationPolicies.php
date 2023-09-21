@@ -13,12 +13,14 @@ use AlibabaCloud\Tea\Model;
 class notificationPolicies extends Model
 {
     /**
+     * @description Indicates whether simple mode is enabled.
+     *
      * @var bool
      */
     public $directedMode;
 
     /**
-     * @description The ID of the escalation rule.
+     * @description The ID of the escalation policy.
      *
      * @example 123
      *
@@ -52,7 +54,7 @@ class notificationPolicies extends Model
     public $integrationId;
 
     /**
-     * @description The alert event matching rules.
+     * @description The matching rules for alert events.
      *
      * @var matchingRules[]
      */
@@ -82,9 +84,11 @@ class notificationPolicies extends Model
     public $notifyTemplate;
 
     /**
-     * @description Indicates whether the system repeatedly sends notifications for a long-lasting unresolved alert. Default value: true. Valid values:
+     * @description Indicates whether the system resends notifications for a long-lasting unresolved alert. Valid values:
      *
-     * - `false`: The system sends a notification for a long-lasting unresolved alert based on an escalation policy.
+     *   `true` (default): The system resends notifications for a long-lasting unresolved alert at a specified time interval.
+     *   `false`: The system resends notifications for a long-lasting unresolved alert based on an escalation policy.
+     *
      * @example true
      *
      * @var bool
@@ -92,7 +96,7 @@ class notificationPolicies extends Model
     public $repeat;
 
     /**
-     * @description The time interval at which notifications are sent for a long-lasting unresolved alert. Unit: seconds.
+     * @description The time interval at which notifications are resent for a long-lasting unresolved alert. Unit: seconds.
      *
      * @example 600
      *
@@ -101,9 +105,11 @@ class notificationPolicies extends Model
     public $repeatInterval;
 
     /**
-     * @description Specifies whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. The system notifies contacts when the alert status changes to Resolved.
+     * @description Indicates whether the status of an alert automatically changes to Resolved when all events related to the alert change to the Restored state. The system sends a notification to the alert contacts when the alert status changes to Resolved.
      *
-     * - `false`: The system does not send a notification.
+     *   `true` (default): The system sends a notification.
+     *   `false`: The system does not send a notification.
+     *
      * @example true
      *
      * @var bool

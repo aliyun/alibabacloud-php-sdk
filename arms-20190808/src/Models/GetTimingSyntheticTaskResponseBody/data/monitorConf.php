@@ -9,6 +9,7 @@ use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\da
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data\monitorConf\netDNS;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data\monitorConf\netICMP;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data\monitorConf\netTCP;
+use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data\monitorConf\stream;
 use AlibabaCloud\SDK\ARMS\V20190808\Models\GetTimingSyntheticTaskResponseBody\data\monitorConf\website;
 use AlibabaCloud\Tea\Model;
 
@@ -40,6 +41,11 @@ class monitorConf extends Model
     public $netTCP;
 
     /**
+     * @var stream
+     */
+    public $stream;
+
+    /**
      * @var website
      */
     public $website;
@@ -49,6 +55,7 @@ class monitorConf extends Model
         'netDNS'       => 'NetDNS',
         'netICMP'      => 'NetICMP',
         'netTCP'       => 'NetTCP',
+        'stream'       => 'Stream',
         'website'      => 'Website',
     ];
 
@@ -73,6 +80,9 @@ class monitorConf extends Model
         }
         if (null !== $this->netTCP) {
             $res['NetTCP'] = null !== $this->netTCP ? $this->netTCP->toMap() : null;
+        }
+        if (null !== $this->stream) {
+            $res['Stream'] = null !== $this->stream ? $this->stream->toMap() : null;
         }
         if (null !== $this->website) {
             $res['Website'] = null !== $this->website ? $this->website->toMap() : null;
@@ -103,6 +113,9 @@ class monitorConf extends Model
         }
         if (isset($map['NetTCP'])) {
             $model->netTCP = netTCP::fromMap($map['NetTCP']);
+        }
+        if (isset($map['Stream'])) {
+            $model->stream = stream::fromMap($map['Stream']);
         }
         if (isset($map['Website'])) {
             $model->website = website::fromMap($map['Website']);

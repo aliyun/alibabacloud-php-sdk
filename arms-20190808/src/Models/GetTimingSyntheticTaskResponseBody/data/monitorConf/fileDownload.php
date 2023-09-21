@@ -110,6 +110,21 @@ class fileDownload extends Model
      * @var int
      */
     public $transmissionSize;
+
+    /**
+     * @var string
+     */
+    public $validateKeywords;
+
+    /**
+     * @var int
+     */
+    public $verifyWay;
+
+    /**
+     * @var string
+     */
+    public $whiteList;
     protected $_name = [
         'connectionTimeout'                   => 'ConnectionTimeout',
         'customHeaderContent'                 => 'CustomHeaderContent',
@@ -126,6 +141,9 @@ class fileDownload extends Model
         'redirection'                         => 'Redirection',
         'targetUrl'                           => 'TargetUrl',
         'transmissionSize'                    => 'TransmissionSize',
+        'validateKeywords'                    => 'ValidateKeywords',
+        'verifyWay'                           => 'VerifyWay',
+        'whiteList'                           => 'WhiteList',
     ];
 
     public function validate()
@@ -179,6 +197,15 @@ class fileDownload extends Model
         }
         if (null !== $this->transmissionSize) {
             $res['TransmissionSize'] = $this->transmissionSize;
+        }
+        if (null !== $this->validateKeywords) {
+            $res['ValidateKeywords'] = $this->validateKeywords;
+        }
+        if (null !== $this->verifyWay) {
+            $res['VerifyWay'] = $this->verifyWay;
+        }
+        if (null !== $this->whiteList) {
+            $res['WhiteList'] = $this->whiteList;
         }
 
         return $res;
@@ -236,6 +263,15 @@ class fileDownload extends Model
         }
         if (isset($map['TransmissionSize'])) {
             $model->transmissionSize = $map['TransmissionSize'];
+        }
+        if (isset($map['ValidateKeywords'])) {
+            $model->validateKeywords = $map['ValidateKeywords'];
+        }
+        if (isset($map['VerifyWay'])) {
+            $model->verifyWay = $map['VerifyWay'];
+        }
+        if (isset($map['WhiteList'])) {
+            $model->whiteList = $map['WhiteList'];
         }
 
         return $model;

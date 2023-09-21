@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class notifyRule extends Model
 {
     /**
-     * @description The notification method.
+     * @description The notification methods.
      *
      * @var string[]
      */
@@ -26,7 +26,7 @@ class notifyRule extends Model
     public $notifyEndTime;
 
     /**
-     * @description The contacts.
+     * @description The notification objects.
      *
      * @var notifyObjects[]
      */

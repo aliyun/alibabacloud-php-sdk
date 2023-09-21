@@ -45,7 +45,7 @@ class notifyTemplate extends Model
     public $emailTitle;
 
     /**
-     * @description The content of the alert notification sent by an IM robot.
+     * @description The content of the alert notification sent by an IM chatbot.
      *
      * @example {{if .commonLabels.clustername }}
      *

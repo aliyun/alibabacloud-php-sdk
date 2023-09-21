@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class ListNotificationPoliciesResponseBody extends Model
 {
     /**
-     * @description The pages that are returned.
+     * @description The returned pages.
      *
      * @var pageBean
      */
