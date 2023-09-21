@@ -16,6 +16,26 @@ class userInformation extends Model
     public $company;
 
     /**
+     * @var string
+     */
+    public $contactEmail;
+
+    /**
+     * @var string
+     */
+    public $contactNumber;
+
+    /**
+     * @var string
+     */
+    public $contactPerson;
+
+    /**
+     * @var string
+     */
+    public $contactPersonTitle;
+
+    /**
      * @example china
      *
      * @var string
@@ -40,11 +60,41 @@ class userInformation extends Model
     public $name;
 
     /**
+     * @var string
+     */
+    public $productBusiness;
+
+    /**
+     * @var string
+     */
+    public $productDeliveryTypes;
+
+    /**
+     * @var string
+     */
+    public $productSellTypes;
+
+    /**
      * @example 223.2.1.3.xxxx
      *
      * @var string
      */
     public $source;
+
+    /**
+     * @var string
+     */
+    public $supplierDesc;
+
+    /**
+     * @var string
+     */
+    public $supplierName;
+
+    /**
+     * @var string
+     */
+    public $supplierUrl;
 
     /**
      * @example 12345xxxxxx
@@ -58,14 +108,24 @@ class userInformation extends Model
      */
     public $title;
     protected $_name = [
-        'company'      => 'Company',
-        'country'      => 'Country',
-        'emailAddress' => 'EmailAddress',
-        'industry'     => 'Industry',
-        'name'         => 'Name',
-        'source'       => 'Source',
-        'telephone'    => 'Telephone',
-        'title'        => 'Title',
+        'company'              => 'Company',
+        'contactEmail'         => 'ContactEmail',
+        'contactNumber'        => 'ContactNumber',
+        'contactPerson'        => 'ContactPerson',
+        'contactPersonTitle'   => 'ContactPersonTitle',
+        'country'              => 'Country',
+        'emailAddress'         => 'EmailAddress',
+        'industry'             => 'Industry',
+        'name'                 => 'Name',
+        'productBusiness'      => 'ProductBusiness',
+        'productDeliveryTypes' => 'ProductDeliveryTypes',
+        'productSellTypes'     => 'ProductSellTypes',
+        'source'               => 'Source',
+        'supplierDesc'         => 'SupplierDesc',
+        'supplierName'         => 'SupplierName',
+        'supplierUrl'          => 'SupplierUrl',
+        'telephone'            => 'Telephone',
+        'title'                => 'Title',
     ];
 
     public function validate()
@@ -77,6 +137,18 @@ class userInformation extends Model
         $res = [];
         if (null !== $this->company) {
             $res['Company'] = $this->company;
+        }
+        if (null !== $this->contactEmail) {
+            $res['ContactEmail'] = $this->contactEmail;
+        }
+        if (null !== $this->contactNumber) {
+            $res['ContactNumber'] = $this->contactNumber;
+        }
+        if (null !== $this->contactPerson) {
+            $res['ContactPerson'] = $this->contactPerson;
+        }
+        if (null !== $this->contactPersonTitle) {
+            $res['ContactPersonTitle'] = $this->contactPersonTitle;
         }
         if (null !== $this->country) {
             $res['Country'] = $this->country;
@@ -90,8 +162,26 @@ class userInformation extends Model
         if (null !== $this->name) {
             $res['Name'] = $this->name;
         }
+        if (null !== $this->productBusiness) {
+            $res['ProductBusiness'] = $this->productBusiness;
+        }
+        if (null !== $this->productDeliveryTypes) {
+            $res['ProductDeliveryTypes'] = $this->productDeliveryTypes;
+        }
+        if (null !== $this->productSellTypes) {
+            $res['ProductSellTypes'] = $this->productSellTypes;
+        }
         if (null !== $this->source) {
             $res['Source'] = $this->source;
+        }
+        if (null !== $this->supplierDesc) {
+            $res['SupplierDesc'] = $this->supplierDesc;
+        }
+        if (null !== $this->supplierName) {
+            $res['SupplierName'] = $this->supplierName;
+        }
+        if (null !== $this->supplierUrl) {
+            $res['SupplierUrl'] = $this->supplierUrl;
         }
         if (null !== $this->telephone) {
             $res['Telephone'] = $this->telephone;
@@ -114,6 +204,18 @@ class userInformation extends Model
         if (isset($map['Company'])) {
             $model->company = $map['Company'];
         }
+        if (isset($map['ContactEmail'])) {
+            $model->contactEmail = $map['ContactEmail'];
+        }
+        if (isset($map['ContactNumber'])) {
+            $model->contactNumber = $map['ContactNumber'];
+        }
+        if (isset($map['ContactPerson'])) {
+            $model->contactPerson = $map['ContactPerson'];
+        }
+        if (isset($map['ContactPersonTitle'])) {
+            $model->contactPersonTitle = $map['ContactPersonTitle'];
+        }
         if (isset($map['Country'])) {
             $model->country = $map['Country'];
         }
@@ -126,8 +228,26 @@ class userInformation extends Model
         if (isset($map['Name'])) {
             $model->name = $map['Name'];
         }
+        if (isset($map['ProductBusiness'])) {
+            $model->productBusiness = $map['ProductBusiness'];
+        }
+        if (isset($map['ProductDeliveryTypes'])) {
+            $model->productDeliveryTypes = $map['ProductDeliveryTypes'];
+        }
+        if (isset($map['ProductSellTypes'])) {
+            $model->productSellTypes = $map['ProductSellTypes'];
+        }
         if (isset($map['Source'])) {
             $model->source = $map['Source'];
+        }
+        if (isset($map['SupplierDesc'])) {
+            $model->supplierDesc = $map['SupplierDesc'];
+        }
+        if (isset($map['SupplierName'])) {
+            $model->supplierName = $map['SupplierName'];
+        }
+        if (isset($map['SupplierUrl'])) {
+            $model->supplierUrl = $map['SupplierUrl'];
         }
         if (isset($map['Telephone'])) {
             $model->telephone = $map['Telephone'];

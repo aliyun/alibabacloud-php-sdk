@@ -156,6 +156,11 @@ class GetServiceResponseBody extends Model
     public $requestId;
 
     /**
+     * @var bool
+     */
+    public $resellable;
+
+    /**
      * @example rg-aekzuqyxxxxxx
      *
      * @var string
@@ -308,6 +313,11 @@ class GetServiceResponseBody extends Model
      * @var string
      */
     public $versionName;
+
+    /**
+     * @var string
+     */
+    public $virtualInternetService;
     protected $_name = [
         'alarmMetadata'           => 'AlarmMetadata',
         'approvalType'            => 'ApprovalType',
@@ -331,6 +341,7 @@ class GetServiceResponseBody extends Model
         'publishTime'             => 'PublishTime',
         'registrationId'          => 'RegistrationId',
         'requestId'               => 'RequestId',
+        'resellable'              => 'Resellable',
         'resourceGroupId'         => 'ResourceGroupId',
         'serviceDocUrl'           => 'ServiceDocUrl',
         'serviceId'               => 'ServiceId',
@@ -355,6 +366,7 @@ class GetServiceResponseBody extends Model
         'upgradeMetadata'         => 'UpgradeMetadata',
         'version'                 => 'Version',
         'versionName'             => 'VersionName',
+        'virtualInternetService'  => 'VirtualInternetService',
     ];
 
     public function validate()
@@ -442,6 +454,9 @@ class GetServiceResponseBody extends Model
         if (null !== $this->requestId) {
             $res['RequestId'] = $this->requestId;
         }
+        if (null !== $this->resellable) {
+            $res['Resellable'] = $this->resellable;
+        }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
         }
@@ -525,6 +540,9 @@ class GetServiceResponseBody extends Model
         }
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
+        }
+        if (null !== $this->virtualInternetService) {
+            $res['VirtualInternetService'] = $this->virtualInternetService;
         }
 
         return $res;
@@ -616,6 +634,9 @@ class GetServiceResponseBody extends Model
         if (isset($map['RequestId'])) {
             $model->requestId = $map['RequestId'];
         }
+        if (isset($map['Resellable'])) {
+            $model->resellable = $map['Resellable'];
+        }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];
         }
@@ -699,6 +720,9 @@ class GetServiceResponseBody extends Model
         }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
+        }
+        if (isset($map['VirtualInternetService'])) {
+            $model->virtualInternetService = $map['VirtualInternetService'];
         }
 
         return $model;

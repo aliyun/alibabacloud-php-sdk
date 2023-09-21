@@ -276,6 +276,9 @@ class ComputeNestSupplier extends OpenApiClient
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
         }
+        if (!Utils::isUnset($request->resellable)) {
+            $query['Resellable'] = $request->resellable;
+        }
         if (!Utils::isUnset($request->resourceGroupId)) {
             $query['ResourceGroupId'] = $request->resourceGroupId;
         }
@@ -1598,6 +1601,9 @@ class ComputeNestSupplier extends OpenApiClient
         }
         if (!Utils::isUnset($request->regionId)) {
             $query['RegionId'] = $request->regionId;
+        }
+        if (!Utils::isUnset($request->resellable)) {
+            $query['Resellable'] = $request->resellable;
         }
         if (!Utils::isUnset($request->serviceId)) {
             $query['ServiceId'] = $request->serviceId;

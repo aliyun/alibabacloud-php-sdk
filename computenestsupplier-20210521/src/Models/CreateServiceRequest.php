@@ -87,6 +87,11 @@ class CreateServiceRequest extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $resellable;
+
+    /**
      * @var string
      */
     public $resourceGroupId;
@@ -172,6 +177,7 @@ class CreateServiceRequest extends Model
         'operationMetadata'    => 'OperationMetadata',
         'policyNames'          => 'PolicyNames',
         'regionId'             => 'RegionId',
+        'resellable'           => 'Resellable',
         'resourceGroupId'      => 'ResourceGroupId',
         'serviceId'            => 'ServiceId',
         'serviceInfo'          => 'ServiceInfo',
@@ -228,6 +234,9 @@ class CreateServiceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resellable) {
+            $res['Resellable'] = $this->resellable;
         }
         if (null !== $this->resourceGroupId) {
             $res['ResourceGroupId'] = $this->resourceGroupId;
@@ -324,6 +333,9 @@ class CreateServiceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Resellable'])) {
+            $model->resellable = $map['Resellable'];
         }
         if (isset($map['ResourceGroupId'])) {
             $model->resourceGroupId = $map['ResourceGroupId'];

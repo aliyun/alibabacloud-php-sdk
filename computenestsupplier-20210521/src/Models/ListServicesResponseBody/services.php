@@ -81,6 +81,11 @@ class services extends Model
     /**
      * @var string
      */
+    public $resellApplyStatus;
+
+    /**
+     * @var string
+     */
     public $resellServiceId;
 
     /**
@@ -194,6 +199,11 @@ class services extends Model
      * @var string
      */
     public $versionName;
+
+    /**
+     * @var string
+     */
+    public $virtualInternetService;
     protected $_name = [
         'approvalType'                     => 'ApprovalType',
         'artifactId'                       => 'ArtifactId',
@@ -205,6 +215,7 @@ class services extends Model
         'latestResellSourceServiceVersion' => 'LatestResellSourceServiceVersion',
         'publishTime'                      => 'PublishTime',
         'relationType'                     => 'RelationType',
+        'resellApplyStatus'                => 'ResellApplyStatus',
         'resellServiceId'                  => 'ResellServiceId',
         'resourceGroupId'                  => 'ResourceGroupId',
         'serviceId'                        => 'ServiceId',
@@ -224,6 +235,7 @@ class services extends Model
         'updateTime'                       => 'UpdateTime',
         'version'                          => 'Version',
         'versionName'                      => 'VersionName',
+        'virtualInternetService'           => 'VirtualInternetService',
     ];
 
     public function validate()
@@ -262,6 +274,9 @@ class services extends Model
         }
         if (null !== $this->relationType) {
             $res['RelationType'] = $this->relationType;
+        }
+        if (null !== $this->resellApplyStatus) {
+            $res['ResellApplyStatus'] = $this->resellApplyStatus;
         }
         if (null !== $this->resellServiceId) {
             $res['ResellServiceId'] = $this->resellServiceId;
@@ -332,6 +347,9 @@ class services extends Model
         if (null !== $this->versionName) {
             $res['VersionName'] = $this->versionName;
         }
+        if (null !== $this->virtualInternetService) {
+            $res['VirtualInternetService'] = $this->virtualInternetService;
+        }
 
         return $res;
     }
@@ -373,6 +391,9 @@ class services extends Model
         }
         if (isset($map['RelationType'])) {
             $model->relationType = $map['RelationType'];
+        }
+        if (isset($map['ResellApplyStatus'])) {
+            $model->resellApplyStatus = $map['ResellApplyStatus'];
         }
         if (isset($map['ResellServiceId'])) {
             $model->resellServiceId = $map['ResellServiceId'];
@@ -442,6 +463,9 @@ class services extends Model
         }
         if (isset($map['VersionName'])) {
             $model->versionName = $map['VersionName'];
+        }
+        if (isset($map['VirtualInternetService'])) {
+            $model->virtualInternetService = $map['VirtualInternetService'];
         }
 
         return $model;

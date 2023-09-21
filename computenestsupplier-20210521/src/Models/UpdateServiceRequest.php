@@ -83,6 +83,11 @@ class UpdateServiceRequest extends Model
     public $regionId;
 
     /**
+     * @var bool
+     */
+    public $resellable;
+
+    /**
      * @example service-1dda29c3eca648xxxxxx
      *
      * @var string
@@ -147,6 +152,7 @@ class UpdateServiceRequest extends Model
         'operationMetadata' => 'OperationMetadata',
         'policyNames'       => 'PolicyNames',
         'regionId'          => 'RegionId',
+        'resellable'        => 'Resellable',
         'serviceId'         => 'ServiceId',
         'serviceInfo'       => 'ServiceInfo',
         'serviceType'       => 'ServiceType',
@@ -196,6 +202,9 @@ class UpdateServiceRequest extends Model
         }
         if (null !== $this->regionId) {
             $res['RegionId'] = $this->regionId;
+        }
+        if (null !== $this->resellable) {
+            $res['Resellable'] = $this->resellable;
         }
         if (null !== $this->serviceId) {
             $res['ServiceId'] = $this->serviceId;
@@ -271,6 +280,9 @@ class UpdateServiceRequest extends Model
         }
         if (isset($map['RegionId'])) {
             $model->regionId = $map['RegionId'];
+        }
+        if (isset($map['Resellable'])) {
+            $model->resellable = $map['Resellable'];
         }
         if (isset($map['ServiceId'])) {
             $model->serviceId = $map['ServiceId'];
