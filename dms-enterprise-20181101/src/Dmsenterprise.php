@@ -27,6 +27,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BuyPayAsYouGoOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\BuyPayAsYouGoOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecLevelResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecurityLevelRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeColumnSecurityLevelResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ChangeLhDagOwnerResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CloseOrderRequest;
@@ -65,6 +67,9 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateLogicDatabaseShrinkReq
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateOrderShrinkRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProcCorrectOrderRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProcCorrectOrderResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProcCorrectOrderShrinkRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyAccessRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyAccessResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\CreateProxyRequest;
@@ -141,6 +146,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemRequ
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateItemResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetAuthorityTemplateResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetClassificationTemplateRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetClassificationTemplateResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveCountRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveCountResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\GetDataArchiveOrderDetailRequest;
@@ -312,6 +319,8 @@ use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveColumnsResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveDataAuditLogRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitiveDataAuditLogResponse;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitivityLevelRequest;
+use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSensitivityLevelResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSLARulesRequest;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSLARulesResponse;
 use AlibabaCloud\SDK\Dmsenterprise\V20181101\Models\ListSQLExecAuditLogRequest;
@@ -1046,6 +1055,67 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->changeColumnSecLevelWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ChangeColumnSecurityLevelRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return ChangeColumnSecurityLevelResponse
+     */
+    public function changeColumnSecurityLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->columnName)) {
+            $query['ColumnName'] = $request->columnName;
+        }
+        if (!Utils::isUnset($request->dbId)) {
+            $query['DbId'] = $request->dbId;
+        }
+        if (!Utils::isUnset($request->isLogic)) {
+            $query['IsLogic'] = $request->isLogic;
+        }
+        if (!Utils::isUnset($request->newSensitivityLevel)) {
+            $query['NewSensitivityLevel'] = $request->newSensitivityLevel;
+        }
+        if (!Utils::isUnset($request->schemaName)) {
+            $query['SchemaName'] = $request->schemaName;
+        }
+        if (!Utils::isUnset($request->tableName)) {
+            $query['TableName'] = $request->tableName;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ChangeColumnSecurityLevel',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ChangeColumnSecurityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ChangeColumnSecurityLevelRequest $request
+     *
+     * @return ChangeColumnSecurityLevelResponse
+     */
+    public function changeColumnSecurityLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->changeColumnSecurityLevelWithOptions($request, $runtime);
     }
 
     /**
@@ -1940,6 +2010,69 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->createOrderWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param CreateProcCorrectOrderRequest $tmpReq
+     * @param RuntimeOptions                $runtime
+     *
+     * @return CreateProcCorrectOrderResponse
+     */
+    public function createProcCorrectOrderWithOptions($tmpReq, $runtime)
+    {
+        Utils::validateModel($tmpReq);
+        $request = new CreateProcCorrectOrderShrinkRequest([]);
+        OpenApiUtilClient::convert($tmpReq, $request);
+        if (!Utils::isUnset($tmpReq->param)) {
+            $request->paramShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->param, 'Param', 'json');
+        }
+        if (!Utils::isUnset($tmpReq->relatedUserList)) {
+            $request->relatedUserListShrink = OpenApiUtilClient::arrayToStringWithSpecifiedStyle($tmpReq->relatedUserList, 'RelatedUserList', 'json');
+        }
+        $query = [];
+        if (!Utils::isUnset($request->attachmentKey)) {
+            $query['AttachmentKey'] = $request->attachmentKey;
+        }
+        if (!Utils::isUnset($request->comment)) {
+            $query['Comment'] = $request->comment;
+        }
+        if (!Utils::isUnset($request->paramShrink)) {
+            $query['Param'] = $request->paramShrink;
+        }
+        if (!Utils::isUnset($request->relatedUserListShrink)) {
+            $query['RelatedUserList'] = $request->relatedUserListShrink;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'CreateProcCorrectOrder',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return CreateProcCorrectOrderResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param CreateProcCorrectOrderRequest $request
+     *
+     * @return CreateProcCorrectOrderResponse
+     */
+    public function createProcCorrectOrder($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->createProcCorrectOrderWithOptions($request, $runtime);
     }
 
     /**
@@ -3785,6 +3918,52 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->getAuthorityTemplateItemWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param GetClassificationTemplateRequest $request
+     * @param RuntimeOptions                   $runtime
+     *
+     * @return GetClassificationTemplateResponse
+     */
+    public function getClassificationTemplateWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->instanceId)) {
+            $query['InstanceId'] = $request->instanceId;
+        }
+        if (!Utils::isUnset($request->tid)) {
+            $query['Tid'] = $request->tid;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'GetClassificationTemplate',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return GetClassificationTemplateResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param GetClassificationTemplateRequest $request
+     *
+     * @return GetClassificationTemplateResponse
+     */
+    public function getClassificationTemplate($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->getClassificationTemplateWithOptions($request, $runtime);
     }
 
     /**
@@ -8287,6 +8466,46 @@ class Dmsenterprise extends OpenApiClient
         $runtime = new RuntimeOptions([]);
 
         return $this->listSensitiveDataAuditLogWithOptions($request, $runtime);
+    }
+
+    /**
+     * @param ListSensitivityLevelRequest $request
+     * @param RuntimeOptions              $runtime
+     *
+     * @return ListSensitivityLevelResponse
+     */
+    public function listSensitivityLevelWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = OpenApiUtilClient::query(Utils::toMap($request));
+        $req   = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ListSensitivityLevel',
+            'version'     => '2018-11-01',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'GET',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ListSensitivityLevelResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ListSensitivityLevelRequest $request
+     *
+     * @return ListSensitivityLevelResponse
+     */
+    public function listSensitivityLevel($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->listSensitivityLevelWithOptions($request, $runtime);
     }
 
     /**
