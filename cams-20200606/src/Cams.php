@@ -2122,6 +2122,9 @@ class Cams extends OpenApiClient
         if (!Utils::isUnset($request->fallBackId)) {
             $body['FallBackId'] = $request->fallBackId;
         }
+        if (!Utils::isUnset($request->fallBackRule)) {
+            $body['FallBackRule'] = $request->fallBackRule;
+        }
         if (!Utils::isUnset($request->from)) {
             $body['From'] = $request->from;
         }
@@ -2232,6 +2235,9 @@ class Cams extends OpenApiClient
         }
         if (!Utils::isUnset($request->fallBackId)) {
             $body['FallBackId'] = $request->fallBackId;
+        }
+        if (!Utils::isUnset($request->fallBackRule)) {
+            $body['FallBackRule'] = $request->fallBackRule;
         }
         if (!Utils::isUnset($request->from)) {
             $body['From'] = $request->from;

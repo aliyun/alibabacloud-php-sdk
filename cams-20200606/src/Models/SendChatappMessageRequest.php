@@ -94,8 +94,6 @@ class SendChatappMessageRequest extends Model
     public $fallBackContent;
 
     /**
-     * @description 消息在指定时间内未返回回执回落
-     *
      * @example 120
      *
      * @var int
@@ -110,6 +108,13 @@ class SendChatappMessageRequest extends Model
      * @var string
      */
     public $fallBackId;
+
+    /**
+     * @example undelivered
+     *
+     * @var string
+     */
+    public $fallBackRule;
 
     /**
      * @description The phone number of the message sender.
@@ -193,6 +198,8 @@ class SendChatappMessageRequest extends Model
     public $payload;
 
     /**
+     * @description The information about the products included in the WhatsApp catalog message or multi-product message (MPM).
+     *
      * @var productAction
      */
     public $productAction;
@@ -278,6 +285,7 @@ class SendChatappMessageRequest extends Model
         'fallBackContent'  => 'FallBackContent',
         'fallBackDuration' => 'FallBackDuration',
         'fallBackId'       => 'FallBackId',
+        'fallBackRule'     => 'FallBackRule',
         'from'             => 'From',
         'isvCode'          => 'IsvCode',
         'label'            => 'Label',
@@ -325,6 +333,9 @@ class SendChatappMessageRequest extends Model
         }
         if (null !== $this->fallBackId) {
             $res['FallBackId'] = $this->fallBackId;
+        }
+        if (null !== $this->fallBackRule) {
+            $res['FallBackRule'] = $this->fallBackRule;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -406,6 +417,9 @@ class SendChatappMessageRequest extends Model
         }
         if (isset($map['FallBackId'])) {
             $model->fallBackId = $map['FallBackId'];
+        }
+        if (isset($map['FallBackRule'])) {
+            $model->fallBackRule = $map['FallBackRule'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

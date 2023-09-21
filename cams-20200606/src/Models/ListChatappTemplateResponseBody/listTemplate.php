@@ -45,6 +45,8 @@ class listTemplate extends Model
     public $language;
 
     /**
+     * @description 模板审核被拒的原因
+     *
      * @example None
      *
      * @var string

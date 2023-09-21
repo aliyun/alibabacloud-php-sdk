@@ -66,6 +66,13 @@ class SendChatappMassMessageRequest extends Model
     public $fallBackId;
 
     /**
+     * @example undelivered
+     *
+     * @var string
+     */
+    public $fallBackRule;
+
+    /**
      * @description The phone number of the message sender.
      *
      * @example 861387777****
@@ -150,6 +157,7 @@ class SendChatappMassMessageRequest extends Model
         'fallBackContent'  => 'FallBackContent',
         'fallBackDuration' => 'FallBackDuration',
         'fallBackId'       => 'FallBackId',
+        'fallBackRule'     => 'FallBackRule',
         'from'             => 'From',
         'isvCode'          => 'IsvCode',
         'label'            => 'Label',
@@ -185,6 +193,9 @@ class SendChatappMassMessageRequest extends Model
         }
         if (null !== $this->fallBackId) {
             $res['FallBackId'] = $this->fallBackId;
+        }
+        if (null !== $this->fallBackRule) {
+            $res['FallBackRule'] = $this->fallBackRule;
         }
         if (null !== $this->from) {
             $res['From'] = $this->from;
@@ -248,6 +259,9 @@ class SendChatappMassMessageRequest extends Model
         }
         if (isset($map['FallBackId'])) {
             $model->fallBackId = $map['FallBackId'];
+        }
+        if (isset($map['FallBackRule'])) {
+            $model->fallBackRule = $map['FallBackRule'];
         }
         if (isset($map['From'])) {
             $model->from = $map['From'];

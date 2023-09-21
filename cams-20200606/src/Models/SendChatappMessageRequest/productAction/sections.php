@@ -10,11 +10,17 @@ use AlibabaCloud\Tea\Model;
 class sections extends Model
 {
     /**
+     * @description The products.
+     *
      * @var productItems[]
      */
     public $productItems;
 
     /**
+     * @description The name of the category.
+     *
+     * @example Test
+     *
      * @var string
      */
     public $title;
