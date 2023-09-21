@@ -34,10 +34,16 @@ class ReprotectDiskReplicaGroupRequest extends Model
      * @var string
      */
     public $replicaGroupId;
+
+    /**
+     * @var bool
+     */
+    public $reverseReplicate;
     protected $_name = [
-        'clientToken'    => 'ClientToken',
-        'regionId'       => 'RegionId',
-        'replicaGroupId' => 'ReplicaGroupId',
+        'clientToken'      => 'ClientToken',
+        'regionId'         => 'RegionId',
+        'replicaGroupId'   => 'ReplicaGroupId',
+        'reverseReplicate' => 'ReverseReplicate',
     ];
 
     public function validate()
@@ -55,6 +61,9 @@ class ReprotectDiskReplicaGroupRequest extends Model
         }
         if (null !== $this->replicaGroupId) {
             $res['ReplicaGroupId'] = $this->replicaGroupId;
+        }
+        if (null !== $this->reverseReplicate) {
+            $res['ReverseReplicate'] = $this->reverseReplicate;
         }
 
         return $res;
@@ -76,6 +85,9 @@ class ReprotectDiskReplicaGroupRequest extends Model
         }
         if (isset($map['ReplicaGroupId'])) {
             $model->replicaGroupId = $map['ReplicaGroupId'];
+        }
+        if (isset($map['ReverseReplicate'])) {
+            $model->reverseReplicate = $map['ReverseReplicate'];
         }
 
         return $model;

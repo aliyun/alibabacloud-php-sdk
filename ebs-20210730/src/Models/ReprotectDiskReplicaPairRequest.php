@@ -28,10 +28,18 @@ class ReprotectDiskReplicaPairRequest extends Model
      * @var string
      */
     public $replicaPairId;
+
+    /**
+     * @description 反向复制开关：false代表恢复原方向，true代表反向复制。默认值是true。
+     *
+     * @var bool
+     */
+    public $reverseReplicate;
     protected $_name = [
-        'clientToken'   => 'ClientToken',
-        'regionId'      => 'RegionId',
-        'replicaPairId' => 'ReplicaPairId',
+        'clientToken'      => 'ClientToken',
+        'regionId'         => 'RegionId',
+        'replicaPairId'    => 'ReplicaPairId',
+        'reverseReplicate' => 'ReverseReplicate',
     ];
 
     public function validate()
@@ -49,6 +57,9 @@ class ReprotectDiskReplicaPairRequest extends Model
         }
         if (null !== $this->replicaPairId) {
             $res['ReplicaPairId'] = $this->replicaPairId;
+        }
+        if (null !== $this->reverseReplicate) {
+            $res['ReverseReplicate'] = $this->reverseReplicate;
         }
 
         return $res;
@@ -70,6 +81,9 @@ class ReprotectDiskReplicaPairRequest extends Model
         }
         if (isset($map['ReplicaPairId'])) {
             $model->replicaPairId = $map['ReplicaPairId'];
+        }
+        if (isset($map['ReverseReplicate'])) {
+            $model->reverseReplicate = $map['ReverseReplicate'];
         }
 
         return $model;

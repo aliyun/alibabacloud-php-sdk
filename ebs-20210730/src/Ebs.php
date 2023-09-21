@@ -1774,6 +1774,9 @@ class Ebs extends OpenApiClient
         if (!Utils::isUnset($request->replicaGroupId)) {
             $query['ReplicaGroupId'] = $request->replicaGroupId;
         }
+        if (!Utils::isUnset($request->reverseReplicate)) {
+            $query['ReverseReplicate'] = $request->reverseReplicate;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -1826,6 +1829,9 @@ class Ebs extends OpenApiClient
         }
         if (!Utils::isUnset($request->replicaPairId)) {
             $query['ReplicaPairId'] = $request->replicaPairId;
+        }
+        if (!Utils::isUnset($request->reverseReplicate)) {
+            $query['ReverseReplicate'] = $request->reverseReplicate;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
