@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class ruleTargetList extends Model
 {
     /**
-     * @description The name of the application to which the network object belongs.
+     * @description The name of the application of the network object.
      *
      * @example frontend
      *
@@ -36,7 +36,7 @@ class ruleTargetList extends Model
     public $clusterName;
 
     /**
-     * @description An array that consists of the images of the network object.
+     * @description The images of the network object.
      *
      * @var string[]
      */
@@ -52,7 +52,7 @@ class ruleTargetList extends Model
     public $namespace;
 
     /**
-     * @description The rule type. Valid values:
+     * @description The type of the rule. Valid value:
      *
      *   customize: custom rule
      *
@@ -63,7 +63,7 @@ class ruleTargetList extends Model
     public $ruleType;
 
     /**
-     * @description An array that consists of the labels specified for the network object.
+     * @description The tags specified for the network object.
      *
      * @var string[]
      */
@@ -89,7 +89,7 @@ class ruleTargetList extends Model
     public $targetName;
 
     /**
-     * @description The type of the network object. Valid values:
+     * @description The type of the network object. Valid value:
      *
      *   IMAGE
      *

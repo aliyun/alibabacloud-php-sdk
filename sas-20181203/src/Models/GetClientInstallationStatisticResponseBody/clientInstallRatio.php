@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class clientInstallRatio extends Model
 {
     /**
+     * @description The current statistics on the installation rate of the client.
+     *
      * @var currentItems[]
      */
     public $currentItems;
 
     /**
+     * @description The time when statistics were collected.
+     *
      * @var int[]
      */
     public $dates;
 
     /**
+     * @description The historical statistics on the installation rate of the agent.
+     *
      * @var historyItems[]
      */
     public $historyItems;

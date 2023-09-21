@@ -9,10 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetHoneypotProbeRequest extends Model
 {
     /**
-     * @description 设置请求和接收消息的语言类型，默认为**zh**。取值：
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
-     * - **zh**：中文
-     * - **en**：英文
+     *   **zh**: Chinese.
+     *   **en**: English.
+     *
      * @example zh
      *
      * @var string
@@ -20,8 +21,9 @@ class GetHoneypotProbeRequest extends Model
     public $lang;
 
     /**
-     * @description The ID of the probe.
+     * @description The probe ID.
      *
+     * > You can call the [ListHoneypotProbe](~~ListHoneypotProbe~~) operation to query the IDs of probes.
      * @example d6c1ebc9-a90d-4c9e-9490-328814d1ca00
      *
      * @var string

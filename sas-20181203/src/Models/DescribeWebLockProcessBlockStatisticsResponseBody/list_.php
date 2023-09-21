@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The number of processes on the current page.
+     * @description The number of processes that are returned on the current page.
      *
      * @example 20
      *

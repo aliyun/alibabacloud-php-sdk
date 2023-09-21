@@ -60,7 +60,7 @@ class DescribeWarningExportInfoResponseBody extends Model
     public $link;
 
     /**
-     * @description The message that shows the export task result. The value is fixed as **successful**, which indicates that the export task is successful.
+     * @description The message that shows the task result. The value is fixed as **successful**, which indicates that the export task is complete.
      *
      * @example successful
      *

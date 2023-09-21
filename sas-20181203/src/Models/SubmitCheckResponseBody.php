@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class SubmitCheckResponseBody extends Model
 {
     /**
+     * @description The data returned if the call is successful.
+     *
      * @var data
      */
     public $data;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example CE8369A6-A843-5E1B-A613-78E6920D****
      *
      * @var string
@@ -22,6 +26,8 @@ class SubmitCheckResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The ID of the configuration assessment task.
+     *
      * @example 5fe3f65d-4012-455d-8232-2a98a858****
      *
      * @var string

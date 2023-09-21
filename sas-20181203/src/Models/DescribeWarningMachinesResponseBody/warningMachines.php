@@ -27,8 +27,8 @@ class warningMachines extends Model
     /**
      * @description Indicates whether Security Center is authorized to protect the asset. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -37,7 +37,7 @@ class warningMachines extends Model
     public $bind;
 
     /**
-     * @description The ID of the container.
+     * @description The container ID.
      *
      * @example 48a6d9a92435a13ad573372c3f3c63b7e04d106458141df9f92155709d******
      *
@@ -46,7 +46,7 @@ class warningMachines extends Model
     public $containerId;
 
     /**
-     * @description The name of container.
+     * @description The name of the container.
      *
      * @example redis
      *
@@ -64,7 +64,7 @@ class warningMachines extends Model
     public $highWarningCount;
 
     /**
-     * @description The ID of the server.
+     * @description The server ID.
      *
      * @example i-m5ee8b9nr3h30mhb****
      *
@@ -129,8 +129,8 @@ class warningMachines extends Model
     /**
      * @description Indicates whether a port on the server is accessible over the Internet. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *

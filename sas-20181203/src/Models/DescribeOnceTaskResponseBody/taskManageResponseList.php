@@ -11,18 +11,18 @@ class taskManageResponseList extends Model
     /**
      * @description The execution details of the task. The value of this parameter is in the JSON format.
      *
-     *   **causeCode**: the returned code for the cause
-     *   **causeMsg**: the returned information for the cause
-     *   **resCode**: the returned code of troubleshooting
-     *   **resMsg**: the returned information about troubleshooting
-     *   **problemType**: the type of the issue
-     *   **dispatchType**: the task delivery method
-     *   **uuid**: the UUID of the server
-     *   **instanceId**: the instance ID of the server
-     *   **internetIp**: the public IP address of the server
-     *   **intranetIp**: the private IP address of the server
-     *   **instanceName**: the instance name of the server
-     *   **url**: the download link of the troubleshooting log
+     *   **causeCode**: the returned code for the cause.
+     *   **causeMsg**: the returned message for the cause.
+     *   **resCode**: the returned code for troubleshooting.
+     *   **resMsg**: the returned message for troubleshooting.
+     *   **problemType**: the type of the issue.
+     *   **dispatchType**: the task delivery method.
+     *   **uuid**: the UUID of the server.
+     *   **instanceId**: the instance ID of the server.
+     *   **internetIp**: the public IP address of the server.
+     *   **intranetIp**: the private IP address of the server.
+     *   **instanceName**: the instance name of the server.
+     *   **url**: the download URL of the troubleshooting log.
      *
      * @example [
      * "problemType": "offline",
@@ -33,7 +33,7 @@ class taskManageResponseList extends Model
     public $detailData;
 
     /**
-     * @description The number of tasks that failed.
+     * @description The number of tasks that fail to be executed.
      *
      * @example 2
      *
@@ -60,7 +60,7 @@ class taskManageResponseList extends Model
     public $resultInfo;
 
     /**
-     * @description The number of tasks that succeeded.
+     * @description The number of tasks that are executed.
      *
      * @example 7
      *
@@ -69,7 +69,7 @@ class taskManageResponseList extends Model
     public $successCount;
 
     /**
-     * @description The timestamp when the task ends. Unit: milliseconds.
+     * @description The timestamp that indicates the time when the task ends. Unit: milliseconds.
      *
      * @example 1650267989000
      *
@@ -78,7 +78,7 @@ class taskManageResponseList extends Model
     public $taskEndTime;
 
     /**
-     * @description The ID of the task.
+     * @description The task ID.
      *
      * @example e900f528f5a6229bb640ca27cb44c98e
      *
@@ -96,7 +96,7 @@ class taskManageResponseList extends Model
     public $taskName;
 
     /**
-     * @description The timestamp when the task starts. Unit: milliseconds.
+     * @description The timestamp that indicates the time when the task starts. Unit: milliseconds.
      *
      * @example 1649732012000
      *
@@ -107,10 +107,10 @@ class taskManageResponseList extends Model
     /**
      * @description The status of the task. Valid values:
      *
-     *   **1**: started
-     *   **2**: complete
-     *   **3**: failed
-     *   **4**: timed out
+     *   **1**: The task is started.
+     *   **2**: The task is complete.
+     *   **3**: The task fails.
+     *   **4**: The task times out.
      *
      * @example 1
      *
@@ -137,9 +137,9 @@ class taskManageResponseList extends Model
     /**
      * @description The type of the task. Valid values:
      *
-     *   **CLIENT\_PROBLEM_CHECK**: a task of the Security Center agent
-     *   **CLIENT\_DEV_OPS**: an O\&M task of Cloud Assistant
-     *   **ASSET\_SECURITY_CHECK**: a task of asset information collection
+     *   **CLIENT_PROBLEM_CHECK**: a task of the Security Center client
+     *   **CLIENT_DEV_OPS**: an O\&M task of Cloud Assistant
+     *   **ASSET_SECURITY_CHECK**: a task for asset information collection
      *
      * @example CLIENT_PROBLEM_CHECK
      *

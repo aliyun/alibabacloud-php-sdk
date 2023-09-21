@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The file path.
+     *
      * @example /root/logs/arms/tracelogs/log****
      *
      * @var string
@@ -16,6 +18,8 @@ class list_ extends Model
     public $filePath;
 
     /**
+     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     *
      * @example 168257753****
      *
      * @var int
@@ -23,6 +27,8 @@ class list_ extends Model
     public $firstScanTimestamp;
 
     /**
+     * @description The name of the asset.
+     *
      * @example sql-test-0****
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -44,6 +54,8 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     *
      * @example 168257753****
      *
      * @var int
@@ -51,6 +63,8 @@ class list_ extends Model
     public $latestScanTimestamp;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string

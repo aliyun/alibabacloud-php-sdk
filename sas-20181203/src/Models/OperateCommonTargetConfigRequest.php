@@ -54,7 +54,7 @@ class OperateCommonTargetConfigRequest extends Model
     public $targetOperations;
 
     /**
-     * @description The dimension based on which you want to configure the feature. Valid values:
+     * @description The dimension based on which the asset is selected. Valid values:
      *
      *   **uuid**: the UUID of the server
      *   **Cluster**: the ID of the cluster
@@ -70,11 +70,11 @@ class OperateCommonTargetConfigRequest extends Model
      * @description The type of the feature. Valid values:
      *
      *   **alidetect-scan-enable**: local file detection
-     *   **ACTION-TRIAL-PERMISSION**: data delivery of ActionTrail
+     *   **ACTION-TRIAL-PERMISSION**: data delivery to ActionTrail
      *   **alidetect**: local file detection engine
-     *   **container\_prevent\_escape**: container escape prevention
-     *   **image\_repo**: repository image scan
-     *   **proc\_filter\_switch**: log filtering
+     *   **container_prevent_escape**: container escape prevention
+     *   **image_repo**: repository image scan
+     *   **proc_filter_switch**: log filtering
      *   **agentless**: agentless detection
      *   **rasp**: application protection
      *   **sensitiveFile**: sensitive file detection

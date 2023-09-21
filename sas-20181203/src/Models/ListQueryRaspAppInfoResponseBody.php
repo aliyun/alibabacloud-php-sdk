@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListQueryRaspAppInfoResponseBody extends Model
 {
     /**
+     * @description The status code returned. The status code **200** indicates that the request was successful. Other status codes indicate that the request failed. You can identify the cause of the failure based on the status code.
+     *
      * @example 200
      *
      * @var string
@@ -17,11 +19,15 @@ class ListQueryRaspAppInfoResponseBody extends Model
     public $code;
 
     /**
+     * @description The installation information of the RASP-enabled application.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code that is returned.
+     *
      * @example 200
      *
      * @var int
@@ -29,6 +35,8 @@ class ListQueryRaspAppInfoResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The additional information that is returned.
+     *
      * @example successful
      *
      * @var string
@@ -36,6 +44,8 @@ class ListQueryRaspAppInfoResponseBody extends Model
     public $message;
 
     /**
+     * @description The unique ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 1A975D03-5F49-5354-B2CB-3918D5DA431A
      *
      * @var string
@@ -43,6 +53,11 @@ class ListQueryRaspAppInfoResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

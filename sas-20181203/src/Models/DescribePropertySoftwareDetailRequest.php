@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertySoftwareDetailRequest extends Model
 {
     /**
-     * @description The number of the page to return. Default value: **1**.
+     * @description The page number. Default value: **1**.
      *
      * @example 1
      *
@@ -27,7 +27,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $extend;
 
     /**
-     * @description The timestamp at which the software update ends. Unit: milliseconds.
+     * @description The timestamp generated when the software update ends. Unit: milliseconds.
      *
      * @example 1650012695000
      *
@@ -36,7 +36,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $installTimeEnd;
 
     /**
-     * @description The timestamp at which the software update starts. Unit: milliseconds.
+     * @description The timestamp generated when the software update starts. Unit: milliseconds.
      *
      * @example 1649321495000
      *
@@ -54,7 +54,7 @@ class DescribePropertySoftwareDetailRequest extends Model
     public $name;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries per page. Default value: **10**.
      *
      * @example 10
      *

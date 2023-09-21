@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallRaspAttachRequest extends Model
 {
     /**
+     * @description The application group ID.
+     *
      * @example 64b8b994563c306b4fedxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class UninstallRaspAttachRequest extends Model
     public $applicationId;
 
     /**
+     * @description The UUIDs of ECS instances from which the RASP agent is to be uninstalled.
+     *
      * @var string[]
      */
     public $ecsUUIDList;

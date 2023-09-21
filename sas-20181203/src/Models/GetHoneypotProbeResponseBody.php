@@ -19,7 +19,7 @@ class GetHoneypotProbeResponseBody extends Model
     public $code;
 
     /**
-     * @description The details about the probe.
+     * @description The information about the probe.
      *
      * @var data
      */

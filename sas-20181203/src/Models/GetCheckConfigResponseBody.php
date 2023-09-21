@@ -11,18 +11,32 @@ use AlibabaCloud\Tea\Model;
 class GetCheckConfigResponseBody extends Model
 {
     /**
-     * @description An array that consists of days in a week on which an automatic check is performed.
+     * @description The days in a week on which an automatic check is performed.
      *
      * @var int[]
      */
     public $cycleDays;
 
     /**
+     * @description Indicates whether the check for new check items in the selected requirement item is enabled by default. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example false
+     *
      * @var bool
      */
     public $enableAddCheck;
 
     /**
+     * @description Indicates whether the automatic check is enabled. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
+     * @example true
+     *
      * @var bool
      */
     public $enableAutoCheck;
@@ -30,10 +44,10 @@ class GetCheckConfigResponseBody extends Model
     /**
      * @description The end time of the check. The value indicates a point in time. The time period that is specified by the start time and end time must be one of the following time periods:
      *
-     *   **00:00 to 06:00:** The StartTime parameter is set to 0 and the EndTime parameter is set to 6.
-     *   **06:00 to 12:00**: The StartTime parameter is set to 6 and the EndTime parameter is set to 12.
-     *   **12:00 to 18:00**: The StartTime parameter is set to 12 and the EndTime parameter is set to 18.
-     *   **18:00 to 24:00:** The StartTime parameter is set to 18 and the EndTime parameter is set to 24.
+     *   **00:00 to 06:00**: If StartTime is set to 00:00, EndTime must be set to 06:00.
+     *   **06:00 to 12:00**: If StartTime is set to 06:00, EndTime must be set to 12:00.
+     *   **12:00 to 18:00**: If StartTime is set to 12:00, EndTime must be set to 18:00.
+     *   **18:00 to 24:00**: If StartTime is set to 18:00, EndTime must be set to 24:00.
      *
      * @example 6
      *
@@ -51,12 +65,14 @@ class GetCheckConfigResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The check items selected in the policy.
+     *
      * @var selectedChecks[]
      */
     public $selectedChecks;
 
     /**
-     * @description An array that consists of the information about the check items.
+     * @description The information about the check items.
      *
      * @var standards[]
      */

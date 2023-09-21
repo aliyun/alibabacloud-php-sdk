@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The display name of the image that is used for the honeypot.
+     * @description The display name of the image.
      *
      * @example RuoYi
      *
@@ -18,7 +18,7 @@ class data extends Model
     public $honeypotImageDisplayName;
 
     /**
-     * @description The ID of the image that is used for the honeypot.
+     * @description The ID of the image.
      *
      * @example sha256:007095d6de9c7a343e9fc1f74a7efc9c5de9d5454789d2fa505a1b3fc62****
      *
@@ -36,7 +36,7 @@ class data extends Model
     public $honeypotImageName;
 
     /**
-     * @description The type of the image that is used for the honeypot.
+     * @description The type of the image.
      *
      * @example Web
      *
@@ -45,7 +45,7 @@ class data extends Model
     public $honeypotImageType;
 
     /**
-     * @description The version of the image that is used for the honeypot.
+     * @description The version of the image.
      *
      * @example 1.0.2
      *
@@ -54,7 +54,7 @@ class data extends Model
     public $honeypotImageVersion;
 
     /**
-     * @description The port that is supported by the honeypot. The value is in the JSON format. The value contains the following fields:
+     * @description The port that is supported by the honeypot. The value is in the JSON format. Valid values:
      *
      *   **log_type**: the log type
      *   **proto**: the supported protocol

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAssetSelectionSelectedTargetRequest extends Model
 {
     /**
+     * @description The unique ID of the asset.
+     *
      * @example 2e6ab33d-4e00-4581-ac16-0dd1f9ad****
      *
      * @var string
@@ -16,6 +18,8 @@ class ListAssetSelectionSelectedTargetRequest extends Model
     public $selectionKey;
 
     /**
+     * @description The details of queries.
+     *
      * @var string[]
      */
     public $targetList;

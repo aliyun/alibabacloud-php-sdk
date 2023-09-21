@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeCountNotScannedImageResponseBody extends Model
 {
     /**
+     * @description The number of images that are not scanned.
+     *
      * @example 28
      *
      * @var int
@@ -16,6 +18,8 @@ class DescribeCountNotScannedImageResponseBody extends Model
     public $notScannedCnt;
 
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 24A20733-10A0-4AF6-BE6B-E3322413BB68
      *
      * @var string

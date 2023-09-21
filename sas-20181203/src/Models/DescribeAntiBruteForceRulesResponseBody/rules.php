@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class rules extends Model
 {
     /**
+     * @description The timestamp when the rule was created. Unit: milliseconds.
+     *
+     * @example 1669800181000
+     *
      * @var int
      */
     public $createTimestamp;
@@ -16,8 +20,8 @@ class rules extends Model
     /**
      * @description Indicates whether the defense rule is the default rule. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**: The defense rule is the default rule.
+     *   **false**: The defense rule is not the default rule.
      *
      * > The default rule takes effect on all servers that are not protected by defense rules against brute-force attacks.
      * @example true
@@ -36,7 +40,7 @@ class rules extends Model
     public $enableSmartRule;
 
     /**
-     * @description The threshold of logon failures that you specify.
+     * @description The threshold of logon failures that is specified in the defense rule.
      *
      * @example 15
      *
@@ -81,7 +85,7 @@ class rules extends Model
     public $name;
 
     /**
-     * @description The period of time during which logon failures from an account are measured. Unit: minutes. If **Span** is set to 10, the defense rule takes effect when the logon failures measured within 10 minutes reaches the specified threshold. The IP addresses of attackers cannot be used to log on to the server within the specified period of time.
+     * @description The period of time during which logon failures from an account are measured. Unit: minutes. If **Span** is set to 10, the defense rule takes effect when the logon failures measured within 10 minutes reaches the specified threshold. The IP address of attackers cannot be used to log on to the server in the specified period of time.
      *
      * @example 10
      *

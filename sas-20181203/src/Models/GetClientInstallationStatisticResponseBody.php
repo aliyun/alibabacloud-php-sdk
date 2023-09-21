@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class GetClientInstallationStatisticResponseBody extends Model
 {
     /**
+     * @description The statistics on the client installation rate.
+     *
      * @var clientInstallRatio
      */
     public $clientInstallRatio;
 
     /**
+     * @description The request ID.
+     *
      * @example F62DD457-2588-589A-B1F6-A1245895D2AB
      *
      * @var string

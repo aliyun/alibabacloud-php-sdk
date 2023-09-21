@@ -26,6 +26,10 @@ class DescribeUuidsByVulNamesResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The total number of vulnerabilities on the server.
+     *
+     * @example 2
+     *
      * @var int
      */
     public $vulCount;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the current asset selection. It can be used to query and modify the asset that is selected.
+     *
      * @example 657c8411-4e89-446c-ab66-d45d1331****
      *
      * @var string
@@ -16,6 +18,12 @@ class data extends Model
     public $selectionKey;
 
     /**
+     * @description The dimension based on which the asset is selected. Valid values:
+     *
+     *   **instance**: The asset is selected by server.
+     *   **group**: The asset is selected by group.
+     *   **vpc**: The asset is selected by VPC.
+     *
      * @example instance
      *
      * @var string

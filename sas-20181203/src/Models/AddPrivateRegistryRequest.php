@@ -51,6 +51,11 @@ class AddPrivateRegistryRequest extends Model
     public $password;
 
     /**
+     * @var int
+     */
+    public $port;
+
+    /**
      * @description The type of the protocol. Valid values:
      *
      *   **1**: HTTP
@@ -136,6 +141,7 @@ class AddPrivateRegistryRequest extends Model
         'extraParam'       => 'ExtraParam',
         'netType'          => 'NetType',
         'password'         => 'Password',
+        'port'             => 'Port',
         'protocolType'     => 'ProtocolType',
         'registryHostIp'   => 'RegistryHostIp',
         'registryRegionId' => 'RegistryRegionId',
@@ -164,6 +170,9 @@ class AddPrivateRegistryRequest extends Model
         }
         if (null !== $this->password) {
             $res['Password'] = $this->password;
+        }
+        if (null !== $this->port) {
+            $res['Port'] = $this->port;
         }
         if (null !== $this->protocolType) {
             $res['ProtocolType'] = $this->protocolType;
@@ -212,6 +221,9 @@ class AddPrivateRegistryRequest extends Model
         }
         if (isset($map['Password'])) {
             $model->password = $map['Password'];
+        }
+        if (isset($map['Port'])) {
+            $model->port = $map['Port'];
         }
         if (isset($map['ProtocolType'])) {
             $model->protocolType = $map['ProtocolType'];

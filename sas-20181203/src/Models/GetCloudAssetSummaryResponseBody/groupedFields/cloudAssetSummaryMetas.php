@@ -35,11 +35,17 @@ class cloudAssetSummaryMetas extends Model
      * @var int
      */
     public $instanceRiskCount;
+
+    /**
+     * @var int
+     */
+    public $vendor;
     protected $_name = [
         'assetSubType'      => 'AssetSubType',
         'assetType'         => 'AssetType',
         'instanceCount'     => 'InstanceCount',
         'instanceRiskCount' => 'InstanceRiskCount',
+        'vendor'            => 'Vendor',
     ];
 
     public function validate()
@@ -60,6 +66,9 @@ class cloudAssetSummaryMetas extends Model
         }
         if (null !== $this->instanceRiskCount) {
             $res['InstanceRiskCount'] = $this->instanceRiskCount;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -84,6 +93,9 @@ class cloudAssetSummaryMetas extends Model
         }
         if (isset($map['InstanceRiskCount'])) {
             $model->instanceRiskCount = $map['InstanceRiskCount'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

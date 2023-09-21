@@ -27,7 +27,7 @@ class pageInfo extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries returned per page. Default value: **100**
+     * @description The number of entries returned per page. Default value: 100.
      *
      * @example 20
      *

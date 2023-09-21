@@ -29,8 +29,8 @@ class standards extends Model
     /**
      * @description The status of the check item. Valid values:
      *
-     *   **ON**: enabled
-     *   **OFF**: disabled
+     *   **ON**: The check item is enabled.
+     *   **OFF**: The check item is disabled.
      *
      * @example ON
      *

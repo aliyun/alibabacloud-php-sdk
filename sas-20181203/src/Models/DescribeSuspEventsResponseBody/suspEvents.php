@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class suspEvents extends Model
 {
     /**
-     * @description Indicates whether the alert was analyzed offline.
+     * @description Indicates whether the alert event was analyzed offline.
      *
      * @example true
      *
@@ -30,7 +30,7 @@ class suspEvents extends Model
     public $alarmEventName;
 
     /**
-     * @description The description of the alert event to which the alert event is associated.
+     * @description The name of the alert event.
      *
      * @example Login with unusual location
      *
@@ -75,7 +75,7 @@ class suspEvents extends Model
     public $appName;
 
     /**
-     * @description Indicates whether the exception is automatically blocked.
+     * @description Indicates whether automatic defense is enabled.
      *
      * @example true
      *
@@ -84,10 +84,10 @@ class suspEvents extends Model
     public $autoBreaking;
 
     /**
-     * @description Indicates whether the online handling of the alert event is supported, such as quarantining the source file of the malicious process. Valid values:
+     * @description Indicates whether the alert event can be handled online, such as quarantining the source file of the malicious process. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -96,7 +96,10 @@ class suspEvents extends Model
     public $canBeDealOnLine;
 
     /**
-     * @description Indicates whether you can cancel marking the alert event as a false positive.
+     * @description Indicates whether you can cancel marking the alert event as a false positive. Valid values:
+     *
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -105,10 +108,10 @@ class suspEvents extends Model
     public $canCancelFault;
 
     /**
-     * @description Indicates whether the Safeguard Mode For Major Activities mode is enabled for the server. Valid values:
+     * @description Indicates whether the safeguard mode for major activities is enabled for the server. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example false
      *
@@ -117,7 +120,7 @@ class suspEvents extends Model
     public $containHwMode;
 
     /**
-     * @description The ID of the container.
+     * @description The container ID.
      *
      * @example container_1648601865161_14925_02_000****
      *
@@ -135,7 +138,7 @@ class suspEvents extends Model
     public $containerImageId;
 
     /**
-     * @description The name of the container image.
+     * @description The name of the image to which the container belongs.
      *
      * @example centos7_apache:v1.0.1
      *
@@ -169,10 +172,10 @@ class suspEvents extends Model
     public $details;
 
     /**
-     * @description Indicates whether the exception can be detected by cloud sandbox. Valid values:
+     * @description Indicates whether the alert event can be detected by the cloud sandbox feature. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -181,7 +184,7 @@ class suspEvents extends Model
     public $displaySandboxResult;
 
     /**
-     * @description An array that consists of the remarks on the exception.
+     * @description The note information about the alert event.
      *
      * @var eventNotes[]
      */
@@ -190,13 +193,13 @@ class suspEvents extends Model
     /**
      * @description The status of the alert event. Valid values:
      *
-     *   **1**: pending handling
-     *   **2**: ignored
-     *   **4**: confirmed
-     *   **8**: marked as a false positive
-     *   **16**: being handled
-     *   **32**: handled
-     *   **64**: expired
+     *   **1**: The alert event is not handled.
+     *   **2**: The alert event is ignored.
+     *   **4**: The alert event is confirmed.
+     *   **8**: The alert event is marked as a false positive.
+     *   **16**: The alert event is being handled.
+     *   **32**: The alert event is handled.
+     *   **64**: The alert event expired.
      *
      * @example 1
      *
@@ -205,7 +208,7 @@ class suspEvents extends Model
     public $eventStatus;
 
     /**
-     * @description The name of the alert event.
+     * @description The subtype of the alert event.
      *
      * @example login_common_location
      *
@@ -214,10 +217,10 @@ class suspEvents extends Model
     public $eventSubType;
 
     /**
-     * @description Indicates whether the alert event has trace information. Valid values:
+     * @description Indicates whether the alert event has tracing information. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -262,7 +265,7 @@ class suspEvents extends Model
     public $instanceName;
 
     /**
-     * @description The public IP address of the associated instance.
+     * @description The public IP address that is associated with instance.
      *
      * @example 1.2.XX.XX
      *
@@ -280,7 +283,7 @@ class suspEvents extends Model
     public $intranetIp;
 
     /**
-     * @description The ID of the Kubernetes cluster.
+     * @description The ID of the ACK cluster.
      *
      * @example c517b37e1401e4961b3951863a49a****
      *
@@ -289,7 +292,7 @@ class suspEvents extends Model
     public $k8sClusterId;
 
     /**
-     * @description The name of the Kubernetes cluster.
+     * @description The name of the Container Service for Kubernetes (ACK) cluster.
      *
      * @example k8s-daily
      *
@@ -298,7 +301,7 @@ class suspEvents extends Model
     public $k8sClusterName;
 
     /**
-     * @description The namespace of the Kubernetes cluster.
+     * @description The namespace of the ACK cluster.
      *
      * @example default
      *
@@ -307,7 +310,7 @@ class suspEvents extends Model
     public $k8sNamespace;
 
     /**
-     * @description The ID of the Kubernetes cluster node.
+     * @description The ID of the node of the ACK cluster.
      *
      * @example i-bp14a1ay8e0aa9t0****
      *
@@ -316,7 +319,7 @@ class suspEvents extends Model
     public $k8sNodeId;
 
     /**
-     * @description The name of the Kubernetes cluster node.
+     * @description The name of the node in the ACK cluster.
      *
      * @example N/A
      *
@@ -325,7 +328,7 @@ class suspEvents extends Model
     public $k8sNodeName;
 
     /**
-     * @description The name of the Kubernetes pod.
+     * @description The name of the pod in the ACK cluster.
      *
      * @example myapp-pod
      *
@@ -334,17 +337,12 @@ class suspEvents extends Model
     public $k8sPodName;
 
     /**
-     * @description Indicates whether the alert event can be detected by the cloud sandbox feature. Valid values:
-     *
-     * **true**
-     * **false**
-     *
      * @var bool
      */
     public $largeModel;
 
     /**
-     * @description The time when the alert event was last generated.
+     * @description The time when the alert event was last detected.
      *
      * @example 2018-09-26 01:51:01
      *
@@ -353,7 +351,7 @@ class suspEvents extends Model
     public $lastTime;
 
     /**
-     * @description The timestamp when the exception was last detected. Unit: milliseconds.
+     * @description The timestamp generated when the alert event was last detected. Unit: milliseconds.
      *
      * @example 1631699497000
      *
@@ -377,8 +375,8 @@ class suspEvents extends Model
     /**
      * @description The status of the malicious behavior defense rule. Valid values:
      *
-     *   **open**: enabled
-     *   **close**: disabled
+     *   **open**: enabled.
+     *   **close**: disabled.
      *
      * @example open
      *
@@ -414,7 +412,7 @@ class suspEvents extends Model
     public $occurrenceTime;
 
     /**
-     * @description The timestamp when the exception was first detected. Unit: milliseconds.
+     * @description The timestamp generated when the alert event was first detected. Unit: milliseconds.
      *
      * @example 1631699497000
      *
@@ -432,7 +430,7 @@ class suspEvents extends Model
     public $operateErrorCode;
 
     /**
-     * @description The description of the handing result of the alert event.
+     * @description The handing result message of the alert event.
      *
      * @example success
      *
@@ -441,7 +439,7 @@ class suspEvents extends Model
     public $operateMsg;
 
     /**
-     * @description The handling timestamp of the alert event. Unit: milliseconds.
+     * @description The timestamp generated when the alert event was handled. Unit: milliseconds.
      *
      * @example 1631699497000
      *
@@ -450,7 +448,7 @@ class suspEvents extends Model
     public $operateTime;
 
     /**
-     * @description The edition of Security Center in which the exception can be detected. Valid values:
+     * @description The edition of Security Center in which alert event detection is supported. Valid values:
      *
      *   **0**: Basic edition
      *   **1**: Enterprise edition
@@ -487,7 +485,7 @@ class suspEvents extends Model
     public $tacticItems;
 
     /**
-     * @description The unique key of the alert.
+     * @description The unique key of the alert event.
      *
      * @example e17e****
      *
@@ -505,7 +503,7 @@ class suspEvents extends Model
     public $uuid;
 
     /**
-     * @description The ID of the cluster.
+     * @description The cluster ID.
      *
      * @example c2051775877374cccbf68af596e6****
      *

@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetCleanConfigRequest extends Model
 {
     /**
+     * @description The asset cleanup configurations.
+     *
      * @var assetCleanConfigs[]
      */
     public $assetCleanConfigs;

@@ -27,7 +27,7 @@ class DescribeSimilarSecurityEventsResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array consisting of the alert events that are triggered by the same rule or of the same alert type.
+     * @description The information about the alert events that are triggered by the same rule or of the same alert type.
      *
      * @var securityEventsResponse[]
      */

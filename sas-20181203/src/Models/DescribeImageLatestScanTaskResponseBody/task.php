@@ -27,7 +27,7 @@ class task extends Model
     public $finish;
 
     /**
-     * @description The end time of the task. The value of this parameter is returned only if Status is SUCCESS. Otherwise, this parameter is returned empty.
+     * @description The end time of the task. A value is returned only when the task is in the Finished state. Otherwise, the returned value is empty.
      *
      * @example 1669693430977
      *
@@ -36,7 +36,7 @@ class task extends Model
     public $finishTime;
 
     /**
-     * @description The primary key ID of the database.
+     * @description The task ID.
      *
      * @example 9755662
      *
@@ -63,10 +63,10 @@ class task extends Model
     public $name;
 
     /**
-     * @description The creation method. A task can be created in the Security Center console or by calling an operation. Valid values:
+     * @description The method in which the task was created. A task can be created in the Security Center console or by calling an API operation. Valid values:
      *
      *   **console_batch**: The task was created in the Security Center console.
-     *   **openapi**: The task was created by calling an operation.
+     *   **openapi**: The task was created by calling an API operation.
      *
      * @example console_batch
      *
@@ -84,15 +84,15 @@ class task extends Model
     public $startTime;
 
     /**
-     * @description The status of the task. Valid values:
+     * @description The status of the task. Valid value:
      *
-     *   **PROCESSING**: running
-     *   **START**: starting
-     *   **MESSAGE_SEND**: delivering
-     *   **PRE_ANALYZER**: image prechecking
-     *   **SUCCESS**: successful
-     *   **FAIL**: failed
-     *   **TIMOUT**: timed out
+     *   **PROCESSING**: The task is running.
+     *   **START**: The task is being started.
+     *   **MESSAGE_SEND**: The scan task is sent.
+     *   **PRE_ANALYZER**: The image is in precheck.
+     *   **SUCCESS**: The task was successful.
+     *   **FAIL**: The task failed.
+     *   **TIMOUT**: The task timed out.
      *
      * @example SUCCESS
      *
@@ -110,9 +110,9 @@ class task extends Model
     public $target;
 
     /**
-     * @description The type of the scanned asset. Valid values:
+     * @description The type of the scanned asset. Valid value:
      *
-     *   **IMAGE**: image
+     *   **IMAGE**
      *
      * @example IMAGE
      *
@@ -121,7 +121,7 @@ class task extends Model
     public $targetType;
 
     /**
-     * @description The ID of the task.
+     * @description The ID of the scan task.
      *
      * @example 0a960b9a48b788a8689154b032bf****
      *
@@ -130,9 +130,9 @@ class task extends Model
     public $taskId;
 
     /**
-     * @description The type of the task. Valid values:
+     * @description The type of the task. Valid value:
      *
-     *   **IMAGE_SCAN**: image scan task
+     *   **IMAGE_SCAN**
      *
      * @example IMAGE_SCAN
      *

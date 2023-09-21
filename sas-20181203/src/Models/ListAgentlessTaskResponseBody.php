@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessTaskResponseBody extends Model
 {
     /**
+     * @description The tasks.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 1A975D03-5F49-5354-B2CB-3918D5DA****
      *
      * @var string

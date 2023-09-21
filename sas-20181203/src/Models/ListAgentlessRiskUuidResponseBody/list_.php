@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The number of baseline risks.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class list_ extends Model
     public $baselineCount;
 
     /**
+     * @description The instance name of the asset.
+     *
      * @example sql-test-0****
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The number of malicious samples.
+     *
      * @example 1
      *
      * @var int
@@ -44,6 +54,8 @@ class list_ extends Model
     public $maliciousCount;
 
     /**
+     * @description The timestamp of the detection. Unit: milliseconds.
+     *
      * @example 168257753****
      *
      * @var int
@@ -51,6 +63,8 @@ class list_ extends Model
     public $scanTime;
 
     /**
+     * @description The ID of the asset that is detected.
+     *
      * @example 30****
      *
      * @var string
@@ -58,6 +72,8 @@ class list_ extends Model
     public $targetId;
 
     /**
+     * @description The name of the asset that is detected.
+     *
      * @example test****
      *
      * @var string
@@ -65,6 +81,8 @@ class list_ extends Model
     public $targetName;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string
@@ -72,6 +90,8 @@ class list_ extends Model
     public $uuid;
 
     /**
+     * @description The number of detected vulnerabilities.
+     *
      * @example 1
      *
      * @var int

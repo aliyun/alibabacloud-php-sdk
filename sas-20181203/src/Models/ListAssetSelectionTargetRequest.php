@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAssetSelectionTargetRequest extends Model
 {
     /**
+     * @description The number of the page to return. Pages start from page 1. Default value: 1.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAssetSelectionTargetRequest extends Model
     public $currentPage;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAssetSelectionTargetRequest extends Model
     public $pageSize;
 
     /**
+     * @description The globally unique identifier (GUID) of the asset.
+     *
      * @example 8ccf9b01-2c64-4cba-8122-10115f29****
      *
      * @var string

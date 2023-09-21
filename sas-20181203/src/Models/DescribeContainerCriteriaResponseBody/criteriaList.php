@@ -9,11 +9,11 @@ use AlibabaCloud\Tea\Model;
 class criteriaList extends Model
 {
     /**
-     * @description The name of the filter condition.
+     * @description The name of the search condition. Valid values:
      *
-     *   **instanceId**: the ID of the container.
-     *   **clusterId**: the ID of the cluster.
-     *   **regionId**: the region of the container.
+     *   **instanceId**: the ID of the container instance.
+     *   **clusterId**: the cluster ID.
+     *   **regionId**: the ID of the region in which the container resides.
      *   **clusterName**: the name of the cluster.
      *   **image**: the name of the image.
      *   **imageRepoName**: the name of the image repository.
@@ -24,7 +24,7 @@ class criteriaList extends Model
      *   **hostIp**: the public IP address.
      *   **pod**: the pod.
      *   **podIp**: the IP address of the pod.
-     *   **containerId**: the ID of the container.
+     *   **containerId**: the container ID.
      *   **vulStatus**: indicates whether vulnerabilities exist in the container.
      *   **alarmStatus**: indicates whether alerts are generated for the container.
      *   **riskStatus**: indicates whether risks exist in the container.
@@ -38,10 +38,10 @@ class criteriaList extends Model
     public $name;
 
     /**
-     * @description The type of the filter condition. Valid values:
+     * @description The type of the search condition. Valid values:
      *
-     *   **input**: The filter condition needs to be specified.
-     *   **select**: The filter condition is an option that can be selected from the drop-down list.
+     *   **input**: The search condition needs to be specified.
+     *   **select**: The search condition is an option that can be selected from the drop-down list.
      *
      * @example input
      *
@@ -50,9 +50,9 @@ class criteriaList extends Model
     public $type;
 
     /**
-     * @description The value of the filter condition. This parameter is returned only when the value of **Type** is **select**.
+     * @description The values of the search condition. This parameter is returned only if the value of **Type** is set to **select**.
      *
-     * > If the value of **Type** is **input**, the value of this parameter is an empty string.
+     * > If the value of **Type** is set to **input**, the return value of this parameter is empty.
      * @example ManagedKubernetes,NotManagedKubernetes,PrivateKubernetes
      *
      * @var string

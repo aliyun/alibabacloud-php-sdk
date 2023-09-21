@@ -27,7 +27,7 @@ class bindPortList extends Model
     public $endPort;
 
     /**
-     * @description The error that indicates a binding failure.
+     * @description The error that is returned if an error occurred in the port of the honeypot that is bound to the probe.
      *
      * @example portmap failed
      *
@@ -45,7 +45,7 @@ class bindPortList extends Model
     public $fixed;
 
     /**
-     * @description The ID of the port binding record.
+     * @description The unique ID of the port binding record.
      *
      * @example 2512
      *
@@ -54,7 +54,7 @@ class bindPortList extends Model
     public $id;
 
     /**
-     * @description The details about the error.
+     * @description The error message that is returned if an error occurred in the port of the honeypot that is bound to the probe.
      *
      * @example listen 22 tcp4 failed
      *
@@ -63,7 +63,7 @@ class bindPortList extends Model
     public $msg;
 
     /**
-     * @description The protocol type.
+     * @description The type of the protocol.
      *
      * @example tcp
      *
@@ -81,7 +81,7 @@ class bindPortList extends Model
     public $startPort;
 
     /**
-     * @description The binding status. Valid values:
+     * @description The status of the port of the honeypot that is bound to the probe. Valid values:
      *
      *   **1**: abnormal
      *   **3**: normal

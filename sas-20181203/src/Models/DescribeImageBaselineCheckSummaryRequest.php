@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeImageBaselineCheckSummaryRequest extends Model
 {
     /**
-     * @description The ID of the container cluster.
+     * @description The ID of the specified container cluster.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the ID of the container cluster.
      * @example c60b77fe62093480db6164a3c2fa5****
      *
      * @var string

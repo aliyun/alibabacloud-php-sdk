@@ -36,6 +36,11 @@ class taskImageInfo extends Model
     public $clusterName;
 
     /**
+     * @var string
+     */
+    public $costTimeInfo;
+
+    /**
      * @description The digest of the image.
      *
      * @example 9e0dc29d872d2e386cc5c0c92b529a84e3acfade16f5cb1d054a2ee3c99****
@@ -146,6 +151,7 @@ class taskImageInfo extends Model
         'appName'        => 'AppName',
         'clusterId'      => 'ClusterId',
         'clusterName'    => 'ClusterName',
+        'costTimeInfo'   => 'CostTimeInfo',
         'digest'         => 'Digest',
         'image'          => 'Image',
         'nodeInstanceId' => 'NodeInstanceId',
@@ -175,6 +181,9 @@ class taskImageInfo extends Model
         }
         if (null !== $this->clusterName) {
             $res['ClusterName'] = $this->clusterName;
+        }
+        if (null !== $this->costTimeInfo) {
+            $res['CostTimeInfo'] = $this->costTimeInfo;
         }
         if (null !== $this->digest) {
             $res['Digest'] = $this->digest;
@@ -232,6 +241,9 @@ class taskImageInfo extends Model
         }
         if (isset($map['ClusterName'])) {
             $model->clusterName = $map['ClusterName'];
+        }
+        if (isset($map['CostTimeInfo'])) {
+            $model->costTimeInfo = $map['CostTimeInfo'];
         }
         if (isset($map['Digest'])) {
             $model->digest = $map['Digest'];

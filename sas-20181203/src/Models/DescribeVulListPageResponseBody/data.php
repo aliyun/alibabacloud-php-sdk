@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
-     * @description The CVE ID of the vulnerability.
+     * @description The common vulnerabilities and exposures (CVE) ID of the vulnerability.
      *
      * @example CVE-2022-42836
      *

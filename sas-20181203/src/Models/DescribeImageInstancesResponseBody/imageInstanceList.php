@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageInstanceList extends Model
 {
     /**
-     * @description The number of alerts that are generated on the image.
+     * @description The number of alerts that are generated for the image.
      *
      * @example 0
      *
@@ -69,7 +69,7 @@ class imageInstanceList extends Model
     public $hcCount;
 
     /**
-     * @description Indicates whether the image baseline risks exist. Valid values:
+     * @description Indicates whether the baseline risks exist. Valid values:
      *
      *   **NO**
      *   **YES**
@@ -81,7 +81,7 @@ class imageInstanceList extends Model
     public $hcStatus;
 
     /**
-     * @description The timestamp when the image was created. Unit: milliseconds.
+     * @description The timestamp generated when the image was created. Unit: milliseconds.
      *
      * @example 1600069948849
      *
@@ -90,7 +90,7 @@ class imageInstanceList extends Model
     public $imageCreate;
 
     /**
-     * @description The ID of the image.
+     * @description The image ID.
      *
      * @example c20987f18b130f9d144c9828df630417e2a9523148930dc3963e9d0dab30****
      *
@@ -108,7 +108,7 @@ class imageInstanceList extends Model
     public $imageSize;
 
     /**
-     * @description The timestamp when the image was updated. Unit: milliseconds.
+     * @description The timestamp generated when the image was updated. Unit: milliseconds.
      *
      * @example 1600069948849
      *
@@ -117,7 +117,7 @@ class imageInstanceList extends Model
     public $imageUpdate;
 
     /**
-     * @description The ID of the image instance.
+     * @description The ID of the image.
      *
      * @example 39010****
      *
@@ -126,7 +126,7 @@ class imageInstanceList extends Model
     public $instanceId;
 
     /**
-     * @description The region ID of the image.
+     * @description The ID of the region in which the image resides.
      *
      * @example cn-hangzhou
      *
@@ -190,8 +190,8 @@ class imageInstanceList extends Model
     /**
      * @description Indicates whether risks exist. Valid values:
      *
-     *   **NO**: No risks exist.
-     *   **YES**: Risks exist.
+     *   **NO**
+     *   **YES**
      *
      * @example NO
      *
@@ -224,20 +224,20 @@ class imageInstanceList extends Model
     /**
      * @description The scan status of the image. Valid values:
      *
-     *   **INIT**: The image scan task is to be started.
+     *   **INIT**: The image scan task is pending startup.
      *   **START**: The image scan task is started.
      *   **MESSAGE_SEND**: The message about the image scan task is sent.
-     *   **START_RUN**: The image scan task is started.
+     *   **START_RUN**: The image analysis task is started.
      *   **DOWNLOAD**: The image scan result is downloaded.
-     *   **PRE_ANALYZER**: The image scan task is being processed.
+     *   **PRE_ANALYZER**: The image pre-analysis is started.
      *   **WEB_SHELL_ANALYZER**: The WebShell analysis is complete.
-     *   **CVE_ANALYZER**: The CVE analysis is complete.
+     *   **CVE_ANALYZER**: The Common Vulnerabilities and Exposures (CVE) analysis is complete.
      *   **BIN_ANALYZER**: The binary analysis of the image is complete.
      *   **OTHER_ANALYZER**: The extended analysis of the image is complete.
      *   **SUCCESS**: The image scan task is complete.
-     *   **PRE_ANALYZER_SUCCESS**: The image scan task is processed.
-     *   **FAIL**: The image scan task fails.
-     *   **TIMEOUT**: The image scan task times out.
+     *   **PRE_ANALYZER_SUCCESS**: The image pre-analysis is complete.
+     *   **FAIL**: The image scan task failed.
+     *   **TIMEOUT**: The image scan task timed out.
      *
      * @example SUCCESS
      *
@@ -246,9 +246,9 @@ class imageInstanceList extends Model
     public $scaStatus;
 
     /**
-     * @description The status of the image. Valid values:
+     * @description The status of the image. Valid value:
      *
-     *   **NORMAL**: The image is normal.
+     *   **NORMAL**
      *
      * @example NORMAL
      *

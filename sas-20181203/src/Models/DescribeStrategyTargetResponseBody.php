@@ -19,7 +19,7 @@ class DescribeStrategyTargetResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array consisting of the assets to which the baseline check policy is applied.
+     * @description The information about the assets to which the baseline check policy is applied.
      *
      * @var strategyTargets[]
      */

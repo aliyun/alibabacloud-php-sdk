@@ -19,7 +19,7 @@ class baselineClassList extends Model
     public $alias;
 
     /**
-     * @description An array that consists of baselines.
+     * @description The information about the baseline.
      *
      * @var baselineNameList[]
      */

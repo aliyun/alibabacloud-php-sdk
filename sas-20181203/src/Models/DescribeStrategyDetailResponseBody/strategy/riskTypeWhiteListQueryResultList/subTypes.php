@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class subTypes extends Model
 {
     /**
-     * @description The alias of the sub-check item.
+     * @description The alias of the check item.
      *
      * @example Redis unauthorized access high exploit vulnerability risk
      *
@@ -19,17 +19,17 @@ class subTypes extends Model
     public $alias;
 
     /**
-     * @description An array that consists of the details of custom check items.
+     * @description The details of custom check items.
      *
      * @var checkDetails[]
      */
     public $checkDetails;
 
     /**
-     * @description Indicates whether the sub-risk item is selected. Valid values:
+     * @description Indicates whether the sub-check item is selected. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**: The sub-check item is selected.
+     *   **false**: The sub-check item is not selected.
      *
      * @example false
      *

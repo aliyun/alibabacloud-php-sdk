@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class BindAuthToMachineRequest extends Model
 {
     /**
-     * @description The edition of Security Center. Valid values:
+     * @description The edition of Security Center that is authorized to protect the asset. Valid values:
      *
      *   **6**: Anti-virus edition
      *   **5**: Advanced edition
@@ -66,10 +66,10 @@ class BindAuthToMachineRequest extends Model
     public $criteria;
 
     /**
-     * @description The logical relationship among multiple search conditions. Valid values:
+     * @description The logical relationship that you want to use to evaluate multiple search conditions. Default value: **OR**. Valid values:
      *
-     *   **OR**: Search conditions are evaluated by using a logical **OR**.
-     *   **AND**: Search conditions are evaluated by using a logical **AND**.
+     *   **OR******
+     *   **AND******
      *
      * @example OR
      *

@@ -85,6 +85,10 @@ class groupedVulItems extends Model
     public $raspDefend;
 
     /**
+     * @description The IDs of the common vulnerabilities and exposures (CVEs) that are related to the vulnerability.
+     *
+     * @example CVE-2023-24881,CVE-2023-24898
+     *
      * @var string
      */
     public $related;
@@ -120,8 +124,8 @@ class groupedVulItems extends Model
      *   **cve**: Linux software vulnerability
      *   **sys**: Windows system vulnerability
      *   **cms**: Web-CMS vulnerability
-     *   **app**: application vulnerabilitiy
-     *   **emg**: urgent vulnerabilities
+     *   **app**: application vulnerability
+     *   **emg**: urgent vulnerability
      *   **sca**: vulnerability that is detected based on software component analysis
      *
      * @example cve

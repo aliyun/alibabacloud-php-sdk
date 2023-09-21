@@ -9,11 +9,12 @@ use AlibabaCloud\Tea\Model;
 class ModifyOpenLogShipperRequest extends Model
 {
     /**
-     * @description The ID of the request source. The default value is **aegis**. Valid values:
-     * - **aegis**: Server Guard
-     * - **sas**: Security Center
+     * @description The ID of the request source. Default value: **aegis**. Valid values:
      *
-     * > If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
+     *   **aegis**: Server Guard
+     *   **sas**: Security Center
+     *
+     * >  If you use Server Guard, set the value to **aegis**. If you use Security Center, set the value to **sas**.
      * @example sas
      *
      * @var string

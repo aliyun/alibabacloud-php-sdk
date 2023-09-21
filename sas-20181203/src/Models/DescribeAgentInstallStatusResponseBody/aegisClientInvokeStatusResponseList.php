@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class aegisClientInvokeStatusResponseList extends Model
 {
     /**
-     * @description The message returned.
+     * @description The returned message.
      *
      * @example Installed
      *
@@ -18,29 +18,29 @@ class aegisClientInvokeStatusResponseList extends Model
     public $message;
 
     /**
-     * @description The result code returned. Valid values:
+     * @description The installation status. Valid value:
      *
      *   **-1**: The agent is not installed.
      *   **0**: The agent is installed.
-     *   **1**: The directory of the agent failed to be created.
-     *   **2**: The installation package failed to be downloaded.
+     *   **1**: Failed to create a directory in the client.
+     *   **2**: Failed to download the installation package.
      *   **3**: The installation file does not exist.
-     *   **4**: The verification information about the installation file does not exist.
-     *   **5**: The installation file failed to pass the verification.
-     *   **6**: The installation file failed to be executed.
-     *   **7**: The agent failed to be installed because the required permissions are not granted.
-     *   **8**: No process of the agent was detected.
-     *   **100**: The agent failed to be installed because an unknown error occurred.
-     *   **1001**: The agent failed to be installed because the automatic installation of the agent is not supported in the region.
-     *   **1002**: The agent failed to be installed because the agent cannot be installed on servers outside the cloud. You can install the agent only on supported servers.
-     *   **1003**: The agent failed to be installed because the operating system type of the server is not supported.
+     *   **4**: The verification information of the installation file does not exist.
+     *   **5**: Failed to verify the installation file.
+     *   **6**: Failed to execute the installation file.
+     *   **7**: You do not have the required permissions. The installation failed.
+     *   **8**: No client process is detected.
+     *   **100**: The installation failed due to an unknown error.
+     *   **1001**: The installation failed. One-click installation is not supported in this region.
+     *   **1002**: The installation failed. Servers that are not provided by Alibaba Cloud are not supported. Install the agent by executing a script on the server.
+     *   **1003**: The installation failed. The operating system is not supported.
      *   **1004**: An internal error occurred. Try again later.
-     *   **1005**: The Elastic Compute Service (ECS) instance is not running. Start the ECS instance and try again.
-     *   **1006**: The automatic installation of the agent is not supported on an ECS instance that resides in the classic network.
-     *   **1007**: The process of the installation command is manually stopped.
-     *   **1008**: The agent failed to be installed because Cloud Assistant is not installed.
-     *   **1009**: The execution of the installation command timed out. Try again later.
-     *   **1010**: The agent on the server is already online. You do not need to install the agent.
+     *   **1005**: The Elastic Compute Service (ECS) instance is not started. Start the ECS instance and try again.
+     *   **1006**: One-click installation is not supported for ECS instances of the classic network type.
+     *   **1007**: The running command is manually stopped.
+     *   **1008**: Cloud Assistant is not installed. You cannot install the client.
+     *   **1009**: The command execution timed out. Try again later.
+     *   **1010**: The machine is already online. You do not need to install a client.
      *
      * @example 1
      *
@@ -51,10 +51,10 @@ class aegisClientInvokeStatusResponseList extends Model
     /**
      * @description The installation result. Valid value:
      *
-     *   **-1**: not installed
-     *   **0**: being installed
-     *   **1**: installed
-     *   **2**: installation failed
+     *   **-1**: The agent is not installed.
+     *   **0**: The agent is being installed.
+     *   **1**: The agent is installed.
+     *   **2**: The installation failed.
      *
      * @example 0
      *

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAccessKeyLeakDetailRequest extends Model
 {
     /**
+     * @description The ID of the AccessKey pair leak.
+     *
      * @example 389357
      *
      * @var int

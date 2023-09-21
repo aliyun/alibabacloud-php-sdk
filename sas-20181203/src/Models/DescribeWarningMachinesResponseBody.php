@@ -55,7 +55,7 @@ class DescribeWarningMachinesResponseBody extends Model
     public $totalCount;
 
     /**
-     * @description An array that consists of the servers.
+     * @description The information about the servers.
      *
      * @var warningMachines[]
      */

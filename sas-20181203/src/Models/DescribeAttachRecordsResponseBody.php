@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeAttachRecordsResponseBody extends Model
 {
     /**
+     * @description The results of automatically connecting applications on the ECS instance to the application protection feature.
+     *
      * @var accessList[]
      */
     public $accessList;
 
     /**
+     * @description The request ID.
+     *
      * @example 9F4E6157-9600-5588-86B9-38F09067****
      *
      * @var string

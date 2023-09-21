@@ -108,7 +108,7 @@ class DescribePropertyScaDetailRequest extends Model
     public $processStartedEnd;
 
     /**
-     * @description The timestamp when the process starts. Unit: milliseconds.
+     * @description The timestamp generated when the process starts. Unit: milliseconds.
      *
      * @example 1641024565
      *

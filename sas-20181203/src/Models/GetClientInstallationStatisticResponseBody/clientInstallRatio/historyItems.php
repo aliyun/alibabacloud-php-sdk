@@ -10,11 +10,21 @@ use AlibabaCloud\Tea\Model;
 class historyItems extends Model
 {
     /**
+     * @description The statistics on the client installation rate.
+     *
      * @var items[]
      */
     public $items;
 
     /**
+     * @description The type of the cloud asset. Valid values:
+     *
+     *   **0**: a cloud asset provided by Alibaba Cloud.
+     *   **1**: a third-party cloud asset
+     *   **2**: an asset in a data center
+     *   **3**, **4**, **5**, and **7**: other cloud asset
+     *   **8**: a lightweight cloud asset
+     *
      * @example 4
      *
      * @var int

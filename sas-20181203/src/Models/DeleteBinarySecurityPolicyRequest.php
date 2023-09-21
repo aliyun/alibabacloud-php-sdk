@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBinarySecurityPolicyRequest extends Model
 {
     /**
+     * @description The name of the binary security policy.
+     *
      * @example policy-auto-bfu7pm
      *
      * @var string
@@ -21,6 +23,8 @@ class DeleteBinarySecurityPolicyRequest extends Model
     public $resourceOwnerId;
 
     /**
+     * @description The source IP address of the request.
+     *
      * @example 42.120.XXX.XXX
      *
      * @var string

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventDetailResponseBody extends Model
 {
     /**
-     * @description The details about the alert event.
+     * @description The details of the alert event.
      *
      * @var data
      */

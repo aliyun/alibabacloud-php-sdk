@@ -82,7 +82,7 @@ class ListCheckInstanceResultRequest extends Model
     public $regionIdKey;
 
     /**
-     * @description The sort type of the instances.
+     * @description The types of the conditions based on which the check items are sorted.
      *
      * @var string[]
      */

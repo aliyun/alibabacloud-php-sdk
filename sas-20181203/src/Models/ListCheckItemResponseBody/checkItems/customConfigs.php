@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class customConfigs extends Model
 {
     /**
+     * @description The default value of the check item. The value is a string.
+     *
      * @example 0
      *
      * @var string
@@ -16,6 +18,8 @@ class customConfigs extends Model
     public $defaultValue;
 
     /**
+     * @description The name of the check item.
+     *
      * @example IPList
      *
      * @var string
@@ -23,11 +27,15 @@ class customConfigs extends Model
     public $name;
 
     /**
+     * @description The display name of the check item.
+     *
      * @var string
      */
     public $showName;
 
     /**
+     * @description The type of the check item. The value is a JSON string.
+     *
      * @example {\"type\":\"LIST\",\"range\":[1,512],\"listType\":{\"type\":\"STRING\",\"range\":[0,22]}}
      *
      * @var string
@@ -35,6 +43,8 @@ class customConfigs extends Model
     public $typeDefine;
 
     /**
+     * @description The specified value of the check item. The value is a string.
+     *
      * @example 1
      *
      * @var string

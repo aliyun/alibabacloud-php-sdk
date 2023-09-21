@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallRaspAttachRequest extends Model
 {
     /**
+     * @description The application group ID.
+     *
      * @example 64b8b994563c306b4fedxxxx
      *
      * @var string
@@ -16,6 +18,8 @@ class InstallRaspAttachRequest extends Model
     public $applicationId;
 
     /**
+     * @description The UUIDs of ECS instances on which the RASP agent is to be installed.
+     *
      * @var string[]
      */
     public $ecsUUIDList;

@@ -29,11 +29,11 @@ class clusterList extends Model
     /**
      * @description The type of the cluster. Valid values:
      *
-     *   **ManagedKubernetes**: managed Kubernetes cluster
-     *   **NotManagedKubernetes**: non-managed Kubernetes cluster
-     *   **PrivateKubernetes**: private cluster
-     *   **kubernetes**: dedicated Kubernetes cluster
-     *   **ask**: dedicated ASK cluster
+     *   **ManagedKubernetes**: managed Kubernetes cluster.
+     *   **NotManagedKubernetes**: non-managed Kubernetes cluster.
+     *   **PrivateKubernetes**: private cluster.
+     *   **kubernetes**: dedicated Kubernetes cluster.
+     *   **ask**: dedicated serverless Kubernetes (ASK) cluster.
      *
      * @example ManagedKubernetes
      *
@@ -42,7 +42,7 @@ class clusterList extends Model
     public $clusterType;
 
     /**
-     * @description The region of the container cluster.
+     * @description The region in which the cluster resides.
      *
      * @example cn-hangzhou
      *
@@ -53,10 +53,10 @@ class clusterList extends Model
     /**
      * @description The status of the cluster. Valid values:
      *
-     *   **unavailable**
-     *   **Available**
-     *   **Creating**
-     *   **CreateFailed**
+     *   **unavailable**: The cluster is unavailable.
+     *   **Available**: The cluster is available.
+     *   **Creating**: The cluster is being created.
+     *   **CreateFailed**: The cluster failed to be created.
      *
      * @example Available
      *
@@ -65,10 +65,10 @@ class clusterList extends Model
     public $state;
 
     /**
-     * @description Indicates whether the cluster is enabled. Valid values:
+     * @description Indicates whether container network topology was enabled. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *

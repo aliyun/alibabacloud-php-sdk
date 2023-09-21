@@ -18,9 +18,9 @@ class propertyItems extends Model
     public $count;
 
     /**
-     * @description The domain name.
+     * @description The endpoint.
      *
-     * >  This parameter is returned only when **Biz** is set to **web_server**.
+     * > This parameter is returned only when **Biz** is set to **web_server**.
      * @example localhost
      *
      * @var string
@@ -30,7 +30,7 @@ class propertyItems extends Model
     /**
      * @description The name of the module.
      *
-     * >  This parameter is returned only when **Biz** is set to **lkm**.
+     * > This parameter is returned only when **Biz** is set to **lkm**.
      * @example alihids
      *
      * @var string
@@ -40,7 +40,7 @@ class propertyItems extends Model
     /**
      * @description The path to the startup item.
      *
-     * >  This parameter is returned only when **Biz** is set to **autorun**.
+     * > This parameter is returned only when **Biz** is set to **autorun**.
      * @example C:/Program Files/****
      *
      * @var string

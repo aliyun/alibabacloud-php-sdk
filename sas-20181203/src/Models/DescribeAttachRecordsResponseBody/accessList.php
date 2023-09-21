@@ -9,6 +9,14 @@ use AlibabaCloud\Tea\Model;
 class accessList extends Model
 {
     /**
+     * @description The status of connecting applications on the ECS instance to the application protection feature. Valid values:
+     *
+     *   **0**: All applications are connected to the application protection feature.
+     *   **1**: Partial applications are connected to the application protection feature.
+     *   **2**: Applications failed to be connected to the application protection feature.
+     *   **3**: Applications are being connected to the application protection feature.
+     *   **4**: Applications are not connected to the application protection feature.
+     *
      * @example 0
      *
      * @var int
@@ -16,6 +24,11 @@ class accessList extends Model
     public $attachState;
 
     /**
+     * @description Indicates whether automatic protection is enabled for the applications on the ECS instance. Valid values:
+     *
+     *   **ON**: Automatic protection is enabled for the applications on the ECS instance.
+     *   **OFF**: Automatic protection is disabled for the applications on the ECS instance.
+     *
      * @example ON
      *
      * @var string
@@ -23,6 +36,8 @@ class accessList extends Model
     public $attachSwitch;
 
     /**
+     * @description The UUID of the ECS instance.
+     *
      * @example cd405430-c027-4937-8398-10152dac****
      *
      * @var string
@@ -30,6 +45,8 @@ class accessList extends Model
     public $ecsUUID;
 
     /**
+     * @description The message that shows the results of installing the RASP agent on the ECS instance.
+     *
      * @example success
      *
      * @var string
@@ -37,6 +54,17 @@ class accessList extends Model
     public $installMsg;
 
     /**
+     * @description The status of installing the RASP agent on the ECS instance to enable automatic application connection. Valid values:
+     *
+     *   **0**: installed
+     *   **1**: installing
+     *   **2**: installation failed
+     *   **3**: installation timeout
+     *   **4**: uninstalled
+     *   **5**: uninstalling
+     *   **6**: uninstallation failed
+     *   **7**: uninstallation timeout
+     *
      * @example 0
      *
      * @var int

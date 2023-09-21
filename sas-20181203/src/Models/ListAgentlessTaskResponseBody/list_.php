@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
+     * @description The end timestamp of the task. Unit: milliseconds.
+     *
      * @example 1678895999999
      *
      * @var int
@@ -16,6 +18,8 @@ class list_ extends Model
     public $endTime;
 
     /**
+     * @description The name of the asset.
+     *
      * @example sql-test-0****
      *
      * @var string
@@ -23,6 +27,8 @@ class list_ extends Model
     public $instanceName;
 
     /**
+     * @description The public IP address of the server.
+     *
      * @example 8.210.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class list_ extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the server.
+     *
      * @example 172.25.XX.XX
      *
      * @var string
@@ -37,6 +45,8 @@ class list_ extends Model
     public $intranetIp;
 
     /**
+     * @description The progress of the task.
+     *
      * @example 60
      *
      * @var int
@@ -44,6 +54,8 @@ class list_ extends Model
     public $progress;
 
     /**
+     * @description The result of the detection.
+     *
      * @example True
      *
      * @var string
@@ -51,6 +63,8 @@ class list_ extends Model
     public $result;
 
     /**
+     * @description The start timestamp of the task. Unit: milliseconds.
+     *
      * @example 1672741657897
      *
      * @var int
@@ -58,6 +72,13 @@ class list_ extends Model
     public $startTime;
 
     /**
+     * @description The status of the detection task.
+     *
+     *   **1**: The detection task is in progress.
+     *   **2**: The detection task is complete.
+     *   **3**: The detection task fails.
+     *   **4**: The detection task times out.
+     *
      * @example 1
      *
      * @var int
@@ -65,6 +86,8 @@ class list_ extends Model
     public $status;
 
     /**
+     * @description The name of the asset that is detected.
+     *
      * @example hkdevt****
      *
      * @var string
@@ -72,6 +95,11 @@ class list_ extends Model
     public $targetName;
 
     /**
+     * @description The type of the asset that is detected. Valid values:
+     *
+     *   **1**: snapshot
+     *   **2**: image
+     *
      * @example 2
      *
      * @var int
@@ -79,6 +107,8 @@ class list_ extends Model
     public $targetType;
 
     /**
+     * @description The ID of the task.
+     *
      * @example 1538****
      *
      * @var string
@@ -86,6 +116,8 @@ class list_ extends Model
     public $taskId;
 
     /**
+     * @description The name of the detection task.
+     *
      * @example AGENTLESS_SCAN
      *
      * @var string
@@ -93,6 +125,8 @@ class list_ extends Model
     public $taskName;
 
     /**
+     * @description The UUID of the asset.
+     *
      * @example 49e25e0f-bb51-4a5a-a1b3-13a4ddaa****
      *
      * @var string

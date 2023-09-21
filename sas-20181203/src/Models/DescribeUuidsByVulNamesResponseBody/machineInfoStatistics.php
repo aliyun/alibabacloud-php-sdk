@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class machineInfoStatistics extends Model
 {
     /**
-     * @description The ID of the server.
+     * @description The instance ID.
      *
      * @example i-wz9gd1os5talju****
      *
@@ -36,7 +36,7 @@ class machineInfoStatistics extends Model
     public $machineName;
 
     /**
-     * @description The name of the operating system that the server runs.
+     * @description The operating system that the server runs.
      *
      * @example windows
      *

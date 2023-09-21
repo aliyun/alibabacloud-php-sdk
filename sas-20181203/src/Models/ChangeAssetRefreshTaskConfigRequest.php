@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ChangeAssetRefreshTaskConfigRequest extends Model
 {
     /**
+     * @description The asset synchronization configurations.
+     *
      * @var assetRefreshConfigs[]
      */
     public $assetRefreshConfigs;
 
     /**
+     * @description The region in which your Security Center service resides.
+     *
      * @example cn-hangzhou
      *
      * @var string

@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessRiskUuidResponseBody extends Model
 {
     /**
+     * @description The information about the hosts.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 05AE6B16-741A-5A75-9BF0-BC747DD9****
      *
      * @var string

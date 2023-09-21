@@ -30,7 +30,7 @@ class propertys extends Model
      *
      *   System service
      *   Software library
-     *   Container component
+     *   Docker component
      *   Database
      *   Web container
      *   JAR package
@@ -70,7 +70,7 @@ class propertys extends Model
     public $containerName;
 
     /**
-     * @description The latest collection timestamp, which indicates the last timestamp when Security Center collected the information about the middleware, database, or web service. Unit: milliseconds.
+     * @description The timestamp of the latest collection , which indicates the last timestamp generated when Security Center collected the information about the middleware, database, or web service. Unit: milliseconds.
      *
      * @example 1597987834000
      *
@@ -142,7 +142,7 @@ class propertys extends Model
     public $listenIp;
 
     /**
-     * @description The protocol of the traffic on which the process listens. Valid values:
+     * @description The listener protocol. Valid values:
      *
      *   **UDP**
      *   **TCP**
@@ -156,8 +156,8 @@ class propertys extends Model
     /**
      * @description The listening status of the process. Valid values:
      *
-     *   **NONE**: not listening
-     *   **LISTEN**: listening
+     *   **NONE**: The process is not listened.
+     *   **LISTEN**: The process is listened.
      *
      * @example NONE
      *
@@ -184,7 +184,7 @@ class propertys extends Model
     public $path;
 
     /**
-     * @description The PID.
+     * @description The process ID.
      *
      * @example 756
      *
@@ -211,7 +211,7 @@ class propertys extends Model
     public $ppid;
 
     /**
-     * @description The timestamp when the process starts. Unit: milliseconds.
+     * @description The timestamp generated when the process starts. Unit: milliseconds.
      *
      * @example 1596539788
      *
@@ -240,7 +240,7 @@ class propertys extends Model
     /**
      * @description The version of the runtime environment.
      *
-     * >  The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
+     * > The value of this parameter can be the Java Development Kit (JDK) version of the runtime environment for a Java process.
      * @example 1.8.0_144
      *
      * @var string

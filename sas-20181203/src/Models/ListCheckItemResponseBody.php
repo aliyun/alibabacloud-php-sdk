@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemResponseBody extends Model
 {
     /**
+     * @description The check items.
+     *
      * @var checkItems[]
      */
     public $checkItems;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 9F4E6157-9600-5588-86B9-38F09067****
      *
      * @var string

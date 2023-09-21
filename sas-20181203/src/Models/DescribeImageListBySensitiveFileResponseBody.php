@@ -29,7 +29,7 @@ class DescribeImageListBySensitiveFileResponseBody extends Model
     public $httpStatusCode;
 
     /**
-     * @description An array that consists of the information about the images.
+     * @description The information about the images.
      *
      * @var imageInfos[]
      */

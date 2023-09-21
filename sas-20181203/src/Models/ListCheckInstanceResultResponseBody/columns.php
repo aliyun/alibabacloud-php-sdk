@@ -28,8 +28,8 @@ class columns extends Model
     /**
      * @description Indicates whether the search condition is used. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -56,7 +56,7 @@ class columns extends Model
     public $showName;
 
     /**
-     * @description The format of the check results for the instances. Valid values:
+     * @description The type of the check result for the instance. Valid values:
      *
      *   **text**
      *   **link**

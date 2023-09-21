@@ -63,7 +63,7 @@ class baselineItemInfos extends Model
     public $baselineNameKey;
 
     /**
-     * @description The status of the baseline risk item. Valid values:
+     * @description The status of the baseline risks. Valid values:
      *
      *   **0**: unfixed
      *   **1**: fixed
@@ -79,8 +79,8 @@ class baselineItemInfos extends Model
     /**
      * @description Indicates whether the baseline check item is added to the whitelist. Valid values:
      *
-     *   **0**: no
-     *   **1**: yes
+     *   **0**: The baseline check item is not added to the whitelist.
+     *   **1**: The baseline check item is added to the whitelist.
      *
      * @example 0
      *

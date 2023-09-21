@@ -20,7 +20,7 @@ class edge extends Model
     /**
      * @description The type of the destination node. Valid values:
      *
-     *   **cluster**: a cluster
+     *   Set the value to **cluster**.
      *
      * @example cluster
      *
@@ -58,8 +58,8 @@ class edge extends Model
     /**
      * @description The type of the source node. Valid values:
      *
-     *   **cluster**: a cluster
-     *   **internet**: a network node in another cluster
+     *   **cluster**: a cluster.
+     *   **internet**: a network node outside the cluster
      *
      * @example cluster
      *

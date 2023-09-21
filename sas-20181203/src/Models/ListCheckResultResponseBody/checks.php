@@ -19,7 +19,7 @@ class checks extends Model
     public $checkId;
 
     /**
-     * @description The check policies.
+     * @description The information about the check policies.
      *
      * @var checkPolicies[]
      */
@@ -55,11 +55,11 @@ class checks extends Model
      *   **POLICY**
      *   **GROUP**
      *
-     *   If **InstanceType** is set to **WAF**, this parameter supports the following valid values:
+     *   If **InstanceType** is set to **WAF**, this parameter supports the following valid value:
      *
      *   **DOMAIN**
      *
-     *   If **InstanceType** is set to other values, this parameter supports the following valid values:
+     *   If **InstanceType** is set to other values, this parameter supports the following valid value:
      *
      *   **INSTANCE**
      *
@@ -72,28 +72,28 @@ class checks extends Model
     /**
      * @description The asset type of the cloud service. Valid values:
      *
-     *   **ECS**: ECS
-     *   **SLB**: SLB
+     *   **ECS**: Elastic Compute Service (ECS)
+     *   **SLB**: Server Load Balancer (SLB)
      *   **RDS**: ApsaraDB RDS
-     *   **MONGODB**: MongoDB
-     *   **KVSTORE**: Redis
+     *   **MONGODB**: ApsaraDB for MongoDB (MongoDB)
+     *   **KVSTORE**: ApsaraDB for Redis
      *   **ACR**: Container Registry
-     *   **CSK**: ACK
-     *   **VPC**: VPC
+     *   **CSK**: Container Service for Kubernetes (ACK)
+     *   **VPC**: Virtual Private Cloud (VPC)
      *   **ACTIONTRAIL**: ActionTrail
-     *   **CDN**: CDN
-     *   **CAS**: Certificate Management Service (formerly SSL Certificates Service)
+     *   **CDN**: Alibaba Cloud CDN (CDN)
+     *   **CAS**: Certificate Management Service
      *   **RDC**: Apsara Devops
-     *   **RAM**: RAM
+     *   **RAM**: Resource Access Management (RAM)
      *   **DDOS**: Anti-DDoS
-     *   **WAF**: WAF
-     *   **OSS**: OSS
+     *   **WAF**: Web Application Firewall (WAF)
+     *   **OSS**: Object Storage Service (OSS)
      *   **POLARDB**: PolarDB
      *   **POSTGRESQL**: ApsaraDB RDS for PostgreSQL
-     *   **MSE**: MSE
-     *   **NAS**: NAS
-     *   **SDDP**: SDDP
-     *   **EIP**: EIP
+     *   **MSE**: Microservices Engine (MSE)
+     *   **NAS**: Apsara File Storage NAS (NAS)
+     *   **SDDP**: Sensitive Data Discovery and Protection (SDDP)
+     *   **EIP**: Elastic IP Address (EIP)
      *
      * @example ECS
      *
@@ -102,7 +102,7 @@ class checks extends Model
     public $instanceType;
 
     /**
-     * @description The timestamp when the last check was performed. Unit: milliseconds.
+     * @description The timestamp generated when the last check was performed. Unit: milliseconds.
      *
      * @example 1657793398000
      *
@@ -162,7 +162,7 @@ class checks extends Model
     public $trialPermission;
 
     /**
-     * @description The value of the cloud service provider.
+     * @description The cloud service provider.
      *
      * @example ALIYUN
      *

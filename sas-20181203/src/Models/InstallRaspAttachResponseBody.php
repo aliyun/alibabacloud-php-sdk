@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class InstallRaspAttachResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 86CFF42E-E00A-57A3-8656-22291EFB****
      *
      * @var string

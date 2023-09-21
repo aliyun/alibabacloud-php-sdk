@@ -55,7 +55,7 @@ class data extends Model
     public $sceneName;
 
     /**
-     * @description An array consisting of the statistics on check items that are used in the risk scenario by baseline type.
+     * @description The statistics on check items that are used in the risk scenario by baseline type.
      *
      * @var subStatistics[]
      */

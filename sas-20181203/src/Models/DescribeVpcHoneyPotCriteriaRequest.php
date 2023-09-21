@@ -11,8 +11,8 @@ class DescribeVpcHoneyPotCriteriaRequest extends Model
     /**
      * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
-     *   **zh**: Chinese
-     *   **en**: English
+     *   **zh**: Chinese.
+     *   **en**: English.
      *
      * @example zh
      *

@@ -18,7 +18,7 @@ class basicData extends Model
     public $id;
 
     /**
-     * @description The ID of the server.
+     * @description The instance ID of the server.
      *
      * @example rm-m5es7ch1s62i4****
      *
@@ -27,7 +27,7 @@ class basicData extends Model
     public $instanceId;
 
     /**
-     * @description The name of the server.
+     * @description The name of the instance.
      *
      * @example sg-t4nbk2aodzio52xv****
      *
@@ -36,7 +36,7 @@ class basicData extends Model
     public $instanceName;
 
     /**
-     * @description The region ID of the instance.
+     * @description The ID of the region in which the instance resides.
      *
      * @example ap-southeast-1
      *
@@ -45,13 +45,13 @@ class basicData extends Model
     public $regionId;
 
     /**
-     * @description The statuses of check items. Multiple statuses are separated by commas (,). Valid values:
+     * @description The states of check items. Multiple states are separated with commas (,). Valid values:
      *
-     *   **PASS**
-     *   **NOT_PASS**
-     *   **CHECKING**
-     *   **NOT_CHECK**
-     *   **WHITELIST**
+     *   **PASS**: The instance passed the check.
+     *   **NOT_PASS**: The instance failed to pass the check.
+     *   **CHECKING**: The instance is being checked.
+     *   **NOT_CHECK**: The instance is not checked.
+     *   **WHITELIST**: The instance is in the whitelist.
      *
      * @example NOT_PASS
      *

@@ -52,11 +52,11 @@ class ListInterceptionHistoryRequest extends Model
     public $interceptionTypes;
 
     /**
-     * @description 设置请求和接收消息的语言类型。默认值**zh**。取值：
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
+     *   **zh**: Chinese
+     *   **en**: English
      *
-     * - **zh**：中文
-     * - **en**：英文
      * @example zh
      *
      * @var string

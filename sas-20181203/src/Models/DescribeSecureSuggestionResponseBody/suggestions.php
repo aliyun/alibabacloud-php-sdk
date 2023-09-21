@@ -10,14 +10,14 @@ use AlibabaCloud\Tea\Model;
 class suggestions extends Model
 {
     /**
-     * @description An array that consists of the details about the suggestion.
+     * @description The details of the suggestion.
      *
      * @var detail[]
      */
     public $detail;
 
     /**
-     * @description The penalty point of an item.
+     * @description The penalty point of a deduction item.
      *
      * @example 40
      *
@@ -26,9 +26,9 @@ class suggestions extends Model
     public $points;
 
     /**
-     * @description The type of the unhandled security risk. Valid values:
+     * @description The type of the unhandled risk. Valid values:
      *
-     *   **SS_REINFORCE**: missing configuration of key features, such as the antivirus feature
+     *   **SS_REINFORCE**: missing configuration of key features, such as malicious behavior defense
      *   **SS_ALARM**: unhandled alerts
      *   **SS_VUL**: unfixed vulnerabilities
      *   **SS_HC**: baseline risks

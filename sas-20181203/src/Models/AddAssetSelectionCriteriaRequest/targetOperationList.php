@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class targetOperationList extends Model
 {
     /**
+     * @description The type of the operation. Valid values:
+     *
+     *   **add**
+     *   **del**
+     *
      * @example del
      *
      * @var string
@@ -16,6 +21,8 @@ class targetOperationList extends Model
     public $operation;
 
     /**
+     * @description The ID of the asset.
+     *
      * @example 1188****
      *
      * @var string

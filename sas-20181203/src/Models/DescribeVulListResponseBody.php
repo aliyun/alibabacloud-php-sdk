@@ -19,6 +19,11 @@ class DescribeVulListResponseBody extends Model
     public $currentPage;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The number of entries per page.
      *
      * @example 20
@@ -53,6 +58,7 @@ class DescribeVulListResponseBody extends Model
     public $vulRecords;
     protected $_name = [
         'currentPage' => 'CurrentPage',
+        'nextToken'   => 'NextToken',
         'pageSize'    => 'PageSize',
         'requestId'   => 'RequestId',
         'totalCount'  => 'TotalCount',
@@ -68,6 +74,9 @@ class DescribeVulListResponseBody extends Model
         $res = [];
         if (null !== $this->currentPage) {
             $res['CurrentPage'] = $this->currentPage;
+        }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
         }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
@@ -101,6 +110,9 @@ class DescribeVulListResponseBody extends Model
         $model = new self();
         if (isset($map['CurrentPage'])) {
             $model->currentPage = $map['CurrentPage'];
+        }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
         }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];

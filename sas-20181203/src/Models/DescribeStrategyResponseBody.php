@@ -19,7 +19,7 @@ class DescribeStrategyResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of the baseline check policies.
+     * @description The details of the baseline check policies.
      *
      * @var strategies[]
      */

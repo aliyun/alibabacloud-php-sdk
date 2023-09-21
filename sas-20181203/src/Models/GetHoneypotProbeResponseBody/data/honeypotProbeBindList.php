@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class honeypotProbeBindList extends Model
 {
     /**
-     * @description The ID of the binding record.
+     * @description The unique ID of the honeypot that is bound to the probe.
      *
      * @example 45378f64-d7b4-4a53-9c48-4303eb4b****
      *
@@ -19,14 +19,14 @@ class honeypotProbeBindList extends Model
     public $bindId;
 
     /**
-     * @description An array consisting of the ports that are bound to the probe.
+     * @description The ports that are bound to the probe.
      *
      * @var bindPortList[]
      */
     public $bindPortList;
 
     /**
-     * @description The ID of the honeypot.
+     * @description The honeypot ID.
      *
      * @example 913347774a3b3c378c6a50f66de23dfa097765214ec3f0526b01c67bf59c****
      *
@@ -35,14 +35,14 @@ class honeypotProbeBindList extends Model
     public $honeypotId;
 
     /**
-     * @description An array consisting of the IP addresses that are monitored.
+     * @description The IP addresses that are monitored.
      *
      * @var string[]
      */
     public $serviceIpList;
 
     /**
-     * @description The status of the service. Valid values:
+     * @description The status of the honeypot that is bound to the probe. Valid values:
      *
      *   **1**: abnormal
      *   **3**: normal

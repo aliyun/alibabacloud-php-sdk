@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessRelateMaliciousRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAgentlessRelateMaliciousRequest extends Model
     public $currentPage;
 
     /**
+     * @description The ID of the event.
+     *
      * @example 80****
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAgentlessRelateMaliciousRequest extends Model
     public $eventId;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var string

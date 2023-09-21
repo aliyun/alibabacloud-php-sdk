@@ -18,7 +18,7 @@ class DescribeWebLockStatusResponseBody extends Model
     public $authCount;
 
     /**
-     * @description The used quota for web tamper proofing.
+     * @description The associated tamper proofing quota.
      *
      * @example 2
      *
@@ -45,7 +45,7 @@ class DescribeWebLockStatusResponseBody extends Model
     public $dirCount;
 
     /**
-     * @description The timestamp when the quota for web tamper proofing expires.
+     * @description The timestamp generated when the quota for tamper proofing expires. Unit: millisecond.
      *
      * @example 1688090851000
      *
@@ -63,7 +63,7 @@ class DescribeWebLockStatusResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of processes that are added to the process whitelist.
+     * @description The number of processes in the whitelist.
      *
      * @example 6
      *

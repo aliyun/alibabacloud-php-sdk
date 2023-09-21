@@ -72,7 +72,7 @@ class strategy extends Model
     public $name;
 
     /**
-     * @description The subtype of the baselines.
+     * @description The subtype of the baseline check item.
      *
      * @example hc_nginx_linux,tomcat7,hc_mysql_ali,hc_docker
      *

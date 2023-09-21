@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DeleteBinarySecurityPolicyResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example A6CFADC0-1167-521A-9284-8CD8034C****
      *
      * @var string

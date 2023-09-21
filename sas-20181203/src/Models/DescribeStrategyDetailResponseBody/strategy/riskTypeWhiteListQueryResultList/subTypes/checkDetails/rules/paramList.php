@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class paramList extends Model
 {
     /**
-     * @description If the value of paramType is 2, this parameter provides the options that can be selected for the rule parameter.
+     * @description The options that can be selected for the rule parameter if the value of ParamType is set to 2.
      *
      * @example 0,1,2,3
      *
@@ -75,7 +75,7 @@ class paramList extends Model
     public $paramType;
 
     /**
-     * @description The specified value of the rule parameter.
+     * @description The configured value of the rule parameter.
      *
      * @example 7
      *

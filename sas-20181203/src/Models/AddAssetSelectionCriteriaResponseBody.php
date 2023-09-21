@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class AddAssetSelectionCriteriaResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example 7BC55C8F-226E-5AF5-9A2C-2EC43864****
      *
      * @var string

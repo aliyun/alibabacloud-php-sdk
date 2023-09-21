@@ -30,7 +30,7 @@ class DescribeGroupedVulRequest extends Model
     public $assetType;
 
     /**
-     * @description The type of the vulnerability. This parameter is valid only for application vulnerabilities. Valid values:
+     * @description The type of the vulnerability. This parameter is valid only for application vulnerabilities. Separate multiple values with commas (,). Valid values:
      *
      *   **sca**: vulnerability that is detected based on software component analysis
      *   **app**: application vulnerability
@@ -127,6 +127,11 @@ class DescribeGroupedVulRequest extends Model
     public $pageSize;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;
@@ -160,14 +165,13 @@ class DescribeGroupedVulRequest extends Model
     public $targetType;
 
     /**
-     * @description The type of the vulnerabilities. Valid values:
+     * @description The type of the vulnerability that you want to query. Default value: cve. Valid values:
      *
      *   **cve**: Linux software vulnerability
      *   **sys**: Windows system vulnerability
      *   **cms**: Web-CMS vulnerability
      *   **app**: application vulnerability
-     *   **emg**: urgent vulnerabilities
-     *   **sca**: vulnerability that is detected based on software component analysis
+     *   **emg**: urgent vulnerability
      *
      * @example cve
      *

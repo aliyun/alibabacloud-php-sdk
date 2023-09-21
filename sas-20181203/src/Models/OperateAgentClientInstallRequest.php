@@ -11,7 +11,7 @@ class OperateAgentClientInstallRequest extends Model
     /**
      * @description The IDs of the servers on which you want to install the Security Center agent. Separate multiple IDs with commas (,).
      *
-     * > You must specify at least one of the **InstanceIds** and **Uuids** parameters before you can call this operation.
+     * > : You must specify at least one of **InstanceIds** and **Uuids**. If you specify **InstanceIds**, you must also specify **Region** and **Os**.
      * @example i-uf6j8vq9l4r5ntht****
      *
      * @var string
@@ -31,11 +31,28 @@ class OperateAgentClientInstallRequest extends Model
     public $lang;
 
     /**
+     * @description The operating system of the servers. Valid values:
+     *
+     *   **linux**
+     *   **windows**
+     *
+     * @example linux
+     *
      * @var string
      */
     public $os;
 
     /**
+     * @description The region where the servers reside. Valid values include the following regions:
+     *
+     *   cn-hangzhou: China (Hangzhou)
+     *   cn-beijing: China (Beijing)
+     *   cn-shanghai: China (Shanghai)
+     *   cn-zhangjiakou: China (Zhangjiakou)
+     *   cn-shenzhen: China (Shenzhen)
+     *
+     * @example cn-hangzhou
+     *
      * @var string
      */
     public $region;

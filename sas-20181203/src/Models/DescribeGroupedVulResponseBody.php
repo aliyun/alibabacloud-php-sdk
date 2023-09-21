@@ -19,7 +19,7 @@ class DescribeGroupedVulResponseBody extends Model
     public $currentPage;
 
     /**
-     * @description An array that consists of the details of the vulnerability.
+     * @description The information about the vulnerability.
      *
      * @var groupedVulItems[]
      */

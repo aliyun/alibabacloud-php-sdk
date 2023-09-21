@@ -11,7 +11,7 @@ class DescribePropertyScheduleConfigResponseBody extends Model
     /**
      * @description The configuration time. Unit: hours.
      *
-     * >  The value **0** indicates that asset fingerprint collection is disabled for this type of asset.
+     * >  A value **0** indicates that asset fingerprint collection is disabled for this type of asset.
      * @example 3
      *
      * @var string

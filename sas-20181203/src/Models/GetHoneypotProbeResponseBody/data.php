@@ -28,7 +28,7 @@ class data extends Model
     public $canListenIpList;
 
     /**
-     * @description An array consisting of the CIDR blocks that are allowed to access the VPC probe.
+     * @description The CIDR blocks of the probe deployed in a virtual private cloud (VPC).
      *
      * @var string[]
      */
@@ -76,7 +76,7 @@ class data extends Model
     public $honeyPotProbeScanPort;
 
     /**
-     * @description An array consisting of the honeypots to which the probe forwards traffic.
+     * @description The honeypots that are bound to the probe.
      *
      * @var honeypotProbeBindList[]
      */
@@ -197,7 +197,7 @@ class data extends Model
     public $uuid;
 
     /**
-     * @description The ID of the VPC in which the VPC probe is deployed.
+     * @description The ID of the VPC in which the probe is deployed.
      *
      * @example vpc-2vchkxmf2j9yjt3x2****
      *

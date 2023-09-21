@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class propertys extends Model
 {
     /**
-     * @description The timestamp at which the last asset fingerprint collection is performed. Unit: milliseconds.
+     * @description The timestamp generated when the last asset fingerprint collection is performed. Unit: milliseconds.
      *
      * @example 1649149566000
      *
@@ -27,7 +27,7 @@ class propertys extends Model
     public $installTime;
 
     /**
-     * @description The timestamp at which the software is installed. Unit: milliseconds.
+     * @description The timestamp generated when the software is installed. Unit: milliseconds.
      *
      * @example 1649066826000
      *

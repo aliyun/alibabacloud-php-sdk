@@ -12,7 +12,7 @@ use AlibabaCloud\Tea\Model;
 class ListCheckInstanceResultResponseBody extends Model
 {
     /**
-     * @description An array that consists of the basic information about the instances.
+     * @description The basic information about the affected instances.
      *
      * @var basicData[]
      */

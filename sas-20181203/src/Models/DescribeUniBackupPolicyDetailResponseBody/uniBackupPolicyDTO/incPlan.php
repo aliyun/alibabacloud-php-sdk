@@ -38,7 +38,7 @@ class incPlan extends Model
     public $planType;
 
     /**
-     * @description The time when the incremental backup started. The time is in the HH:mm:ss format.
+     * @description The time when the incremental data backup starts. The time is in the hh:mm:ss format.
      *
      * @example 00:10:00
      *

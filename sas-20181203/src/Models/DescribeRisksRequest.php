@@ -30,9 +30,9 @@ class DescribeRisksRequest extends Model
     public $limit;
 
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
-     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of baselines.
+     * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the baseline IDs.
      * @example 75
      *
      * @var int

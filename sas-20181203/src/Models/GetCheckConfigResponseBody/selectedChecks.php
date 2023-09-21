@@ -9,11 +9,19 @@ use AlibabaCloud\Tea\Model;
 class selectedChecks extends Model
 {
     /**
+     * @description The ID of the check item.
+     *
+     * @example 3
+     *
      * @var int
      */
     public $checkId;
 
     /**
+     * @description The section ID of the check item.
+     *
+     * @example 69
+     *
      * @var int
      */
     public $sectionId;

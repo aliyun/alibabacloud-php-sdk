@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The ID of the asset.
+     *
      * @example 30****
      *
      * @var string
@@ -16,6 +18,8 @@ class data extends Model
     public $targetId;
 
     /**
+     * @description The name of the asset.
+     *
      * @example test****
      *
      * @var string

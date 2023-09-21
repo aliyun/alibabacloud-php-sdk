@@ -59,7 +59,7 @@ class CreateInterceptionTargetRequest extends Model
     public $tagList;
 
     /**
-     * @description The object name.
+     * @description The name of the object to be blocked.
      *
      * @example test
      *
@@ -69,7 +69,9 @@ class CreateInterceptionTargetRequest extends Model
 
     /**
      * @description The object type. Valid value:
-     * - **IMAGE**: specifies an image
+     *
+     *   **IMAGE**
+     *
      * @example IMAGE
      *
      * @var string

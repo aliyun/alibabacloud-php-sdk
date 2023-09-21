@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class vpcList extends Model
 {
     /**
-     * @description The number of ECS instances.
+     * @description The number of Elastic Compute Service (ECS) instances.
      *
      * @example 9
      *
@@ -18,7 +18,7 @@ class vpcList extends Model
     public $ecsCount;
 
     /**
-     * @description The information about the VPC.
+     * @description The information about the virtual private cloud (VPC).
      *
      * @example TestVpcNote
      *
@@ -45,7 +45,7 @@ class vpcList extends Model
     public $instanceName;
 
     /**
-     * @description The region in which the ECS instance resides.
+     * @description The region in which the server resides.
      *
      * @example cn-hangzhou
      *

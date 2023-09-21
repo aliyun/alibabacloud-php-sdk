@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListQueryRaspAppInfoRequest extends Model
 {
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid values:
+     *
+     *   **zh**
+     *   **en**
+     *
      * @example zh
      *
      * @var string
@@ -16,6 +21,8 @@ class ListQueryRaspAppInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The UUIDs of the RASP-enabled applications. Separate multiple UUIDs with commas (,).
+     *
      * @example 6541631a-7d47-41fd-9fef-9518113f****
      *
      * @var string

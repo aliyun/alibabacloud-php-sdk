@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeAgentInstallStatusResponseBody extends Model
 {
     /**
-     * @description An array that consists of the installation results for the servers.
+     * @description The status of servers.
      *
      * @var aegisClientInvokeStatusResponseList[]
      */

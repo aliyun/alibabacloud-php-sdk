@@ -58,7 +58,7 @@ class baselineResultSummary extends Model
     public $baselineNameLevel;
 
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the first scan was performed. Unit: milliseconds.
      *
      * @example 1626628760000
      *
@@ -76,7 +76,7 @@ class baselineResultSummary extends Model
     public $highRiskImage;
 
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the last scan was performed. Unit: milliseconds.
      *
      * @example 1626628760000
      *

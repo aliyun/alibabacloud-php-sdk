@@ -11,7 +11,7 @@ class DescribeWarningMachinesRequest extends Model
     /**
      * @description The ID of the container cluster.
      *
-     * >  You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
+     * > You can call the [DescribeGroupedContainerInstances](~~DescribeGroupedContainerInstances~~) operation to query the IDs of container clusters.
      * @example c7e3c5b420a7947c2933303144688****
      *
      * @var string
@@ -54,9 +54,9 @@ class DescribeWarningMachinesRequest extends Model
     public $currentPage;
 
     /**
-     * @description The ID of the new server group to which the servers belong.
+     * @description The ID of the asset group.
      *
-     * >  You can call the [DescribeAllGroups](~~DescribeAllGroups~~) operation to query the IDs of server groups.
+     * > You can call the [DescribeAllGroups](~~130972~~) operation to query the IDs of asset groups.
      * @example 123
      *
      * @var int
@@ -97,7 +97,7 @@ class DescribeWarningMachinesRequest extends Model
     public $machineName;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries per page. Default value: **10**, which indicates that 10 entries of server information are displayed on each page. A maximum of 100 entries can be returned per page.
      *
      * @example 10
      *
@@ -108,7 +108,7 @@ class DescribeWarningMachinesRequest extends Model
     /**
      * @description The ID of the risk item.
      *
-     * >  You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
+     * > You can call the [DescribeCheckWarningSummary](~~DescribeCheckWarningSummary~~) operation to query the IDs of risk items.
      * @example 196
      *
      * @var int

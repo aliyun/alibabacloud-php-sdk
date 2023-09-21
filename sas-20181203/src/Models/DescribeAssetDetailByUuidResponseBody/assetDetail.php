@@ -211,7 +211,7 @@ class assetDetail extends Model
     public $kernel;
 
     /**
-     * @description The media access control (MAC) addresses of the server.
+     * @description The Media Access Control (MAC) addresses.
      *
      * @var string[]
      */

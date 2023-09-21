@@ -9,6 +9,15 @@ use AlibabaCloud\Tea\Model;
 class groupedFields extends Model
 {
     /**
+     * @description The statistics of different types of assets. **MachineType** indicates the type of the asset. **Count** indicates the number of assets of a specific type.
+     *
+     * Valid values of **MachineType**:
+     *
+     *   **1**: Server Load Balancer (SLB) instance
+     *   **2**: NAT gateway instance
+     *   **3**: ApsaraDB RDS instance
+     *   **4**: ApsaraDB for MongoDB instance
+     *
      * @example [{"MachineType":1,"Count":11}]
      *
      * @var string
@@ -16,6 +25,8 @@ class groupedFields extends Model
     public $categoryCount;
 
     /**
+     * @description The total number of cloud services that are protected by Security Center.
+     *
      * @example 100
      *
      * @var int
@@ -23,6 +34,8 @@ class groupedFields extends Model
     public $instanceCount;
 
     /**
+     * @description The number of cloud services that are at risk.
+     *
      * @example 90
      *
      * @var int

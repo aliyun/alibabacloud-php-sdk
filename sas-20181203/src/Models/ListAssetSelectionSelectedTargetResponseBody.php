@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class ListAssetSelectionSelectedTargetResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 1EB12F73-6828-59D2-9FBF-F3713FD55128
      *
      * @var string

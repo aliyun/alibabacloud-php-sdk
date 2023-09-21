@@ -25,7 +25,7 @@ class DescribePropertySoftwareDetailResponseBody extends Model
     public $propertys;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 6AEE7412-0065-1135-B790-AE2C38BA68FB
      *

@@ -11,7 +11,7 @@ class DescribeCriteriaRequest extends Model
     /**
      * @description The type of the asset. Valid values:
      *
-     *   **ecs**: Elastic Compute Service (ECS) instance
+     *   Set the value to **ecs**, which specifies to query all Elastic Compute Service (ECS) instances.
      *
      * @example ecs
      *
@@ -20,10 +20,10 @@ class DescribeCriteriaRequest extends Model
     public $machineTypes;
 
     /**
-     * @description Specifies whether the keyword that you specify for fuzzy search can be automatically matched. default **false**, Valid values:
+     * @description Specifies whether the keyword that you specify for fuzzy search can be automatically matched. Default value: **false**. Valid values:
      *
-     *   **true**: yes
-     *   **false**: no
+     *   **true**
+     *   **false**
      *
      * @example true
      *

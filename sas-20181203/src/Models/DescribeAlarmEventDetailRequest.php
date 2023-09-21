@@ -9,9 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DescribeAlarmEventDetailRequest extends Model
 {
     /**
-     * @description The unique ID of the alert event.
+     * @description The unique identifier of the alert event.
      *
-     * >  To query the details of an alert event, you must specify the unique ID of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to query the unique IDs of alert events.
+     * > To query the details of an alert event, you must provide the unique identifier of the alert event. You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the identifier.
      * @example 9f62555666f177aa84ee1eaf465a****
      *
      * @var string

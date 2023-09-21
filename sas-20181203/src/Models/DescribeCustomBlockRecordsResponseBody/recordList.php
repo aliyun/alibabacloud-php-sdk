@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class recordList extends Model
 {
     /**
-     * @description The timestamp when the defense rule expires.
+     * @description The timestamp generated when the block action on the IP address becomes invalid.
      *
      * @example 1671506882063
      *
@@ -30,8 +30,8 @@ class recordList extends Model
     /**
      * @description The direction of the traffic that is sent by the blocked IP address. Valid values:
      *
-     *   **in**: inbound
-     *   **out**: outbound
+     *   **in**
+     *   **out**
      *
      * @example in
      *
@@ -40,7 +40,7 @@ class recordList extends Model
     public $bound;
 
     /**
-     * @description The number of servers to which the defense rule is applied.
+     * @description The number of servers for which the defense rule is enabled.
      *
      * @example 4
      *
@@ -49,7 +49,7 @@ class recordList extends Model
     public $enableCount;
 
     /**
-     * @description The ID of the defense rule.
+     * @description The record ID.
      *
      * @example 353376
      *
@@ -67,7 +67,7 @@ class recordList extends Model
     public $serverCount;
 
     /**
-     * @description The source of the defense rule. Valid values:
+     * @description The source of the defense rule.
      *
      * @example UserRule
      *
@@ -76,11 +76,11 @@ class recordList extends Model
     public $source;
 
     /**
-     * @description The status of the defense rule. Valid values:
+     * @description The status of the defense rule against brute-force attacks. Valid values:
      *
-     *   **0**: invalid
-     *   **1**: enabled
-     *   **2**: failed
+     *   **0**: invalid.
+     *   **1**: enabled.
+     *   **2**: failed.
      *
      * @example 1
      *
@@ -89,7 +89,7 @@ class recordList extends Model
     public $status;
 
     /**
-     * @description An array consisting of the servers to which the defense rule is applied.
+     * @description The servers for which the defense rule is enabled.
      *
      * @var targetList[]
      */

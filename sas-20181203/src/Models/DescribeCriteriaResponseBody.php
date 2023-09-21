@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeCriteriaResponseBody extends Model
 {
     /**
-     * @description An array that consists of the filter conditions.
+     * @description The information about the search conditions of assets.
      *
      * @var criteriaList[]
      */

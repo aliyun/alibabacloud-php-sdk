@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAntiBruteForceRulesRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -26,11 +28,17 @@ class DescribeAntiBruteForceRulesRequest extends Model
     public $id;
 
     /**
+     * @description The name of the rule.
+     *
+     * @example testName
+     *
      * @var string
      */
     public $name;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var string

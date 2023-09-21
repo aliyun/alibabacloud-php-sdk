@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyAssetCleanConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class ModifyAssetCleanConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The request ID.
+     *
      * @example 952776BD-5546-59FC-8AF3-B54EBAD57***
      *
      * @var string

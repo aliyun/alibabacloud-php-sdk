@@ -72,7 +72,7 @@ class bindList extends Model
     public $os;
 
     /**
-     * @description The starting progress percentage of web tamper proofing. Valid values: 0 to 100.
+     * @description The percentage of the starting progress of web tamper proofing. Valid values: 0 to 100.
      *
      * @example 99
      *
@@ -93,7 +93,7 @@ class bindList extends Model
     public $serviceCode;
 
     /**
-     * @description The error message for web tamper proofing. Valid values:
+     * @description The exception details of web tamper proofing. Valid values:
      *
      *   **client offline**: The Security Center agent is offline.
      *   **timeout**: The connection timed out.
@@ -122,8 +122,8 @@ class bindList extends Model
     /**
      * @description The protection status of the server. Valid values:
      *
-     *   **on**: protected
-     *   **off**: unprotected
+     *   **on**: The server is protected.
+     *   **off**: The server is not protected.
      *
      * @example on
      *

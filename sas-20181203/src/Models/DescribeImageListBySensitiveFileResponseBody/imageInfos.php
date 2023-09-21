@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class imageInfos extends Model
 {
     /**
-     * @description The image digest.
+     * @description The digest of the image.
      *
      * @example v005
      *
@@ -18,7 +18,7 @@ class imageInfos extends Model
     public $digest;
 
     /**
-     * @description The UNIX timestamp of when the first scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the first scan was performed. Unit: milliseconds.
      *
      * @example 1649814050000
      *
@@ -36,7 +36,7 @@ class imageInfos extends Model
     public $instanceId;
 
     /**
-     * @description The UNIX timestamp of when the last scan was performed. Unit: milliseconds.
+     * @description The timestamp when the last scan was performed. Unit: milliseconds.
      *
      * @example 1649814050000
      *
@@ -45,7 +45,7 @@ class imageInfos extends Model
     public $lastScanTime;
 
     /**
-     * @description The region ID of the image instance.
+     * @description The ID of the region in which the image instance resides.
      *
      * @example cn-hangzhou
      *
@@ -73,9 +73,11 @@ class imageInfos extends Model
 
     /**
      * @description The risk level. Valid values:
-     * - **high**
-     * - **medium**
-     * - **low**
+     *
+     *   **high**
+     *   **medium**
+     *   **low**
+     *
      * @example low
      *
      * @var string
@@ -83,7 +85,7 @@ class imageInfos extends Model
     public $riskLevel;
 
     /**
-     * @description The tag that is added to the image.
+     * @description The tag of the image.
      *
      * @example nuxeo6
      *

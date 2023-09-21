@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class restoreJobs extends Model
 {
     /**
-     * @description The size of backup data. Unit: bytes.
+     * @description The size of the backup file. Unit: bytes.
      *
      * @example 20
      *
@@ -36,7 +36,7 @@ class restoreJobs extends Model
     public $bytesTotal;
 
     /**
-     * @description The ID of the anti-ransomware agent that is used to restore data.
+     * @description The ID of the anti-ransomware agent that is used to perform the restoration task.
      *
      * @example c-000frxwusjauhp9ajpu6
      *
@@ -153,7 +153,7 @@ class restoreJobs extends Model
     public $gmtModified;
 
     /**
-     * @description The included directory based on which the files to restore are located. The value is the directory that you specify for protection when you create the anti-ransomware policy
+     * @description The directory in which the restored file is stored. The value is the directory that you specify for protection when you create the anti-ransomware policy
      *
      * @example ["/root/disk-uuid-test","/root/install.sh"]
      *
@@ -198,7 +198,7 @@ class restoreJobs extends Model
     public $intranetIp;
 
     /**
-     * @description The number of files that are backed up.
+     * @description The number of files that are restored.
      *
      * @example 0
      *
@@ -207,7 +207,7 @@ class restoreJobs extends Model
     public $itemsDone;
 
     /**
-     * @description The total number of files that you want to restore.
+     * @description The total number of files that need to be restored.
      *
      * @example 0
      *
@@ -216,7 +216,7 @@ class restoreJobs extends Model
     public $itemsTotal;
 
     /**
-     * @description The error message returned.
+     * @description The error message.
      *
      * @example successful
      *
@@ -234,7 +234,7 @@ class restoreJobs extends Model
     public $percentage;
 
     /**
-     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     * @description The request ID.
      *
      * @example 0ED92280-4363-57D3-A4D3-4D3FBC99B29F
      *
@@ -300,7 +300,7 @@ class restoreJobs extends Model
     public $snapshotVersion;
 
     /**
-     * @description The path to the source file that you want to restore.
+     * @description The restored content.
      *
      * @example ["/home/admin","\\\\servername\\sharename"]
      *
@@ -318,7 +318,7 @@ class restoreJobs extends Model
     public $sourceClientId;
 
     /**
-     * @description The speed of data restoration. Unit: byte/s.
+     * @description The speed at which data is restored. Unit: byte/s.
      *
      * @example 25766558
      *
@@ -335,7 +335,7 @@ class restoreJobs extends Model
      *   **CANCELING**: The task is being canceled.
      *   **CANCELED**: The task is canceled.
      *   **PARTIAL_COMPLETE**: The task is partially successful.
-     *   **CREATED**: The task is created but is not run.
+     *   **CREATED**: The task was created but is not run.
      *   **EXPIRED**: The task is not updated.
      *   **QUEUED**: The task is waiting to be run.
      *   **CLIENT_DELETED**: The task fails because the anti-ransomware agent is uninstalled.

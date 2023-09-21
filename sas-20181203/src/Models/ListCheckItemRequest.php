@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListCheckItemRequest extends Model
 {
     /**
+     * @description The number of the page to return. Default value: **1**.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,11 @@ class ListCheckItemRequest extends Model
     public $currentPage;
 
     /**
+     * @description The language of the content within the request and response. Default value: **zh**. Valid value:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -23,6 +30,8 @@ class ListCheckItemRequest extends Model
     public $lang;
 
     /**
+     * @description The number of entries per page. Default value: **20**.
+     *
      * @example 10
      *
      * @var int

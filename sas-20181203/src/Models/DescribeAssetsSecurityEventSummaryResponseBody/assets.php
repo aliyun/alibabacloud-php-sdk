@@ -11,13 +11,13 @@ class assets extends Model
     /**
      * @description The type of the asset. Valid values:
      *
-     *   **namespace**: namespace
-     *   **clusters**: cluster
-     *   **applications**: application
-     *   **pods**: container group
-     *   **containers**: container
-     *   **images**: image
-     *   **hosts**: node
+     *   **namespace**
+     *   **clusters**
+     *   **applications**
+     *   **pods**
+     *   **containers**
+     *   **images**
+     *   **hosts**
      *
      * @example namespace
      *
@@ -26,7 +26,7 @@ class assets extends Model
     public $assetType;
 
     /**
-     * @description The number of assets that are at risk.
+     * @description The number of potential risky assets.
      *
      * @example 16
      *

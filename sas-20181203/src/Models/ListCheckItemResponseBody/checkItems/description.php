@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class description extends Model
 {
     /**
+     * @description The type of the description of the check item. Valid value:
+     *
+     *   **text**
+     *
      * @example text
      *
      * @var string
@@ -16,6 +20,8 @@ class description extends Model
     public $type;
 
     /**
+     * @description The content of the description for the check item when the Type parameter is text.
+     *
      * @var string
      */
     public $value;

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class UninstallRaspAttachResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
      * @example ADE57832-9666-511C-9A80-B87DE2E8****
      *
      * @var string

@@ -36,7 +36,7 @@ class podRiskList extends Model
     public $clusterName;
 
     /**
-     * @description The timestamp when the pod was created. Unit: milliseconds.
+     * @description The timestamp that indicates the time when the pod was created. Unit: milliseconds.
      *
      * @example 1644283112720
      *
@@ -54,7 +54,7 @@ class podRiskList extends Model
     public $hcCount;
 
     /**
-     * @description The ID of the node.
+     * @description The instance ID of the node.
      *
      * @example i-7yvdq597****
      *

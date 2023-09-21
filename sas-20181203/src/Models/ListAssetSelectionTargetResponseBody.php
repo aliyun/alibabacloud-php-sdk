@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListAssetSelectionTargetResponseBody extends Model
 {
     /**
+     * @description The data returned.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example 50A75355-F58F-5D65-8377-98C88DED9C51
      *
      * @var string

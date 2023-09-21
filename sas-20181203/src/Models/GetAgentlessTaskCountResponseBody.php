@@ -9,16 +9,26 @@ use AlibabaCloud\Tea\Model;
 class GetAgentlessTaskCountResponseBody extends Model
 {
     /**
+     * @description The number of baseline checks.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $baselineCheckCount;
 
     /**
+     * @description The number of system vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $cveVulCount;
 
     /**
+     * @description The timestamp generated when the last detection is performed.
+     *
      * @example 1682577532318
      *
      * @var int
@@ -26,6 +36,8 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $lastTaskTime;
 
     /**
+     * @description The number of malicious files.
+     *
      * @example 1
      *
      * @var int
@@ -33,6 +45,8 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $maliciousFile;
 
     /**
+     * @description The request ID.
+     *
      * @example D03DD0FD-6041-5107-AC00-383E28F1****
      *
      * @var string
@@ -40,6 +54,8 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $requestId;
 
     /**
+     * @description The number of risky hosts.
+     *
      * @example 1
      *
      * @var int
@@ -47,11 +63,17 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $riskMachine;
 
     /**
+     * @description The number of application vulnerabilities.
+     *
+     * @example 1
+     *
      * @var int
      */
     public $scaVulCount;
 
     /**
+     * @description The number of hosts that are scanned.
+     *
      * @example 1
      *
      * @var int
@@ -59,11 +81,17 @@ class GetAgentlessTaskCountResponseBody extends Model
     public $scanMachine;
 
     /**
+     * @description The number of windows system vulnerabilities.
+     *
+     * @example 1
+     *
      * @var string
      */
     public $sysVulCount;
 
     /**
+     * @description The number of vulnerabilities.
+     *
      * @example 1
      *
      * @var int

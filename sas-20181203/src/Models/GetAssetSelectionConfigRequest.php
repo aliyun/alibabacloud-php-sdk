@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class GetAssetSelectionConfigRequest extends Model
 {
     /**
+     * @description The business type that you want to select for the asset. Valid values:
+     *
+     *   **VIRUS_SCAN_CYCLE_CONFIG**: virus detection configuration
+     *   **VIRUS_SCAN_ONCE_TASK**: one-time scan for virus detection
+     *
      * @example VIRUS_SCAN_CYCLE_CONFIG
      *
      * @var string

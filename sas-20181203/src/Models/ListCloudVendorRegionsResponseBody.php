@@ -10,6 +10,8 @@ use AlibabaCloud\Tea\Model;
 class ListCloudVendorRegionsResponseBody extends Model
 {
     /**
+     * @description The return code.
+     *
      * @example 200
      *
      * @var string
@@ -17,6 +19,8 @@ class ListCloudVendorRegionsResponseBody extends Model
     public $code;
 
     /**
+     * @description The total number of returned entries.
+     *
      * @example 2
      *
      * @var int
@@ -24,11 +28,15 @@ class ListCloudVendorRegionsResponseBody extends Model
     public $count;
 
     /**
+     * @description The regions that the service provider supports.
+     *
      * @var data[]
      */
     public $data;
 
     /**
+     * @description The HTTP status code returned.
+     *
      * @example 200
      *
      * @var int
@@ -36,6 +44,8 @@ class ListCloudVendorRegionsResponseBody extends Model
     public $httpStatusCode;
 
     /**
+     * @description The error message returned.
+     *
      * @example successful
      *
      * @var string
@@ -43,6 +53,8 @@ class ListCloudVendorRegionsResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example C87EC6AD-4590-5546-9DF6-B8956579D***
      *
      * @var string
@@ -50,6 +62,11 @@ class ListCloudVendorRegionsResponseBody extends Model
     public $requestId;
 
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**: The request was successful.
+     *   **false**: The request failed.
+     *
      * @example true
      *
      * @var bool

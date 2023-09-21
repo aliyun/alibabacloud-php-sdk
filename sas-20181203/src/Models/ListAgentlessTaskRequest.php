@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessTaskRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAgentlessTaskRequest extends Model
     public $currentPage;
 
     /**
+     * @description The end timestamp of the task.
+     *
      * @example 1635575219000
      *
      * @var int
@@ -23,6 +27,8 @@ class ListAgentlessTaskRequest extends Model
     public $endTime;
 
     /**
+     * @description The public IP address of the asset that you want to query.
+     *
      * @example 1.1.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class ListAgentlessTaskRequest extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the asset that you want to query.
+     *
      * @example 172.26.XX.XX
      *
      * @var string
@@ -37,6 +45,11 @@ class ListAgentlessTaskRequest extends Model
     public $intranetIp;
 
     /**
+     * @description The language type. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string
@@ -44,6 +57,8 @@ class ListAgentlessTaskRequest extends Model
     public $lang;
 
     /**
+     * @description The name of the instance.
+     *
      * @example oracle-win-001****
      *
      * @var string
@@ -51,6 +66,8 @@ class ListAgentlessTaskRequest extends Model
     public $machineName;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 20
      *
      * @var int
@@ -58,6 +75,11 @@ class ListAgentlessTaskRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether to query main tasks. Valid values:
+     *
+     *   **true**: queries main tasks.
+     *   **false**: queries subtasks.
+     *
      * @example false
      *
      * @var bool
@@ -65,6 +87,8 @@ class ListAgentlessTaskRequest extends Model
     public $rootTask;
 
     /**
+     * @description The ID of the main task.
+     *
      * @example 12c27343861610c5db3f7a2573b4****
      *
      * @var string
@@ -72,6 +96,8 @@ class ListAgentlessTaskRequest extends Model
     public $rootTaskId;
 
     /**
+     * @description The start timestamp of the task.
+     *
      * @example 1651290987000
      *
      * @var int
@@ -79,6 +105,13 @@ class ListAgentlessTaskRequest extends Model
     public $startTime;
 
     /**
+     * @description The status of the detection task.
+     *
+     *   **1**: The detection task is in progress.
+     *   **2**: The detection task is complete.
+     *   **3**: The detection task fails.
+     *   **4**: The detection task times out.
+     *
      * @example 2
      *
      * @var int
@@ -86,6 +119,8 @@ class ListAgentlessTaskRequest extends Model
     public $status;
 
     /**
+     * @description The name of the asset that you want to detect.
+     *
      * @example source-test-obj-0****
      *
      * @var string
@@ -93,6 +128,11 @@ class ListAgentlessTaskRequest extends Model
     public $targetName;
 
     /**
+     * @description The type of the asset that you want to detect. Valid values:
+     *
+     *   **1**: snapshot
+     *   **2**: image
+     *
      * @example 1
      *
      * @var int
@@ -100,6 +140,8 @@ class ListAgentlessTaskRequest extends Model
     public $targetType;
 
     /**
+     * @description The ID of the main task. If you want to query subtasks of a main task, you must specify this parameter.
+     *
      * @example d7b2acf8d362742123e4a84e1bf8****
      *
      * @var string
@@ -107,6 +149,8 @@ class ListAgentlessTaskRequest extends Model
     public $taskId;
 
     /**
+     * @description The UUID of the server.
+     *
      * @example e4af3620-6895-4e2f-a641-a9d8fb53****
      *
      * @var string

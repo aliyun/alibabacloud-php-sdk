@@ -9,10 +9,10 @@ use AlibabaCloud\Tea\Model;
 class node extends Model
 {
     /**
-     * @description The micro-segmentation switch. Valid values:
+     * @description The status of the microsegmentation switch. Valid values:
      *
-     *   **0**: The switch is turned off.
-     *   **1**: The switch is turned on.
+     *   **0**: off.
+     *   **1**: on.
      *
      * @example 1
      *
@@ -32,8 +32,8 @@ class node extends Model
     /**
      * @description The network type. Valid values:
      *
-     *   **0**: classic network
-     *   **1**: virtual private cloud (VPC)
+     *   **0**: classic network.
+     *   **1**: virtual private cloud (VPC).
      *
      * @example 1
      *
@@ -51,7 +51,7 @@ class node extends Model
     public $name;
 
     /**
-     * @description The network topology switch. Valid values:
+     * @description The status of the network topology switch. Valid values:
      *
      *   **ON**
      *   **OFF**
@@ -65,11 +65,11 @@ class node extends Model
     /**
      * @description The risk level. Valid values:
      *
-     *   **3**: high
-     *   **2**: medium
-     *   **1**: low
-     *   **0**: warning
-     *   **-1**: unknown
+     *   **3**: high.
+     *   **2**: medium.
+     *   **1**: low.
+     *   **0**: secure.
+     *   **-1**: unknown.
      *
      * @example 3
      *
@@ -80,8 +80,8 @@ class node extends Model
     /**
      * @description The type of the node. Valid values:
      *
-     *   **cluster**: a cluster
-     *   **internet**: a node in another cluster
+     *   **cluster**: a cluster.
+     *   **internet**: a network node outside the cluster.
      *
      * @example cluster
      *

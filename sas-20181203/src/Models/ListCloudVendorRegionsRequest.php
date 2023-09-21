@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ListCloudVendorRegionsRequest extends Model
 {
     /**
+     * @description The language of the content in the request and response messages. Default value: **zh**. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example en
      *
      * @var string
@@ -16,6 +21,10 @@ class ListCloudVendorRegionsRequest extends Model
     public $lang;
 
     /**
+     * @description The service provider of cloud assets. Valid values:
+     *
+     *   **Tencent**, **HUAWEICLOUD**, **Azure**, and **AWS**: other service providers of cloud assets.
+     *
      * @example 3
      *
      * @var string

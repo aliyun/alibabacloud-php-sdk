@@ -63,6 +63,11 @@ class data extends Model
     public $agentlessVulSca;
 
     /**
+     * @var int
+     */
+    public $agentlessVulSys;
+
+    /**
      * @description The number of application vulnerabilities detected on the asset.
      *
      * @example 1
@@ -185,6 +190,7 @@ class data extends Model
         'agentlessMalicious' => 'AgentlessMalicious',
         'agentlessVulCve'    => 'AgentlessVulCve',
         'agentlessVulSca'    => 'AgentlessVulSca',
+        'agentlessVulSys'    => 'AgentlessVulSys',
         'appNum'             => 'AppNum',
         'cmsNum'             => 'CmsNum',
         'cspmNum'            => 'CspmNum',
@@ -224,6 +230,9 @@ class data extends Model
         }
         if (null !== $this->agentlessVulSca) {
             $res['AgentlessVulSca'] = $this->agentlessVulSca;
+        }
+        if (null !== $this->agentlessVulSys) {
+            $res['AgentlessVulSys'] = $this->agentlessVulSys;
         }
         if (null !== $this->appNum) {
             $res['AppNum'] = $this->appNum;
@@ -293,6 +302,9 @@ class data extends Model
         }
         if (isset($map['AgentlessVulSca'])) {
             $model->agentlessVulSca = $map['AgentlessVulSca'];
+        }
+        if (isset($map['AgentlessVulSys'])) {
+            $model->agentlessVulSys = $map['AgentlessVulSys'];
         }
         if (isset($map['AppNum'])) {
             $model->appNum = $map['AppNum'];

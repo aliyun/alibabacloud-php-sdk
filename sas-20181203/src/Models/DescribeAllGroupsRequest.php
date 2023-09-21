@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class DescribeAllGroupsRequest extends Model
 {
     /**
+     * @description The natural language of the request and response. Valid values:
+     *
+     *   **zh**: Chinese
+     *   **en**: English
+     *
      * @example zh
      *
      * @var string

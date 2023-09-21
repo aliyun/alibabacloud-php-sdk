@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessRiskUuidRequest extends Model
 {
     /**
+     * @description The number of the page to return.
+     *
      * @example 1
      *
      * @var int
@@ -16,6 +18,8 @@ class ListAgentlessRiskUuidRequest extends Model
     public $currentPage;
 
     /**
+     * @description The public IP address of the asset that you want to query.
+     *
      * @example 1.1.XX.XX
      *
      * @var string
@@ -23,6 +27,8 @@ class ListAgentlessRiskUuidRequest extends Model
     public $internetIp;
 
     /**
+     * @description The private IP address of the asset that you want to query.
+     *
      * @example 172.26.XX.XX
      *
      * @var string
@@ -30,6 +36,8 @@ class ListAgentlessRiskUuidRequest extends Model
     public $intranetIp;
 
     /**
+     * @description The name of the instance.
+     *
      * @example oracle-win-001****
      *
      * @var string
@@ -37,6 +45,8 @@ class ListAgentlessRiskUuidRequest extends Model
     public $machineName;
 
     /**
+     * @description The number of entries to return on each page.
+     *
      * @example 10
      *
      * @var int
@@ -44,6 +54,11 @@ class ListAgentlessRiskUuidRequest extends Model
     public $pageSize;
 
     /**
+     * @description Specifies whether risks exist. Valid values:
+     *
+     *   **true**: Risks exist.
+     *   **false**: Risks do not exist.
+     *
      * @example true
      *
      * @var bool
@@ -51,6 +66,8 @@ class ListAgentlessRiskUuidRequest extends Model
     public $risk;
 
     /**
+     * @description The name of the detection object.
+     *
      * @example source-test-obj-0****
      *
      * @var string

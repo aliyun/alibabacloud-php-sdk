@@ -53,7 +53,7 @@ class DescribeSimilarSecurityEventsRequest extends Model
     public $sourceIp;
 
     /**
-     * @description The ID of the task. You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to query the IDs of tasks.
+     * @description The task ID. You can call the [CreateSimilarSecurityEventsQueryTask](~~CreateSimilarSecurityEventsQueryTask~~) operation to obtain the task ID.
      *
      * @example 1689135
      *

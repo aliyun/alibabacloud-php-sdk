@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ModifyOperateVulRequest extends Model
 {
     /**
+     * @var string
+     */
+    public $from;
+
+    /**
      * @description The details of the vulnerability. The value of this parameter is in the JSON format and contains the following fields:
      *
      *   **name**: the name of the vulnerability.
@@ -77,6 +82,7 @@ class ModifyOperateVulRequest extends Model
      */
     public $type;
     protected $_name = [
+        'from'        => 'From',
         'info'        => 'Info',
         'operateType' => 'OperateType',
         'reason'      => 'Reason',
@@ -90,6 +96,9 @@ class ModifyOperateVulRequest extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->from) {
+            $res['From'] = $this->from;
+        }
         if (null !== $this->info) {
             $res['Info'] = $this->info;
         }
@@ -114,6 +123,9 @@ class ModifyOperateVulRequest extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['From'])) {
+            $model->from = $map['From'];
+        }
         if (isset($map['Info'])) {
             $model->info = $map['Info'];
         }

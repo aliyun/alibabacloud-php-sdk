@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class eventNotes extends Model
 {
     /**
-     * @description The remarks.
+     * @description The note.
      *
      * @example Test
      *
@@ -18,7 +18,7 @@ class eventNotes extends Model
     public $note;
 
     /**
-     * @description The ID of the event record.
+     * @description The ID of the note.
      *
      * @example 123
      *
@@ -27,7 +27,7 @@ class eventNotes extends Model
     public $noteId;
 
     /**
-     * @description The time when the event record was created.
+     * @description The time when the note was created.
      *
      * @example 2018-09-26 01:51:01
      *

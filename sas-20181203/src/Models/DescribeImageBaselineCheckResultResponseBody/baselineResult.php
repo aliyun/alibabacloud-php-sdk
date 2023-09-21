@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class baselineResult extends Model
 {
     /**
-     * @description The key of the type for the image baseline.
+     * @description The key of the image baseline type.
      *
      * @example identification
      *
@@ -18,7 +18,7 @@ class baselineResult extends Model
     public $baselineClassAlias;
 
     /**
-     * @description The number of check items.
+     * @description The number of baseline check items.
      *
      * @example 5
      *
@@ -58,7 +58,7 @@ class baselineResult extends Model
     public $baselineNameLevel;
 
     /**
-     * @description The timestamp when the first scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the first scan was performed. Unit: milliseconds.
      *
      * @example 1610304058366
      *
@@ -76,7 +76,7 @@ class baselineResult extends Model
     public $highRiskItemCount;
 
     /**
-     * @description The timestamp when the last scan was performed. Unit: milliseconds.
+     * @description The timestamp generated when the last scan was performed. Unit: milliseconds.
      *
      * @example 1610304058301
      *

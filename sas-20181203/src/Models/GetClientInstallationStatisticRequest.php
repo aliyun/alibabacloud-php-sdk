@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class GetClientInstallationStatisticRequest extends Model
 {
     /**
+     * @description The timestamp that specifies the end of the time range to collect statistics. Unit: millisecond.
+     *
      * @example 1687708800000
      *
      * @var int
@@ -16,6 +18,8 @@ class GetClientInstallationStatisticRequest extends Model
     public $timeEnd;
 
     /**
+     * @description The timestamp that specifies the beginning of the time range to collect statistics. Unit: millisecond.
+     *
      * @example 1687104000000
      *
      * @var int

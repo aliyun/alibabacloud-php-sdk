@@ -27,7 +27,7 @@ class standards extends Model
     public $id;
 
     /**
-     * @description The number of passed check items.
+     * @description The number of check items that passed the check.
      *
      * @example 1
      *

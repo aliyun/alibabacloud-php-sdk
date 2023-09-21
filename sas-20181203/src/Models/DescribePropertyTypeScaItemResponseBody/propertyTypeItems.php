@@ -18,7 +18,7 @@ class propertyTypeItems extends Model
     public $name;
 
     /**
-     * @description The middleware type. Valid values:
+     * @description The type of the middleware. Valid values:
      *
      *   **system_service**: system service
      *   **software_library**: software library

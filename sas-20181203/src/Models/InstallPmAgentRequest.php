@@ -31,6 +31,8 @@ class InstallPmAgentRequest extends Model
 
     /**
      * @description The type of the client.
+     *
+     *   **aliyun_assist**: Cloud Assistant client
      *   **aliyun_monitor**: CloudMonitor client
      *
      * @example aliyun_monitor

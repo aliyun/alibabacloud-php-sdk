@@ -20,8 +20,8 @@ class strategyTargets extends Model
     /**
      * @description Indicates whether the baseline check policy is applied to the asset group. Valid values:
      *
-     *   **add**: yes
-     *   **del**: no
+     *   **add**: The baseline check policy is applied to the asset group.
+     *   **del**: the baseline check policy is not applied to the asset group.
      *
      * @example add
      *

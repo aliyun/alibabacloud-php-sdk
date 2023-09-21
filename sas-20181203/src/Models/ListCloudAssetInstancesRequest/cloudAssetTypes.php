@@ -27,9 +27,15 @@ class cloudAssetTypes extends Model
      * @var int
      */
     public $assetType;
+
+    /**
+     * @var int
+     */
+    public $vendor;
     protected $_name = [
         'assetSubType' => 'AssetSubType',
         'assetType'    => 'AssetType',
+        'vendor'       => 'Vendor',
     ];
 
     public function validate()
@@ -44,6 +50,9 @@ class cloudAssetTypes extends Model
         }
         if (null !== $this->assetType) {
             $res['AssetType'] = $this->assetType;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -62,6 +71,9 @@ class cloudAssetTypes extends Model
         }
         if (isset($map['AssetType'])) {
             $model->assetType = $map['AssetType'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

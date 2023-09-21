@@ -36,7 +36,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $healthTotal;
 
     /**
-     * @description The total number of fixed baseline risks.
+     * @description The total number of fixed baseline risk items. This parameter is deprecated.
      *
      * @example 0
      *
@@ -45,7 +45,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $healthdealedTotal;
 
     /**
-     * @description The number of baselines whose risk level is high.
+     * @description The number of baseline risk items whose severity is high.
      *
      * @example 0
      *
@@ -54,7 +54,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $healthhighTotal;
 
     /**
-     * @description The number of baseline risks whose risk level is low.
+     * @description The number of baseline risk items whose severity is low.
      *
      * @example 0
      *
@@ -63,7 +63,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $healthlowTotal;
 
     /**
-     * @description The number of baseline risks whose risk level is medium.
+     * @description The number of baseline risk items whose severity is medium.
      *
      * @example 0
      *
@@ -72,7 +72,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $healthmediumTotal;
 
     /**
-     * @description This parameter is deprecated.
+     * @description The number of baseline risk items whose severity is urgent. This parameter is deprecated.
      *
      * @example 0
      *
@@ -95,10 +95,10 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $newsuspicious;
 
     /**
-     * @description Indicates whether the Security Center agent is online. Valid values:
+     * @description Indicates whether the agent is online. Valid values:
      *
-     *   **true**: The service is online.
-     *   **false**: The service is offline.
+     *   **true**
+     *   **false**
      *
      * @example true
      *
@@ -152,7 +152,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $suspiciousdealedTotal;
 
     /**
-     * @description This parameter is deprecated.
+     * @description This parameter is deprecated. This parameter is deprecated.
      *
      * @example 0
      *
@@ -233,7 +233,7 @@ class DescribeTotalStatisticsResponseBody extends Model
     public $vulLaterSum;
 
     /**
-     * @description The number of unfixed vulnerabilities whose severity level is medium.
+     * @description The number of unfixed vulnerabilities whose severity level is low.
      *
      * @example 0
      *

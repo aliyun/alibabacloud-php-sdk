@@ -10,11 +10,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeCloudProductFieldStatisticsResponseBody extends Model
 {
     /**
+     * @description The statistics of cloud services that are protected by Security Center.
+     *
      * @var groupedFields
      */
     public $groupedFields;
 
     /**
+     * @description The ID of the request.
+     *
      * @example 7E0618A9-D5EF-4220-9471-C42B5E92719F
      *
      * @var string

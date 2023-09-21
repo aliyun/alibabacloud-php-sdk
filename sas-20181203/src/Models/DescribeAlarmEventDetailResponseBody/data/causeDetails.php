@@ -19,7 +19,7 @@ class causeDetails extends Model
     public $key;
 
     /**
-     * @description An array consisting of the value that is used to trace the alert event.
+     * @description The value that is used to trace the alert event.
      *
      * @var value[]
      */

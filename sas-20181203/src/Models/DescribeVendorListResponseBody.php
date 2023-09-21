@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeVendorListResponseBody extends Model
 {
     /**
+     * @description The ID of the request, which is used to locate and troubleshoot issues.
+     *
      * @example 340D7FC4-D575-1661-8ACD-CFA7BE57B795
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeVendorListResponseBody extends Model
     public $requestId;
 
     /**
+     * @description An array that consists of the service providers.
+     *
      * @var string[]
      */
     public $vendorNameList;

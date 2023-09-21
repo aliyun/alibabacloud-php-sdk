@@ -163,7 +163,7 @@ class propertys extends Model
     public $port;
 
     /**
-     * @description The timestamp when the process was started. Unit: milliseconds.
+     * @description The timestamp generated when the process was started. Unit: milliseconds.
      *
      * > This parameter is returned only when **Biz** is set to **web_server**.
      * @example 1671186801000

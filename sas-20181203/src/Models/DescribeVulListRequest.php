@@ -93,6 +93,11 @@ class DescribeVulListRequest extends Model
     public $necessity;
 
     /**
+     * @var string
+     */
+    public $nextToken;
+
+    /**
      * @description The number of entries per page. Default value: **10**.
      *
      * @example 20
@@ -116,6 +121,11 @@ class DescribeVulListRequest extends Model
     public $resourceDirectoryAccountId;
 
     /**
+     * @var string
+     */
+    public $statusList;
+
+    /**
      * @description The type of the vulnerability. Valid values:
      *
      *   **cve**: Linux software vulnerability
@@ -130,6 +140,11 @@ class DescribeVulListRequest extends Model
      * @var string
      */
     public $type;
+
+    /**
+     * @var bool
+     */
+    public $useNextToken;
 
     /**
      * @description The UUIDs of the servers on which you want to query the vulnerabilities. Separate multiple UUIDs with commas (,).
@@ -157,10 +172,13 @@ class DescribeVulListRequest extends Model
         'lang'                       => 'Lang',
         'name'                       => 'Name',
         'necessity'                  => 'Necessity',
+        'nextToken'                  => 'NextToken',
         'pageSize'                   => 'PageSize',
         'remark'                     => 'Remark',
         'resourceDirectoryAccountId' => 'ResourceDirectoryAccountId',
+        'statusList'                 => 'StatusList',
         'type'                       => 'Type',
+        'useNextToken'               => 'UseNextToken',
         'uuids'                      => 'Uuids',
         'vpcInstanceIds'             => 'VpcInstanceIds',
     ];
@@ -196,6 +214,9 @@ class DescribeVulListRequest extends Model
         if (null !== $this->necessity) {
             $res['Necessity'] = $this->necessity;
         }
+        if (null !== $this->nextToken) {
+            $res['NextToken'] = $this->nextToken;
+        }
         if (null !== $this->pageSize) {
             $res['PageSize'] = $this->pageSize;
         }
@@ -205,8 +226,14 @@ class DescribeVulListRequest extends Model
         if (null !== $this->resourceDirectoryAccountId) {
             $res['ResourceDirectoryAccountId'] = $this->resourceDirectoryAccountId;
         }
+        if (null !== $this->statusList) {
+            $res['StatusList'] = $this->statusList;
+        }
         if (null !== $this->type) {
             $res['Type'] = $this->type;
+        }
+        if (null !== $this->useNextToken) {
+            $res['UseNextToken'] = $this->useNextToken;
         }
         if (null !== $this->uuids) {
             $res['Uuids'] = $this->uuids;
@@ -250,6 +277,9 @@ class DescribeVulListRequest extends Model
         if (isset($map['Necessity'])) {
             $model->necessity = $map['Necessity'];
         }
+        if (isset($map['NextToken'])) {
+            $model->nextToken = $map['NextToken'];
+        }
         if (isset($map['PageSize'])) {
             $model->pageSize = $map['PageSize'];
         }
@@ -259,8 +289,14 @@ class DescribeVulListRequest extends Model
         if (isset($map['ResourceDirectoryAccountId'])) {
             $model->resourceDirectoryAccountId = $map['ResourceDirectoryAccountId'];
         }
+        if (isset($map['StatusList'])) {
+            $model->statusList = $map['StatusList'];
+        }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UseNextToken'])) {
+            $model->useNextToken = $map['UseNextToken'];
         }
         if (isset($map['Uuids'])) {
             $model->uuids = $map['Uuids'];

@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The name of the RASP-enabled application.
+     *
      * @example rasp-app
      *
      * @var string
@@ -16,6 +18,12 @@ class data extends Model
     public $raspAppName;
 
     /**
+     * @description The online status of the RASP-enabled applications. Valid values:
+     *
+     *   **0**: All RASP-enabled applications are online.
+     *   **1**: Part of the RASP-enabled applications are online.
+     *   **2**: All RASP-enabled applications are offline.
+     *
      * @example 0
      *
      * @var int
@@ -23,6 +31,12 @@ class data extends Model
     public $raspOnlineStatus;
 
     /**
+     * @description The installation status of the RASP-enabled application. Valid values:
+     *
+     *   **SUCCESS**: The RASP-enabled application is installed.
+     *   **FAIL**: The RASP-enabled application fails to be installed.
+     *   **INSTALL**: The RASP-enabled application is being installed.
+     *
      * @example SUCCESS
      *
      * @var string
@@ -30,13 +44,17 @@ class data extends Model
     public $raspStatus;
 
     /**
-     * @description 推送失败结果
+     * @description The result returned if the push fails.
+     *
+     * @example AGENT_OFFLINE
      *
      * @var string
      */
     public $result;
 
     /**
+     * @description The UUID of the asset.
+     *
      * @example 6690a46c-0edb-4663-a641-3629d1a9****
      *
      * @var string

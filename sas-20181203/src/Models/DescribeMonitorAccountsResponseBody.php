@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DescribeMonitorAccountsResponseBody extends Model
 {
     /**
+     * @description The IDs of the members.
+     *
      * @var string[]
      */
     public $accountIds;
 
     /**
+     * @description The request ID.
+     *
      * @example 028CF634-5268-5660-9575-48C9ED6BF880
      *
      * @var string

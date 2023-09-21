@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeAttachRecordsRequest extends Model
 {
     /**
+     * @description The application group ID.
+     *
      * @example 64b8b994563c306b4fed****
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeAttachRecordsRequest extends Model
     public $applicationId;
 
     /**
+     * @description The UUIDs of ECS instances to be queried.
+     *
      * @var string[]
      */
     public $ecsUUIDList;

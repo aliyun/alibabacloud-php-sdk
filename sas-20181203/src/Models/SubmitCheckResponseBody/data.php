@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class data extends Model
 {
     /**
+     * @description The operation code of the configuration assessment task.
+     *
+     *   **Throttling**: frequency limit
+     *
      * @example Throttling
      *
      * @var string

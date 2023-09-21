@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class targetList extends Model
 {
     /**
-     * @description The ID of the server.
+     * @description The ID of the destination asset.
      *
      * @example 032b618f-b220-4a0d-bd37-fbdc6*******
      *
@@ -18,9 +18,9 @@ class targetList extends Model
     public $target;
 
     /**
-     * @description The type of the query condition. Valid values:
+     * @description The type of the query. Valid values:
      *
-     *   **uuid**: the ID of an asset
+     *   Set the value to **uuid**.
      *
      * @example uuid
      *

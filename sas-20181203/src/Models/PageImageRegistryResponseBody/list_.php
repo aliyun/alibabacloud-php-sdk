@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class list_ extends Model
 {
     /**
-     * @description The blacklist.
+     * @description The IP address blacklist.
      *
      * @example 129.211.XXX.XXX
      *
@@ -27,7 +27,7 @@ class list_ extends Model
     public $domainName;
 
     /**
-     * @description The creation time. The time is in the yyyy-MM-dd HH:mm:ss format.
+     * @description The time when the image repository was created. The time is in the yyyy-MM-dd HH:mm:ss format.
      *
      * @example 2022-08-30 10:23:30
      *
@@ -36,7 +36,7 @@ class list_ extends Model
     public $gmtCreate;
 
     /**
-     * @description The update time. The time is in the yyyy-MM-dd HH:mm:ss format.
+     * @description The time when the image repository was updated. The time is in the yyyy-MM-dd HH:mm:ss format.
      *
      * @example 2022-09-30 10:23:30
      *
@@ -74,8 +74,8 @@ class list_ extends Model
     /**
      * @description The network type. Valid values:
      *
-     *   **1**: Internet
-     *   **2**: Virtual Private Cloud (VPC)
+     *   **1**: Internet.
+     *   **2**: virtual private cloud (VPC).
      *
      * @example 1
      *
@@ -93,7 +93,7 @@ class list_ extends Model
     public $password;
 
     /**
-     * @description The number of days during which assets can be retained.
+     * @description The number of days for which assets are retained.
      *
      * @example 30
      *
@@ -104,8 +104,8 @@ class list_ extends Model
     /**
      * @description The type of the protocol. Valid values:
      *
-     *   **1**: HTTP
-     *   **2**: HTTPS
+     *   **1**: HTTP.
+     *   **2**: HTTPS.
      *
      * @example 1
      *
@@ -143,10 +143,10 @@ class list_ extends Model
     /**
      * @description The type of the image repository. Valid values:
      *
-     *   **acr**: Container Registry
-     *   **harbor**: Harbor
-     *   **quay**: Quay
-     *   **CI/CD**: Jenkins
+     *   **acr**: Container Registry.
+     *   **harbor**: Harbor.
+     *   **quay**: Quay.
+     *   **CI/CD**: Jenkins.
      *
      * @example harbor
      *
@@ -182,7 +182,7 @@ class list_ extends Model
     public $userName;
 
     /**
-     * @description The ID of the VPC.
+     * @description The VPC ID.
      *
      * @example vpc-5gu8iu68w9b472jbb****
      *
@@ -191,7 +191,7 @@ class list_ extends Model
     public $vpcId;
 
     /**
-     * @description The whitelist.
+     * @description The IP address whitelist.
      *
      * @example 192.168.XXX.XXX
      *

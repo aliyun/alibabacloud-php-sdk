@@ -28,7 +28,7 @@ class summarys extends Model
     public $passCount;
 
     /**
-     * @description An array that consist of the standard IDs of check items.
+     * @description The information about the check items.
      *
      * @var standards[]
      */

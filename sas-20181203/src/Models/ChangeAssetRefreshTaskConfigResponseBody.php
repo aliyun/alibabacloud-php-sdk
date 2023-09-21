@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class ChangeAssetRefreshTaskConfigResponseBody extends Model
 {
     /**
+     * @description Indicates whether the request was successful. Valid values:
+     *
+     *   **true**
+     *   **false**
+     *
      * @example true
      *
      * @var bool
@@ -16,6 +21,8 @@ class ChangeAssetRefreshTaskConfigResponseBody extends Model
     public $data;
 
     /**
+     * @description The returned message.
+     *
      * @example successful
      *
      * @var string
@@ -23,6 +30,8 @@ class ChangeAssetRefreshTaskConfigResponseBody extends Model
     public $message;
 
     /**
+     * @description The request ID.
+     *
      * @example BE120DAB-F4E7-4C53-ADC3-A97578ABF384
      *
      * @var string

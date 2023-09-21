@@ -54,7 +54,7 @@ class uniBackupPolicyDTO extends Model
     public $fullPlan;
 
     /**
-     * @description The details of the policy for incremental backup.
+     * @description The policy for incremental data backup.
      *
      * @var incPlan
      */

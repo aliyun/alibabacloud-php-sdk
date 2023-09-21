@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class strategies extends Model
 {
     /**
-     * @description An array consisting of the assets to which the baseline check policy is applied.
+     * @description The details of the assets to which the baseline check policy is applied.
      *
      * @var configTargets[]
      */
@@ -19,8 +19,8 @@ class strategies extends Model
     /**
      * @description The type of the baseline check policy. Valid values:
      *
-     *   **common**: standard baseline check policy
-     *   **custom**: custom baseline check policy
+     *   **common**
+     *   **custom**
      *
      * @example custom
      *
@@ -66,7 +66,7 @@ class strategies extends Model
     public $ecsCount;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy ends.
+     * @description The end time of the baseline check policy.
      *
      * @example 03:00:00
      *
@@ -77,8 +77,8 @@ class strategies extends Model
     /**
      * @description The status of the baseline check policy. Valid values:
      *
-     *   **1**: disabled
-     *   **2**: enabled
+     *   **1**: not executed
+     *   **2**: executing
      *
      * @example 1
      *
@@ -105,7 +105,7 @@ class strategies extends Model
     public $name;
 
     /**
-     * @description The proportion of risk items to all baseline check items in the baseline check result.
+     * @description The proportion of risky baselines in the baseline check result.
      *
      * @example 0
      *
@@ -132,7 +132,7 @@ class strategies extends Model
     public $riskCount;
 
     /**
-     * @description The time when the baseline check based on the baseline check policy starts.
+     * @description The start time of the baseline check policy.
      *
      * @example 00:00:00
      *
@@ -141,10 +141,10 @@ class strategies extends Model
     public $startTime;
 
     /**
-     * @description The source of the baseline check policy. Valid values:
+     * @description The source type of the baseline check policy. Valid values:
      *
-     *   **1**: built-in policy, which indicates that the baseline check policy is provided and performed by Security Center by default.
-     *   **2**: user-defined policy, which can be a standard or custom baseline check policy.
+     *   **1**: indicates a built-in policy provided and performed by Security Center by default.
+     *   **2**: indicates a user-defined policy. It can be a standard or custom baseline check policy.
      *
      * @example 2
      *

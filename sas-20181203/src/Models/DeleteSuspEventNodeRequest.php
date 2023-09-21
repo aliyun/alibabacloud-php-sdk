@@ -9,6 +9,9 @@ use AlibabaCloud\Tea\Model;
 class DeleteSuspEventNodeRequest extends Model
 {
     /**
+     * @description The ID of the description.
+     *
+     * > You can call the [DescribeSuspEvents](~~DescribeSuspEvents~~) operation to obtain the ID of the description by using the EventNotes field.
      * @example 123
      *
      * @var int

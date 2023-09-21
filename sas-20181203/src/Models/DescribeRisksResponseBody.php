@@ -19,7 +19,7 @@ class DescribeRisksResponseBody extends Model
     public $requestId;
 
     /**
-     * @description An array that consists of baselines.
+     * @description The baselines.
      *
      * @var risks[]
      */

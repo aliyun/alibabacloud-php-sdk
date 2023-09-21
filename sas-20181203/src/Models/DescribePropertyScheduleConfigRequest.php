@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribePropertyScheduleConfigRequest extends Model
 {
     /**
-     * @description The type of the asset fingerprints to query. Valid values:
+     * @description The type of the asset fingerprints. Valid values:
      *
      *   **scheduler_port_period**: listening port
      *   **scheduler_process_period**: running process

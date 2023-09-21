@@ -19,7 +19,10 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $clusterId;
 
     /**
-     * @description The list of destination network objects.
+     * @description The destination objects of the rule. The following parameters are included:
+     *
+     *   targetId: the ID of the destination object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
+     *   ports: the destination port ranges.
      *
      * @example {"targetId":600069,"ports":["80/8088"]}
      *
@@ -80,7 +83,9 @@ class ModifyInterceptionRuleShrinkRequest extends Model
     public $ruleSwitch;
 
     /**
-     * @description The list of source network objects.
+     * @description The source object of the rule. The following parameters are included:
+     *
+     *   targetId: the ID of the source object. You can call the [ListInterceptionTargetPage](~~ListInterceptionTargetPage~~) operation to query the ID.
      *
      * @example {"targetId":400989}
      *

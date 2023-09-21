@@ -21,8 +21,8 @@ class DescribeAlarmEventStackInfoRequest extends Model
     /**
      * @description The language of the content within the request and response. Default value: **zh**. Valid values:
      *
-     *   **zh**: Chinese
-     *   **en**: English
+     *   **zh**: Chinese.
+     *   **en**: English.
      *
      * @example zh
      *
@@ -31,6 +31,11 @@ class DescribeAlarmEventStackInfoRequest extends Model
     public $lang;
 
     /**
+     * @description The Alibaba Cloud account ID of the member in the resource directory.
+     *
+     * >  You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain the IDs.
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

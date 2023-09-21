@@ -27,7 +27,7 @@ class ListVulAutoRepairConfigRequest extends Model
     public $currentPage;
 
     /**
-     * @description The number of entries to return on each page. Default value: **10**.
+     * @description The number of entries per page. Default value: **10**.
      *
      * @example 10
      *

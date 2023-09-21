@@ -21,6 +21,10 @@ class DescribeAssetDetailByUuidsRequest extends Model
     public $lang;
 
     /**
+     * @description 资源目录成员账号主账号ID。
+     * >调用[DescribeMonitorAccounts](~~DescribeMonitorAccounts~~)接口可以获取该参数。
+     * @example 127608589417****
+     *
      * @var int
      */
     public $resourceDirectoryAccountId;

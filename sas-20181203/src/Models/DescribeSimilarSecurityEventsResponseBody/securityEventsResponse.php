@@ -18,33 +18,30 @@ class securityEventsResponse extends Model
     public $eventName;
 
     /**
-     * @description The alert type of the alert event. Valid values:
+     * @description The type of the alert event. Valid values:
      *
-     *   Suspicious process
+     *   Suspicious Process
      *   Webshell
-     *   Unusual logon
-     *   Exception
-     *   Sensitive file tampering
-     *   Malicious process (cloud threat detection)
-     *   Suspicious network connection
+     *   Unusual Logon
+     *   Malicious Software
+     *   Sensitive File Tampering
+     *   Unusual Network Connection
      *   Other
-     *   Abnormal account
-     *   Application intrusion event
+     *   Suspicious Account
      *   Cloud threat detection
-     *   Precise defense
-     *   Application whitelist
-     *   Persistent webshell
-     *   Web application threat detection
-     *   Malicious script
-     *   Threat intelligence
-     *   Malicious network activity
-     *   Cluster exception
-     *   Webshell (on-premises threat detection)
-     *   Vulnerability exploitation
-     *   Malicious process (on-premises threat detection)
+     *   Precision defense
+     *   Application Whitelist
+     *   Persistence
+     *   Web Application Threat Detection
+     *   Malicious scripts
+     *   Malicious Network Activity
+     *   K8s Abnormal Behavior
+     *   Website backdoor (local engine)
+     *   Exploit
+     *   Image Scan
      *   Trusted exception
      *
-     * For more information about alert types, see [Alerts](https://www.alibabacloud.com/help/en/security-center/latest/events-overview).
+     * For more information about alert types, see [Overview](~~68388~~).
      * @example Malicious Software
      *
      * @var string
@@ -52,7 +49,7 @@ class securityEventsResponse extends Model
     public $eventType;
 
     /**
-     * @description The timestamp when the alert event was last detected. Unit: milliseconds.
+     * @description The timestamp generated when the alert event was last detected. Unit: milliseconds.
      *
      * @example 1648544361480
      *
@@ -61,7 +58,7 @@ class securityEventsResponse extends Model
     public $lastTime;
 
     /**
-     * @description The timestamp when the alert event was first detected. Unit: milliseconds.
+     * @description The timestamp generated when the alert event was first detected. Unit: milliseconds.
      *
      * @example 1648457961000
      *
@@ -79,7 +76,7 @@ class securityEventsResponse extends Model
     public $securityEventId;
 
     /**
-     * @description The UUID of the server that is affected by the alert event.
+     * @description The UUID of the server that was affected by the alert event.
      *
      * @example qweeqq-13232-daweq-w****
      *

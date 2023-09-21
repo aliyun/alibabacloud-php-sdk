@@ -18,7 +18,7 @@ class risks extends Model
     public $riskDetail;
 
     /**
-     * @description The ID of the baseline.
+     * @description The baseline ID.
      *
      * @example 54
      *

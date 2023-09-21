@@ -10,6 +10,11 @@ use AlibabaCloud\Tea\Model;
 class CreateHoneypotProbeRequest extends Model
 {
     /**
+     * @description Specifies whether to enable Address Resolution Protocol (ARP) spoofing. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -17,6 +22,8 @@ class CreateHoneypotProbeRequest extends Model
     public $arp;
 
     /**
+     * @description The ID of the business group.
+     *
      * @example 2022011817324588686
      *
      * @var string
@@ -24,6 +31,9 @@ class CreateHoneypotProbeRequest extends Model
     public $businessGroupId;
 
     /**
+     * @description The ID of the management node.
+     *
+     * > You can call the [ListHoneypotNode](~~ListHoneypotNode~~) operation to query the IDs of management nodes.
      * @example a882e590-b87b-45a6-87b9-d0a3e5a0****
      *
      * @var string
@@ -31,6 +41,8 @@ class CreateHoneypotProbeRequest extends Model
     public $controlNodeId;
 
     /**
+     * @description The name of the probe.
+     *
      * @example testHoneyPotProbe
      *
      * @var string
@@ -38,11 +50,18 @@ class CreateHoneypotProbeRequest extends Model
     public $displayName;
 
     /**
+     * @description The configuration of the probe.
+     *
      * @var honeypotBindList[]
      */
     public $honeypotBindList;
 
     /**
+     * @description Specifies whether to enable ping scan. Valid values:
+     *
+     *   **true**: yes
+     *   **false**: no
+     *
      * @example true
      *
      * @var bool
@@ -50,6 +69,11 @@ class CreateHoneypotProbeRequest extends Model
     public $ping;
 
     /**
+     * @description The type of the probe. Valid values:
+     *
+     *   **host_probe**: host probe
+     *   **vpc_black_hole_probe**: virtual private cloud (VPC) probe
+     *
      * @example host_probe
      *
      * @var string
@@ -57,6 +81,8 @@ class CreateHoneypotProbeRequest extends Model
     public $probeType;
 
     /**
+     * @description The version of the probe.
+     *
      * @example 0.0.0
      *
      * @var string
@@ -64,6 +90,8 @@ class CreateHoneypotProbeRequest extends Model
     public $probeVersion;
 
     /**
+     * @description The IP address of the proxy.
+     *
      * @example 192.168.XX.XX
      *
      * @var string
@@ -71,6 +99,9 @@ class CreateHoneypotProbeRequest extends Model
     public $proxyIp;
 
     /**
+     * @description The UUID of the instance.
+     *
+     * > If **ProbeType** is set to **host_probe**, this parameter is required.
      * @example e4af3620-6895-4e2f-a641-a9d8fb53****
      *
      * @var string
@@ -78,6 +109,9 @@ class CreateHoneypotProbeRequest extends Model
     public $uuid;
 
     /**
+     * @description The ID of the VPC.
+     *
+     * > If **ProbeType** is set to **vpc_black_hole_probe**, this parameter is required. You can call the [DescribeVpcHoneyPotList](~~DescribeVpcHoneyPotList~~) operation to query the IDs of VPCs.
      * @example vpc-zm0asrkpv1q8gnk7mn4dn
      *
      * @var string

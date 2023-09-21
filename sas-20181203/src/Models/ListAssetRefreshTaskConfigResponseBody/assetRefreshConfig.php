@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class assetRefreshConfig extends Model
 {
     /**
+     * @var int
+     */
+    public $refreshConfigType;
+
+    /**
      * @description The synchronization cycle. Valid values:
      *
      *   **60**: 60 minutes
@@ -49,9 +54,10 @@ class assetRefreshConfig extends Model
      */
     public $vendor;
     protected $_name = [
-        'schedulePeriod' => 'SchedulePeriod',
-        'status'         => 'Status',
-        'vendor'         => 'Vendor',
+        'refreshConfigType' => 'RefreshConfigType',
+        'schedulePeriod'    => 'SchedulePeriod',
+        'status'            => 'Status',
+        'vendor'            => 'Vendor',
     ];
 
     public function validate()
@@ -61,6 +67,9 @@ class assetRefreshConfig extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->refreshConfigType) {
+            $res['RefreshConfigType'] = $this->refreshConfigType;
+        }
         if (null !== $this->schedulePeriod) {
             $res['SchedulePeriod'] = $this->schedulePeriod;
         }
@@ -82,6 +91,9 @@ class assetRefreshConfig extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['RefreshConfigType'])) {
+            $model->refreshConfigType = $map['RefreshConfigType'];
+        }
         if (isset($map['SchedulePeriod'])) {
             $model->schedulePeriod = $map['SchedulePeriod'];
         }

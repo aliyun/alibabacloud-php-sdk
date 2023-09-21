@@ -11,16 +11,22 @@ use AlibabaCloud\Tea\Model;
 class ListAgentlessRelateMaliciousResponseBody extends Model
 {
     /**
+     * @description The list of hosts that are associated with the risk.
+     *
      * @var list_[]
      */
     public $list;
 
     /**
+     * @description The pagination information.
+     *
      * @var pageInfo
      */
     public $pageInfo;
 
     /**
+     * @description The request ID.
+     *
      * @example FCA270CC-24C8-5DA1-9184-20F2605C****
      *
      * @var string

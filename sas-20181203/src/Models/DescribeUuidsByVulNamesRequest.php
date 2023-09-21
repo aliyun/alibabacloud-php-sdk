@@ -9,9 +9,10 @@ use AlibabaCloud\Tea\Model;
 class DescribeUuidsByVulNamesRequest extends Model
 {
     /**
-     * @description Specifies whether the vulnerability is handled. Valid values:
+     * @description Specifies whether the vulnerability is fixed. Valid values:
      *
-     **y**: The vulnerability is handled. **n**: The vulnerability is not handled.
+     *   **y**: the vulnerability is fixed.
+     *   **n**: the vulnerability is not fixed.
      *
      * @example n
      *

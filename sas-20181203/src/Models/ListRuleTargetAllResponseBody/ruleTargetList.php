@@ -27,7 +27,7 @@ class ruleTargetList extends Model
     public $targetName;
 
     /**
-     * @description The type of the network object. Valid values:
+     * @description The type of the object. Valid values:
      *
      *   IMAGE
      *

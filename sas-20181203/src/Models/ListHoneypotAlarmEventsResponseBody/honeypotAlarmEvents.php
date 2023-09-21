@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class honeypotAlarmEvents extends Model
 {
     /**
-     * @description The ID of the alert event.
+     * @description The event ID.
      *
      * @example 940272
      *
@@ -55,7 +55,7 @@ class honeypotAlarmEvents extends Model
     public $eventCount;
 
     /**
-     * @description The timestamp when the alert event was first generated. Unit: milliseconds.
+     * @description The timestamp that indicates the time when the alert event was first detected. Unit: milliseconds.
      *
      * @example 1658193602000
      *
@@ -64,7 +64,7 @@ class honeypotAlarmEvents extends Model
     public $firstTime;
 
     /**
-     * @description The timestamp when the alert event was last generated. Unit: milliseconds.
+     * @description The timestamp that indicates the time when the alert event was last detected. Unit: milliseconds.
      *
      * @example 1660610772000
      *
@@ -93,7 +93,7 @@ class honeypotAlarmEvents extends Model
     public $operateStatus;
 
     /**
-     * @description The risk level of the alert event. Valid values:
+     * @description The risk level. Valid values:
      *
      *   **2**: low
      *   **3**: medium

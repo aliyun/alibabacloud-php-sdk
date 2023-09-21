@@ -28,10 +28,16 @@ class RefreshAssetsRequest extends Model
      * @var int
      */
     public $cloudAssetType;
+
+    /**
+     * @var int
+     */
+    public $vendor;
     protected $_name = [
         'assetType'         => 'AssetType',
         'cloudAssetSubType' => 'CloudAssetSubType',
         'cloudAssetType'    => 'CloudAssetType',
+        'vendor'            => 'Vendor',
     ];
 
     public function validate()
@@ -49,6 +55,9 @@ class RefreshAssetsRequest extends Model
         }
         if (null !== $this->cloudAssetType) {
             $res['CloudAssetType'] = $this->cloudAssetType;
+        }
+        if (null !== $this->vendor) {
+            $res['Vendor'] = $this->vendor;
         }
 
         return $res;
@@ -70,6 +79,9 @@ class RefreshAssetsRequest extends Model
         }
         if (isset($map['CloudAssetType'])) {
             $model->cloudAssetType = $map['CloudAssetType'];
+        }
+        if (isset($map['Vendor'])) {
+            $model->vendor = $map['Vendor'];
         }
 
         return $model;

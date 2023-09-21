@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class groupedContainerInstanceList extends Model
 {
     /**
-     * @description The number of alerts that are generated on the current pod, application, namespace, or cluster.
+     * @description The number of alerts that are detected from the current pod, application, namespace, or cluster.
      *
      * @example 1
      *
@@ -18,7 +18,7 @@ class groupedContainerInstanceList extends Model
     public $alarmCount;
 
     /**
-     * @description The name of the application.
+     * @description The application name.
      *
      * @example oss-liveness-probe
      *
@@ -27,7 +27,7 @@ class groupedContainerInstanceList extends Model
     public $appName;
 
     /**
-     * @description The ID of cluster.
+     * @description The cluster ID.
      *
      * @example cf3824769c85441b4bf3****
      *
@@ -36,7 +36,7 @@ class groupedContainerInstanceList extends Model
     public $clusterId;
 
     /**
-     * @description The name of the instance.
+     * @description The name of the cluster.
      *
      * @example test
      *
@@ -47,9 +47,9 @@ class groupedContainerInstanceList extends Model
     /**
      * @description The type of the cluster. Valid values:
      *
-     *   **Kubernetes**: dedicated Kubernetes cluster
-     *   **ManagedKubernetes**: standard managed cluster (edge cluster)
-     *   **Ask**: standard serverless cluster
+     *   **Kubernetes**: dedicated Kubernetes cluster.
+     *   **ManagedKubernetes**: standard managed cluster (edge cluster).
+     *   **Ask**: standard serverless cluster.
      *
      * @example ManagedKubernetes
      *
@@ -58,7 +58,7 @@ class groupedContainerInstanceList extends Model
     public $clusterType;
 
     /**
-     * @description The timestamp when the cluster was created. Unit: milliseconds.
+     * @description The timestamp generated when the cluster was created. Unit: milliseconds.
      *
      * @example 1600076893000
      *
@@ -127,7 +127,7 @@ class groupedContainerInstanceList extends Model
     public $imageRepoName;
 
     /**
-     * @description The namespace to which the image repository belongs.
+     * @description The namespace of the image repository.
      *
      * @example name001
      *
@@ -154,7 +154,7 @@ class groupedContainerInstanceList extends Model
     public $imageUuid;
 
     /**
-     * @description The number of queried pods, applications, clusters, or namespaces.
+     * @description The number of pods, applications, clusters, or namespaces that is returned.
      *
      * @example 9
      *
@@ -163,7 +163,7 @@ class groupedContainerInstanceList extends Model
     public $instanceCount;
 
     /**
-     * @description The ID of the server.
+     * @description The ID of the server instance.
      *
      * @example i-8vb9ul5xec4tua4q****
      *
@@ -199,7 +199,7 @@ class groupedContainerInstanceList extends Model
     public $podIp;
 
     /**
-     * @description The ID of the region in which the server resides.
+     * @description The ID of the region in which the instance resides.
      *
      * @example cn-hangzhou
      *
@@ -208,7 +208,7 @@ class groupedContainerInstanceList extends Model
     public $regionId;
 
     /**
-     * @description The number of at-risk instances.
+     * @description The number of potential risky instances.
      *
      * @example 1
      *
@@ -242,7 +242,7 @@ class groupedContainerInstanceList extends Model
     public $riskStatus;
 
     /**
-     * @description The number of vulnerabilities that are detected on the current pod, application, namespace, or cluster.
+     * @description The number of vulnerabilities that are detected from the current pod, application, namespace, or cluster.
      *
      * @example 1
      *
