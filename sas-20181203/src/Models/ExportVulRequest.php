@@ -28,6 +28,11 @@ class ExportVulRequest extends Model
     public $attachTypes;
 
     /**
+     * @var string
+     */
+    public $cveId;
+
+    /**
      * @description Specifies whether the vulnerability is fixed. Valid values:
      *
      *   **y**: The vulnerability is fixed.
@@ -126,6 +131,7 @@ class ExportVulRequest extends Model
     protected $_name = [
         'aliasName'      => 'AliasName',
         'attachTypes'    => 'AttachTypes',
+        'cveId'          => 'CveId',
         'dealed'         => 'Dealed',
         'groupId'        => 'GroupId',
         'lang'           => 'Lang',
@@ -148,6 +154,9 @@ class ExportVulRequest extends Model
         }
         if (null !== $this->attachTypes) {
             $res['AttachTypes'] = $this->attachTypes;
+        }
+        if (null !== $this->cveId) {
+            $res['CveId'] = $this->cveId;
         }
         if (null !== $this->dealed) {
             $res['Dealed'] = $this->dealed;
@@ -190,6 +199,9 @@ class ExportVulRequest extends Model
         }
         if (isset($map['AttachTypes'])) {
             $model->attachTypes = $map['AttachTypes'];
+        }
+        if (isset($map['CveId'])) {
+            $model->cveId = $map['CveId'];
         }
         if (isset($map['Dealed'])) {
             $model->dealed = $map['Dealed'];

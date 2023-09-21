@@ -17912,6 +17912,9 @@ class Sas extends OpenApiClient
         if (!Utils::isUnset($request->attachTypes)) {
             $query['AttachTypes'] = $request->attachTypes;
         }
+        if (!Utils::isUnset($request->cveId)) {
+            $query['CveId'] = $request->cveId;
+        }
         if (!Utils::isUnset($request->dealed)) {
             $query['Dealed'] = $request->dealed;
         }
