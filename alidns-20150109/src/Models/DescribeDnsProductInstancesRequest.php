@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesRequest extends Model
 {
     /**
+     * @example DESC
+     *
      * @var string
      */
     public $direction;
@@ -21,7 +23,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $domainType;
 
     /**
-     * @description The IP address of the client.
+     * @description The version code of the Alibaba Cloud DNS instance.
      *
      * @example en
      *
@@ -30,12 +32,14 @@ class DescribeDnsProductInstancesRequest extends Model
     public $lang;
 
     /**
+     * @example createDate
+     *
      * @var string
      */
     public $orderBy;
 
     /**
-     * @description The number of entries to return on each page. Maximum value: **100**. Default value: **20**.
+     * @description The number of entries returned per page.
      *
      * @example 1
      *
@@ -44,7 +48,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The version code of the Alibaba Cloud DNS instance.
+     * @description The ID of the request.
      *
      * @example 20
      *
@@ -53,7 +57,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $pageSize;
 
     /**
-     * @description The number of the page to return. Pages start from page **1**. Default value: **1**.
+     * @description The total number of domain names.
      *
      * @example 192.0.2.0
      *
@@ -62,7 +66,7 @@ class DescribeDnsProductInstancesRequest extends Model
     public $userClientIp;
 
     /**
-     * @description The total number of domain names.
+     * @description The page number of the returned page.
      *
      * @example version1
      *

@@ -9,8 +9,6 @@ use AlibabaCloud\Tea\Model;
 class DescribeInstanceDomainsRequest extends Model
 {
     /**
-     * @description The ID of the instance.
-     *
      * @example weriwieru
      *
      * @var string
@@ -18,8 +16,6 @@ class DescribeInstanceDomainsRequest extends Model
     public $instanceId;
 
     /**
-     * @description The language in which you want the values of some response parameters to be returned. These response parameters support multiple languages.
-     *
      * @example en
      *
      * @var string
@@ -27,8 +23,6 @@ class DescribeInstanceDomainsRequest extends Model
     public $lang;
 
     /**
-     * @description The page number to return. The page number starts from 1. Default value: 1.
-     *
      * @example 1
      *
      * @var int
@@ -36,8 +30,6 @@ class DescribeInstanceDomainsRequest extends Model
     public $pageNumber;
 
     /**
-     * @description The number of entries to return per page. Maximum value: 100. Default value: 20.
-     *
      * @example 2
      *
      * @var int

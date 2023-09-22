@@ -9,21 +9,29 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsCacheDomainsRequest extends Model
 {
     /**
+     * @example a\"\"
+     *
      * @var string
      */
     public $keyword;
 
     /**
+     * @example zh
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;

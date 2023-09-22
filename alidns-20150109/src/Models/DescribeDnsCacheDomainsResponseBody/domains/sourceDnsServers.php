@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class sourceDnsServers extends Model
 {
     /**
+     * @example ns8.alidns.com
+     *
      * @var string
      */
     public $host;
 
     /**
+     * @example 53
+     *
      * @var string
      */
     public $port;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class MoveGtmResourceGroupRequest extends Model
 {
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example AgIDE1MA_XXX
+     *
      * @var string
      */
     public $newResourceGroupId;
 
     /**
+     * @example rg-aekzzk7hx3*****
+     *
      * @var string
      */
     public $resourceId;

@@ -10,51 +10,71 @@ use AlibabaCloud\Tea\Model;
 class domains extends Model
 {
     /**
+     * @example 86400
+     *
      * @var int
      */
     public $cacheTtlMax;
 
     /**
+     * @example 30
+     *
      * @var int
      */
     public $cacheTtlMin;
 
     /**
+     * @example 2022-10-17T06:13Z
+     *
      * @var string
      */
     public $createTime;
 
     /**
+     * @example 1660546144000
+     *
      * @var int
      */
     public $createTimestamp;
 
     /**
+     * @example 00efd71a-770e-4255-b54e-6fe5659baffe
+     *
      * @var string
      */
     public $domainId;
 
     /**
+     * @example dns-example.top
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example 2022-12-02T16:00Z
+     *
      * @var string
      */
     public $expireTime;
 
     /**
+     * @example 1692374400000
+     *
      * @var int
      */
     public $expireTimestamp;
 
     /**
+     * @example i-7bg
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @example remark
+     *
      * @var string
      */
     public $remark;
@@ -65,26 +85,36 @@ class domains extends Model
     public $sourceDnsServers;
 
     /**
+     * @example SUPPORT
+     *
      * @var string
      */
     public $sourceEdns;
 
     /**
+     * @example UDP
+     *
      * @var string
      */
     public $sourceProtocol;
 
     /**
+     * @example 2023-05-22T03:40Z
+     *
      * @var string
      */
     public $updateTime;
 
     /**
+     * @example 1671690491000
+     *
      * @var int
      */
     public $updateTimestamp;
 
     /**
+     * @example ultimate
+     *
      * @var string
      */
     public $versionCode;

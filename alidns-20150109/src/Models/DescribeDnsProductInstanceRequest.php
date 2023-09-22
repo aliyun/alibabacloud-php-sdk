@@ -9,7 +9,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstanceRequest extends Model
 {
     /**
-     * @description The ID of the instance. You can call the **DescribeDomainInfo** operation to obtain the instance ID.
+     * @description The instance ID. You can call the **DescribeDomainInfo** operation to obtain the instance ID.
      *
      * @example i-8fxxxx
      *
@@ -18,7 +18,7 @@ class DescribeDnsProductInstanceRequest extends Model
     public $instanceId;
 
     /**
-     * @description The language type.
+     * @description The language.
      *
      * @example en
      *

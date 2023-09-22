@@ -15,21 +15,29 @@ class DescribeDnsCacheDomainsResponseBody extends Model
     public $domains;
 
     /**
+     * @example 1
+     *
      * @var int
      */
     public $pageNumber;
 
     /**
+     * @example 20
+     *
      * @var int
      */
     public $pageSize;
 
     /**
+     * @example 57121A9C-CDCF-541F-AD39-275D89099420
+     *
      * @var string
      */
     public $requestId;
 
     /**
+     * @example 3
+     *
      * @var int
      */
     public $totalCount;

@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstanceResponseBody extends Model
 {
     /**
-     * @description The number of times you can change domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+     * @description The number of times that you can change the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
      *
      * @example 3
      *
@@ -19,7 +19,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $bindCount;
 
     /**
-     * @description The number of domain names that you can bind to the DNS instance.
+     * @description The number of domain names that can be bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of Personal Edition, Enterprise Standard Edition, and Enterprise Ultimate Edition.
      *
      * @example 5
      *
@@ -28,7 +28,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $bindDomainCount;
 
     /**
-     * @description The number of domain names that have been bound to the DNS instance.
+     * @description The number of domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of Personal Edition, Enterprise Standard Edition, and Enterprise Ultimate Edition.
      *
      * @example 3
      *
@@ -37,7 +37,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $bindDomainUsedCount;
 
     /**
-     * @description The number of times you have changed domain names that are bound to the DNS instance. It can be specified by the user who uses Alibaba Cloud DNS of the custom version.
+     * @description The number of times that you have changed the domain names that are bound to the paid Alibaba Cloud DNS instance. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
      *
      * @example 1
      *
@@ -55,7 +55,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $DDosDefendFlow;
 
     /**
-     * @description The DDoS protection frequency. Unit: 10,000 QPS.
+     * @description The DDoS protection frequency. Unit: 10,000 QPS. This parameter applies to Alibaba Cloud DNS instances of the custom edition.
      *
      * @example 50
      *
@@ -64,7 +64,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $DDosDefendQuery;
 
     /**
-     * @description The number of IP addresses supported by a domain name or line.
+     * @description The maximum number of IP addresses that are used for load balancing in a single line of a domain name.
      *
      * @example 15
      *
@@ -73,11 +73,11 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $dnsSLBCount;
 
     /**
-     * @description The DNS security policy. Valid values:
+     * @description The DNS protection level. Valid values:
      *
-     *   **no**: not required.
-     *   **basic**: anti-DDoS basic.
-     *   **advanced**: anti-DDoS advanced.
+     *   **no**: DNS protection is not provided.
+     *   **basic**: Basic DNS attack defense is provided.
+     *   **advanced**: Advanced DNS attack defense is provided.
      *
      * @example advanced
      *
@@ -86,16 +86,16 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $dnsSecurity;
 
     /**
-     * @description The list of DNS servers.
+     * @description The DNS servers configured for the domain names.
      *
      * @var dnsServers
      */
     public $dnsServers;
 
     /**
-     * @description The bound domain name.
+     * @description The domain name that is bound to the paid instance.
      *
-     * If this parameter is not specified, no domain name is bound.
+     * If no value is returned for this parameter, no domain name is bound to the paid instance.
      * @example example.com
      *
      * @var string
@@ -103,6 +103,11 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $domain;
 
     /**
+     * @description The type of the instance. Valid values:
+     *
+     *   PUBLIC: authoritative domain name
+     *   CACHE: cache-accelerated domain name
+     *
      * @example PUBLIC
      *
      * @var string
@@ -110,7 +115,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $domainType;
 
     /**
-     * @description The time at which the instance expired.
+     * @description The time when the instance expired. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -119,7 +124,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $endTime;
 
     /**
-     * @description The UNIX timestamp representing the expiration time of the instance.
+     * @description The time when the instance expired. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1474335170000
      *
@@ -128,7 +133,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $endTimestamp;
 
     /**
-     * @description Indicates whether GSLB was allowed.
+     * @description Indicates whether global server load balancing (GSLB) is supported.
      *
      * @example true
      *
@@ -137,21 +142,21 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $gslb;
 
     /**
-     * @description The list of ISP lines.
+     * @description The Internet service provider (ISP) lines for DNS resolution.
      *
      * @var string
      */
     public $ISPLines;
 
     /**
-     * @description The list of ISP line subdivisions.
+     * @description The regional ISP lines for DNS resolution.
      *
      * @var string
      */
     public $ISPRegionLines;
 
     /**
-     * @description Indicates whether the request for domain name resolution was in the black hole.
+     * @description Indicates whether the Domain Name System (DNS) servers stopped responding to all requests sent to the domain names.
      *
      * @example false
      *
@@ -160,7 +165,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $inBlackHole;
 
     /**
-     * @description Indicates whether the request for domain name resolution was being cleared.
+     * @description Indicates whether the DNS servers stopped responding to abnormal requests sent to the domain names.
      *
      * @example false
      *
@@ -178,7 +183,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $instanceId;
 
     /**
-     * @description The monitoring frequency. Unit: minutes.
+     * @description The interval at which the instance is monitored. Unit: minutes.
      *
      * @example 50
      *
@@ -187,7 +192,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $monitorFrequency;
 
     /**
-     * @description The number of monitored nodes.
+     * @description The number of monitoring nodes.
      *
      * @example 5
      *
@@ -205,7 +210,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $monitorTaskCount;
 
     /**
-     * @description DDoS protection traffic outside China. Unit: GB.
+     * @description The DDoS protection traffic outside the Chinese mainland. Unit: GB.
      *
      * @example 1
      *
@@ -214,13 +219,15 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $overseaDDosDefendFlow;
 
     /**
-     * @description The type of the overseas line.
+     * @description The line outside the Chinese mainland.
      *
      * @var string
      */
     public $overseaLine;
 
     /**
+     * @description The billing method.
+     *
      * @example Subscription
      *
      * @var string
@@ -228,7 +235,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $paymentType;
 
     /**
-     * @description Indicates whether regional lines were allowed.
+     * @description Indicates whether regional lines are supported.
      *
      * @example true
      *
@@ -237,7 +244,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $regionLines;
 
     /**
-     * @description The ID of the request.
+     * @description The request ID.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -246,14 +253,14 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The list of search engine lines.
+     * @description The search engine lines for DNS resolution.
      *
      * @var string
      */
     public $searchEngineLines;
 
     /**
-     * @description The time when the DNS instance was purchased.
+     * @description The time when the instance was purchased. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example 2015-12-12T09:23Z
      *
@@ -262,7 +269,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $startTime;
 
     /**
-     * @description The UNIX timestamp representing when the DNS instance was purchased.
+     * @description The time when the instance was purchased. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
      *
      * @example 1474335170000
      *
@@ -280,7 +287,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $subDomainLevel;
 
     /**
-     * @description The minimum TTL. Unit: seconds.
+     * @description The minimum time-to-live (TTL) period. Unit: seconds.
      *
      * @example 10
      *
@@ -289,7 +296,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $TTLMinValue;
 
     /**
-     * @description The URL forwarding quantity.
+     * @description The number of the forwarded URLs.
      *
      * @example 20
      *
@@ -298,7 +305,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $URLForwardCount;
 
     /**
-     * @description The version code of the Alibaba Cloud DNS instance.
+     * @description The version code of Alibaba Cloud DNS.
      *
      * @example version1
      *
@@ -307,7 +314,7 @@ class DescribeDnsProductInstanceResponseBody extends Model
     public $versionCode;
 
     /**
-     * @description The version name of the Alibaba Cloud DNS instance.
+     * @description The edition of Alibaba Cloud DNS.
      *
      * @var string
      */

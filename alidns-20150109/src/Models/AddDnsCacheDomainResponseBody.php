@@ -9,6 +9,10 @@ use AlibabaCloud\Tea\Model;
 class AddDnsCacheDomainResponseBody extends Model
 {
     /**
+     * @description The request ID.
+     *
+     * @example B57C121B-A45F-44D8-A9B2-XXXXXXX
+     *
      * @var string
      */
     public $requestId;

@@ -9,16 +9,22 @@ use AlibabaCloud\Tea\Model;
 class UpdateDnsCacheDomainRemarkRequest extends Model
 {
     /**
+     * @example dns-example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @example test
+     *
      * @var string
      */
     public $remark;

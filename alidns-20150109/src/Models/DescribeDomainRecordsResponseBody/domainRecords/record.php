@@ -9,6 +9,11 @@ use AlibabaCloud\Tea\Model;
 class record extends Model
 {
     /**
+     * @var int
+     */
+    public $createTimestamp;
+
+    /**
      * @description The domain name to which the DNS record belongs.
      *
      * @example example.com
@@ -97,6 +102,11 @@ class record extends Model
     public $type;
 
     /**
+     * @var int
+     */
+    public $updateTimestamp;
+
+    /**
      * @description The record value.
      *
      * @example mail1.hichina.com
@@ -114,18 +124,20 @@ class record extends Model
      */
     public $weight;
     protected $_name = [
-        'domainName' => 'DomainName',
-        'line'       => 'Line',
-        'locked'     => 'Locked',
-        'priority'   => 'Priority',
-        'RR'         => 'RR',
-        'recordId'   => 'RecordId',
-        'remark'     => 'Remark',
-        'status'     => 'Status',
-        'TTL'        => 'TTL',
-        'type'       => 'Type',
-        'value'      => 'Value',
-        'weight'     => 'Weight',
+        'createTimestamp' => 'CreateTimestamp',
+        'domainName'      => 'DomainName',
+        'line'            => 'Line',
+        'locked'          => 'Locked',
+        'priority'        => 'Priority',
+        'RR'              => 'RR',
+        'recordId'        => 'RecordId',
+        'remark'          => 'Remark',
+        'status'          => 'Status',
+        'TTL'             => 'TTL',
+        'type'            => 'Type',
+        'updateTimestamp' => 'UpdateTimestamp',
+        'value'           => 'Value',
+        'weight'          => 'Weight',
     ];
 
     public function validate()
@@ -135,6 +147,9 @@ class record extends Model
     public function toMap()
     {
         $res = [];
+        if (null !== $this->createTimestamp) {
+            $res['CreateTimestamp'] = $this->createTimestamp;
+        }
         if (null !== $this->domainName) {
             $res['DomainName'] = $this->domainName;
         }
@@ -165,6 +180,9 @@ class record extends Model
         if (null !== $this->type) {
             $res['Type'] = $this->type;
         }
+        if (null !== $this->updateTimestamp) {
+            $res['UpdateTimestamp'] = $this->updateTimestamp;
+        }
         if (null !== $this->value) {
             $res['Value'] = $this->value;
         }
@@ -183,6 +201,9 @@ class record extends Model
     public static function fromMap($map = [])
     {
         $model = new self();
+        if (isset($map['CreateTimestamp'])) {
+            $model->createTimestamp = $map['CreateTimestamp'];
+        }
         if (isset($map['DomainName'])) {
             $model->domainName = $map['DomainName'];
         }
@@ -212,6 +233,9 @@ class record extends Model
         }
         if (isset($map['Type'])) {
             $model->type = $map['Type'];
+        }
+        if (isset($map['UpdateTimestamp'])) {
+            $model->updateTimestamp = $map['UpdateTimestamp'];
         }
         if (isset($map['Value'])) {
             $model->value = $map['Value'];

@@ -9,11 +9,15 @@ use AlibabaCloud\Tea\Model;
 class DeleteDnsCacheDomainRequest extends Model
 {
     /**
+     * @example dns-example.top
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @example en
+     *
      * @var string
      */
     public $lang;

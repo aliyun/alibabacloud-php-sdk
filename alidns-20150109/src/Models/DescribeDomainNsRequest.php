@@ -9,6 +9,8 @@ use AlibabaCloud\Tea\Model;
 class DescribeDomainNsRequest extends Model
 {
     /**
+     * @description Indicates whether all the name servers were Alibaba Cloud DNS servers.
+     *
      * @example example.com
      *
      * @var string
@@ -16,6 +18,8 @@ class DescribeDomainNsRequest extends Model
     public $domainName;
 
     /**
+     * @description The domain name that you want to resolve.
+     *
      * @example en
      *
      * @var string

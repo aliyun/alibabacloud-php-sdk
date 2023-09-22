@@ -195,6 +195,11 @@ class DescribeDomainInfoResponseBody extends Model
     public $slaveDns;
 
     /**
+     * @var bool
+     */
+    public $subDomain;
+
+    /**
      * @description The version of the Alibaba Cloud DNS instance.
      *
      * @example version1
@@ -231,6 +236,7 @@ class DescribeDomainInfoResponseBody extends Model
         'requestId'          => 'RequestId',
         'resourceGroupId'    => 'ResourceGroupId',
         'slaveDns'           => 'SlaveDns',
+        'subDomain'          => 'SubDomain',
         'versionCode'        => 'VersionCode',
         'versionName'        => 'VersionName',
     ];
@@ -304,6 +310,9 @@ class DescribeDomainInfoResponseBody extends Model
         }
         if (null !== $this->slaveDns) {
             $res['SlaveDns'] = $this->slaveDns;
+        }
+        if (null !== $this->subDomain) {
+            $res['SubDomain'] = $this->subDomain;
         }
         if (null !== $this->versionCode) {
             $res['VersionCode'] = $this->versionCode;
@@ -385,6 +394,9 @@ class DescribeDomainInfoResponseBody extends Model
         }
         if (isset($map['SlaveDns'])) {
             $model->slaveDns = $map['SlaveDns'];
+        }
+        if (isset($map['SubDomain'])) {
+            $model->subDomain = $map['SubDomain'];
         }
         if (isset($map['VersionCode'])) {
             $model->versionCode = $map['VersionCode'];

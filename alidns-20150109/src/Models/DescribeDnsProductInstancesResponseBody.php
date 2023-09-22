@@ -10,7 +10,7 @@ use AlibabaCloud\Tea\Model;
 class DescribeDnsProductInstancesResponseBody extends Model
 {
     /**
-     * @description The type of the overseas line.
+     * @description The number of domain names that have been bound to the DNS instance.
      *
      * @var dnsProducts
      */
@@ -24,7 +24,7 @@ class DescribeDnsProductInstancesResponseBody extends Model
     public $domainType;
 
     /**
-     * @description The list of Alibaba Cloud DNS instances obtained by this operation.
+     * @description Indicates whether the request for domain name resolution was in the black hole.
      *
      * @example 1
      *
@@ -33,7 +33,7 @@ class DescribeDnsProductInstancesResponseBody extends Model
     public $pageNumber;
 
     /**
-     * @description The ID of the request.
+     * @description The type of the overseas line.
      *
      * @example 2
      *
@@ -42,7 +42,7 @@ class DescribeDnsProductInstancesResponseBody extends Model
     public $pageSize;
 
     /**
-     * @description The page number of the returned page.
+     * @description The number of monitored nodes.
      *
      * @example 536E9CAD-DB30-4647-AC87-AA5CC38C5382
      *
@@ -51,7 +51,7 @@ class DescribeDnsProductInstancesResponseBody extends Model
     public $requestId;
 
     /**
-     * @description The number of entries returned per page.
+     * @description The list of Alibaba Cloud DNS instances obtained by this operation.
      *
      * @example 2
      *

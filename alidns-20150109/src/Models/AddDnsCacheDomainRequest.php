@@ -10,46 +10,80 @@ use AlibabaCloud\Tea\Model;
 class AddDnsCacheDomainRequest extends Model
 {
     /**
+     * @description The maximum TTL period of the cached data retrieved from the origin DNS server. Unit: seconds. Valid values: 30 to 86400.
+     *
+     * @example 86400
+     *
      * @var int
      */
     public $cacheTtlMax;
 
     /**
+     * @description The minimum time-to-live (TTL) period of the cached data retrieved from the origin Domain Name System (DNS) server. Unit: seconds. Valid values: 30 to 86400.
+     *
+     * @example 30
+     *
      * @var int
      */
     public $cacheTtlMin;
 
     /**
+     * @description The domain name.
+     *
+     * @example dns.example.com
+     *
      * @var string
      */
     public $domainName;
 
     /**
+     * @description The instance ID of the cache-accelerated domain name.
+     *
+     * @example dns-cn-j6666
+     *
      * @var string
      */
     public $instanceId;
 
     /**
+     * @description The language.
+     *
+     * @example en
+     *
      * @var string
      */
     public $lang;
 
     /**
+     * @description The remarks.
+     *
+     * @example test
+     *
      * @var string
      */
     public $remark;
 
     /**
+     * @description The origin DNS servers. A maximum of 10 origin DNS servers are supported.
+     *
      * @var sourceDnsServer[]
      */
     public $sourceDnsServer;
 
     /**
+     * @description Specifies whether the origin DNS server supports Extension Mechanisms for DNS (EDNS). Valid values: NOT_SUPPORT and SUPPORT.
+     *
+     * @example SUPPORT
+     *
      * @var string
      */
     public $sourceEdns;
 
     /**
+     * @description The origin protocol policy. Valid values: TCP and UDP. Default value: UDP.
+     *
+     * @example UDP
+     *
      * @var string
      */
     public $sourceProtocol;
