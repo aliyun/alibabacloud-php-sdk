@@ -710,6 +710,8 @@ use AlibabaCloud\SDK\Iot\V20180120\Models\RerunJobRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RerunJobResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetConsumerGroupPositionRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetConsumerGroupPositionResponse;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ResetDeviceTimelineRequest;
+use AlibabaCloud\SDK\Iot\V20180120\Models\ResetDeviceTimelineResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetThingRequest;
 use AlibabaCloud\SDK\Iot\V20180120\Models\ResetThingResponse;
 use AlibabaCloud\SDK\Iot\V20180120\Models\RetrySoundCodeLabelBatchRequest;
@@ -12444,6 +12446,9 @@ class Iot extends OpenApiClient
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
         }
+        if (!Utils::isUnset($request->qos)) {
+            $query['Qos'] = $request->qos;
+        }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
         ]);
@@ -21530,6 +21535,55 @@ class Iot extends OpenApiClient
     }
 
     /**
+     * @param ResetDeviceTimelineRequest $request
+     * @param RuntimeOptions             $runtime
+     *
+     * @return ResetDeviceTimelineResponse
+     */
+    public function resetDeviceTimelineWithOptions($request, $runtime)
+    {
+        Utils::validateModel($request);
+        $query = [];
+        if (!Utils::isUnset($request->deviceName)) {
+            $query['DeviceName'] = $request->deviceName;
+        }
+        if (!Utils::isUnset($request->iotInstanceId)) {
+            $query['IotInstanceId'] = $request->iotInstanceId;
+        }
+        if (!Utils::isUnset($request->productKey)) {
+            $query['ProductKey'] = $request->productKey;
+        }
+        $req = new OpenApiRequest([
+            'query' => OpenApiUtilClient::query($query),
+        ]);
+        $params = new Params([
+            'action'      => 'ResetDeviceTimeline',
+            'version'     => '2018-01-20',
+            'protocol'    => 'HTTPS',
+            'pathname'    => '/',
+            'method'      => 'POST',
+            'authType'    => 'AK',
+            'style'       => 'RPC',
+            'reqBodyType' => 'formData',
+            'bodyType'    => 'json',
+        ]);
+
+        return ResetDeviceTimelineResponse::fromMap($this->callApi($params, $req, $runtime));
+    }
+
+    /**
+     * @param ResetDeviceTimelineRequest $request
+     *
+     * @return ResetDeviceTimelineResponse
+     */
+    public function resetDeviceTimeline($request)
+    {
+        $runtime = new RuntimeOptions([]);
+
+        return $this->resetDeviceTimelineWithOptions($request, $runtime);
+    }
+
+    /**
      * *   After you use dynamic registration to obtain the device certificate information of a directly connected device and activate the device, you can call this operation to reset the dynamic registration status of the status to unregistered in the IoT Platform console. Then, you can use dynamic registration again to obtain the device certificate information. The device certificate information includes ProductKey, DeviceName, and DeviceSecret.
      *   * > This operation is called to reset the dynamic registration status instead of activation status of a device. After you call the operation to reset the dynamic registration status of a device, the status of the device in the IoT Platform console is not reset to inactive.
      *   * *   If you specify a gateway and the number of sub-devices that belong to the gateway exceeds 2,000, you can call this operation to create a device job to delete the topological relationships in an asynchronous manner. The operation returns the **JobId** parameter.
@@ -22048,6 +22102,9 @@ class Iot extends OpenApiClient
         }
         if (!Utils::isUnset($request->productKey)) {
             $query['ProductKey'] = $request->productKey;
+        }
+        if (!Utils::isUnset($request->qos)) {
+            $query['Qos'] = $request->qos;
         }
         $req = new OpenApiRequest([
             'query' => OpenApiUtilClient::query($query),
